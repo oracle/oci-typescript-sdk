@@ -22,15 +22,15 @@ import common = require("oci-common");
  */
 export interface SecurityScoreAggregation {
   /**
-   * The key-value pairs of dimensions and their names.
+   * The key-value pairs of dimensions and their names
    */
   "dimensionsMap": { [key: string]: string };
   /**
-   * The security rating with given dimension/s
+   * The security rating with given parameters
    */
   "securityRating": model.SecurityRating;
   /**
-   * The security score with given dimension/s Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The security score with given parameters Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "securityScore": number;
 }

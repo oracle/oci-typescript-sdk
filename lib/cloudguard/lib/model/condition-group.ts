@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Condition configured on a target
+ * Details for a condition configured on a target.
  */
 export interface ConditionGroup {
   /**
-   * compartment associated with condition
+   * Compartment OCID associated with condition
    */
   "compartmentId": string;
   "condition": model.SimpleCondition | model.CompositeCondition;

@@ -30,6 +30,11 @@ export namespace DataSourceDetails {
 
     if (obj && "dataSourceFeedProvider" in obj && obj.dataSourceFeedProvider) {
       switch (obj.dataSourceFeedProvider) {
+        case "SCHEDULEDQUERY":
+          return model.ScheduledQueryDataSourceObjDetails.getJsonObj(
+            <model.ScheduledQueryDataSourceObjDetails>(<object>jsonObj),
+            true
+          );
         case "LOGGINGQUERY":
           return model.LoggingQueryDataSourceDetails.getJsonObj(
             <model.LoggingQueryDataSourceDetails>(<object>jsonObj),
@@ -47,6 +52,11 @@ export namespace DataSourceDetails {
 
     if (obj && "dataSourceFeedProvider" in obj && obj.dataSourceFeedProvider) {
       switch (obj.dataSourceFeedProvider) {
+        case "SCHEDULEDQUERY":
+          return model.ScheduledQueryDataSourceObjDetails.getDeserializedJsonObj(
+            <model.ScheduledQueryDataSourceObjDetails>(<object>jsonObj),
+            true
+          );
         case "LOGGINGQUERY":
           return model.LoggingQueryDataSourceDetails.getDeserializedJsonObj(
             <model.LoggingQueryDataSourceDetails>(<object>jsonObj),

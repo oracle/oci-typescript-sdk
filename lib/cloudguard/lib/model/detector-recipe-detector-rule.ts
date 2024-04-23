@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A DetectorRecipeDetectorRule object defines a single recipe rule in the collection for a DetectorRecipe object.
+ * A DetectorRecipeDetectorRule resource defines a single recipe rule in the collection for a DetectorRecipe resource.
  */
 export interface DetectorRecipeDetectorRule {
   /**
@@ -26,36 +26,36 @@ export interface DetectorRecipeDetectorRule {
    */
   "detectorRuleId": string;
   /**
-   * Display name for DetectorRecipeDetectorRule.
+   * Display name for DetectorRecipeDetectorRule resource
    */
   "displayName"?: string;
   /**
-   * Description for DetectorRecipeDetectorRule.
+   * Description for DetectorRecipeDetectorRule resource
    */
   "description"?: string;
   /**
-   * Recommendation for DetectorRecipeDetectorRule
+   * Recommendation for DetectorRecipeDetectorRule resource
    */
   "recommendation"?: string;
   /**
-   * detector for the rule
+   * Detector recipe for the rule
    */
   "detector": model.DetectorEnum;
   /**
-   * service type of the configuration to which the rule is applied
+   * Service type of the configuration to which the rule is applied
    */
   "serviceType": string;
   /**
-   * resource type of the configuration to which the rule is applied
+   * Resource type of the configuration to which the rule is applied
    */
   "resourceType": string;
   "details"?: model.DetectorDetails;
   /**
-   * List of cloudguard managed list types related to this rule
+   * List of managed list types related to this rule
    */
   "managedListTypes"?: Array<DetectorRecipeDetectorRule.ManagedListTypes>;
   /**
-   * List of CandidateResponderRule related to this rule
+   * List of responder rules that can be used to remediate this detector rule
    */
   "candidateResponderRules"?: Array<model.CandidateResponderRule>;
   /**
@@ -63,11 +63,11 @@ export interface DetectorRecipeDetectorRule {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the detector recipe rule was updated. Format defined by RFC3339.
+   * The date and time the detector recipe rule was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the DetectorRule.
+   * The current lifecycle state of the detector rule.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
@@ -75,13 +75,17 @@ export interface DetectorRecipeDetectorRule {
    */
   "lifecycleDetails"?: string;
   /**
-   * The id of the attached DataSource.
+   * The unique identifier of the attached data source
    */
   "dataSourceId"?: string;
   /**
-   * Data Source entities mapping for a Detector Rule
+   * Data source entities mapping for the detector rule
    */
   "entitiesMappings"?: Array<model.EntitiesMapping>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace DetectorRecipeDetectorRule {
@@ -123,6 +127,11 @@ export namespace DetectorRecipeDetectorRule {
           ? obj.entitiesMappings.map(item => {
               return model.EntitiesMapping.getJsonObj(item);
             })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -146,6 +155,11 @@ export namespace DetectorRecipeDetectorRule {
         "entitiesMappings": obj.entitiesMappings
           ? obj.entitiesMappings.map(item => {
               return model.EntitiesMapping.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

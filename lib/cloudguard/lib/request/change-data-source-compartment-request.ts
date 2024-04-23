@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ChangeDataSourceCompartmentRequest extends common.BaseRequest {
   /**
-   * DataSource OCID
+   * Data source OCID.
    */
   "dataSourceId": string;
   /**
-   * The compartment id of the DataSource
+   * The compartment OCID of the DataSource resource
    */
   "changeDataSourceCompartmentDetails": model.ChangeDataSourceCompartmentDetails;
   /**

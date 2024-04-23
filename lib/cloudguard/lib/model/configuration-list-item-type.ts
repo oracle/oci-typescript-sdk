@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible configuration list item types
+ * Possible configuration list item types.
  **/
 export enum ConfigurationListItemType {
   Managed = "MANAGED",

@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -20,23 +21,23 @@ import common = require("oci-common");
  */
 export interface LifecycleEnvironmentSummary {
   /**
-   * The lifecycle environment OCID that is immutable on creation.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle environment.
    */
   "id": string;
   /**
-   * The OCID of the tenancy containing the lifecycle environment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the lifecycle environment.
    */
   "compartmentId": string;
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name for the lifecycle environment.
    */
   "displayName": string;
   /**
-   * User specified information about the lifecycle environment.
+   * User-specified information about the lifecycle environment.
    */
   "description": string;
   /**
-   * User specified list of lifecycle stages to be created for the lLifecycle environment.
+   * User-specified list of lifecycle stages used within the lifecycle environment.
    */
   "stages": Array<model.LifecycleStageSummary>;
   /**
@@ -44,23 +45,27 @@ export interface LifecycleEnvironmentSummary {
    */
   "lifecycleState"?: string;
   /**
-   * The CPU architecture of the target managed instance.
+   * The CPU architecture of the managed instances in the lifecycle environment.
    */
   "archType": model.ArchType;
   /**
-   * The operating system type of the target managed instance.
+   * The operating system of the managed instances in the lifecycle environment.
    */
   "osFamily": model.OsFamily;
   /**
-   * The software source vendor name.
+   * The vendor of the operating system used by the managed instances in the lifecycle environment.
    */
   "vendorName": model.VendorName;
   /**
-   * The time the lifecycle environment was created. An RFC3339 formatted datetime string.
+   * The location of managed instances attached to the lifecycle environment.
+   */
+  "location"?: model.ManagedInstanceLocation;
+  /**
+   * The time the lifecycle environment was created (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeCreated"?: Date;
   /**
-   * The time the lifecycle environment was modified. An RFC3339 formatted datetime string.
+   * The time the lifecycle environment was last modified (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeModified"?: Date;
   /**

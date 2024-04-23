@@ -20,11 +20,11 @@ import common = require("oci-common");
 export interface RemoveModuleStreamProfileFromManagedInstanceGroupRequest
   extends common.BaseRequest {
   /**
-   * The managed instance group OCID.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
    */
   "managedInstanceGroupId": string;
   /**
-   * Details for profiles to remove from the managed instance group.
+   * The details used to remove profiles from the managed instance group. Providing the module stream name (without specifying a profile name) removes all profiles that have been installed for the module stream.
    */
   "removeModuleStreamProfileFromManagedInstanceGroupDetails": model.RemoveModuleStreamProfileFromManagedInstanceGroupDetails;
   /**

@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information to update in an existing security zone recipe
+ * Parameters to be used to update a Security Zones security recipe.
  */
 export interface UpdateSecurityRecipeDetails {
   /**
-   * The recipe's name
+   * The recipe's display name
    */
   "displayName": string;
   /**
@@ -30,7 +30,7 @@ export interface UpdateSecurityRecipeDetails {
    */
   "description"?: string;
   /**
-   * The list of {@code SecurityPolicy} ids to include in the recipe
+   * The list of security policy IDs to include in the recipe
    */
   "securityPolicies"?: Array<string>;
   /**

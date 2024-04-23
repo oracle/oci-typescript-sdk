@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Sort orders.
+ * Supported ort orders.
  **/
 export enum SortOrders {
   Asc = "ASC",

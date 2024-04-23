@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible condition value types
+ * Possible condition-value types.
  **/
 export enum ConditionValueType {
   Managed = "MANAGED",

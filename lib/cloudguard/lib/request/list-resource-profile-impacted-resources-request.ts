@@ -23,7 +23,7 @@ export interface ListResourceProfileImpactedResourcesRequest extends common.Base
    */
   "resourceProfileId": string;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
@@ -31,7 +31,7 @@ export interface ListResourceProfileImpactedResourcesRequest extends common.Base
    */
   "page"?: string;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
   /**

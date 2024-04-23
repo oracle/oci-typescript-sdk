@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
-   * The OCID of the work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "workRequestId"?: string;
   /**
@@ -31,7 +31,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "status"?: Array<model.OperationStatus>;
   /**
-   * The OCID of the resource affected by the work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource. This filter returns resources associated with the specified resource.
    */
   "resourceId"?: string;
   /**
@@ -65,15 +65,15 @@ Example: {@code 50}
    */
   "sortBy"?: ListWorkRequestsRequest.SortBy;
   /**
-   * The OCID of the schedule job that initiated the work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the schedule job that initiated the work request.
    */
   "initiatorId"?: string;
   /**
-   * The OCID of the parent work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the parent work request.
    */
   "parentId"?: string;
   /**
-   * A filter to return the resources whose parent resources are not the same as the given resource OCID(s).
+   * A filter to return the resources whose parent resources are not the same as the given resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "parentResourcesNotEqualTo"?: Array<string>;
@@ -85,6 +85,26 @@ Example: {@code 50}
    * A filter to return resources that may partially match the given display name.
    */
   "displayNameContains"?: string;
+  /**
+   * A filter to return the work requests that are a retry of the given work request [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "retryOfId"?: string;
+  /**
+   * A filter to return work requests that were created before the date provided (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format). Example: '2023-08-25T21:10:29.600Z'
+   *
+   */
+  "timeCreatedLessThan"?: Date;
+  /**
+   * A filter to return work requests that were created on or after the date provided (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format). Example: '2023-08-25T21:10:29.600Z'
+   *
+   */
+  "timeCreatedGreaterThanOrEqualTo"?: Date;
+  /**
+   * Indicates whether to list only resources managed by the Autonomous Linux service.
+   *
+   */
+  "isManagedByAutonomousLinux"?: boolean;
 }
 
 export namespace ListWorkRequestsRequest {

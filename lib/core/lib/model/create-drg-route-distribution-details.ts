@@ -54,7 +54,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "drgId": string;
   /**
-   * Whether this distribution defines how routes get imported into route tables or exported through DRG Attachments
+   * Whether this distribution defines how routes get imported into route tables or exported through DRG attachments.
    *
    */
   "distributionType": CreateDrgRouteDistributionDetails.DistributionType;

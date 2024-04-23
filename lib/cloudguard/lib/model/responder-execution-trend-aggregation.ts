@@ -22,11 +22,11 @@ import common = require("oci-common");
  */
 export interface ResponderExecutionTrendAggregation {
   /**
-   * The key-value pairs of dimensions and their names.
+   * The key-value pairs of dimensions and their names
    */
   "dimensionsMap": { [key: string]: string };
   /**
-   * Start Time in epoch seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Start time in epoch seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "startTimestamp": number;
   /**
@@ -34,7 +34,7 @@ export interface ResponderExecutionTrendAggregation {
    */
   "durationInSeconds": number;
   /**
-   * The number of remediations for a given time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of remediations for a given time Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count": number;
 }

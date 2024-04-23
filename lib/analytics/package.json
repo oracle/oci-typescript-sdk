@@ -1,6 +1,6 @@
 {
   "name": "oci-analytics",
-  "version": "2.84.2",
+  "version": "2.85.0",
   "description": "OCI NodeJS client for Analytics Service",
   "repository": {
     "type": "git",

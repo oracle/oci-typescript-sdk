@@ -112,6 +112,10 @@ For performance autotune enabled volumes, It would be the Default(Minimum) VPUs/
     */
   "vpusPerGB"?: number;
   /**
+   * The clusterPlacementGroup Id of the volume for volume placement.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
    * The size of the volume in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInGBs"?: number;

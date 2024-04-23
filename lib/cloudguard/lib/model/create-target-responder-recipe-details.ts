@@ -18,15 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information required to create TargetResponderRecipe
+ * Parameters to be used to create a new target responder recipe (TargetDetectorRecipe
+ * resource).
+ *
  */
 export interface CreateTargetResponderRecipeDetails {
   /**
-   * Identifier for ResponderRecipe.
+   * Unique identifier for responder recipe
    */
   "responderRecipeId": string;
   /**
-   * Override responder rules associated with reponder recipe in a target.
+   * List of overrides to be applied to responder rules associated with the target
    */
   "responderRules"?: Array<model.UpdateTargetRecipeResponderRuleDetails>;
 }

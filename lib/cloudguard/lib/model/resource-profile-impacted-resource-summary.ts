@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Resource Profile impacted resource summary.
+ * Summary information on impacted resource in resource profile.
  */
 export interface ResourceProfileImpactedResourceSummary {
   /**
@@ -26,35 +26,35 @@ export interface ResourceProfileImpactedResourceSummary {
    */
   "id": string;
   /**
-   * Resource profile Id associated with the imacted resource
+   * Resource profile ID associated with the impacted resource
    */
   "resourceProfileId": string;
   /**
-   * Problem Id for impacted resource
+   * Problem ID associated with the impacted resource
    */
   "problemId"?: string;
   /**
-   * Compartment Id for impacted resource
+   * Compartment ID for impacted resource
    */
   "compartmentId": string;
   /**
-   * Impacted resource Id
+   * Impacted resource ID
    */
   "resourceId": string;
   /**
-   * Resource name
+   * Impacted resource name
    */
   "resourceName": string;
   /**
-   * Resource type
+   * Impacted resource type
    */
   "resourceType": string;
   /**
-   * Identifier for the sighting type
+   * Sighting type for impacted resource
    */
   "sightingType": string;
   /**
-   * Name of the sighting type
+   * Display name of the sighting type
    */
   "sightingTypeDisplayName": string;
   /**
@@ -62,7 +62,7 @@ export interface ResourceProfileImpactedResourceSummary {
    */
   "region": string;
   /**
-   * Time when the impacted resource is identified for given resource profile.
+   * Time when the impacted resource is identified for the resource profile.
    */
   "timeIdentified": Date;
 }

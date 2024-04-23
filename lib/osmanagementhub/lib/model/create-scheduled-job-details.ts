@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,63 +17,84 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information for creating a scheduled job.
+ * Provides the information used to create a scheduled job.
  */
 export interface CreateScheduledJobDetails {
   /**
-   * The OCID of the compartment containing the scheduled job.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the scheduled job.
    */
   "compartmentId": string;
   /**
-   * Scheduled job name.
+   * User-friendly name for the scheduled job. Does not have to be unique and you can change the name later. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * Details describing the scheduled job.
+   * User-specified description of the scheduled job. Avoid entering confidential information.
    */
   "description"?: string;
   /**
-   * The type of scheduling this scheduled job follows.
+   * The type of scheduling frequency for the scheduled job.
    */
   "scheduleType": model.ScheduleTypes;
   /**
-   * The desired time for the next execution of this scheduled job.
+   * The list of locations this scheduled job should operate on for a job targeting on compartments. (Empty list means apply to all locations). This can only be set when managedCompartmentIds is not empty.
+   */
+  "locations"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * The desired time of the next execution of this scheduled job (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeNextExecution": Date;
   /**
-   * The recurring rule for a recurring scheduled job.
+   * The frequency schedule for a recurring scheduled job.
    */
   "recurringRule"?: string;
   /**
-   * The list of managed instance OCIDs this scheduled job operates on. Either this or
-   * managedInstanceGroupIds, or managedCompartmentIds, or lifecycleStageIds must be supplied.
+   * The managed instance [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * A scheduled job can only operate on one type of target, therefore you must supply either this or
+   * managedInstanceGroupIds, or managedCompartmentIds, or lifecycleStageIds.
    *
    */
   "managedInstanceIds"?: Array<string>;
   /**
-   * The list of managed instance group OCIDs this scheduled job operates on. Either this or
-   * managedInstanceIds, or managedCompartmentIds, or lifecycleStageIds must be supplied.
+   * The managed instance group [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * A scheduled job can only operate on one type of target, therefore you must supply either this or managedInstanceIds,
+   * or managedCompartmentIds, or lifecycleStageIds.
    *
    */
   "managedInstanceGroupIds"?: Array<string>;
   /**
-   * The list of target compartment OCIDs if this scheduled job operates on a compartment level.
-   * Either this or managedInstanceIds, or managedInstanceGroupIds, or lifecycleStageIds must be supplied.
+   * The compartment [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * To apply the job to all compartments in the tenancy, set this to the tenancy OCID (root compartment) and set
+   * isSubcompartmentIncluded to true. A scheduled job can only operate on one type of target, therefore you must
+   * supply either this or managedInstanceIds, or managedInstanceGroupIds, or lifecycleStageIds.
    *
    */
   "managedCompartmentIds"?: Array<string>;
   /**
-   * The list of lifecycle stage OCIDs this scheduled job operates on. Either this or
-   * managedInstanceIds, or managedInstanceGroupIds, or managedCompartmentIds must be supplied.
+   * The lifecycle stage [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * A scheduled job can only operate on one type of target, therefore you must supply either this or managedInstanceIds,
+   * or managedInstanceGroupIds, or managedCompartmentIds.
    *
    */
   "lifecycleStageIds"?: Array<string>;
   /**
-   * Whether to create jobs for all compartments in the tenancy when managedCompartmentIds specifies the tenancy OCID.
+   * Indicates whether to apply the scheduled job to all compartments in the tenancy when managedCompartmentIds specifies
+   * the tenancy [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) (root compartment).
+   *
    */
   "isSubcompartmentIncluded"?: boolean;
   /**
-   * The list of operations this scheduled job needs to perform (can only support one operation if the operationType is not UPDATE_PACKAGES/UPDATE_ALL/UPDATE_SECURITY/UPDATE_BUGFIX/UPDATE_ENHANCEMENT/UPDATE_OTHER/UPDATE_KSPLICE_USERSPACE/UPDATE_KSPLICE_KERNEL).
+   * The list of operations this scheduled job needs to perform.
+   * A scheduled job supports only one operation type, unless it is one of the following:
+   * * UPDATE_PACKAGES
+   * * UPDATE_ALL
+   * * UPDATE_SECURITY
+   * * UPDATE_BUGFIX
+   * * UPDATE_ENHANCEMENT
+   * * UPDATE_OTHER
+   * * UPDATE_KSPLICE_USERSPACE
+   * * UPDATE_KSPLICE_KERNEL
+   *
    */
   "operations": Array<model.ScheduledJobOperation>;
   /**
@@ -89,6 +111,18 @@ export interface CreateScheduledJobDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The amount of time in minutes to wait until retrying the scheduled job. If set, the service will automatically
+   * retry a failed scheduled job after the interval. For example, you could set the interval to [2,5,10]. If the
+   * initial execution of the job fails, the service waits 2 minutes and then retries. If that fails, the service
+   * waits 5 minutes and then retries. If that fails, the service waits 10 minutes and then retries.
+   *
+   */
+  "retryIntervals"?: Array<number>;
+  /**
+   * Indicates whether this scheduled job is managed by the Autonomous Linux service.
+   */
+  "isManagedByAutonomousLinux"?: boolean;
 }
 
 export namespace CreateScheduledJobDetails {
@@ -96,6 +130,12 @@ export namespace CreateScheduledJobDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "locations": obj.locations
+          ? obj.locations.map(item => {
+              return model.ManagedInstanceLocation.getJsonObj(item);
+            })
+          : undefined,
+
         "operations": obj.operations
           ? obj.operations.map(item => {
               return model.ScheduledJobOperation.getJsonObj(item);
@@ -110,6 +150,12 @@ export namespace CreateScheduledJobDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "locations": obj.locations
+          ? obj.locations.map(item => {
+              return model.ManagedInstanceLocation.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "operations": obj.operations
           ? obj.operations.map(item => {
               return model.ScheduledJobOperation.getDeserializedJsonObj(item);

@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,58 +17,61 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the lifecycle stage summary.
+ * Provides summary information for a lifecycle stage.
  */
 export interface LifecycleStageSummary {
   /**
-   * The lifecycle stage OCID that is immutable on creation.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage.
    */
   "id"?: string;
   /**
-   * The OCID of the tenancy containing the lifecycle stage.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the lifecycle stage.
    */
   "compartmentId": string;
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * The user-friendly name for the lifecycle stage.
    */
   "displayName": string;
   /**
-   * The OCID of the lifecycle environment for the lifecycle stage.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle environment that contains the lifecycle stage.
    */
   "lifecycleEnvironmentId"?: string;
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * The user-friendly name for the lifecycle environment. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "lifecycleEnvironmentDisplayName"?: string;
   /**
-   * User specified rank for the lifecycle stage.
-   * Rank determines the hierarchy of the lifecycle stages for a given lifecycle environment.
+   * User-specified rank for the lifecycle stage. Rank determines the hierarchy of the lifecycle stages within the lifecycle environment.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rank": number;
   /**
-   * The operating system type of the target instances.
+   * The operating system of the managed instances in the lifecycle stage.
    */
   "osFamily"?: model.OsFamily;
   /**
-   * The CPU architecture of the target instances.
+   * The CPU architecture of the managed instances in the lifecycle stage.
    */
   "archType"?: model.ArchType;
   /**
-   * The software source vendor name.
+   * The vendor of the operating system used by the managed instances in the lifecycle stage.
    */
   "vendorName"?: model.VendorName;
   /**
-   * The number of managed instances attached to the lifecycle stage. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The list of managed instances associated with the lifecycle stage. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "managedInstances"?: number;
+  /**
+   * The location of managed instances associated with the lifecycle stage.
+   */
+  "location"?: model.ManagedInstanceLocation;
   "softwareSourceId"?: model.SoftwareSourceDetails;
   /**
-   * The time the lifecycle stage was created. An RFC3339 formatted datetime string.
+   * The time the lifecycle stage was created (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeCreated"?: Date;
   /**
-   * The time the lifecycle stage was last modified. An RFC3339 formatted datetime string.
+   * The time the lifecycle stage was last modified (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeModified"?: Date;
   /**

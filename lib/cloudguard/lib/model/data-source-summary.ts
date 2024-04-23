@@ -18,26 +18,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of Data Source
+ * Summary information for a specific data source.
  */
 export interface DataSourceSummary {
   /**
-   * Ocid for Data Source
+   * OCID for the data source
    */
   "id": string;
   /**
-   * DisplayName of Data Source
+   * Display name of the data source
    */
   "displayName": string;
   /**
-   * Possible type of dataSourceFeed Provider(LoggingQuery)
+   * Type of data source feed provider(LoggingQuery)
    */
   "dataSourceFeedProvider": model.DataSourceFeedProvider;
   /**
-   * CompartmentId of Data Source.
+   * Compartment OCID of the data source
    */
   "compartmentId": string;
-  "dataSourceSummaryDetails"?: model.LoggingQueryDataSourceSummaryDetails;
+  "dataSourceSummaryDetails"?:
+    | model.ScheduledQueryDataSourceSummaryObjDetails
+    | model.LoggingQueryDataSourceSummaryDetails;
   /**
    * The date and time the data source was created. Format defined by RFC3339.
    */
@@ -47,12 +49,12 @@ export interface DataSourceSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * Status of data Source
+   * Status of data source
    */
   "status"?: model.DataSourceStatus;
   "loggingQueryDetails"?: model.InsightTypeLoggingQueryDetails;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource
    */
   "lifecycleState"?: model.LifecycleState;
   /**

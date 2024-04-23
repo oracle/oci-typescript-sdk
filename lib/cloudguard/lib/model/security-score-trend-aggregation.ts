@@ -22,11 +22,11 @@ import common = require("oci-common");
  */
 export interface SecurityScoreTrendAggregation {
   /**
-   * The key-value pairs of dimensions and their names.
+   * The key-value pairs of dimensions and their names
    */
   "dimensionsMap": { [key: string]: string };
   /**
-   * Start Time in epoch seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Start time in epoch seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "startTimestamp": number;
   /**

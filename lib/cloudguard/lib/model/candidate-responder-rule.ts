@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Candidate Responder Rule list in Detector rule
+ * Information for a responder rule that can be used to remediate a problem triggered by specific detector rule.
  */
 export interface CandidateResponderRule {
   /**
-   * The unique identifier of the Responder rule
+   * The unique identifier of the responder rule
    */
   "id"?: string;
   /**
-   * The display name of the Responder rule
+   * The display name of the responder rule
    */
   "displayName"?: string;
   /**
-   * Preferred state
+   * Is this the preferred state?
    */
   "isPreferred"?: boolean;
 }

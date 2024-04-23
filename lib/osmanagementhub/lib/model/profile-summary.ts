@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,35 +17,39 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the registration profile.
+ * Provides summary information for a registration profile.
  */
 export interface ProfileSummary {
   /**
-   * The OCID of the profile that is immutable on creation.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile.
    */
   "id": string;
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name for the profile.
    */
   "displayName"?: string;
   /**
-   * The description of the registration profile.
+   * User-specified description of the registration profile.
    */
   "description"?: string;
   /**
-   * The OCID of the tenancy containing the registration profile.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the registration profile.
    */
   "compartmentId": string;
   /**
-   * The OCID of the management station.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station to associate with an instance once registered. Associating with a management station applies only to non-OCI instances.
    */
   "managementStationId"?: string;
   /**
-   * The type of registration profile. Either SOFTWARESOURCE, GROUP or LIFECYCLE.
+   * The type of registration profile.
    */
   "profileType"?: model.ProfileType;
   /**
-   * The software source vendor name.
+   * The type of instance to register.
+   */
+  "registrationType"?: string;
+  /**
+   * The vendor of the operating system for the instance.
    */
   "vendorName"?: model.VendorName;
   /**
@@ -63,6 +68,16 @@ export interface ProfileSummary {
    * The current state of the registration profile.
    */
   "lifecycleState"?: string;
+  /**
+   * Indicates if the profile is set as the default. There is exactly one default profile for a specified architecture, OS family, registration type, and vendor. When registering an instance with the corresonding characteristics, the default profile is used, unless another profile is specified.
+   *
+   */
+  "isDefaultProfile"?: boolean;
+  /**
+   * Indicates if the profile was created by the service. OS Management Hub provides a limited set of standardized profiles that can be used to register Autonomous Linux or Windows instances.
+   *
+   */
+  "isServiceProvidedProfile"?: boolean;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

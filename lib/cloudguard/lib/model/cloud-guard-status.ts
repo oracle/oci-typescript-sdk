@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible status values of Cloud Guard Tenants.
+ * Enablement status values of Cloud Guard tenant.
  **/
 export enum CloudGuardStatus {
   Enabled = "ENABLED",

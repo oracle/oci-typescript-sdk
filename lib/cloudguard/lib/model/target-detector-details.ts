@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Overriden settings of a Detector Rule applied on target
+ * Overriden settings of a detector rule in recipe attached to target.
  */
 export interface TargetDetectorDetails {
   /**
-   * Enables the control
+   * Enablement state of the detector rule
    */
   "isEnabled": boolean;
   /**
-   * The Risk Level
+   * The risk level of the detector rule
    */
   "riskLevel"?: model.RiskLevel;
   /**
-   * Configuration details
+   * List of detector rule configurations
    */
   "configurations"?: Array<model.DetectorConfiguration>;
   /**
@@ -38,15 +38,15 @@ export interface TargetDetectorDetails {
    */
   "conditionGroups"?: Array<model.ConditionGroup>;
   /**
-   * user defined labels for a detector rule
+   * User-defined labels for a detector rule
    */
   "labels"?: Array<string>;
   /**
-   * configuration allowed or not
+   * Configuration allowed or not
    */
   "isConfigurationAllowed"?: boolean;
   /**
-   * Cutover point for an elevated resource Risk Score to create a Problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Point at which an elevated resource risk score creates a problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "problemThreshold"?: number;
   /**

@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A software package installed on a managed instance.
+ * Provides summary information for a software package installed on a managed instance.
  */
 export interface InstalledPackageSummary extends model.PackageSummary {
   /**
@@ -26,8 +27,7 @@ export interface InstalledPackageSummary extends model.PackageSummary {
    */
   "timeInstalled": Date;
   /**
-   * The date and time the package was issued by a providing erratum (if available), as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
+   * The date and time the package was issued by a providing erratum (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    *
    */
   "timeIssued"?: Date;

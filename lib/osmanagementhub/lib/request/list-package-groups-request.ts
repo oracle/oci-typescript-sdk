@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ListPackageGroupsRequest extends common.BaseRequest {
   /**
-   * The software source OCID.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source.
    */
   "softwareSourceId": string;
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**

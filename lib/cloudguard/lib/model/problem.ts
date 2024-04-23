@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Problems are at the core of Cloud Guard\u2019s functionality. A Problem object is created whenever an action or a configuration on a resource triggers a rule in a detector that\u2019s attached to the target containing the compartment where the resource is located. Each Problem object contains all the details for a single problem. This is the information for the problem that appears on the Cloud Guard Problems page.
+ * Problems are at the core of Cloud Guard\u2019s functionality. A Problem resource is created whenever an action or a configuration on a resource triggers a rule in a detector that\u2019s attached to the target containing the compartment where the resource is located. Each Problem resource contains all the details for a single problem. This is the information for the problem that appears on the Cloud Guard Problems page.
  */
 export interface Problem {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can't be changed after creation
    */
   "id": string;
   /**
-   * Compartment Identifier where the resource is created
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
-   * Identifier of the rule
+   * Unique identifier of the detector rule that triggered the problem
    */
   "detectorRuleId"?: string;
   /**
@@ -42,15 +42,15 @@ export interface Problem {
    */
   "regions"?: Array<string>;
   /**
-   * The Risk Level
+   * The risk level for the problem
    */
   "riskLevel"?: model.RiskLevel;
   /**
-   * Risk Score for the problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The risk score for the problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "riskScore"?: number;
   /**
-   * The date and time for the peak risk score that is observed. Format defined by RFC3339.
+   * The date and time for the peak risk score that is observed for the problem. Format defined by RFC3339.
    */
   "peakRiskScoreDate"?: string;
   /**
@@ -66,19 +66,19 @@ export interface Problem {
    */
   "peakRiskScoreLookupPeriodInDays"?: number;
   /**
-   * Identifier of the Resource
+   * Unique identifier of the resource affected by the problem
    */
   "resourceId"?: string;
   /**
-   * DisplayName of the Resource
+   * Display name of the affected resource
    */
   "resourceName"?: string;
   /**
-   * Type of the Resource
+   * Type of the affected resource
    */
   "resourceType"?: string;
   /**
-   * user defined labels on the problem
+   * User-defined labels on the problem
    */
   "labels"?: Array<string>;
   /**
@@ -90,23 +90,23 @@ export interface Problem {
    */
   "timeFirstDetected"?: Date;
   /**
-   * The current state of the Problem.
+   * The current lifecycle state of the problem
    */
   "lifecycleState"?: model.ProblemLifecycleState;
   /**
-   * The lifecycleDetail will give more detail on the substate of the lifecycleState.
+   * Additional details on the substate of the lifecycle state
    */
   "lifecycleDetail"?: model.ProblemLifecycleDetail;
   /**
-   * Id of the detector associated with the Problem.
+   * Unique identifier of the detector rule that triggered the problem
    */
   "detectorId"?: model.DetectorEnum;
   /**
-   * targetId of the problem
+   * Unique identifier of the target associated with the problem
    */
   "targetId"?: string;
   /**
-   * The additional details of the Problem
+   * The additional details of the problem
    */
   "additionalDetails"?: { [key: string]: string };
   /**
@@ -118,31 +118,53 @@ export interface Problem {
    */
   "recommendation"?: string;
   /**
-   * User Comments
+   * User comments on the problem
    */
   "comment"?: string;
   /**
-   * Identifier of the impacted Resource
+   * Unique identifier of the resource impacted by the problem
    */
   "impactedResourceId"?: string;
   /**
-   * DisplayName of the impacted  Resource
+   * Display name of the impacted resource
    */
   "impactedResourceName"?: string;
   /**
-   * Type of the impacted Resource
+   * Type of the impacted resource
    */
   "impactedResourceType"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace Problem {
   export function getJsonObj(obj: Problem): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Problem): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

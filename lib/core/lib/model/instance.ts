@@ -66,6 +66,10 @@ Example: {@code Uocm:PHX-AD-1}
    */
   "compartmentId": string;
   /**
+   * The OCID of the cluster placement group of the instance.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
    * The OCID of the dedicated virtual machine host that the instance is placed on.
    *
    */

@@ -18,36 +18,50 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of ResponderRule.
- */
+* A TargetResponderRecipeResponderRule resource contains a specific instance of a
+* single responder rule.
+* <p>
+A TargetResponderRecipeRule resource:
+* * Is effectively a copy of a ResponderRecipeRule resource in which users can
+* make certain changes if it\u2019s Oracle-managed, and other changes if it\u2019s user-managed.
+* * Is visible on the Cloud Guard Targets, Target Details page.
+* * Is effectively located in a specific OCI compartment, through the
+* ThreatResponderRecipe resource to which it belongs.
+* * Can be modified by users, programmatically or through the UI.
+* * Changes that can be made here apply locally, to resources in OCI compartments mapped
+* to the target that attaches the associated responder recipe (in a TargetResponderRecipe
+* resource), and override any changes made in rules associated with the corresponding
+* ResponderRecipe resource.
+* 
+*/
 export interface TargetResponderRecipeResponderRule {
   /**
-   * Unique ResponderRule identifier.
+   * Unique identifier for the responder rule
    */
   "responderRuleId": string;
   /**
-   * ResponderRule display name.
+   * Responder rule display name
    */
   "displayName"?: string;
   /**
-   * ResponderRule description.
+   * Responder rule description
    */
   "description"?: string;
   /**
-   * Type of Responder
+   * Type of responder
    */
   "type"?: model.ResponderType;
   /**
-   * List of Policy
+   * List of policies
    */
   "policies"?: Array<string>;
   /**
-   * Supported Execution Modes
+   * Supported execution modes for the responder rule
    */
   "supportedModes"?: Array<TargetResponderRecipeResponderRule.SupportedModes>;
   "details"?: model.ResponderRuleDetails;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**
@@ -55,11 +69,11 @@ export interface TargetResponderRecipeResponderRule {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the target responder recipe rule was updated. Format defined by RFC3339.
+   * The date and time the target responder recipe rule was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the ResponderRule.
+   * The current lifecycle state of the responder rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**

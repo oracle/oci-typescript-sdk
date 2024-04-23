@@ -19,9 +19,13 @@ import common = require("oci-common");
  */
 export interface GetManagedInstanceContentRequest extends common.BaseRequest {
   /**
-   * The OCID of the managed instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance.
    */
   "managedInstanceId": string;
+  /**
+   * A filter to return only vulnerabilities matching the given types.
+   */
+  "vulnerabilityType": Array<model.VulnerabilityTypes>;
   /**
  * The assigned erratum name. It's unique and not changeable.
 * <p>
@@ -36,7 +40,19 @@ Example: {@code ELSA-2020-5804}
   /**
    * A filter to return only errata that match the given advisory types.
    */
-  "advisoryType"?: Array<GetManagedInstanceContentRequest.AdvisoryType>;
+  "advisoryType"?: Array<model.AdvisoryTypes>;
+  /**
+   * A filter to return vulnerabilities that match the given name. For Linux instances, this refers to the advisory name. For Windows instances, this refers to the Windows update display name.
+   */
+  "vulnerabilityName"?: Array<string>;
+  /**
+   * A filter to return vulnerabilities that partially match the given name. For Linux instances, this refers to the advisory name. For Windows instances, this refers to the Windows update display name.
+   */
+  "vulnerabilityNameContains"?: string;
+  /**
+   * The format of the report to download. Default is CSV.
+   */
+  "reportFormat"?: GetManagedInstanceContentRequest.ReportFormat;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
@@ -44,9 +60,9 @@ Example: {@code ELSA-2020-5804}
 }
 
 export namespace GetManagedInstanceContentRequest {
-  export enum AdvisoryType {
-    Security = "SECURITY",
-    Bugfix = "BUGFIX",
-    Enhancement = "ENHANCEMENT"
+  export enum ReportFormat {
+    Csv = "csv",
+    Json = "json",
+    Xml = "xml"
   }
 }

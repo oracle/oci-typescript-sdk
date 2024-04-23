@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Indicates the classification status of the Sighitng
+ * The classification status of the sighitng.
  **/
 export enum ClassificationStatus {
   FalseNegative = "FALSE_NEGATIVE",

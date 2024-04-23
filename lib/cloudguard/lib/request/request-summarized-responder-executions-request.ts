@@ -19,22 +19,22 @@ import common = require("oci-common");
  */
 export interface RequestSummarizedResponderExecutionsRequest extends common.BaseRequest {
   /**
-   * The possible attributes based on which the responder executions can be distinguished
+   * The possible attributes based on which the responder executions can be distinguished.
    */
   "responderExecutionsDimensions": Array<model.ResponderDimension>;
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
-   * The possible filters for Responder Type Dimension to distinguish Responder Executions.
-   * If no values are passed, the metric for responder executions of all reponder types are returned
+   * The possible filters for responder type dimension to distinguish responder executions.
+   * If no values are passed, the metric for responder executions of all responder types are returned.
    *
    */
   "responderTypeFilter"?: Array<model.ResponderType>;
   /**
-   * The possible filters for Responder Type Dimension to distinguish Responder Executions.
-   * If no values are passed, the metric for responder executions of all status are returned
+   * The possible filters for responder type dimension to distinguish responder executions.
+   * If no values are passed, the metric for responder executions of all status are returned.
    *
    */
   "responderExecutionStatusFilter"?: Array<model.ResponderExecutionStatus>;
@@ -42,7 +42,7 @@ export interface RequestSummarizedResponderExecutionsRequest extends common.Base
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * returned depending on the the setting of {@code accessLevel}.
+   * returned depending on the setting of {@code accessLevel}.
    *
    */
   "compartmentIdInSubtree"?: boolean;
@@ -56,7 +56,7 @@ export interface RequestSummarizedResponderExecutionsRequest extends common.Base
    */
   "accessLevel"?: RequestSummarizedResponderExecutionsRequest.AccessLevel;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**

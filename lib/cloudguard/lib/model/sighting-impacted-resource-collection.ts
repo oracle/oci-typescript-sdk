@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Provides the summary of sighting impacted resource
+ * Collection of sighting impacted resource summaries.
  */
 export interface SightingImpactedResourceCollection {
   /**
-   * List of SightingImpactedResourceSummary
+   * List of SightingImpactedResourceSummary resources
    */
   "items": Array<model.SightingImpactedResourceSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace SightingImpactedResourceCollection {
@@ -35,6 +39,11 @@ export namespace SightingImpactedResourceCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.SightingImpactedResourceSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace SightingImpactedResourceCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.SightingImpactedResourceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

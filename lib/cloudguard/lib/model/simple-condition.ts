@@ -18,23 +18,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Simple Condition object.
+ * Information for a simple condition.
  */
 export interface SimpleCondition extends model.Condition {
   /**
-   * parameter Key
+   * Parameter key
    */
   "parameter"?: string;
   /**
-   * type of operator
+   * Type of operator
    */
   "operator"?: model.OperatorType;
   /**
-   * type of operator
+   * Value of operator in condition
    */
   "value"?: string;
   /**
-   * type of value
+   * Type of value in condition
    */
   "valueType"?: model.ConditionValueType;
 

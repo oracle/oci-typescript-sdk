@@ -22,15 +22,15 @@ import common = require("oci-common");
  */
 export interface Detector {
   /**
-   * detector key
+   * Unique identifier for detector
    */
   "id": string;
   /**
-   * detector description
+   * Detector description
    */
   "description": string;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource.
    */
   "lifecycleState"?: model.LifecycleState;
 }

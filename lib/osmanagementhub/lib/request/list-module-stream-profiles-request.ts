@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListModuleStreamProfilesRequest extends common.BaseRequest {
   /**
-   * The software source OCID.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source.
    */
   "softwareSourceId": string;
   /**
@@ -29,9 +29,7 @@ export interface ListModuleStreamProfilesRequest extends common.BaseRequest {
    */
   "moduleName"?: string;
   /**
-   * The name of the stream of the containing module.  This parameter
-   * is required if a profileName is specified.
-   *
+   * The name of the module stream. This parameter is required if a profile name is specified.
    */
   "streamName"?: string;
   /**

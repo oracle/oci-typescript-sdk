@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface DetachSoftwareSourcesFromManagedInstanceGroupRequest extends common.BaseRequest {
   /**
-   * The managed instance group OCID.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
    */
   "managedInstanceGroupId": string;
   /**
-   * Details for software sources to attach to the specified managed instance group.
+   * The software source [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) to detach from the managed instance group.
    */
   "detachSoftwareSourcesFromManagedInstanceGroupDetails": model.DetachSoftwareSourcesFromManagedInstanceGroupDetails;
   /**

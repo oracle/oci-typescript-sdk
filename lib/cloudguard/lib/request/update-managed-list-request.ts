@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateManagedListRequest extends common.BaseRequest {
   /**
-   * The cloudguard list OCID to be passed in the request.
+   * The managed list OCID to be passed in the request.
    */
   "managedListId": string;
   /**
-   * Details for the ManagedList to be updated
+   * Details for the ManagedList resource to be updated
    */
   "updateManagedListDetails": model.UpdateManagedListDetails;
   /**

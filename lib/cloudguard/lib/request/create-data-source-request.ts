@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDataSourceRequest extends common.BaseRequest {
   /**
-   * Details for the new DataSource.
+   * Details for the new DataSource resource
    */
   "createDataSourceDetails": model.CreateDataSourceDetails;
   /**

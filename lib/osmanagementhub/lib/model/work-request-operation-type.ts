@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -44,6 +45,18 @@ export enum WorkRequestOperationType {
   LifecyclePromotion = "LIFECYCLE_PROMOTION",
   CreateSoftwareSource = "CREATE_SOFTWARE_SOURCE",
   UpdateSoftwareSource = "UPDATE_SOFTWARE_SOURCE",
+  ImportContent = "IMPORT_CONTENT",
+  SyncAgentConfig = "SYNC_AGENT_CONFIG",
+  InstallWindowsUpdates = "INSTALL_WINDOWS_UPDATES",
+  ListWindowsUpdate = "LIST_WINDOWS_UPDATE",
+  GetWindowsUpdateDetails = "GET_WINDOWS_UPDATE_DETAILS",
+  InstallAllWindowsUpdates = "INSTALL_ALL_WINDOWS_UPDATES",
+  InstallSecurityWindowsUpdates = "INSTALL_SECURITY_WINDOWS_UPDATES",
+  InstallBugfixWindowsUpdates = "INSTALL_BUGFIX_WINDOWS_UPDATES",
+  InstallEnhancementWindowsUpdates = "INSTALL_ENHANCEMENT_WINDOWS_UPDATES",
+  InstallOtherWindowsUpdates = "INSTALL_OTHER_WINDOWS_UPDATES",
+  RemoveContent = "REMOVE_CONTENT",
+  UnregisterManagedInstance = "UNREGISTER_MANAGED_INSTANCE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

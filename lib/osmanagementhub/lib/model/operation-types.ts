@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible scheduled job operation types.
+ * Type of operation the scheduled job is performing.
  **/
 export enum OperationTypes {
   InstallPackages = "INSTALL_PACKAGES",
@@ -35,6 +36,12 @@ export enum OperationTypes {
   DetachSoftwareSources = "DETACH_SOFTWARE_SOURCES",
   SyncManagementStationMirror = "SYNC_MANAGEMENT_STATION_MIRROR",
   PromoteLifecycle = "PROMOTE_LIFECYCLE",
+  InstallWindowsUpdates = "INSTALL_WINDOWS_UPDATES",
+  InstallAllWindowsUpdates = "INSTALL_ALL_WINDOWS_UPDATES",
+  InstallSecurityWindowsUpdates = "INSTALL_SECURITY_WINDOWS_UPDATES",
+  InstallBugfixWindowsUpdates = "INSTALL_BUGFIX_WINDOWS_UPDATES",
+  InstallEnhancementWindowsUpdates = "INSTALL_ENHANCEMENT_WINDOWS_UPDATES",
+  InstallOtherWindowsUpdates = "INSTALL_OTHER_WINDOWS_UPDATES",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

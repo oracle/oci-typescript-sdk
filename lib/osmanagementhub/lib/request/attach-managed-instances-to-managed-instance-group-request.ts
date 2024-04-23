@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface AttachManagedInstancesToManagedInstanceGroupRequest extends common.BaseRequest {
   /**
-   * The managed instance group OCID.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
    */
   "managedInstanceGroupId": string;
   /**
-   * Details for managed instances to attach to the managed instance group.
+   * The managed instances [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) to attach to the managed instance group.
    */
   "attachManagedInstancesToManagedInstanceGroupDetails": model.AttachManagedInstancesToManagedInstanceGroupDetails;
   /**

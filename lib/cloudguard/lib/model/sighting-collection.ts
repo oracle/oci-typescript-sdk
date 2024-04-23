@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Provides the summary of sighting
+ * Collection of sighting summaries.
  */
 export interface SightingCollection {
   /**
-   * List of SightingSummary
+   * List of SightingSummary resources
    */
   "items": Array<model.SightingSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace SightingCollection {
@@ -35,6 +39,11 @@ export namespace SightingCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.SightingSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace SightingCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.SightingSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

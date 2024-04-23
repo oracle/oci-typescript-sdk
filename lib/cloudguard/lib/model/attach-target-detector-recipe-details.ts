@@ -18,11 +18,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information required to create TargetDetectorRecipe
+ * Identifier for an existing detector recipe to use to create
+ * a new detector recipe (TargetDetectorRecipe resource) to be
+ * attached to a target.
+ *
  */
 export interface AttachTargetDetectorRecipeDetails {
   /**
-   * DetectorRecipe Identifier
+   * Detector recipe unique identifier
    */
   "detectorRecipeId": string;
 }

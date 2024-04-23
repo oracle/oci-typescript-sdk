@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -28,7 +29,7 @@ export interface WorkRequestSummary {
    */
   "status": model.OperationStatus;
   /**
-   * The OCID of the work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "id": string;
   /**
@@ -44,18 +45,17 @@ export interface WorkRequestSummary {
    */
   "message"?: string;
   /**
-   * The OCID of the parent work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the parent work request, if there is any.
    */
   "parentId"?: string;
   /**
-   * The list of OCIDs for the child work requests.
+   * The list of [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for child work requests.
    */
   "childrenId"?: Array<string>;
   /**
-   * The OCID of the compartment that contains the work request. Work requests should be scoped to
-   * the same compartment as the resource the work request affects. If the work request affects multiple resources,
-   * and those resources are not in the same compartment, it is up to the service team to pick the primary
-   * resource whose compartment should be used.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the work request.
+   * Work requests should be scoped to the same compartment as the resource it affects.
+   * If the work request affects multiple resources the different compartments, the services selects the compartment of the primary resource.
    *
    */
   "compartmentId": string;
@@ -69,6 +69,14 @@ export interface WorkRequestSummary {
    *
    */
   "timeCreated": Date;
+  /**
+   * The scheduled date and time to retry the work request (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
+   */
+  "timeScheduled"?: Date;
+  /**
+   * Indicates whether this work request is managed by Autonomous Linux
+   */
+  "isManagedByAutonomousLinux"?: boolean;
 }
 
 export namespace WorkRequestSummary {

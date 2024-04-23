@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Filter type can be config filter or condition filter
+ * Filter type (config filter or condition filter).
  **/
 export enum ConditionFilterType {
   Condition = "CONDITION",

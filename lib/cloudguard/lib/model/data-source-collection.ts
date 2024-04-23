@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the DataSource.
+ * The collection of data source summaries (DataSourceSummary resources).
  */
 export interface DataSourceCollection {
   /**
-   * List of DataSourceSummary
+   * List of data source summaries (DataSourceSummary resources)
    */
   "items": Array<model.DataSourceSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace DataSourceCollection {
@@ -35,6 +39,11 @@ export namespace DataSourceCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.DataSourceSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace DataSourceCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.DataSourceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

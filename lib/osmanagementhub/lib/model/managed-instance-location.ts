@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,13 +17,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible managed instance locations.
+ * Location of the managed instance.
  **/
 export enum ManagedInstanceLocation {
   OnPremise = "ON_PREMISE",
   OciCompute = "OCI_COMPUTE",
   Azure = "AZURE",
   Ec2 = "EC2",
+  Gcp = "GCP",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

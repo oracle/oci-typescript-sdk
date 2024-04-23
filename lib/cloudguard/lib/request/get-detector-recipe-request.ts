@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetDetectorRecipeRequest extends common.BaseRequest {
   /**
-   * DetectorRecipe OCID
+   * Detector recipe OCID
    */
   "detectorRecipeId": string;
   /**

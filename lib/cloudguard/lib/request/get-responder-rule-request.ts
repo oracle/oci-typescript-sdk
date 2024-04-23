@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetResponderRuleRequest extends common.BaseRequest {
   /**
-   * The id of ResponderRule
+   * Unique identifier of the responder rule.
    */
   "responderRuleId": string;
   /**

@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information required to create TargetDetectorRecipe
+ * Parameters to use to create a target detector recipe.
  */
 export interface CreateTargetDetectorRecipeDetails {
   /**
-   * Identifier for DetectorRecipe.
+   * Unique identifier for the target detector recipe
    */
   "detectorRecipeId": string;
   /**
-   * Overrides to be applied to Detector Rule associated with the target
+   * List of overrides to be applied to detector rules associated with the target
    */
   "detectorRules"?: Array<model.UpdateTargetRecipeDetectorRuleDetails>;
 }

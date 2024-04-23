@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,16 +17,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about a lifecycle stage.
+ * Provides the information used to create a lifecycle stage.
  */
 export interface CreateLifecycleStageDetails {
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * A user-friendly name for the lifecycle stage. Does not have to be unique and you can change the name later. Avoid entering confidential information.
    */
   "displayName": string;
   /**
-   * User specified rank for the lifecycle stage.
-   * Rank determines the hierarchy of the lifecycle stages for a given lifecycle environment.
+   * User-specified rank for the lifecycle stage. Rank determines the hierarchy of the lifecycle stages within the lifecycle environment.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rank": number;

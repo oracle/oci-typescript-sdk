@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Risk Score Aggregation Collection.
+ * Collection of RiskScoreAggregation resources.
  */
 export interface RiskScoreAggregationCollection {
   /**
-   * The items consist of all the RiskScoreAggregation objects.
+   * The list of all the RiskScoreAggregation resources.
    */
   "items": Array<model.RiskScoreAggregation>;
 }

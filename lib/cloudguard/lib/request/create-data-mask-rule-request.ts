@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDataMaskRuleRequest extends common.BaseRequest {
   /**
-   * Definition for the new Data Mask Rule.
+   * Definition for the new data mask rule
    */
   "createDataMaskRuleDetails": model.CreateDataMaskRuleDetails;
   /**

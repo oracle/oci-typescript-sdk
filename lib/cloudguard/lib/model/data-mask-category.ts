@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible data masking categories
+ * Possible data masking categories.
  **/
 export enum DataMaskCategory {
   Actor = "ACTOR",

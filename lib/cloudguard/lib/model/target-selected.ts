@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Target Selection eg select ALL or select on basis of TargetResourceTypes or TargetIds.
+ * Specification of how targets are to be selected (select ALL, or select by TargetResourceType or TargetId).
  */
 export interface TargetSelected {
   "kind": string;

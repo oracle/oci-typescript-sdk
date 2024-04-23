@@ -47,6 +47,10 @@ Example: {@code Uocm:PHX-AD-1}
    *
    */
   "compartmentId"?: string;
+  /**
+   * The OCID of the cluster placement group of the instance.
+   */
+  "clusterPlacementGroupId"?: string;
   "createVnicDetails"?: model.InstanceConfigurationCreateVnicDetails;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a

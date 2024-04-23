@@ -23,14 +23,14 @@ export interface RequestSummarizedProblemsRequest extends common.BaseRequest {
    */
   "listDimensions": Array<model.ProblemDimension>;
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * returned depending on the the setting of {@code accessLevel}.
+   * returned depending on the setting of {@code accessLevel}.
    *
    */
   "compartmentIdInSubtree"?: boolean;
@@ -44,7 +44,7 @@ export interface RequestSummarizedProblemsRequest extends common.BaseRequest {
    */
   "accessLevel"?: RequestSummarizedProblemsRequest.AccessLevel;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**

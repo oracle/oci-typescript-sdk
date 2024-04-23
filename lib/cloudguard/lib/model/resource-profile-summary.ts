@@ -18,35 +18,35 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Resource profile summary.
+ * Summary information for a resource profile.
  */
 export interface ResourceProfileSummary {
   /**
-   * Number of sightings associated with this resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of sightings associated with the resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sightingsCount"?: number;
   /**
-   * Unique identifier for resource profile
+   * Unique identifier for the resource profile
    */
   "id": string;
   /**
-   * Unique identifier for resource profile
+   * Unique identifier for the resource associated with the resource profile
    */
   "resourceId": string;
   /**
-   * Resource name for resource profile
+   * Display name for the resource profile
    */
   "displayName": string;
   /**
-   * Resource type for resource profile
+   * Resource type for the resource profile
    */
   "type": string;
   /**
-   * Risk Score for the resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Risk score for the resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "riskScore": number;
   /**
-   * List of tactic summary associated with the resource profile.
+   * List of tactic summaries associated with the resource profile
    */
   "tactics": Array<model.TacticSummary>;
   /**

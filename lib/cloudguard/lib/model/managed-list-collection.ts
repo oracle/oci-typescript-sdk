@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the ManagedList.
+ * Collection of managed list summaries.
  */
 export interface ManagedListCollection {
   /**
-   * List of ManagedListSummary
+   * List of ManagedListSummary resources
    */
   "items": Array<model.ManagedListSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ManagedListCollection {
@@ -35,6 +39,11 @@ export namespace ManagedListCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ManagedListSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace ManagedListCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ManagedListSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

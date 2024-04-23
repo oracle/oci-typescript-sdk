@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Update ManagedList
+ * Parameters to use to update details for a managed list.
  */
 export interface UpdateManagedListDetails {
   /**
@@ -34,7 +34,7 @@ Avoid entering confidential information.
    */
   "description"?: string;
   /**
-   * List of ManagedListItem
+   * List of managed list items
    */
   "listItems"?: Array<string>;
   /**

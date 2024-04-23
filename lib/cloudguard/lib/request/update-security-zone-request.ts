@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateSecurityZoneRequest extends common.BaseRequest {
   /**
-   * The unique identifier of the security zone ({@code SecurityZone})
+   * The unique identifier of the security zone ({@code SecurityZone} resource).
    */
   "securityZoneId": string;
   /**
-   * The security zone information to be updated.
+   * The security zone information to be updated
    */
   "updateSecurityZoneDetails": model.UpdateSecurityZoneDetails;
   /**

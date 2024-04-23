@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetProblemRequest extends common.BaseRequest {
   /**
-   * OCId of the problem.
+   * OCID of the problem.
    */
   "problemId": string;
   /**

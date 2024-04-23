@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListManagedInstanceUpdatablePackagesRequest extends common.BaseRequest {
   /**
-   * The OCID of the managed instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance.
    */
   "managedInstanceId": string;
   /**
@@ -42,7 +42,7 @@ Example: {@code ELSA-2020-5804}
  */
   "advisoryName"?: Array<string>;
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**

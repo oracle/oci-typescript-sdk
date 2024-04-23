@@ -18,12 +18,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of ResponderRuleExecution. A Responder Rule Execution is the entity that captures the execution of a Responder Rule for a given Problem.
+ * Details of responder rule execution for a problem.
  */
 export interface ResponderRuleExecutionDetails {
   "condition"?: model.SimpleCondition | model.CompositeCondition;
   /**
-   * ResponderRule configurations
+   * List of responder rule configurations
    */
   "configurations"?: Array<model.ResponderConfiguration>;
 }

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible operators
+ * Logical operator in the rule.
  **/
 export enum OperatorType {
   In = "IN",

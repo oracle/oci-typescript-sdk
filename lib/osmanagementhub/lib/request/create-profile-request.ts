@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateProfileRequest extends common.BaseRequest {
   /**
-   * Details for the new registration profile.
+   * Provides the information used to create the registration profile.
    */
   "createProfileDetails":
     | model.CreateGroupProfileDetails

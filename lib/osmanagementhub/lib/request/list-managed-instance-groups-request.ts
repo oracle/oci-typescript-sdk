@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface ListManagedInstanceGroupsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
-   * The OCID of the managed instance group for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group. This filter returns resources associated with this group.
    */
   "managedInstanceGroupId"?: string;
   /**
-   * The OCID for the software source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source. This filter returns resources associated with this software source.
    */
   "softwareSourceId"?: string;
   /**
@@ -43,7 +43,7 @@ export interface ListManagedInstanceGroupsRequest extends common.BaseRequest {
    */
   "archType"?: model.ArchType;
   /**
-   * A filter to return only profiles that match the given osFamily.
+   * A filter to return only resources that match the given operating system family.
    */
   "osFamily"?: model.OsFamily;
   /**
@@ -63,9 +63,22 @@ Example: {@code 3}
  */
   "page"?: string;
   /**
-   * A filter to return only resources their lifecycle state matches the given lifecycle state.
+   * A filter to return only managed instance groups that are in the specified state.
    */
   "lifecycleState"?: string;
+  /**
+   * A filter to return only resources whose location matches the given value.
+   */
+  "location"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * A filter to return only resources whose location does not match the given value.
+   */
+  "locationNotEqualTo"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * Indicates whether to list only resources managed by the Autonomous Linux service.
+   *
+   */
+  "isManagedByAutonomousLinux"?: boolean;
   /**
    * The sort order to use, either 'ASC' or 'DESC'.
    */

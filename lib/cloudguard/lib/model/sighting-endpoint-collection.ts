@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Provides the summary of sighting endpoints
+ * Collection of sighting endpoint summaries.
  */
 export interface SightingEndpointCollection {
   /**
-   * List of SightingEndpointSummary
+   * List of SightingEndpointSummary resources
    */
   "items": Array<model.SightingEndpointSummary>;
 }

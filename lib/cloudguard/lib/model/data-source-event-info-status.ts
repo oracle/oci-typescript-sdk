@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible problem info states.
+ * Success/failure status of data source event.
  **/
 export enum DataSourceEventInfoStatus {
   Success = "SUCCESS",

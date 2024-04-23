@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListResourceProfilesRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -42,7 +42,7 @@ export interface ListResourceProfilesRequest extends common.BaseRequest {
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * returned depending on the the setting of {@code accessLevel}.
+   * returned depending on the setting of {@code accessLevel}.
    *
    */
   "compartmentIdInSubtree"?: boolean;
@@ -56,19 +56,19 @@ export interface ListResourceProfilesRequest extends common.BaseRequest {
    */
   "accessLevel"?: ListResourceProfilesRequest.AccessLevel;
   /**
-   * A filter to return only resources that match the list of resource types given
+   * A filter to return only resources that match the list of resource types given.
    */
   "resourceTypes"?: Array<string>;
   /**
-   * risk score filter
+   * Risk score filter.
    */
   "riskScoreGreaterThanOrEqualTo"?: number;
   /**
-   * risk score filter
+   * Risk score filter,
    */
   "riskScoreLessThanOrEqualTo"?: number;
   /**
-   * A filter to return only resources that match the list of techniques given
+   * A filter to return only resources that match the list of techniques given.
    */
   "techniques"?: Array<string>;
   /**
@@ -76,7 +76,7 @@ export interface ListResourceProfilesRequest extends common.BaseRequest {
    */
   "tactics"?: Array<string>;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
@@ -84,7 +84,7 @@ export interface ListResourceProfilesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
   /**

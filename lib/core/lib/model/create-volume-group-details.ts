@@ -69,6 +69,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "volumeGroupReplicas"?: Array<model.VolumeGroupReplicaDetails>;
+  /**
+   * The clusterPlacementGroup Id of the volume group for volume group placement.
+   */
+  "clusterPlacementGroupId"?: string;
 }
 
 export namespace CreateVolumeGroupDetails {

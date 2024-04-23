@@ -18,35 +18,35 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the ResponderRecipe.
+ * Summary information for a responder recipe.
  */
 export interface ResponderRecipeSummary {
   /**
-   * Identifier for ResponderRecipe.
+   * Unique identifier for the responder recipe
    */
   "id": string;
   /**
-   * ResponderRecipe display name.
+   * Responder recipe display name
    */
   "displayName"?: string;
   /**
-   * ResponderRecipe description.
+   * Responder recipe description
    */
   "description"?: string;
   /**
-   * Owner of ResponderRecipe
+   * Responder recipe description
    */
   "owner"?: model.OwnerType;
   /**
-   * List of responder rules associated with the recipe
+   * List of responder rules associated with the responder recipe
    */
   "responderRules"?: Array<model.ResponderRecipeResponderRule>;
   /**
-   * The id of the source responder recipe.
+   * Unique identifier of the source responder recipe
    */
   "sourceResponderRecipeId"?: string;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**
@@ -54,11 +54,11 @@ export interface ResponderRecipeSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the responder recipe was updated. Format defined by RFC3339.
+   * The date and time the responder recipe was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the Example.
+   * The current lifecycle state of the example
    */
   "lifecycleState"?: model.LifecycleState;
   /**

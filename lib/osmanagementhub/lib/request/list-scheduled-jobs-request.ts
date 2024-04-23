@@ -19,57 +19,54 @@ import common = require("oci-common");
  */
 export interface ListScheduledJobsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
- * A user-friendly name. Does not have to be unique, and it's changeable.
-* <p>
-Example: {@code My new resource}
-* 
- */
+   * A filter to return resources that match the given user-friendly name.
+   */
   "displayName"?: string;
   /**
    * A filter to return resources that may partially match the given display name.
    */
   "displayNameContains"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only scheduled jobs currently in the given state.
    */
   "lifecycleState"?: string;
   /**
-   * The OCID of the managed instance for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance. This filter returns resources associated with this managed instance.
    */
   "managedInstanceId"?: string;
   /**
-   * The OCID of the managed instance group for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group. This filter returns resources associated with this group.
    */
   "managedInstanceGroupId"?: string;
   /**
-   * The OCID of the managed compartment for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed compartment. This filter returns resources associated with this compartment.
    */
   "managedCompartmentId"?: string;
   /**
-   * The OCID of the lifecycle stage for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage. This resource returns resources associated with this lifecycle stage.
    */
   "lifecycleStageId"?: string;
   /**
-   * The operation type for which to list resources.
+   * A filter to return only scheduled jobs with the given operation type.
    */
   "operationType"?: model.OperationTypes;
   /**
-   * The schedule type for which to list resources.
+   * A filter to return only scheduled jobs of the given scheduling type (one-time or recurring).
    */
   "scheduleType"?: model.ScheduleTypes;
   /**
- * The start time after which to list all schedules, in ISO 8601 format.
+ * A filter to return only resources with a date on or after the given value, in ISO 8601 format.
 * <p>
 Example: 2017-07-14T02:40:00.000Z
 * 
  */
   "timeStart"?: Date;
   /**
- * The cut-off time before which to list all upcoming schedules, in ISO 8601 format.
+ * A filter to return only resources with a date on or before the given value, in ISO 8601 format.
 * <p>
 Example: 2017-07-14T02:40:00.000Z
 * 
@@ -105,17 +102,30 @@ Example: {@code 3}
    */
   "opcRequestId"?: string;
   /**
-   * If true, will only filter out restricted scheduled job.
+   * A filter to return only restricted scheduled jobs.
    */
   "isRestricted"?: boolean;
   /**
-   * The OCID of the scheduled job.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the scheduled job. A filter to return the specified job.
    */
   "id"?: string;
   /**
-   * Default is false. When set to true ,returns results from {compartmentId} or any of its subcompartment.
+   * Indicates whether to include subcompartments in the returned results. Default is false.
    */
   "compartmentIdInSubtree"?: boolean;
+  /**
+   * A filter to return only resources whose location matches the given value.
+   */
+  "location"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * A filter to return only resources whose location does not match the given value.
+   */
+  "locationNotEqualTo"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * Indicates whether to list only resources managed by the Autonomous Linux service.
+   *
+   */
+  "isManagedByAutonomousLinux"?: boolean;
 }
 
 export namespace ListScheduledJobsRequest {

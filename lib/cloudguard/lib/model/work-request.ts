@@ -18,49 +18,53 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A description of workrequest status
+ * Detailed information about a work request (WorkRequest resource).
  */
 export interface WorkRequest {
   /**
-   * The id of the work request.
+   * Unique identifier of the work request
    */
   "id": string;
   /**
-   * The ocid of the compartment that contains the work request. Work requests should be scoped to
+   * The OCID of the compartment that contains the work request. Work requests should be scoped to
    * the same compartment as the resource the work request affects. If the work request affects multiple resources,
    * and those resources are not in the same compartment, it is up to the service team to pick the primary
-   * resource whose compartment should be used
+   * resource whose compartment should be used.
    *
    */
   "compartmentId": string;
   /**
-   * Operation type of the work request.
+   * Operation type of the work request
    */
   "operationType": model.OperationType;
   /**
-   * Operation status of the work request.
+   * Operation status of the work request
    */
   "status": model.OperationStatus;
   /**
-   * The resources affected by this work request.
+   * List of resources affected by the work request
    */
   "resources": Array<model.WorkRequestResource>;
   /**
-   * Percentage of the request completed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Percentage of the work request that's completed Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete": number;
   /**
-   * The date and time the request was created
+   * The date and time the work request was created
    */
   "timeAccepted": Date;
   /**
-   * The date and time the request was started
+   * The date and time the work request was started
    */
   "timeStarted"?: Date;
   /**
-   * The date and time the object was finished
+   * The date and time the work request was finished
    */
   "timeFinished"?: Date;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace WorkRequest {
@@ -71,6 +75,12 @@ export namespace WorkRequest {
         "resources": obj.resources
           ? obj.resources.map(item => {
               return model.WorkRequestResource.getJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -85,6 +95,12 @@ export namespace WorkRequest {
         "resources": obj.resources
           ? obj.resources.map(item => {
               return model.WorkRequestResource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListWorkRequestLogsRequest extends common.BaseRequest {
   /**
-   * The OCID of the work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "workRequestId": string;
   /**

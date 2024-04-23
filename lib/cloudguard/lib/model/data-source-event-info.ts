@@ -18,7 +18,10 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Event info of a data source.
+ * This resource can have multiple subtypes, depending on the dataSourceFeedProvider
+ * value. For example, if dataSourceFeedProvider is LOGGINGQUERY, this resource
+ * will be of type LoggingEventInfo.
+ *
  */
 export interface DataSourceEventInfo {
   "dataSourceFeedProvider": string;

@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a security policy search. Contains {@code SecurityPolicySummary} items.
+ * Results of a security policy search.
  */
 export interface SecurityPolicyCollection {
   /**
-   * A list of security policy summaries
+   * A list of SecurityPolicySummary resources
    */
   "items": Array<model.SecurityPolicySummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace SecurityPolicyCollection {
@@ -35,6 +39,11 @@ export namespace SecurityPolicyCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.SecurityPolicySummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace SecurityPolicyCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.SecurityPolicySummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

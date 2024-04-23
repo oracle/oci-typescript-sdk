@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,19 +17,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of a software source to be created.
+ * Provides the information used to create a software source.
  */
 export interface CreateSoftwareSourceDetails {
   /**
-   * The OCID of the tenancy containing the software source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the software source.
    */
   "compartmentId": string;
   /**
-   * User friendly name for the software source.
+   * User-friendly name for the software source. Does not have to be unique and you can change the name later. Avoid entering confidential information.
    */
-  "displayName": string;
+  "displayName"?: string;
   /**
-   * Information specified by the user about the software source.
+   * User-specified description for the software source. Avoid entering confidential information.
    */
   "description"?: string;
   /**
@@ -60,6 +61,11 @@ export namespace CreateSoftwareSourceDetails {
             <model.CreateCustomSoftwareSourceDetails>(<object>jsonObj),
             true
           );
+        case "VENDOR":
+          return model.CreateVendorSoftwareSourceDetails.getJsonObj(
+            <model.CreateVendorSoftwareSourceDetails>(<object>jsonObj),
+            true
+          );
         case "VERSIONED":
           return model.CreateVersionedCustomSoftwareSourceDetails.getJsonObj(
             <model.CreateVersionedCustomSoftwareSourceDetails>(<object>jsonObj),
@@ -80,6 +86,11 @@ export namespace CreateSoftwareSourceDetails {
         case "CUSTOM":
           return model.CreateCustomSoftwareSourceDetails.getDeserializedJsonObj(
             <model.CreateCustomSoftwareSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "VENDOR":
+          return model.CreateVendorSoftwareSourceDetails.getDeserializedJsonObj(
+            <model.CreateVendorSoftwareSourceDetails>(<object>jsonObj),
             true
           );
         case "VERSIONED":

@@ -31,7 +31,7 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
@@ -39,7 +39,7 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListWorkRequestLogsRequest.SortBy;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
 }

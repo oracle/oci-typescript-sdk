@@ -41,6 +41,10 @@ export interface CapacityReservationInstanceSummary {
    * The fault domain the instance is running in.
    */
   "faultDomain"?: string;
+  /**
+   * The OCID of the cluster placement group of the instance.
+   */
+  "clusterPlacementGroupId"?: string;
   "shapeConfig"?: model.InstanceReservationShapeConfigDetails;
   /**
     * The shape of the instance. The shape determines the number of CPUs, amount of memory,

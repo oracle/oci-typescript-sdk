@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Sighting summary Definition.
+ * Sighting summary definition.
  */
 export interface SightingSummary {
   /**
-   * Unique identifier for finding event
+   * Unique identifier for sighting
    */
   "id": string;
   /**
-   * Compartment Id where the resource is created
+   * Compartment OCID where the impacted resource is created
    */
   "compartmentId": string;
   /**
-   * Problem Id to which the Sighting is associated
+   * Problem ID associated with sighting
    */
   "problemId"?: string;
   /**
@@ -38,35 +38,35 @@ export interface SightingSummary {
    */
   "actorPrincipalId"?: string;
   /**
-   * Name of the principal actor
+   * Name of principal actor
    */
   "actorPrincipalName"?: string;
   /**
-   * Type of the principal actor
+   * Type of principal actor
    */
   "actorPrincipalType"?: string;
   /**
-   * Unique identifier of the rule
+   * Unique identifier of the detector rule that was triggered
    */
   "detectorRuleId": string;
   /**
-   * ClassificationStatus of the sighting event
+   * Classification status of the sighting
    */
   "classificationStatus": model.ClassificationStatus;
   /**
-   * Identifier for the sighting type
+   * Type of sighting
    */
   "sightingType": string;
   /**
-   * Name of the sighting type
+   * Display name of the sighting type
    */
   "sightingTypeDisplayName": string;
   /**
-   * Name of the Mitre att&ck tactic
+   * Name of the MITRE ATT@CK framework tactic
    */
   "tacticName": string;
   /**
-   * Name of the Mitre att&ck technique
+   * Name of the MITRE ATT@CK framework technique
    */
   "techniqueName": string;
   /**
@@ -78,7 +78,7 @@ export interface SightingSummary {
    */
   "severity": model.Severity;
   /**
-   * Confidence of the sighting
+   * Confidence level that the sighting is not a false positive
    */
   "confidence": model.Confidence;
   /**
@@ -90,7 +90,7 @@ export interface SightingSummary {
    */
   "timeLastDetected": Date;
   /**
-   * Regions involved in the sighting
+   * List of regions involved in the sighting
    */
   "regions": Array<string>;
 }

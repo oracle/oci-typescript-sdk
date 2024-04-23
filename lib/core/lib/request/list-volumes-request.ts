@@ -73,6 +73,11 @@ Example: {@code 50}
    */
   "volumeGroupId"?: string;
   /**
+   * A filter to return only resources that match the given cluster placement group Id exactly.
+   *
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
    * A filter to only return resources that match the given lifecycle state. The state
    * value is case-insensitive.
    *

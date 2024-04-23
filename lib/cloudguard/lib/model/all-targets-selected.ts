@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * All Targets selected.
+ * Parameter to use when all targets are selected.
  */
 export interface AllTargetsSelected extends model.TargetSelected {
   "kind": string;

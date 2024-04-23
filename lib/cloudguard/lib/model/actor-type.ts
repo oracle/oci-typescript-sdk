@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Actor type who performed the operation
+ * The type of the actor who performed the operation.
  **/
 export enum ActorType {
   CloudGuardService = "CLOUD_GUARD_SERVICE",

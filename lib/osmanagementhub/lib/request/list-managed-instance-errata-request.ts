@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface ListManagedInstanceErrataRequest extends common.BaseRequest {
   /**
-   * The OCID of the managed instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance.
    */
   "managedInstanceId": string;
   /**
-   * A filter to return only errata that match the given advisory types.
+   * A filter to return only packages that match the given update classification type.
    */
-  "advisoryType"?: Array<ListManagedInstanceErrataRequest.AdvisoryType>;
+  "classificationType"?: Array<model.ClassificationTypes>;
   /**
  * The assigned erratum name. It's unique and not changeable.
 * <p>
@@ -38,7 +38,7 @@ Example: {@code ELSA-2020-5804}
    */
   "nameContains"?: string;
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
@@ -73,12 +73,6 @@ Example: {@code 3}
 }
 
 export namespace ListManagedInstanceErrataRequest {
-  export enum AdvisoryType {
-    Security = "SECURITY",
-    Bugfix = "BUGFIX",
-    Enhancement = "ENHANCEMENT"
-  }
-
   export enum SortBy {
     TimeIssued = "timeIssued",
     Name = "name"

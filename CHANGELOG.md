@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.85.0 - 2024-04-23
+### Added
+- Support for the Cluster Placement Groups service
+- Support for new optional parameter for managing approval template in the Managed Access service
+- Support for cluster placement groups in the Compute service
+- Support for replacing boot volume for virtual machines in the Compute service
+- Support for assigning a cluster placement group to boot and block volumes in the Block Storage service
+- Support for container workload integration in the Cloud Guard service
+- Support for instances in OCI and 3rd party clouds in the OS Management service
+
+### Breaking Changes
+- Support for default retries on the operations of the Managed Access service
+- The property `instanceLocation` was removed from the models `SummarizeManagedInstanceAnalyticsRequest` and `GetManagedInstanceAnalyticContentRequest` in the OS Management service
+- The property `advisoryType` was removed from the models `ListManagedInstanceErrataRequest` and `GetManagedInstanceContentRequest` in the OS Management service
+- The type of property `architecture` was changed from `string` to `SoftwarePackageArchitecture` in the models `SoftwarePackage` and `SoftwarePackageSummary` in the OS Management service
+- The type of property `action` was changed from `InstanceActionRequest.Action` to `string` in the model `InstanceActionRequest` in the Compute service
+- The type of property `action` was changed from `DbNodeActionRequest.Action` to `string` in the model `DbNodeActionRequest` in the Database service
+- The type of property `protocol` was changed from `ListIdentityProvidersRequest.Protocol` to `string` in the model `ListIdentityProvidersRequest` in the Identity service
+- The type of property `fields` was changed from `ListObjectVersionsRequest.Fields` to `string` in the models `ListObjectVersionsRequest` and `ListObjectsRequest` in the Object Storage service
+
+
 ## 2.84.2 - 2024-04-16
 ### Added
 - Support for calling Oracle Cloud Infrastructure services in the me-abudhabi-3 region

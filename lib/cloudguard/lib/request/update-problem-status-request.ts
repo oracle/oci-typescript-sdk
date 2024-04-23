@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateProblemStatusRequest extends common.BaseRequest {
   /**
-   * OCId of the problem.
+   * OCID of the problem.
    */
   "problemId": string;
   /**
-   * The additional details for the problem.
+   * The additional details for the problem
    */
   "updateProblemStatusDetails": model.UpdateProblemStatusDetails;
   /**

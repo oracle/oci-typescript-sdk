@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface SkipBulkResponderExecutionRequest extends common.BaseRequest {
   /**
-   * A list of responder execution ids to skip the execution
+   * A list of responder execution IDs to skip the execution
    */
   "skipBulkResponderExecutionDetails": model.SkipBulkResponderExecutionDetails;
   /**

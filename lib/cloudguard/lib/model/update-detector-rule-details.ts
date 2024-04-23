@@ -18,40 +18,40 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of a Detector Rule to be overriden in Detector Recipe
+ * Parameters to be updated for a detector rule within a detector recipe.
  */
 export interface UpdateDetectorRuleDetails {
   /**
-   * Enables the control
+   * Enablement status of the detector rule
    */
   "isEnabled": boolean;
   /**
-   * The Risk Level
+   * The risk level of the detector rule
    */
   "riskLevel"?: model.RiskLevel;
   /**
-   * Configuration details
+   * List of detector rule configurations
    */
   "configurations"?: Array<model.DetectorConfiguration>;
   "condition"?: model.SimpleCondition | model.CompositeCondition;
   /**
-   * user defined labels for a detector rule
+   * User-defined labels for a detector rule
    */
   "labels"?: Array<string>;
   /**
-   * Description for DetectorRecipeDetectorRule.
+   * Description for the detector rule
    */
   "description"?: string;
   /**
-   * Recommendation for DetectorRecipeDetectorRule
+   * Recommendation for the detector rule
    */
   "recommendation"?: string;
   /**
-   * The id of the attached DataSource.
+   * The unique identifier of the attached data source
    */
   "dataSourceId"?: string;
   /**
-   * Data Source entities mapping for a Detector Rule
+   * Data source entities mapping for a detector rule
    */
   "entitiesMappings"?: Array<model.EntitiesMapping>;
 }

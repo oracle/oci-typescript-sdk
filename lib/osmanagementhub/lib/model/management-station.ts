@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,62 +17,63 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Detailed information about an ManagementStation config
+ * Provides information about the management station, including name, state, and configuration.
  */
 export interface ManagementStation {
   /**
-   * OCID for the ManagementStation config
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station.
    */
   "id": string;
   /**
-   * OCID for the Instance associated with the Management Station.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance that is acting as the management station.
    */
   "managedInstanceId"?: string;
   /**
-   * The OCID of the tenancy containing the Management Station.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the management station.
    */
   "compartmentId": string;
   /**
-   * OCID of the Scheduled Job for mirror sync
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the scheduled job for the mirror sync.
    */
   "scheduledJobId"?: string;
   /**
-   * OCID of the Profile associated with the Station
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile used for the management station.
    */
   "profileId"?: string;
   /**
-   * ManagementStation name
+   * A user-friendly name for the management station.
    */
   "displayName": string;
   /**
-   * Details describing the ManagementStation config.
+   * User-specified description for the management station.
    */
   "description"?: string;
   /**
-   * Name of the host
+   * Hostname of the management station.
    */
   "hostname": string;
   /**
-   * Current state of the mirroring
+   * Current state of the mirror sync for the management station.
    */
   "overallState"?: model.OverallState;
   /**
-   * A decimal number representing the completeness percentage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A decimal number representing the progress of the current mirror sync. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "overallPercentage"?: number;
   /**
-   * A decimal number representing the mirror capacity Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A decimal number representing the amount of mirror capacity used by the sync. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mirrorCapacity"?: number;
   /**
-   * A decimal number representing the total of repos Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of software sources that the station is mirroring. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalMirrors"?: number;
   "mirrorSyncStatus"?: model.MirrorSyncStatus;
   "proxy": model.ProxyConfiguration;
   "mirror": model.MirrorConfiguration;
+  "health"?: model.StationHealth;
   /**
-   * The current state of the Management Station config.
+   * The current state of the management station.
    */
   "lifecycleState"?: ManagementStation.LifecycleState;
   /**
@@ -119,7 +121,8 @@ export namespace ManagementStation {
           ? model.MirrorSyncStatus.getJsonObj(obj.mirrorSyncStatus)
           : undefined,
         "proxy": obj.proxy ? model.ProxyConfiguration.getJsonObj(obj.proxy) : undefined,
-        "mirror": obj.mirror ? model.MirrorConfiguration.getJsonObj(obj.mirror) : undefined
+        "mirror": obj.mirror ? model.MirrorConfiguration.getJsonObj(obj.mirror) : undefined,
+        "health": obj.health ? model.StationHealth.getJsonObj(obj.health) : undefined
       }
     };
 
@@ -135,7 +138,8 @@ export namespace ManagementStation {
         "proxy": obj.proxy ? model.ProxyConfiguration.getDeserializedJsonObj(obj.proxy) : undefined,
         "mirror": obj.mirror
           ? model.MirrorConfiguration.getDeserializedJsonObj(obj.mirror)
-          : undefined
+          : undefined,
+        "health": obj.health ? model.StationHealth.getDeserializedJsonObj(obj.health) : undefined
       }
     };
 

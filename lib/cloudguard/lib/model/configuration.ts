@@ -22,15 +22,19 @@ import common = require("oci-common");
  */
 export interface Configuration {
   /**
-   * The reporting region value
+   * The reporting region
    */
   "reportingRegion": string;
   /**
-   * Status of Cloud Guard Tenant
+   * Status of the Cloud Guard tenant
    */
   "status"?: model.CloudGuardStatus;
   /**
-   * Identifies if Oracle managed resources were created by customers
+   * List of service configurations for this tenant
+   */
+  "serviceConfigurations"?: Array<model.ServiceConfiguration>;
+  /**
+   * Were Oracle-managed resources created by customer?
    *
    */
   "selfManageResources"?: boolean;
@@ -38,12 +42,30 @@ export interface Configuration {
 
 export namespace Configuration {
   export function getJsonObj(obj: Configuration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "serviceConfigurations": obj.serviceConfigurations
+          ? obj.serviceConfigurations.map(item => {
+              return model.ServiceConfiguration.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Configuration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "serviceConfigurations": obj.serviceConfigurations
+          ? obj.serviceConfigurations.map(item => {
+              return model.ServiceConfiguration.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

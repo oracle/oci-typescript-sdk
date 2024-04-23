@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Data source
+ * Detailed information for a data source (DataSource resource).
  */
 export interface DataSource {
   /**
-   * Ocid for Data source
+   * OCID for the data source
    */
   "id": string;
   /**
-   * DisplayName of Data source.
+   * Display name of the data source
    */
   "displayName": string;
   /**
@@ -34,20 +34,22 @@ export interface DataSource {
    */
   "dataSourceFeedProvider": model.DataSourceFeedProvider;
   /**
-   * CompartmentId of Data source.
+   * Compartment OCID of data source
    */
   "compartmentId": string;
-  "dataSourceDetails"?: model.LoggingQueryDataSourceDetails;
+  "dataSourceDetails"?:
+    | model.ScheduledQueryDataSourceObjDetails
+    | model.LoggingQueryDataSourceDetails;
   /**
    * The date and time the Data source was created. Format defined by RFC3339.
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the Data source was updated. Format defined by RFC3339.
+   * The date and time the data source was updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * Status of data Source
+   * Enablement status of the data source
    */
   "status"?: model.DataSourceStatus;
   /**
@@ -59,9 +61,13 @@ export interface DataSource {
    */
   "regionStatusDetail"?: Array<model.RegionStatusDetail>;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource.
    */
   "lifecycleState"?: model.LifecycleState;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * Example: {@code {\"bar-key\": \"value\"}}
@@ -105,6 +111,12 @@ export namespace DataSource {
           ? obj.regionStatusDetail.map(item => {
               return model.RegionStatusDetail.getJsonObj(item);
             })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -127,6 +139,12 @@ export namespace DataSource {
         "regionStatusDetail": obj.regionStatusDetail
           ? obj.regionStatusDetail.map(item => {
               return model.RegionStatusDetail.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

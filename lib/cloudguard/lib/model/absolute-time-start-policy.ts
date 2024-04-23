@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Policy that defines the exact start time.
+ * Start policy that defines the exact start time
  */
 export interface AbsoluteTimeStartPolicy extends model.ContinuousQueryStartPolicy {
   /**
-   * Time when the query can start, if not specified it can start immediately.
+   * Time when the query can start. If not specified it can start immediately
    */
   "queryStartTime"?: Date;
 

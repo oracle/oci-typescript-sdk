@@ -18,32 +18,32 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of a Detector Rule
+ * Detailed information for a detector.
  */
 export interface DetectorDetails {
   /**
-   * Enables the control
+   * Enablement status for the rule
    */
   "isEnabled": boolean;
   /**
-   * The Risk Level
+   * The risk level for the rule
    */
   "riskLevel"?: model.RiskLevel;
   /**
-   * Configuration details
+   * List of detector rule configurations
    */
   "configurations"?: Array<model.DetectorConfiguration>;
   "condition"?: model.SimpleCondition | model.CompositeCondition;
   /**
-   * user defined labels for a detector rule
+   * User-defined labels for a detector rule
    */
   "labels"?: Array<string>;
   /**
-   * configuration allowed or not
+   * Can the rule be configured?
    */
   "isConfigurationAllowed"?: boolean;
   /**
-   * Cutover point for an elevated resource Risk Score to create a Problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The point at which an elevated resource risk score creates a problem Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "problemThreshold"?: number;
   /**
@@ -54,6 +54,22 @@ export interface DetectorDetails {
    * List of sighting types
    */
   "sightingTypes"?: Array<model.SightingType>;
+  /**
+   * Description for detector recipe detector rule
+   */
+  "description"?: string;
+  /**
+   * Recommendation for detector recipe detector rule
+   */
+  "recommendation"?: string;
+  /**
+   * The ID of the attached data source
+   */
+  "dataSourceId"?: string;
+  /**
+   * Data source entities mapping for a detector rule
+   */
+  "entitiesMappings"?: Array<model.EntitiesMapping>;
 }
 
 export namespace DetectorDetails {
@@ -71,6 +87,12 @@ export namespace DetectorDetails {
         "sightingTypes": obj.sightingTypes
           ? obj.sightingTypes.map(item => {
               return model.SightingType.getJsonObj(item);
+            })
+          : undefined,
+
+        "entitiesMappings": obj.entitiesMappings
+          ? obj.entitiesMappings.map(item => {
+              return model.EntitiesMapping.getJsonObj(item);
             })
           : undefined
       }
@@ -94,6 +116,12 @@ export namespace DetectorDetails {
         "sightingTypes": obj.sightingTypes
           ? obj.sightingTypes.map(item => {
               return model.SightingType.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "entitiesMappings": obj.entitiesMappings
+          ? obj.entitiesMappings.map(item => {
+              return model.EntitiesMapping.getDeserializedJsonObj(item);
             })
           : undefined
       }

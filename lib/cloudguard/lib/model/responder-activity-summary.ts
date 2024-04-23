@@ -18,43 +18,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Responder Activity summary Definition.
+ * Responder activity summary definition.
  */
 export interface ResponderActivitySummary {
   /**
-   * Unique id for Responder activity.
+   * Unique ID for responder activity
    */
   "id": string;
   /**
-   * problemId for which Responder activity is associated to.
+   * Unique ID of problem associated with responder activity
    */
   "problemId": string;
   /**
-   * Id of the responder rule for the problem
+   * Unique ID of the responder rule associated with the problem
    */
   "responderRuleId": string;
   /**
-   * responder rule type for performing the operation
+   * Responder rule type for performing the operation
    */
   "responderType": model.ResponderType;
   /**
-   * responder rule name
+   * Responder rule name
    */
   "responderRuleName": string;
   /**
-   * Responder activity types
+   * Responder activity type
    */
   "responderActivityType": model.ResponderActivityType;
   /**
-   * the responder execution status
+   * Responder execution status
    */
   "responderExecutionStatus": model.ResponderExecutionStates;
   /**
-   * responder activity starting time
+   * Responder activity starting time
    */
   "timeCreated": Date;
   /**
-   * additional message related to this operation
+   * Additional message related to this operation
    */
   "message": string;
 }

@@ -18,18 +18,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new Target.
+ * Parameters used to create a new target.
  */
 export interface CreateTargetDetails {
   /**
-    * DetectorTemplate identifier.
+    * Display name for the target.
 * <p>
 Avoid entering confidential information.
 * 
     */
   "displayName": string;
   /**
-   * Compartment Identifier where the resource is created
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
@@ -40,7 +40,7 @@ Avoid entering confidential information.
     */
   "description"?: string;
   /**
-   * possible type of targets(COMPARTMENT/FACLOUD)
+   * Type of resource that target support (COMPARTMENT/FACLOUD)
    */
   "targetResourceType": model.TargetResourceType;
   /**
@@ -48,15 +48,15 @@ Avoid entering confidential information.
    */
   "targetResourceId": string;
   /**
-   * List of detector recipes to associate with target
+   * List of detector recipes to attach to target
    */
   "targetDetectorRecipes"?: Array<model.CreateTargetDetectorRecipeDetails>;
   /**
-   * List of responder recipes to associate with target
+   * List of responder recipes to attach to target
    */
   "targetResponderRecipes"?: Array<model.CreateTargetResponderRecipeDetails>;
   /**
-   * The current state of the DetectorRule.
+   * The enablement state of the detector rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**

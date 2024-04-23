@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the Detector Recipe Rule.
+ * Summary information for a detector rule in a detector recipe.
  */
 export interface TargetDetectorRecipeDetectorRuleSummary {
   /**
@@ -26,31 +26,31 @@ export interface TargetDetectorRecipeDetectorRuleSummary {
    */
   "id": string;
   /**
-   * DetectorTemplate Identifier, can be renamed
+   * Detector template display name
    */
   "displayName"?: string;
   /**
-   * DetectorTemplate Identifier, can be renamed
+   * Detector template description
    */
   "description"?: string;
   /**
-   * Recommendation for TargetDetectorRecipeDetectorRule
+   * Recommendation for TargetDetectorRecipeDetectorRule resource
    */
   "recommendation"?: string;
   /**
-   * possible type of detectors
+   * Type of detector
    */
   "detector": model.DetectorEnum;
   /**
-   * service type of the configuration to which the rule is applied
+   * Service type of the configuration to which the rule is applied
    */
   "serviceType"?: string;
   /**
-   * resource type of the configuration to which the rule is applied
+   * Resource type of the configuration to which the rule is applied
    */
   "resourceType"?: string;
   /**
-   * List of cloudguard managed list types related to this rule
+   * List of managed list types related to this rule
    */
   "managedListTypes"?: Array<TargetDetectorRecipeDetectorRuleSummary.ManagedListTypes>;
   "detectorDetails"?: model.TargetDetectorDetails;
@@ -59,11 +59,11 @@ export interface TargetDetectorRecipeDetectorRuleSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the target detector recipe rule was updated. Format defined by RFC3339.
+   * The date and time the target detector recipe rule was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the target detector recipe rule
+   * The current lifecycle state of the target detector recipe rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**
@@ -71,13 +71,17 @@ export interface TargetDetectorRecipeDetectorRuleSummary {
    */
   "lifecycleDetails"?: string;
   /**
-   * The id of the attached DataSource.
+   * The unique identifier of the attached data source
    */
   "dataSourceId"?: string;
   /**
-   * Data Source entities mapping for a Detector Rule
+   * Data source entities mapping for a detector rule
    */
   "entitiesMappings"?: Array<model.EntitiesMapping>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace TargetDetectorRecipeDetectorRuleSummary {
@@ -115,6 +119,11 @@ export namespace TargetDetectorRecipeDetectorRuleSummary {
           ? obj.entitiesMappings.map(item => {
               return model.EntitiesMapping.getJsonObj(item);
             })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -132,6 +141,11 @@ export namespace TargetDetectorRecipeDetectorRuleSummary {
         "entitiesMappings": obj.entitiesMappings
           ? obj.entitiesMappings.map(item => {
               return model.EntitiesMapping.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -18,21 +18,25 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of ResourceType
+ * A summary of detailed information on a resource type.
  */
 export interface ResourceTypeSummary {
   /**
-   * name of the resource
+   * Name of the resource
    */
   "name": string;
   /**
-   * display name of the resource
+   * Display name of the resource
    */
   "displayName": string;
   /**
    * List of rules
    */
   "rules"?: Array<model.RuleSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ResourceTypeSummary {
@@ -43,6 +47,11 @@ export namespace ResourceTypeSummary {
         "rules": obj.rules
           ? obj.rules.map(item => {
               return model.RuleSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -57,6 +66,11 @@ export namespace ResourceTypeSummary {
         "rules": obj.rules
           ? obj.rules.map(item => {
               return model.RuleSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

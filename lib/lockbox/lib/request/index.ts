@@ -36,6 +36,8 @@ import * as GetAccessMaterialsRequest from "./get-access-materials-request";
 export import GetAccessMaterialsRequest = GetAccessMaterialsRequest.GetAccessMaterialsRequest;
 import * as GetAccessRequestRequest from "./get-access-request-request";
 export import GetAccessRequestRequest = GetAccessRequestRequest.GetAccessRequestRequest;
+import * as GetAccessRequestInternalRequest from "./get-access-request-internal-request";
+export import GetAccessRequestInternalRequest = GetAccessRequestInternalRequest.GetAccessRequestInternalRequest;
 import * as GetApprovalTemplateRequest from "./get-approval-template-request";
 export import GetApprovalTemplateRequest = GetApprovalTemplateRequest.GetApprovalTemplateRequest;
 import * as GetLockboxRequest from "./get-lockbox-request";

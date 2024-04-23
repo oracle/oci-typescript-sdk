@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * configuration item for multi list data type
+ * Details for a configuration value for a managed list.
  */
 export interface ConfigValue {
   /**
-   * configuration list item type, either CUSTOM or MANAGED
+   * Configuration list item type (CUSTOM or MANAGED)
    */
   "listType": model.ConfigurationListItemType;
   /**
-   * type of the managed list
+   * Type of content in the managed list
    */
   "managedListType": string;
   /**
-   * configuration value
+   * Configuration value
    */
   "value": string;
 }

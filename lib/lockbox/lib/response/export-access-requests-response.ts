@@ -23,6 +23,11 @@ export interface ExportAccessRequestsResponse {
    */
   "opcRequestId": string;
   /**
+   * For optimistic concurrency control. See {@code if-match}.
+   *
+   */
+  "etag": string;
+  /**
    * The returned stream.Readable | ReadableStream instance.
    */
   "value": stream.Readable | ReadableStream;

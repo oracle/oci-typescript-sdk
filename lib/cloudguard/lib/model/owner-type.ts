@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Owner of the recipe
+ * Owner of the recipe.
  **/
 export enum OwnerType {
   Customer = "CUSTOMER",

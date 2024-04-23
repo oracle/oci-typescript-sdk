@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * ResourceRiskScores filter.
+ * Details for requesting summarized trend risk scores.
  */
 export interface RequestSummarizedTrendResourceRiskScoresDetails {
   /**
-   * The filter type.
+   * The filter type
    */
   "filter": model.ResourceRiskScoreDimension;
   /**
-   * Id to be passed in to filter the risk scores.
+   * ID to be passed in to filter the risk scores
    */
   "filterId": string;
 }

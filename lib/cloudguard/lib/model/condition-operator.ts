@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Conditions related to the parameter data type
+ * Conditions related to the parameter data type.
  */
 export interface ConditionOperator {
   /**
-   * operator name
+   * Operator name
    */
   "name": model.ConditionOperatorName;
   /**
-   * display name of the operator
+   * Display name of the operator
    */
   "displayName": string;
 }

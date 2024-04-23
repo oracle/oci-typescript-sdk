@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Recommendation types
+ * Recommendation types.
  **/
 export enum RecommendationType {
   DetectorProblems = "DETECTOR_PROBLEMS",

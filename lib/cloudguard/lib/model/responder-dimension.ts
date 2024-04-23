@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible Dimensions for distinguishing Responder Executions
+ * Possible dimensions for distinguishing responder executions.
  **/
 export enum ResponderDimension {
   ResponderRuleType = "RESPONDER_RULE_TYPE",

@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Political location of a problem
+ * The geographical location of a problem in terms of political units.
  */
 export interface PoliticalLocation {
   /**
-   * City
+   * City of problem's location
    */
   "city": string;
   /**
-   * State
+   * State or province of problem's location
    */
   "state": string;
   /**
-   * Country
+   * Country of problem's location
    */
   "country": string;
 }

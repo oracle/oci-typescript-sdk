@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteSecurityZoneRequest extends common.BaseRequest {
   /**
-   * The unique identifier of the security zone ({@code SecurityZone})
+   * The unique identifier of the security zone ({@code SecurityZone} resource).
    */
   "securityZoneId": string;
   /**

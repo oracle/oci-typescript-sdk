@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible dimensions for distinguishing Problems
+ * Possible dimensions for distinguishing problems.
  **/
 export enum ProblemDimension {
   ResourceType = "RESOURCE_TYPE",

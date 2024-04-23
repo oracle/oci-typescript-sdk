@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface RequestSummarizedTrendResourceRiskScoresRequest extends common.BaseRequest {
   /**
-   * The filter to fetch risk score trend.
+   * The filter to fetch risk score trend
    */
   "requestSummarizedTrendResourceRiskScoresDetails": model.RequestSummarizedTrendResourceRiskScoresDetails;
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -38,7 +38,7 @@ export interface RequestSummarizedTrendResourceRiskScoresRequest extends common.
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * returned depending on the the setting of {@code accessLevel}.
+   * returned depending on the setting of {@code accessLevel}.
    *
    */
   "compartmentIdInSubtree"?: boolean;
@@ -52,7 +52,7 @@ export interface RequestSummarizedTrendResourceRiskScoresRequest extends common.
    */
   "accessLevel"?: RequestSummarizedTrendResourceRiskScoresRequest.AccessLevel;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**

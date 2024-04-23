@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,31 +17,32 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Contains versioned software source content and lifecycle stages for a managed instance.
+ * Defines the lifecycle environment, including the associated versioned software sources, lifecycle stages, and managed instances.
+ *
  */
 export interface LifecycleEnvironment {
   /**
-   * The OCID of the resource that is immutable on creation.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle environment.
    */
   "id": string;
   /**
-   * The OCID of the tenancy containing the lifecycle environment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the lifecycle environment.
    */
   "compartmentId": string;
   /**
-   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * The user-friendly name for the lifecycle environment.
    */
   "displayName": string;
   /**
-   * User specified information about the lifecycle environment.
+   * User-specified information about the lifecycle environment.
    */
   "description"?: string;
   /**
-   * User specified list of lifecycle stages to be created for the lifecycle environment.
+   * User-specified list of lifecycle stages used within the lifecycle environment.
    */
   "stages": Array<model.LifecycleStage>;
   /**
-   * The list of managed instance OCIDs specified in the lifecycle stage.
+   * List of managed instance [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) assigned to the lifecycle stage.
    */
   "managedInstanceIds"?: Array<model.ManagedInstanceDetails>;
   /**
@@ -48,23 +50,27 @@ export interface LifecycleEnvironment {
    */
   "lifecycleState": LifecycleEnvironment.LifecycleState;
   /**
-   * The operating system type of the target instances.
+   * The operating system of the managed instances in the lifecycle environment.
    */
   "osFamily": model.OsFamily;
   /**
-   * The CPU architecture of the target instances.
+   * The CPU architecture of the managed instances in the lifecycle environment.
    */
   "archType": model.ArchType;
   /**
-   * The software source vendor name.
+   * The vendor of the operating system used by the managed instances in the lifecycle environment.
    */
   "vendorName": model.VendorName;
   /**
-   * The time the lifecycle environment was created. An RFC3339 formatted datetime string.
+   * The location of managed instances attached to the lifecycle environment.
+   */
+  "location"?: model.ManagedInstanceLocation;
+  /**
+   * The time the lifecycle environment was created (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeCreated": Date;
   /**
-   * The time the lifecycle environment was last modified. An RFC3339 formatted datetime string.
+   * The time the lifecycle environment was last modified (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeModified"?: Date;
   /**

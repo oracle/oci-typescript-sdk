@@ -18,18 +18,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Update of Data Source
+ * Parameters to update a data source.
  */
 export interface UpdateDataSourceDetails {
   /**
-   * Data Source display name.
+   * Display name for data source
    */
   "displayName"?: string;
   /**
-   * Status of DataSource.
+   * Enablement status of data source
    */
   "status"?: model.DataSourceStatus;
-  "dataSourceDetails"?: model.LoggingQueryDataSourceDetails;
+  "dataSourceDetails"?:
+    | model.ScheduledQueryDataSourceObjDetails
+    | model.LoggingQueryDataSourceDetails;
   /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * Example: {@code {\"bar-key\": \"value\"}}

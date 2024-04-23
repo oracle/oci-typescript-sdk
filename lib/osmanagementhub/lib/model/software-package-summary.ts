@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for a software package.
+ * Provides summary information for a software package.
  */
 export interface SoftwarePackageSummary {
   /**
@@ -24,7 +25,7 @@ export interface SoftwarePackageSummary {
    */
   "displayName": string;
   /**
-   * Unique identifier for the package. NOTE - This is not an OCID.
+   * Unique identifier for the package. Note that this is not an OCID.
    */
   "name": string;
   /**
@@ -38,7 +39,7 @@ export interface SoftwarePackageSummary {
   /**
    * The architecture for which this software was built.
    */
-  "architecture"?: string;
+  "architecture"?: model.SoftwarePackageArchitecture;
   /**
    * Checksum of the package.
    */
@@ -52,9 +53,13 @@ export interface SoftwarePackageSummary {
    */
   "isLatest"?: boolean;
   /**
-   * List of software sources that provide the software package.
+   * List of software sources that provide the software package. This property is deprecated and it will be removed in a future API release.
    */
   "softwareSources"?: Array<model.SoftwareSourceDetails>;
+  /**
+   * The OS families the package belongs to.
+   */
+  "osFamilies"?: Array<model.OsFamily>;
 }
 
 export namespace SoftwarePackageSummary {
@@ -65,6 +70,11 @@ export namespace SoftwarePackageSummary {
         "softwareSources": obj.softwareSources
           ? obj.softwareSources.map(item => {
               return model.SoftwareSourceDetails.getJsonObj(item);
+            })
+          : undefined,
+        "osFamilies": obj.osFamilies
+          ? obj.osFamilies.map(item => {
+              return model.OsFamily.getJsonObj(item);
             })
           : undefined
       }
@@ -79,6 +89,11 @@ export namespace SoftwarePackageSummary {
         "softwareSources": obj.softwareSources
           ? obj.softwareSources.map(item => {
               return model.SoftwareSourceDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "osFamilies": obj.osFamilies
+          ? obj.osFamilies.map(item => {
+              return model.OsFamily.getDeserializedJsonObj(item);
             })
           : undefined
       }

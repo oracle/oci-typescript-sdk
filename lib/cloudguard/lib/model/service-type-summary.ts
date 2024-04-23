@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of Service type
+ * Summary information for a service type.
  */
 export interface ServiceTypeSummary {
   /**
-   * name of the service type
+   * Name of the service type
    */
   "name": string;
   /**
-   * List of Resource
+   * List of resource types
    */
   "resourceTypes": Array<model.ResourceTypeSummary>;
 }

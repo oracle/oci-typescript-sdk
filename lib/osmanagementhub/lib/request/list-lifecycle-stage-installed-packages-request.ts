@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ListLifecycleStageInstalledPackagesRequest extends common.BaseRequest {
   /**
-   * The OCID of the lifecycle stage.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage.
    */
   "lifecycleStageId": string;
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
@@ -51,7 +51,7 @@ Example: {@code 3}
  */
   "page"?: string;
   /**
-   * A filter to return only lifecycle stage whose lifecycle state matches the given lifecycle state.
+   * A filter to return only lifecycle stages whose lifecycle state matches the given lifecycle state.
    */
   "lifecycleState"?: string;
   /**

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible types of query replication status.
+ * Possible types of query replication status
  **/
 export enum QueryReplicationStatus {
   Provisioning = "PROVISIONING",

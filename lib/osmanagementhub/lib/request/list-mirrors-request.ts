@@ -19,15 +19,12 @@ import common = require("oci-common");
  */
 export interface ListMirrorsRequest extends common.BaseRequest {
   /**
-   * The OCID of the management station.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station.
    */
   "managementStationId": string;
   /**
- * A user-friendly name. Does not have to be unique, and it's changeable.
-* <p>
-Example: {@code My new resource}
-* 
- */
+   * A filter to return resources that match the given user-friendly name.
+   */
   "displayName"?: string;
   /**
    * A filter to return resources that may partially match the given display name.

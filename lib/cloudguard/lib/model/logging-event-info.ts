@@ -18,12 +18,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new Logging event detail of DataSource.
+ * Information for a logging event for a data source.
  */
 export interface LoggingEventInfo extends model.DataSourceEventInfo {
+  /**
+   * Observed value of DataSource for a Problem
+   */
   "observedValue"?: string;
+  /**
+   * Triggered value of DataSource for a Problem
+   */
   "triggerValue"?: string;
+  /**
+   * Operator details of DataSource for a Problem
+   */
   "operator"?: string;
+  /**
+   * Log result details of DataSource for a Problem
+   */
   "logResult"?: string;
 
   "dataSourceFeedProvider": string;

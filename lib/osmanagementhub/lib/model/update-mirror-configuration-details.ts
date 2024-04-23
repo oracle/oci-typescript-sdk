@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,23 +17,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information for updating a mirror configuration
+ * Provides the information used to update the mirror configuration for a management station.
  */
 export interface UpdateMirrorConfigurationDetails {
   /**
-   * Directory for the mirroring
+   * Path to the data volume on the management station where software source mirrors are stored.
    */
   "directory": string;
   /**
-   * Default port for the mirror
+   * Default mirror listening port for http.
    */
   "port": string;
   /**
-   * Default sslport for the mirror
+   * Default mirror listening port for https.
    */
   "sslport": string;
   /**
-   * Local path for the sslcert
+   * Path to the SSL cerfificate.
    */
   "sslcert"?: string;
 }

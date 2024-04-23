@@ -25,7 +25,7 @@ export interface DbNodeActionRequest extends common.BaseRequest {
   /**
    * The action to perform on the DB Node.
    */
-  "action": DbNodeActionRequest.Action;
+  "action": string;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24
@@ -42,13 +42,4 @@ export interface DbNodeActionRequest extends common.BaseRequest {
    *
    */
   "ifMatch"?: string;
-}
-
-export namespace DbNodeActionRequest {
-  export enum Action {
-    Stop = "STOP",
-    Start = "START",
-    Softreset = "SOFTRESET",
-    Reset = "RESET"
-  }
 }

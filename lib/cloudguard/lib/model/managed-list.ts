@@ -18,43 +18,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A managed list is a reusable list of parameters that makes it easier to set the scope for detector and responder rules. A ManagedList object contains the reusable list of parameters, plus metadata for the list.
+ * A managed list is a reusable list of parameters that makes it easier to set the scope for detector and responder rules. A ManagedList resource contains the reusable list of parameters, plus metadata for the list.
  */
 export interface ManagedList {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can't be changed after creation
    */
   "id": string;
   /**
-   * ManagedList display name.
+   * Managed list display name
    */
   "displayName": string;
   /**
-   * ManagedList description.
+   * Managed list description
    */
   "description"?: string;
   /**
-   * Compartment Identifier where the resource is created
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
-   * OCID of the Source ManagedList
+   * OCID of the source managed list
    */
   "sourceManagedListId"?: string;
   /**
-   * type of the list
+   * Type of information contained in the managed list
    */
   "listType": model.ManagedListType;
   /**
-   * List of ManagedListItem
+   * List of items in the managed list
    */
   "listItems"?: Array<string>;
   /**
-   * provider of the feed
+   * Provider of the managed list feed
    */
   "feedProvider"?: model.FeedProviderType;
   /**
-   * If this list is editable or not
+   * Is this list editable?
    */
   "isEditable"?: boolean;
   /**
@@ -62,15 +62,15 @@ export interface ManagedList {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the managed list was updated. Format defined by RFC3339.
+   * The date and time the managed list was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state. [DEPRECATE]
    */
   "lifecyleDetails"?: string;
   /**

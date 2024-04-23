@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Create ManagedList
+ * Parameters to use to create details for a new managed list.
  */
 export interface CreateManagedListDetails {
   /**
@@ -29,26 +29,26 @@ Avoid entering confidential information.
     */
   "displayName": string;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**
-   * OCID of the Source ManagedList
+   * OCID of the source managed list
    */
   "sourceManagedListId"?: string;
   /**
-    * Managed list description.
+    * Managed list description
 * <p>
 Avoid entering confidential information.
 * 
     */
   "description"?: string;
   /**
-   * type of the list
+   * Type of information stored in the list
    */
   "listType"?: model.ManagedListType;
   /**
-   * List of ManagedListItem
+   * List of items in the managed list
    */
   "listItems"?: Array<string>;
   /**

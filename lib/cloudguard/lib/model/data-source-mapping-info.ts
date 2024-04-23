@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Detail of resources which are mapped to DataSource.
+ * Details of the detector recipe and detector rule mapped to the data source.
  */
 export interface DataSourceMappingInfo {
   /**
-   * Id of the attached detectorRecipeId to the Data Source.
+   * ID of the detector recipe attached to the data source
    */
   "detectorRecipeId": string;
   /**
-   * Id of the attached detectorRuleId to the Data Source.
+   * ID of the detector rule attached to the data source
    */
   "detectorRuleId": string;
 }

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListEntitlementsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment that contains the resources to list. This parameter is required.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment. This parameter is required and returns only resources contained within the specified compartment.
    */
   "compartmentId": string;
   /**
@@ -27,7 +27,7 @@ export interface ListEntitlementsRequest extends common.BaseRequest {
    */
   "csi"?: string;
   /**
-   * A filter to return only profiles that match the given vendorName.
+   * A filter to return only resources that match the given vendor name.
    */
   "vendorName"?: model.VendorName;
   /**

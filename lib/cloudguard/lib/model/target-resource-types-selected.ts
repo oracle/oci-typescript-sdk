@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Target selection on basis of TargetResourceTypes.
+ * Target selection on basis of target resource types.
  */
 export interface TargetResourceTypesSelected extends model.TargetSelected {
   /**
-   * Types of Targets
+   * Types of targets
    */
   "values"?: Array<TargetResourceTypesSelected.Values>;
 

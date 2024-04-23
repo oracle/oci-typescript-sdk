@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListManagedInstancesRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
@@ -31,11 +31,11 @@ export interface ListManagedInstancesRequest extends common.BaseRequest {
    */
   "displayNameContains"?: string;
   /**
-   * The OCID of the managed instance for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance. This filter returns resources associated with this managed instance.
    */
   "managedInstanceId"?: string;
   /**
-   * A filter to return only instances whose managed instance status matches the given status.
+   * A filter to return only managed instances whose status matches the status provided.
    */
   "status"?: Array<model.ManagedInstanceStatus>;
   /**
@@ -43,11 +43,11 @@ export interface ListManagedInstancesRequest extends common.BaseRequest {
    */
   "archType"?: Array<model.ArchType>;
   /**
-   * A filter to return only instances whose OS family type matches the given OS family.
+   * A filter to return only resources that match the given operating system family.
    */
   "osFamily"?: Array<model.OsFamily>;
   /**
-   * A filter to return only managed instances acting as management stations.
+   * A filter to return only managed instances that are acting as management stations.
    */
   "isManagementStation"?: boolean;
   /**
@@ -71,7 +71,7 @@ export interface ListManagedInstancesRequest extends common.BaseRequest {
    */
   "isAttachedToGroupOrLifecycleStage"?: boolean;
   /**
-   * The OCID for the software source.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source. This filter returns resources associated with this software source.
    */
   "softwareSourceId"?: string;
   /**
@@ -81,6 +81,39 @@ Example: {@code ELSA-2020-5804}
 * 
  */
   "advisoryName"?: Array<string>;
+  /**
+   * A filter to return only managed instances in a specific lifecycle environment.
+   */
+  "lifecycleEnvironment"?: string;
+  /**
+   * A filter to return only managed instances that aren't in a specific lifecycle environment.
+   */
+  "lifecycleEnvironmentNotEqualTo"?: string;
+  /**
+   * A filter to return only resources whose location matches the given value.
+   */
+  "location"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * A filter to return only resources whose location does not match the given value.
+   */
+  "locationNotEqualTo"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * A multi filter to return only managed instances that match the given profile ids.
+   */
+  "profile"?: Array<string>;
+  /**
+   * A multi filter to return only managed instances that don't contain the given profile [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   */
+  "profileNotEqualTo"?: Array<string>;
+  /**
+   * A filter to return only managed instances with a registration profile attached.
+   */
+  "isProfileAttached"?: boolean;
+  /**
+   * Indicates whether to list only resources managed by the Autonomous Linux service.
+   *
+   */
+  "isManagedByAutonomousLinux"?: boolean;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
 * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).

@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Data Source Entities mappings
+ * Parameters for entities mapping to data source.
  */
 export interface EntitiesMapping {
   /**
-   * The display name of entity
+   * Display name of the entity
    */
   "displayName"?: string;
   /**
@@ -30,7 +30,7 @@ export interface EntitiesMapping {
    */
   "queryField": string;
   /**
-   * Possible type of entity
+   * Type of entity
    */
   "entityType"?: model.EntityType;
 }

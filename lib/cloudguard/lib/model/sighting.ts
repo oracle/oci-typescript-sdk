@@ -22,19 +22,19 @@ import common = require("oci-common");
  */
 export interface Sighting {
   /**
-   * Unique identifier for sighting event
+   * Unique identifier for the sighting
    */
   "id": string;
   /**
-   * Description of the sighting event
+   * Description of the sighting
    */
   "description": string;
   /**
-   * Problem Id to which the Sighting is associated
+   * Problem ID associated the sighting
    */
   "problemId"?: string;
   /**
-   * Compartment Id where the resource is created
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
@@ -50,11 +50,11 @@ export interface Sighting {
    */
   "actorPrincipalType"?: string;
   /**
-   * ClassificationStatus of the sighting event
+   * Classification status of the sighting
    */
   "classificationStatus": model.ClassificationStatus;
   /**
-   * Identifier for the sighting type
+   * Type of sighting
    */
   "sightingType": string;
   /**
@@ -62,11 +62,11 @@ export interface Sighting {
    */
   "sightingTypeDisplayName": string;
   /**
-   * Name of the Mitre att&ck tactic
+   * Name of the MITRE ATT@CK framework tactic
    */
   "tacticName": string;
   /**
-   * Name of the Mitre att&ck technique
+   * Name of the MITRE ATT@CK framework technique
    */
   "techniqueName": string;
   /**
@@ -78,7 +78,7 @@ export interface Sighting {
    */
   "severity": model.Severity;
   /**
-   * Confidence of the sighting
+   * Level of confidence that the sighting is not a false positive
    */
   "confidence": model.Confidence;
   /**
@@ -90,23 +90,45 @@ export interface Sighting {
    */
   "timeLastDetected": Date;
   /**
-   * regions involved in the sighting
+   * List of regions involved in the sighting
    */
   "regions": Array<string>;
   /**
-   * The additional details of the Sighting
+   * The additional details for the sighting
    */
   "additionalDetails"?: { [key: string]: string };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace Sighting {
   export function getJsonObj(obj: Sighting): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Sighting): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

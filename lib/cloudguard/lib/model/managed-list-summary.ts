@@ -18,43 +18,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of ManagedList
+ * Summary information for a managed list.
  */
 export interface ManagedListSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can't be changed after creation
    */
   "id": string;
   /**
-   * ManagedList display name
+   * Managed list display name
    */
   "displayName": string;
   /**
-   * ManagedList description
+   * Managed list description
    */
   "description"?: string;
   /**
-   * Compartment Identifier where the resource is created
+   * Compartment OCID where the resource is created
    */
   "compartmentId": string;
   /**
-   * OCID of the Source ManagedList
+   * OCID of the source managed list
    */
   "sourceManagedListId"?: string;
   /**
-   * type of the list
+   * Type of information stored in the managed list
    */
   "listType": model.ManagedListType;
   /**
-   * provider of the feed
+   * Provider of the feed
    */
   "feedProvider": model.FeedProviderType;
   /**
-   * If this list is editable or not
+   * Is this list editable?
    */
   "isEditable"?: boolean;
   /**
-   * List of ManagedListItem
+   * List of items in the managed list
    */
   "listItems": Array<string>;
   /**
@@ -62,15 +62,15 @@ export interface ManagedListSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the managed list was updated. Format defined by RFC3339.
+   * The date and time the managed list was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state. [DEPRECATE]
    */
   "lifecyleDetails"?: string;
   /**

@@ -88,6 +88,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "isHydrated"?: boolean;
   /**
+   * The clusterPlacementGroup Id of the volume for volume placement.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
     * The number of volume performance units (VPUs) that will be applied to this boot volume per GB,
 * representing the Block Volume service's elastic performance options.
 * See [Block Volume Performance Levels](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumeperformance.htm#perf_levels) for more information.

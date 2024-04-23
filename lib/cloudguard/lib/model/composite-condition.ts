@@ -18,10 +18,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Composite Condition object with nested Condition
+ * Composite condition resource with nested condition.
  */
 export interface CompositeCondition extends model.Condition {
   "leftOperand"?: model.SimpleCondition | model.CompositeCondition;
+  /**
+   * Composite condition operator
+   */
   "compositeOperator"?: CompositeCondition.CompositeOperator;
   "rightOperand"?: model.SimpleCondition | model.CompositeCondition;
 

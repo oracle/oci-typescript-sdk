@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListProfilesRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
@@ -31,15 +31,15 @@ export interface ListProfilesRequest extends common.BaseRequest {
    */
   "displayNameContains"?: string;
   /**
-   * A filter to return registration profiles that match the given profileType.
+   * A filter to return registration profiles that match the given profile type.
    */
   "profileType"?: Array<model.ProfileType>;
   /**
-   * The OCID of the registration profile.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile. A filter used to return the specified profile.
    */
   "profileId"?: string;
   /**
-   * A filter to return only profiles that match the given osFamily.
+   * A filter to return only resources that match the given operating system family.
    */
   "osFamily"?: model.OsFamily;
   /**
@@ -47,7 +47,21 @@ export interface ListProfilesRequest extends common.BaseRequest {
    */
   "archType"?: model.ArchType;
   /**
-   * A filter to return only profiles that match the given vendorName.
+   * A filter to return profiles that match the given instance type.
+   */
+  "registrationType"?: Array<model.Profile.RegistrationType>;
+  /**
+   * A boolean variable that is used to list only the default profile resources.
+   *
+   */
+  "isDefaultProfile"?: boolean;
+  /**
+   * A filter to return only service-provided profiles.
+   *
+   */
+  "isServiceProvidedProfile"?: boolean;
+  /**
+   * A filter to return only resources that match the given vendor name.
    */
   "vendorName"?: model.VendorName;
   /**
@@ -67,7 +81,7 @@ Example: {@code 3}
  */
   "page"?: string;
   /**
-   * A filter to return only registration profile whose lifecycleState matches the given lifecycleState.
+   * A filter to return only registration profiles in the given state.
    */
   "lifecycleState"?: string;
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ExportAccessRequestsRequest extends common.BaseRequest {
   /**
-   *
+   * Exports the list of access requests for given date range in text format
    */
   "exportAccessRequestsDetails": model.ExportAccessRequestsDetails;
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListLifecycleEnvironmentsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
@@ -31,7 +31,7 @@ export interface ListLifecycleEnvironmentsRequest extends common.BaseRequest {
    */
   "displayNameContains"?: string;
   /**
-   * The OCID of the lifecycle environment.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle environment.
    */
   "lifecycleEnvironmentId"?: string;
   /**
@@ -39,9 +39,17 @@ export interface ListLifecycleEnvironmentsRequest extends common.BaseRequest {
    */
   "archType"?: model.ArchType;
   /**
-   * A filter to return only profiles that match the given osFamily.
+   * A filter to return only resources that match the given operating system family.
    */
   "osFamily"?: model.OsFamily;
+  /**
+   * A filter to return only resources whose location matches the given value.
+   */
+  "location"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * A filter to return only resources whose location does not match the given value.
+   */
+  "locationNotEqualTo"?: Array<model.ManagedInstanceLocation>;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
 * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).

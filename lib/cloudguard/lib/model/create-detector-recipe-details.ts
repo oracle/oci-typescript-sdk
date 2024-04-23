@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Create of Detector recipe.
+ * Parameters to use to create details for a detector recipe.
  */
 export interface CreateDetectorRecipeDetails {
   /**
@@ -36,19 +36,19 @@ Avoid entering confidential information.
     */
   "description"?: string;
   /**
-   * detector for the rule
+   * Detector for the rule
    */
   "detector"?: model.DetectorEnum;
   /**
-   * The id of the source detector recipe.
+   * The ID of the source detector recipe
    */
   "sourceDetectorRecipeId"?: string;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**
-   * Detector Rules to override from source detector recipe
+   * Detector rules to override from source detector recipe
    */
   "detectorRules"?: Array<model.UpdateDetectorRecipeDetectorRule>;
   /**

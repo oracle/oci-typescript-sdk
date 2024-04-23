@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Continuous query start policy that starts the query immediately.
+ * Continuous query start policy that starts the query immediately
  */
 export interface NoDelayStartPolicy extends model.ContinuousQueryStartPolicy {
   "startPolicyType": string;

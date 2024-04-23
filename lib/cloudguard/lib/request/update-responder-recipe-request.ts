@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateResponderRecipeRequest extends common.BaseRequest {
   /**
-   * OCID of ResponderRecipe
+   * OCID of the responder recipe.
    */
   "responderRecipeId": string;
   /**
-   * The details to be updated.
+   * The details to be updated
    */
   "updateResponderRecipeDetails": model.UpdateResponderRecipeDetails;
   /**

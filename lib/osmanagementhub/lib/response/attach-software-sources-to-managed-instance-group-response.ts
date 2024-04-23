@@ -16,6 +16,11 @@ import common = require("oci-common");
 
 export interface AttachSoftwareSourcesToManagedInstanceGroupResponse {
   /**
+   * Unique Oracle-assigned identifier for the asynchronous work. You can use this to query its status.
+   *
+   */
+  "opcWorkRequestId": string;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *

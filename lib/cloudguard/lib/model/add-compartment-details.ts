@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An existing compartment to add to a security zone
+ * Parameter for an existing compartment to be added to a security zone.
  */
 export interface AddCompartmentDetails {
   /**

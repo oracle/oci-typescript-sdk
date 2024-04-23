@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Risk Levels
+ * Possible risk level values
  **/
 export enum RiskLevel {
   Critical = "CRITICAL",

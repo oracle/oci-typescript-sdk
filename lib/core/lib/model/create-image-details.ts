@@ -66,7 +66,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "instanceId"?: string;
   /**
    * Specifies the configuration mode for launching virtual machine (VM) instances. The configuration modes are:
-   * * {@code NATIVE} - VM instances launch with paravirtualized boot and VFIO devices. The default value for platform images.
+   * * {@code NATIVE} - VM instances launch with iSCSI boot and VFIO devices. The default value for platform images.
    * * {@code EMULATED} - VM instances launch with emulated devices, such as the E1000 network driver and emulated SCSI disk controller.
    * * {@code PARAVIRTUALIZED} - VM instances launch with paravirtualized devices using VirtIO drivers.
    * * {@code CUSTOM} - VM instances launch with custom configuration settings specified in the {@code LaunchOptions} parameter.

@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,55 +17,56 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Detail information for an OCI Compute instance that is being managed.
+ * An object that defines the instance being managed by the service.
  */
 export interface ManagedInstance {
   /**
-   * The OCID for the managed instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance.
+   *
    */
   "id": string;
   /**
-   * Managed instance identifier.
+   * User-friendly name for the managed instance.
    */
   "displayName": string;
   /**
-   * Information specified by the user about the managed instance.
+   * User-specified description for the managed instance.
    */
   "description"?: string;
   /**
-   * The OCID for the tenancy this managed instance resides in.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tenancy that the managed instance resides in.
+   *
    */
   "tenancyId": string;
   /**
-   * The OCID for the compartment this managed instance resides in.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the managed instance.
+   *
    */
   "compartmentId": string;
   /**
-   * location of the managed instance.
+   * The location of the managed instance.
    */
   "location"?: model.ManagedInstanceLocation;
   /**
-   * Time at which the instance last checked in, as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
+   * Time that the instance last checked in with the service (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    *
    */
   "timeLastCheckin"?: Date;
   /**
-   * Time at which the instance last booted, as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
+   * Time that the instance last booted (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    *
    */
   "timeLastBoot"?: Date;
   /**
-   * Operating System Name.
+   * Operating system name.
    */
   "osName"?: string;
   /**
-   * Operating System Version.
+   * Operating system version.
    */
   "osVersion"?: string;
   /**
-   * Operating System Kernel Version.
+   * Operating system kernel version.
    */
   "osKernelVersion"?: string;
   /**
@@ -76,27 +78,29 @@ export interface ManagedInstance {
    */
   "architecture"?: model.ArchType;
   /**
-   * The Operating System type of the managed instance.
+   * The operating system type of the managed instance.
    */
   "osFamily"?: model.OsFamily;
   /**
-   * status of the managed instance.
+   * Current status of the managed instance.
    */
   "status": model.ManagedInstanceStatus;
   /**
-   * The content profile of this instance.
+   * The profile that was used to register this instance with the service.
    */
   "profile"?: string;
   /**
-   * Whether this managed instance is acting as an on-premise management station.
+   * Indicates whether this managed instance is acting as an on-premises management station.
    */
   "isManagementStation"?: boolean;
   /**
-   * The OCID of a management station to be used as the preferred primary.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station for the instance to use as primary management station.
+   *
    */
   "primaryManagementStationId"?: string;
   /**
-   * The OCID of a management station to be used as the preferred secondary.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station for the instance to use as secondary managment station.
+   *
    */
   "secondaryManagementStationId"?: string;
   /**
@@ -111,27 +115,31 @@ export interface ManagedInstance {
    */
   "isRebootRequired"?: boolean;
   /**
-   * Number of packages installed on the system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of packages installed on the instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "installedPackages"?: number;
   /**
-   * Number of updates available to be installed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of Windows updates installed on the instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "installedWindowsUpdates"?: number;
+  /**
+   * Number of updates available for installation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "updatesAvailable"?: number;
   /**
-   * Number of security type updates available to be installed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of security type updates available for installation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "securityUpdatesAvailable"?: number;
   /**
-   * Number of bug fix type updates available to be installed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of bug fix type updates available for installation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bugUpdatesAvailable"?: number;
   /**
-   * Number of enhancement type updates available to be installed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of enhancement type updates available for installation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "enhancementUpdatesAvailable"?: number;
   /**
-   * Number of non-classified updates available to be installed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of non-classified (other) updates available for installation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "otherUpdatesAvailable"?: number;
   /**
@@ -143,17 +151,25 @@ export interface ManagedInstance {
    */
   "workRequestCount"?: number;
   /**
-   * The date and time the work request was created, as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
+   * The date and time the instance was created (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    *
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the work request was updated, as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
+   * The date and time the instance was last updated (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    *
    */
   "timeUpdated"?: Date;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Oracle Notifications service (ONS) topic. ONS is the channel used to send notifications to the customer.
+   *
+   */
+  "notificationTopicId"?: string;
+  "autonomousSettings"?: model.AutonomousSettings;
+  /**
+   * Indicates whether the Autonomous Linux service manages the instance.
+   */
+  "isManagedByAutonomousLinux"?: boolean;
 }
 
 export namespace ManagedInstance {
@@ -172,7 +188,11 @@ export namespace ManagedInstance {
         "lifecycleEnvironment": obj.lifecycleEnvironment
           ? model.Id.getJsonObj(obj.lifecycleEnvironment)
           : undefined,
-        "lifecycleStage": obj.lifecycleStage ? model.Id.getJsonObj(obj.lifecycleStage) : undefined
+        "lifecycleStage": obj.lifecycleStage ? model.Id.getJsonObj(obj.lifecycleStage) : undefined,
+
+        "autonomousSettings": obj.autonomousSettings
+          ? model.AutonomousSettings.getJsonObj(obj.autonomousSettings)
+          : undefined
       }
     };
 
@@ -195,6 +215,10 @@ export namespace ManagedInstance {
           : undefined,
         "lifecycleStage": obj.lifecycleStage
           ? model.Id.getDeserializedJsonObj(obj.lifecycleStage)
+          : undefined,
+
+        "autonomousSettings": obj.autonomousSettings
+          ? model.AutonomousSettings.getDeserializedJsonObj(obj.autonomousSettings)
           : undefined
       }
     };

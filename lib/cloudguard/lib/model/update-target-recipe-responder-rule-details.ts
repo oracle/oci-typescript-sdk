@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details to be updated in TargetResponderRecipeResponderRule
+ * Parameters to update the configuration details of a target detector recipe.
  */
 export interface UpdateTargetRecipeResponderRuleDetails {
   /**
-   * Identifier for ResponderRule.
+   * Unique identifier for target detector recipe
    */
   "responderRuleId": string;
   "details": model.UpdateTargetResponderRuleDetails;

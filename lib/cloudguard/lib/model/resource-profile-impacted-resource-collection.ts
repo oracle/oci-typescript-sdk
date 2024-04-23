@@ -22,9 +22,13 @@ import common = require("oci-common");
  */
 export interface ResourceProfileImpactedResourceCollection {
   /**
-   * List of ResourceProfileImpactedResourceSummary
+   * List of ResourceProfileImpactedResourceSummary resources
    */
   "items": Array<model.ResourceProfileImpactedResourceSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ResourceProfileImpactedResourceCollection {
@@ -35,6 +39,11 @@ export namespace ResourceProfileImpactedResourceCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ResourceProfileImpactedResourceSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace ResourceProfileImpactedResourceCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ResourceProfileImpactedResourceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

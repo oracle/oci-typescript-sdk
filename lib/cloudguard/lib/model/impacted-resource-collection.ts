@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Provides the summary of impacted resources
+ * Collection of impacted resource summaries.
  */
 export interface ImpactedResourceCollection {
   /**
-   * List of ImpactedResourceSummary
+   * List of ImpactedResourceSummary resources
    */
   "items": Array<model.ImpactedResourceSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ImpactedResourceCollection {
@@ -35,6 +39,11 @@ export namespace ImpactedResourceCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ImpactedResourceSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace ImpactedResourceCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ImpactedResourceSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

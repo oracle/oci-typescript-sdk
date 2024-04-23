@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateDataMaskRuleRequest extends common.BaseRequest {
   /**
-   * OCID of dataMaskRule
+   * OCID of the data mask rule
    */
   "dataMaskRuleId": string;
   /**
-   * The information to be updated.
+   * The data mask rule information to be updated
    */
   "updateDataMaskRuleDetails": model.UpdateDataMaskRuleDetails;
   /**

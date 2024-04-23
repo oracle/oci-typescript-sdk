@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetConditionMetadataTypeRequest extends common.BaseRequest {
   /**
-   * The type of the condition meta data.
+   * The type of the condition metadata.
    */
   "conditionMetadataTypeId": model.ConditionTypeEnum;
   /**
@@ -27,11 +27,11 @@ export interface GetConditionMetadataTypeRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * ServiceType filter for the condition meta data.
+   * Service type filter for the condition metadata.
    */
   "serviceType"?: string;
   /**
-   * Resource filter for the condition meta data.
+   * Resource filter for the condition metadata.
    */
   "resourceType"?: string;
 }

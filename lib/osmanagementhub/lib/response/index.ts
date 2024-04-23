@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -12,8 +13,26 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeEventCompartmentResponse from "./change-event-compartment-response";
+export import ChangeEventCompartmentResponse = ChangeEventCompartmentResponse.ChangeEventCompartmentResponse;
+import * as DeleteEventResponse from "./delete-event-response";
+export import DeleteEventResponse = DeleteEventResponse.DeleteEventResponse;
+import * as DeleteEventContentResponse from "./delete-event-content-response";
+export import DeleteEventContentResponse = DeleteEventContentResponse.DeleteEventContentResponse;
+import * as GetEventResponse from "./get-event-response";
+export import GetEventResponse = GetEventResponse.GetEventResponse;
+import * as GetEventContentResponse from "./get-event-content-response";
+export import GetEventContentResponse = GetEventContentResponse.GetEventContentResponse;
+import * as ImportEventContentResponse from "./import-event-content-response";
+export import ImportEventContentResponse = ImportEventContentResponse.ImportEventContentResponse;
+import * as ListEventsResponse from "./list-events-response";
+export import ListEventsResponse = ListEventsResponse.ListEventsResponse;
+import * as UpdateEventResponse from "./update-event-response";
+export import UpdateEventResponse = UpdateEventResponse.UpdateEventResponse;
 import * as AttachManagedInstancesToLifecycleStageResponse from "./attach-managed-instances-to-lifecycle-stage-response";
 export import AttachManagedInstancesToLifecycleStageResponse = AttachManagedInstancesToLifecycleStageResponse.AttachManagedInstancesToLifecycleStageResponse;
+import * as ChangeLifecycleEnvironmentCompartmentResponse from "./change-lifecycle-environment-compartment-response";
+export import ChangeLifecycleEnvironmentCompartmentResponse = ChangeLifecycleEnvironmentCompartmentResponse.ChangeLifecycleEnvironmentCompartmentResponse;
 import * as CreateLifecycleEnvironmentResponse from "./create-lifecycle-environment-response";
 export import CreateLifecycleEnvironmentResponse = CreateLifecycleEnvironmentResponse.CreateLifecycleEnvironmentResponse;
 import * as DeleteLifecycleEnvironmentResponse from "./delete-lifecycle-environment-response";
@@ -34,8 +53,14 @@ import * as PromoteSoftwareSourceToLifecycleStageResponse from "./promote-softwa
 export import PromoteSoftwareSourceToLifecycleStageResponse = PromoteSoftwareSourceToLifecycleStageResponse.PromoteSoftwareSourceToLifecycleStageResponse;
 import * as UpdateLifecycleEnvironmentResponse from "./update-lifecycle-environment-response";
 export import UpdateLifecycleEnvironmentResponse = UpdateLifecycleEnvironmentResponse.UpdateLifecycleEnvironmentResponse;
+import * as AttachProfileToManagedInstanceResponse from "./attach-profile-to-managed-instance-response";
+export import AttachProfileToManagedInstanceResponse = AttachProfileToManagedInstanceResponse.AttachProfileToManagedInstanceResponse;
 import * as AttachSoftwareSourcesToManagedInstanceResponse from "./attach-software-sources-to-managed-instance-response";
 export import AttachSoftwareSourcesToManagedInstanceResponse = AttachSoftwareSourcesToManagedInstanceResponse.AttachSoftwareSourcesToManagedInstanceResponse;
+import * as DeleteManagedInstanceResponse from "./delete-managed-instance-response";
+export import DeleteManagedInstanceResponse = DeleteManagedInstanceResponse.DeleteManagedInstanceResponse;
+import * as DetachProfileFromManagedInstanceResponse from "./detach-profile-from-managed-instance-response";
+export import DetachProfileFromManagedInstanceResponse = DetachProfileFromManagedInstanceResponse.DetachProfileFromManagedInstanceResponse;
 import * as DetachSoftwareSourcesFromManagedInstanceResponse from "./detach-software-sources-from-managed-instance-response";
 export import DetachSoftwareSourcesFromManagedInstanceResponse = DetachSoftwareSourcesFromManagedInstanceResponse.DetachSoftwareSourcesFromManagedInstanceResponse;
 import * as DisableModuleStreamOnManagedInstanceResponse from "./disable-module-stream-on-managed-instance-response";
@@ -44,24 +69,36 @@ import * as EnableModuleStreamOnManagedInstanceResponse from "./enable-module-st
 export import EnableModuleStreamOnManagedInstanceResponse = EnableModuleStreamOnManagedInstanceResponse.EnableModuleStreamOnManagedInstanceResponse;
 import * as GetManagedInstanceResponse from "./get-managed-instance-response";
 export import GetManagedInstanceResponse = GetManagedInstanceResponse.GetManagedInstanceResponse;
+import * as GetWindowsUpdateResponse from "./get-windows-update-response";
+export import GetWindowsUpdateResponse = GetWindowsUpdateResponse.GetWindowsUpdateResponse;
+import * as InstallAllWindowsUpdatesOnManagedInstancesInCompartmentResponse from "./install-all-windows-updates-on-managed-instances-in-compartment-response";
+export import InstallAllWindowsUpdatesOnManagedInstancesInCompartmentResponse = InstallAllWindowsUpdatesOnManagedInstancesInCompartmentResponse.InstallAllWindowsUpdatesOnManagedInstancesInCompartmentResponse;
 import * as InstallModuleStreamProfileOnManagedInstanceResponse from "./install-module-stream-profile-on-managed-instance-response";
 export import InstallModuleStreamProfileOnManagedInstanceResponse = InstallModuleStreamProfileOnManagedInstanceResponse.InstallModuleStreamProfileOnManagedInstanceResponse;
 import * as InstallPackagesOnManagedInstanceResponse from "./install-packages-on-managed-instance-response";
 export import InstallPackagesOnManagedInstanceResponse = InstallPackagesOnManagedInstanceResponse.InstallPackagesOnManagedInstanceResponse;
+import * as InstallWindowsUpdatesOnManagedInstanceResponse from "./install-windows-updates-on-managed-instance-response";
+export import InstallWindowsUpdatesOnManagedInstanceResponse = InstallWindowsUpdatesOnManagedInstanceResponse.InstallWindowsUpdatesOnManagedInstanceResponse;
 import * as ListManagedInstanceAvailablePackagesResponse from "./list-managed-instance-available-packages-response";
 export import ListManagedInstanceAvailablePackagesResponse = ListManagedInstanceAvailablePackagesResponse.ListManagedInstanceAvailablePackagesResponse;
 import * as ListManagedInstanceAvailableSoftwareSourcesResponse from "./list-managed-instance-available-software-sources-response";
 export import ListManagedInstanceAvailableSoftwareSourcesResponse = ListManagedInstanceAvailableSoftwareSourcesResponse.ListManagedInstanceAvailableSoftwareSourcesResponse;
+import * as ListManagedInstanceAvailableWindowsUpdatesResponse from "./list-managed-instance-available-windows-updates-response";
+export import ListManagedInstanceAvailableWindowsUpdatesResponse = ListManagedInstanceAvailableWindowsUpdatesResponse.ListManagedInstanceAvailableWindowsUpdatesResponse;
 import * as ListManagedInstanceErrataResponse from "./list-managed-instance-errata-response";
 export import ListManagedInstanceErrataResponse = ListManagedInstanceErrataResponse.ListManagedInstanceErrataResponse;
 import * as ListManagedInstanceInstalledPackagesResponse from "./list-managed-instance-installed-packages-response";
 export import ListManagedInstanceInstalledPackagesResponse = ListManagedInstanceInstalledPackagesResponse.ListManagedInstanceInstalledPackagesResponse;
+import * as ListManagedInstanceInstalledWindowsUpdatesResponse from "./list-managed-instance-installed-windows-updates-response";
+export import ListManagedInstanceInstalledWindowsUpdatesResponse = ListManagedInstanceInstalledWindowsUpdatesResponse.ListManagedInstanceInstalledWindowsUpdatesResponse;
 import * as ListManagedInstanceModulesResponse from "./list-managed-instance-modules-response";
 export import ListManagedInstanceModulesResponse = ListManagedInstanceModulesResponse.ListManagedInstanceModulesResponse;
 import * as ListManagedInstanceUpdatablePackagesResponse from "./list-managed-instance-updatable-packages-response";
 export import ListManagedInstanceUpdatablePackagesResponse = ListManagedInstanceUpdatablePackagesResponse.ListManagedInstanceUpdatablePackagesResponse;
 import * as ListManagedInstancesResponse from "./list-managed-instances-response";
 export import ListManagedInstancesResponse = ListManagedInstancesResponse.ListManagedInstancesResponse;
+import * as ListWindowsUpdatesResponse from "./list-windows-updates-response";
+export import ListWindowsUpdatesResponse = ListWindowsUpdatesResponse.ListWindowsUpdatesResponse;
 import * as ManageModuleStreamsOnManagedInstanceResponse from "./manage-module-streams-on-managed-instance-response";
 export import ManageModuleStreamsOnManagedInstanceResponse = ManageModuleStreamsOnManagedInstanceResponse.ManageModuleStreamsOnManagedInstanceResponse;
 import * as RefreshSoftwareOnManagedInstanceResponse from "./refresh-software-on-managed-instance-response";
@@ -82,6 +119,8 @@ import * as AttachManagedInstancesToManagedInstanceGroupResponse from "./attach-
 export import AttachManagedInstancesToManagedInstanceGroupResponse = AttachManagedInstancesToManagedInstanceGroupResponse.AttachManagedInstancesToManagedInstanceGroupResponse;
 import * as AttachSoftwareSourcesToManagedInstanceGroupResponse from "./attach-software-sources-to-managed-instance-group-response";
 export import AttachSoftwareSourcesToManagedInstanceGroupResponse = AttachSoftwareSourcesToManagedInstanceGroupResponse.AttachSoftwareSourcesToManagedInstanceGroupResponse;
+import * as ChangeManagedInstanceGroupCompartmentResponse from "./change-managed-instance-group-compartment-response";
+export import ChangeManagedInstanceGroupCompartmentResponse = ChangeManagedInstanceGroupCompartmentResponse.ChangeManagedInstanceGroupCompartmentResponse;
 import * as CreateManagedInstanceGroupResponse from "./create-managed-instance-group-response";
 export import CreateManagedInstanceGroupResponse = CreateManagedInstanceGroupResponse.CreateManagedInstanceGroupResponse;
 import * as DeleteManagedInstanceGroupResponse from "./delete-managed-instance-group-response";
@@ -100,6 +139,8 @@ import * as InstallModuleStreamProfileOnManagedInstanceGroupResponse from "./ins
 export import InstallModuleStreamProfileOnManagedInstanceGroupResponse = InstallModuleStreamProfileOnManagedInstanceGroupResponse.InstallModuleStreamProfileOnManagedInstanceGroupResponse;
 import * as InstallPackagesOnManagedInstanceGroupResponse from "./install-packages-on-managed-instance-group-response";
 export import InstallPackagesOnManagedInstanceGroupResponse = InstallPackagesOnManagedInstanceGroupResponse.InstallPackagesOnManagedInstanceGroupResponse;
+import * as InstallWindowsUpdatesOnManagedInstanceGroupResponse from "./install-windows-updates-on-managed-instance-group-response";
+export import InstallWindowsUpdatesOnManagedInstanceGroupResponse = InstallWindowsUpdatesOnManagedInstanceGroupResponse.InstallWindowsUpdatesOnManagedInstanceGroupResponse;
 import * as ListManagedInstanceGroupAvailableModulesResponse from "./list-managed-instance-group-available-modules-response";
 export import ListManagedInstanceGroupAvailableModulesResponse = ListManagedInstanceGroupAvailableModulesResponse.ListManagedInstanceGroupAvailableModulesResponse;
 import * as ListManagedInstanceGroupAvailablePackagesResponse from "./list-managed-instance-group-available-packages-response";
@@ -118,10 +159,14 @@ import * as RemoveModuleStreamProfileFromManagedInstanceGroupResponse from "./re
 export import RemoveModuleStreamProfileFromManagedInstanceGroupResponse = RemoveModuleStreamProfileFromManagedInstanceGroupResponse.RemoveModuleStreamProfileFromManagedInstanceGroupResponse;
 import * as RemovePackagesFromManagedInstanceGroupResponse from "./remove-packages-from-managed-instance-group-response";
 export import RemovePackagesFromManagedInstanceGroupResponse = RemovePackagesFromManagedInstanceGroupResponse.RemovePackagesFromManagedInstanceGroupResponse;
+import * as SwitchModuleStreamOnManagedInstanceGroupResponse from "./switch-module-stream-on-managed-instance-group-response";
+export import SwitchModuleStreamOnManagedInstanceGroupResponse = SwitchModuleStreamOnManagedInstanceGroupResponse.SwitchModuleStreamOnManagedInstanceGroupResponse;
 import * as UpdateAllPackagesOnManagedInstanceGroupResponse from "./update-all-packages-on-managed-instance-group-response";
 export import UpdateAllPackagesOnManagedInstanceGroupResponse = UpdateAllPackagesOnManagedInstanceGroupResponse.UpdateAllPackagesOnManagedInstanceGroupResponse;
 import * as UpdateManagedInstanceGroupResponse from "./update-managed-instance-group-response";
 export import UpdateManagedInstanceGroupResponse = UpdateManagedInstanceGroupResponse.UpdateManagedInstanceGroupResponse;
+import * as ChangeManagementStationCompartmentResponse from "./change-management-station-compartment-response";
+export import ChangeManagementStationCompartmentResponse = ChangeManagementStationCompartmentResponse.ChangeManagementStationCompartmentResponse;
 import * as CreateManagementStationResponse from "./create-management-station-response";
 export import CreateManagementStationResponse = CreateManagementStationResponse.CreateManagementStationResponse;
 import * as DeleteManagementStationResponse from "./delete-management-station-response";
@@ -132,12 +177,16 @@ import * as ListManagementStationsResponse from "./list-management-stations-resp
 export import ListManagementStationsResponse = ListManagementStationsResponse.ListManagementStationsResponse;
 import * as ListMirrorsResponse from "./list-mirrors-response";
 export import ListMirrorsResponse = ListMirrorsResponse.ListMirrorsResponse;
+import * as RefreshManagementStationConfigResponse from "./refresh-management-station-config-response";
+export import RefreshManagementStationConfigResponse = RefreshManagementStationConfigResponse.RefreshManagementStationConfigResponse;
 import * as SynchronizeMirrorsResponse from "./synchronize-mirrors-response";
 export import SynchronizeMirrorsResponse = SynchronizeMirrorsResponse.SynchronizeMirrorsResponse;
 import * as SynchronizeSingleMirrorsResponse from "./synchronize-single-mirrors-response";
 export import SynchronizeSingleMirrorsResponse = SynchronizeSingleMirrorsResponse.SynchronizeSingleMirrorsResponse;
 import * as UpdateManagementStationResponse from "./update-management-station-response";
 export import UpdateManagementStationResponse = UpdateManagementStationResponse.UpdateManagementStationResponse;
+import * as ChangeProfileCompartmentResponse from "./change-profile-compartment-response";
+export import ChangeProfileCompartmentResponse = ChangeProfileCompartmentResponse.ChangeProfileCompartmentResponse;
 import * as CreateProfileResponse from "./create-profile-response";
 export import CreateProfileResponse = CreateProfileResponse.CreateProfileResponse;
 import * as DeleteProfileResponse from "./delete-profile-response";
@@ -154,6 +203,8 @@ import * as GetManagedInstanceContentResponse from "./get-managed-instance-conte
 export import GetManagedInstanceContentResponse = GetManagedInstanceContentResponse.GetManagedInstanceContentResponse;
 import * as SummarizeManagedInstanceAnalyticsResponse from "./summarize-managed-instance-analytics-response";
 export import SummarizeManagedInstanceAnalyticsResponse = SummarizeManagedInstanceAnalyticsResponse.SummarizeManagedInstanceAnalyticsResponse;
+import * as ChangeScheduledJobCompartmentResponse from "./change-scheduled-job-compartment-response";
+export import ChangeScheduledJobCompartmentResponse = ChangeScheduledJobCompartmentResponse.ChangeScheduledJobCompartmentResponse;
 import * as CreateScheduledJobResponse from "./create-scheduled-job-response";
 export import CreateScheduledJobResponse = CreateScheduledJobResponse.CreateScheduledJobResponse;
 import * as DeleteScheduledJobResponse from "./delete-scheduled-job-response";
@@ -166,8 +217,12 @@ import * as RunScheduledJobNowResponse from "./run-scheduled-job-now-response";
 export import RunScheduledJobNowResponse = RunScheduledJobNowResponse.RunScheduledJobNowResponse;
 import * as UpdateScheduledJobResponse from "./update-scheduled-job-response";
 export import UpdateScheduledJobResponse = UpdateScheduledJobResponse.UpdateScheduledJobResponse;
+import * as AddPackagesToSoftwareSourceResponse from "./add-packages-to-software-source-response";
+export import AddPackagesToSoftwareSourceResponse = AddPackagesToSoftwareSourceResponse.AddPackagesToSoftwareSourceResponse;
 import * as ChangeAvailabilityOfSoftwareSourcesResponse from "./change-availability-of-software-sources-response";
 export import ChangeAvailabilityOfSoftwareSourcesResponse = ChangeAvailabilityOfSoftwareSourcesResponse.ChangeAvailabilityOfSoftwareSourcesResponse;
+import * as ChangeSoftwareSourceCompartmentResponse from "./change-software-source-compartment-response";
+export import ChangeSoftwareSourceCompartmentResponse = ChangeSoftwareSourceCompartmentResponse.ChangeSoftwareSourceCompartmentResponse;
 import * as CreateEntitlementResponse from "./create-entitlement-response";
 export import CreateEntitlementResponse = CreateEntitlementResponse.CreateEntitlementResponse;
 import * as CreateSoftwareSourceResponse from "./create-software-source-response";
@@ -184,8 +239,12 @@ import * as GetPackageGroupResponse from "./get-package-group-response";
 export import GetPackageGroupResponse = GetPackageGroupResponse.GetPackageGroupResponse;
 import * as GetSoftwarePackageResponse from "./get-software-package-response";
 export import GetSoftwarePackageResponse = GetSoftwarePackageResponse.GetSoftwarePackageResponse;
+import * as GetSoftwarePackageByNameResponse from "./get-software-package-by-name-response";
+export import GetSoftwarePackageByNameResponse = GetSoftwarePackageByNameResponse.GetSoftwarePackageByNameResponse;
 import * as GetSoftwareSourceResponse from "./get-software-source-response";
 export import GetSoftwareSourceResponse = GetSoftwareSourceResponse.GetSoftwareSourceResponse;
+import * as ListAllSoftwarePackagesResponse from "./list-all-software-packages-response";
+export import ListAllSoftwarePackagesResponse = ListAllSoftwarePackagesResponse.ListAllSoftwarePackagesResponse;
 import * as ListEntitlementsResponse from "./list-entitlements-response";
 export import ListEntitlementsResponse = ListEntitlementsResponse.ListEntitlementsResponse;
 import * as ListErrataResponse from "./list-errata-response";
@@ -196,6 +255,8 @@ import * as ListModuleStreamsResponse from "./list-module-streams-response";
 export import ListModuleStreamsResponse = ListModuleStreamsResponse.ListModuleStreamsResponse;
 import * as ListPackageGroupsResponse from "./list-package-groups-response";
 export import ListPackageGroupsResponse = ListPackageGroupsResponse.ListPackageGroupsResponse;
+import * as ListSoftwarePackageSoftwareSourcesResponse from "./list-software-package-software-sources-response";
+export import ListSoftwarePackageSoftwareSourcesResponse = ListSoftwarePackageSoftwareSourcesResponse.ListSoftwarePackageSoftwareSourcesResponse;
 import * as ListSoftwarePackagesResponse from "./list-software-packages-response";
 export import ListSoftwarePackagesResponse = ListSoftwarePackagesResponse.ListSoftwarePackagesResponse;
 import * as ListSoftwareSourceVendorsResponse from "./list-software-source-vendors-response";

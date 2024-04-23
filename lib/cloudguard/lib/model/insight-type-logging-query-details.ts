@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Additional details specific to insight type DataSource.
+ * Additional details for Insight type queries on a data source.
  */
 export interface InsightTypeLoggingQueryDetails extends model.LoggingQueryDetails {
   /**

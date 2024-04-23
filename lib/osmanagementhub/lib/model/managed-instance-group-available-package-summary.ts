@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information pertaining to an available package for a managed instance group.
+ * Provides summary information for an available package for a managed instance group.
  */
 export interface ManagedInstanceGroupAvailablePackageSummary {
   /**
@@ -24,7 +25,7 @@ export interface ManagedInstanceGroupAvailablePackageSummary {
    */
   "displayName": string;
   /**
-   * Unique identifier for the package. NOTE - This is not an OCID.
+   * Unique identifier for the package. Note that this is not an OCID.
    */
   "name": string;
   /**
@@ -32,7 +33,7 @@ export interface ManagedInstanceGroupAvailablePackageSummary {
    */
   "type": string;
   /**
-   * Version of the installed package.
+   * Version of the available package.
    */
   "version": string;
   /**
@@ -44,7 +45,7 @@ export interface ManagedInstanceGroupAvailablePackageSummary {
    */
   "softwareSources"?: Array<model.SoftwareSourceDetails>;
   /**
-   * Flag to return only latest package versions.
+   * Indicates whether this is the latest package version.
    */
   "isLatest"?: boolean;
 }

@@ -18,31 +18,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of DetectorRecipe
+ * Summary information for a target detector recipe
  */
 export interface TargetDetectorRecipeSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * Unique identifier that can't be changed after creation
    */
   "id": string;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**
-   * DetectorRecipe Identifier Name
+   * Detector recipe's display name
    */
   "displayName": string;
   /**
-   * DetectorRecipe Description
+   * Detector recipe's description
    */
   "description": string;
   /**
-   * Owner of DetectorRecipe
+   * Detector recipe's owner
    */
   "owner": model.OwnerType;
   /**
-   * Unique identifier for Detector Recipe of which this is an extension
+   * Unique identifier for detector recipe of which this is an extension
    */
   "detectorRecipeId": string;
   /**
@@ -50,7 +50,7 @@ export interface TargetDetectorRecipeSummary {
    */
   "detector"?: model.DetectorEnum;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource
    */
   "lifecycleState"?: model.LifecycleState;
   /**
@@ -58,13 +58,21 @@ export interface TargetDetectorRecipeSummary {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the target detector recipe was updated. Format defined by RFC3339.
+   * The date and time the target detector recipe was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
+   * Recipe type ( STANDARD, ENTERPRISE )
+   */
+  "detectorRecipeType"?: model.DetectorRecipeEnum;
   /**
    * The number of days for which source data is retained Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -73,12 +81,30 @@ export interface TargetDetectorRecipeSummary {
 
 export namespace TargetDetectorRecipeSummary {
   export function getJsonObj(obj: TargetDetectorRecipeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: TargetDetectorRecipeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

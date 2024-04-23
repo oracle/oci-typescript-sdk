@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Describes a work request.
+ * An object that defines a work request.
  */
 export interface WorkRequest {
   /**
@@ -28,7 +29,7 @@ export interface WorkRequest {
    */
   "status": model.OperationStatus;
   /**
-   * The OCID of the work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "id": string;
   /**
@@ -52,21 +53,24 @@ export interface WorkRequest {
    */
   "childrenId"?: Array<string>;
   /**
-   * The OCID of the compartment that contains the work request. Work requests should be scoped to
-   * the same compartment as the resource it affects. If the work request affects multiple resources,
-   * and those resources are not in the same compartment, it is up to the service team to pick the primary
-   * resource whose compartment should be used.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the work request.
+   * Work requests should be scoped to the same compartment as the resource it affects.
+   * If the work request affects multiple resources the different compartments, the services selects the compartment of the primary resource.
    *
    */
   "compartmentId": string;
   /**
-   * The list of OCIDs for the resources affected by the work request.
+   * The list of [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the resources affected by the work request.
    */
   "resources": Array<model.WorkRequestResource>;
   /**
-   * A list of package names to be installed/updated/removed.
+   * A list of package names to be installed, updated, or removed.
    */
   "packageNames"?: Array<string>;
+  /**
+   * The UUIDs of the target Windows update (only used when operation type is INSTALL_WINDOWS_UPDATES).
+   */
+  "windowsUpdateNames"?: Array<string>;
   /**
    * The list of appstream modules being operated on.
    */
@@ -76,35 +80,62 @@ export interface WorkRequest {
    */
   "percentComplete": number;
   /**
-   * The date and time the work request was created - as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
+   * The date and time the work request was created (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    *
    */
   "timeCreated": Date;
   /**
-   * The date and time the work request was created - as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
+   * The date and time the work request started (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    *
    */
   "timeUpdated"?: Date;
   /**
-   * The date and time the work request was started - as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339),
-   * section 14.29.
+   * The date and time the work request started (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    *
    */
   "timeStarted"?: Date;
   /**
-   * The date and time the work request was finished - as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
+   * The date and time the work request completed (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    *
    */
   "timeFinished"?: Date;
   /**
-   * The OCID of the resource that initiated the work request.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource that initiated the work request.
    */
   "initiatorId"?: string;
   "managementStation"?: model.WorkRequestManagementStationDetails;
+  /**
+   * The scheduled date and time to retry the work request (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
+   */
+  "timeScheduled"?: Date;
+  /**
+   * The location of the bundle in the filesystem of the resource associated to this work request.
+   *
+   */
+  "contentLocation"?: string;
+  /**
+   * The event id of the content. This property is required when the work request type is IMPORT_CONTENT or REMOVE_CONTENT.
+   *
+   */
+  "eventId"?: string;
+  /**
+   * The EventFingerprint associated with the content. This property is required when the work request type is IMPORT_CONTENT or REMOVE_CONTENT.
+   *
+   */
+  "contentChecksum"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the original work request that is being retried.
+   *
+   */
+  "retryOfId"?: string;
+  /**
+   * Indicates whether this work request is managed by the Autonomous Linux service.
+   */
+  "retryIntervals"?: Array<number>;
+  /**
+   * Indicates whether this work request is managed by the Autonomous Linux service.
+   */
+  "isManagedByAutonomousLinux"?: boolean;
 }
 
 export namespace WorkRequest {

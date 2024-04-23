@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of policy statements required by cloud guard
+ * Collection of policy statements required by Cloud Guard.
  */
 export interface PolicyCollection {
   /**
    * List of global policy statements
    */
   "items": Array<model.PolicySummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace PolicyCollection {
@@ -35,6 +39,11 @@ export namespace PolicyCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.PolicySummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace PolicyCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.PolicySummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

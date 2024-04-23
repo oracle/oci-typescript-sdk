@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateConfigurationRequest extends common.BaseRequest {
   /**
-   * Update Configuration Details of Cloud Guard for a Tenancy.
+   * Updates configuration details of Cloud Guard for a Tenancy.
    */
   "updateConfigurationDetails": model.UpdateConfigurationDetails;
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**

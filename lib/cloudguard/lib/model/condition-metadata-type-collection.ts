@@ -18,13 +18,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * condition type provided by cloud guard
+ * The collection of available condition types.
  */
 export interface ConditionMetadataTypeCollection {
   /**
-   * collection of condition types
+   * List of ConditionMetadataTypeSummary resources
    */
   "items": Array<model.ConditionMetadataTypeSummary>;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ConditionMetadataTypeCollection {
@@ -35,6 +39,11 @@ export namespace ConditionMetadataTypeCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ConditionMetadataTypeSummary.getJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -49,6 +58,11 @@ export namespace ConditionMetadataTypeCollection {
         "items": obj.items
           ? obj.items.map(item => {
               return model.ConditionMetadataTypeSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

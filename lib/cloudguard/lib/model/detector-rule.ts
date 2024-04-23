@@ -22,40 +22,40 @@ import common = require("oci-common");
  */
 export interface DetectorRule {
   /**
-   * The unique identifier of the detector rule.
+   * The unique identifier of the detector rule
    */
   "id": string;
   /**
-   * Display name for DetectorRule.
+   * Display name for the detector rule
    */
   "displayName"?: string;
   /**
-   * Description for DetectorRule.
+   * Description for the detector rule
    */
   "description"?: string;
   /**
-   * recommendation for DetectorRule
+   * Recommendation for the detector rule
    */
   "recommendation"?: string;
   /**
-   * detector for the rule
+   * Detector recipe for the rule
    */
   "detector": model.DetectorEnum;
   /**
-   * service type of the configuration to which the rule is applied
+   * Service type of the configuration to which the rule is applied
    */
   "serviceType": string;
   /**
-   * resource type of the configuration to which the rule is applied
+   * Resource type of the configuration to which the rule is applied
    */
   "resourceType": string;
   "detectorDetails"?: model.DetectorDetails;
   /**
-   * List of cloudguard managed list types related to this rule
+   * List of managed list types related to this rule
    */
   "managedListTypes"?: Array<DetectorRule.ManagedListTypes>;
   /**
-   * List of CandidateResponderRule related to this rule
+   * List of responder rules that could be used to remediate a problem triggered by this detector rule
    */
   "candidateResponderRules"?: Array<model.CandidateResponderRule>;
   /**
@@ -67,13 +67,17 @@ export interface DetectorRule {
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the DetectorRule.
+   * The current state of the detector rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace DetectorRule {
@@ -111,6 +115,12 @@ export namespace DetectorRule {
           ? obj.candidateResponderRules.map(item => {
               return model.CandidateResponderRule.getJsonObj(item);
             })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -128,6 +138,12 @@ export namespace DetectorRule {
         "candidateResponderRules": obj.candidateResponderRules
           ? obj.candidateResponderRules.map(item => {
               return model.CandidateResponderRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

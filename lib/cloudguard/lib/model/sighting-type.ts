@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specific behavior that can trigger a Sighting
+ * Information for a sighting type
  */
 export interface SightingType {
   /**
-   * The unique identifier of sighting type
+   * The unique identifier of the sighting type
    */
   "id"?: string;
   /**
-   * Name of the sighting type
+   * Display name of the sighting type
    */
   "displayName"?: string;
   /**
@@ -34,15 +34,15 @@ export interface SightingType {
    */
   "description"?: string;
   /**
-   * Link of the sighting type
+   * MITRE ATT@CK framework link for the sighting type
    */
   "mitreLink"?: string;
   /**
-   * Mitre Att&ck tactic
+   * MITRE ATT@CK framework tactic for the sighting type
    */
   "tactic"?: string;
   /**
-   * List of Mitre Att&ck Techniques
+   * List of MITRE ATT@CK framework techniques for the sighting type
    */
   "techniques"?: Array<string>;
 }

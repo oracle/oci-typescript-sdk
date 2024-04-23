@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The status of the dataMaskRule.
+ * The enablement status of the data mask rule.
  **/
 export enum DataMaskRuleStatus {
   Enabled = "ENABLED",

@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for a software package.
+ * An object that defines a software package.
  */
 export interface SoftwarePackage {
   /**
@@ -24,7 +25,7 @@ export interface SoftwarePackage {
    */
   "displayName": string;
   /**
-   * Unique identifier for the package. NOTE - This is not an OCID.
+   * Unique identifier for the package. Note that this is not an OCID.
    */
   "name": string;
   /**
@@ -38,9 +39,9 @@ export interface SoftwarePackage {
   /**
    * The architecture for which this software was built
    */
-  "architecture"?: string;
+  "architecture"?: model.SoftwarePackageArchitecture;
   /**
-   * Date of the last update to the package.
+   * The date and time the package was last modified (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "lastModifiedDate"?: string;
   /**
@@ -68,13 +69,17 @@ export interface SoftwarePackage {
    */
   "files"?: Array<model.SoftwarePackageFile>;
   /**
-   * List of software sources that provide the software package.
+   * List of software sources that provide the software package. This property is deprecated and it will be removed in a future API release.
    */
   "softwareSources"?: Array<model.SoftwareSourceDetails>;
   /**
    * Indicates whether this package is the latest version.
    */
   "isLatest"?: boolean;
+  /**
+   * The OS families the package belongs to.
+   */
+  "osFamilies"?: Array<model.OsFamily>;
 }
 
 export namespace SoftwarePackage {
@@ -95,6 +100,12 @@ export namespace SoftwarePackage {
         "softwareSources": obj.softwareSources
           ? obj.softwareSources.map(item => {
               return model.SoftwareSourceDetails.getJsonObj(item);
+            })
+          : undefined,
+
+        "osFamilies": obj.osFamilies
+          ? obj.osFamilies.map(item => {
+              return model.OsFamily.getJsonObj(item);
             })
           : undefined
       }
@@ -119,6 +130,12 @@ export namespace SoftwarePackage {
         "softwareSources": obj.softwareSources
           ? obj.softwareSources.map(item => {
               return model.SoftwareSourceDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "osFamilies": obj.osFamilies
+          ? obj.osFamilies.map(item => {
+              return model.OsFamily.getDeserializedJsonObj(item);
             })
           : undefined
       }

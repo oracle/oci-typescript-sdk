@@ -18,36 +18,55 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of ResponderRule.
- */
+* A ResponderRecipeRule resource contains a specific instance of a
+* single responder rule.
+* <p>
+A ResponderRecipeRule resource:
+* * Is effectively a copy of a ResponderRule resource in which users can
+* make certain changes if it\u2019s Oracle-managed, and other changes if it\u2019s user-managed.
+* * Can also be created by cloning an existing ResponderRecipe resource, either
+* user-managed or Oracle-managed; cloning the ResponderRecipe resource also clones
+* its associated ResponderRule resources as ResponderRecipeRule resources.
+* * Is visible on the Cloud Guard Responder Recipes, Responder Details page.
+* * Is effectively located in a specific OCI compartment, through the ResponderRecipe
+* resource to which it belongs.
+* * Can be modified by users, programmatically or through the UI.
+* * Changes that can be made here apply globally, to all resources in OCI compartments
+* mapped to a target that attaches the associated responder recipe (in a
+* TargetResponderRecipe resource), but are overridden by changes made in the
+* corresponding TargetResponderRecipe resource (which is effectively a copy of the
+* ResponderRecipe resource).
+* type: object
+* 
+*/
 export interface ResponderRecipeResponderRule {
   /**
-   * Identifier for ResponderRule.
+   * Unique identifier for the responder rule
    */
   "responderRuleId": string;
   /**
-   * ResponderRule display name.
+   * Responder rule display name
    */
   "displayName"?: string;
   /**
-   * ResponderRule description.
+   * Responder rule description
    */
   "description"?: string;
   /**
-   * Type of Responder
+   * Type of responder
    */
   "type"?: model.ResponderType;
   /**
-   * List of Policy
+   * List of policies
    */
   "policies"?: Array<string>;
   /**
-   * Supported Execution Modes
+   * Supported execution modes for the responder rule
    */
   "supportedModes"?: Array<ResponderRecipeResponderRule.SupportedModes>;
   "details"?: model.ResponderRuleDetails;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**
@@ -55,17 +74,21 @@ export interface ResponderRecipeResponderRule {
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the responder recipe rule was updated. Format defined by RFC3339.
+   * The date and time the responder recipe rule was last updated. Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the ResponderRule.
+   * The current lifecycle state of the responder rule
    */
   "lifecycleState"?: model.LifecycleState;
   /**
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ResponderRecipeResponderRule {
@@ -83,7 +106,13 @@ export namespace ResponderRecipeResponderRule {
     const jsonObj = {
       ...obj,
       ...{
-        "details": obj.details ? model.ResponderRuleDetails.getJsonObj(obj.details) : undefined
+        "details": obj.details ? model.ResponderRuleDetails.getJsonObj(obj.details) : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -95,6 +124,12 @@ export namespace ResponderRecipeResponderRule {
       ...{
         "details": obj.details
           ? model.ResponderRuleDetails.getDeserializedJsonObj(obj.details)
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListManagedInstanceGroupAvailablePackagesRequest extends common.BaseRequest {
   /**
-   * The managed instance group OCID.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
    */
   "managedInstanceGroupId": string;
   /**
@@ -31,7 +31,7 @@ export interface ListManagedInstanceGroupAvailablePackagesRequest extends common
    */
   "displayNameContains"?: string;
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
@@ -60,10 +60,7 @@ Example: {@code 3}
    */
   "sortBy"?: ListManagedInstanceGroupAvailablePackagesRequest.SortBy;
   /**
-   * A boolean variable that is used to list only the latest versions of packages, module streams,
-   * and stream profiles when set to true. All packages, module streams, and stream profiles are
-   * returned when set to false.
-   *
+   * Indicates whether to list only the latest versions of packages, module streams, and stream profiles.
    */
   "isLatest"?: boolean;
   /**

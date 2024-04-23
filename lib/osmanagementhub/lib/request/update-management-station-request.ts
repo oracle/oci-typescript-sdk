@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateManagementStationRequest extends common.BaseRequest {
   /**
-   * The OCID of the management station.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station.
    */
   "managementStationId": string;
   /**
-   * The information to be updated.
+   * The information used to update the management station.
    */
   "updateManagementStationDetails": model.UpdateManagementStationDetails;
   /**

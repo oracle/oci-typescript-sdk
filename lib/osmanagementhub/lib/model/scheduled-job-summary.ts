@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,19 +17,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the scheduled job.
+ * Provides summary information for a scheduled job.
  */
 export interface ScheduledJobSummary {
   /**
-   * The OCID of the scheduled job.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the scheduled job.
    */
   "id": string;
   /**
-   * Scheduled job name.
+   * User-friendly name for the scheduled job.
    */
   "displayName": string;
   /**
-   * The OCID of the compartment containing the scheduled job.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the scheduled job.
    */
   "compartmentId": string;
   /**
@@ -36,45 +37,75 @@ export interface ScheduledJobSummary {
    */
   "scheduleType": model.ScheduleTypes;
   /**
-   * The time this scheduled job was created. An RFC3339 formatted datetime string.
+   * The list of locations this scheduled job should operate on for a job targeting on compartments. (Empty list means apply to all locations). This can only be set when managedCompartmentIds is not empty.
+   */
+  "locations"?: Array<model.ManagedInstanceLocation>;
+  /**
+   * The time this scheduled job was created (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeCreated": Date;
   /**
-   * The time this scheduled job was updated. An RFC3339 formatted datetime string.
+   * The time this scheduled job was updated (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeUpdated": Date;
   /**
-   * The time/date of the next scheduled execution of this scheduled job.
+   * The time of the next execution of this scheduled job (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeNextExecution": Date;
   /**
-   * The time/date of the last execution of this scheduled job.
+   * The time of the last execution of this scheduled job (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).b.
    */
   "timeLastExecution"?: Date;
   /**
-   * The list of managed instance OCIDs this scheduled job operates on (mutually exclusive with managedInstanceGroupIds, managedCompartmentIds and lifecycleStageIds).
+   * The managed instance [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * A scheduled job can only operate on one type of target, therefore this parameter is mutually exclusive with
+   * managedInstanceGroupIds, managedCompartmentIds, and lifecycleStageIds.
+   *
    */
   "managedInstanceIds"?: Array<string>;
   /**
-   * The list of managed instance group OCIDs this scheduled job operates on (mutually exclusive with managedInstances, managedCompartmentIds and lifecycleStageIds).
+   * The managed instance group [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * A scheduled job can only operate on one type of target, therefore this parameter is mutually exclusive with
+   * managedInstanceIds, managedCompartmentIds, and lifecycleStageIds.
+   *
    */
   "managedInstanceGroupIds"?: Array<string>;
   /**
-   * The list of target compartment OCIDs if this scheduled job operates on a compartment level (mutually exclusive with managedInstances, managedInstanceGroupIds and lifecycleStageIds).
+   * The compartment [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * A scheduled job can only operate on one type of target, therefore this parameter is mutually exclusive with
+   * managedInstanceIds, managedInstanceGroupIds, and lifecycleStageIds.
+   *
    */
   "managedCompartmentIds"?: Array<string>;
   /**
-   * The list of target lifecycle stage OCIDs if this scheduled job operates on lifecycle stages (mutually exclusive with managedInstances, managedInstanceGroupIds and managedCompartmentIds).
+   * The lifecycle stage [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * A scheduled job can only operate on one type of target, therefore this parameter is mutually exclusive with
+   * managedInstanceIds, managedInstanceGroupIds, and managedCompartmentIds.
+   *
    */
   "lifecycleStageIds"?: Array<string>;
   /**
-   * The list of operations this scheduled job needs to perform (can only support one operation if the operationType is not UPDATE_PACKAGES/UPDATE_ALL/UPDATE_SECURITY/UPDATE_BUGFIX/UPDATE_ENHANCEMENT/UPDATE_OTHER/UPDATE_KSPLICE_USERSPACE/UPDATE_KSPLICE_KERNEL).
+   * The list of operations this scheduled job needs to perform.
+   * A scheduled job supports only one operation type, unless it is one of the following:
+   * * UPDATE_PACKAGES
+   * * UPDATE_ALL
+   * * UPDATE_SECURITY
+   * * UPDATE_BUGFIX
+   * * UPDATE_ENHANCEMENT
+   * * UPDATE_OTHER
+   * * UPDATE_KSPLICE_USERSPACE
+   * * UPDATE_KSPLICE_KERNEL
+   *
    */
   "operations": Array<model.ScheduledJobOperation>;
   /**
    * The current state of the scheduled job.
    */
   "lifecycleState": string;
+  /**
+   * Indicates whether this scheduled job is managed by the Autonomous Linux service.
+   */
+  "isManagedByAutonomousLinux"?: boolean;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -90,15 +121,25 @@ export interface ScheduledJobSummary {
    */
   "definedTags": { [key: string]: { [key: string]: any } };
   /**
-   * true, if the schedule job has its update/deletion capabilities restricted. (Used to track scheduled job for management station syncing).
-   */
-  "isRestricted"?: boolean;
-  /**
    * System tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Indicates if the schedule job has restricted update and deletion capabilities.
+   * For restricted scheduled jobs, you can update only the timeNextExecution, recurringRule, and tags.
+   *
+   */
+  "isRestricted"?: boolean;
+  /**
+   * The amount of time in minutes to wait until retrying the scheduled job. If set, the service will automatically
+   * retry a failed scheduled job after the interval. For example, you could set the interval to [2,5,10]. If the
+   * initial execution of the job fails, the service waits 2 minutes and then retries. If that fails, the service waits
+   * 5 minutes and then retries. If that fails, the service waits 10 minutes and then retries.
+   *
+   */
+  "retryIntervals"?: Array<number>;
 }
 
 export namespace ScheduledJobSummary {
@@ -106,6 +147,12 @@ export namespace ScheduledJobSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "locations": obj.locations
+          ? obj.locations.map(item => {
+              return model.ManagedInstanceLocation.getJsonObj(item);
+            })
+          : undefined,
+
         "operations": obj.operations
           ? obj.operations.map(item => {
               return model.ScheduledJobOperation.getJsonObj(item);
@@ -120,6 +167,12 @@ export namespace ScheduledJobSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "locations": obj.locations
+          ? obj.locations.map(item => {
+              return model.ManagedInstanceLocation.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "operations": obj.operations
           ? obj.operations.map(item => {
               return model.ScheduledJobOperation.getDeserializedJsonObj(item);

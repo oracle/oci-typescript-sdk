@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The compartment for the security zone recipe
+ * Parameters to be used to move a security recipe to a different compartment.
  */
 export interface ChangeSecurityRecipeCompartmentDetails {
   /**

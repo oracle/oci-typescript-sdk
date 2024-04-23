@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Operation names supported for Condition Operator
+ * Operation names supported for condition operator.
  **/
 export enum ConditionOperatorName {
   And = "AND",

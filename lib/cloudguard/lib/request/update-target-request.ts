@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateTargetRequest extends common.BaseRequest {
   /**
-   * OCID of target
+   * OCID of the target
    */
   "targetId": string;
   /**
-   * The information to be updated.
+   * The information to be updated
    */
   "updateTargetDetails": model.UpdateTargetDetails;
   /**

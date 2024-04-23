@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of ResponderRecipe.
+ * Parameters for creating a responder recipe.
  */
 export interface CreateResponderRecipeDetails {
   /**
@@ -36,15 +36,15 @@ Avoid entering confidential information.
     */
   "description"?: string;
   /**
-   * The id of the source responder recipe.
+   * The unique identifier of the source responder recipe
    */
   "sourceResponderRecipeId": string;
   /**
-   * Compartment Identifier
+   * Compartment OCID
    */
   "compartmentId": string;
   /**
-   * Responder Rules to override from source responder recipe
+   * List of responder rules to override from source responder recipe
    */
   "responderRules"?: Array<model.UpdateResponderRecipeResponderRule>;
   /**

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible operation status.
+ * Possible operation status
  **/
 export enum OperationStatus {
   Accepted = "ACCEPTED",

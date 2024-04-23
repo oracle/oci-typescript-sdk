@@ -19,26 +19,23 @@ import common = require("oci-common");
  */
 export interface ListManagementStationsRequest extends common.BaseRequest {
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
- * A user-friendly name. Does not have to be unique, and it's changeable.
-* <p>
-Example: {@code My new resource}
-* 
- */
+   * A filter to return resources that match the given user-friendly name.
+   */
   "displayName"?: string;
   /**
    * A filter to return resources that may partially match the given display name.
    */
   "displayNameContains"?: string;
   /**
-   * The current lifecycle state for the object.
+   * A filter that returns information for management stations in the specified state.
    */
   "lifecycleState"?: string;
   /**
-   * The OCID of the managed instance for which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance. This filter returns resources associated with this managed instance.
    */
   "managedInstanceId"?: string;
   /**
@@ -71,7 +68,7 @@ Example: {@code 3}
    */
   "opcRequestId"?: string;
   /**
-   * The OCID of the management station.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station. A filter that returns information about the specified management station.
    */
   "id"?: string;
 }

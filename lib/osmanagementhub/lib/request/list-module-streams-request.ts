@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListModuleStreamsRequest extends common.BaseRequest {
   /**
-   * The software source OCID.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source.
    */
   "softwareSourceId": string;
   /**
@@ -33,10 +33,7 @@ export interface ListModuleStreamsRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
-   * A boolean variable that is used to list only the latest versions of packages, module streams,
-   * and stream profiles when set to true. All packages, module streams, and stream profiles are
-   * returned when set to false.
-   *
+   * Indicates whether to list only the latest versions of packages, module streams, and stream profiles.
    */
   "isLatest"?: boolean;
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateManagementStationRequest extends common.BaseRequest {
   /**
-   * Details for the new ManagementStation.
+   * Provides the information used to create a management station.
    */
   "createManagementStationDetails": model.CreateManagementStationDetails;
   /**

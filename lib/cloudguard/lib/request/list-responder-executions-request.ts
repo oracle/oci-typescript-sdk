@@ -19,14 +19,14 @@ import common = require("oci-common");
  */
 export interface ListResponderExecutionsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The OCID of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed
    * and all compartments and subcompartments in the tenancy are
-   * returned depending on the the setting of {@code accessLevel}.
+   * returned depending on the setting of {@code accessLevel}.
    *
    */
   "compartmentIdInSubtree"?: boolean;
@@ -40,23 +40,23 @@ export interface ListResponderExecutionsRequest extends common.BaseRequest {
    */
   "accessLevel"?: ListResponderExecutionsRequest.AccessLevel;
   /**
-   * Responder Rule Ids filter for the Responder Executions.
+   * Responder rule unique identifier filter for the responder executions.
    */
   "responderRuleIds"?: Array<string>;
   /**
-   * Creation Start time for filtering
+   * Creation start time for filtering
    */
   "timeCreatedGreaterThanOrEqualTo"?: Date;
   /**
-   * Creation End time for filtering
+   * Creation end time for filtering.
    */
   "timeCreatedLessThanOrEqualTo"?: Date;
   /**
-   * Completion End Time
+   * Completion end time.
    */
   "timeCompletedGreaterThanOrEqualTo"?: Date;
   /**
-   * Completion Start Time
+   * Completion start time.
    */
   "timeCompletedLessThanOrEqualTo"?: Date;
   /**
@@ -64,11 +64,11 @@ export interface ListResponderExecutionsRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
-   * Resource Type associated with the resource.
+   * Resource type associated with the resource.
    */
   "resourceType"?: string;
   /**
-   * The field to list the Responder Executions by Responder Type. Valid values are REMEDIATION and NOTIFICATION
+   * The field to list the responder executions by responder type. Valid values are REMEDIATION and NOTIFICATION.
    *
    */
   "responderType"?: ListResponderExecutionsRequest.ResponderType;
@@ -81,7 +81,7 @@ export interface ListResponderExecutionsRequest extends common.BaseRequest {
    */
   "responderExecutionMode"?: model.ResponderExecutionModes;
   /**
-   * The maximum number of items to return.
+   * The maximum number of items to return
    */
   "limit"?: number;
   /**
@@ -89,7 +89,7 @@ export interface ListResponderExecutionsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use
    */
   "sortOrder"?: model.SortOrders;
   /**

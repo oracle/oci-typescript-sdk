@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible mode type for responder rule resource.
+ * Responder rule execution mode.
  **/
 export enum ResponderModeTypes {
   Autoaction = "AUTOACTION",

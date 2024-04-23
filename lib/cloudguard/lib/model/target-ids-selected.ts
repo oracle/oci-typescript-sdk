@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Target selection on basis of TargetIds.
+ * Target selection on basis of target IDs.
  */
 export interface TargetIdsSelected extends model.TargetSelected {
   /**
-   * Ids of Target
+   * IDs of targets
    */
   "values"?: Array<string>;
 

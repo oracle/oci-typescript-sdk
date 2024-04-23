@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateManagedListRequest extends common.BaseRequest {
   /**
-   * Details for the new ManagedList.
+   * Details for the new ManagedList resources
    */
   "createManagedListDetails": model.CreateManagedListDetails;
   /**

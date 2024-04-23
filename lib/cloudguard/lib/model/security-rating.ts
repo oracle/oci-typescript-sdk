@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Security Ratings
+ * Security ratings.
  **/
 export enum SecurityRating {
   Excellent = "EXCELLENT",

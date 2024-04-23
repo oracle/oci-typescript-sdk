@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of responder execution ids to skip the execution
+ * Details of responders to skip execution.
  */
 export interface SkipBulkResponderExecutionDetails {
   /**
-   * List of responder execution ids to skip the execution
+   * List of responder execution IDs to skip execution
    */
   "responderExecutionIds": Array<string>;
 }

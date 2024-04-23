@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateProfileRequest extends common.BaseRequest {
   /**
-   * The OCID of the registration profile.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile.
    */
   "profileId": string;
   /**

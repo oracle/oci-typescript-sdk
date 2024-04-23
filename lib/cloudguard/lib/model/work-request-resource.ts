@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A resource created or operated on by a work request.
+ * Parameters of a work request resource, which is created or operated on by a work request.
  */
 export interface WorkRequestResource {
   /**
-   * The resource type the work request affects.
+   * The resource type the work request affects
    */
   "entityType": string;
   /**
@@ -34,7 +34,7 @@ export interface WorkRequestResource {
    */
   "actionType": model.ActionType;
   /**
-   * The identifier of the resource the work request affects.
+   * The identifier of the resource that the work request affects
    */
   "identifier": string;
   /**
@@ -42,7 +42,7 @@ export interface WorkRequestResource {
    */
   "entityUri"?: string;
   /**
-   * Additional information that helps to explain the resource.
+   * Additional information that helps to explain the resource
    */
   "metadata"?: { [key: string]: string };
 }

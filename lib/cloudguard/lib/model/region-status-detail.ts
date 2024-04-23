@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Status of Region query replication.
+ * Status of replication of a data source query in a region
  */
 export interface RegionStatusDetail {
   /**
-   * Data Source replication region.
+   * Data source replication region
    */
   "region": string;
   /**
-   * Data Source replication region status.
+   * Data source replication region status
    */
   "status": model.QueryReplicationStatus;
 }

@@ -18,29 +18,33 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A detector recipe is a collection of rules that can be configured to trigger problems that appear on the Cloud Guard Problems page. A DetectorRecipe object contains settings for a specific detector recipe, plus a list of the detector rules (DetectorRecipeDetectorRule objects) belonging to the DetectorRecipe object.
+ * A detector recipe is a collection of rules that can be configured to trigger problems that appear on the Cloud Guard Problems page. A DetectorRecipe resource contains settings for a specific detector recipe, plus a list of the detector rules (DetectorRecipeDetectorRule resources) belonging to the DetectorRecipe resource.
  */
 export interface DetectorRecipe {
   /**
-   * Ocid for detector recipe
+   * OCID for detector recipe
    */
   "id": string;
   /**
-   * DisplayName of detector recipe.
+   * Display name of detector recipe
    */
   "displayName": string;
   /**
-   * Detector recipe description.
+   * Detector recipe description
    */
   "description"?: string;
   /**
-   * compartmentId of detector recipe
+   * Compartment OCID of detector recipe
    */
   "compartmentId": string;
   /**
-   * Recipe Ocid of the Source Recipe to be cloned
+   * Recipe OCID of the source recipe to be cloned
    */
   "sourceDetectorRecipeId": string;
+  /**
+   * Recipe type ( STANDARD, ENTERPRISE )
+   */
+  "detectorRecipeType"?: model.DetectorRecipeEnum;
   /**
    * Owner of detector recipe
    */
@@ -58,15 +62,15 @@ export interface DetectorRecipe {
    */
   "effectiveDetectorRules"?: Array<model.DetectorRecipeDetectorRule>;
   /**
-   * The date and time the detector recipe was created. Format defined by RFC3339.
+   * The date and time the detector recipe was created Format defined by RFC3339.
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the detector recipe was updated. Format defined by RFC3339.
+   * The date and time the detector recipe was last updated Format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the resource.
+   * The current lifecycle state of the resource
    */
   "lifecycleState"?: model.LifecycleState;
   /**
@@ -97,7 +101,7 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The recipe attached to targets
+   * List of target IDs to which the recipe is attached
    */
   "targetIds"?: Array<string>;
 }

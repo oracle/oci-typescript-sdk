@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about Security Zone Target.
+ * Target details for a security zone target.
  */
 export interface SecurityZoneTargetDetails extends model.TargetDetails {
   /**
-   * The OCID of the security zone to associate this compartment with.
+   * The OCID of the security zone to associate with this compartment
    */
   "securityZoneId"?: string;
   /**
-   * The name of the security zone to associate this compartment with.
+   * The name of the security zone to associate with this compartment.
    */
   "securityZoneDisplayName"?: string;
   /**
-   * The list of security zone recipes to associate this compartment with.
+   * The list of security zone recipes to associate with this compartment
    */
   "targetSecurityZoneRecipes"?: Array<model.SecurityRecipe>;
 

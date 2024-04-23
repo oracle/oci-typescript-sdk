@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,31 +17,34 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the ManagedInstance.
+ * Provides summary information for a managed instance.
  */
 export interface ManagedInstanceSummary {
   /**
-   * The OCID for the managed instance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance.
+   *
    */
   "id": string;
   /**
-   * Managed instance identifier.
+   * User-friendly name for the managed instance.
    */
   "displayName": string;
   /**
-   * Information specified by the user about the managed instance.
+   * User-specified description of the managed instance.
    */
   "description"?: string;
   /**
-   * The OCID for the tenancy this managed instance resides in.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tenancy this managed instance resides in.
+   *
    */
   "tenancyId": string;
   /**
-   * The OCID for the compartment this managed instance resides in.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the managed instance.
+   *
    */
   "compartmentId": string;
   /**
-   * Location of the managed instance.
+   * The location of the managed instance.
    */
   "location"?: model.ManagedInstanceLocation;
   /**
@@ -48,11 +52,11 @@ export interface ManagedInstanceSummary {
    */
   "architecture"?: model.ArchType;
   /**
-   * The Operating System type of the managed instance.
+   * The operating system type of the managed instance.
    */
   "osFamily"?: model.OsFamily;
   /**
-   * status of the managed instance.
+   * Current status of the managed instance.
    */
   "status": model.ManagedInstanceStatus;
   "managedInstanceGroup"?: model.Id;
@@ -63,13 +67,23 @@ export interface ManagedInstanceSummary {
    */
   "isRebootRequired"?: boolean;
   /**
-   * Number of updates available to be installed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of updates available for installation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "updatesAvailable"?: number;
   /**
-   * Whether this managed instance is acting as an on-premise management station.
+   * Whether this managed instance is acting as an on-premises management station.
    */
   "isManagementStation"?: boolean;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Oracle Notifications service (ONS) topic. ONS is the channel used to send notifications to the customer.
+   *
+   */
+  "notificationTopicId"?: string;
+  "autonomousSettings"?: model.AutonomousSettings;
+  /**
+   * Indicates whether Autonomous Linux manages this instance.
+   */
+  "isManagedByAutonomousLinux"?: boolean;
 }
 
 export namespace ManagedInstanceSummary {
@@ -83,7 +97,11 @@ export namespace ManagedInstanceSummary {
         "lifecycleEnvironment": obj.lifecycleEnvironment
           ? model.Id.getJsonObj(obj.lifecycleEnvironment)
           : undefined,
-        "lifecycleStage": obj.lifecycleStage ? model.Id.getJsonObj(obj.lifecycleStage) : undefined
+        "lifecycleStage": obj.lifecycleStage ? model.Id.getJsonObj(obj.lifecycleStage) : undefined,
+
+        "autonomousSettings": obj.autonomousSettings
+          ? model.AutonomousSettings.getJsonObj(obj.autonomousSettings)
+          : undefined
       }
     };
 
@@ -101,6 +119,10 @@ export namespace ManagedInstanceSummary {
           : undefined,
         "lifecycleStage": obj.lifecycleStage
           ? model.Id.getDeserializedJsonObj(obj.lifecycleStage)
+          : undefined,
+
+        "autonomousSettings": obj.autonomousSettings
+          ? model.AutonomousSettings.getDeserializedJsonObj(obj.autonomousSettings)
           : undefined
       }
     };

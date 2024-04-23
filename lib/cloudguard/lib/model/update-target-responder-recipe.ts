@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated in attached Target ResponderRecipe
+ * Parameters to update a responder recipe attached to a target
  */
 export interface UpdateTargetResponderRecipe {
   /**
-   * Identifier for ResponderRecipe.
+   * Unique identifier for the target responder recipe
    */
   "targetResponderRecipeId": string;
   /**
-   * Update responder rules associated with reponder recipe in a target.
+   * List of responder rules to be updated in the target responder recipe
    */
   "responderRules": Array<model.UpdateTargetRecipeResponderRuleDetails>;
 }

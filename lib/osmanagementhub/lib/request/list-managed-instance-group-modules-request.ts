@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ListManagedInstanceGroupModulesRequest extends common.BaseRequest {
   /**
-   * The managed instance group OCID.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
    */
   "managedInstanceGroupId": string;
   /**
-   * The OCID of the compartment that contains the resources to list.
+   * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;
   /**
@@ -36,9 +36,7 @@ export interface ListManagedInstanceGroupModulesRequest extends common.BaseReque
    */
   "nameContains"?: string;
   /**
-   * The name of the stream of the containing module.  This parameter
-   * is required if a profileName is specified.
-   *
+   * The name of the module stream. This parameter is required if a profile name is specified.
    */
   "streamName"?: string;
   /**

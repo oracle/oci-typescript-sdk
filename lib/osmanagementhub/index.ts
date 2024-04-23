@@ -1,6 +1,7 @@
 /**
  * OS Management Hub API
- * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+ * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
+For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -16,6 +17,7 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as event_waiter from "./lib/event-waiter";
 import * as lifecycleenvironment_waiter from "./lib/lifecycleenvironment-waiter";
 import * as managedinstancegroup_waiter from "./lib/managedinstancegroup-waiter";
 import * as managementstation_waiter from "./lib/managementstation-waiter";
@@ -27,6 +29,8 @@ import * as workrequest_waiter from "./lib/workrequest-waiter";
 export { models };
 export { requests };
 export { responses };
+export import EventClient = client.EventClient;
+export import EventWaiter = event_waiter.EventWaiter;
 export import LifecycleEnvironmentClient = client.LifecycleEnvironmentClient;
 export import LifecycleEnvironmentWaiter = lifecycleenvironment_waiter.LifecycleEnvironmentWaiter;
 export import ManagedInstanceClient = client.ManagedInstanceClient;

@@ -227,7 +227,7 @@ export class LockboxClient {
 
   /**
    * Cancels the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
@@ -251,7 +251,7 @@ export class LockboxClient {
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelWorkRequestRequest.retryConfiguration,
@@ -294,7 +294,7 @@ export class LockboxClient {
 
   /**
    * Moves an ApprovalTemplate resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeApprovalTemplateCompartmentRequest
    * @return ChangeApprovalTemplateCompartmentResponse
    * @throws OciError when an error occurs
@@ -320,7 +320,7 @@ export class LockboxClient {
       "opc-retry-token": changeApprovalTemplateCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeApprovalTemplateCompartmentRequest.retryConfiguration,
@@ -368,7 +368,7 @@ export class LockboxClient {
 
   /**
    * Moves a Lockbox resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeLockboxCompartmentRequest
    * @return ChangeLockboxCompartmentResponse
    * @throws OciError when an error occurs
@@ -393,7 +393,7 @@ export class LockboxClient {
       "opc-retry-token": changeLockboxCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeLockboxCompartmentRequest.retryConfiguration,
@@ -442,7 +442,7 @@ export class LockboxClient {
   /**
    * Creates a new access request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAccessRequestRequest
    * @return CreateAccessRequestResponse
    * @throws OciError when an error occurs
@@ -464,7 +464,7 @@ export class LockboxClient {
       "opc-request-id": createAccessRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAccessRequestRequest.retryConfiguration,
@@ -532,7 +532,7 @@ export class LockboxClient {
   /**
    * Creates a new approval template.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateApprovalTemplateRequest
    * @return CreateApprovalTemplateResponse
    * @throws OciError when an error occurs
@@ -554,7 +554,7 @@ export class LockboxClient {
       "opc-request-id": createApprovalTemplateRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createApprovalTemplateRequest.retryConfiguration,
@@ -617,7 +617,7 @@ export class LockboxClient {
   /**
    * Creates a new Lockbox.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateLockboxRequest
    * @return CreateLockboxResponse
    * @throws OciError when an error occurs
@@ -639,7 +639,7 @@ export class LockboxClient {
       "opc-request-id": createLockboxRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createLockboxRequest.retryConfiguration,
@@ -701,7 +701,7 @@ export class LockboxClient {
 
   /**
    * Deletes an ApprovalTemplate resource by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteApprovalTemplateRequest
    * @return DeleteApprovalTemplateResponse
    * @throws OciError when an error occurs
@@ -725,7 +725,7 @@ export class LockboxClient {
       "opc-request-id": deleteApprovalTemplateRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteApprovalTemplateRequest.retryConfiguration,
@@ -768,7 +768,7 @@ export class LockboxClient {
 
   /**
    * Deletes a Lockbox resource by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteLockboxRequest
    * @return DeleteLockboxResponse
    * @throws OciError when an error occurs
@@ -793,7 +793,7 @@ export class LockboxClient {
       "opc-retry-token": deleteLockboxRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteLockboxRequest.retryConfiguration,
@@ -837,7 +837,7 @@ export class LockboxClient {
   /**
    * Exports a list of AccessRequestSummary objects within a compartment and during a specified time range in text format. You can filter the results by problem severity.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ExportAccessRequestsRequest
    * @return ExportAccessRequestsResponse
    * @throws OciError when an error occurs
@@ -869,7 +869,7 @@ export class LockboxClient {
       "opc-request-id": exportAccessRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       exportAccessRequestsRequest.retryConfiguration,
@@ -909,6 +909,11 @@ export class LockboxClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
           }
         ]
       });
@@ -922,7 +927,7 @@ export class LockboxClient {
   /**
    * Retrieves the access credential/material associated with the access request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAccessMaterialsRequest
    * @return GetAccessMaterialsResponse
    * @throws OciError when an error occurs
@@ -945,7 +950,7 @@ export class LockboxClient {
       "opc-request-id": getAccessMaterialsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAccessMaterialsRequest.retryConfiguration,
@@ -992,7 +997,7 @@ export class LockboxClient {
 
   /**
    * Retrieves an access request identified by the access request ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAccessRequestRequest
    * @return GetAccessRequestResponse
    * @throws OciError when an error occurs
@@ -1015,7 +1020,7 @@ export class LockboxClient {
       "opc-request-id": getAccessRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAccessRequestRequest.retryConfiguration,
@@ -1066,8 +1071,83 @@ export class LockboxClient {
   }
 
   /**
+   * Retrieves an access request identified by the access request ID for internal use.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAccessRequestInternalRequest
+   * @return GetAccessRequestInternalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetAccessRequestInternal.ts.html |here} to see how to use GetAccessRequestInternal API.
+   */
+  public async getAccessRequestInternal(
+    getAccessRequestInternalRequest: requests.GetAccessRequestInternalRequest
+  ): Promise<responses.GetAccessRequestInternalResponse> {
+    if (this.logger) this.logger.debug("Calling operation LockboxClient#getAccessRequestInternal.");
+    const operationName = "getAccessRequestInternal";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{accessRequestId}": getAccessRequestInternalRequest.accessRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAccessRequestInternalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAccessRequestInternalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/accessRequests/{accessRequestId}/internal",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAccessRequestInternalResponse>{},
+        body: await response.json(),
+        bodyKey: "accessRequestExt",
+        bodyModel: model.AccessRequestExt,
+        type: "model.AccessRequestExt",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves an approval template identified by the approval template ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetApprovalTemplateRequest
    * @return GetApprovalTemplateResponse
    * @throws OciError when an error occurs
@@ -1090,7 +1170,7 @@ export class LockboxClient {
       "opc-request-id": getApprovalTemplateRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getApprovalTemplateRequest.retryConfiguration,
@@ -1142,7 +1222,7 @@ export class LockboxClient {
 
   /**
    * Gets a Lockbox by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLockboxRequest
    * @return GetLockboxResponse
    * @throws OciError when an error occurs
@@ -1165,7 +1245,7 @@ export class LockboxClient {
       "opc-request-id": getLockboxRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getLockboxRequest.retryConfiguration,
@@ -1217,7 +1297,7 @@ export class LockboxClient {
 
   /**
    * Gets details of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1240,7 +1320,7 @@ export class LockboxClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -1297,7 +1377,7 @@ export class LockboxClient {
 
   /**
    * Handle the AccessRequest
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param HandleAccessRequestRequest
    * @return HandleAccessRequestResponse
    * @throws OciError when an error occurs
@@ -1322,7 +1402,7 @@ export class LockboxClient {
       "opc-request-id": handleAccessRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       handleAccessRequestRequest.retryConfiguration,
@@ -1376,7 +1456,7 @@ export class LockboxClient {
   /**
    * Retrieves a list of AccessRequestSummary objects in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAccessRequestsRequest
    * @return ListAccessRequestsResponse
    * @throws OciError when an error occurs
@@ -1411,7 +1491,7 @@ export class LockboxClient {
       "opc-request-id": listAccessRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAccessRequestsRequest.retryConfiguration,
@@ -1464,7 +1544,7 @@ export class LockboxClient {
   /**
    * Retrieves a list of ApprovalTemplateSummary objects in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListApprovalTemplatesRequest
    * @return ListApprovalTemplatesResponse
    * @throws OciError when an error occurs
@@ -1494,7 +1574,7 @@ export class LockboxClient {
       "opc-request-id": listApprovalTemplatesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listApprovalTemplatesRequest.retryConfiguration,
@@ -1547,7 +1627,7 @@ export class LockboxClient {
   /**
    * Returns a list of Lockboxes.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLockboxesRequest
    * @return ListLockboxesResponse
    * @throws OciError when an error occurs
@@ -1580,7 +1660,7 @@ export class LockboxClient {
       "opc-request-id": listLockboxesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLockboxesRequest.retryConfiguration,
@@ -1633,7 +1713,7 @@ export class LockboxClient {
   /**
    * Returns a (paginated) list of errors for the work request with the given ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1661,7 +1741,7 @@ export class LockboxClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -1714,7 +1794,7 @@ export class LockboxClient {
   /**
    * Returns a (paginated) list of logs for the work request with the given ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1742,7 +1822,7 @@ export class LockboxClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -1795,7 +1875,7 @@ export class LockboxClient {
   /**
    * Lists the work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1825,7 +1905,7 @@ export class LockboxClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -1877,7 +1957,7 @@ export class LockboxClient {
 
   /**
    * Updates the ApprovalTemplate
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateApprovalTemplateRequest
    * @return UpdateApprovalTemplateResponse
    * @throws OciError when an error occurs
@@ -1901,7 +1981,7 @@ export class LockboxClient {
       "opc-request-id": updateApprovalTemplateRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateApprovalTemplateRequest.retryConfiguration,
@@ -1958,7 +2038,7 @@ export class LockboxClient {
 
   /**
    * Updates the Lockbox
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateLockboxRequest
    * @return UpdateLockboxResponse
    * @throws OciError when an error occurs
@@ -1982,7 +2062,7 @@ export class LockboxClient {
       "opc-request-id": updateLockboxRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateLockboxRequest.retryConfiguration,
