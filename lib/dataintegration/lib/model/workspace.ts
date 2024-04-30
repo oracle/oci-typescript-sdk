@@ -107,6 +107,10 @@ export interface Workspace {
    * DCMS Registry ID associated with the container/workspace.
    */
   "registryId"?: string;
+  /**
+   * key-value pairs of workspace properties
+   */
+  "workspaceProperties"?: { [key: string]: string };
 }
 
 export namespace Workspace {

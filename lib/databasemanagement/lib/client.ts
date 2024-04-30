@@ -1,8 +1,8 @@
 /**
  * Database Management API
- * Use the Database Management API to perform tasks such as obtaining performance and resource usage metrics
-for a fleet of Managed Databases or a specific Managed Database, creating Managed Database Groups, and
-running a SQL job on a Managed Database or Managed Database Group.
+ * Use the Database Management API to monitor and manage resources such as
+Oracle Databases, MySQL Databases, and External Database Systems. 
+For more information, see [Database Management](/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -3350,6 +3350,172 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   }
 
   /**
+   * Disables a Database Management feature for the specified Oracle cloud database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableDatabaseManagementFeatureRequest
+   * @return DisableDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableDatabaseManagementFeature.ts.html |here} to see how to use DisableDatabaseManagementFeature API.
+   */
+  public async disableDatabaseManagementFeature(
+    disableDatabaseManagementFeatureRequest: requests.DisableDatabaseManagementFeatureRequest
+  ): Promise<responses.DisableDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#disableDatabaseManagementFeature.");
+    const operationName = "disableDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableDatabaseManagementFeature";
+    const pathParams = {
+      "{databaseId}": disableDatabaseManagementFeatureRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": disableDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": disableDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableDatabaseManagementFeatureRequest.disableDatabaseManagementFeatureDetails,
+        "DisableDatabaseManagementFeatureDetails",
+        model.DisableDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disables a Database Management feature for the specified external container database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableExternalContainerDatabaseManagementFeatureRequest
+   * @return DisableExternalContainerDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalContainerDatabaseManagementFeature.ts.html |here} to see how to use DisableExternalContainerDatabaseManagementFeature API.
+   */
+  public async disableExternalContainerDatabaseManagementFeature(
+    disableExternalContainerDatabaseManagementFeatureRequest: requests.DisableExternalContainerDatabaseManagementFeatureRequest
+  ): Promise<responses.DisableExternalContainerDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableExternalContainerDatabaseManagementFeature."
+      );
+    const operationName = "disableExternalContainerDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableExternalContainerDatabaseManagementFeature";
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        disableExternalContainerDatabaseManagementFeatureRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableExternalContainerDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": disableExternalContainerDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": disableExternalContainerDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalContainerDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalcontainerdatabases/{externalContainerDatabaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableExternalContainerDatabaseManagementFeatureRequest.disableExternalContainerDatabaseManagementFeatureDetails,
+        "DisableExternalContainerDatabaseManagementFeatureDetails",
+        model.DisableExternalContainerDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalContainerDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disables Database Management service for all the components of the specified
    * external DB system (except databases).
    *
@@ -3595,6 +3761,176 @@ Note that Database Management will not be disabled for the DB systems within the
   }
 
   /**
+   * Disables a Database Management feature for the specified external non-container database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableExternalNonContainerDatabaseManagementFeatureRequest
+   * @return DisableExternalNonContainerDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalNonContainerDatabaseManagementFeature.ts.html |here} to see how to use DisableExternalNonContainerDatabaseManagementFeature API.
+   */
+  public async disableExternalNonContainerDatabaseManagementFeature(
+    disableExternalNonContainerDatabaseManagementFeatureRequest: requests.DisableExternalNonContainerDatabaseManagementFeatureRequest
+  ): Promise<responses.DisableExternalNonContainerDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableExternalNonContainerDatabaseManagementFeature."
+      );
+    const operationName = "disableExternalNonContainerDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableExternalNonContainerDatabaseManagementFeature";
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        disableExternalNonContainerDatabaseManagementFeatureRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableExternalNonContainerDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": disableExternalNonContainerDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": disableExternalNonContainerDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalNonContainerDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableExternalNonContainerDatabaseManagementFeatureRequest.disableExternalNonContainerDatabaseManagementFeatureDetails,
+        "DisableExternalNonContainerDatabaseManagementFeatureDetails",
+        model.DisableExternalNonContainerDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalNonContainerDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disables a Database Management feature for the specified external pluggable database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableExternalPluggableDatabaseManagementFeatureRequest
+   * @return DisableExternalPluggableDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalPluggableDatabaseManagementFeature.ts.html |here} to see how to use DisableExternalPluggableDatabaseManagementFeature API.
+   */
+  public async disableExternalPluggableDatabaseManagementFeature(
+    disableExternalPluggableDatabaseManagementFeatureRequest: requests.DisableExternalPluggableDatabaseManagementFeatureRequest
+  ): Promise<responses.DisableExternalPluggableDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableExternalPluggableDatabaseManagementFeature."
+      );
+    const operationName = "disableExternalPluggableDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableExternalPluggableDatabaseManagementFeature";
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        disableExternalPluggableDatabaseManagementFeatureRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableExternalPluggableDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": disableExternalPluggableDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": disableExternalPluggableDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalPluggableDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalpluggabledatabases/{externalPluggableDatabaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableExternalPluggableDatabaseManagementFeatureRequest.disableExternalPluggableDatabaseManagementFeatureDetails,
+        "DisableExternalPluggableDatabaseManagementFeatureDetails",
+        model.DisableExternalPluggableDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalPluggableDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Disables the high-frequency Automatic SPM Evolve Advisor task.
 * <p>
 It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
@@ -3664,6 +4000,89 @@ It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disables a Database Management feature for the specified Oracle cloud pluggable database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisablePluggableDatabaseManagementFeatureRequest
+   * @return DisablePluggableDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisablePluggableDatabaseManagementFeature.ts.html |here} to see how to use DisablePluggableDatabaseManagementFeature API.
+   */
+  public async disablePluggableDatabaseManagementFeature(
+    disablePluggableDatabaseManagementFeatureRequest: requests.DisablePluggableDatabaseManagementFeatureRequest
+  ): Promise<responses.DisablePluggableDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disablePluggableDatabaseManagementFeature."
+      );
+    const operationName = "disablePluggableDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisablePluggableDatabaseManagementFeature";
+    const pathParams = {
+      "{pluggableDatabaseId}": disablePluggableDatabaseManagementFeatureRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disablePluggableDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": disablePluggableDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": disablePluggableDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disablePluggableDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggabledatabases/{pluggableDatabaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disablePluggableDatabaseManagementFeatureRequest.disablePluggableDatabaseManagementFeatureDetails,
+        "DisablePluggableDatabaseManagementFeatureDetails",
+        model.DisablePluggableDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisablePluggableDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -4181,6 +4600,172 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   }
 
   /**
+   * Enables a Database Management feature for the specified cloud database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableDatabaseManagementFeatureRequest
+   * @return EnableDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableDatabaseManagementFeature.ts.html |here} to see how to use EnableDatabaseManagementFeature API.
+   */
+  public async enableDatabaseManagementFeature(
+    enableDatabaseManagementFeatureRequest: requests.EnableDatabaseManagementFeatureRequest
+  ): Promise<responses.EnableDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#enableDatabaseManagementFeature.");
+    const operationName = "enableDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableDatabaseManagementFeature";
+    const pathParams = {
+      "{databaseId}": enableDatabaseManagementFeatureRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": enableDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": enableDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableDatabaseManagementFeatureRequest.enableDatabaseManagementFeatureDetails,
+        "EnableDatabaseManagementFeatureDetails",
+        model.EnableDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables a Database Management feature for the specified external container database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableExternalContainerDatabaseManagementFeatureRequest
+   * @return EnableExternalContainerDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalContainerDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalContainerDatabaseManagementFeature API.
+   */
+  public async enableExternalContainerDatabaseManagementFeature(
+    enableExternalContainerDatabaseManagementFeatureRequest: requests.EnableExternalContainerDatabaseManagementFeatureRequest
+  ): Promise<responses.EnableExternalContainerDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableExternalContainerDatabaseManagementFeature."
+      );
+    const operationName = "enableExternalContainerDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableExternalContainerDatabaseManagementFeature";
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        enableExternalContainerDatabaseManagementFeatureRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableExternalContainerDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": enableExternalContainerDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": enableExternalContainerDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalContainerDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalcontainerdatabases/{externalContainerDatabaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalContainerDatabaseManagementFeatureRequest.enableExternalContainerDatabaseManagementFeatureDetails,
+        "EnableExternalContainerDatabaseManagementFeatureDetails",
+        model.EnableExternalContainerDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalContainerDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Enables Database Management service for all the components of the specified
    * external DB system (except databases).
    *
@@ -4439,6 +5024,176 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   }
 
   /**
+   * Enables Database Management feature for the specified external non-container database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableExternalNonContainerDatabaseManagementFeatureRequest
+   * @return EnableExternalNonContainerDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalNonContainerDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalNonContainerDatabaseManagementFeature API.
+   */
+  public async enableExternalNonContainerDatabaseManagementFeature(
+    enableExternalNonContainerDatabaseManagementFeatureRequest: requests.EnableExternalNonContainerDatabaseManagementFeatureRequest
+  ): Promise<responses.EnableExternalNonContainerDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableExternalNonContainerDatabaseManagementFeature."
+      );
+    const operationName = "enableExternalNonContainerDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableExternalNonContainerDatabaseManagementFeature";
+    const pathParams = {
+      "{externalNonContainerDatabaseId}":
+        enableExternalNonContainerDatabaseManagementFeatureRequest.externalNonContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableExternalNonContainerDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": enableExternalNonContainerDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": enableExternalNonContainerDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalNonContainerDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalnoncontainerdatabases/{externalNonContainerDatabaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalNonContainerDatabaseManagementFeatureRequest.enableExternalNonContainerDatabaseManagementFeatureDetails,
+        "EnableExternalNonContainerDatabaseManagementFeatureDetails",
+        model.EnableExternalNonContainerDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalNonContainerDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables a Database Management feature for the specified external pluggable database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableExternalPluggableDatabaseManagementFeatureRequest
+   * @return EnableExternalPluggableDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalPluggableDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalPluggableDatabaseManagementFeature API.
+   */
+  public async enableExternalPluggableDatabaseManagementFeature(
+    enableExternalPluggableDatabaseManagementFeatureRequest: requests.EnableExternalPluggableDatabaseManagementFeatureRequest
+  ): Promise<responses.EnableExternalPluggableDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableExternalPluggableDatabaseManagementFeature."
+      );
+    const operationName = "enableExternalPluggableDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableExternalPluggableDatabaseManagementFeature";
+    const pathParams = {
+      "{externalPluggableDatabaseId}":
+        enableExternalPluggableDatabaseManagementFeatureRequest.externalPluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableExternalPluggableDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": enableExternalPluggableDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": enableExternalPluggableDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalPluggableDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalpluggabledatabases/{externalPluggableDatabaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalPluggableDatabaseManagementFeatureRequest.enableExternalPluggableDatabaseManagementFeatureDetails,
+        "EnableExternalPluggableDatabaseManagementFeatureDetails",
+        model.EnableExternalPluggableDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalPluggableDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Enables the high-frequency Automatic SPM Evolve Advisor task. The high-frequency
 * task runs every hour and runs for no longer than 30 minutes. These settings
 * are not configurable.
@@ -4513,6 +5268,89 @@ It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables a Database Management feature for the specified Oracle cloud pluggable database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnablePluggableDatabaseManagementFeatureRequest
+   * @return EnablePluggableDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnablePluggableDatabaseManagementFeature.ts.html |here} to see how to use EnablePluggableDatabaseManagementFeature API.
+   */
+  public async enablePluggableDatabaseManagementFeature(
+    enablePluggableDatabaseManagementFeatureRequest: requests.EnablePluggableDatabaseManagementFeatureRequest
+  ): Promise<responses.EnablePluggableDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enablePluggableDatabaseManagementFeature."
+      );
+    const operationName = "enablePluggableDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnablePluggableDatabaseManagementFeature";
+    const pathParams = {
+      "{pluggableDatabaseId}": enablePluggableDatabaseManagementFeatureRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enablePluggableDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": enablePluggableDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": enablePluggableDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enablePluggableDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggabledatabases/{pluggableDatabaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enablePluggableDatabaseManagementFeatureRequest.enablePluggableDatabaseManagementFeatureDetails,
+        "EnablePluggableDatabaseManagementFeatureDetails",
+        model.EnablePluggableDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnablePluggableDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -9152,6 +9990,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
     const queryParams = {
       "compartmentId": listExternalDatabasesRequest.compartmentId,
       "externalDbSystemId": listExternalDatabasesRequest.externalDbSystemId,
+      "externalDatabaseId": listExternalDatabasesRequest.externalDatabaseId,
       "displayName": listExternalDatabasesRequest.displayName,
       "page": listExternalDatabasesRequest.page,
       "limit": listExternalDatabasesRequest.limit,
@@ -12191,6 +13030,170 @@ When enabled, the optimizer uses SQL plan baselines to select plans
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Modifies a Database Management feature for the specified Oracle cloud database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ModifyDatabaseManagementFeatureRequest
+   * @return ModifyDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyDatabaseManagementFeature.ts.html |here} to see how to use ModifyDatabaseManagementFeature API.
+   */
+  public async modifyDatabaseManagementFeature(
+    modifyDatabaseManagementFeatureRequest: requests.ModifyDatabaseManagementFeatureRequest
+  ): Promise<responses.ModifyDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#modifyDatabaseManagementFeature.");
+    const operationName = "modifyDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ModifyDatabaseManagementFeature";
+    const pathParams = {
+      "{databaseId}": modifyDatabaseManagementFeatureRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": modifyDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": modifyDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": modifyDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifyDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/modifyDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifyDatabaseManagementFeatureRequest.modifyDatabaseManagementFeatureDetails,
+        "ModifyDatabaseManagementFeatureDetails",
+        model.ModifyDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifyDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Modifies the Database Management feature for the specified Oracle cloud pluggable database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ModifyPluggableDatabaseManagementFeatureRequest
+   * @return ModifyPluggableDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyPluggableDatabaseManagementFeature.ts.html |here} to see how to use ModifyPluggableDatabaseManagementFeature API.
+   */
+  public async modifyPluggableDatabaseManagementFeature(
+    modifyPluggableDatabaseManagementFeatureRequest: requests.ModifyPluggableDatabaseManagementFeatureRequest
+  ): Promise<responses.ModifyPluggableDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#modifyPluggableDatabaseManagementFeature."
+      );
+    const operationName = "modifyPluggableDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ModifyPluggableDatabaseManagementFeature";
+    const pathParams = {
+      "{pluggableDatabaseId}": modifyPluggableDatabaseManagementFeatureRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": modifyPluggableDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": modifyPluggableDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": modifyPluggableDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifyPluggableDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggabledatabases/{pluggableDatabaseId}/actions/modifyDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifyPluggableDatabaseManagementFeatureRequest.modifyPluggableDatabaseManagementFeatureDetails,
+        "ModifyPluggableDatabaseManagementFeatureDetails",
+        model.ModifyPluggableDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifyPluggableDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

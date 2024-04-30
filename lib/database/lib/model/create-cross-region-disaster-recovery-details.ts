@@ -36,33 +36,12 @@ import common = require("oci-common");
  *   - licenseModel
  *   - whitelistedIps
  *   - isMtlsConnectionRequired
- * Example I - Creating a cross-region standby with required parameters only:
- *     {@code {
- *       \"compartmentId\": \"ocid.compartment.oc1..<var>&lt;unique_ID&gt;</var>\",
- *       \"sourceId\": \"ocid1.autonomousdatabase.oc1.phx..<var>&lt;unique_ID&gt;</var>\",
- *       \"source\": \"CROSS_REGION_DISASTER_RECOVERY\",
- *       \"remoteDisasterRecoveryType\": \"BACKUP_BASED\"
- *     }}
- * Example II - Creating a cross-region standby that specifies optional parameters in addition to the required parameters:
- *     {@code {
- *       \"compartmentId\": \"ocid.compartment.oc1..<var>&lt;unique_ID&gt;</var>\",
- *       \"ecpuCount\": 2,
- *       \"dbName\": \"adatabasedb1\",
- *       \"sourceId\": \"ocid1.autonomousdatabase.oc1.phx..<var>&lt;unique_ID&gt;</var>\",
- *       \"dataStorageSizeInTBs\": 1,
- *       \"source\": \"CROSS_REGION_DISASTER_RECOVERY\",
- *       \"adminPassword\" : \"<var>&lt;password&gt;</var>\",
- *       \"dbVersion\": \"19c\",
- *       \"licenseModel\": \"LICENSE_INCLUDED\",
- *       \"isAutoScalingForStorageEnabled\": \"true\",
- *       \"remoteDisasterRecoveryType\": \"BACKUP_BASED\"
- *     }}
  *
  */
 export interface CreateCrossRegionDisasterRecoveryDetails
   extends model.CreateAutonomousDatabaseBase {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the source Autonomous Database that will be used to create a new standby database for the DR association.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the source Autonomous Database that will be used to create a new peer database for the DR association.
    */
   "sourceId": string;
   /**

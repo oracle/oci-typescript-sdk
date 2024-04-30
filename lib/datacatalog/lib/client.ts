@@ -6939,6 +6939,84 @@ export class DataCatalogClient {
   }
 
   /**
+   * Imports lineage metadata. Returns details about the job that performs the import.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ImportLineageRequest
+   * @return ImportLineageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ImportLineage.ts.html |here} to see how to use ImportLineage API.
+   */
+  public async importLineage(
+    importLineageRequest: requests.ImportLineageRequest
+  ): Promise<responses.ImportLineageResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#importLineage.");
+    const operationName = "importLineage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/ImportLineage";
+    const pathParams = {
+      "{catalogId}": importLineageRequest.catalogId,
+      "{dataAssetKey}": importLineageRequest.dataAssetKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": importLineageRequest.opcRetryToken,
+      "opc-request-id": importLineageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importLineageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/dataAssets/{dataAssetKey}/actions/importLineage",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importLineageRequest.importLineageDetails,
+        "ImportLineageDetails",
+        model.ImportLineageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportLineageResponse>{},
+        body: await response.json(),
+        bodyKey: "importLineageJobResult",
+        bodyModel: model.ImportLineageJobResult,
+        type: "model.ImportLineageJobResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List the physical entities aggregated by this logical entity.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAggregatedPhysicalEntitiesRequest
@@ -7977,7 +8055,8 @@ export class DataCatalogClient {
       "sortBy": listEntitiesRequest.sortBy,
       "sortOrder": listEntitiesRequest.sortOrder,
       "limit": listEntitiesRequest.limit,
-      "page": listEntitiesRequest.page
+      "page": listEntitiesRequest.page,
+      "isProcess": listEntitiesRequest.isProcess
     };
 
     let headerParams = {

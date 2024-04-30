@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.86.0 - 2024-04-30
+### Added
+- Support for enabling unified auditing for DBHome in the Database service
+- Support for listing minor Grid Infrastructure (GI) versions available for custom GI software image creation in the Database service
+- Support for network security groups in the Recovery Cloud service
+- Support for lineage metadata import in the Data Catalog service
+- Support for workspace properties in workspace create and update operations in the Data Integration service
+- Support for monitoring ExaCC databases in the Database Management service
+- Support for validations on target and policy before the masking process in the Data Safe service
+   
+### Breaking Changes
+- The type of property `allSqlStatementsFetched` was changed from string to `SqlTuningSet.AllSqlStatementsFetched` in the model `SqlTuningSet` in the Database Management service
+- The type of property `accepted` was changed from string to `SqlTuningSet.AllSqlStatementsFetched` in the models `SqlPlanBaseline` and `SqlPlanBaselineSummary` in the Database Management service
+- The type of property `fixed` was changed from string to `SqlTuningSet.Fixed` in the models `SqlPlanBaseline` and `SqlPlanBaselineSummary` in the Database Management service in the .NET SDK
+- The type of property `reproduced` was changed from string to `SqlTuningSet.Reproduced` in the models `SqlPlanBaseline` and `SqlPlanBaselineSummary` in the Database Management service
+- The type of property `autoPurge` was changed from string to `SqlTuningSet.AutoPurge` in the models `SqlPlanBaseline` and `SqlPlanBaselineSummary` in the Database Management service
+- The type of property `adaptive` was changed from string to `SqlTuningSet.Adaptive` in the models `SqlPlanBaseline` and `SqlPlanBaselineSummary` in the Database Management service
+
+
 ## 2.85.0 - 2024-04-23
 ### Added
 - Support for the Cluster Placement Groups service

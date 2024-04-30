@@ -57,6 +57,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * If true, the customer acknowledges that the specified Oracle Database software is an older release that is not currently supported by OCI.
    */
   "isDesupportedVersion"?: boolean;
+  /**
+   * Indicates whether unified autiding is enabled or not. Set to True to enable unified auditing on respective DBHome.
+   */
+  "isUnifiedAuditingEnabled"?: boolean;
 
   "source": string;
 }

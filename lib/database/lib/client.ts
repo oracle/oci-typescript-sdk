@@ -19586,6 +19586,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "displayName": listDatabaseSoftwareImagesRequest.displayName,
       "imageType": listDatabaseSoftwareImagesRequest.imageType,
       "imageShapeFamily": listDatabaseSoftwareImagesRequest.imageShapeFamily,
+      "patchSetGreaterThanOrEqualTo":
+        listDatabaseSoftwareImagesRequest.patchSetGreaterThanOrEqualTo,
       "isUpgradeSupported": listDatabaseSoftwareImagesRequest.isUpgradeSupported
     };
 
@@ -22369,7 +22371,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Gets a list of supported GI versions for the Exadata Cloud@Customer VM cluster.
+   * Gets a list of supported GI versions.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListGiVersionsRequest
    * @return ListGiVersionsResponse
@@ -30139,7 +30141,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   }
 
   /**
-   * If no database is associated with the key store, edit the key store.
+   * Edit the key store.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateKeyStoreRequest

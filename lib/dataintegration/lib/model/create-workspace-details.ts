@@ -86,6 +86,10 @@ export interface CreateWorkspaceDetails {
    * DCMS PRivate Endpoint Compartment Identifier
    */
   "endpointCompartmentId"?: string;
+  /**
+   * Key-values pairs of workspace for storing properties on the workspace.
+   */
+  "workspaceProperties"?: { [key: string]: string };
 }
 
 export namespace CreateWorkspaceDetails {

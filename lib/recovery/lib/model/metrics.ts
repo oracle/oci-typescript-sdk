@@ -50,6 +50,10 @@ export interface Metrics {
    * Number of seconds backups are currently retained for this database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "currentRetentionPeriodInSeconds"?: number;
+  /**
+   * Number of days of redo/archive to be applied to recover database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "minimumRecoveryNeededInDays"?: number;
 }
 
 export namespace Metrics {

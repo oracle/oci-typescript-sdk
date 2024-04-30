@@ -35,36 +35,12 @@ import common = require("oci-common");
  *   - cpuCoreCount
  *   - dataStorageSizeInTB
  *   - dbVersion
- * Example I - Creating a cross-region standby with required parameters only, with OCPU:
- *     {@code {
- *       \"compartmentId\": \"ocid.compartment.oc1..<var>&lt;unique_ID&gt;</var>\",
- *       \"cpuCoreCount\": 1,
- *       \"dbName\": \"adatabasedb1\",
- *       \"sourceId\": \"ocid1.autonomousdatabase.oc1.phx..<var>&lt;unique_ID&gt;</var>\",
- *       \"dataStorageSizeInTBs\": 1,
- *       \"source\": \"CROSS_REGION_DATAGUARD\",
- *       \"adminPassword\" : \"<var>&lt;password&gt;</var>\",
- *     }}
- * Example II - Creating a cross-region standby that specifies optional parameters in addition to the required parameters, with ECPU:
- *     {@code {
- *       \"compartmentId\": \"ocid.compartment.oc1..<var>&lt;unique_ID&gt;</var>\",
- *       \"computeModel\": \"ECPU\",
- *       \"computeCount\": 2,
- *       \"dbName\": \"adatabasedb1\",
- *       \"sourceId\": \"ocid1.autonomousdatabase.oc1.phx..<var>&lt;unique_ID&gt;</var>\",
- *       \"dataStorageSizeInTBs\": 1,
- *       \"source\": \"CROSS_REGION_DATAGUARD\",
- *       \"adminPassword\" : \"<var>&lt;password&gt;</var>\",
- *       \"dbVersion\": \"19c\",
- *       \"licenseModel\": \"LICENSE_INCLUDED\",
- *       \"isAutoScalingForStorageEnabled\": \"true\"
- *     }}
  *
  */
 export interface CreateCrossRegionAutonomousDatabaseDataGuardDetails
   extends model.CreateAutonomousDatabaseBase {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the source Autonomous Database that will be used to create a new standby database for the Data Guard association.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the source Autonomous Database that will be used to create a new peer database for the Data Guard association.
    */
   "sourceId": string;
 

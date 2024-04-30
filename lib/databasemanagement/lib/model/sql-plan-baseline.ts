@@ -1,8 +1,8 @@
 /**
  * Database Management API
- * Use the Database Management API to perform tasks such as obtaining performance and resource usage metrics
-for a fleet of Managed Databases or a specific Managed Database, creating Managed Database Groups, and
-running a SQL job on a Managed Database or Managed Database Group.
+ * Use the Database Management API to monitor and manage resources such as
+Oracle Databases, MySQL Databases, and External Database Systems. 
+For more information, see [Database Management](/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -57,25 +57,25 @@ export interface SqlPlanBaseline {
   /**
    * Indicates whether the plan baseline is enabled ({@code YES}) or disabled ({@code NO}).
    */
-  "enabled"?: string;
+  "enabled"?: SqlPlanBaseline.Enabled;
   /**
    * Indicates whether the plan baseline is accepted ({@code YES}) or not ({@code NO}).
    */
-  "accepted"?: string;
+  "accepted"?: SqlPlanBaseline.Accepted;
   /**
    * Indicates whether the plan baseline is fixed ({@code YES}) or not ({@code NO}).
    */
-  "fixed"?: string;
+  "fixed"?: SqlPlanBaseline.Fixed;
   /**
    * Indicates whether the optimizer was able to reproduce the plan ({@code YES}) or not ({@code NO}).
    * The value is set to {@code YES} when a plan is initially added to the plan baseline.
    *
    */
-  "reproduced"?: string;
+  "reproduced"?: SqlPlanBaseline.Reproduced;
   /**
    * Indicates whether the plan baseline is auto-purged ({@code YES}) or not ({@code NO}).
    */
-  "autoPurge"?: string;
+  "autoPurge"?: SqlPlanBaseline.AutoPurge;
   /**
     * Indicates whether a plan that is automatically captured by SQL plan management is marked adaptive or not.
 * <p>
@@ -87,7 +87,7 @@ When a new adaptive plan is found for a SQL statement that has an existing SQL p
 * is no longer adaptive, but resolved.
 * 
     */
-  "adaptive"?: string;
+  "adaptive"?: SqlPlanBaseline.Adaptive;
   /**
    * The application module name.
    */
@@ -103,6 +103,66 @@ When a new adaptive plan is found for a SQL statement that has an existing SQL p
 }
 
 export namespace SqlPlanBaseline {
+  export enum Enabled {
+    Yes = "YES",
+    No = "NO",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Accepted {
+    Yes = "YES",
+    No = "NO",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Fixed {
+    Yes = "YES",
+    No = "NO",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Reproduced {
+    Yes = "YES",
+    No = "NO",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AutoPurge {
+    Yes = "YES",
+    No = "NO",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Adaptive {
+    Yes = "YES",
+    No = "NO",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: SqlPlanBaseline): object {
     const jsonObj = { ...obj, ...{} };
 

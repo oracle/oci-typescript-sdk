@@ -222,6 +222,76 @@ export class DatabaseRecoveryClient {
   }
 
   /**
+   * Cancels the scheduled deletion of a protected database, and returns the protected database to an ACTIVE state. You can cancel the deletion only if the protected database is in the DELETE SCHEDULED state.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelProtectedDatabaseDeletionRequest
+   * @return CancelProtectedDatabaseDeletionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CancelProtectedDatabaseDeletion.ts.html |here} to see how to use CancelProtectedDatabaseDeletion API.
+   */
+  public async cancelProtectedDatabaseDeletion(
+    cancelProtectedDatabaseDeletionRequest: requests.CancelProtectedDatabaseDeletionRequest
+  ): Promise<responses.CancelProtectedDatabaseDeletionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseRecoveryClient#cancelProtectedDatabaseDeletion."
+      );
+    const operationName = "cancelProtectedDatabaseDeletion";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{protectedDatabaseId}": cancelProtectedDatabaseDeletionRequest.protectedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelProtectedDatabaseDeletionRequest.ifMatch,
+      "opc-request-id": cancelProtectedDatabaseDeletionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelProtectedDatabaseDeletionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/protectedDatabases/{protectedDatabaseId}/actions/cancelDeletion",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelProtectedDatabaseDeletionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a protected database resource from the existing compartment to the specified compartment. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeProtectedDatabaseCompartmentRequest
@@ -485,7 +555,8 @@ export class DatabaseRecoveryClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createProtectedDatabaseRequest.opcRetryToken,
-      "opc-request-id": createProtectedDatabaseRequest.opcRequestId
+      "opc-request-id": createProtectedDatabaseRequest.opcRequestId,
+      "opc-dry-run": createProtectedDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -754,7 +825,9 @@ export class DatabaseRecoveryClient {
       "{protectedDatabaseId}": deleteProtectedDatabaseRequest.protectedDatabaseId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "deletionSchedule": deleteProtectedDatabaseRequest.deletionSchedule
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1029,6 +1102,16 @@ export class DatabaseRecoveryClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-filename"),
+            key: "opcFilename",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-checksum"),
+            key: "opcChecksum",
             dataType: "string"
           }
         ]
@@ -1836,6 +1919,89 @@ export class DatabaseRecoveryClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Defines a preferred schedule to delete a protected database after you terminate the source database.
+   * The default schedule is DELETE_AFTER_72_HOURS, so that the delete operation can occur 72 hours (3 days) after the source database is terminated.
+   * The alternate schedule is DELETE_AFTER_RETENTION_PERIOD. Specify this option if you want to delete a protected database only after the policy-defined backup retention period expires.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ScheduleProtectedDatabaseDeletionRequest
+   * @return ScheduleProtectedDatabaseDeletionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ScheduleProtectedDatabaseDeletion.ts.html |here} to see how to use ScheduleProtectedDatabaseDeletion API.
+   */
+  public async scheduleProtectedDatabaseDeletion(
+    scheduleProtectedDatabaseDeletionRequest: requests.ScheduleProtectedDatabaseDeletionRequest
+  ): Promise<responses.ScheduleProtectedDatabaseDeletionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseRecoveryClient#scheduleProtectedDatabaseDeletion."
+      );
+    const operationName = "scheduleProtectedDatabaseDeletion";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{protectedDatabaseId}": scheduleProtectedDatabaseDeletionRequest.protectedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": scheduleProtectedDatabaseDeletionRequest.ifMatch,
+      "opc-request-id": scheduleProtectedDatabaseDeletionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scheduleProtectedDatabaseDeletionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/protectedDatabases/{protectedDatabaseId}/actions/scheduleDeletion",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        scheduleProtectedDatabaseDeletionRequest.scheduleProtectedDatabaseDeletionDetails,
+        "ScheduleProtectedDatabaseDeletionDetails",
+        model.ScheduleProtectedDatabaseDeletionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ScheduleProtectedDatabaseDeletionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

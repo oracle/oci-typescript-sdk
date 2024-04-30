@@ -19,6 +19,7 @@ import common = require("oci-common");
  **/
 export enum OperationStatus {
   Accepted = "ACCEPTED",
+  Waiting = "WAITING",
   InProgress = "IN_PROGRESS",
   Failed = "FAILED",
   Succeeded = "SUCCEEDED",

@@ -38,6 +38,10 @@ export interface UpdateWorkspaceDetails {
    * A user-friendly display name for the workspace. Does not have to be unique, and can be modified. Avoid entering confidential information.
    */
   "displayName"?: string;
+  /**
+   * Key-values pairs of workspace for storing properties on the workspace.
+   */
+  "workspaceProperties"?: { [key: string]: string };
 }
 
 export namespace UpdateWorkspaceDetails {

@@ -1,8 +1,8 @@
 /**
  * Database Management API
- * Use the Database Management API to perform tasks such as obtaining performance and resource usage metrics
-for a fleet of Managed Databases or a specific Managed Database, creating Managed Database Groups, and
-running a SQL job on a Managed Database or Managed Database Group.
+ * Use the Database Management API to monitor and manage resources such as
+Oracle Databases, MySQL Databases, and External Database Systems. 
+For more information, see [Database Management](/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -50,15 +50,15 @@ export interface ManagedMySqlDatabase {
    */
   "heatWaveClusterDisplayName"?: string;
   /**
-   * If HeatWave is enabled for this db system or not.
+   * Indicates whether HeatWave is enabled for the MySQL Database System or not.
    */
   "isHeatWaveEnabled"?: boolean;
   /**
-   * If HeatWave Lakehouse is enabled for the db system or not.
+   * Indicates whether HeatWave Lakehouse is enabled for the MySQL Database System or not.
    */
   "isLakehouseEnabled"?: boolean;
   /**
-   * Shape of the nodes in the HeatWave cluster.
+   * The shape of the nodes in the HeatWave cluster.
    */
   "heatWaveNodeShape"?: string;
   /**
@@ -66,11 +66,11 @@ export interface ManagedMySqlDatabase {
    */
   "heatWaveMemorySize"?: number;
   /**
-   * The information about an individual HeatWave nodes in the cluster.
+   * The information about individual HeatWave nodes in the cluster.
    */
   "heatWaveNodes"?: Array<model.HeatWaveNode>;
   /**
-   * If the HeatWave cluster is active or not.
+   * Indicates whether the HeatWave cluster is active or not.
    */
   "isHeatWaveActive"?: boolean;
   /**

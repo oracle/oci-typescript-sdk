@@ -28,6 +28,16 @@ export interface FetchProtectedDatabaseConfigurationResponse {
    */
   "opcRequestId": string;
   /**
+   * Contains filename passed in header.
+   *
+   */
+  "opcFilename": string;
+  /**
+   * Contains file checksum passed in header.
+   *
+   */
+  "opcChecksum": string;
+  /**
    * The returned stream.Readable | ReadableStream instance.
    */
   "value": stream.Readable | ReadableStream;

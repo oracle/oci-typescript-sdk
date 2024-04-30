@@ -27,6 +27,8 @@ import * as CreateRecoveryServiceSubnetDetails from "./create-recovery-service-s
 export import CreateRecoveryServiceSubnetDetails = CreateRecoveryServiceSubnetDetails.CreateRecoveryServiceSubnetDetails;
 import * as DatabaseSizes from "./database-sizes";
 export import DatabaseSizes = DatabaseSizes.DatabaseSizes;
+import * as DeletionSchedule from "./deletion-schedule";
+export import DeletionSchedule = DeletionSchedule.DeletionSchedule;
 import * as FetchProtectedDatabaseConfigurationDetails from "./fetch-protected-database-configuration-details";
 export import FetchProtectedDatabaseConfigurationDetails = FetchProtectedDatabaseConfigurationDetails.FetchProtectedDatabaseConfigurationDetails;
 import * as Health from "./health";
@@ -63,6 +65,8 @@ import * as RecoveryServiceSubnetInput from "./recovery-service-subnet-input";
 export import RecoveryServiceSubnetInput = RecoveryServiceSubnetInput.RecoveryServiceSubnetInput;
 import * as RecoveryServiceSubnetSummary from "./recovery-service-subnet-summary";
 export import RecoveryServiceSubnetSummary = RecoveryServiceSubnetSummary.RecoveryServiceSubnetSummary;
+import * as ScheduleProtectedDatabaseDeletionDetails from "./schedule-protected-database-deletion-details";
+export import ScheduleProtectedDatabaseDeletionDetails = ScheduleProtectedDatabaseDeletionDetails.ScheduleProtectedDatabaseDeletionDetails;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as UpdateProtectedDatabaseDetails from "./update-protected-database-details";

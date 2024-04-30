@@ -1,8 +1,8 @@
 /**
  * Database Management API
- * Use the Database Management API to perform tasks such as obtaining performance and resource usage metrics
-for a fleet of Managed Databases or a specific Managed Database, creating Managed Database Groups, and
-running a SQL job on a Managed Database or Managed Database Group.
+ * Use the Database Management API to monitor and manage resources such as
+Oracle Databases, MySQL Databases, and External Database Systems. 
+For more information, see [Database Management](/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary of the inventory count and the metrics that describe the aggregated usage of CPU, storage, and so on of all the HeatWave clusters in the fleet.
+ * The inventory count of HeatWave clusters in the fleet and a summary of the metrics that provide the aggregated usage of CPU, storage, and so on of all the clusters.
  */
 export interface HeatWaveFleetSummary {
   /**
-   * The usage metrics for the Managed HeatWave clusters in the fleet.
+   * The usage metrics for the HeatWave clusters in the fleet.
    */
   "aggregatedMetrics": Array<model.HeatWaveFleetMetricSummaryDefinition>;
   /**
-   * Summary counts of HeatWave clusters in the fleet grouped by cluster type.
+   * The number of HeatWave clusters in the fleet, grouped by cluster type or other properties.
    */
   "inventory": Array<model.HeatWaveFleetByCategory>;
 }

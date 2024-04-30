@@ -1,8 +1,8 @@
 /**
  * Database Management API
- * Use the Database Management API to perform tasks such as obtaining performance and resource usage metrics
-for a fleet of Managed Databases or a specific Managed Database, creating Managed Database Groups, and
-running a SQL job on a Managed Database or Managed Database Group.
+ * Use the Database Management API to monitor and manage resources such as
+Oracle Databases, MySQL Databases, and External Database Systems. 
+For more information, see [Database Management](/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -35,6 +35,15 @@ export enum WorkRequestOperationType {
   EnableExadataInfrastructure = "ENABLE_EXADATA_INFRASTRUCTURE",
   DeleteExadataInfrastructure = "DELETE_EXADATA_INFRASTRUCTURE",
   ChangeExadataCompartment = "CHANGE_EXADATA_COMPARTMENT",
+  EnableSqlWatch = "ENABLE_SQL_WATCH",
+  DisableSqlWatch = "DISABLE_SQL_WATCH",
+  ModifySqlWatch = "MODIFY_SQL_WATCH",
+  EnableDblm = "ENABLE_DBLM",
+  DisableDblm = "DISABLE_DBLM",
+  ModifyDblm = "MODIFY_DBLM",
+  EnableDbmgmt = "ENABLE_DBMGMT",
+  DisableDbmgmt = "DISABLE_DBMGMT",
+  ModifyDbmgmt = "MODIFY_DBMGMT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

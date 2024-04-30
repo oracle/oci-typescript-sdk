@@ -28,6 +28,10 @@ export interface VmClusterUpdateDetails {
    * The update action to perform.
    */
   "updateAction"?: VmClusterUpdateDetails.UpdateAction;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a grid infrastructure software image. This is a database software image of the type {@code GRID_IMAGE}.
+   */
+  "giSoftwareImageId"?: string;
 }
 
 export namespace VmClusterUpdateDetails {

@@ -41,6 +41,11 @@ export interface ProtectionPolicy {
    */
   "isPredefinedPolicy": boolean;
   /**
+   * An RFC3339 formatted datetime string that specifies the exact date and time for the retention lock to take effect and permanently lock the retention period defined in the policy.
+   *
+   */
+  "policyLockedDateTime"?: string;
+  /**
    * An RFC3339 formatted datetime string that indicates the created time for the protection policy. For example: '2020-05-22T21:10:29.600Z'.
    *
    */
@@ -51,13 +56,7 @@ export interface ProtectionPolicy {
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the protection policy. Allowed values are:
-   *   - CREATING
-   *   - UPDATING
-   *   - ACTIVE
-   *   - DELETING
-   *   - DELETED
-   *   - FAILED
+   * The current state of the protection policy.
    *
    */
   "lifecycleState"?: model.LifecycleState;

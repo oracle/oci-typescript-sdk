@@ -1,8 +1,8 @@
 /**
  * Database Management API
- * Use the Database Management API to perform tasks such as obtaining performance and resource usage metrics
-for a fleet of Managed Databases or a specific Managed Database, creating Managed Database Groups, and
-running a SQL job on a Managed Database or Managed Database Group.
+ * Use the Database Management API to monitor and manage resources such as
+Oracle Databases, MySQL Databases, and External Database Systems. 
+For more information, see [Database Management](/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -92,14 +92,24 @@ import * as DisableAutomaticInitialPlanCaptureRequest from "./disable-automatic-
 export import DisableAutomaticInitialPlanCaptureRequest = DisableAutomaticInitialPlanCaptureRequest.DisableAutomaticInitialPlanCaptureRequest;
 import * as DisableAutomaticSpmEvolveAdvisorTaskRequest from "./disable-automatic-spm-evolve-advisor-task-request";
 export import DisableAutomaticSpmEvolveAdvisorTaskRequest = DisableAutomaticSpmEvolveAdvisorTaskRequest.DisableAutomaticSpmEvolveAdvisorTaskRequest;
+import * as DisableDatabaseManagementFeatureRequest from "./disable-database-management-feature-request";
+export import DisableDatabaseManagementFeatureRequest = DisableDatabaseManagementFeatureRequest.DisableDatabaseManagementFeatureRequest;
+import * as DisableExternalContainerDatabaseManagementFeatureRequest from "./disable-external-container-database-management-feature-request";
+export import DisableExternalContainerDatabaseManagementFeatureRequest = DisableExternalContainerDatabaseManagementFeatureRequest.DisableExternalContainerDatabaseManagementFeatureRequest;
 import * as DisableExternalDbSystemDatabaseManagementRequest from "./disable-external-db-system-database-management-request";
 export import DisableExternalDbSystemDatabaseManagementRequest = DisableExternalDbSystemDatabaseManagementRequest.DisableExternalDbSystemDatabaseManagementRequest;
 import * as DisableExternalDbSystemStackMonitoringRequest from "./disable-external-db-system-stack-monitoring-request";
 export import DisableExternalDbSystemStackMonitoringRequest = DisableExternalDbSystemStackMonitoringRequest.DisableExternalDbSystemStackMonitoringRequest;
 import * as DisableExternalExadataInfrastructureManagementRequest from "./disable-external-exadata-infrastructure-management-request";
 export import DisableExternalExadataInfrastructureManagementRequest = DisableExternalExadataInfrastructureManagementRequest.DisableExternalExadataInfrastructureManagementRequest;
+import * as DisableExternalNonContainerDatabaseManagementFeatureRequest from "./disable-external-non-container-database-management-feature-request";
+export import DisableExternalNonContainerDatabaseManagementFeatureRequest = DisableExternalNonContainerDatabaseManagementFeatureRequest.DisableExternalNonContainerDatabaseManagementFeatureRequest;
+import * as DisableExternalPluggableDatabaseManagementFeatureRequest from "./disable-external-pluggable-database-management-feature-request";
+export import DisableExternalPluggableDatabaseManagementFeatureRequest = DisableExternalPluggableDatabaseManagementFeatureRequest.DisableExternalPluggableDatabaseManagementFeatureRequest;
 import * as DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest from "./disable-high-frequency-automatic-spm-evolve-advisor-task-request";
 export import DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest = DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest;
+import * as DisablePluggableDatabaseManagementFeatureRequest from "./disable-pluggable-database-management-feature-request";
+export import DisablePluggableDatabaseManagementFeatureRequest = DisablePluggableDatabaseManagementFeatureRequest.DisablePluggableDatabaseManagementFeatureRequest;
 import * as DisableSqlPlanBaselinesUsageRequest from "./disable-sql-plan-baselines-usage-request";
 export import DisableSqlPlanBaselinesUsageRequest = DisableSqlPlanBaselinesUsageRequest.DisableSqlPlanBaselinesUsageRequest;
 import * as DiscoverExternalExadataInfrastructureRequest from "./discover-external-exadata-infrastructure-request";
@@ -112,14 +122,24 @@ import * as EnableAutomaticInitialPlanCaptureRequest from "./enable-automatic-in
 export import EnableAutomaticInitialPlanCaptureRequest = EnableAutomaticInitialPlanCaptureRequest.EnableAutomaticInitialPlanCaptureRequest;
 import * as EnableAutomaticSpmEvolveAdvisorTaskRequest from "./enable-automatic-spm-evolve-advisor-task-request";
 export import EnableAutomaticSpmEvolveAdvisorTaskRequest = EnableAutomaticSpmEvolveAdvisorTaskRequest.EnableAutomaticSpmEvolveAdvisorTaskRequest;
+import * as EnableDatabaseManagementFeatureRequest from "./enable-database-management-feature-request";
+export import EnableDatabaseManagementFeatureRequest = EnableDatabaseManagementFeatureRequest.EnableDatabaseManagementFeatureRequest;
+import * as EnableExternalContainerDatabaseManagementFeatureRequest from "./enable-external-container-database-management-feature-request";
+export import EnableExternalContainerDatabaseManagementFeatureRequest = EnableExternalContainerDatabaseManagementFeatureRequest.EnableExternalContainerDatabaseManagementFeatureRequest;
 import * as EnableExternalDbSystemDatabaseManagementRequest from "./enable-external-db-system-database-management-request";
 export import EnableExternalDbSystemDatabaseManagementRequest = EnableExternalDbSystemDatabaseManagementRequest.EnableExternalDbSystemDatabaseManagementRequest;
 import * as EnableExternalDbSystemStackMonitoringRequest from "./enable-external-db-system-stack-monitoring-request";
 export import EnableExternalDbSystemStackMonitoringRequest = EnableExternalDbSystemStackMonitoringRequest.EnableExternalDbSystemStackMonitoringRequest;
 import * as EnableExternalExadataInfrastructureManagementRequest from "./enable-external-exadata-infrastructure-management-request";
 export import EnableExternalExadataInfrastructureManagementRequest = EnableExternalExadataInfrastructureManagementRequest.EnableExternalExadataInfrastructureManagementRequest;
+import * as EnableExternalNonContainerDatabaseManagementFeatureRequest from "./enable-external-non-container-database-management-feature-request";
+export import EnableExternalNonContainerDatabaseManagementFeatureRequest = EnableExternalNonContainerDatabaseManagementFeatureRequest.EnableExternalNonContainerDatabaseManagementFeatureRequest;
+import * as EnableExternalPluggableDatabaseManagementFeatureRequest from "./enable-external-pluggable-database-management-feature-request";
+export import EnableExternalPluggableDatabaseManagementFeatureRequest = EnableExternalPluggableDatabaseManagementFeatureRequest.EnableExternalPluggableDatabaseManagementFeatureRequest;
 import * as EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest from "./enable-high-frequency-automatic-spm-evolve-advisor-task-request";
 export import EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest = EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest;
+import * as EnablePluggableDatabaseManagementFeatureRequest from "./enable-pluggable-database-management-feature-request";
+export import EnablePluggableDatabaseManagementFeatureRequest = EnablePluggableDatabaseManagementFeatureRequest.EnablePluggableDatabaseManagementFeatureRequest;
 import * as EnableSqlPlanBaselinesUsageRequest from "./enable-sql-plan-baselines-usage-request";
 export import EnableSqlPlanBaselinesUsageRequest = EnableSqlPlanBaselinesUsageRequest.EnableSqlPlanBaselinesUsageRequest;
 import * as GenerateAwrSnapshotRequest from "./generate-awr-snapshot-request";
@@ -308,6 +328,10 @@ import * as LoadSqlPlanBaselinesFromAwrRequest from "./load-sql-plan-baselines-f
 export import LoadSqlPlanBaselinesFromAwrRequest = LoadSqlPlanBaselinesFromAwrRequest.LoadSqlPlanBaselinesFromAwrRequest;
 import * as LoadSqlPlanBaselinesFromCursorCacheRequest from "./load-sql-plan-baselines-from-cursor-cache-request";
 export import LoadSqlPlanBaselinesFromCursorCacheRequest = LoadSqlPlanBaselinesFromCursorCacheRequest.LoadSqlPlanBaselinesFromCursorCacheRequest;
+import * as ModifyDatabaseManagementFeatureRequest from "./modify-database-management-feature-request";
+export import ModifyDatabaseManagementFeatureRequest = ModifyDatabaseManagementFeatureRequest.ModifyDatabaseManagementFeatureRequest;
+import * as ModifyPluggableDatabaseManagementFeatureRequest from "./modify-pluggable-database-management-feature-request";
+export import ModifyPluggableDatabaseManagementFeatureRequest = ModifyPluggableDatabaseManagementFeatureRequest.ModifyPluggableDatabaseManagementFeatureRequest;
 import * as PatchExternalDbSystemDiscoveryRequest from "./patch-external-db-system-discovery-request";
 export import PatchExternalDbSystemDiscoveryRequest = PatchExternalDbSystemDiscoveryRequest.PatchExternalDbSystemDiscoveryRequest;
 import * as RemoveDataFileRequest from "./remove-data-file-request";
