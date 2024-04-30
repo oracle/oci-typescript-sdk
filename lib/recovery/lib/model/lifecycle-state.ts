@@ -21,6 +21,7 @@ export enum LifecycleState {
   Creating = "CREATING",
   Updating = "UPDATING",
   Active = "ACTIVE",
+  DeleteScheduled = "DELETE_SCHEDULED",
   Deleting = "DELETING",
   Deleted = "DELETED",
   Failed = "FAILED",

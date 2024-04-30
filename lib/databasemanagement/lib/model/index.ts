@@ -1,8 +1,8 @@
 /**
  * Database Management API
- * Use the Database Management API to perform tasks such as obtaining performance and resource usage metrics
-for a fleet of Managed Databases or a specific Managed Database, creating Managed Database Groups, and
-running a SQL job on a Managed Database or Managed Database Group.
+ * Use the Database Management API to monitor and manage resources such as
+Oracle Databases, MySQL Databases, and External Database Systems. 
+For more information, see [Database Management](/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -128,6 +128,8 @@ import * as ConfigureAutomaticCaptureFiltersDetails from "./configure-automatic-
 export import ConfigureAutomaticCaptureFiltersDetails = ConfigureAutomaticCaptureFiltersDetails.ConfigureAutomaticCaptureFiltersDetails;
 import * as ConfigureAutomaticSpmEvolveAdvisorTaskDetails from "./configure-automatic-spm-evolve-advisor-task-details";
 export import ConfigureAutomaticSpmEvolveAdvisorTaskDetails = ConfigureAutomaticSpmEvolveAdvisorTaskDetails.ConfigureAutomaticSpmEvolveAdvisorTaskDetails;
+import * as ConnectorDetails from "./connector-details";
+export import ConnectorDetails = ConnectorDetails.ConnectorDetails;
 import * as ConsumerGroupPrivilegeCollection from "./consumer-group-privilege-collection";
 export import ConsumerGroupPrivilegeCollection = ConsumerGroupPrivilegeCollection.ConsumerGroupPrivilegeCollection;
 import * as ConsumerGroupPrivilegeSummary from "./consumer-group-privilege-summary";
@@ -166,12 +168,20 @@ import * as DataAccessContainerSummary from "./data-access-container-summary";
 export import DataAccessContainerSummary = DataAccessContainerSummary.DataAccessContainerSummary;
 import * as DatabaseConnectionCredentials from "./database-connection-credentials";
 export import DatabaseConnectionCredentials = DatabaseConnectionCredentials.DatabaseConnectionCredentials;
+import * as DatabaseConnectionDetails from "./database-connection-details";
+export import DatabaseConnectionDetails = DatabaseConnectionDetails.DatabaseConnectionDetails;
 import * as DatabaseConnectionString from "./database-connection-string";
 export import DatabaseConnectionString = DatabaseConnectionString.DatabaseConnectionString;
+import * as DatabaseConnectionStringDetails from "./database-connection-string-details";
+export import DatabaseConnectionStringDetails = DatabaseConnectionStringDetails.DatabaseConnectionStringDetails;
 import * as DatabaseCredentialDetails from "./database-credential-details";
 export import DatabaseCredentialDetails = DatabaseCredentialDetails.DatabaseCredentialDetails;
 import * as DatabaseCredentials from "./database-credentials";
 export import DatabaseCredentials = DatabaseCredentials.DatabaseCredentials;
+import * as DatabaseFeatureConfiguration from "./database-feature-configuration";
+export import DatabaseFeatureConfiguration = DatabaseFeatureConfiguration.DatabaseFeatureConfiguration;
+import * as DatabaseFeatureDetails from "./database-feature-details";
+export import DatabaseFeatureDetails = DatabaseFeatureDetails.DatabaseFeatureDetails;
 import * as DatabaseFleetHealthMetrics from "./database-fleet-health-metrics";
 export import DatabaseFleetHealthMetrics = DatabaseFleetHealthMetrics.DatabaseFleetHealthMetrics;
 import * as DatabaseHomeMetricDefinition from "./database-home-metric-definition";
@@ -214,6 +224,8 @@ import * as Datafile from "./datafile";
 export import Datafile = Datafile.Datafile;
 import * as DbManagementAnalyticsMetric from "./db-management-analytics-metric";
 export import DbManagementAnalyticsMetric = DbManagementAnalyticsMetric.DbManagementAnalyticsMetric;
+import * as DbManagementFeature from "./db-management-feature";
+export import DbManagementFeature = DbManagementFeature.DbManagementFeature;
 import * as DbManagementPrivateEndpoint from "./db-management-private-endpoint";
 export import DbManagementPrivateEndpoint = DbManagementPrivateEndpoint.DbManagementPrivateEndpoint;
 import * as DbManagementPrivateEndpointCollection from "./db-management-private-endpoint-collection";
@@ -228,8 +240,18 @@ import * as DisableAutomaticInitialPlanCaptureDetails from "./disable-automatic-
 export import DisableAutomaticInitialPlanCaptureDetails = DisableAutomaticInitialPlanCaptureDetails.DisableAutomaticInitialPlanCaptureDetails;
 import * as DisableAutomaticSpmEvolveAdvisorTaskDetails from "./disable-automatic-spm-evolve-advisor-task-details";
 export import DisableAutomaticSpmEvolveAdvisorTaskDetails = DisableAutomaticSpmEvolveAdvisorTaskDetails.DisableAutomaticSpmEvolveAdvisorTaskDetails;
+import * as DisableDatabaseManagementFeatureDetails from "./disable-database-management-feature-details";
+export import DisableDatabaseManagementFeatureDetails = DisableDatabaseManagementFeatureDetails.DisableDatabaseManagementFeatureDetails;
+import * as DisableExternalContainerDatabaseManagementFeatureDetails from "./disable-external-container-database-management-feature-details";
+export import DisableExternalContainerDatabaseManagementFeatureDetails = DisableExternalContainerDatabaseManagementFeatureDetails.DisableExternalContainerDatabaseManagementFeatureDetails;
+import * as DisableExternalNonContainerDatabaseManagementFeatureDetails from "./disable-external-non-container-database-management-feature-details";
+export import DisableExternalNonContainerDatabaseManagementFeatureDetails = DisableExternalNonContainerDatabaseManagementFeatureDetails.DisableExternalNonContainerDatabaseManagementFeatureDetails;
+import * as DisableExternalPluggableDatabaseManagementFeatureDetails from "./disable-external-pluggable-database-management-feature-details";
+export import DisableExternalPluggableDatabaseManagementFeatureDetails = DisableExternalPluggableDatabaseManagementFeatureDetails.DisableExternalPluggableDatabaseManagementFeatureDetails;
 import * as DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails from "./disable-high-frequency-automatic-spm-evolve-advisor-task-details";
 export import DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails = DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails.DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails;
+import * as DisablePluggableDatabaseManagementFeatureDetails from "./disable-pluggable-database-management-feature-details";
+export import DisablePluggableDatabaseManagementFeatureDetails = DisablePluggableDatabaseManagementFeatureDetails.DisablePluggableDatabaseManagementFeatureDetails;
 import * as DisableSqlPlanBaselinesUsageDetails from "./disable-sql-plan-baselines-usage-details";
 export import DisableSqlPlanBaselinesUsageDetails = DisableSqlPlanBaselinesUsageDetails.DisableSqlPlanBaselinesUsageDetails;
 import * as DiscoverExternalExadataInfrastructureDetails from "./discover-external-exadata-infrastructure-details";
@@ -250,14 +272,24 @@ import * as EnableAutomaticInitialPlanCaptureDetails from "./enable-automatic-in
 export import EnableAutomaticInitialPlanCaptureDetails = EnableAutomaticInitialPlanCaptureDetails.EnableAutomaticInitialPlanCaptureDetails;
 import * as EnableAutomaticSpmEvolveAdvisorTaskDetails from "./enable-automatic-spm-evolve-advisor-task-details";
 export import EnableAutomaticSpmEvolveAdvisorTaskDetails = EnableAutomaticSpmEvolveAdvisorTaskDetails.EnableAutomaticSpmEvolveAdvisorTaskDetails;
+import * as EnableDatabaseManagementFeatureDetails from "./enable-database-management-feature-details";
+export import EnableDatabaseManagementFeatureDetails = EnableDatabaseManagementFeatureDetails.EnableDatabaseManagementFeatureDetails;
+import * as EnableExternalContainerDatabaseManagementFeatureDetails from "./enable-external-container-database-management-feature-details";
+export import EnableExternalContainerDatabaseManagementFeatureDetails = EnableExternalContainerDatabaseManagementFeatureDetails.EnableExternalContainerDatabaseManagementFeatureDetails;
 import * as EnableExternalDbSystemDatabaseManagementDetails from "./enable-external-db-system-database-management-details";
 export import EnableExternalDbSystemDatabaseManagementDetails = EnableExternalDbSystemDatabaseManagementDetails.EnableExternalDbSystemDatabaseManagementDetails;
 import * as EnableExternalDbSystemStackMonitoringDetails from "./enable-external-db-system-stack-monitoring-details";
 export import EnableExternalDbSystemStackMonitoringDetails = EnableExternalDbSystemStackMonitoringDetails.EnableExternalDbSystemStackMonitoringDetails;
 import * as EnableExternalExadataInfrastructureManagementDetails from "./enable-external-exadata-infrastructure-management-details";
 export import EnableExternalExadataInfrastructureManagementDetails = EnableExternalExadataInfrastructureManagementDetails.EnableExternalExadataInfrastructureManagementDetails;
+import * as EnableExternalNonContainerDatabaseManagementFeatureDetails from "./enable-external-non-container-database-management-feature-details";
+export import EnableExternalNonContainerDatabaseManagementFeatureDetails = EnableExternalNonContainerDatabaseManagementFeatureDetails.EnableExternalNonContainerDatabaseManagementFeatureDetails;
+import * as EnableExternalPluggableDatabaseManagementFeatureDetails from "./enable-external-pluggable-database-management-feature-details";
+export import EnableExternalPluggableDatabaseManagementFeatureDetails = EnableExternalPluggableDatabaseManagementFeatureDetails.EnableExternalPluggableDatabaseManagementFeatureDetails;
 import * as EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails from "./enable-high-frequency-automatic-spm-evolve-advisor-task-details";
 export import EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails = EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails.EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails;
+import * as EnablePluggableDatabaseManagementFeatureDetails from "./enable-pluggable-database-management-feature-details";
+export import EnablePluggableDatabaseManagementFeatureDetails = EnablePluggableDatabaseManagementFeatureDetails.EnablePluggableDatabaseManagementFeatureDetails;
 import * as EnableSqlPlanBaselinesUsageDetails from "./enable-sql-plan-baselines-usage-details";
 export import EnableSqlPlanBaselinesUsageDetails = EnableSqlPlanBaselinesUsageDetails.EnableSqlPlanBaselinesUsageDetails;
 import * as EntityDiscovered from "./entity-discovered";
@@ -310,6 +342,8 @@ import * as ExternalClusterVipConfiguration from "./external-cluster-vip-configu
 export import ExternalClusterVipConfiguration = ExternalClusterVipConfiguration.ExternalClusterVipConfiguration;
 import * as ExternalDatabaseCollection from "./external-database-collection";
 export import ExternalDatabaseCollection = ExternalDatabaseCollection.ExternalDatabaseCollection;
+import * as ExternalDatabaseFeatureDetails from "./external-database-feature-details";
+export import ExternalDatabaseFeatureDetails = ExternalDatabaseFeatureDetails.ExternalDatabaseFeatureDetails;
 import * as ExternalDatabaseInstance from "./external-database-instance";
 export import ExternalDatabaseInstance = ExternalDatabaseInstance.ExternalDatabaseInstance;
 import * as ExternalDatabaseSummary from "./external-database-summary";
@@ -380,6 +414,8 @@ import * as ExternalListenerServicedDatabase from "./external-listener-serviced-
 export import ExternalListenerServicedDatabase = ExternalListenerServicedDatabase.ExternalListenerServicedDatabase;
 import * as ExternalListenerSummary from "./external-listener-summary";
 export import ExternalListenerSummary = ExternalListenerSummary.ExternalListenerSummary;
+import * as ExternalPluggableDatabaseFeatureDetails from "./external-pluggable-database-feature-details";
+export import ExternalPluggableDatabaseFeatureDetails = ExternalPluggableDatabaseFeatureDetails.ExternalPluggableDatabaseFeatureDetails;
 import * as ExternalServicedAsm from "./external-serviced-asm";
 export import ExternalServicedAsm = ExternalServicedAsm.ExternalServicedAsm;
 import * as ExternalServicedDatabase from "./external-serviced-database";
@@ -514,6 +550,10 @@ import * as MetricsAggregationRange from "./metrics-aggregation-range";
 export import MetricsAggregationRange = MetricsAggregationRange.MetricsAggregationRange;
 import * as MetricsAggregationRangeCollection from "./metrics-aggregation-range-collection";
 export import MetricsAggregationRangeCollection = MetricsAggregationRangeCollection.MetricsAggregationRangeCollection;
+import * as ModifyDatabaseManagementFeatureDetails from "./modify-database-management-feature-details";
+export import ModifyDatabaseManagementFeatureDetails = ModifyDatabaseManagementFeatureDetails.ModifyDatabaseManagementFeatureDetails;
+import * as ModifyPluggableDatabaseManagementFeatureDetails from "./modify-pluggable-database-management-feature-details";
+export import ModifyPluggableDatabaseManagementFeatureDetails = ModifyPluggableDatabaseManagementFeatureDetails.ModifyPluggableDatabaseManagementFeatureDetails;
 import * as ModifySnapshotSettingsDetails from "./modify-snapshot-settings-details";
 export import ModifySnapshotSettingsDetails = ModifySnapshotSettingsDetails.ModifySnapshotSettingsDetails;
 import * as MySqlConfigurationDataCollection from "./my-sql-configuration-data-collection";
@@ -897,6 +937,8 @@ import * as AwrDbWaitEventBucketCollection from "./awr-db-wait-event-bucket-coll
 export import AwrDbWaitEventBucketCollection = AwrDbWaitEventBucketCollection.AwrDbWaitEventBucketCollection;
 import * as AwrDbWaitEventCollection from "./awr-db-wait-event-collection";
 export import AwrDbWaitEventCollection = AwrDbWaitEventCollection.AwrDbWaitEventCollection;
+import * as BasicDatabaseConnectionStringDetails from "./basic-database-connection-string-details";
+export import BasicDatabaseConnectionStringDetails = BasicDatabaseConnectionStringDetails.BasicDatabaseConnectionStringDetails;
 import * as BasicNamedCredentialContent from "./basic-named-credential-content";
 export import BasicNamedCredentialContent = BasicNamedCredentialContent.BasicNamedCredentialContent;
 import * as BasicPreferredCredential from "./basic-preferred-credential";
@@ -909,6 +951,10 @@ import * as DatabaseConnectionCredentailsByName from "./database-connection-cred
 export import DatabaseConnectionCredentailsByName = DatabaseConnectionCredentailsByName.DatabaseConnectionCredentailsByName;
 import * as DatabaseConnectionCredentialsByDetails from "./database-connection-credentials-by-details";
 export import DatabaseConnectionCredentialsByDetails = DatabaseConnectionCredentialsByDetails.DatabaseConnectionCredentialsByDetails;
+import * as DatabaseDiagnosticsAndManagementFeatureConfiguration from "./database-diagnostics-and-management-feature-configuration";
+export import DatabaseDiagnosticsAndManagementFeatureConfiguration = DatabaseDiagnosticsAndManagementFeatureConfiguration.DatabaseDiagnosticsAndManagementFeatureConfiguration;
+import * as DatabaseDiagnosticsAndManagementFeatureDetails from "./database-diagnostics-and-management-feature-details";
+export import DatabaseDiagnosticsAndManagementFeatureDetails = DatabaseDiagnosticsAndManagementFeatureDetails.DatabaseDiagnosticsAndManagementFeatureDetails;
 import * as DatabaseNamedCredentialDetails from "./database-named-credential-details";
 export import DatabaseNamedCredentialDetails = DatabaseNamedCredentialDetails.DatabaseNamedCredentialDetails;
 import * as DatabasePasswordCredentialDetails from "./database-password-credential-details";
@@ -937,8 +983,12 @@ import * as DiscoveredExternalPluggableDatabase from "./discovered-external-plug
 export import DiscoveredExternalPluggableDatabase = DiscoveredExternalPluggableDatabase.DiscoveredExternalPluggableDatabase;
 import * as ExternalAsmConnectionInfo from "./external-asm-connection-info";
 export import ExternalAsmConnectionInfo = ExternalAsmConnectionInfo.ExternalAsmConnectionInfo;
+import * as ExternalConnectorDetails from "./external-connector-details";
+export import ExternalConnectorDetails = ExternalConnectorDetails.ExternalConnectorDetails;
 import * as ExternalDatabaseConnectionInfo from "./external-database-connection-info";
 export import ExternalDatabaseConnectionInfo = ExternalDatabaseConnectionInfo.ExternalDatabaseConnectionInfo;
+import * as ExternalDatabaseDiagnosticsAndManagementFeatureDetails from "./external-database-diagnostics-and-management-feature-details";
+export import ExternalDatabaseDiagnosticsAndManagementFeatureDetails = ExternalDatabaseDiagnosticsAndManagementFeatureDetails.ExternalDatabaseDiagnosticsAndManagementFeatureDetails;
 import * as ExternalDatabaseSystemDiscoverySummary from "./external-database-system-discovery-summary";
 export import ExternalDatabaseSystemDiscoverySummary = ExternalDatabaseSystemDiscoverySummary.ExternalDatabaseSystemDiscoverySummary;
 import * as ExternalDbSystemDiscoveryMacsConnector from "./external-db-system-discovery-macs-connector";
@@ -973,10 +1023,14 @@ import * as ExternalListenerTcpEndpoint from "./external-listener-tcp-endpoint";
 export import ExternalListenerTcpEndpoint = ExternalListenerTcpEndpoint.ExternalListenerTcpEndpoint;
 import * as ExternalListenerTcpsEndpoint from "./external-listener-tcps-endpoint";
 export import ExternalListenerTcpsEndpoint = ExternalListenerTcpsEndpoint.ExternalListenerTcpsEndpoint;
+import * as ExternalPluggableDatabaseDiagnosticsAndManagementFeatureDetails from "./external-pluggable-database-diagnostics-and-management-feature-details";
+export import ExternalPluggableDatabaseDiagnosticsAndManagementFeatureDetails = ExternalPluggableDatabaseDiagnosticsAndManagementFeatureDetails.ExternalPluggableDatabaseDiagnosticsAndManagementFeatureDetails;
 import * as ExternalStorageGridDiscoverySummary from "./external-storage-grid-discovery-summary";
 export import ExternalStorageGridDiscoverySummary = ExternalStorageGridDiscoverySummary.ExternalStorageGridDiscoverySummary;
 import * as ExternalStorageServerDiscoverySummary from "./external-storage-server-discovery-summary";
 export import ExternalStorageServerDiscoverySummary = ExternalStorageServerDiscoverySummary.ExternalStorageServerDiscoverySummary;
+import * as MacsConnectorDetails from "./macs-connector-details";
+export import MacsConnectorDetails = MacsConnectorDetails.MacsConnectorDetails;
 import * as ManagedDatabasePasswordCredential from "./managed-database-password-credential";
 export import ManagedDatabasePasswordCredential = ManagedDatabasePasswordCredential.ManagedDatabasePasswordCredential;
 import * as ManagedDatabaseSecretCredential from "./managed-database-secret-credential";
@@ -989,6 +1043,8 @@ import * as ObjectStorageJobExecutionResultLocation from "./object-storage-job-e
 export import ObjectStorageJobExecutionResultLocation = ObjectStorageJobExecutionResultLocation.ObjectStorageJobExecutionResultLocation;
 import * as PatchMergeInstruction from "./patch-merge-instruction";
 export import PatchMergeInstruction = PatchMergeInstruction.PatchMergeInstruction;
+import * as PrivateEndPointConnectorDetails from "./private-end-point-connector-details";
+export import PrivateEndPointConnectorDetails = PrivateEndPointConnectorDetails.PrivateEndPointConnectorDetails;
 import * as SqlJob from "./sql-job";
 export import SqlJob = SqlJob.SqlJob;
 import * as SqlTuningSetAdminPasswordCredentialDetails from "./sql-tuning-set-admin-password-credential-details";

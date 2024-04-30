@@ -268,6 +268,24 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forMaskingPolicyHealthReport till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMaskingPolicyHealthReportResponse
+   */
+  public async forMaskingPolicyHealthReport(
+    request: serviceRequests.GetMaskingPolicyHealthReportRequest,
+    ...targetStates: models.MaskingPolicyHealthReport.LifecycleState[]
+  ): Promise<serviceResponses.GetMaskingPolicyHealthReportResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getMaskingPolicyHealthReport(request),
+      response => targetStates.includes(response.maskingPolicyHealthReport.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forMaskingReport till it reaches any of the provided states
    *
    * @param request the request to send

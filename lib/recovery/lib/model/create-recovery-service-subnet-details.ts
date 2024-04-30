@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Describes the parameters required to create a recovery service subnet.
+ * Describes the parameters required to create a Recovery Service Subnet.
  */
 export interface CreateRecoveryServiceSubnetDetails {
   /**
@@ -23,9 +23,22 @@ export interface CreateRecoveryServiceSubnetDetails {
    */
   "displayName": string;
   /**
-   * The OCID of the subnet associated with the recovery service subnet. You can create a single backup network per virtual cloud network (VCN).
+   * Deprecated. One of the subnets associated with the Recovery Service subnet.
+   *
    */
-  "subnetId": string;
+  "subnetId"?: string;
+  /**
+   * A list of OCIDs of the subnets associated with the Recovery Service subnet.
+   */
+  "subnets"?: Array<string>;
+  /**
+   * A list of network security group (NSG) OCIDs that are associated with the Recovery Service subnet.
+   * You can specify a maximum of 5 unique OCIDs, which implies that you can associate a maximum of 5 NSGs to each Recovery Service subnet.
+   * Specify an empty array if you want to remove all the associated NSGs from a Recovery Service subnet.
+   * See {@link NetworkSecurityGroup} for more information.
+   *
+   */
+  "nsgIds"?: Array<string>;
   /**
    * The OCID of the virtual cloud network (VCN) that contains the recovery service subnet. You can create a single recovery service subnet per VCN.
    */

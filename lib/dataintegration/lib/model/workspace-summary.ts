@@ -76,6 +76,10 @@ export interface WorkspaceSummary {
    * DCMS registry associated with the container/workspace. Returns null if there is none.
    */
   "registryId"?: string;
+  /**
+   * key-value pairs of workspace properties
+   */
+  "workspaceProperties"?: { [key: string]: string };
 }
 
 export namespace WorkspaceSummary {

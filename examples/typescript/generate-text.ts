@@ -10,6 +10,8 @@
 
 import * as genai from "oci-generativeaiinference";
 import common = require("oci-common");
+import { Readable } from "stream";
+import * as readline from "readline";
 
 (async () => {
   const region = "us-chicago-1";
@@ -61,27 +63,50 @@ import common = require("oci-common");
         .inferenceResponse as genai.models.CohereLlmInferenceResponse).generatedTexts[0].text
   );
 
-  // Attempt to generate text as SSE stream (throws error)
+  // Generate text as stream response
   try {
     inference_request.isStream = true;
-    const responseStream = await client.generateText(req_body);
-
+    const [major, minor, patch] = process.versions.node.split(".").map(Number);
+    console.log("Version: " + major);
     let streamData = "";
-    const lines = String(responseStream).split("\n");
 
-    lines.forEach(line => {
-      if (line.trim() === "") {
-      } else {
-        if (line.startsWith("data:")) {
-          const data = JSON.parse(line.substring(6).trim());
-          streamData += data.text;
+    if (major >= 18) {
+      // If node version is above 18
+      const readablestream = (await client.generateText(req_body)) as ReadableStream<Uint8Array>;
+      const reader = readablestream.pipeThrough(new TextDecoderStream()).getReader();
+      let streamData = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        if (value) {
+          streamData = parseEvent(value);
+          process.stdout.write(streamData);
         }
       }
-    });
-    console.log("Stream Response: ", streamData);
+      console.log("\n");
+    } else {
+      // If node version is below 18 or above 14
+      const readablestream = ((await client.generateText(req_body)) as unknown) as Readable;
+      const eventstream = readline.createInterface({ input: readablestream });
+      eventstream.on("line", (chunk: string) => {
+        streamData = parseEvent(chunk);
+        process.stdout.write(streamData);
+      });
+      eventstream.on("close", () => {
+        console.log("\n");
+      });
+    }
   } catch (e) {
     console.log(e);
   }
-
-  client.close();
 })();
+
+function parseEvent(eventData: string): string {
+  if (eventData.startsWith("data:")) {
+    const data = JSON.parse(eventData.substring(6).trim());
+    if ("text" in data) {
+      return data.text;
+    }
+  }
+  return "";
+}

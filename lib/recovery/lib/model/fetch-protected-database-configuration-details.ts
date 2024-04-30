@@ -29,6 +29,7 @@ export namespace FetchProtectedDatabaseConfigurationDetails {
     Cabundle = "CABUNDLE",
     Tnsnames = "TNSNAMES",
     Hosts = "HOSTS",
+    Rcvconf = "RCVCONF",
     All = "ALL"
   }
 

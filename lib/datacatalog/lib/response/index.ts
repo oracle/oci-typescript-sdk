@@ -183,6 +183,8 @@ import * as ImportDataAssetResponse from "./import-data-asset-response";
 export import ImportDataAssetResponse = ImportDataAssetResponse.ImportDataAssetResponse;
 import * as ImportGlossaryResponse from "./import-glossary-response";
 export import ImportGlossaryResponse = ImportGlossaryResponse.ImportGlossaryResponse;
+import * as ImportLineageResponse from "./import-lineage-response";
+export import ImportLineageResponse = ImportLineageResponse.ImportLineageResponse;
 import * as ListAggregatedPhysicalEntitiesResponse from "./list-aggregated-physical-entities-response";
 export import ListAggregatedPhysicalEntitiesResponse = ListAggregatedPhysicalEntitiesResponse.ListAggregatedPhysicalEntitiesResponse;
 import * as ListAttributeTagsResponse from "./list-attribute-tags-response";

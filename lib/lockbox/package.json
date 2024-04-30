@@ -1,6 +1,6 @@
 {
   "name": "oci-lockbox",
-  "version": "2.85.0",
+  "version": "2.86.0",
   "description": "OCI NodeJS client for Lockbox Service",
   "repository": {
     "type": "git",

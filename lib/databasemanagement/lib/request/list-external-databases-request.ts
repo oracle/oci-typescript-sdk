@@ -27,6 +27,10 @@ export interface ListExternalDatabasesRequest extends common.BaseRequest {
    */
   "externalDbSystemId"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the external database.
+   */
+  "externalDatabaseId"?: string;
+  /**
    * A filter to only return the resources that match the entire display name.
    */
   "displayName"?: string;

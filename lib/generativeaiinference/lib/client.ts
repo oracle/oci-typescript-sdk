@@ -214,7 +214,9 @@ export class GenerativeAiInferenceClient {
    * @throws OciError when an error occurs
    * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiinference/Chat.ts.html |here} to see how to use Chat API.
    */
-  public async chat(chatRequest: requests.ChatRequest): Promise<responses.ChatResponse | string> {
+  public async chat(
+    chatRequest: requests.ChatRequest
+  ): Promise<responses.ChatResponse | ReadableStream<Uint8Array> | null> {
     if (this.logger) this.logger.debug("Calling operation GenerativeAiInferenceClient#chat.");
     const operationName = "chat";
     const apiReferenceLink = "";
@@ -262,7 +264,7 @@ export class GenerativeAiInferenceClient {
         response.headers.get(common.Constants.CONTENT_TYPE_HEADER) ===
           common.Constants.SERVER_SIDE_EVENT_TEXT_STREAM
       ) {
-        return await response.text();
+        return response.body;
       }
       const sdkResponse = composeResponse({
         responseObject: <responses.ChatResponse>{},
@@ -383,7 +385,7 @@ An embedding is numeric representation of a piece of text. This text can be a ph
    */
   public async generateText(
     generateTextRequest: requests.GenerateTextRequest
-  ): Promise<responses.GenerateTextResponse | string> {
+  ): Promise<responses.GenerateTextResponse | ReadableStream<Uint8Array> | null> {
     if (this.logger)
       this.logger.debug("Calling operation GenerativeAiInferenceClient#generateText.");
     const operationName = "generateText";
@@ -432,7 +434,7 @@ An embedding is numeric representation of a piece of text. This text can be a ph
         response.headers.get(common.Constants.CONTENT_TYPE_HEADER) ===
           common.Constants.SERVER_SIDE_EVENT_TEXT_STREAM
       ) {
-        return await response.text();
+        return response.body;
       }
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateTextResponse>{},

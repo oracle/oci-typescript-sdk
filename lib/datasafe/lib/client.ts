@@ -1574,6 +1574,84 @@ export class DataSafeClient {
   }
 
   /**
+   * Moves the specified masking policy health report and its dependent resources into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeMaskingPolicyHealthReportCompartmentRequest
+   * @return ChangeMaskingPolicyHealthReportCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeMaskingPolicyHealthReportCompartment.ts.html |here} to see how to use ChangeMaskingPolicyHealthReportCompartment API.
+   */
+  public async changeMaskingPolicyHealthReportCompartment(
+    changeMaskingPolicyHealthReportCompartmentRequest: requests.ChangeMaskingPolicyHealthReportCompartmentRequest
+  ): Promise<responses.ChangeMaskingPolicyHealthReportCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeMaskingPolicyHealthReportCompartment."
+      );
+    const operationName = "changeMaskingPolicyHealthReportCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicyHealthReport/ChangeMaskingPolicyHealthReportCompartment";
+    const pathParams = {
+      "{maskingPolicyHealthReportId}":
+        changeMaskingPolicyHealthReportCompartmentRequest.maskingPolicyHealthReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMaskingPolicyHealthReportCompartmentRequest.ifMatch,
+      "opc-retry-token": changeMaskingPolicyHealthReportCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeMaskingPolicyHealthReportCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMaskingPolicyHealthReportCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicyHealthReports/{maskingPolicyHealthReportId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMaskingPolicyHealthReportCompartmentRequest.changeMaskingPolicyHealthReportCompartmentDetails,
+        "ChangeMaskingPolicyHealthReportCompartmentDetails",
+        model.ChangeMaskingPolicyHealthReportCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMaskingPolicyHealthReportCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the specified on-premises connector into a different compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeOnPremConnectorCompartmentRequest
@@ -3296,7 +3374,7 @@ The existing saved security assessments created due to the schedule are not move
 Using the maskingFormats attribute, you can assign one or more masking formats
 * to a column. You need to specify a condition as part of each masking format. It
 * enables you to do <a href=\"https://docs.oracle.com/en/cloud/paas/data-safe/udscs/conditional-masking.html\">conditional masking</a>
-* so that you can mask the column data values differently using different 
+* so that you can mask the column data values differently using different
 * masking conditions. A masking format can have one or more format entries. The
 * combined output of all the format entries is used for masking. It provides the
 * flexibility to define a masking format that can generate different parts of a data
@@ -3385,7 +3463,7 @@ You can use the maskingColumnGroup attribute to group the columns that you would
   /**
      * Creates a new masking policy and associates it with a sensitive data model or a target database.
 * <p>
-To use a sensitive data model as the source of masking columns, set the columnSource attribute to 
+To use a sensitive data model as the source of masking columns, set the columnSource attribute to
 * SENSITIVE_DATA_MODEL and provide the sensitiveDataModelId attribute. After creating a masking policy,
 * you can use the AddMaskingColumnsFromSdm operation to automatically add all the columns from
 * the associated sensitive data model. In this case, the target database associated with the
@@ -3398,7 +3476,7 @@ You can also create a masking policy without using a sensitive data model. In th
 * <p>
 After creating a masking policy, you can use the CreateMaskingColumn or PatchMaskingColumns
 * operation to manually add columns to the policy. You need to add the parent columns only,
-* and it automatically adds the child columns (in referential relationship with the parent columns) 
+* and it automatically adds the child columns (in referential relationship with the parent columns)
 * from the associated sensitive data model or target database.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -5214,6 +5292,81 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMaskingPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified masking policy health report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteMaskingPolicyHealthReportRequest
+   * @return DeleteMaskingPolicyHealthReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteMaskingPolicyHealthReport.ts.html |here} to see how to use DeleteMaskingPolicyHealthReport API.
+   */
+  public async deleteMaskingPolicyHealthReport(
+    deleteMaskingPolicyHealthReportRequest: requests.DeleteMaskingPolicyHealthReportRequest
+  ): Promise<responses.DeleteMaskingPolicyHealthReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteMaskingPolicyHealthReport.");
+    const operationName = "deleteMaskingPolicyHealthReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicyHealthReport/DeleteMaskingPolicyHealthReport";
+    const pathParams = {
+      "{maskingPolicyHealthReportId}":
+        deleteMaskingPolicyHealthReportRequest.maskingPolicyHealthReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMaskingPolicyHealthReportRequest.ifMatch,
+      "opc-request-id": deleteMaskingPolicyHealthReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMaskingPolicyHealthReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicyHealthReports/{maskingPolicyHealthReportId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMaskingPolicyHealthReportResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -7121,6 +7274,84 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateDiscoveryReportForDownloadResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Performs health check on the masking policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateHealthReportRequest
+   * @return GenerateHealthReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateHealthReport.ts.html |here} to see how to use GenerateHealthReport API.
+   */
+  public async generateHealthReport(
+    generateHealthReportRequest: requests.GenerateHealthReportRequest
+  ): Promise<responses.GenerateHealthReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#generateHealthReport.");
+    const operationName = "generateHealthReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicyHealthReport/GenerateHealthReport";
+    const pathParams = {
+      "{maskingPolicyId}": generateHealthReportRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateHealthReportRequest.opcRequestId,
+      "opc-retry-token": generateHealthReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateHealthReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/actions/generateHealthReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateHealthReportRequest.generateHealthReportDetails,
+        "GenerateHealthReportDetails",
+        model.GenerateHealthReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateHealthReportResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -9266,6 +9497,84 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
         bodyKey: "maskingPolicy",
         bodyModel: model.MaskingPolicy,
         type: "model.MaskingPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified masking policy health report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMaskingPolicyHealthReportRequest
+   * @return GetMaskingPolicyHealthReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingPolicyHealthReport.ts.html |here} to see how to use GetMaskingPolicyHealthReport API.
+   */
+  public async getMaskingPolicyHealthReport(
+    getMaskingPolicyHealthReportRequest: requests.GetMaskingPolicyHealthReportRequest
+  ): Promise<responses.GetMaskingPolicyHealthReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getMaskingPolicyHealthReport.");
+    const operationName = "getMaskingPolicyHealthReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicyHealthReport/GetMaskingPolicyHealthReport";
+    const pathParams = {
+      "{maskingPolicyHealthReportId}":
+        getMaskingPolicyHealthReportRequest.maskingPolicyHealthReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMaskingPolicyHealthReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMaskingPolicyHealthReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicyHealthReports/{maskingPolicyHealthReportId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMaskingPolicyHealthReportResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingPolicyHealthReport",
+        bodyModel: model.MaskingPolicyHealthReport,
+        type: "model.MaskingPolicyHealthReport",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -14613,6 +14922,190 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
         bodyKey: "maskingPolicyCollection",
         bodyModel: model.MaskingPolicyCollection,
         type: "model.MaskingPolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of errors and warnings from a masking policy health check.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMaskingPolicyHealthReportLogsRequest
+   * @return ListMaskingPolicyHealthReportLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicyHealthReportLogs.ts.html |here} to see how to use ListMaskingPolicyHealthReportLogs API.
+   */
+  public async listMaskingPolicyHealthReportLogs(
+    listMaskingPolicyHealthReportLogsRequest: requests.ListMaskingPolicyHealthReportLogsRequest
+  ): Promise<responses.ListMaskingPolicyHealthReportLogsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listMaskingPolicyHealthReportLogs.");
+    const operationName = "listMaskingPolicyHealthReportLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicyHealthReport/ListMaskingPolicyHealthReportLogs";
+    const pathParams = {
+      "{maskingPolicyHealthReportId}":
+        listMaskingPolicyHealthReportLogsRequest.maskingPolicyHealthReportId
+    };
+
+    const queryParams = {
+      "limit": listMaskingPolicyHealthReportLogsRequest.limit,
+      "page": listMaskingPolicyHealthReportLogsRequest.page,
+      "sortOrder": listMaskingPolicyHealthReportLogsRequest.sortOrder,
+      "sortBy": listMaskingPolicyHealthReportLogsRequest.sortBy,
+      "messageType": listMaskingPolicyHealthReportLogsRequest.messageType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaskingPolicyHealthReportLogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaskingPolicyHealthReportLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicyHealthReports/{maskingPolicyHealthReportId}/logs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaskingPolicyHealthReportLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingPolicyHealthReportLogCollection",
+        bodyModel: model.MaskingPolicyHealthReportLogCollection,
+        type: "model.MaskingPolicyHealthReportLogCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of masking policy health reports based on the specified query parameters.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMaskingPolicyHealthReportsRequest
+   * @return ListMaskingPolicyHealthReportsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicyHealthReports.ts.html |here} to see how to use ListMaskingPolicyHealthReports API.
+   */
+  public async listMaskingPolicyHealthReports(
+    listMaskingPolicyHealthReportsRequest: requests.ListMaskingPolicyHealthReportsRequest
+  ): Promise<responses.ListMaskingPolicyHealthReportsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listMaskingPolicyHealthReports.");
+    const operationName = "listMaskingPolicyHealthReports";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicyHealthReport/ListMaskingPolicyHealthReports";
+    const pathParams = {};
+
+    const queryParams = {
+      "maskingPolicyHealthReportId":
+        listMaskingPolicyHealthReportsRequest.maskingPolicyHealthReportId,
+      "limit": listMaskingPolicyHealthReportsRequest.limit,
+      "page": listMaskingPolicyHealthReportsRequest.page,
+      "compartmentId": listMaskingPolicyHealthReportsRequest.compartmentId,
+      "compartmentIdInSubtree": listMaskingPolicyHealthReportsRequest.compartmentIdInSubtree,
+      "accessLevel": listMaskingPolicyHealthReportsRequest.accessLevel,
+      "sortBy": listMaskingPolicyHealthReportsRequest.sortBy,
+      "sortOrder": listMaskingPolicyHealthReportsRequest.sortOrder,
+      "displayName": listMaskingPolicyHealthReportsRequest.displayName,
+      "targetId": listMaskingPolicyHealthReportsRequest.targetId,
+      "maskingPolicyId": listMaskingPolicyHealthReportsRequest.maskingPolicyId,
+      "lifecycleState": listMaskingPolicyHealthReportsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaskingPolicyHealthReportsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaskingPolicyHealthReportsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicyHealthReports",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaskingPolicyHealthReportsResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingPolicyHealthReportCollection",
+        bodyModel: model.MaskingPolicyHealthReportCollection,
+        type: "model.MaskingPolicyHealthReportCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

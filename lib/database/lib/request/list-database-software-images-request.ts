@@ -32,6 +32,7 @@ export interface ListDatabaseSoftwareImagesRequest extends common.BaseRequest {
   "page"?: string;
   /**
    * The field to sort by.  You can provide one sort order ({@code sortOrder}).  Default order for TIMECREATED is descending.  Default order for DISPLAYNAME is ascending. The DISPLAYNAME sort order is case sensitive.
+   * Default order for PATCHSET is descending.
    *
    */
   "sortBy"?: ListDatabaseSoftwareImagesRequest.SortBy;
@@ -56,6 +57,10 @@ export interface ListDatabaseSoftwareImagesRequest extends common.BaseRequest {
    */
   "imageShapeFamily"?: string;
   /**
+   * A filter to return only resources with {@code patchSet} greater than or equal to given value.
+   */
+  "patchSetGreaterThanOrEqualTo"?: string;
+  /**
    * If provided, filters the results to the set of database versions which are supported for Upgrade.
    */
   "isUpgradeSupported"?: boolean;
@@ -64,7 +69,8 @@ export interface ListDatabaseSoftwareImagesRequest extends common.BaseRequest {
 export namespace ListDatabaseSoftwareImagesRequest {
   export enum SortBy {
     Timecreated = "TIMECREATED",
-    Displayname = "DISPLAYNAME"
+    Displayname = "DISPLAYNAME",
+    Patchset = "PATCHSET"
   }
 
   export enum SortOrder {

@@ -51,6 +51,14 @@ export interface ProtectedDatabase {
    */
   "protectionPolicyId": string;
   /**
+    * An RFC3339 formatted datetime string that specifies the exact date and time for the retention lock to take effect and permanently lock the retention period defined in the policy.
+* <p>
+The retention lock feature controls whether Recovery Service strictly preserves backups for the duration defined in a policy. Retention lock is useful to enforce recovery window compliance and to prevent unintentional modifications to protected database backups. 
+* Recovery Service enforces a 14-day delay before the retention lock set for a policy can take effect.
+* 
+    */
+  "policyLockedDateTime"?: string;
+  /**
    * List of recovery service subnet resources associated with the protected database.
    */
   "recoveryServiceSubnets": Array<model.RecoveryServiceSubnetDetails>;
@@ -92,12 +100,9 @@ export interface ProtectedDatabase {
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-    * Indicates the protection status of the database. Allowed values are:
-*  - HEALTHY
-*  - WARNING
-*  - ALERT
+    * Indicates the protection status of the database.
 * <p>
-A 'HEALTHY' status indicates that Recovery Service can ensure database recovery to any point in time within the entire recovery window. The potential data loss exposure since the last backup is:
+A 'PROTECTED' status indicates that Recovery Service can ensure database recovery to any point in time within the entire recovery window. The potential data loss exposure since the last backup is:
 *  - Less than 10 seconds, if Real-time data protection is enabled
 *  - Less than 70 minutes if Real-time data protection is disabled
 * <p>

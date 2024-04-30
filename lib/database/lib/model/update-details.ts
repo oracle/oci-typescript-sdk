@@ -28,6 +28,10 @@ export interface UpdateDetails {
    * The update action.
    */
   "updateAction"?: UpdateDetails.UpdateAction;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a grid infrastructure software image. This is a database software image of the type {@code GRID_IMAGE}.
+   */
+  "giSoftwareImageId"?: string;
 }
 
 export namespace UpdateDetails {

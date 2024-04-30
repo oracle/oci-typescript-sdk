@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CancelProtectedDatabaseDeletionResponse from "./cancel-protected-database-deletion-response";
+export import CancelProtectedDatabaseDeletionResponse = CancelProtectedDatabaseDeletionResponse.CancelProtectedDatabaseDeletionResponse;
 import * as ChangeProtectedDatabaseCompartmentResponse from "./change-protected-database-compartment-response";
 export import ChangeProtectedDatabaseCompartmentResponse = ChangeProtectedDatabaseCompartmentResponse.ChangeProtectedDatabaseCompartmentResponse;
 import * as ChangeProtectionPolicyCompartmentResponse from "./change-protection-policy-compartment-response";
@@ -51,6 +53,8 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as ScheduleProtectedDatabaseDeletionResponse from "./schedule-protected-database-deletion-response";
+export import ScheduleProtectedDatabaseDeletionResponse = ScheduleProtectedDatabaseDeletionResponse.ScheduleProtectedDatabaseDeletionResponse;
 import * as UpdateProtectedDatabaseResponse from "./update-protected-database-response";
 export import UpdateProtectedDatabaseResponse = UpdateProtectedDatabaseResponse.UpdateProtectedDatabaseResponse;
 import * as UpdateProtectionPolicyResponse from "./update-protection-policy-response";

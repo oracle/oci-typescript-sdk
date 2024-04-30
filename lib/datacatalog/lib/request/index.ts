@@ -183,6 +183,8 @@ import * as ImportDataAssetRequest from "./import-data-asset-request";
 export import ImportDataAssetRequest = ImportDataAssetRequest.ImportDataAssetRequest;
 import * as ImportGlossaryRequest from "./import-glossary-request";
 export import ImportGlossaryRequest = ImportGlossaryRequest.ImportGlossaryRequest;
+import * as ImportLineageRequest from "./import-lineage-request";
+export import ImportLineageRequest = ImportLineageRequest.ImportLineageRequest;
 import * as ListAggregatedPhysicalEntitiesRequest from "./list-aggregated-physical-entities-request";
 export import ListAggregatedPhysicalEntitiesRequest = ListAggregatedPhysicalEntitiesRequest.ListAggregatedPhysicalEntitiesRequest;
 import * as ListAttributeTagsRequest from "./list-attribute-tags-request";

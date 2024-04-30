@@ -86,6 +86,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
    */
   "databaseSoftwareImageId"?: string;
+  /**
+   * Indicates whether unified autiding is enabled or not.
+   */
+  "isUnifiedAuditingEnabled"?: boolean;
 }
 
 export namespace DbHome {

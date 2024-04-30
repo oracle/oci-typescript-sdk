@@ -70,6 +70,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "backupNetworkNsgIds"?: Array<string>;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a grid infrastructure software image. This is a database software image of the type {@code GRID_IMAGE}.
+   */
+  "giSoftwareImageId"?: string;
+  /**
    * Memory allocated to the DB system, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;

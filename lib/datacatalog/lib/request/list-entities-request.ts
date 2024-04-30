@@ -140,6 +140,10 @@ export interface ListEntitiesRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only process entities.
+   */
+  "isProcess"?: boolean;
 }
 
 export namespace ListEntitiesRequest {

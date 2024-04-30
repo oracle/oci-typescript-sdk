@@ -1,8 +1,8 @@
 /**
  * Database Management API
- * Use the Database Management API to perform tasks such as obtaining performance and resource usage metrics
-for a fleet of Managed Databases or a specific Managed Database, creating Managed Database Groups, and
-running a SQL job on a Managed Database or Managed Database Group.
+ * Use the Database Management API to monitor and manage resources such as
+Oracle Databases, MySQL Databases, and External Database Systems. 
+For more information, see [Database Management](/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -92,14 +92,24 @@ import * as DisableAutomaticInitialPlanCaptureResponse from "./disable-automatic
 export import DisableAutomaticInitialPlanCaptureResponse = DisableAutomaticInitialPlanCaptureResponse.DisableAutomaticInitialPlanCaptureResponse;
 import * as DisableAutomaticSpmEvolveAdvisorTaskResponse from "./disable-automatic-spm-evolve-advisor-task-response";
 export import DisableAutomaticSpmEvolveAdvisorTaskResponse = DisableAutomaticSpmEvolveAdvisorTaskResponse.DisableAutomaticSpmEvolveAdvisorTaskResponse;
+import * as DisableDatabaseManagementFeatureResponse from "./disable-database-management-feature-response";
+export import DisableDatabaseManagementFeatureResponse = DisableDatabaseManagementFeatureResponse.DisableDatabaseManagementFeatureResponse;
+import * as DisableExternalContainerDatabaseManagementFeatureResponse from "./disable-external-container-database-management-feature-response";
+export import DisableExternalContainerDatabaseManagementFeatureResponse = DisableExternalContainerDatabaseManagementFeatureResponse.DisableExternalContainerDatabaseManagementFeatureResponse;
 import * as DisableExternalDbSystemDatabaseManagementResponse from "./disable-external-db-system-database-management-response";
 export import DisableExternalDbSystemDatabaseManagementResponse = DisableExternalDbSystemDatabaseManagementResponse.DisableExternalDbSystemDatabaseManagementResponse;
 import * as DisableExternalDbSystemStackMonitoringResponse from "./disable-external-db-system-stack-monitoring-response";
 export import DisableExternalDbSystemStackMonitoringResponse = DisableExternalDbSystemStackMonitoringResponse.DisableExternalDbSystemStackMonitoringResponse;
 import * as DisableExternalExadataInfrastructureManagementResponse from "./disable-external-exadata-infrastructure-management-response";
 export import DisableExternalExadataInfrastructureManagementResponse = DisableExternalExadataInfrastructureManagementResponse.DisableExternalExadataInfrastructureManagementResponse;
+import * as DisableExternalNonContainerDatabaseManagementFeatureResponse from "./disable-external-non-container-database-management-feature-response";
+export import DisableExternalNonContainerDatabaseManagementFeatureResponse = DisableExternalNonContainerDatabaseManagementFeatureResponse.DisableExternalNonContainerDatabaseManagementFeatureResponse;
+import * as DisableExternalPluggableDatabaseManagementFeatureResponse from "./disable-external-pluggable-database-management-feature-response";
+export import DisableExternalPluggableDatabaseManagementFeatureResponse = DisableExternalPluggableDatabaseManagementFeatureResponse.DisableExternalPluggableDatabaseManagementFeatureResponse;
 import * as DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse from "./disable-high-frequency-automatic-spm-evolve-advisor-task-response";
 export import DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse = DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse.DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse;
+import * as DisablePluggableDatabaseManagementFeatureResponse from "./disable-pluggable-database-management-feature-response";
+export import DisablePluggableDatabaseManagementFeatureResponse = DisablePluggableDatabaseManagementFeatureResponse.DisablePluggableDatabaseManagementFeatureResponse;
 import * as DisableSqlPlanBaselinesUsageResponse from "./disable-sql-plan-baselines-usage-response";
 export import DisableSqlPlanBaselinesUsageResponse = DisableSqlPlanBaselinesUsageResponse.DisableSqlPlanBaselinesUsageResponse;
 import * as DiscoverExternalExadataInfrastructureResponse from "./discover-external-exadata-infrastructure-response";
@@ -112,14 +122,24 @@ import * as EnableAutomaticInitialPlanCaptureResponse from "./enable-automatic-i
 export import EnableAutomaticInitialPlanCaptureResponse = EnableAutomaticInitialPlanCaptureResponse.EnableAutomaticInitialPlanCaptureResponse;
 import * as EnableAutomaticSpmEvolveAdvisorTaskResponse from "./enable-automatic-spm-evolve-advisor-task-response";
 export import EnableAutomaticSpmEvolveAdvisorTaskResponse = EnableAutomaticSpmEvolveAdvisorTaskResponse.EnableAutomaticSpmEvolveAdvisorTaskResponse;
+import * as EnableDatabaseManagementFeatureResponse from "./enable-database-management-feature-response";
+export import EnableDatabaseManagementFeatureResponse = EnableDatabaseManagementFeatureResponse.EnableDatabaseManagementFeatureResponse;
+import * as EnableExternalContainerDatabaseManagementFeatureResponse from "./enable-external-container-database-management-feature-response";
+export import EnableExternalContainerDatabaseManagementFeatureResponse = EnableExternalContainerDatabaseManagementFeatureResponse.EnableExternalContainerDatabaseManagementFeatureResponse;
 import * as EnableExternalDbSystemDatabaseManagementResponse from "./enable-external-db-system-database-management-response";
 export import EnableExternalDbSystemDatabaseManagementResponse = EnableExternalDbSystemDatabaseManagementResponse.EnableExternalDbSystemDatabaseManagementResponse;
 import * as EnableExternalDbSystemStackMonitoringResponse from "./enable-external-db-system-stack-monitoring-response";
 export import EnableExternalDbSystemStackMonitoringResponse = EnableExternalDbSystemStackMonitoringResponse.EnableExternalDbSystemStackMonitoringResponse;
 import * as EnableExternalExadataInfrastructureManagementResponse from "./enable-external-exadata-infrastructure-management-response";
 export import EnableExternalExadataInfrastructureManagementResponse = EnableExternalExadataInfrastructureManagementResponse.EnableExternalExadataInfrastructureManagementResponse;
+import * as EnableExternalNonContainerDatabaseManagementFeatureResponse from "./enable-external-non-container-database-management-feature-response";
+export import EnableExternalNonContainerDatabaseManagementFeatureResponse = EnableExternalNonContainerDatabaseManagementFeatureResponse.EnableExternalNonContainerDatabaseManagementFeatureResponse;
+import * as EnableExternalPluggableDatabaseManagementFeatureResponse from "./enable-external-pluggable-database-management-feature-response";
+export import EnableExternalPluggableDatabaseManagementFeatureResponse = EnableExternalPluggableDatabaseManagementFeatureResponse.EnableExternalPluggableDatabaseManagementFeatureResponse;
 import * as EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse from "./enable-high-frequency-automatic-spm-evolve-advisor-task-response";
 export import EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse = EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse.EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse;
+import * as EnablePluggableDatabaseManagementFeatureResponse from "./enable-pluggable-database-management-feature-response";
+export import EnablePluggableDatabaseManagementFeatureResponse = EnablePluggableDatabaseManagementFeatureResponse.EnablePluggableDatabaseManagementFeatureResponse;
 import * as EnableSqlPlanBaselinesUsageResponse from "./enable-sql-plan-baselines-usage-response";
 export import EnableSqlPlanBaselinesUsageResponse = EnableSqlPlanBaselinesUsageResponse.EnableSqlPlanBaselinesUsageResponse;
 import * as GenerateAwrSnapshotResponse from "./generate-awr-snapshot-response";
@@ -308,6 +328,10 @@ import * as LoadSqlPlanBaselinesFromAwrResponse from "./load-sql-plan-baselines-
 export import LoadSqlPlanBaselinesFromAwrResponse = LoadSqlPlanBaselinesFromAwrResponse.LoadSqlPlanBaselinesFromAwrResponse;
 import * as LoadSqlPlanBaselinesFromCursorCacheResponse from "./load-sql-plan-baselines-from-cursor-cache-response";
 export import LoadSqlPlanBaselinesFromCursorCacheResponse = LoadSqlPlanBaselinesFromCursorCacheResponse.LoadSqlPlanBaselinesFromCursorCacheResponse;
+import * as ModifyDatabaseManagementFeatureResponse from "./modify-database-management-feature-response";
+export import ModifyDatabaseManagementFeatureResponse = ModifyDatabaseManagementFeatureResponse.ModifyDatabaseManagementFeatureResponse;
+import * as ModifyPluggableDatabaseManagementFeatureResponse from "./modify-pluggable-database-management-feature-response";
+export import ModifyPluggableDatabaseManagementFeatureResponse = ModifyPluggableDatabaseManagementFeatureResponse.ModifyPluggableDatabaseManagementFeatureResponse;
 import * as PatchExternalDbSystemDiscoveryResponse from "./patch-external-db-system-discovery-response";
 export import PatchExternalDbSystemDiscoveryResponse = PatchExternalDbSystemDiscoveryResponse.PatchExternalDbSystemDiscoveryResponse;
 import * as RemoveDataFileResponse from "./remove-data-file-response";

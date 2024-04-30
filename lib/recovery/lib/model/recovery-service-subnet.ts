@@ -38,9 +38,22 @@ export interface RecoveryServiceSubnet {
    */
   "vcnId": string;
   /**
-   * The OCID of the subnet used as the recovery service subnet.
+   * Deprecated. One of the subnets associated with the Recovery Service subnet.
+   *
    */
   "subnetId": string;
+  /**
+   * A list of OCIDs of all the subnets associated with the Recovery Service subnet.
+   */
+  "subnets"?: Array<string>;
+  /**
+   * A list of network security group (NSG) OCIDs that are associated with the Recovery Service subnet.
+   * You can specify a maximum of 5 unique OCIDs, which implies that you can associate a maximum of 5 NSGs to each Recovery Service subnet.
+   * Specify an empty array if you want to remove all the associated NSGs from a Recovery Service subnet.
+   * See {@link NetworkSecurityGroup} for more information.
+   *
+   */
+  "nsgIds"?: Array<string>;
   /**
    * An RFC3339 formatted datetime string that indicates the last created time for a recovery service subnet. For example: '2020-05-22T21:10:29.600Z'.
    *
@@ -53,13 +66,6 @@ export interface RecoveryServiceSubnet {
   "timeUpdated"?: Date;
   /**
    * The current state of the recovery service subnet.
-   * Allowed values are:
-   *   - CREATING
-   *   - UPDATING
-   *   - ACTIVE
-   *   - DELETING
-   *   - DELETED
-   *   - FAILED
    *
    */
   "lifecycleState"?: model.LifecycleState;
