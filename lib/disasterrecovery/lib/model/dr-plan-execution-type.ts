@@ -25,9 +25,9 @@ import common = require("oci-common");
  * - SWITCHOVER_PRECHECK - Precheck for switchover DR plan.
  * - FAILOVER - Failover to standby.
  * - FAILOVER_PRECHECK - Precheck for failover DR plan.
- * - START_DRILL - Start DR drill.
+ * - START_DRILL - Start DR Drill.
  * - START_DRILL_PRECHECK - Precheck for a start drill DR plan.
- * - STOP_DRILL - Stop DR drill.
+ * - STOP_DRILL - Stop DR Drill.
  * - STOP_DRILL_PRECHECK - Precheck for a stop drill DR plan.
  *
  **/

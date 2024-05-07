@@ -38,11 +38,13 @@ Example: {@code My_STEP_3A - EBS Start - STAGE A}
   "displayName"?: string;
   /**
    * The error mode for this step.
+   * The default error mode for the step is {@code STOP_ON_ERROR}.
    *
    */
   "errorMode"?: model.DrPlanStepErrorMode;
   /**
     * The timeout in seconds for executing this step.
+* When creating a new step, if no timeout is specified, the default timeout is set to {@code 3600} seconds. 
 * <p>
 Example: {@code 600}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -50,6 +52,7 @@ Example: {@code 600}
   "timeout"?: number;
   /**
     * A flag indicating whether this step should be enabled for execution.
+* The default value for the isEnabled flag is {@code true}.
 * <p>
 Example: {@code true}
 * 

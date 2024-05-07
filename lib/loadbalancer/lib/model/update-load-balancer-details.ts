@@ -32,6 +32,19 @@ Example: {@code example_load_balancer}
     */
   "displayName"?: string;
   /**
+    * Whether or not the load balancer has delete protection enabled.
+* <p>
+If \"true\", the loadbalancer will be protected against deletion if configured to accept traffic.
+* <p>
+If \"false\", the loadbalancer will not be protected against deletion.
+* <p>
+If null or unset, the value for delete protection will not be changed.
+* <p>
+Example: {@code true}
+* 
+    */
+  "isDeleteProtectionEnabled"?: boolean;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

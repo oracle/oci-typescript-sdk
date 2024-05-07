@@ -24,6 +24,7 @@ export interface ListListenerRulesRequest extends common.BaseRequest {
   "loadBalancerId": string;
   /**
    * The name of the listener the rules are associated with.
+   * Example: {@code example_listener}
    *
    */
   "listenerName": string;

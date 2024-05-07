@@ -23,7 +23,7 @@ import common = require("oci-common");
  * - CREATING - DR protection group is being created.
  * - ACTIVE - DR protection group is active and available for operations.
  * - UPDATING - DR protection group is being updated and is not available for operations.
- * - INACTIVE - The DR protection group is locked because a DR drill is in progress.
+ * - INACTIVE - The DR protection group is locked because a DR Drill is in progress.
  * - NEEDS_ATTENTION - DR protection group needs user attention.
  * - DELETING - DR protection group is being deleted.
  * - DELETED - DR protection group has been deleted.

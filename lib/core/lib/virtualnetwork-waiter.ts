@@ -809,6 +809,29 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forGetVcnOverlap
+   *
+   * @param request the request to send
+   * @return response returns GetVcnOverlapResponse, GetWorkRequestResponse tuple
+   */
+  public async forGetVcnOverlap(
+    request: serviceRequests.GetVcnOverlapRequest
+  ): Promise<{
+    response: serviceResponses.GetVcnOverlapResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const getVcnOverlapResponse = await this.client.getVcnOverlap(request);
+    if (getVcnOverlapResponse.opcWorkRequestId === undefined)
+      return { response: getVcnOverlapResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      getVcnOverlapResponse.opcWorkRequestId
+    );
+    return { response: getVcnOverlapResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forVirtualCircuit till it reaches any of the provided states
    *
    * @param request the request to send
@@ -882,6 +905,29 @@ export class VirtualNetworkWaiter {
       response => targetStates.includes(response.vtap.lifecycleState!),
       targetStates.includes(models.Vtap.LifecycleState.Terminated)
     );
+  }
+
+  /**
+   * Waits forListIpInventory
+   *
+   * @param request the request to send
+   * @return response returns ListIpInventoryResponse, GetWorkRequestResponse tuple
+   */
+  public async forListIpInventory(
+    request: serviceRequests.ListIpInventoryRequest
+  ): Promise<{
+    response: serviceResponses.ListIpInventoryResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const listIpInventoryResponse = await this.client.listIpInventory(request);
+    if (listIpInventoryResponse.opcWorkRequestId === undefined)
+      return { response: listIpInventoryResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      listIpInventoryResponse.opcWorkRequestId
+    );
+    return { response: listIpInventoryResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

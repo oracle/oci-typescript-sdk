@@ -55,6 +55,13 @@ Example: {@code 3}
     */
   "weight": number;
   /**
+    * The maximum number of simultaneous connections the load balancer can make to the backend.
+* <p>
+Example: {@code 300}
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "maxConnections"?: number;
+  /**
     * Whether the load balancer should drain this server. Servers marked \"drain\" receive no new
 * incoming traffic.
 * <p>

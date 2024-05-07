@@ -29040,6 +29040,94 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   }
 
   /**
+   * Gets the `IpInventory` resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetResourceIpInventoryRequest
+   * @return GetResourceIpInventoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetResourceIpInventory.ts.html |here} to see how to use GetResourceIpInventory API.
+   */
+  public async getResourceIpInventory(
+    getResourceIpInventoryRequest: requests.GetResourceIpInventoryRequest
+  ): Promise<responses.GetResourceIpInventoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getResourceIpInventory.");
+    const operationName = "getResourceIpInventory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IpInventoryCollection/GetResourceIpInventory";
+    const pathParams = {
+      "{dataRequestId}": getResourceIpInventoryRequest.dataRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getResourceIpInventoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResourceIpInventoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipinventory/DataRequestId/{dataRequestId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetResourceIpInventoryResponse>{},
+        body: await response.json(),
+        bodyKey: "ipInventoryCollection",
+        bodyModel: model.IpInventoryCollection,
+        type: "model.IpInventoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified route table's information.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRouteTableRequest
@@ -29394,6 +29482,167 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
         bodyKey: "subnet",
         bodyModel: model.Subnet,
         type: "model.Subnet",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the CIDR utilization data of the specified subnet. Specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSubnetCidrUtilizationRequest
+   * @return GetSubnetCidrUtilizationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSubnetCidrUtilization.ts.html |here} to see how to use GetSubnetCidrUtilization API.
+   */
+  public async getSubnetCidrUtilization(
+    getSubnetCidrUtilizationRequest: requests.GetSubnetCidrUtilizationRequest
+  ): Promise<responses.GetSubnetCidrUtilizationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getSubnetCidrUtilization.");
+    const operationName = "getSubnetCidrUtilization";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IpInventoryCidrUtilizationCollection/GetSubnetCidrUtilization";
+    const pathParams = {
+      "{subnetId}": getSubnetCidrUtilizationRequest.subnetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSubnetCidrUtilizationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubnetCidrUtilizationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipInventory/subnets/{subnetId}/cidrs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSubnetCidrUtilizationResponse>{},
+        body: await response.json(),
+        bodyKey: "ipInventoryCidrUtilizationCollection",
+        bodyModel: model.IpInventoryCidrUtilizationCollection,
+        type: "model.IpInventoryCidrUtilizationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the IP Inventory data of the specified subnet. Specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSubnetIpInventoryRequest
+   * @return GetSubnetIpInventoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSubnetIpInventory.ts.html |here} to see how to use GetSubnetIpInventory API.
+   */
+  public async getSubnetIpInventory(
+    getSubnetIpInventoryRequest: requests.GetSubnetIpInventoryRequest
+  ): Promise<responses.GetSubnetIpInventoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#getSubnetIpInventory.");
+    const operationName = "getSubnetIpInventory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IpInventorySubnetResourceCollection/GetSubnetIpInventory";
+    const pathParams = {
+      "{subnetId}": getSubnetIpInventoryRequest.subnetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSubnetIpInventoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubnetIpInventoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipInventory/subnets/{subnetId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSubnetIpInventoryResponse>{},
+        body: await response.json(),
+        bodyKey: "ipInventorySubnetResourceCollection",
+        bodyModel: model.IpInventorySubnetResourceCollection,
+        type: "model.IpInventorySubnetResourceCollection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -29879,6 +30128,109 @@ The operation returns configuration information for only the specified IPSec tun
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the CIDR overlap information of the specified VCN in selected compartments. Specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetVcnOverlapRequest
+   * @return GetVcnOverlapResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcnOverlap.ts.html |here} to see how to use GetVcnOverlap API.
+   */
+  public async getVcnOverlap(
+    getVcnOverlapRequest: requests.GetVcnOverlapRequest
+  ): Promise<responses.GetVcnOverlapResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVcnOverlap.");
+    const operationName = "getVcnOverlap";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IpInventoryVcnOverlapCollection/GetVcnOverlap";
+    const pathParams = {
+      "{vcnId}": getVcnOverlapRequest.vcnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVcnOverlapRequest.opcRequestId,
+      "opc-retry-token": getVcnOverlapRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVcnOverlapRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipInventory/vcns/{vcnId}/overlaps",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        getVcnOverlapRequest.getVcnOverlapDetails,
+        "GetIpInventoryVcnOverlapDetails",
+        model.GetIpInventoryVcnOverlapDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVcnOverlapResponse>{},
+        body: await response.json(),
+        bodyKey: "ipInventoryVcnOverlapCollection",
+        bodyModel: model.IpInventoryVcnOverlapCollection,
+        type: "model.IpInventoryVcnOverlapCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("lifecycle-state"),
+            key: "lifecycleState",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("data-request-id"),
+            key: "dataRequestId",
             dataType: "string"
           }
         ]
@@ -33449,6 +33801,111 @@ For more information about virtual circuits, see [FastConnect Overview](https://
     request: requests.ListInternetGatewaysRequest
   ): AsyncIterableIterator<responses.ListInternetGatewaysResponse> {
     return paginateResponses(request, req => this.listInternetGateways(req));
+  }
+
+  /**
+   * Lists the IP Inventory information in the selected compartments.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListIpInventoryRequest
+   * @return ListIpInventoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIpInventory.ts.html |here} to see how to use ListIpInventory API.
+   */
+  public async listIpInventory(
+    listIpInventoryRequest: requests.ListIpInventoryRequest
+  ): Promise<responses.ListIpInventoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listIpInventory.");
+    const operationName = "listIpInventory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/ListIpInventory";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listIpInventoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIpInventoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipInventory",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        listIpInventoryRequest.listIpInventoryDetails,
+        "ListIpInventoryDetails",
+        model.ListIpInventoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIpInventoryResponse>{},
+        body: await response.json(),
+        bodyKey: "ipInventoryCollection",
+        bodyModel: model.IpInventoryCollection,
+        type: "model.IpInventoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("lifecycle-state"),
+            key: "lifecycleState",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("data-request-id"),
+            key: "dataRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

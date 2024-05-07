@@ -41,7 +41,7 @@ Example: {@code example_load_balancer}
 * operation.
 * <p>
 Example: {@code flexible}
-* NOTE: Starting May 2023, Fixed shapes - 10Mbps, 100Mbps, 400Mbps, 8000Mbps would be deprecated and only shape
+* NOTE: After May 2023, Fixed shapes - 10Mbps, 100Mbps, 400Mbps, 8000Mbps would be deprecated and only shape
 *       allowed would be {@code Flexible}
 * 
     */
@@ -66,6 +66,18 @@ Example: {@code true}
 * 
     */
   "isPrivate"?: boolean;
+  /**
+    * Whether or not the load balancer has delete protection enabled.
+* <p>
+If \"true\", the loadbalancer will be protected against deletion if configured to accept traffic.
+* <p>
+If \"false\", the loadbalancer will not be protected against deletion.
+* <p>
+Delete protection will not be enabled unless a value of \"true\" is provided.
+* Example: {@code true}
+* 
+    */
+  "isDeleteProtectionEnabled"?: boolean;
   /**
     * Whether the load balancer has an IPv4 or IPv6 IP address.
 * <p>

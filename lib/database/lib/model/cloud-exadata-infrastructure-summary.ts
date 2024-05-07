@@ -174,6 +174,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "monthlyDbServerVersion"?: string;
+  /**
+   * Details of the file system configuration of the Exadata infrastructure.
+   */
+  "definedFileSystemConfigurations"?: Array<model.DefinedFileSystemConfiguration>;
 }
 
 export namespace CloudExadataInfrastructureSummary {
@@ -204,6 +208,12 @@ export namespace CloudExadataInfrastructureSummary {
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getJsonObj(item);
             })
+          : undefined,
+
+        "definedFileSystemConfigurations": obj.definedFileSystemConfigurations
+          ? obj.definedFileSystemConfigurations.map(item => {
+              return model.DefinedFileSystemConfiguration.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -221,6 +231,12 @@ export namespace CloudExadataInfrastructureSummary {
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "definedFileSystemConfigurations": obj.definedFileSystemConfigurations
+          ? obj.definedFileSystemConfigurations.map(item => {
+              return model.DefinedFileSystemConfiguration.getDeserializedJsonObj(item);
             })
           : undefined
       }
