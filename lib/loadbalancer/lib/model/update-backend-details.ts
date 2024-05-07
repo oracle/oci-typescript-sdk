@@ -32,6 +32,13 @@ Example: {@code 3}
     */
   "weight": number;
   /**
+    * The maximum number of simultaneous connections the load balancer can make to the backend.
+* <p>
+Example: {@code 300}
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "maxConnections"?: number;
+  /**
     * Whether the load balancer should treat this server as a backup unit. If {@code true}, the load balancer forwards no ingress
 * traffic to this backend server unless all other backend servers not marked as \"backup\" fail the health check policy.
 * <p>

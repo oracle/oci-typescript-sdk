@@ -88,6 +88,18 @@ Example: {@code true}
     */
   "isPrivate"?: boolean;
   /**
+    * Whether or not the load balancer has delete protection enabled.
+* <p>
+If \"true\", the loadbalancer will be protected against deletion if configured to accept traffic.
+* <p>
+If \"false\", the loadbalancer will not be protected against deletion.
+* <p>
+Delete protection is not be enabled unless this field is set to \"true\".
+* Example: {@code true}
+* 
+    */
+  "isDeleteProtectionEnabled"?: boolean;
+  /**
    * An array of subnet [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
   "subnetIds"?: Array<string>;

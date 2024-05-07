@@ -44,6 +44,14 @@ Example: {@code BUILT_IN}
     */
   "type"?: model.DrPlanGroupType;
   /**
+    * A flag indicating whether this group should be enabled for execution.
+* This flag is only applicable to the {@code USER_DEFINED_PAUSE} group. The flag should be null for the remaining group types.
+* <p>
+Example: {@code true}
+* 
+    */
+  "isPauseEnabled"?: boolean;
+  /**
    * The list of steps in this group.
    *
    */

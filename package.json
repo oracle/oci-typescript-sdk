@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.86.0",
+  "version": "2.86.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -11,6 +11,7 @@
     "Walt Tran <walt.tran@oracle.com>"
   ],
   "description": "OCI SDK for TypeScript and JavaScript",
+  "supportedNodeVersions": "14, 16, 18, 20",
   "main": "./target/index.js",
   "typings": "./target/index.d.ts",
   "scripts": {

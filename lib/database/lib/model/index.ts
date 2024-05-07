@@ -354,6 +354,8 @@ import * as DbSystemUpgradeHistoryEntrySummary from "./db-system-upgrade-history
 export import DbSystemUpgradeHistoryEntrySummary = DbSystemUpgradeHistoryEntrySummary.DbSystemUpgradeHistoryEntrySummary;
 import * as DbVersionSummary from "./db-version-summary";
 export import DbVersionSummary = DbVersionSummary.DbVersionSummary;
+import * as DefinedFileSystemConfiguration from "./defined-file-system-configuration";
+export import DefinedFileSystemConfiguration = DefinedFileSystemConfiguration.DefinedFileSystemConfiguration;
 import * as DeregisterAutonomousDatabaseDataSafeDetails from "./deregister-autonomous-database-data-safe-details";
 export import DeregisterAutonomousDatabaseDataSafeDetails = DeregisterAutonomousDatabaseDataSafeDetails.DeregisterAutonomousDatabaseDataSafeDetails;
 import * as DisasterRecoveryConfiguration from "./disaster-recovery-configuration";
@@ -430,6 +432,8 @@ import * as ExternalPluggableDatabaseSummary from "./external-pluggable-database
 export import ExternalPluggableDatabaseSummary = ExternalPluggableDatabaseSummary.ExternalPluggableDatabaseSummary;
 import * as FailoverDataGuardAssociationDetails from "./failover-data-guard-association-details";
 export import FailoverDataGuardAssociationDetails = FailoverDataGuardAssociationDetails.FailoverDataGuardAssociationDetails;
+import * as FileSystemConfigurationDetail from "./file-system-configuration-detail";
+export import FileSystemConfigurationDetail = FileSystemConfigurationDetail.FileSystemConfigurationDetail;
 import * as FlexComponentCollection from "./flex-component-collection";
 export import FlexComponentCollection = FlexComponentCollection.FlexComponentCollection;
 import * as FlexComponentSummary from "./flex-component-summary";

@@ -58,6 +58,11 @@ export namespace Rule {
           );
         case "ALLOW":
           return model.AllowRule.getJsonObj(<model.AllowRule>(<object>jsonObj), true);
+        case "IP_BASED_MAX_CONNECTIONS":
+          return model.IpBasedMaxConnectionsRule.getJsonObj(
+            <model.IpBasedMaxConnectionsRule>(<object>jsonObj),
+            true
+          );
         case "HTTP_HEADER":
           return model.HttpHeaderRule.getJsonObj(<model.HttpHeaderRule>(<object>jsonObj), true);
         case "ADD_HTTP_RESPONSE_HEADER":
@@ -113,6 +118,11 @@ export namespace Rule {
           );
         case "ALLOW":
           return model.AllowRule.getDeserializedJsonObj(<model.AllowRule>(<object>jsonObj), true);
+        case "IP_BASED_MAX_CONNECTIONS":
+          return model.IpBasedMaxConnectionsRule.getDeserializedJsonObj(
+            <model.IpBasedMaxConnectionsRule>(<object>jsonObj),
+            true
+          );
         case "HTTP_HEADER":
           return model.HttpHeaderRule.getDeserializedJsonObj(
             <model.HttpHeaderRule>(<object>jsonObj),

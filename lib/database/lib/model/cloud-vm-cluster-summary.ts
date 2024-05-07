@@ -252,6 +252,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a grid infrastructure software image. This is a database software image of the type {@code GRID_IMAGE}.
    */
   "giSoftwareImageId"?: string;
+  /**
+   * Details of the file system configuration of the VM cluster.
+   */
+  "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
 }
 
 export namespace CloudVmClusterSummary {
@@ -296,6 +300,12 @@ export namespace CloudVmClusterSummary {
       ...{
         "dataCollectionOptions": obj.dataCollectionOptions
           ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
+          : undefined,
+
+        "fileSystemConfigurationDetails": obj.fileSystemConfigurationDetails
+          ? obj.fileSystemConfigurationDetails.map(item => {
+              return model.FileSystemConfigurationDetail.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -308,6 +318,12 @@ export namespace CloudVmClusterSummary {
       ...{
         "dataCollectionOptions": obj.dataCollectionOptions
           ? model.DataCollectionOptions.getDeserializedJsonObj(obj.dataCollectionOptions)
+          : undefined,
+
+        "fileSystemConfigurationDetails": obj.fileSystemConfigurationDetails
+          ? obj.fileSystemConfigurationDetails.map(item => {
+              return model.FileSystemConfigurationDetail.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

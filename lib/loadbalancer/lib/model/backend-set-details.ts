@@ -36,6 +36,14 @@ Example: {@code LEAST_CONNECTIONS}
     */
   "policy": string;
   "backends"?: Array<model.BackendDetails>;
+  /**
+    * The maximum number of simultaneous connections the load balancer can make to any backend
+* in the backend set unless the backend has its own maxConnections setting.
+* <p>
+Example: {@code 300}
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "backendMaxConnections"?: number;
   "healthChecker": model.HealthCheckerDetails;
   "sslConfiguration"?: model.SSLConfigurationDetails;
   "sessionPersistenceConfiguration"?: model.SessionPersistenceConfigurationDetails;
@@ -52,6 +60,7 @@ export namespace BackendSetDetails {
               return model.BackendDetails.getJsonObj(item);
             })
           : undefined,
+
         "healthChecker": obj.healthChecker
           ? model.HealthCheckerDetails.getJsonObj(obj.healthChecker)
           : undefined,
@@ -82,6 +91,7 @@ export namespace BackendSetDetails {
               return model.BackendDetails.getDeserializedJsonObj(item);
             })
           : undefined,
+
         "healthChecker": obj.healthChecker
           ? model.HealthCheckerDetails.getDeserializedJsonObj(obj.healthChecker)
           : undefined,

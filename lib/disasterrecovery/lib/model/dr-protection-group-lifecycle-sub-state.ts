@@ -20,7 +20,7 @@ import common = require("oci-common");
 
 /**
  * The secondary lifecycle states of a DR protection group.  Provides information in addition to the lifecycle state.
- * - DR_DRILL_IN_PROGRESS - A DR drill is in progress.
+ * - DR_DRILL_IN_PROGRESS - A DR Drill is in progress.
  *
  **/
 export enum DrProtectionGroupLifecycleSubState {

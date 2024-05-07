@@ -90,6 +90,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "dataCollectionOptions"?: model.DataCollectionOptions;
+  /**
+   * Details of the file system configuration of the VM cluster.
+   */
+  "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
 }
 
 export namespace UpdateCloudVmClusterDetails {
@@ -108,6 +112,11 @@ export namespace UpdateCloudVmClusterDetails {
 
         "dataCollectionOptions": obj.dataCollectionOptions
           ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
+          : undefined,
+        "fileSystemConfigurationDetails": obj.fileSystemConfigurationDetails
+          ? obj.fileSystemConfigurationDetails.map(item => {
+              return model.FileSystemConfigurationDetail.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -124,6 +133,11 @@ export namespace UpdateCloudVmClusterDetails {
 
         "dataCollectionOptions": obj.dataCollectionOptions
           ? model.DataCollectionOptions.getDeserializedJsonObj(obj.dataCollectionOptions)
+          : undefined,
+        "fileSystemConfigurationDetails": obj.fileSystemConfigurationDetails
+          ? obj.fileSystemConfigurationDetails.map(item => {
+              return model.FileSystemConfigurationDetail.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

@@ -23,12 +23,14 @@ import common = require("oci-common");
  * - USER_DEFINED - DR plan group whose contents are defined by the user.
  * - BUILT_IN - DR plan group whose contents are pre-defined by the service.  These groups cannot be modified by the user.
  * - BUILT_IN_PRECHECK - DR plan precheck group whose contents are pre-defined by the service. These groups cannot be modified by the user.
+ * - USER_DEFINED_PAUSE - DR plan user-defined pause group.
  *
  **/
 export enum DrPlanGroupType {
   UserDefined = "USER_DEFINED",
   BuiltIn = "BUILT_IN",
   BuiltInPrecheck = "BUILT_IN_PRECHECK",
+  UserDefinedPause = "USER_DEFINED_PAUSE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

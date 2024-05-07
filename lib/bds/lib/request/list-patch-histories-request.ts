@@ -31,14 +31,14 @@ export interface ListPatchHistoriesRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
+   * The version of the patch
+   */
+  "patchVersion"?: string;
+  /**
    * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for displayName is ascending. If no value is specified timeCreated is default.
    *
    */
   "sortBy"?: ListPatchHistoriesRequest.SortBy;
-  /**
-   * The version of the patch
-   */
-  "patchVersion"?: string;
   /**
    * The sort order to use, either 'asc' or 'desc'.
    */
