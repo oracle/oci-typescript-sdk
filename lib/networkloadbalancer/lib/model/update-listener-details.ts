@@ -49,6 +49,10 @@ Example: {@code TCP}
    * IP version associated with the listener.
    */
   "ipVersion"?: model.IpVersion;
+  /**
+   * Property to enable/disable PPv2 feature for this listener.
+   */
+  "isPpv2Enabled"?: boolean;
 }
 
 export namespace UpdateListenerDetails {

@@ -56,6 +56,10 @@ Example: {@code TCP}
 * 
     */
   "protocol": model.ListenerProtocols;
+  /**
+   * Property to enable/disable PPv2 feature for this listener.
+   */
+  "isPpv2Enabled"?: boolean;
 }
 
 export namespace ListenerDetails {

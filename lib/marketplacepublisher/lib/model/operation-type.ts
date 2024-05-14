@@ -18,6 +18,11 @@ import common = require("oci-common");
  * Possible operation types.
  **/
 export enum OperationType {
+  CreateOffer = "CREATE_OFFER",
+  UpdateOffer = "UPDATE_OFFER",
+  DeleteOffer = "DELETE_OFFER",
+  MoveOffer = "MOVE_OFFER",
+  DeleteOfferAttachment = "DELETE_OFFER_ATTACHMENT",
   PublishListingRevisionPackage = "PUBLISH_LISTING_REVISION_PACKAGE",
   UnpublishListingRevisionPackage = "UNPUBLISH_LISTING_REVISION_PACKAGE",
   PublishListingRevision = "PUBLISH_LISTING_REVISION",

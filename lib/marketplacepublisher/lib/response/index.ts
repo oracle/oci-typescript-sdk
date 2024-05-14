@@ -11,6 +11,16 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateAttachmentResponse from "./create-attachment-response";
+export import CreateAttachmentResponse = CreateAttachmentResponse.CreateAttachmentResponse;
+import * as DeleteAttachmentResponse from "./delete-attachment-response";
+export import DeleteAttachmentResponse = DeleteAttachmentResponse.DeleteAttachmentResponse;
+import * as GetAttachmentResponse from "./get-attachment-response";
+export import GetAttachmentResponse = GetAttachmentResponse.GetAttachmentResponse;
+import * as GetAttachmentContentResponse from "./get-attachment-content-response";
+export import GetAttachmentContentResponse = GetAttachmentContentResponse.GetAttachmentContentResponse;
+import * as ListAttachmentsResponse from "./list-attachments-response";
+export import ListAttachmentsResponse = ListAttachmentsResponse.ListAttachmentsResponse;
 import * as ActivateTermVersionResponse from "./activate-term-version-response";
 export import ActivateTermVersionResponse = ActivateTermVersionResponse.ActivateTermVersionResponse;
 import * as CancelWorkRequestResponse from "./cancel-work-request-response";
@@ -153,3 +163,15 @@ import * as ValidateAndPublishArtifactResponse from "./validate-and-publish-arti
 export import ValidateAndPublishArtifactResponse = ValidateAndPublishArtifactResponse.ValidateAndPublishArtifactResponse;
 import * as WithdrawListingRevisionResponse from "./withdraw-listing-revision-response";
 export import WithdrawListingRevisionResponse = WithdrawListingRevisionResponse.WithdrawListingRevisionResponse;
+import * as CreateOfferResponse from "./create-offer-response";
+export import CreateOfferResponse = CreateOfferResponse.CreateOfferResponse;
+import * as DeleteOfferResponse from "./delete-offer-response";
+export import DeleteOfferResponse = DeleteOfferResponse.DeleteOfferResponse;
+import * as GetOfferResponse from "./get-offer-response";
+export import GetOfferResponse = GetOfferResponse.GetOfferResponse;
+import * as GetOfferInternalDetailResponse from "./get-offer-internal-detail-response";
+export import GetOfferInternalDetailResponse = GetOfferInternalDetailResponse.GetOfferInternalDetailResponse;
+import * as ListOffersResponse from "./list-offers-response";
+export import ListOffersResponse = ListOffersResponse.ListOffersResponse;
+import * as UpdateOfferResponse from "./update-offer-response";
+export import UpdateOfferResponse = UpdateOfferResponse.UpdateOfferResponse;

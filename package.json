@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.86.1",
+  "version": "2.86.2",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -161,7 +161,8 @@
     "oci-globallydistributeddatabase": "file:lib/globallydistributeddatabase",
     "oci-desktops": "file:lib/desktops",
     "oci-emaildataplane": "file:lib/emaildataplane",
-    "oci-clusterplacementgroups": "file:lib/clusterplacementgroups"
+    "oci-clusterplacementgroups": "file:lib/clusterplacementgroups",
+    "oci-marketplaceprivateoffer": "file:lib/marketplaceprivateoffer"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

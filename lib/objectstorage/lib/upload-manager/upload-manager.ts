@@ -311,7 +311,13 @@ export class UploadManager {
         object: requestDetails.objectName,
         storageTier: requestDetails.storageTier
           ? requestDetails.storageTier
-          : models.StorageTier.Standard
+          : models.StorageTier.Standard,
+        metadata: requestDetails.opcMeta,
+        cacheControl: requestDetails.cacheControl,
+        contentType: requestDetails.contentType,
+        contentLanguage: requestDetails.contentLanguage,
+        contentEncoding: requestDetails.contentEncoding,
+        contentDisposition: requestDetails.contentDisposition
       }
     });
     const uploadId = createUploadResponse.multipartUpload.uploadId;

@@ -582,6 +582,101 @@ export class EmailClient {
   }
 
   /**
+   * Creates a new email return path. Avoid entering confidential information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateEmailReturnPathRequest
+   * @return CreateEmailReturnPathResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateEmailReturnPath.ts.html |here} to see how to use CreateEmailReturnPath API.
+   */
+  public async createEmailReturnPath(
+    createEmailReturnPathRequest: requests.CreateEmailReturnPathRequest
+  ): Promise<responses.CreateEmailReturnPathResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#createEmailReturnPath.");
+    const operationName = "createEmailReturnPath";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailReturnPath/CreateEmailReturnPath";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createEmailReturnPathRequest.opcRequestId,
+      "opc-retry-token": createEmailReturnPathRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createEmailReturnPathRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailReturnPaths",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createEmailReturnPathRequest.createEmailReturnPathDetails,
+        "CreateEmailReturnPathDetails",
+        model.CreateEmailReturnPathDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateEmailReturnPathResponse>{},
+        body: await response.json(),
+        bodyKey: "emailReturnPath",
+        bodyModel: model.EmailReturnPath,
+        type: "model.EmailReturnPath",
+        responseHeaders: [
+          {
+            value: response.headers.get("Content-Location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a sender for a tenancy in a given compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateSenderRequest
@@ -870,6 +965,79 @@ export class EmailClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteEmailDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an email return path.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteEmailReturnPathRequest
+   * @return DeleteEmailReturnPathResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteEmailReturnPath.ts.html |here} to see how to use DeleteEmailReturnPath API.
+   */
+  public async deleteEmailReturnPath(
+    deleteEmailReturnPathRequest: requests.DeleteEmailReturnPathRequest
+  ): Promise<responses.DeleteEmailReturnPathResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#deleteEmailReturnPath.");
+    const operationName = "deleteEmailReturnPath";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailReturnPath/DeleteEmailReturnPath";
+    const pathParams = {
+      "{emailReturnPathId}": deleteEmailReturnPathRequest.emailReturnPathId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteEmailReturnPathRequest.ifMatch,
+      "opc-request-id": deleteEmailReturnPathRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteEmailReturnPathRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailReturnPaths/{emailReturnPathId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteEmailReturnPathResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1233,6 +1401,82 @@ export class EmailClient {
         bodyKey: "emailDomain",
         bodyModel: model.EmailDomain,
         type: "model.EmailDomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the specified email return path.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetEmailReturnPathRequest
+   * @return GetEmailReturnPathResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetEmailReturnPath.ts.html |here} to see how to use GetEmailReturnPath API.
+   */
+  public async getEmailReturnPath(
+    getEmailReturnPathRequest: requests.GetEmailReturnPathRequest
+  ): Promise<responses.GetEmailReturnPathResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getEmailReturnPath.");
+    const operationName = "getEmailReturnPath";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailReturnPath/GetEmailReturnPath";
+    const pathParams = {
+      "{emailReturnPathId}": getEmailReturnPathRequest.emailReturnPathId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getEmailReturnPathRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEmailReturnPathRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailReturnPaths/{emailReturnPathId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetEmailReturnPathResponse>{},
+        body: await response.json(),
+        bodyKey: "emailReturnPath",
+        bodyModel: model.EmailReturnPath,
+        type: "model.EmailReturnPath",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1624,6 +1868,90 @@ export class EmailClient {
         bodyKey: "emailDomainCollection",
         bodyModel: model.EmailDomainCollection,
         type: "model.EmailDomainCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists email return paths in the specified compartment or emaildomain.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListEmailReturnPathsRequest
+   * @return ListEmailReturnPathsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListEmailReturnPaths.ts.html |here} to see how to use ListEmailReturnPaths API.
+   */
+  public async listEmailReturnPaths(
+    listEmailReturnPathsRequest: requests.ListEmailReturnPathsRequest
+  ): Promise<responses.ListEmailReturnPathsResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listEmailReturnPaths.");
+    const operationName = "listEmailReturnPaths";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailReturnPath/ListEmailReturnPaths";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listEmailReturnPathsRequest.compartmentId,
+      "parentResourceId": listEmailReturnPathsRequest.parentResourceId,
+      "id": listEmailReturnPathsRequest.id,
+      "name": listEmailReturnPathsRequest.name,
+      "limit": listEmailReturnPathsRequest.limit,
+      "page": listEmailReturnPathsRequest.page,
+      "sortOrder": listEmailReturnPathsRequest.sortOrder,
+      "lifecycleState": listEmailReturnPathsRequest.lifecycleState,
+      "sortBy": listEmailReturnPathsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listEmailReturnPathsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEmailReturnPathsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailReturnPaths",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListEmailReturnPathsResponse>{},
+        body: await response.json(),
+        bodyKey: "emailReturnPathCollection",
+        bodyModel: model.EmailReturnPathCollection,
+        type: "model.EmailReturnPathCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-next-page"),
@@ -2309,6 +2637,84 @@ export class EmailClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateEmailDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Modifies an email return path.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateEmailReturnPathRequest
+   * @return UpdateEmailReturnPathResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateEmailReturnPath.ts.html |here} to see how to use UpdateEmailReturnPath API.
+   */
+  public async updateEmailReturnPath(
+    updateEmailReturnPathRequest: requests.UpdateEmailReturnPathRequest
+  ): Promise<responses.UpdateEmailReturnPathResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#updateEmailReturnPath.");
+    const operationName = "updateEmailReturnPath";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailReturnPath/UpdateEmailReturnPath";
+    const pathParams = {
+      "{emailReturnPathId}": updateEmailReturnPathRequest.emailReturnPathId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateEmailReturnPathRequest.ifMatch,
+      "opc-request-id": updateEmailReturnPathRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateEmailReturnPathRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailReturnPaths/{emailReturnPathId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateEmailReturnPathRequest.updateEmailReturnPathDetails,
+        "UpdateEmailReturnPathDetails",
+        model.UpdateEmailReturnPathDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateEmailReturnPathResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

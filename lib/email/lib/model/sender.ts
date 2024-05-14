@@ -84,6 +84,9 @@ export namespace Sender {
   export enum LifecycleState {
     Creating = "CREATING",
     Active = "ACTIVE",
+    NeedsAttention = "NEEDS_ATTENTION",
+    Inactive = "INACTIVE",
+    Failed = "FAILED",
     Deleting = "DELETING",
     Deleted = "DELETED",
     /**

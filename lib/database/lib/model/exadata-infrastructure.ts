@@ -206,6 +206,10 @@ export interface ExadataInfrastructure {
    */
   "availabilityDomain"?: string;
   /**
+   * Details of the file system configuration of the Exadata infrastructure.
+   */
+  "definedFileSystemConfigurations"?: Array<model.DefinedFileSystemConfiguration>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -281,6 +285,12 @@ export namespace ExadataInfrastructure {
 
         "networkBondingModeDetails": obj.networkBondingModeDetails
           ? model.NetworkBondingModeDetails.getJsonObj(obj.networkBondingModeDetails)
+          : undefined,
+
+        "definedFileSystemConfigurations": obj.definedFileSystemConfigurations
+          ? obj.definedFileSystemConfigurations.map(item => {
+              return model.DefinedFileSystemConfiguration.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -303,6 +313,12 @@ export namespace ExadataInfrastructure {
 
         "networkBondingModeDetails": obj.networkBondingModeDetails
           ? model.NetworkBondingModeDetails.getDeserializedJsonObj(obj.networkBondingModeDetails)
+          : undefined,
+
+        "definedFileSystemConfigurations": obj.definedFileSystemConfigurations
+          ? obj.definedFileSystemConfigurations.map(item => {
+              return model.DefinedFileSystemConfiguration.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };
