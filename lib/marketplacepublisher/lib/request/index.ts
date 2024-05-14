@@ -11,6 +11,16 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateAttachmentRequest from "./create-attachment-request";
+export import CreateAttachmentRequest = CreateAttachmentRequest.CreateAttachmentRequest;
+import * as DeleteAttachmentRequest from "./delete-attachment-request";
+export import DeleteAttachmentRequest = DeleteAttachmentRequest.DeleteAttachmentRequest;
+import * as GetAttachmentRequest from "./get-attachment-request";
+export import GetAttachmentRequest = GetAttachmentRequest.GetAttachmentRequest;
+import * as GetAttachmentContentRequest from "./get-attachment-content-request";
+export import GetAttachmentContentRequest = GetAttachmentContentRequest.GetAttachmentContentRequest;
+import * as ListAttachmentsRequest from "./list-attachments-request";
+export import ListAttachmentsRequest = ListAttachmentsRequest.ListAttachmentsRequest;
 import * as ActivateTermVersionRequest from "./activate-term-version-request";
 export import ActivateTermVersionRequest = ActivateTermVersionRequest.ActivateTermVersionRequest;
 import * as CancelWorkRequestRequest from "./cancel-work-request-request";
@@ -153,3 +163,15 @@ import * as ValidateAndPublishArtifactRequest from "./validate-and-publish-artif
 export import ValidateAndPublishArtifactRequest = ValidateAndPublishArtifactRequest.ValidateAndPublishArtifactRequest;
 import * as WithdrawListingRevisionRequest from "./withdraw-listing-revision-request";
 export import WithdrawListingRevisionRequest = WithdrawListingRevisionRequest.WithdrawListingRevisionRequest;
+import * as CreateOfferRequest from "./create-offer-request";
+export import CreateOfferRequest = CreateOfferRequest.CreateOfferRequest;
+import * as DeleteOfferRequest from "./delete-offer-request";
+export import DeleteOfferRequest = DeleteOfferRequest.DeleteOfferRequest;
+import * as GetOfferRequest from "./get-offer-request";
+export import GetOfferRequest = GetOfferRequest.GetOfferRequest;
+import * as GetOfferInternalDetailRequest from "./get-offer-internal-detail-request";
+export import GetOfferInternalDetailRequest = GetOfferInternalDetailRequest.GetOfferInternalDetailRequest;
+import * as ListOffersRequest from "./list-offers-request";
+export import ListOffersRequest = ListOffersRequest.ListOffersRequest;
+import * as UpdateOfferRequest from "./update-offer-request";
+export import UpdateOfferRequest = UpdateOfferRequest.UpdateOfferRequest;

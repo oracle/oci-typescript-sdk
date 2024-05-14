@@ -59,6 +59,14 @@ Example: {@code mydomain.example.com}
    */
   "isSpf"?: boolean;
   /**
+   * The current domain verification status.
+   */
+  "domainVerificationStatus"?: model.DomainVerificationStatusType;
+  /**
+   * Id for Domain in Domain Management (under governance) if DOMAINID verification method used.
+   */
+  "domainVerificationId"?: string;
+  /**
    * The description of an email domain.
    */
   "description"?: string;

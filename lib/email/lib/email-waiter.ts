@@ -64,6 +64,25 @@ export class EmailWaiter {
   }
 
   /**
+   * Waits forEmailReturnPath till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetEmailReturnPathResponse | null (null in case of 404 response)
+   */
+  public async forEmailReturnPath(
+    request: serviceRequests.GetEmailReturnPathRequest,
+    ...targetStates: models.EmailReturnPath.LifecycleState[]
+  ): Promise<serviceResponses.GetEmailReturnPathResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getEmailReturnPath(request),
+      response => targetStates.includes(response.emailReturnPath.lifecycleState!),
+      targetStates.includes(models.EmailReturnPath.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forSender till it reaches any of the provided states
    *
    * @param request the request to send

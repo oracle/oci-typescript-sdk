@@ -222,3 +222,4 @@ export import globallydistributeddatabase = require("oci-globallydistributeddata
 export import desktops = require("oci-desktops");
 export import emaildataplane = require("oci-emaildataplane");
 export import clusterplacementgroups = require("oci-clusterplacementgroups");
+export import marketplaceprivateoffer = require("oci-marketplaceprivateoffer");

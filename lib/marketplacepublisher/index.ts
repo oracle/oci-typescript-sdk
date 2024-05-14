@@ -15,10 +15,16 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as attachment_waiter from "./lib/attachment-waiter";
 import * as marketplacepublisher_waiter from "./lib/marketplacepublisher-waiter";
+import * as offer_waiter from "./lib/offer-waiter";
 
 export { models };
 export { requests };
 export { responses };
+export import AttachmentClient = client.AttachmentClient;
+export import AttachmentWaiter = attachment_waiter.AttachmentWaiter;
 export import MarketplacePublisherClient = client.MarketplacePublisherClient;
 export import MarketplacePublisherWaiter = marketplacepublisher_waiter.MarketplacePublisherWaiter;
+export import OfferClient = client.OfferClient;
+export import OfferWaiter = offer_waiter.OfferWaiter;

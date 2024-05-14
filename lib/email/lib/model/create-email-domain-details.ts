@@ -40,6 +40,10 @@ export interface CreateEmailDomainDetails {
    */
   "compartmentId": string;
   /**
+   * Id for Domain in Domain Management (under governance) if DOMAINID verification method used.
+   */
+  "domainVerificationId"?: string;
+  /**
    * A string that describes the details about the domain. It does not have to be unique,
    * and you can change it. Avoid entering confidential information.
    *
