@@ -19,6 +19,8 @@ import common = require("oci-common");
  * The type of step where user provides the step artifact to be executed on an execution engine managed by the pipelines service.
  */
 export interface PipelineCustomScriptStepUpdateDetails extends model.PipelineStepUpdateDetails {
+  "stepInfrastructureConfigurationDetails"?: model.PipelineInfrastructureConfigurationDetails;
+
   "stepType": string;
 }
 
@@ -33,7 +35,13 @@ export namespace PipelineCustomScriptStepUpdateDetails {
         : (model.PipelineStepUpdateDetails.getJsonObj(
             obj
           ) as PipelineCustomScriptStepUpdateDetails)),
-      ...{}
+      ...{
+        "stepInfrastructureConfigurationDetails": obj.stepInfrastructureConfigurationDetails
+          ? model.PipelineInfrastructureConfigurationDetails.getJsonObj(
+              obj.stepInfrastructureConfigurationDetails
+            )
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -49,7 +57,13 @@ export namespace PipelineCustomScriptStepUpdateDetails {
         : (model.PipelineStepUpdateDetails.getDeserializedJsonObj(
             obj
           ) as PipelineCustomScriptStepUpdateDetails)),
-      ...{}
+      ...{
+        "stepInfrastructureConfigurationDetails": obj.stepInfrastructureConfigurationDetails
+          ? model.PipelineInfrastructureConfigurationDetails.getDeserializedJsonObj(
+              obj.stepInfrastructureConfigurationDetails
+            )
+          : undefined
+      }
     };
 
     return jsonObj;

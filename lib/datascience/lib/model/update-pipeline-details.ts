@@ -28,9 +28,10 @@ export interface UpdatePipelineDetails {
    */
   "description"?: string;
   "configurationDetails"?: model.PipelineDefaultConfigurationDetails;
+  "infrastructureConfigurationDetails"?: model.PipelineInfrastructureConfigurationDetails;
   "logConfigurationDetails"?: model.PipelineLogConfigurationDetails;
   /**
-   * Array of update details for each step. Only step configurations are allowed to be updated.
+   * Array of update details for each step. Only step configurations and step infrastructure configurations are allowed to be updated.
    */
   "stepDetails"?: Array<model.PipelineStepUpdateDetails>;
   /**
@@ -55,6 +56,11 @@ export namespace UpdatePipelineDetails {
         "configurationDetails": obj.configurationDetails
           ? model.PipelineConfigurationDetails.getJsonObj(obj.configurationDetails)
           : undefined,
+        "infrastructureConfigurationDetails": obj.infrastructureConfigurationDetails
+          ? model.PipelineInfrastructureConfigurationDetails.getJsonObj(
+              obj.infrastructureConfigurationDetails
+            )
+          : undefined,
         "logConfigurationDetails": obj.logConfigurationDetails
           ? model.PipelineLogConfigurationDetails.getJsonObj(obj.logConfigurationDetails)
           : undefined,
@@ -74,6 +80,11 @@ export namespace UpdatePipelineDetails {
       ...{
         "configurationDetails": obj.configurationDetails
           ? model.PipelineConfigurationDetails.getDeserializedJsonObj(obj.configurationDetails)
+          : undefined,
+        "infrastructureConfigurationDetails": obj.infrastructureConfigurationDetails
+          ? model.PipelineInfrastructureConfigurationDetails.getDeserializedJsonObj(
+              obj.infrastructureConfigurationDetails
+            )
           : undefined,
         "logConfigurationDetails": obj.logConfigurationDetails
           ? model.PipelineLogConfigurationDetails.getDeserializedJsonObj(

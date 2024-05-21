@@ -66,6 +66,11 @@ export namespace PipelineStepRun {
 
     if (obj && "stepType" in obj && obj.stepType) {
       switch (obj.stepType) {
+        case "CONTAINER":
+          return model.PipelineContainerStepRun.getJsonObj(
+            <model.PipelineContainerStepRun>(<object>jsonObj),
+            true
+          );
         case "CUSTOM_SCRIPT":
           return model.PipelineCustomScriptStepRun.getJsonObj(
             <model.PipelineCustomScriptStepRun>(<object>jsonObj),
@@ -87,6 +92,11 @@ export namespace PipelineStepRun {
 
     if (obj && "stepType" in obj && obj.stepType) {
       switch (obj.stepType) {
+        case "CONTAINER":
+          return model.PipelineContainerStepRun.getDeserializedJsonObj(
+            <model.PipelineContainerStepRun>(<object>jsonObj),
+            true
+          );
         case "CUSTOM_SCRIPT":
           return model.PipelineCustomScriptStepRun.getDeserializedJsonObj(
             <model.PipelineCustomScriptStepRun>(<object>jsonObj),
