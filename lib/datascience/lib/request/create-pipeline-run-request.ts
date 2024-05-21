@@ -32,4 +32,9 @@ export interface CreatePipelineRunRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * URL to fetch the Resource Principal Token from the parent resource.
+   *
+   */
+  "opcParentRptUrl"?: string;
 }

@@ -55,6 +55,11 @@ export namespace PipelineStepUpdateDetails {
             <model.PipelineCustomScriptStepUpdateDetails>(<object>jsonObj),
             true
           );
+        case "CONTAINER":
+          return model.PipelineContainerStepUpdateDetails.getJsonObj(
+            <model.PipelineContainerStepUpdateDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.stepType}`);
       }
@@ -83,6 +88,11 @@ export namespace PipelineStepUpdateDetails {
         case "CUSTOM_SCRIPT":
           return model.PipelineCustomScriptStepUpdateDetails.getDeserializedJsonObj(
             <model.PipelineCustomScriptStepUpdateDetails>(<object>jsonObj),
+            true
+          );
+        case "CONTAINER":
+          return model.PipelineContainerStepUpdateDetails.getDeserializedJsonObj(
+            <model.PipelineContainerStepUpdateDetails>(<object>jsonObj),
             true
           );
         default:

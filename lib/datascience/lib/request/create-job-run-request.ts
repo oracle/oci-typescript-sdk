@@ -32,4 +32,9 @@ export interface CreateJobRunRequest extends common.BaseRequest {
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * URL to fetch the Resource Principal Token from the parent resource.
+   *
+   */
+  "opcParentRptUrl"?: string;
 }

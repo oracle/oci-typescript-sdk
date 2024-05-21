@@ -28,6 +28,11 @@ export interface PipelineInfrastructureConfigurationDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockStorageSizeInGBs": number;
+  /**
+   * The subnet to create a secondary vnic in to attach to the instance running the pipeline step.
+   *
+   */
+  "subnetId"?: string;
   "shapeConfigDetails"?: model.PipelineShapeConfigDetails;
 }
 

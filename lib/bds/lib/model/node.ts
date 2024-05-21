@@ -107,6 +107,14 @@ export interface Node {
    * Indicates if the node requires a reboot to either reflect the latest os kernel or take actions for maintenance reboot.
    */
   "isRebootRequired"?: boolean;
+  /**
+   * The date and time the instance was replaced by a new vm with a node backup.
+   */
+  "timeReplaced"?: Date;
+  /**
+   * The node back id that was used for replacing the node.
+   */
+  "nodeBackupId"?: string;
 }
 
 export namespace Node {

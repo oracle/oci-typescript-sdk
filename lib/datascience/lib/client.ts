@@ -535,7 +535,9 @@ export class DataScienceClient {
       "{pipelineRunId}": cancelPipelineRunRequest.pipelineRunId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "terminateGracefully": cancelPipelineRunRequest.terminateGracefully
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1682,7 +1684,8 @@ export class DataScienceClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createJobRunRequest.opcRequestId,
-      "opc-retry-token": createJobRunRequest.opcRetryToken
+      "opc-retry-token": createJobRunRequest.opcRetryToken,
+      "opc-parent-rpt-url": createJobRunRequest.opcParentRptUrl
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -1921,7 +1924,8 @@ export class DataScienceClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createModelDeploymentRequest.opcRequestId,
-      "opc-retry-token": createModelDeploymentRequest.opcRetryToken
+      "opc-retry-token": createModelDeploymentRequest.opcRetryToken,
+      "opc-parent-rpt-url": createModelDeploymentRequest.opcParentRptUrl
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -2348,7 +2352,8 @@ export class DataScienceClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createPipelineRunRequest.opcRetryToken,
-      "opc-request-id": createPipelineRunRequest.opcRequestId
+      "opc-request-id": createPipelineRunRequest.opcRequestId,
+      "opc-parent-rpt-url": createPipelineRunRequest.opcParentRptUrl
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;

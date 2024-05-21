@@ -41,4 +41,8 @@ export interface CancelPipelineRunRequest extends common.BaseRequest {
    *
    */
   "ifMatch"?: string;
+  /**
+   * A boolean value to specify whether to terminate pipeline run gracefully.
+   */
+  "terminateGracefully"?: boolean;
 }

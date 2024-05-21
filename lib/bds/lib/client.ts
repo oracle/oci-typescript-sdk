@@ -867,6 +867,86 @@ export class BdsClient {
   }
 
   /**
+   * Takes a backup of of given nodes.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param BackupNodeRequest
+   * @return BackupNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/BackupNode.ts.html |here} to see how to use BackupNode API.
+   */
+  public async backupNode(
+    backupNodeRequest: requests.BackupNodeRequest
+  ): Promise<responses.BackupNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#backupNode.");
+    const operationName = "backupNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/BackupNode";
+    const pathParams = {
+      "{bdsInstanceId}": backupNodeRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": backupNodeRequest.opcRequestId,
+      "if-match": backupNodeRequest.ifMatch,
+      "opc-retry-token": backupNodeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      backupNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/backupNodes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        backupNodeRequest.backupNodeDetails,
+        "BackupNodeDetails",
+        model.BackupNodeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BackupNodeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * A list of services and their certificate details.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1347,6 +1427,166 @@ export class BdsClient {
   }
 
   /**
+   * Add a node volume backup configuration to the cluster for an indicated node type or node.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateNodeBackupConfigurationRequest
+   * @return CreateNodeBackupConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateNodeBackupConfiguration.ts.html |here} to see how to use CreateNodeBackupConfiguration API.
+   */
+  public async createNodeBackupConfiguration(
+    createNodeBackupConfigurationRequest: requests.CreateNodeBackupConfigurationRequest
+  ): Promise<responses.CreateNodeBackupConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#createNodeBackupConfiguration.");
+    const operationName = "createNodeBackupConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/CreateNodeBackupConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": createNodeBackupConfigurationRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createNodeBackupConfigurationRequest.opcRequestId,
+      "opc-retry-token": createNodeBackupConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNodeBackupConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeBackupConfigurations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createNodeBackupConfigurationRequest.createNodeBackupConfigurationDetails,
+        "CreateNodeBackupConfigurationDetails",
+        model.CreateNodeBackupConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateNodeBackupConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add a nodeReplaceConfigurations to the cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateNodeReplaceConfigurationRequest
+   * @return CreateNodeReplaceConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateNodeReplaceConfiguration.ts.html |here} to see how to use CreateNodeReplaceConfiguration API.
+   */
+  public async createNodeReplaceConfiguration(
+    createNodeReplaceConfigurationRequest: requests.CreateNodeReplaceConfigurationRequest
+  ): Promise<responses.CreateNodeReplaceConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#createNodeReplaceConfiguration.");
+    const operationName = "createNodeReplaceConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/CreateNodeReplaceConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": createNodeReplaceConfigurationRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createNodeReplaceConfigurationRequest.opcRequestId,
+      "opc-retry-token": createNodeReplaceConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNodeReplaceConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeReplaceConfigurations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createNodeReplaceConfigurationRequest.createNodeReplaceConfigurationDetails,
+        "CreateNodeReplaceConfigurationDetails",
+        model.CreateNodeReplaceConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateNodeReplaceConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the user's API key represented by the provided ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBdsApiKeyRequest
@@ -1548,6 +1788,155 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBdsMetastoreConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the NodeBackup represented by the provided ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteNodeBackupRequest
+   * @return DeleteNodeBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteNodeBackup.ts.html |here} to see how to use DeleteNodeBackup API.
+   */
+  public async deleteNodeBackup(
+    deleteNodeBackupRequest: requests.DeleteNodeBackupRequest
+  ): Promise<responses.DeleteNodeBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#deleteNodeBackup.");
+    const operationName = "deleteNodeBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/NodeBackup/DeleteNodeBackup";
+    const pathParams = {
+      "{bdsInstanceId}": deleteNodeBackupRequest.bdsInstanceId,
+      "{nodeBackupId}": deleteNodeBackupRequest.nodeBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteNodeBackupRequest.opcRequestId,
+      "if-match": deleteNodeBackupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNodeBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeBackups/{nodeBackupId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteNodeBackupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the NodeBackupConfiguration represented by the provided ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteNodeBackupConfigurationRequest
+   * @return DeleteNodeBackupConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteNodeBackupConfiguration.ts.html |here} to see how to use DeleteNodeBackupConfiguration API.
+   */
+  public async deleteNodeBackupConfiguration(
+    deleteNodeBackupConfigurationRequest: requests.DeleteNodeBackupConfigurationRequest
+  ): Promise<responses.DeleteNodeBackupConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#deleteNodeBackupConfiguration.");
+    const operationName = "deleteNodeBackupConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/NodeBackupConfiguration/DeleteNodeBackupConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": deleteNodeBackupConfigurationRequest.bdsInstanceId,
+      "{nodeBackupConfigurationId}": deleteNodeBackupConfigurationRequest.nodeBackupConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteNodeBackupConfigurationRequest.opcRequestId,
+      "if-match": deleteNodeBackupConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNodeBackupConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeBackupConfigurations/{nodeBackupConfigurationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteNodeBackupConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2096,6 +2485,240 @@ export class BdsClient {
         bodyKey: "bdsMetastoreConfiguration",
         bodyModel: model.BdsMetastoreConfiguration,
         type: "model.BdsMetastoreConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns details of NodeBackup identified by the given ID.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetNodeBackupRequest
+   * @return GetNodeBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetNodeBackup.ts.html |here} to see how to use GetNodeBackup API.
+   */
+  public async getNodeBackup(
+    getNodeBackupRequest: requests.GetNodeBackupRequest
+  ): Promise<responses.GetNodeBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getNodeBackup.");
+    const operationName = "getNodeBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetNodeBackup";
+    const pathParams = {
+      "{bdsInstanceId}": getNodeBackupRequest.bdsInstanceId,
+      "{nodeBackupId}": getNodeBackupRequest.nodeBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getNodeBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNodeBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeBackups/{nodeBackupId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNodeBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "nodeBackup",
+        bodyModel: model.NodeBackup,
+        type: "model.NodeBackup",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns details of the NodeBackupConfiguration identified by the given ID.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetNodeBackupConfigurationRequest
+   * @return GetNodeBackupConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetNodeBackupConfiguration.ts.html |here} to see how to use GetNodeBackupConfiguration API.
+   */
+  public async getNodeBackupConfiguration(
+    getNodeBackupConfigurationRequest: requests.GetNodeBackupConfigurationRequest
+  ): Promise<responses.GetNodeBackupConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getNodeBackupConfiguration.");
+    const operationName = "getNodeBackupConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetNodeBackupConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": getNodeBackupConfigurationRequest.bdsInstanceId,
+      "{nodeBackupConfigurationId}": getNodeBackupConfigurationRequest.nodeBackupConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getNodeBackupConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNodeBackupConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeBackupConfigurations/{nodeBackupConfigurationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNodeBackupConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "nodeBackupConfiguration",
+        bodyModel: model.NodeBackupConfiguration,
+        type: "model.NodeBackupConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns details of the nodeReplaceConfiguration identified by the given ID.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetNodeReplaceConfigurationRequest
+   * @return GetNodeReplaceConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetNodeReplaceConfiguration.ts.html |here} to see how to use GetNodeReplaceConfiguration API.
+   */
+  public async getNodeReplaceConfiguration(
+    getNodeReplaceConfigurationRequest: requests.GetNodeReplaceConfigurationRequest
+  ): Promise<responses.GetNodeReplaceConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getNodeReplaceConfiguration.");
+    const operationName = "getNodeReplaceConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetNodeReplaceConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": getNodeReplaceConfigurationRequest.bdsInstanceId,
+      "{nodeReplaceConfigurationId}": getNodeReplaceConfigurationRequest.nodeReplaceConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getNodeReplaceConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNodeReplaceConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeReplaceConfigurations/{nodeReplaceConfigurationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNodeReplaceConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "nodeReplaceConfiguration",
+        bodyModel: model.NodeReplaceConfiguration,
+        type: "model.NodeReplaceConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2980,6 +3603,416 @@ export class BdsClient {
     request: requests.ListBdsMetastoreConfigurationsRequest
   ): AsyncIterableIterator<responses.ListBdsMetastoreConfigurationsResponse> {
     return paginateResponses(request, req => this.listBdsMetastoreConfigurations(req));
+  }
+
+  /**
+   * Returns information about the NodeBackupConfigurations.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListNodeBackupConfigurationsRequest
+   * @return ListNodeBackupConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListNodeBackupConfigurations.ts.html |here} to see how to use ListNodeBackupConfigurations API.
+   */
+  public async listNodeBackupConfigurations(
+    listNodeBackupConfigurationsRequest: requests.ListNodeBackupConfigurationsRequest
+  ): Promise<responses.ListNodeBackupConfigurationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listNodeBackupConfigurations.");
+    const operationName = "listNodeBackupConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListNodeBackupConfigurations";
+    const pathParams = {
+      "{bdsInstanceId}": listNodeBackupConfigurationsRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "page": listNodeBackupConfigurationsRequest.page,
+      "limit": listNodeBackupConfigurationsRequest.limit,
+      "sortBy": listNodeBackupConfigurationsRequest.sortBy,
+      "sortOrder": listNodeBackupConfigurationsRequest.sortOrder,
+      "displayName": listNodeBackupConfigurationsRequest.displayName,
+      "lifecycleState": listNodeBackupConfigurationsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listNodeBackupConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNodeBackupConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeBackupConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNodeBackupConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.NodeBackupConfigurationSummary,
+        type: "Array<model.NodeBackupConfigurationSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listNodeBackupConfigurationsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.NodeBackupConfigurationSummary objects
+   * contained in responses from the listNodeBackupConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllNodeBackupConfigurations(
+    request: requests.ListNodeBackupConfigurationsRequest
+  ): AsyncIterableIterator<model.NodeBackupConfigurationSummary> {
+    return paginateRecords(request, req => this.listNodeBackupConfigurations(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listNodeBackupConfigurationsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listNodeBackupConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllNodeBackupConfigurationsResponses(
+    request: requests.ListNodeBackupConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListNodeBackupConfigurationsResponse> {
+    return paginateResponses(request, req => this.listNodeBackupConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NodeBackupConfigurationSummary objects
+   * contained in responses from the listNodeBackupConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNodeBackupConfigurationsRecordIterator(
+    request: requests.ListNodeBackupConfigurationsRequest
+  ): AsyncIterableIterator<model.NodeBackupConfigurationSummary> {
+    return paginateRecords(request, req => this.listNodeBackupConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNodeBackupConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNodeBackupConfigurationsResponseIterator(
+    request: requests.ListNodeBackupConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListNodeBackupConfigurationsResponse> {
+    return paginateResponses(request, req => this.listNodeBackupConfigurations(req));
+  }
+
+  /**
+   * Returns information about the node Backups.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListNodeBackupsRequest
+   * @return ListNodeBackupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListNodeBackups.ts.html |here} to see how to use ListNodeBackups API.
+   */
+  public async listNodeBackups(
+    listNodeBackupsRequest: requests.ListNodeBackupsRequest
+  ): Promise<responses.ListNodeBackupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listNodeBackups.");
+    const operationName = "listNodeBackups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListNodeBackups";
+    const pathParams = {
+      "{bdsInstanceId}": listNodeBackupsRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "page": listNodeBackupsRequest.page,
+      "limit": listNodeBackupsRequest.limit,
+      "sortBy": listNodeBackupsRequest.sortBy,
+      "sortOrder": listNodeBackupsRequest.sortOrder,
+      "nodeHostName": listNodeBackupsRequest.nodeHostName,
+      "lifecycleState": listNodeBackupsRequest.lifecycleState,
+      "displayName": listNodeBackupsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listNodeBackupsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNodeBackupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeBackups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNodeBackupsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.NodeBackupSummary,
+        type: "Array<model.NodeBackupSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listNodeBackupsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.NodeBackupSummary objects
+   * contained in responses from the listNodeBackups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllNodeBackups(
+    request: requests.ListNodeBackupsRequest
+  ): AsyncIterableIterator<model.NodeBackupSummary> {
+    return paginateRecords(request, req => this.listNodeBackups(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listNodeBackupsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listNodeBackups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllNodeBackupsResponses(
+    request: requests.ListNodeBackupsRequest
+  ): AsyncIterableIterator<responses.ListNodeBackupsResponse> {
+    return paginateResponses(request, req => this.listNodeBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NodeBackupSummary objects
+   * contained in responses from the listNodeBackups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNodeBackupsRecordIterator(
+    request: requests.ListNodeBackupsRequest
+  ): AsyncIterableIterator<model.NodeBackupSummary> {
+    return paginateRecords(request, req => this.listNodeBackups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNodeBackups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNodeBackupsResponseIterator(
+    request: requests.ListNodeBackupsRequest
+  ): AsyncIterableIterator<responses.ListNodeBackupsResponse> {
+    return paginateResponses(request, req => this.listNodeBackups(req));
+  }
+
+  /**
+   * Returns information about the NodeReplaceConfiguration.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListNodeReplaceConfigurationsRequest
+   * @return ListNodeReplaceConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListNodeReplaceConfigurations.ts.html |here} to see how to use ListNodeReplaceConfigurations API.
+   */
+  public async listNodeReplaceConfigurations(
+    listNodeReplaceConfigurationsRequest: requests.ListNodeReplaceConfigurationsRequest
+  ): Promise<responses.ListNodeReplaceConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#listNodeReplaceConfigurations.");
+    const operationName = "listNodeReplaceConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListNodeReplaceConfigurations";
+    const pathParams = {
+      "{bdsInstanceId}": listNodeReplaceConfigurationsRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "page": listNodeReplaceConfigurationsRequest.page,
+      "limit": listNodeReplaceConfigurationsRequest.limit,
+      "sortBy": listNodeReplaceConfigurationsRequest.sortBy,
+      "sortOrder": listNodeReplaceConfigurationsRequest.sortOrder,
+      "displayName": listNodeReplaceConfigurationsRequest.displayName,
+      "lifecycleState": listNodeReplaceConfigurationsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listNodeReplaceConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNodeReplaceConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeReplaceConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNodeReplaceConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.NodeReplaceConfigurationSummary,
+        type: "Array<model.NodeReplaceConfigurationSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listNodeReplaceConfigurationsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.NodeReplaceConfigurationSummary objects
+   * contained in responses from the listNodeReplaceConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllNodeReplaceConfigurations(
+    request: requests.ListNodeReplaceConfigurationsRequest
+  ): AsyncIterableIterator<model.NodeReplaceConfigurationSummary> {
+    return paginateRecords(request, req => this.listNodeReplaceConfigurations(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listNodeReplaceConfigurationsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listNodeReplaceConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllNodeReplaceConfigurationsResponses(
+    request: requests.ListNodeReplaceConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListNodeReplaceConfigurationsResponse> {
+    return paginateResponses(request, req => this.listNodeReplaceConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.NodeReplaceConfigurationSummary objects
+   * contained in responses from the listNodeReplaceConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNodeReplaceConfigurationsRecordIterator(
+    request: requests.ListNodeReplaceConfigurationsRequest
+  ): AsyncIterableIterator<model.NodeReplaceConfigurationSummary> {
+    return paginateRecords(request, req => this.listNodeReplaceConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listNodeReplaceConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listNodeReplaceConfigurationsResponseIterator(
+    request: requests.ListNodeReplaceConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListNodeReplaceConfigurationsResponse> {
+    return paginateResponses(request, req => this.listNodeReplaceConfigurations(req));
   }
 
   /**
@@ -4117,6 +5150,90 @@ export class BdsClient {
   }
 
   /**
+   * Deletes a nodeReplaceConfiguration
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveNodeReplaceConfigurationRequest
+   * @return RemoveNodeReplaceConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveNodeReplaceConfiguration.ts.html |here} to see how to use RemoveNodeReplaceConfiguration API.
+   */
+  public async removeNodeReplaceConfiguration(
+    removeNodeReplaceConfigurationRequest: requests.RemoveNodeReplaceConfigurationRequest
+  ): Promise<responses.RemoveNodeReplaceConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#removeNodeReplaceConfiguration.");
+    const operationName = "removeNodeReplaceConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/NodeReplaceConfiguration/RemoveNodeReplaceConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": removeNodeReplaceConfigurationRequest.bdsInstanceId,
+      "{nodeReplaceConfigurationId}":
+        removeNodeReplaceConfigurationRequest.nodeReplaceConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeNodeReplaceConfigurationRequest.opcRequestId,
+      "if-match": removeNodeReplaceConfigurationRequest.ifMatch,
+      "opc-retry-token": removeNodeReplaceConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeNodeReplaceConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/nodeReplaceConfigurations/{nodeReplaceConfigurationId}/actions/remove",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeNodeReplaceConfigurationRequest.removeNodeReplaceConfigurationDetails,
+        "RemoveNodeReplaceConfigurationDetails",
+        model.RemoveNodeReplaceConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveNodeReplaceConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Renewing TLS/SSL for various ODH services running on the BDS cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -4176,6 +5293,86 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RenewCertificateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replaces a node of a Big Data Service cluster from backup.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ReplaceNodeRequest
+   * @return ReplaceNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ReplaceNode.ts.html |here} to see how to use ReplaceNode API.
+   */
+  public async replaceNode(
+    replaceNodeRequest: requests.ReplaceNodeRequest
+  ): Promise<responses.ReplaceNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#replaceNode.");
+    const operationName = "replaceNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ReplaceNode";
+    const pathParams = {
+      "{bdsInstanceId}": replaceNodeRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": replaceNodeRequest.opcRequestId,
+      "if-match": replaceNodeRequest.ifMatch,
+      "opc-retry-token": replaceNodeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      replaceNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/replaceNode",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        replaceNodeRequest.replaceNodeDetails,
+        "ReplaceNodeDetails",
+        model.ReplaceNodeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReplaceNodeResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4815,6 +6012,171 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBdsMetastoreConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates fields on NodeBackupConfiguration, including the name, the schedule.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateNodeBackupConfigurationRequest
+   * @return UpdateNodeBackupConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateNodeBackupConfiguration.ts.html |here} to see how to use UpdateNodeBackupConfiguration API.
+   */
+  public async updateNodeBackupConfiguration(
+    updateNodeBackupConfigurationRequest: requests.UpdateNodeBackupConfigurationRequest
+  ): Promise<responses.UpdateNodeBackupConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#updateNodeBackupConfiguration.");
+    const operationName = "updateNodeBackupConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/UpdateNodeBackupConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": updateNodeBackupConfigurationRequest.bdsInstanceId,
+      "{nodeBackupConfigurationId}": updateNodeBackupConfigurationRequest.nodeBackupConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateNodeBackupConfigurationRequest.opcRequestId,
+      "if-match": updateNodeBackupConfigurationRequest.ifMatch,
+      "opc-retry-token": updateNodeBackupConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNodeBackupConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeBackupConfigurations/{nodeBackupConfigurationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateNodeBackupConfigurationRequest.updateNodeBackupConfigurationDetails,
+        "UpdateNodeBackupConfigurationDetails",
+        model.UpdateNodeBackupConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateNodeBackupConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates fields on nodeReplaceConfigurations, including the name, the schedule
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateNodeReplaceConfigurationRequest
+   * @return UpdateNodeReplaceConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateNodeReplaceConfiguration.ts.html |here} to see how to use UpdateNodeReplaceConfiguration API.
+   */
+  public async updateNodeReplaceConfiguration(
+    updateNodeReplaceConfigurationRequest: requests.UpdateNodeReplaceConfigurationRequest
+  ): Promise<responses.UpdateNodeReplaceConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#updateNodeReplaceConfiguration.");
+    const operationName = "updateNodeReplaceConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/UpdateNodeReplaceConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": updateNodeReplaceConfigurationRequest.bdsInstanceId,
+      "{nodeReplaceConfigurationId}":
+        updateNodeReplaceConfigurationRequest.nodeReplaceConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateNodeReplaceConfigurationRequest.opcRequestId,
+      "if-match": updateNodeReplaceConfigurationRequest.ifMatch,
+      "opc-retry-token": updateNodeReplaceConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNodeReplaceConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/nodeReplaceConfigurations/{nodeReplaceConfigurationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateNodeReplaceConfigurationRequest.updateNodeReplaceConfigurationDetails,
+        "UpdateNodeReplaceConfigurationDetails",
+        model.UpdateNodeReplaceConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateNodeReplaceConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

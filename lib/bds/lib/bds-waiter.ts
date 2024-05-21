@@ -98,6 +98,63 @@ export class BdsWaiter {
   }
 
   /**
+   * Waits forNodeBackup till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetNodeBackupResponse | null (null in case of 404 response)
+   */
+  public async forNodeBackup(
+    request: serviceRequests.GetNodeBackupRequest,
+    ...targetStates: models.NodeBackup.LifecycleState[]
+  ): Promise<serviceResponses.GetNodeBackupResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getNodeBackup(request),
+      response => targetStates.includes(response.nodeBackup.lifecycleState!),
+      targetStates.includes(models.NodeBackup.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forNodeBackupConfiguration till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetNodeBackupConfigurationResponse | null (null in case of 404 response)
+   */
+  public async forNodeBackupConfiguration(
+    request: serviceRequests.GetNodeBackupConfigurationRequest,
+    ...targetStates: models.NodeBackupConfiguration.LifecycleState[]
+  ): Promise<serviceResponses.GetNodeBackupConfigurationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getNodeBackupConfiguration(request),
+      response => targetStates.includes(response.nodeBackupConfiguration.lifecycleState!),
+      targetStates.includes(models.NodeBackupConfiguration.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forNodeReplaceConfiguration till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetNodeReplaceConfigurationResponse | null (null in case of 404 response)
+   */
+  public async forNodeReplaceConfiguration(
+    request: serviceRequests.GetNodeReplaceConfigurationRequest,
+    ...targetStates: models.NodeReplaceConfiguration.LifecycleState[]
+  ): Promise<serviceResponses.GetNodeReplaceConfigurationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getNodeReplaceConfiguration(request),
+      response => targetStates.includes(response.nodeReplaceConfiguration.lifecycleState!),
+      targetStates.includes(models.NodeReplaceConfiguration.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send
