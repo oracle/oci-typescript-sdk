@@ -1,6 +1,6 @@
 {
   "name": "oci-opsi",
-  "version": "2.86.3",
+  "version": "2.87.0",
   "description": "OCI NodeJS client for Opsi Service",
   "repository": {
     "type": "git",

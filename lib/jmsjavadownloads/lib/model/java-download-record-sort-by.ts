@@ -1,6 +1,6 @@
 /**
  * Java Management Service Download API
- * The APIs for the download engine of the Java Management Service.
+ * The APIs for the <a href="https://docs.oracle.com/en-us/iaas/jms/doc/java-download.html">Java Download</a> feature of Java Management Service.
  * OpenAPI spec version: 20230601
  *
  *
@@ -20,7 +20,13 @@ import common = require("oci-common");
 export enum JavaDownloadRecordSortBy {
   TimeDownloaded = "timeDownloaded",
   DownloadSourceId = "downloadSourceId",
-  DownloadType = "downloadType"
+  DownloadType = "downloadType",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace JavaDownloadRecordSortBy {

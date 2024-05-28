@@ -305,6 +305,12 @@ export class UploadManager {
     callback?: Function
   ): Promise<UploadResponse> {
     const timestamp = Date.now().toString();
+    let opcMeta = {};
+    if (requestDetails.opcMeta) {
+      Object.entries(requestDetails.opcMeta).forEach(([key, value]) => {
+        Object.assign(opcMeta, { ["opc-meta-" + key]: value });
+      });
+    }
     const createUploadResponse = await this.client.createMultipartUpload({
       ...UploadManager.composeRequestDetails(requestDetails),
       createMultipartUploadDetails: {
@@ -312,7 +318,7 @@ export class UploadManager {
         storageTier: requestDetails.storageTier
           ? requestDetails.storageTier
           : models.StorageTier.Standard,
-        metadata: requestDetails.opcMeta,
+        metadata: requestDetails.opcMeta ? opcMeta : undefined,
         cacheControl: requestDetails.cacheControl,
         contentType: requestDetails.contentType,
         contentLanguage: requestDetails.contentLanguage,

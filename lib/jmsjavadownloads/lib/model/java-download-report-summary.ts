@@ -1,6 +1,6 @@
 /**
  * Java Management Service Download API
- * The APIs for the download engine of the Java Management Service.
+ * The APIs for the <a href="https://docs.oracle.com/en-us/iaas/jms/doc/java-download.html">Java Download</a> feature of Java Management Service.
  * OpenAPI spec version: 20230601
  *
  *
@@ -51,9 +51,27 @@ export interface JavaDownloadReportSummary {
   "compartmentId": string;
   "createdBy": model.Principal;
   /**
-   * The time the Java download report was created. An RFC3339 formatted datetime string.
+   * The time the Java download report was created, displayed as an [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) formatted datetime string.
    */
   "timeCreated": Date;
+  /**
+   * The start time from when the download records are included (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   *
+   */
+  "timeStart"?: Date;
+  /**
+   * The end time until when the download records are included (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   *
+   */
+  "timeEnd"?: Date;
+  /**
+   * The property used for sorting the records.
+   */
+  "sortBy"?: model.JavaDownloadRecordSortBy;
+  /**
+   * The sort order for the records.
+   */
+  "sortOrder"?: model.SortOrder;
   /**
    * The current state of the Java download report.
    */

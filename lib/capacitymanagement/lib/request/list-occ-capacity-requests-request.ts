@@ -31,6 +31,10 @@ export interface ListOccCapacityRequestsRequest extends common.BaseRequest {
    */
   "namespace"?: model.Namespace;
   /**
+   * A filter to return only the resources that match the request type. The match is not case sensitive.
+   */
+  "requestType"?: string;
+  /**
    * A filter to return only the resources that match the entire display name. The match is not case sensitive.
    */
   "displayName"?: string;

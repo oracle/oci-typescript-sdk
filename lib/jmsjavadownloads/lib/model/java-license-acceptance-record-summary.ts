@@ -1,6 +1,6 @@
 /**
  * Java Management Service Download API
- * The APIs for the download engine of the Java Management Service.
+ * The APIs for the <a href="https://docs.oracle.com/en-us/iaas/jms/doc/java-download.html">Java Download</a> feature of Java Management Service.
  * OpenAPI spec version: 20230601
  *
  *
@@ -38,12 +38,12 @@ export interface JavaLicenseAcceptanceRecordSummary {
   "createdBy": model.Principal;
   "lastUpdatedBy"?: model.Principal;
   /**
-   * The date and time of license acceptance(formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   * The date and time of license acceptance (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
    */
   "timeAccepted": Date;
   /**
-   * The date and time of last update(formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   * The date and time of last update (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
    */
   "timeLastUpdated"?: Date;

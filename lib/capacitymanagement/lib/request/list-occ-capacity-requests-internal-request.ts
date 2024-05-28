@@ -39,6 +39,10 @@ export interface ListOccCapacityRequestsInternalRequest extends common.BaseReque
    */
   "displayName"?: string;
   /**
+   * A filter to return only the resources that match the request type. The match is not case sensitive.
+   */
+  "requestType"?: string;
+  /**
    * A filter to return the list of capacity requests based on the OCID of the capacity request. This is done for the users who have INSPECT permission on the resource but do not have READ permission.
    */
   "id"?: string;

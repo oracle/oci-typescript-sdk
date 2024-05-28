@@ -1,6 +1,6 @@
 /**
  * Java Management Service Download API
- * The APIs for the download engine of the Java Management Service.
+ * The APIs for the <a href="https://docs.oracle.com/en-us/iaas/jms/doc/java-download.html">Java Download</a> feature of Java Management Service.
  * OpenAPI spec version: 20230601
  *
  *
@@ -22,6 +22,18 @@ export interface UpdateJavaLicenseAcceptanceRecordDetails {
    * Status of license acceptance.
    */
   "licenseAcceptanceStatus": model.LicenseAcceptanceStatus;
+  /**
+   * Simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
+   * Example: {@code {\"bar-key\": \"value\"}}. (See [Managing Tags and Tag Namespaces](https://docs.cloud.oracle.com/Content/Tagging/Concepts/understandingfreeformtags.htm).)
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}. (See [Understanding Free-form Tags](https://docs.cloud.oracle.com/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm)).
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace UpdateJavaLicenseAcceptanceRecordDetails {

@@ -45,6 +45,10 @@ import * as OccCustomerGroupCollection from "./occ-customer-group-collection";
 export import OccCustomerGroupCollection = OccCustomerGroupCollection.OccCustomerGroupCollection;
 import * as OccCustomerGroupSummary from "./occ-customer-group-summary";
 export import OccCustomerGroupSummary = OccCustomerGroupSummary.OccCustomerGroupSummary;
+import * as OccOverviewCollection from "./occ-overview-collection";
+export import OccOverviewCollection = OccOverviewCollection.OccOverviewCollection;
+import * as OccOverviewSummary from "./occ-overview-summary";
+export import OccOverviewSummary = OccOverviewSummary.OccOverviewSummary;
 import * as PatchInstruction from "./patch-instruction";
 export import PatchInstruction = PatchInstruction.PatchInstruction;
 import * as PatchOccCapacityRequestDetails from "./patch-occ-capacity-request-details";
@@ -58,8 +62,6 @@ export import UpdateOccAvailabilityCatalogDetails = UpdateOccAvailabilityCatalog
 import * as UpdateOccCapacityRequestDetails from "./update-occ-capacity-request-details";
 export import UpdateOccCapacityRequestDetails = UpdateOccCapacityRequestDetails.UpdateOccCapacityRequestDetails;
 
-import * as OccCapacityRequestComputeDetails from "./occ-capacity-request-compute-details";
-export import OccCapacityRequestComputeDetails = OccCapacityRequestComputeDetails.OccCapacityRequestComputeDetails;
 import * as PatchInsertInstruction from "./patch-insert-instruction";
 export import PatchInsertInstruction = PatchInsertInstruction.PatchInsertInstruction;
 import * as PatchInsertMultipleInstruction from "./patch-insert-multiple-instruction";

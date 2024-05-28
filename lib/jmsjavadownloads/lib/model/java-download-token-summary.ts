@@ -1,6 +1,6 @@
 /**
  * Java Management Service Download API
- * The APIs for the download engine of the Java Management Service.
+ * The APIs for the <a href="https://docs.oracle.com/en-us/iaas/jms/doc/java-download.html">Java Download</a> feature of Java Management Service.
  * OpenAPI spec version: 20230601
  *
  *
@@ -43,19 +43,19 @@ export interface JavaDownloadTokenSummary {
    */
   "value": string;
   /**
-   * The time the JavaDownloadToken was created. An RFC3339 formatted datetime string.
+   * The time the JavaDownloadToken was created, displayed as an [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) formatted datetime string.
    */
   "timeCreated": Date;
   /**
-   * The time the JavaDownloadToken was updated. An RFC3339 formatted datetime string.
+   * The time the JavaDownloadToken was updated, displayed as an [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) formatted datetime string.
    */
   "timeUpdated"?: Date;
   /**
-   * The time the JavaDownloadToken was last used for download. An RFC3339 formatted datetime string.
+   * The time the JavaDownloadToken was last used for download, displayed as an [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) formatted datetime string.
    */
   "timeLastUsed"?: Date;
   /**
-   * The expiry time of the JavaDownloadToken. An RFC3339 formatted datetime string.
+   * The expiry time of the JavaDownloadToken, displayed as an [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) formatted datetime string.
    */
   "timeExpires": Date;
   /**

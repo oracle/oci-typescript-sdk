@@ -1,6 +1,6 @@
 /**
  * Java Management Service Download API
- * The APIs for the download engine of the Java Management Service.
+ * The APIs for the <a href="https://docs.oracle.com/en-us/iaas/jms/doc/java-download.html">Java Download</a> feature of Java Management Service.
  * OpenAPI spec version: 20230601
  *
  *
@@ -24,7 +24,7 @@ export interface RequestSummarizedJavaDownloadCountsDetails {
    */
   "compartmentId": string;
   /**
-   * Group as property specifying the aggregation type for download counts.
+   * The property that specifies the aggregation type for the download counts.
    */
   "groupAs": model.JavaDownloadCountAggregationType;
   /**

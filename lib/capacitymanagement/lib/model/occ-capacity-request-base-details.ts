@@ -19,9 +19,17 @@ import common = require("oci-common");
  */
 export interface OccCapacityRequestBaseDetails {
   /**
+   * The type of the resource against which the user wants to place a capacity request.
+   */
+  "resourceType": string;
+  /**
    * The type of the workload (Generic/ROW).
    */
   "workloadType": string;
+  /**
+   * The WorkloadType from where capacity request are to be transferred.
+   */
+  "sourceWorkloadType"?: string;
   /**
    * The incremental quantity of resources supplied as the provisioning is underway. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -38,41 +46,25 @@ export interface OccCapacityRequestBaseDetails {
    * The date on which the actual handover quantity of resources is delivered.
    */
   "dateActualHandover"?: Date;
-
-  "resourceType": string;
+  /**
+   * The name of the COMPUTE server shape for which the request is made. Do not use CAPACITY_CONSTRAINT as the resource name.
+   */
+  "resourceName": string;
+  /**
+   * The number of compute server's with name <resourceName> required by the user. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "demandQuantity": number;
 }
 
 export namespace OccCapacityRequestBaseDetails {
   export function getJsonObj(obj: OccCapacityRequestBaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if (obj && "resourceType" in obj && obj.resourceType) {
-      switch (obj.resourceType) {
-        case "SERVER_HW":
-          return model.OccCapacityRequestComputeDetails.getJsonObj(
-            <model.OccCapacityRequestComputeDetails>(<object>jsonObj),
-            true
-          );
-        default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.resourceType}`);
-      }
-    }
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: OccCapacityRequestBaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if (obj && "resourceType" in obj && obj.resourceType) {
-      switch (obj.resourceType) {
-        case "SERVER_HW":
-          return model.OccCapacityRequestComputeDetails.getDeserializedJsonObj(
-            <model.OccCapacityRequestComputeDetails>(<object>jsonObj),
-            true
-          );
-        default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.resourceType}`);
-      }
-    }
     return jsonObj;
   }
 }

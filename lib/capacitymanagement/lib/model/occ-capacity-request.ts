@@ -49,6 +49,10 @@ export interface OccCapacityRequest {
    */
   "occCustomerGroupId": string;
   /**
+   * Type of Capacity Request(New or Transfer)
+   */
+  "requestType"?: OccCapacityRequest.RequestType;
+  /**
    * The name of the region for which the capacity request was made.
    */
   "region": string;
@@ -105,6 +109,16 @@ export interface OccCapacityRequest {
 }
 
 export namespace OccCapacityRequest {
+  export enum RequestType {
+    New = "NEW",
+    Transfer = "TRANSFER",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum RequestState {
     Created = "CREATED",
     Submitted = "SUBMITTED",

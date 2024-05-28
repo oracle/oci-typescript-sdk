@@ -32,7 +32,7 @@ export interface OccAvailabilityCatalogSummary {
    */
   "compartmentId": string;
   /**
-   * An user-friendly name for the availability catalog. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * An user-friendly name for the availability catalog. Does not have to be unique, and is changeable. Avoid entering confidential information.
    */
   "displayName": string;
   /**

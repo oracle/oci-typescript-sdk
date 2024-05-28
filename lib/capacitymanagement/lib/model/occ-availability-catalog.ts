@@ -83,7 +83,7 @@ export interface OccAvailabilityCatalog {
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Details about capacity available for  different resources in catalog.
+   * Details about capacity available for different resources in catalog.
    */
   "details"?: Array<model.OccAvailabilitySummary>;
 }
