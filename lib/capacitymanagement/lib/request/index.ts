@@ -27,6 +27,8 @@ import * as GetOccCapacityRequestRequest from "./get-occ-capacity-request-reques
 export import GetOccCapacityRequestRequest = GetOccCapacityRequestRequest.GetOccCapacityRequestRequest;
 import * as GetOccCustomerGroupRequest from "./get-occ-customer-group-request";
 export import GetOccCustomerGroupRequest = GetOccCustomerGroupRequest.GetOccCustomerGroupRequest;
+import * as ListInternalNamespaceOccOverviewsRequest from "./list-internal-namespace-occ-overviews-request";
+export import ListInternalNamespaceOccOverviewsRequest = ListInternalNamespaceOccOverviewsRequest.ListInternalNamespaceOccOverviewsRequest;
 import * as ListOccAvailabilitiesRequest from "./list-occ-availabilities-request";
 export import ListOccAvailabilitiesRequest = ListOccAvailabilitiesRequest.ListOccAvailabilitiesRequest;
 import * as ListOccAvailabilityCatalogsRequest from "./list-occ-availability-catalogs-request";
@@ -39,6 +41,10 @@ import * as ListOccCapacityRequestsInternalRequest from "./list-occ-capacity-req
 export import ListOccCapacityRequestsInternalRequest = ListOccCapacityRequestsInternalRequest.ListOccCapacityRequestsInternalRequest;
 import * as ListOccCustomerGroupsRequest from "./list-occ-customer-groups-request";
 export import ListOccCustomerGroupsRequest = ListOccCustomerGroupsRequest.ListOccCustomerGroupsRequest;
+import * as ListOccOverviewsRequest from "./list-occ-overviews-request";
+export import ListOccOverviewsRequest = ListOccOverviewsRequest.ListOccOverviewsRequest;
+import * as PatchInternalOccCapacityRequestRequest from "./patch-internal-occ-capacity-request-request";
+export import PatchInternalOccCapacityRequestRequest = PatchInternalOccCapacityRequestRequest.PatchInternalOccCapacityRequestRequest;
 import * as PatchOccCapacityRequestRequest from "./patch-occ-capacity-request-request";
 export import PatchOccCapacityRequestRequest = PatchOccCapacityRequestRequest.PatchOccCapacityRequestRequest;
 import * as PublishOccAvailabilityCatalogRequest from "./publish-occ-availability-catalog-request";

@@ -27,6 +27,8 @@ import * as GetOccCapacityRequestResponse from "./get-occ-capacity-request-respo
 export import GetOccCapacityRequestResponse = GetOccCapacityRequestResponse.GetOccCapacityRequestResponse;
 import * as GetOccCustomerGroupResponse from "./get-occ-customer-group-response";
 export import GetOccCustomerGroupResponse = GetOccCustomerGroupResponse.GetOccCustomerGroupResponse;
+import * as ListInternalNamespaceOccOverviewsResponse from "./list-internal-namespace-occ-overviews-response";
+export import ListInternalNamespaceOccOverviewsResponse = ListInternalNamespaceOccOverviewsResponse.ListInternalNamespaceOccOverviewsResponse;
 import * as ListOccAvailabilitiesResponse from "./list-occ-availabilities-response";
 export import ListOccAvailabilitiesResponse = ListOccAvailabilitiesResponse.ListOccAvailabilitiesResponse;
 import * as ListOccAvailabilityCatalogsResponse from "./list-occ-availability-catalogs-response";
@@ -39,6 +41,10 @@ import * as ListOccCapacityRequestsInternalResponse from "./list-occ-capacity-re
 export import ListOccCapacityRequestsInternalResponse = ListOccCapacityRequestsInternalResponse.ListOccCapacityRequestsInternalResponse;
 import * as ListOccCustomerGroupsResponse from "./list-occ-customer-groups-response";
 export import ListOccCustomerGroupsResponse = ListOccCustomerGroupsResponse.ListOccCustomerGroupsResponse;
+import * as ListOccOverviewsResponse from "./list-occ-overviews-response";
+export import ListOccOverviewsResponse = ListOccOverviewsResponse.ListOccOverviewsResponse;
+import * as PatchInternalOccCapacityRequestResponse from "./patch-internal-occ-capacity-request-response";
+export import PatchInternalOccCapacityRequestResponse = PatchInternalOccCapacityRequestResponse.PatchInternalOccCapacityRequestResponse;
 import * as PatchOccCapacityRequestResponse from "./patch-occ-capacity-request-response";
 export import PatchOccCapacityRequestResponse = PatchOccCapacityRequestResponse.PatchOccCapacityRequestResponse;
 import * as PublishOccAvailabilityCatalogResponse from "./publish-occ-availability-catalog-response";

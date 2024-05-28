@@ -65,7 +65,8 @@ export namespace ModifyDatabaseManagementDetails {
 
   export enum Role {
     Sysdba = "SYSDBA",
-    Normal = "NORMAL"
+    Normal = "NORMAL",
+    Sysdg = "SYSDG"
   }
 
   export function getJsonObj(obj: ModifyDatabaseManagementDetails): object {

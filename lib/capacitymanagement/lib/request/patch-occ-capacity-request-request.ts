@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface PatchOccCapacityRequestRequest extends common.BaseRequest {
   /**
-   * Request to update the properties of the capacity request.
+   * Request to update the details of the capacity request.
    */
   "patchOccCapacityRequestDetails": model.PatchOccCapacityRequestDetails;
   /**

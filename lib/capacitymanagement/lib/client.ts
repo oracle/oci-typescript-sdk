@@ -844,6 +844,95 @@ export class CapacityManagementClient {
   }
 
   /**
+   * Lists an overview of all resources in that namespace in a given time interval.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInternalNamespaceOccOverviewsRequest
+   * @return ListInternalNamespaceOccOverviewsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalNamespaceOccOverviews.ts.html |here} to see how to use ListInternalNamespaceOccOverviews API.
+   */
+  public async listInternalNamespaceOccOverviews(
+    listInternalNamespaceOccOverviewsRequest: requests.ListInternalNamespaceOccOverviewsRequest
+  ): Promise<responses.ListInternalNamespaceOccOverviewsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#listInternalNamespaceOccOverviews."
+      );
+    const operationName = "listInternalNamespaceOccOverviews";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{namespace}": listInternalNamespaceOccOverviewsRequest.namespace
+    };
+
+    const queryParams = {
+      "compartmentId": listInternalNamespaceOccOverviewsRequest.compartmentId,
+      "occCustomerGroupId": listInternalNamespaceOccOverviewsRequest.occCustomerGroupId,
+      "workloadType": listInternalNamespaceOccOverviewsRequest.workloadType,
+      "from": listInternalNamespaceOccOverviewsRequest.from,
+      "to": listInternalNamespaceOccOverviewsRequest.to,
+      "limit": listInternalNamespaceOccOverviewsRequest.limit,
+      "page": listInternalNamespaceOccOverviewsRequest.page,
+      "sortOrder": listInternalNamespaceOccOverviewsRequest.sortOrder,
+      "sortBy": listInternalNamespaceOccOverviewsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInternalNamespaceOccOverviewsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInternalNamespaceOccOverviewsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/namespace/{namespace}/occOverview",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInternalNamespaceOccOverviewsResponse>{},
+        body: await response.json(),
+        bodyKey: "occOverviewCollection",
+        bodyModel: model.OccOverviewCollection,
+        type: "model.OccOverviewCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists availabilities for a particular availability catalog.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOccAvailabilitiesRequest
@@ -1120,6 +1209,7 @@ export class CapacityManagementClient {
       "compartmentId": listOccCapacityRequestsRequest.compartmentId,
       "occAvailabilityCatalogId": listOccCapacityRequestsRequest.occAvailabilityCatalogId,
       "namespace": listOccCapacityRequestsRequest.namespace,
+      "requestType": listOccCapacityRequestsRequest.requestType,
       "displayName": listOccCapacityRequestsRequest.displayName,
       "id": listOccCapacityRequestsRequest.id,
       "limit": listOccCapacityRequestsRequest.limit,
@@ -1208,6 +1298,7 @@ export class CapacityManagementClient {
       "occAvailabilityCatalogId": listOccCapacityRequestsInternalRequest.occAvailabilityCatalogId,
       "namespace": listOccCapacityRequestsInternalRequest.namespace,
       "displayName": listOccCapacityRequestsInternalRequest.displayName,
+      "requestType": listOccCapacityRequestsInternalRequest.requestType,
       "id": listOccCapacityRequestsInternalRequest.id,
       "limit": listOccCapacityRequestsInternalRequest.limit,
       "page": listOccCapacityRequestsInternalRequest.page,
@@ -1343,6 +1434,176 @@ export class CapacityManagementClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists an overview of all resources in that namespace in a given time interval.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOccOverviewsRequest
+   * @return ListOccOverviewsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccOverviews.ts.html |here} to see how to use ListOccOverviews API.
+   */
+  public async listOccOverviews(
+    listOccOverviewsRequest: requests.ListOccOverviewsRequest
+  ): Promise<responses.ListOccOverviewsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#listOccOverviews.");
+    const operationName = "listOccOverviews";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{namespace}": listOccOverviewsRequest.namespace
+    };
+
+    const queryParams = {
+      "compartmentId": listOccOverviewsRequest.compartmentId,
+      "from": listOccOverviewsRequest.from,
+      "to": listOccOverviewsRequest.to,
+      "workloadType": listOccOverviewsRequest.workloadType,
+      "limit": listOccOverviewsRequest.limit,
+      "page": listOccOverviewsRequest.page,
+      "sortOrder": listOccOverviewsRequest.sortOrder,
+      "sortBy": listOccOverviewsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOccOverviewsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOccOverviewsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespace/{namespace}/occOverview",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOccOverviewsResponse>{},
+        body: await response.json(),
+        bodyKey: "occOverviewCollection",
+        bodyModel: model.OccOverviewCollection,
+        type: "model.OccOverviewCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the OccCapacityRequest by evaluating a sequence of instructions.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PatchInternalOccCapacityRequestRequest
+   * @return PatchInternalOccCapacityRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/PatchInternalOccCapacityRequest.ts.html |here} to see how to use PatchInternalOccCapacityRequest API.
+   */
+  public async patchInternalOccCapacityRequest(
+    patchInternalOccCapacityRequestRequest: requests.PatchInternalOccCapacityRequestRequest
+  ): Promise<responses.PatchInternalOccCapacityRequestResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#patchInternalOccCapacityRequest."
+      );
+    const operationName = "patchInternalOccCapacityRequest";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occCapacityRequestId}": patchInternalOccCapacityRequestRequest.occCapacityRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": patchInternalOccCapacityRequestRequest.ifMatch,
+      "opc-request-id": patchInternalOccCapacityRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchInternalOccCapacityRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occCapacityRequests/{occCapacityRequestId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchInternalOccCapacityRequestRequest.patchOccCapacityRequestDetails,
+        "PatchOccCapacityRequestDetails",
+        model.PatchOccCapacityRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchInternalOccCapacityRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "occCapacityRequest",
+        bodyModel: model.OccCapacityRequest,
+        type: "model.OccCapacityRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

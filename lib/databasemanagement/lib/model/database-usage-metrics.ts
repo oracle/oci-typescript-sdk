@@ -60,6 +60,26 @@ export interface DatabaseUsageMetrics {
    */
   "databaseContainerId"?: string;
   /**
+   * The Database id of the Managed Database. Every database had its own id and that value is captured here.
+   */
+  "databaseId"?: string;
+  /**
+   * The Primary Database id of the Managed Database.
+   */
+  "primaryDbId"?: string;
+  /**
+   * The Primary Database unique name of the Managed Database.
+   */
+  "primaryDbUniqueName"?: string;
+  /**
+   * The Database unique name of the Managed Database.
+   */
+  "dbUniqueName"?: string;
+  /**
+   * The Database role of the Managed Database.
+   */
+  "dbRole"?: model.DbRole;
+  /**
    * A list of the database health metrics like CPU, Storage, and Memory.
    */
   "metrics"?: Array<model.FleetMetricDefinition>;

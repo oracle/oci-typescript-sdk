@@ -1,6 +1,6 @@
 /**
  * Java Management Service Download API
- * The APIs for the download engine of the Java Management Service.
+ * The APIs for the <a href="https://docs.oracle.com/en-us/iaas/jms/doc/java-download.html">Java Download</a> feature of Java Management Service.
  * OpenAPI spec version: 20230601
  *
  *
@@ -39,7 +39,7 @@ export interface JavaDownloadRecordSummary {
    */
   "architecture"?: string;
   /**
-   * The package type(typically the file extension) of the artifact.
+   * The package type (typically the file extension) of the artifact.
    */
   "packageType"?: string;
   /**

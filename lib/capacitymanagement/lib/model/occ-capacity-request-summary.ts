@@ -65,6 +65,10 @@ export interface OccCapacityRequestSummary {
    */
   "requestState": string;
   /**
+   * Type of Capacity Request(New or Transfer)
+   */
+  "requestType"?: string;
+  /**
    * The time when the capacity request was created.
    */
   "timeCreated": Date;

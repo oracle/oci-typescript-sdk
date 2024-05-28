@@ -27,6 +27,7 @@ export interface MetadataDetails {
 export namespace MetadataDetails {
   export enum FormatVersion {
     V1 = "V1",
+    V2 = "V2",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

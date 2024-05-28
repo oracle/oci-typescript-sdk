@@ -154,6 +154,8 @@ import * as GetDatabaseFleetHealthMetricsRequest from "./get-database-fleet-heal
 export import GetDatabaseFleetHealthMetricsRequest = GetDatabaseFleetHealthMetricsRequest.GetDatabaseFleetHealthMetricsRequest;
 import * as GetDatabaseHomeMetricsRequest from "./get-database-home-metrics-request";
 export import GetDatabaseHomeMetricsRequest = GetDatabaseHomeMetricsRequest.GetDatabaseHomeMetricsRequest;
+import * as GetDataguardPerformanceMetricsRequest from "./get-dataguard-performance-metrics-request";
+export import GetDataguardPerformanceMetricsRequest = GetDataguardPerformanceMetricsRequest.GetDataguardPerformanceMetricsRequest;
 import * as GetDbManagementPrivateEndpointRequest from "./get-db-management-private-endpoint-request";
 export import GetDbManagementPrivateEndpointRequest = GetDbManagementPrivateEndpointRequest.GetDbManagementPrivateEndpointRequest;
 import * as GetExternalAsmRequest from "./get-external-asm-request";
@@ -210,6 +212,8 @@ import * as GetOptimizerStatisticsCollectionOperationRequest from "./get-optimiz
 export import GetOptimizerStatisticsCollectionOperationRequest = GetOptimizerStatisticsCollectionOperationRequest.GetOptimizerStatisticsCollectionOperationRequest;
 import * as GetPdbMetricsRequest from "./get-pdb-metrics-request";
 export import GetPdbMetricsRequest = GetPdbMetricsRequest.GetPdbMetricsRequest;
+import * as GetPeerDatabaseMetricsRequest from "./get-peer-database-metrics-request";
+export import GetPeerDatabaseMetricsRequest = GetPeerDatabaseMetricsRequest.GetPeerDatabaseMetricsRequest;
 import * as GetPreferredCredentialRequest from "./get-preferred-credential-request";
 export import GetPreferredCredentialRequest = GetPreferredCredentialRequest.GetPreferredCredentialRequest;
 import * as GetSqlPlanBaselineRequest from "./get-sql-plan-baseline-request";

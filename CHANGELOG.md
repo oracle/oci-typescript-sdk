@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.87.0 - 2024-05-28
+### Added
+- Support for Demand Signal service
+- Support for external database connectors in the Database service
+- Support for monitoring standby databases in the Database Management service
+- Support for resource overviews in the Capacity Management service
+- Support for optional parameters in the download API in the Java Management Service Downloads service
+  
+### Breaking Changes
+- Mandatory fields `resourceType`, `resourceName` and `demandQuantity` added to model `OccCapacityRequestBaseDetails` in the Capacity Management service
+- Mandatory fields `totalAvailableQuantity`, `demandedQuantity` added to model `OccAvailabilitySummary` in the Capacity Management service
+- The datatype type of fields `resourceType` and `workloadType` was change to `string` in the model `OccAvailabilitySummary` in the Capacity Management service
+- The model `OccCapacityRequestComputeDetails` has been removed in the Capacity Management service
+
+
 ## 2.86.3 - 2024-05-21
 ### Added
 - Support for the Resource Scheduler service

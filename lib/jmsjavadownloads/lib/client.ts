@@ -1,6 +1,6 @@
 /**
  * Java Management Service Download API
- * The APIs for the download engine of the Java Management Service.
+ * The APIs for the <a href="https://docs.oracle.com/en-us/iaas/jms/doc/java-download.html">Java Download</a> feature of Java Management Service.
  * OpenAPI spec version: 20230601
  *
  *
@@ -368,6 +368,7 @@ export class JavaDownloadClient {
 
   /**
    * Creates a new JavaDownloadToken in the tenancy with specified attributes.
+   * Ensure that you review the license terms before token generation. Visit the <a href=\"https://www.oracle.com/java/technologies/downloads\"/>Oracle Java Downloads</a> page to understand the license terms of the Java version for which you are generating a token. By generating a token, you agree to the associated license terms. See <a href=\"https://www.oracle.com/cis/java/technologies/javase/jdk-faqs.html\">Oracle JDK Licensing - FAQs</a> for detailed information.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateJavaDownloadTokenRequest

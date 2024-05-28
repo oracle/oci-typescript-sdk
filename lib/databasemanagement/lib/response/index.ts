@@ -154,6 +154,8 @@ import * as GetDatabaseFleetHealthMetricsResponse from "./get-database-fleet-hea
 export import GetDatabaseFleetHealthMetricsResponse = GetDatabaseFleetHealthMetricsResponse.GetDatabaseFleetHealthMetricsResponse;
 import * as GetDatabaseHomeMetricsResponse from "./get-database-home-metrics-response";
 export import GetDatabaseHomeMetricsResponse = GetDatabaseHomeMetricsResponse.GetDatabaseHomeMetricsResponse;
+import * as GetDataguardPerformanceMetricsResponse from "./get-dataguard-performance-metrics-response";
+export import GetDataguardPerformanceMetricsResponse = GetDataguardPerformanceMetricsResponse.GetDataguardPerformanceMetricsResponse;
 import * as GetDbManagementPrivateEndpointResponse from "./get-db-management-private-endpoint-response";
 export import GetDbManagementPrivateEndpointResponse = GetDbManagementPrivateEndpointResponse.GetDbManagementPrivateEndpointResponse;
 import * as GetExternalAsmResponse from "./get-external-asm-response";
@@ -210,6 +212,8 @@ import * as GetOptimizerStatisticsCollectionOperationResponse from "./get-optimi
 export import GetOptimizerStatisticsCollectionOperationResponse = GetOptimizerStatisticsCollectionOperationResponse.GetOptimizerStatisticsCollectionOperationResponse;
 import * as GetPdbMetricsResponse from "./get-pdb-metrics-response";
 export import GetPdbMetricsResponse = GetPdbMetricsResponse.GetPdbMetricsResponse;
+import * as GetPeerDatabaseMetricsResponse from "./get-peer-database-metrics-response";
+export import GetPeerDatabaseMetricsResponse = GetPeerDatabaseMetricsResponse.GetPeerDatabaseMetricsResponse;
 import * as GetPreferredCredentialResponse from "./get-preferred-credential-response";
 export import GetPreferredCredentialResponse = GetPreferredCredentialResponse.GetPreferredCredentialResponse;
 import * as GetSqlPlanBaselineResponse from "./get-sql-plan-baseline-response";

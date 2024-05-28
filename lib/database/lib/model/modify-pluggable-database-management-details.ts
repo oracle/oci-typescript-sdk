@@ -56,7 +56,8 @@ export namespace ModifyPluggableDatabaseManagementDetails {
 
   export enum Role {
     Sysdba = "SYSDBA",
-    Normal = "NORMAL"
+    Normal = "NORMAL",
+    Sysdg = "SYSDG"
   }
 
   export function getJsonObj(obj: ModifyPluggableDatabaseManagementDetails): object {

@@ -1,6 +1,6 @@
 {
   "name": "oci-databasemigration",
-  "version": "2.86.3",
+  "version": "2.87.0",
   "description": "OCI NodeJS client for Database Migration Service",
   "repository": {
     "type": "git",

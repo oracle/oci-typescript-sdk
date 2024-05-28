@@ -5932,6 +5932,86 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
+   * Gets a historical summary of the Database Guard performance metrics for Managed Databases.
+   * If the peerDatabaseCompartmentId is specified, then the metrics are only retrieved from the specified compartment.
+   * If the peerDatabaseCompartmentId is not specified, then the metrics are retrieved from the compartment of the Managed Database specified by the ManagedDatabaseId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDataguardPerformanceMetricsRequest
+   * @return GetDataguardPerformanceMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDataguardPerformanceMetrics.ts.html |here} to see how to use GetDataguardPerformanceMetrics API.
+   */
+  public async getDataguardPerformanceMetrics(
+    getDataguardPerformanceMetricsRequest: requests.GetDataguardPerformanceMetricsRequest
+  ): Promise<responses.GetDataguardPerformanceMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getDataguardPerformanceMetrics.");
+    const operationName = "getDataguardPerformanceMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DataguardPerformanceMetrics/GetDataguardPerformanceMetrics";
+    const pathParams = {
+      "{managedDatabaseId}": getDataguardPerformanceMetricsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "startTime": getDataguardPerformanceMetricsRequest.startTime,
+      "endTime": getDataguardPerformanceMetricsRequest.endTime,
+      "peerDatabaseCompartmentId": getDataguardPerformanceMetricsRequest.peerDatabaseCompartmentId,
+      "filterByMetricNames": getDataguardPerformanceMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDataguardPerformanceMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataguardPerformanceMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/dataguardPerformanceMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDataguardPerformanceMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "dataguardPerformanceMetrics",
+        bodyModel: model.DataguardPerformanceMetrics,
+        type: "model.DataguardPerformanceMetrics",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of a specific Database Management private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbManagementPrivateEndpointRequest
@@ -8082,6 +8162,87 @@ When enabled, the optimizer uses SQL plan baselines to select plans
         bodyKey: "pdbMetrics",
         bodyModel: model.PdbMetrics,
         type: "model.PdbMetrics",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a comparative summary of the baseline and target values of the Data Guard performance metrics for Managed Databases.
+   * If the peerDatabaseCompartmentId is specified, then the metrics are only retrieved from the specified compartment.
+   * If the peerDatabaseCompartmentId is not specified, then the metrics are retrieved from the compartment of the Managed Database specified by the ManagedDatabaseId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetPeerDatabaseMetricsRequest
+   * @return GetPeerDatabaseMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetPeerDatabaseMetrics.ts.html |here} to see how to use GetPeerDatabaseMetrics API.
+   */
+  public async getPeerDatabaseMetrics(
+    getPeerDatabaseMetricsRequest: requests.GetPeerDatabaseMetricsRequest
+  ): Promise<responses.GetPeerDatabaseMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getPeerDatabaseMetrics.");
+    const operationName = "getPeerDatabaseMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PeerDatabaseMetrics/GetPeerDatabaseMetrics";
+    const pathParams = {
+      "{managedDatabaseId}": getPeerDatabaseMetricsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "startTime": getPeerDatabaseMetricsRequest.startTime,
+      "endTime": getPeerDatabaseMetricsRequest.endTime,
+      "peerDatabaseCompartmentId": getPeerDatabaseMetricsRequest.peerDatabaseCompartmentId,
+      "compareType": getPeerDatabaseMetricsRequest.compareType,
+      "filterByMetricNames": getPeerDatabaseMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPeerDatabaseMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPeerDatabaseMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/peerDatabaseMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPeerDatabaseMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "peerDatabaseMetrics",
+        bodyModel: model.PeerDatabaseMetrics,
+        type: "model.PeerDatabaseMetrics",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

@@ -44,6 +44,7 @@ export namespace DatabaseSecretCredentialDetails {
   export enum Role {
     Normal = "NORMAL",
     Sysdba = "SYSDBA",
+    Sysdg = "SYSDG",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

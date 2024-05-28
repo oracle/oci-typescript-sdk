@@ -38,47 +38,40 @@ export interface OccAvailabilitySummary {
   /**
    * The different types of resources against which customers can place capacity requests.
    */
-  "resourceType": OccAvailabilitySummary.ResourceType;
+  "resourceType": string;
   /**
    * The type of workload (Generic/ROW).
    */
-  "workloadType": OccAvailabilitySummary.WorkloadType;
+  "workloadType": string;
   /**
    * The name of the resource that the customer can request.
    */
   "resourceName": string;
   /**
-   * The quantity of available resource that the customer can request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The quantity of resource currently available that the customer can request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableQuantity": number;
+  /**
+   * The total quantity of resource that the customer can request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalAvailableQuantity": number;
+  /**
+   * The quantity of resource currently demanded by the customer. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "demandedQuantity": number;
   /**
    * The unit in which the resource available is measured.
    */
   "unit": string;
+  /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace OccAvailabilitySummary {
-  export enum ResourceType {
-    ServerHw = "SERVER_HW",
-    CapacityConstraint = "CAPACITY_CONSTRAINT",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
-  export enum WorkloadType {
-    Generic = "GENERIC",
-    Row = "ROW",
-    UsProd = "US_PROD",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export function getJsonObj(obj: OccAvailabilitySummary): object {
     const jsonObj = { ...obj, ...{} };
 

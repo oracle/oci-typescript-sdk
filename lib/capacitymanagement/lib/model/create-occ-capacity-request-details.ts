@@ -26,7 +26,7 @@ export interface CreateOccCapacityRequestDetails {
   /**
    * The OCID of the availability catalog against which capacity request is made.
    */
-  "occAvailabilityCatalogId": string;
+  "occAvailabilityCatalogId"?: string;
   /**
    * The name of the OCI service in consideration. For example, Compute, Exadata, and so on.
    */
@@ -39,6 +39,10 @@ export interface CreateOccCapacityRequestDetails {
    * An user-friendly name for the capacity request. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName": string;
+  /**
+   * Type of Capacity Request(New or Transfer)
+   */
+  "requestType"?: string;
   /**
    * Meaningful text about the capacity request.
    */
