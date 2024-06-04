@@ -17,8 +17,10 @@ import common = require("oci-common");
 
 /**
  * Possible operation types.
- *
- **/
+* <p>
+Deprecated value: GoldengateConnectionAssigmnentDelete
+* 
+**/
 export enum OperationType {
   GoldengateDatabaseRegistrationCreate = "GOLDENGATE_DATABASE_REGISTRATION_CREATE",
   GoldengateDatabaseRegistrationUpdate = "GOLDENGATE_DATABASE_REGISTRATION_UPDATE",
@@ -41,6 +43,7 @@ export enum OperationType {
   GoldengateConnectionDelete = "GOLDENGATE_CONNECTION_DELETE",
   GoldengateConnectionMove = "GOLDENGATE_CONNECTION_MOVE",
   GoldengateConnectionAssignmentCreate = "GOLDENGATE_CONNECTION_ASSIGNMENT_CREATE",
+  GoldengateConnectionAssignmentDelete = "GOLDENGATE_CONNECTION_ASSIGNMENT_DELETE",
   GoldengateConnectionAssigmnentDelete = "GOLDENGATE_CONNECTION_ASSIGMNENT_DELETE",
   GoldengateDeploymentDiagnosticCollect = "GOLDENGATE_DEPLOYMENT_DIAGNOSTIC_COLLECT",
   GoldengateDeploymentWalletExport = "GOLDENGATE_DEPLOYMENT_WALLET_EXPORT",

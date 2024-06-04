@@ -36,4 +36,8 @@ export interface DeleteDeploymentBackupRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

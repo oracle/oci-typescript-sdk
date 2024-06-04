@@ -31,7 +31,7 @@ export interface Certificate {
    */
   "deploymentId": string;
   /**
-   * A PEM-encoded SSL certificate.
+   * The base64 encoded content of the PEM file containing the SSL certificate.
    *
    */
   "certificateContent": string;

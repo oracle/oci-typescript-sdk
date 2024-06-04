@@ -31,6 +31,13 @@ export interface DeploymentBackupSummary {
    */
   "deploymentId": string;
   /**
+   * The type of deployment, which can be any one of the Allowed values.
+   * NOTE: Use of the value 'OGG' is maintained for backward compatibility purposes.
+   *     Its use is discouraged in favor of 'DATABASE_ORACLE'.
+   *
+   */
+  "deploymentType": model.DeploymentType;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
    *
    */
@@ -131,16 +138,38 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace DeploymentBackupSummary {
   export function getJsonObj(obj: DeploymentBackupSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DeploymentBackupSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

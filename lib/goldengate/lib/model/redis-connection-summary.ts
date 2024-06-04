@@ -47,6 +47,11 @@ export interface RedisConnectionSummary extends model.ConnectionSummary {
    *
    */
   "username"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Redis cluster.
+   *
+   */
+  "redisClusterId"?: string;
 
   "connectionType": string;
 }

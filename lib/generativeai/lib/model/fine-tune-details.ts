@@ -31,7 +31,10 @@ export interface FineTuneDetails {
    * The OCID of the dedicated AI cluster this fine-tuning runs on.
    */
   "dedicatedAiClusterId": string;
-  "trainingConfig"?: model.VanillaTrainingConfig | model.TFewTrainingConfig;
+  "trainingConfig"?:
+    | model.LoraTrainingConfig
+    | model.VanillaTrainingConfig
+    | model.TFewTrainingConfig;
 }
 
 export namespace FineTuneDetails {

@@ -51,6 +51,10 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.AddResourceLockDetails>;
+  /**
    * Refers to the customer's vault OCID.
    * If provided, it references a vault where GoldenGate can manage secrets. Customers must add policies to permit GoldenGate
    * to manage secrets contained within this vault.
@@ -87,7 +91,16 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
 
 export namespace CreateConnectionDetails {
   export function getJsonObj(obj: CreateConnectionDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
@@ -149,6 +162,11 @@ export namespace CreateConnectionDetails {
         case "OCI_OBJECT_STORAGE":
           return model.CreateOciObjectStorageConnectionDetails.getJsonObj(
             <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "DB2":
+          return model.CreateDb2ConnectionDetails.getJsonObj(
+            <model.CreateDb2ConnectionDetails>(<object>jsonObj),
             true
           );
         case "ELASTICSEARCH":
@@ -213,7 +231,16 @@ export namespace CreateConnectionDetails {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateConnectionDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
@@ -275,6 +302,11 @@ export namespace CreateConnectionDetails {
         case "OCI_OBJECT_STORAGE":
           return model.CreateOciObjectStorageConnectionDetails.getDeserializedJsonObj(
             <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "DB2":
+          return model.CreateDb2ConnectionDetails.getDeserializedJsonObj(
+            <model.CreateDb2ConnectionDetails>(<object>jsonObj),
             true
           );
         case "ELASTICSEARCH":

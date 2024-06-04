@@ -84,7 +84,7 @@ Allowed values are:
     */
   "type": string;
   "fineTuneDetails"?: model.FineTuneDetails;
-  "modelMetrics"?: model.TextGenerationModelMetrics;
+  "modelMetrics"?: model.TextGenerationModelMetrics | model.ChatModelMetrics;
   /**
    * Whether a model is supported long-term. Applies only to base models.
    */

@@ -435,6 +435,11 @@ export namespace CreateAutonomousDatabaseBase {
             <model.CreateCrossRegionDisasterRecoveryDetails>(<object>jsonObj),
             true
           );
+        case "CROSS_TENANCY_DISASTER_RECOVERY":
+          return model.CreateCrossTenancyDisasterRecoveryDetails.getJsonObj(
+            <model.CreateCrossTenancyDisasterRecoveryDetails>(<object>jsonObj),
+            true
+          );
         case "BACKUP_FROM_TIMESTAMP":
           return model.CreateAutonomousDatabaseFromBackupTimestampDetails.getJsonObj(
             <model.CreateAutonomousDatabaseFromBackupTimestampDetails>(<object>jsonObj),
@@ -504,6 +509,11 @@ export namespace CreateAutonomousDatabaseBase {
         case "CROSS_REGION_DISASTER_RECOVERY":
           return model.CreateCrossRegionDisasterRecoveryDetails.getDeserializedJsonObj(
             <model.CreateCrossRegionDisasterRecoveryDetails>(<object>jsonObj),
+            true
+          );
+        case "CROSS_TENANCY_DISASTER_RECOVERY":
+          return model.CreateCrossTenancyDisasterRecoveryDetails.getDeserializedJsonObj(
+            <model.CreateCrossTenancyDisasterRecoveryDetails>(<object>jsonObj),
             true
           );
         case "BACKUP_FROM_TIMESTAMP":

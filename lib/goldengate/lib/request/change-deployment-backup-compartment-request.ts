@@ -49,4 +49,8 @@ export interface ChangeDeploymentBackupCompartmentRequest extends common.BaseReq
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

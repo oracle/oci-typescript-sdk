@@ -406,6 +406,8 @@ import * as ListAutonomousDatabaseClonesResponse from "./list-autonomous-databas
 export import ListAutonomousDatabaseClonesResponse = ListAutonomousDatabaseClonesResponse.ListAutonomousDatabaseClonesResponse;
 import * as ListAutonomousDatabaseDataguardAssociationsResponse from "./list-autonomous-database-dataguard-associations-response";
 export import ListAutonomousDatabaseDataguardAssociationsResponse = ListAutonomousDatabaseDataguardAssociationsResponse.ListAutonomousDatabaseDataguardAssociationsResponse;
+import * as ListAutonomousDatabasePeersResponse from "./list-autonomous-database-peers-response";
+export import ListAutonomousDatabasePeersResponse = ListAutonomousDatabasePeersResponse.ListAutonomousDatabasePeersResponse;
 import * as ListAutonomousDatabaseRefreshableClonesResponse from "./list-autonomous-database-refreshable-clones-response";
 export import ListAutonomousDatabaseRefreshableClonesResponse = ListAutonomousDatabaseRefreshableClonesResponse.ListAutonomousDatabaseRefreshableClonesResponse;
 import * as ListAutonomousDatabaseSoftwareImagesResponse from "./list-autonomous-database-software-images-response";

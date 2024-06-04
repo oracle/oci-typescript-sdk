@@ -2,7 +2,7 @@
  * Generative AI Service Inference API
  * OCI Generative AI is a fully managed service that provides a set of state-of-the-art, customizable large language models (LLMs) that cover a wide range of use cases for text generation, summarization, and text embeddings. 
 
-Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
+Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [chat](#/en/generative-ai-inference/latest/ChatResult/Chat), [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
 
 To use a Generative AI custom model for inference, you must first create an endpoint for that model. Use the [Generative AI service management API](/#/en/generative-ai/latest/) to [create a custom model](#/en/generative-ai/latest/Model/) by fine-tuning an out-of-the-box model, or a previous version of a custom model, using your own data. Fine-tune the custom model on a  [fine-tuning dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/). Then, create a [hosting dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/) with an [endpoint](#/en/generative-ai/latest/Endpoint/) to host your custom model. For resource management in the Generative AI service, use the [Generative AI service management API](/#/en/generative-ai/latest/).
 
@@ -22,17 +22,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An message that represents a single dialogue of chat
+ * A message that represents a single chat dialog.
  */
 export interface Message {
   /**
-   * Indicates who is giving the current message.
-   */
-  "role": string;
-  /**
    * Contents of the chat message.
    */
-  "content": Array<model.ChatContent>;
+  "content"?: Array<model.ChatContent>;
+
+  "role": string;
 }
 
 export namespace Message {
@@ -48,6 +46,18 @@ export namespace Message {
       }
     };
 
+    if (obj && "role" in obj && obj.role) {
+      switch (obj.role) {
+        case "SYSTEM":
+          return model.SystemMessage.getJsonObj(<model.SystemMessage>(<object>jsonObj), true);
+        case "ASSISTANT":
+          return model.AssistantMessage.getJsonObj(<model.AssistantMessage>(<object>jsonObj), true);
+        case "USER":
+          return model.UserMessage.getJsonObj(<model.UserMessage>(<object>jsonObj), true);
+        default:
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.role}`);
+      }
+    }
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Message): object {
@@ -62,6 +72,27 @@ export namespace Message {
       }
     };
 
+    if (obj && "role" in obj && obj.role) {
+      switch (obj.role) {
+        case "SYSTEM":
+          return model.SystemMessage.getDeserializedJsonObj(
+            <model.SystemMessage>(<object>jsonObj),
+            true
+          );
+        case "ASSISTANT":
+          return model.AssistantMessage.getDeserializedJsonObj(
+            <model.AssistantMessage>(<object>jsonObj),
+            true
+          );
+        case "USER":
+          return model.UserMessage.getDeserializedJsonObj(
+            <model.UserMessage>(<object>jsonObj),
+            true
+          );
+        default:
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.role}`);
+      }
+    }
     return jsonObj;
   }
 }

@@ -35,6 +35,7 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreateAmazonS3ConnectionDetails
     | model.CreateHdfsConnectionDetails
     | model.CreateOciObjectStorageConnectionDetails
+    | model.CreateDb2ConnectionDetails
     | model.CreateElasticsearchConnectionDetails
     | model.CreateAzureSynapseConnectionDetails
     | model.CreateRedisConnectionDetails

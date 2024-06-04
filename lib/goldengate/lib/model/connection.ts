@@ -89,6 +89,10 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    */
   "timeUpdated": Date;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * Refers to the customer's vault OCID.
    * If provided, it references a vault where GoldenGate can manage secrets. Customers must add policies to permit GoldenGate
    * to manage secrets contained within this vault.
@@ -148,6 +152,12 @@ export namespace Connection {
     const jsonObj = {
       ...obj,
       ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined,
+
         "ingressIps": obj.ingressIps
           ? obj.ingressIps.map(item => {
               return model.IngressIpDetails.getJsonObj(item);
@@ -170,6 +180,8 @@ export namespace Connection {
             <model.JavaMessageServiceConnection>(<object>jsonObj),
             true
           );
+        case "DB2":
+          return model.Db2Connection.getJsonObj(<model.Db2Connection>(<object>jsonObj), true);
         case "ELASTICSEARCH":
           return model.ElasticsearchConnection.getJsonObj(
             <model.ElasticsearchConnection>(<object>jsonObj),
@@ -268,6 +280,12 @@ export namespace Connection {
     const jsonObj = {
       ...obj,
       ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "ingressIps": obj.ingressIps
           ? obj.ingressIps.map(item => {
               return model.IngressIpDetails.getDeserializedJsonObj(item);
@@ -291,6 +309,11 @@ export namespace Connection {
         case "JAVA_MESSAGE_SERVICE":
           return model.JavaMessageServiceConnection.getDeserializedJsonObj(
             <model.JavaMessageServiceConnection>(<object>jsonObj),
+            true
+          );
+        case "DB2":
+          return model.Db2Connection.getDeserializedJsonObj(
+            <model.Db2Connection>(<object>jsonObj),
             true
           );
         case "ELASTICSEARCH":

@@ -63,6 +63,11 @@ export namespace TrainingConfig {
 
     if (obj && "trainingConfigType" in obj && obj.trainingConfigType) {
       switch (obj.trainingConfigType) {
+        case "LORA_TRAINING_CONFIG":
+          return model.LoraTrainingConfig.getJsonObj(
+            <model.LoraTrainingConfig>(<object>jsonObj),
+            true
+          );
         case "VANILLA_TRAINING_CONFIG":
           return model.VanillaTrainingConfig.getJsonObj(
             <model.VanillaTrainingConfig>(<object>jsonObj),
@@ -85,6 +90,11 @@ export namespace TrainingConfig {
 
     if (obj && "trainingConfigType" in obj && obj.trainingConfigType) {
       switch (obj.trainingConfigType) {
+        case "LORA_TRAINING_CONFIG":
+          return model.LoraTrainingConfig.getDeserializedJsonObj(
+            <model.LoraTrainingConfig>(<object>jsonObj),
+            true
+          );
         case "VANILLA_TRAINING_CONFIG":
           return model.VanillaTrainingConfig.getDeserializedJsonObj(
             <model.VanillaTrainingConfig>(<object>jsonObj),

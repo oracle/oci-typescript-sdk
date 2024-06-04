@@ -33,12 +33,12 @@ export interface CreatePostgresqlConnectionDetails extends model.CreateConnectio
    * The name or address of a host.
    *
    */
-  "host": string;
+  "host"?: string;
   /**
    * The port of an endpoint usually specified for a connection.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "port": number;
+  "port"?: number;
   /**
    * The username Oracle GoldenGate uses to connect the associated system of the given technology.
    * This username must already exist and be available by the system/application to be connected to
@@ -99,6 +99,11 @@ The private IP address of the connection's endpoint in the customer's VCN, typic
 * 
     */
   "privateIp"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the database system being referenced.
+   *
+   */
+  "dbSystemId"?: string;
 
   "connectionType": string;
 }

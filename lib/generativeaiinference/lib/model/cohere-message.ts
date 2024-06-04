@@ -2,7 +2,7 @@
  * Generative AI Service Inference API
  * OCI Generative AI is a fully managed service that provides a set of state-of-the-art, customizable large language models (LLMs) that cover a wide range of use cases for text generation, summarization, and text embeddings. 
 
-Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
+Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [chat](#/en/generative-ai-inference/latest/ChatResult/Chat), [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
 
 To use a Generative AI custom model for inference, you must first create an endpoint for that model. Use the [Generative AI service management API](/#/en/generative-ai/latest/) to [create a custom model](#/en/generative-ai/latest/Model/) by fine-tuning an out-of-the-box model, or a previous version of a custom model, using your own data. Fine-tune the custom model on a  [fine-tuning dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/). Then, create a [hosting dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/) with an [endpoint](#/en/generative-ai/latest/Endpoint/) to host your custom model. For resource management in the Generative AI service, use the [Generative AI service management API](/#/en/generative-ai/latest/).
 
@@ -22,33 +22,73 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An message that represents a single dialogue of chat
+ * A message that represents a single chat dialog.
  */
 export interface CohereMessage {
-  /**
-   * One of CHATBOT|USER to identify who the message is coming from.
-   */
-  "role": CohereMessage.Role;
-  /**
-   * Contents of the chat message.
-   */
-  "message": string;
+  "role": string;
 }
 
 export namespace CohereMessage {
-  export enum Role {
-    Chatbot = "CHATBOT",
-    User = "USER"
-  }
-
   export function getJsonObj(obj: CohereMessage): object {
     const jsonObj = { ...obj, ...{} };
 
+    if (obj && "role" in obj && obj.role) {
+      switch (obj.role) {
+        case "CHATBOT":
+          return model.CohereChatBotMessage.getJsonObj(
+            <model.CohereChatBotMessage>(<object>jsonObj),
+            true
+          );
+        case "SYSTEM":
+          return model.CohereSystemMessage.getJsonObj(
+            <model.CohereSystemMessage>(<object>jsonObj),
+            true
+          );
+        case "TOOL":
+          return model.CohereToolMessage.getJsonObj(
+            <model.CohereToolMessage>(<object>jsonObj),
+            true
+          );
+        case "USER":
+          return model.CohereUserMessage.getJsonObj(
+            <model.CohereUserMessage>(<object>jsonObj),
+            true
+          );
+        default:
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.role}`);
+      }
+    }
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CohereMessage): object {
     const jsonObj = { ...obj, ...{} };
 
+    if (obj && "role" in obj && obj.role) {
+      switch (obj.role) {
+        case "CHATBOT":
+          return model.CohereChatBotMessage.getDeserializedJsonObj(
+            <model.CohereChatBotMessage>(<object>jsonObj),
+            true
+          );
+        case "SYSTEM":
+          return model.CohereSystemMessage.getDeserializedJsonObj(
+            <model.CohereSystemMessage>(<object>jsonObj),
+            true
+          );
+        case "TOOL":
+          return model.CohereToolMessage.getDeserializedJsonObj(
+            <model.CohereToolMessage>(<object>jsonObj),
+            true
+          );
+        case "USER":
+          return model.CohereUserMessage.getDeserializedJsonObj(
+            <model.CohereUserMessage>(<object>jsonObj),
+            true
+          );
+        default:
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.role}`);
+      }
+    }
     return jsonObj;
   }
 }

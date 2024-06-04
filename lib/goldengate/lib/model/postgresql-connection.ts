@@ -72,16 +72,23 @@ The private IP address of the connection's endpoint in the customer's VCN, typic
 * 
     */
   "privateIp"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the database system being referenced.
+   *
+   */
+  "dbSystemId"?: string;
 
   "connectionType": string;
 }
 
 export namespace PostgresqlConnection {
   export enum TechnologyType {
+    OciPostgresql = "OCI_POSTGRESQL",
     PostgresqlServer = "POSTGRESQL_SERVER",
     AmazonAuroraPostgresql = "AMAZON_AURORA_POSTGRESQL",
     AmazonRdsPostgresql = "AMAZON_RDS_POSTGRESQL",
     AzurePostgresql = "AZURE_POSTGRESQL",
+    AzureCosmosDbForPostgresql = "AZURE_COSMOS_DB_FOR_POSTGRESQL",
     GoogleCloudSqlPostgresql = "GOOGLE_CLOUD_SQL_POSTGRESQL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

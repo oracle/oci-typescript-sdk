@@ -37,7 +37,7 @@ export interface OggDeployment {
    */
   "oggVersion"?: string;
   /**
-   * A PEM-encoded SSL certificate.
+   * The base64 encoded content of the PEM file containing the SSL certificate.
    *
    */
   "certificate"?: string;

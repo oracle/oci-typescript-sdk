@@ -12,6 +12,12 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddConnectionLockRequest from "./add-connection-lock-request";
+export import AddConnectionLockRequest = AddConnectionLockRequest.AddConnectionLockRequest;
+import * as AddDeploymentBackupLockRequest from "./add-deployment-backup-lock-request";
+export import AddDeploymentBackupLockRequest = AddDeploymentBackupLockRequest.AddDeploymentBackupLockRequest;
+import * as AddDeploymentLockRequest from "./add-deployment-lock-request";
+export import AddDeploymentLockRequest = AddDeploymentLockRequest.AddDeploymentLockRequest;
 import * as CancelDeploymentBackupRequest from "./cancel-deployment-backup-request";
 export import CancelDeploymentBackupRequest = CancelDeploymentBackupRequest.CancelDeploymentBackupRequest;
 import * as CancelDeploymentUpgradeRequest from "./cancel-deployment-upgrade-request";
@@ -58,6 +64,8 @@ import * as DeploymentWalletExistsRequest from "./deployment-wallet-exists-reque
 export import DeploymentWalletExistsRequest = DeploymentWalletExistsRequest.DeploymentWalletExistsRequest;
 import * as ExportDeploymentWalletRequest from "./export-deployment-wallet-request";
 export import ExportDeploymentWalletRequest = ExportDeploymentWalletRequest.ExportDeploymentWalletRequest;
+import * as GenerateLibraryUrlRequest from "./generate-library-url-request";
+export import GenerateLibraryUrlRequest = GenerateLibraryUrlRequest.GenerateLibraryUrlRequest;
 import * as GetCertificateRequest from "./get-certificate-request";
 export import GetCertificateRequest = GetCertificateRequest.GetCertificateRequest;
 import * as GetConnectionRequest from "./get-connection-request";
@@ -108,6 +116,12 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as RemoveConnectionLockRequest from "./remove-connection-lock-request";
+export import RemoveConnectionLockRequest = RemoveConnectionLockRequest.RemoveConnectionLockRequest;
+import * as RemoveDeploymentBackupLockRequest from "./remove-deployment-backup-lock-request";
+export import RemoveDeploymentBackupLockRequest = RemoveDeploymentBackupLockRequest.RemoveDeploymentBackupLockRequest;
+import * as RemoveDeploymentLockRequest from "./remove-deployment-lock-request";
+export import RemoveDeploymentLockRequest = RemoveDeploymentLockRequest.RemoveDeploymentLockRequest;
 import * as RescheduleDeploymentUpgradeRequest from "./reschedule-deployment-upgrade-request";
 export import RescheduleDeploymentUpgradeRequest = RescheduleDeploymentUpgradeRequest.RescheduleDeploymentUpgradeRequest;
 import * as RestoreDeploymentRequest from "./restore-deployment-request";

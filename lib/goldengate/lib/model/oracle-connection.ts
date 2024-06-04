@@ -37,6 +37,12 @@ export interface OracleConnection extends model.Connection {
    */
   "connectionString"?: string;
   /**
+   * Authentication mode. It can be provided at creation of Oracle Autonomous Database Serverless connections,
+   * when a databaseId is provided. The default value is MTLS.
+   *
+   */
+  "authenticationMode"?: OracleConnection.AuthenticationMode;
+  /**
    * The mode of the database connection session to be established by the data client.
    * 'REDIRECT' - for a RAC database, 'DIRECT' - for a non-RAC database.
    * Connection to a RAC database involves a redirection received from the SCAN listeners
@@ -71,6 +77,17 @@ export namespace OracleConnection {
     OciAutonomousDatabase = "OCI_AUTONOMOUS_DATABASE",
     OracleDatabase = "ORACLE_DATABASE",
     OracleExadata = "ORACLE_EXADATA",
+    OracleExadataDatabaseAtAzure = "ORACLE_EXADATA_DATABASE_AT_AZURE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AuthenticationMode {
+    Tls = "TLS",
+    Mtls = "MTLS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

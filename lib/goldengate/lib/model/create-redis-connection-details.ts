@@ -31,7 +31,7 @@ export interface CreateRedisConnectionDetails extends model.CreateConnectionDeta
    * Example: {@code \"server1.example.com:6379,server2.example.com:6379\"}
    *
    */
-  "servers": string;
+  "servers"?: string;
   /**
    * Security protocol for Redis.
    */
@@ -73,6 +73,11 @@ export interface CreateRedisConnectionDetails extends model.CreateConnectionDeta
    *
    */
   "keyStorePassword"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Redis cluster.
+   *
+   */
+  "redisClusterId"?: string;
 
   "connectionType": string;
 }

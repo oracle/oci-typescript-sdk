@@ -89,6 +89,8 @@ export namespace MysqlConnection {
     AzureMysql = "AZURE_MYSQL",
     GoogleCloudSqlMysql = "GOOGLE_CLOUD_SQL_MYSQL",
     Mariadb = "MARIADB",
+    MysqlHeatwaveOnAzure = "MYSQL_HEATWAVE_ON_AZURE",
+    MysqlHeatwaveOnAws = "MYSQL_HEATWAVE_ON_AWS",
     MysqlServer = "MYSQL_SERVER",
     OciMysql = "OCI_MYSQL",
     Singlestoredb = "SINGLESTOREDB",

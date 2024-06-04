@@ -62,16 +62,38 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.AddResourceLockDetails>;
 }
 
 export namespace CreateDeploymentBackupDetails {
   export function getJsonObj(obj: CreateDeploymentBackupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateDeploymentBackupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
