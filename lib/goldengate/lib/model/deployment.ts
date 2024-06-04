@@ -89,19 +89,25 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * True if all of the aggregate resources are working correctly.
    *
    */
   "isHealthy"?: boolean;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet of the deployment's private endpoint.
+   * The subnet must be a private subnet. For backward compatibility, public subnets are allowed until May 31 2025,
+   * after which the private subnet will be enforced.
    *
    */
   "subnetId": string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a public subnet in the customer tenancy.
    * Can be provided only for public deployments. If provided, the loadbalancer will be created in this subnet instead of the service tenancy.
-   * For backward compatiblity this is an optional property for now, but it will become mandatory (for public deployments only) after October 1, 2024.
+   * For backward compatibility, this is an optional property. It will become mandatory for public deployments after October 1, 2024.
    *
    */
   "loadBalancerSubnetId"?: string;
@@ -238,6 +244,12 @@ export namespace Deployment {
     const jsonObj = {
       ...obj,
       ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined,
+
         "oggData": obj.oggData ? model.OggDeployment.getJsonObj(obj.oggData) : undefined,
         "deploymentDiagnosticData": obj.deploymentDiagnosticData
           ? model.DeploymentDiagnosticData.getJsonObj(obj.deploymentDiagnosticData)
@@ -264,6 +276,12 @@ export namespace Deployment {
     const jsonObj = {
       ...obj,
       ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "oggData": obj.oggData
           ? model.OggDeployment.getDeserializedJsonObj(obj.oggData)
           : undefined,

@@ -49,4 +49,8 @@ export interface CancelDeploymentBackupRequest extends common.BaseRequest {
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

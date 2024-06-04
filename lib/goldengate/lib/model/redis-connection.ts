@@ -47,6 +47,11 @@ export interface RedisConnection extends model.Connection {
    *
    */
   "username"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Redis cluster.
+   *
+   */
+  "redisClusterId"?: string;
 
   "connectionType": string;
 }
@@ -54,6 +59,7 @@ export interface RedisConnection extends model.Connection {
 export namespace RedisConnection {
   export enum TechnologyType {
     Redis = "REDIS",
+    OciCacheWithRedis = "OCI_CACHE_WITH_REDIS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

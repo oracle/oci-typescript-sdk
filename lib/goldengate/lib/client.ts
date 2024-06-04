@@ -224,6 +224,253 @@ export class GoldenGateClient {
   }
 
   /**
+   * Adds a lock to a Connection resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddConnectionLockRequest
+   * @return AddConnectionLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/AddConnectionLock.ts.html |here} to see how to use AddConnectionLock API.
+   */
+  public async addConnectionLock(
+    addConnectionLockRequest: requests.AddConnectionLockRequest
+  ): Promise<responses.AddConnectionLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#addConnectionLock.");
+    const operationName = "addConnectionLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/AddConnectionLock";
+    const pathParams = {
+      "{connectionId}": addConnectionLockRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addConnectionLockRequest.opcRequestId,
+      "if-match": addConnectionLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addConnectionLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addConnectionLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddConnectionLockResponse>{},
+        body: await response.json(),
+        bodyKey: "connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a DeploymentBackup resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddDeploymentBackupLockRequest
+   * @return AddDeploymentBackupLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/AddDeploymentBackupLock.ts.html |here} to see how to use AddDeploymentBackupLock API.
+   */
+  public async addDeploymentBackupLock(
+    addDeploymentBackupLockRequest: requests.AddDeploymentBackupLockRequest
+  ): Promise<responses.AddDeploymentBackupLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#addDeploymentBackupLock.");
+    const operationName = "addDeploymentBackupLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/AddDeploymentBackupLock";
+    const pathParams = {
+      "{deploymentBackupId}": addDeploymentBackupLockRequest.deploymentBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDeploymentBackupLockRequest.opcRequestId,
+      "if-match": addDeploymentBackupLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDeploymentBackupLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentBackups/{deploymentBackupId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDeploymentBackupLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDeploymentBackupLockResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentBackup",
+        bodyModel: model.DeploymentBackup,
+        type: "model.DeploymentBackup",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a Deployment resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddDeploymentLockRequest
+   * @return AddDeploymentLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/AddDeploymentLock.ts.html |here} to see how to use AddDeploymentLock API.
+   */
+  public async addDeploymentLock(
+    addDeploymentLockRequest: requests.AddDeploymentLockRequest
+  ): Promise<responses.AddDeploymentLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#addDeploymentLock.");
+    const operationName = "addDeploymentLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/AddDeploymentLock";
+    const pathParams = {
+      "{deploymentId}": addDeploymentLockRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDeploymentLockRequest.opcRequestId,
+      "if-match": addDeploymentLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDeploymentLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDeploymentLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDeploymentLockResponse>{},
+        body: await response.json(),
+        bodyKey: "deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancels a Deployment Backup creation process.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelDeploymentBackupRequest
@@ -243,7 +490,9 @@ export class GoldenGateClient {
       "{deploymentBackupId}": cancelDeploymentBackupRequest.deploymentBackupId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": cancelDeploymentBackupRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -488,7 +737,9 @@ export class GoldenGateClient {
       "{connectionId}": changeConnectionCompartmentRequest.connectionId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeConnectionCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -664,7 +915,9 @@ export class GoldenGateClient {
       "{deploymentBackupId}": changeDeploymentBackupCompartmentRequest.deploymentBackupId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeDeploymentBackupCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -743,7 +996,9 @@ export class GoldenGateClient {
       "{deploymentId}": changeDeploymentCompartmentRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeDeploymentCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -983,7 +1238,9 @@ export class GoldenGateClient {
       "{deploymentId}": createCertificateRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": createCertificateRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1146,7 +1403,9 @@ export class GoldenGateClient {
       "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/CreateConnectionAssignment";
     const pathParams = {};
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": createConnectionAssignmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1491,7 +1750,9 @@ export class GoldenGateClient {
       "{certificateKey}": deleteCertificateRequest.certificateKey
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteCertificateRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1565,7 +1826,9 @@ export class GoldenGateClient {
       "{connectionId}": deleteConnectionRequest.connectionId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteConnectionRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1639,7 +1902,9 @@ export class GoldenGateClient {
       "{connectionAssignmentId}": deleteConnectionAssignmentRequest.connectionAssignmentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteConnectionAssignmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1794,7 +2059,9 @@ export class GoldenGateClient {
       "{deploymentId}": deleteDeploymentRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteDeploymentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1869,7 +2136,9 @@ export class GoldenGateClient {
       "{deploymentBackupId}": deleteDeploymentBackupRequest.deploymentBackupId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteDeploymentBackupRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2078,6 +2347,90 @@ export class GoldenGateClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates a Pre-Authenticated Request Object URL to a DB2 for z/OS library that needs to be uploaded to your DB2 for z/OS server in order to establish GoldenGate connections to it. For licensing reasons, the URL is accessible for 10 minutes only.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateLibraryUrlRequest
+   * @return GenerateLibraryUrlResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GenerateLibraryUrl.ts.html |here} to see how to use GenerateLibraryUrl API.
+   */
+  public async generateLibraryUrl(
+    generateLibraryUrlRequest: requests.GenerateLibraryUrlRequest
+  ): Promise<responses.GenerateLibraryUrlResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#generateLibraryUrl.");
+    const operationName = "generateLibraryUrl";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/GenerateLibraryUrl";
+    const pathParams = {
+      "{deploymentId}": generateLibraryUrlRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": generateLibraryUrlRequest.ifMatch,
+      "opc-request-id": generateLibraryUrlRequest.opcRequestId,
+      "opc-retry-token": generateLibraryUrlRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateLibraryUrlRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/generateLibraryUrl",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateLibraryUrlRequest.generateLibraryUrlDetails,
+        "GenerateLibraryUrlDetails",
+        model.GenerateLibraryUrlDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateLibraryUrlResponse>{},
+        body: await response.json(),
+        bodyKey: "libraryUrl",
+        bodyModel: model.LibraryUrl,
+        type: "model.LibraryUrl",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -2735,7 +3088,9 @@ export class GoldenGateClient {
       "{deploymentId}": importDeploymentWalletRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": importDeploymentWalletRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3724,7 +4079,7 @@ export class GoldenGateClient {
   }
 
   /**
-   * Lists the TrailFiles for a deployment.
+   * Lists the TrailFiles for a deployment. Deprecated: Please access trail file management functions directly on OGG console which are available since version Oracle GoldenGate 23c.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTrailFilesRequest
@@ -3807,7 +4162,7 @@ export class GoldenGateClient {
   }
 
   /**
-   * Lists the Trail Sequences for a TrailFile in a given deployment.
+   * Lists the Trail Sequences for a TrailFile in a given deployment. Deprecated: Please access trail file management functions directly on OGG console which are available since version Oracle GoldenGate 23c.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTrailSequencesRequest
@@ -4287,6 +4642,253 @@ export class GoldenGateClient {
   }
 
   /**
+   * Removes a lock from a Connection resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveConnectionLockRequest
+   * @return RemoveConnectionLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveConnectionLock.ts.html |here} to see how to use RemoveConnectionLock API.
+   */
+  public async removeConnectionLock(
+    removeConnectionLockRequest: requests.RemoveConnectionLockRequest
+  ): Promise<responses.RemoveConnectionLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#removeConnectionLock.");
+    const operationName = "removeConnectionLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/RemoveConnectionLock";
+    const pathParams = {
+      "{connectionId}": removeConnectionLockRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeConnectionLockRequest.opcRequestId,
+      "if-match": removeConnectionLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeConnectionLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeConnectionLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveConnectionLockResponse>{},
+        body: await response.json(),
+        bodyKey: "connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock from a DeploymentBackup resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveDeploymentBackupLockRequest
+   * @return RemoveDeploymentBackupLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveDeploymentBackupLock.ts.html |here} to see how to use RemoveDeploymentBackupLock API.
+   */
+  public async removeDeploymentBackupLock(
+    removeDeploymentBackupLockRequest: requests.RemoveDeploymentBackupLockRequest
+  ): Promise<responses.RemoveDeploymentBackupLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#removeDeploymentBackupLock.");
+    const operationName = "removeDeploymentBackupLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/RemoveDeploymentBackupLock";
+    const pathParams = {
+      "{deploymentBackupId}": removeDeploymentBackupLockRequest.deploymentBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDeploymentBackupLockRequest.opcRequestId,
+      "if-match": removeDeploymentBackupLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDeploymentBackupLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentBackups/{deploymentBackupId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDeploymentBackupLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDeploymentBackupLockResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentBackup",
+        bodyModel: model.DeploymentBackup,
+        type: "model.DeploymentBackup",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock from a Deployment resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveDeploymentLockRequest
+   * @return RemoveDeploymentLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveDeploymentLock.ts.html |here} to see how to use RemoveDeploymentLock API.
+   */
+  public async removeDeploymentLock(
+    removeDeploymentLockRequest: requests.RemoveDeploymentLockRequest
+  ): Promise<responses.RemoveDeploymentLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#removeDeploymentLock.");
+    const operationName = "removeDeploymentLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/RemoveDeploymentLock";
+    const pathParams = {
+      "{deploymentId}": removeDeploymentLockRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDeploymentLockRequest.opcRequestId,
+      "if-match": removeDeploymentLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDeploymentLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDeploymentLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDeploymentLockResponse>{},
+        body: await response.json(),
+        bodyKey: "deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Reschedules a DeploymentUpgrade, applicable only for DeploymentUpgrade in Waiting state. When provided, If-Match is checked against ETag values of the resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4390,7 +4992,9 @@ export class GoldenGateClient {
       "{deploymentBackupId}": restoreDeploymentRequest.deploymentBackupId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": restoreDeploymentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4471,7 +5075,9 @@ export class GoldenGateClient {
       "{deploymentUpgradeId}": rollbackDeploymentUpgradeRequest.deploymentUpgradeId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": rollbackDeploymentUpgradeRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4627,7 +5233,9 @@ export class GoldenGateClient {
       "{deploymentId}": startDeploymentRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": startDeploymentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4707,7 +5315,9 @@ export class GoldenGateClient {
       "{deploymentId}": stopDeploymentRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": stopDeploymentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4873,7 +5483,9 @@ export class GoldenGateClient {
       "{connectionId}": updateConnectionRequest.connectionId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateConnectionRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -5038,7 +5650,9 @@ export class GoldenGateClient {
       "{deploymentId}": updateDeploymentRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateDeploymentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -5118,7 +5732,9 @@ export class GoldenGateClient {
       "{deploymentBackupId}": updateDeploymentBackupRequest.deploymentBackupId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateDeploymentBackupRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -5201,7 +5817,9 @@ export class GoldenGateClient {
       "{deploymentId}": upgradeDeploymentRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": upgradeDeploymentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -5282,7 +5900,9 @@ export class GoldenGateClient {
       "{deploymentUpgradeId}": upgradeDeploymentUpgradeRequest.deploymentUpgradeId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": upgradeDeploymentUpgradeRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

@@ -43,6 +43,12 @@ export interface CreateOracleConnectionDetails extends model.CreateConnectionDet
    */
   "connectionString"?: string;
   /**
+   * Authentication mode. It can be provided at creation of Oracle Autonomous Database Serverless connections,
+   * when a databaseId is provided. The default value is MTLS.
+   *
+   */
+  "authenticationMode"?: string;
+  /**
    * The wallet contents Oracle GoldenGate uses to make connections to a database.  This
    * attribute is expected to be base64 encoded.
    *

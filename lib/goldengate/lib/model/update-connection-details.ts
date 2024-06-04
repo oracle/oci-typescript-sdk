@@ -191,6 +191,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
             true
           );
+        case "DB2":
+          return model.UpdateDb2ConnectionDetails.getJsonObj(
+            <model.UpdateDb2ConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GENERIC":
           return model.UpdateGenericConnectionDetails.getJsonObj(
             <model.UpdateGenericConnectionDetails>(<object>jsonObj),
@@ -315,6 +320,11 @@ export namespace UpdateConnectionDetails {
         case "KAFKA":
           return model.UpdateKafkaConnectionDetails.getDeserializedJsonObj(
             <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "DB2":
+          return model.UpdateDb2ConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateDb2ConnectionDetails>(<object>jsonObj),
             true
           );
         case "GENERIC":

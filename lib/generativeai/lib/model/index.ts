@@ -95,8 +95,12 @@ export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;
 import * as WorkRequestSummaryCollection from "./work-request-summary-collection";
 export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRequestSummaryCollection;
 
+import * as ChatModelMetrics from "./chat-model-metrics";
+export import ChatModelMetrics = ChatModelMetrics.ChatModelMetrics;
 import * as DedicatedAiClusterHostingCapacity from "./dedicated-ai-cluster-hosting-capacity";
 export import DedicatedAiClusterHostingCapacity = DedicatedAiClusterHostingCapacity.DedicatedAiClusterHostingCapacity;
+import * as LoraTrainingConfig from "./lora-training-config";
+export import LoraTrainingConfig = LoraTrainingConfig.LoraTrainingConfig;
 import * as ObjectStorageDataset from "./object-storage-dataset";
 export import ObjectStorageDataset = ObjectStorageDataset.ObjectStorageDataset;
 import * as TFewTrainingConfig from "./t-few-training-config";

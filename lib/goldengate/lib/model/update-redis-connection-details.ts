@@ -69,6 +69,11 @@ export interface UpdateRedisConnectionDetails extends model.UpdateConnectionDeta
    *
    */
   "keyStorePassword"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Redis cluster.
+   *
+   */
+  "redisClusterId"?: string;
 
   "connectionType": string;
 }

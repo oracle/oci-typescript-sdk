@@ -56,19 +56,25 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.AddResourceLockDetails>;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the backup being referenced.
    *
    */
   "deploymentBackupId"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet of the deployment's private endpoint.
+   * The subnet must be a private subnet. For backward compatibility, public subnets are allowed until May 31 2025,
+   * after which the private subnet will be enforced.
    *
    */
   "subnetId": string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a public subnet in the customer tenancy.
    * Can be provided only for public deployments. If provided, the loadbalancer will be created in this subnet instead of the service tenancy.
-   * For backward compatiblity this is an optional property for now, but it will become mandatory (for public deployments only) after October 1, 2024.
+   * For backward compatibility, this is an optional property. It will become mandatory for public deployments after October 1, 2024.
    *
    */
   "loadBalancerSubnetId"?: string;
@@ -114,6 +120,12 @@ export namespace CreateDeploymentDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getJsonObj(item);
+            })
+          : undefined,
+
         "oggData": obj.oggData
           ? model.CreateOggDeploymentDetails.getJsonObj(obj.oggData)
           : undefined,
@@ -132,6 +144,12 @@ export namespace CreateDeploymentDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "oggData": obj.oggData
           ? model.CreateOggDeploymentDetails.getDeserializedJsonObj(obj.oggData)
           : undefined,

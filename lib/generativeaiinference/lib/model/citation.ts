@@ -2,7 +2,7 @@
  * Generative AI Service Inference API
  * OCI Generative AI is a fully managed service that provides a set of state-of-the-art, customizable large language models (LLMs) that cover a wide range of use cases for text generation, summarization, and text embeddings. 
 
-Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
+Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [chat](#/en/generative-ai-inference/latest/ChatResult/Chat), [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
 
 To use a Generative AI custom model for inference, you must first create an endpoint for that model. Use the [Generative AI service management API](/#/en/generative-ai/latest/) to [create a custom model](#/en/generative-ai/latest/Model/) by fine-tuning an out-of-the-box model, or a previous version of a custom model, using your own data. Fine-tune the custom model on a  [fine-tuning dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/). Then, create a [hosting dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/) with an [endpoint](#/en/generative-ai/latest/Endpoint/) to host your custom model. For resource management in the Generative AI service, use the [Generative AI service management API](/#/en/generative-ai/latest/).
 
@@ -22,23 +22,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A section of the generated reply which cites external knowledge.
+ * A section of the generated response which cites the documents that were used for generating the response.
  */
 export interface Citation {
   /**
-   * The index of text that the citation starts at, counting from zero. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Counting from zero, the index of the text where the citation starts. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "start": number;
   /**
-   * The index of text that the citation ends after, counting from zero. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Counting from zero, the index of the text that the citation ends after. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "end": number;
   /**
-   * The text of the citation
+   * The text of the citation.
    */
   "text": string;
   /**
-   * Identifiers of documents cited by this section of the generated reply.
+   * Identifiers for the documents cited in the current generated response.
    */
   "documentIds": Array<string>;
 }

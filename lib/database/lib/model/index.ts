@@ -70,6 +70,10 @@ import * as AutonomousDatabaseKeyHistoryEntry from "./autonomous-database-key-hi
 export import AutonomousDatabaseKeyHistoryEntry = AutonomousDatabaseKeyHistoryEntry.AutonomousDatabaseKeyHistoryEntry;
 import * as AutonomousDatabaseManualRefreshDetails from "./autonomous-database-manual-refresh-details";
 export import AutonomousDatabaseManualRefreshDetails = AutonomousDatabaseManualRefreshDetails.AutonomousDatabaseManualRefreshDetails;
+import * as AutonomousDatabasePeerCollection from "./autonomous-database-peer-collection";
+export import AutonomousDatabasePeerCollection = AutonomousDatabasePeerCollection.AutonomousDatabasePeerCollection;
+import * as AutonomousDatabasePeerSummary from "./autonomous-database-peer-summary";
+export import AutonomousDatabasePeerSummary = AutonomousDatabasePeerSummary.AutonomousDatabasePeerSummary;
 import * as AutonomousDatabaseSoftwareImage from "./autonomous-database-software-image";
 export import AutonomousDatabaseSoftwareImage = AutonomousDatabaseSoftwareImage.AutonomousDatabaseSoftwareImage;
 import * as AutonomousDatabaseSoftwareImageCollection from "./autonomous-database-software-image-collection";
@@ -695,6 +699,8 @@ import * as CreateCrossRegionAutonomousDatabaseDataGuardDetails from "./create-c
 export import CreateCrossRegionAutonomousDatabaseDataGuardDetails = CreateCrossRegionAutonomousDatabaseDataGuardDetails.CreateCrossRegionAutonomousDatabaseDataGuardDetails;
 import * as CreateCrossRegionDisasterRecoveryDetails from "./create-cross-region-disaster-recovery-details";
 export import CreateCrossRegionDisasterRecoveryDetails = CreateCrossRegionDisasterRecoveryDetails.CreateCrossRegionDisasterRecoveryDetails;
+import * as CreateCrossTenancyDisasterRecoveryDetails from "./create-cross-tenancy-disaster-recovery-details";
+export import CreateCrossTenancyDisasterRecoveryDetails = CreateCrossTenancyDisasterRecoveryDetails.CreateCrossTenancyDisasterRecoveryDetails;
 import * as CreateDataGuardAssociationToExistingDbSystemDetails from "./create-data-guard-association-to-existing-db-system-details";
 export import CreateDataGuardAssociationToExistingDbSystemDetails = CreateDataGuardAssociationToExistingDbSystemDetails.CreateDataGuardAssociationToExistingDbSystemDetails;
 import * as CreateDataGuardAssociationToExistingVmClusterDetails from "./create-data-guard-association-to-existing-vm-cluster-details";

@@ -125,6 +125,10 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    *
    */
   "routingMethod"?: model.RoutingMethod;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 
   "connectionType": string;
 }
@@ -137,6 +141,12 @@ export namespace ConnectionSummary {
         "ingressIps": obj.ingressIps
           ? obj.ingressIps.map(item => {
               return model.IngressIpDetails.getJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -244,6 +254,11 @@ export namespace ConnectionSummary {
             <model.ElasticsearchConnectionSummary>(<object>jsonObj),
             true
           );
+        case "DB2":
+          return model.Db2ConnectionSummary.getJsonObj(
+            <model.Db2ConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "AMAZON_REDSHIFT":
           return model.AmazonRedshiftConnectionSummary.getJsonObj(
             <model.AmazonRedshiftConnectionSummary>(<object>jsonObj),
@@ -272,6 +287,12 @@ export namespace ConnectionSummary {
         "ingressIps": obj.ingressIps
           ? obj.ingressIps.map(item => {
               return model.IngressIpDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }
@@ -377,6 +398,11 @@ export namespace ConnectionSummary {
         case "ELASTICSEARCH":
           return model.ElasticsearchConnectionSummary.getDeserializedJsonObj(
             <model.ElasticsearchConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "DB2":
+          return model.Db2ConnectionSummary.getDeserializedJsonObj(
+            <model.Db2ConnectionSummary>(<object>jsonObj),
             true
           );
         case "AMAZON_REDSHIFT":

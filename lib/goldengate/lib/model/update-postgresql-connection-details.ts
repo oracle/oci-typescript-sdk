@@ -95,6 +95,11 @@ The private IP address of the connection's endpoint in the customer's VCN, typic
 * 
     */
   "privateIp"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the database system being referenced.
+   *
+   */
+  "dbSystemId"?: string;
 
   "connectionType": string;
 }

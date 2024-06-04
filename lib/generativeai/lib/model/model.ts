@@ -82,7 +82,7 @@ export interface Model {
    */
   "type": Model.Type;
   "fineTuneDetails"?: model.FineTuneDetails;
-  "modelMetrics"?: model.TextGenerationModelMetrics;
+  "modelMetrics"?: model.TextGenerationModelMetrics | model.ChatModelMetrics;
   /**
    * Whether a model is supported long-term. Only applicable to base models.
    */

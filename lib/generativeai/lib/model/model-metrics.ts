@@ -39,6 +39,8 @@ export namespace ModelMetrics {
             <model.TextGenerationModelMetrics>(<object>jsonObj),
             true
           );
+        case "CHAT_MODEL_METRICS":
+          return model.ChatModelMetrics.getJsonObj(<model.ChatModelMetrics>(<object>jsonObj), true);
         default:
           if (common.LOG.logger)
             common.LOG.logger.info(`Unknown value for: ${obj.modelMetricsType}`);
@@ -54,6 +56,11 @@ export namespace ModelMetrics {
         case "TEXT_GENERATION_MODEL_METRICS":
           return model.TextGenerationModelMetrics.getDeserializedJsonObj(
             <model.TextGenerationModelMetrics>(<object>jsonObj),
+            true
+          );
+        case "CHAT_MODEL_METRICS":
+          return model.ChatModelMetrics.getDeserializedJsonObj(
+            <model.ChatModelMetrics>(<object>jsonObj),
             true
           );
         default:

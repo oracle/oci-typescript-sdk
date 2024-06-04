@@ -406,6 +406,8 @@ import * as ListAutonomousDatabaseClonesRequest from "./list-autonomous-database
 export import ListAutonomousDatabaseClonesRequest = ListAutonomousDatabaseClonesRequest.ListAutonomousDatabaseClonesRequest;
 import * as ListAutonomousDatabaseDataguardAssociationsRequest from "./list-autonomous-database-dataguard-associations-request";
 export import ListAutonomousDatabaseDataguardAssociationsRequest = ListAutonomousDatabaseDataguardAssociationsRequest.ListAutonomousDatabaseDataguardAssociationsRequest;
+import * as ListAutonomousDatabasePeersRequest from "./list-autonomous-database-peers-request";
+export import ListAutonomousDatabasePeersRequest = ListAutonomousDatabasePeersRequest.ListAutonomousDatabasePeersRequest;
 import * as ListAutonomousDatabaseRefreshableClonesRequest from "./list-autonomous-database-refreshable-clones-request";
 export import ListAutonomousDatabaseRefreshableClonesRequest = ListAutonomousDatabaseRefreshableClonesRequest.ListAutonomousDatabaseRefreshableClonesRequest;
 import * as ListAutonomousDatabaseSoftwareImagesRequest from "./list-autonomous-database-software-images-request";

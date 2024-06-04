@@ -37,6 +37,12 @@ export interface OracleConnectionSummary extends model.ConnectionSummary {
    */
   "connectionString"?: string;
   /**
+   * Authentication mode. It can be provided at creation of Oracle Autonomous Database Serverless connections,
+   * when a databaseId is provided. The default value is MTLS.
+   *
+   */
+  "authenticationMode"?: string;
+  /**
    * The mode of the database connection session to be established by the data client.
    * 'REDIRECT' - for a RAC database, 'DIRECT' - for a non-RAC database.
    * Connection to a RAC database involves a redirection received from the SCAN listeners

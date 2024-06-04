@@ -49,12 +49,12 @@ export interface UpdateOggDeploymentDetails {
    */
   "adminPassword"?: string;
   /**
-   * A PEM-encoded SSL certificate.
+   * The base64 encoded content of the PEM file containing the SSL certificate.
    *
    */
   "certificate"?: string;
   /**
-   * A PEM-encoded private key.
+   * The base64 encoded content of the PEM file containing the private key.
    *
    */
   "key"?: string;

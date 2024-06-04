@@ -12,6 +12,12 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddConnectionLockResponse from "./add-connection-lock-response";
+export import AddConnectionLockResponse = AddConnectionLockResponse.AddConnectionLockResponse;
+import * as AddDeploymentBackupLockResponse from "./add-deployment-backup-lock-response";
+export import AddDeploymentBackupLockResponse = AddDeploymentBackupLockResponse.AddDeploymentBackupLockResponse;
+import * as AddDeploymentLockResponse from "./add-deployment-lock-response";
+export import AddDeploymentLockResponse = AddDeploymentLockResponse.AddDeploymentLockResponse;
 import * as CancelDeploymentBackupResponse from "./cancel-deployment-backup-response";
 export import CancelDeploymentBackupResponse = CancelDeploymentBackupResponse.CancelDeploymentBackupResponse;
 import * as CancelDeploymentUpgradeResponse from "./cancel-deployment-upgrade-response";
@@ -58,6 +64,8 @@ import * as DeploymentWalletExistsResponse from "./deployment-wallet-exists-resp
 export import DeploymentWalletExistsResponse = DeploymentWalletExistsResponse.DeploymentWalletExistsResponse;
 import * as ExportDeploymentWalletResponse from "./export-deployment-wallet-response";
 export import ExportDeploymentWalletResponse = ExportDeploymentWalletResponse.ExportDeploymentWalletResponse;
+import * as GenerateLibraryUrlResponse from "./generate-library-url-response";
+export import GenerateLibraryUrlResponse = GenerateLibraryUrlResponse.GenerateLibraryUrlResponse;
 import * as GetCertificateResponse from "./get-certificate-response";
 export import GetCertificateResponse = GetCertificateResponse.GetCertificateResponse;
 import * as GetConnectionResponse from "./get-connection-response";
@@ -108,6 +116,12 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RemoveConnectionLockResponse from "./remove-connection-lock-response";
+export import RemoveConnectionLockResponse = RemoveConnectionLockResponse.RemoveConnectionLockResponse;
+import * as RemoveDeploymentBackupLockResponse from "./remove-deployment-backup-lock-response";
+export import RemoveDeploymentBackupLockResponse = RemoveDeploymentBackupLockResponse.RemoveDeploymentBackupLockResponse;
+import * as RemoveDeploymentLockResponse from "./remove-deployment-lock-response";
+export import RemoveDeploymentLockResponse = RemoveDeploymentLockResponse.RemoveDeploymentLockResponse;
 import * as RescheduleDeploymentUpgradeResponse from "./reschedule-deployment-upgrade-response";
 export import RescheduleDeploymentUpgradeResponse = RescheduleDeploymentUpgradeResponse.RescheduleDeploymentUpgradeResponse;
 import * as RestoreDeploymentResponse from "./restore-deployment-response";

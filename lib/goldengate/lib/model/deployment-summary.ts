@@ -85,13 +85,15 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet of the deployment's private endpoint.
+   * The subnet must be a private subnet. For backward compatibility, public subnets are allowed until May 31 2025,
+   * after which the private subnet will be enforced.
    *
    */
   "subnetId": string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a public subnet in the customer tenancy.
    * Can be provided only for public deployments. If provided, the loadbalancer will be created in this subnet instead of the service tenancy.
-   * For backward compatiblity this is an optional property for now, but it will become mandatory (for public deployments only) after October 1, 2024.
+   * For backward compatibility, this is an optional property. It will become mandatory for public deployments after October 1, 2024.
    *
    */
   "loadBalancerSubnetId"?: string;
@@ -184,16 +186,38 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    *
    */
   "isStorageUtilizationLimitExceeded"?: boolean;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace DeploymentSummary {
   export function getJsonObj(obj: DeploymentSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DeploymentSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

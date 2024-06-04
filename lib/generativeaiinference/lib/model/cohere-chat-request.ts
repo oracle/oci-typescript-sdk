@@ -2,7 +2,7 @@
  * Generative AI Service Inference API
  * OCI Generative AI is a fully managed service that provides a set of state-of-the-art, customizable large language models (LLMs) that cover a wide range of use cases for text generation, summarization, and text embeddings. 
 
-Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
+Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [chat](#/en/generative-ai-inference/latest/ChatResult/Chat), [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
 
 To use a Generative AI custom model for inference, you must first create an endpoint for that model. Use the [Generative AI service management API](/#/en/generative-ai/latest/) to [create a custom model](#/en/generative-ai/latest/Model/) by fine-tuning an out-of-the-box model, or a previous version of a custom model, using your own data. Fine-tune the custom model on a  [fine-tuning dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/). Then, create a [hosting dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/) with an [endpoint](#/en/generative-ai/latest/Endpoint/) to host your custom model. For resource management in the Generative AI service, use the [Generative AI service management API](/#/en/generative-ai/latest/).
 
@@ -26,47 +26,55 @@ import common = require("oci-common");
  */
 export interface CohereChatRequest extends model.BaseChatRequest {
   /**
-   * Text input for the model to respond to.
+   * The text that the user inputs for the model to respond to.
    */
   "message": string;
   /**
-   * A list of previous messages between the user and the model, meant to give the model conversational context for responding to the user's message.
+   * The list of previous messages between the user and the model. The chat history gives the model context for responding to the user's inputs.
    */
   "chatHistory"?: Array<model.CohereMessage>;
   /**
-   * list of relevant documents that the model can cite to generate a more accurate reply.
-   * Some suggested keys are \"text\", \"author\", and \"date\". For better generation quality, it is
-   * recommended to keep the total word count of the strings in the dictionary to under 300
-   * words.
-   *
-   */
+    * A list of relevant documents that the model can refer to for generating grounded responses to the user's requests.
+* Some example keys that you can add to the dictionary are \"text\", \"author\", and \"date\". Keep the total word count of the strings in the dictionary to 300 words or less.
+* <p>
+Example:
+* {@code [
+*   { \"title\": \"Tall penguins\", \"snippet\": \"Emperor penguins are the tallest.\" },
+*   { \"title\": \"Penguin habitats\", \"snippet\": \"Emperor penguins only live in Antarctica.\" }
+* ]}
+* 
+    */
   "documents"?: Array<any>;
   /**
-   * When true, the response will only contain a list of generated search queries, but no search will take place, and no reply from the model to the user's message will be generated.
+   * When set to true, the response contains only a list of generated search queries without the search results and the model will not respond to the user's message.
+   *
    */
   "isSearchQueriesOnly"?: boolean;
   /**
-   * When specified, the default Cohere preamble will be replaced with the provided one. Preambles are a part of the prompt used to adjust the model's overall behavior and conversation style. Default preambles vary for different models.
-   */
+    * If specified, the default Cohere preamble is replaced with the provided preamble. A preamble is an initial guideline message that can change the model's overall chat behavior and conversation style. Default preambles vary for different models.
+* <p>
+Example: {@code You are a travel advisor. Answer with a pirate tone.}
+* 
+    */
   "preambleOverride"?: string;
   /**
-   * Whether to stream back partial progress. If set, tokens are sent as data-only server-sent events as they become available.
+   * Whether to stream the partial progress of the model's response. When set to true, as tokens become available, they are sent as data-only server-sent events.
    */
   "isStream"?: boolean;
   /**
-   * The maximum number of tokens to predict for each response. Includes input plus output tokens. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum number of output tokens that the model will generate for the response. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxTokens"?: number;
   /**
-   * A number that sets the randomness of the generated output. A lower temperature means a less random generations.
-   * Use lower numbers for tasks with a correct answer such as question answering or summarizing. High temperatures can generate hallucinations or factually incorrect information. Start with temperatures lower than 1.0 and increase the temperature for more creative outputs, as you regenerate the prompts to refine the outputs.
+   * A number that sets the randomness of the generated output. A lower temperature means less random generations.
+   * Use lower numbers for tasks such as question answering or summarizing. High temperatures can generate hallucinations or factually incorrect information. Start with temperatures lower than 1.0 and increase the temperature for more creative outputs, as you regenerate the prompts to refine the outputs.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "temperature"?: number;
   /**
-    * An integer that sets up the model to use only the top k most likely tokens in the generated output. A higher k introduces more randomness into the output making the output text sound more natural. Default value is 0 which disables this method and considers all tokens. To set a number for the likely tokens, choose an integer between 1 and 500.
+    * A sampling method in which the model chooses the next token randomly from the top k most likely tokens. A higher value for k generates more random output, which makes the output text sound more natural. The default value for k is 0 which disables this method and considers all tokens. To set a number for the likely tokens, choose an integer between 1 and 500.
 * <p>
-If also using top p, then the model considers only the top tokens whose probabilities add up to p percent and ignores the rest of the k tokens. For example, if k is 20, but the probabilities of the top 10 add up to .75, then only the top 10 tokens are chosen.
+If also using top p, then the model considers only the top tokens whose probabilities add up to p percent and ignores the rest of the k tokens. For example, if k is 20 but only the probabilities of the top 10 add up to the value of p, then only the top 10 tokens are chosen.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "topK"?: number;
@@ -77,6 +85,11 @@ To eliminate tokens with low likelihood, assign p a minimum percentage for the n
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "topP"?: number;
+  /**
+   * Defaults to OFF. Dictates how the prompt will be constructed. With {@code prompt_truncation} set to AUTO_PRESERVE_ORDER, some elements from {@code chat_history} and {@code documents} will be dropped to construct a prompt that fits within the model's context length limit. During this process the order of the documents and chat history will be preserved. With {@code prompt_truncation} set to OFF, no elements will be dropped.
+   *
+   */
+  "promptTruncation"?: CohereChatRequest.PromptTruncation;
   /**
    * To reduce repetitiveness of generated tokens, this number penalizes new tokens based on their frequency in the generated text so far. Greater numbers encourage the model to use new tokens, while lower numbers encourage the model to repeat the tokens. Set to 0 to disable.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -89,11 +102,56 @@ Similar to frequency penalty, a penalty is applied to previously present tokens,
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "presencePenalty"?: number;
+  /**
+   * If specified, the backend will make a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism cannot be totally guaranteed.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "seed"?: number;
+  /**
+   * Returns the full prompt that was sent to the model when True.
+   */
+  "isEcho"?: boolean;
+  /**
+   * A list of available tools (functions) that the model may suggest invoking before producing a text response.
+   */
+  "tools"?: Array<model.CohereTool>;
+  /**
+   * A list of results from invoking tools recommended by the model in the previous chat turn.
+   */
+  "toolResults"?: Array<model.CohereToolResult>;
+  /**
+   * When enabled, the model will issue (potentially multiple) tool calls in a single step, before it receives the tool responses and directly answers the user's original message.
+   *
+   */
+  "isForceSingleStep"?: boolean;
+  /**
+   * Stop the model generation when it reaches a stop sequence defined in this parameter.
+   */
+  "stopSequences"?: Array<string>;
+  /**
+   * When enabled, the user\u2019s {@code message} will be sent to the model without any preprocessing.
+   */
+  "isRawPrompting"?: boolean;
+  /**
+   * When FAST is selected, citations are generated at the same time as the text output and the request will be completed sooner. May result in less accurate citations.
+   *
+   */
+  "citationQuality"?: CohereChatRequest.CitationQuality;
 
   "apiFormat": string;
 }
 
 export namespace CohereChatRequest {
+  export enum PromptTruncation {
+    Off = "OFF",
+    AutoPreserveOrder = "AUTO_PRESERVE_ORDER"
+  }
+
+  export enum CitationQuality {
+    Accurate = "ACCURATE",
+    Fast = "FAST"
+  }
+
   export function getJsonObj(obj: CohereChatRequest, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.BaseChatRequest.getJsonObj(obj) as CohereChatRequest)),
@@ -101,6 +159,17 @@ export namespace CohereChatRequest {
         "chatHistory": obj.chatHistory
           ? obj.chatHistory.map(item => {
               return model.CohereMessage.getJsonObj(item);
+            })
+          : undefined,
+
+        "tools": obj.tools
+          ? obj.tools.map(item => {
+              return model.CohereTool.getJsonObj(item);
+            })
+          : undefined,
+        "toolResults": obj.toolResults
+          ? obj.toolResults.map(item => {
+              return model.CohereToolResult.getJsonObj(item);
             })
           : undefined
       }
@@ -121,6 +190,17 @@ export namespace CohereChatRequest {
         "chatHistory": obj.chatHistory
           ? obj.chatHistory.map(item => {
               return model.CohereMessage.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "tools": obj.tools
+          ? obj.tools.map(item => {
+              return model.CohereTool.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "toolResults": obj.toolResults
+          ? obj.toolResults.map(item => {
+              return model.CohereToolResult.getDeserializedJsonObj(item);
             })
           : undefined
       }

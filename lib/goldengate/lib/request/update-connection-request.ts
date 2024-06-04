@@ -49,6 +49,7 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
     | model.UpdateHdfsConnectionDetails
     | model.UpdateMysqlConnectionDetails
     | model.UpdateKafkaConnectionDetails
+    | model.UpdateDb2ConnectionDetails
     | model.UpdateGenericConnectionDetails
     | model.UpdateAzureSynapseConnectionDetails;
   /**
@@ -64,4 +65,8 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

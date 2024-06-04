@@ -41,4 +41,8 @@ export interface ChangeConnectionCompartmentRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

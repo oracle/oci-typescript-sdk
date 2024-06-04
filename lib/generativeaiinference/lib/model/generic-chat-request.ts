@@ -2,7 +2,7 @@
  * Generative AI Service Inference API
  * OCI Generative AI is a fully managed service that provides a set of state-of-the-art, customizable large language models (LLMs) that cover a wide range of use cases for text generation, summarization, and text embeddings. 
 
-Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
+Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [chat](#/en/generative-ai-inference/latest/ChatResult/Chat), [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
 
 To use a Generative AI custom model for inference, you must first create an endpoint for that model. Use the [Generative AI service management API](/#/en/generative-ai/latest/) to [create a custom model](#/en/generative-ai/latest/Model/) by fine-tuning an out-of-the-box model, or a previous version of a custom model, using your own data. Fine-tune the custom model on a  [fine-tuning dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/). Then, create a [hosting dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/) with an [endpoint](#/en/generative-ai/latest/Endpoint/) to host your custom model. For resource management in the Generative AI service, use the [Generative AI service management API](/#/en/generative-ai/latest/).
 
@@ -26,11 +26,11 @@ import common = require("oci-common");
  */
 export interface GenericChatRequest extends model.BaseChatRequest {
   /**
-   * The series of messages associated with this chat completion request. It should include previous messages in the conversation. Each message has a role and content.
+   * The series of messages in a chat request. Includes the previous messages in a conversation. Each message includes a role ({@code USER} or the {@code CHATBOT}) and content.
    */
   "messages"?: Array<model.Message>;
   /**
-   * Whether to stream back partial progress. If set, tokens are sent as data-only server-sent events as they become available.
+   * Whether to stream back partial progress. If set to true, as tokens become available, they are sent as data-only server-sent events.
    */
   "isStream"?: boolean;
   /**
@@ -38,7 +38,7 @@ export interface GenericChatRequest extends model.BaseChatRequest {
    */
   "numGenerations"?: number;
   /**
-   * Whether or not to return the user prompt in the response. Applies only to non-stream results.
+   * Whether to include the user prompt in the response. Applies only to non-stream results.
    */
   "isEcho"?: boolean;
   /**
@@ -85,12 +85,17 @@ For example, if the log probability is 5, the API returns a list of the 5 most l
     */
   "logProbs"?: number;
   /**
-   * The maximum number of tokens that can be generated per output sequence. The token count of your prompt plus max_tokens cannot exceed the model's context length. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum number of tokens that can be generated per output sequence. The token count of your prompt plus {@code maxTokens} must not exceed the model's context length.
+   * Not setting a value for maxTokens results in the possible use of model's full context length.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxTokens"?: number;
   /**
-   * Modify the likelihood of specified tokens appearing in the completion.
-   */
+    * Modifies the likelihood of specified tokens that appear in the completion.
+* <p>
+Example: '{\"6395\": 2, \"8134\": 1, \"21943\": 0.5, \"5923\": -100}'
+* 
+    */
   "logitBias"?: any;
 
   "apiFormat": string;
