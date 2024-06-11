@@ -1,6 +1,6 @@
 {
   "name": "oci-osuborganizationsubscription",
-  "version": "2.88.0",
+  "version": "2.88.1",
   "description": "OCI NodeJS client for Osub Organization Subscription Service",
   "repository": {
     "type": "git",

@@ -21,7 +21,7 @@ export interface QueueStats {
   "queue": model.Stats;
   "dlq": model.Stats;
   /**
-   * If channelId is presented in GetStats call, the channel id will be returned in the GetStats response.
+   * If channelId is present in GetStats call, the channel id will be returned in the GetStats response.
    */
   "channelId"?: string;
 }

@@ -31,12 +31,70 @@ export interface Subscription {
    */
   "serviceName": string;
   /**
+   * Lifecycle state of the subscription.
+   */
+  "lifecycleState"?: Subscription.LifecycleState;
+  /**
+   * Subscription resource intermediate states.
+   */
+  "lifecycleDetails"?: Subscription.LifecycleDetails;
+  /**
    * Stock keeping unit.
    */
   "skus": Array<model.SubscriptionSku>;
 }
 
 export namespace Subscription {
+  export enum LifecycleState {
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+    Updating = "UPDATING",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
+    NeedsAttention = "NEEDS_ATTENTION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum LifecycleDetails {
+    Active = "ACTIVE",
+    Purged = "PURGED",
+    Canceled = "CANCELED",
+    PaidPurged = "PAID_PURGED",
+    Initialized = "INITIALIZED",
+    SoftTerminated = "SOFT_TERMINATED",
+    Disabled = "DISABLED",
+    BeginTermination = "BEGIN_TERMINATION",
+    Migrated = "MIGRATED",
+    PendingCancelation = "PENDING_CANCELATION",
+    Archived = "ARCHIVED",
+    NonRecoverable = "NON_RECOVERABLE",
+    BeginSoftTermination = "BEGIN_SOFT_TERMINATION",
+    Activated = "ACTIVATED",
+    AccessDisabled = "ACCESS_DISABLED",
+    PendingRegistration = "PENDING_REGISTRATION",
+    Terminated = "TERMINATED",
+    Relocating = "RELOCATING",
+    Deprovisioned = "DEPROVISIONED",
+    Provisioned = "PROVISIONED",
+    BeginTerminationPassive = "BEGIN_TERMINATION_PASSIVE",
+    Locked = "LOCKED",
+    PendingDeprovisioning = "PENDING_DEPROVISIONING",
+    Registered = "REGISTERED",
+    Cancelled = "CANCELLED",
+    Expired = "EXPIRED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Subscription): object {
     const jsonObj = {
       ...obj,

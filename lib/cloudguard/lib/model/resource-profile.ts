@@ -70,13 +70,21 @@ export interface ResourceProfile {
    */
   "timePeakScore"?: Date;
   /**
-   * The date and time the resource profile was first detected. Format defined by RFC3339.
+   * Time the activities were first detected. Format defined by RFC3339.
    */
   "timeFirstDetected": Date;
   /**
-   * The date and time the resource profile was last detected. Format defined by RFC3339.
+   * Time the activities were last detected. Format defined by RFC3339.
    */
   "timeLastDetected": Date;
+  /**
+   * Time the activities were first performed. Format defined by RFC3339.
+   */
+  "timeFirstOccurred"?: Date;
+  /**
+   * Time the activities were last performed. Format defined by RFC3339.
+   */
+  "timeLastOccurred"?: Date;
   /**
    * List of tactic summaries associated with the resource profile
    */

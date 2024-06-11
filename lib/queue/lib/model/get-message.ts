@@ -50,6 +50,13 @@ Example: {@code 2018-04-20T00:00:07.405Z}
 * 
     */
   "expireAfter": Date;
+  /**
+    * The time when message was created in queue.
+* <p>
+Example: {@code 2018-04-20T00:00:07.405Z}
+* 
+    */
+  "createdAt": Date;
   "metadata"?: model.MessageMetadata;
 }
 

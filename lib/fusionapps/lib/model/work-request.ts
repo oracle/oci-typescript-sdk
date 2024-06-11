@@ -88,6 +88,12 @@ export namespace WorkRequest {
     RefreshFusionEnvironment = "REFRESH_FUSION_ENVIRONMENT",
     ExecuteColdPatch = "EXECUTE_COLD_PATCH",
     DataMaskFusionEnvironment = "DATA_MASK_FUSION_ENVIRONMENT",
+    InitiateExtract = "INITIATE_EXTRACT",
+    SubscriptionSuspend = "SUBSCRIPTION_SUSPEND",
+    SubscriptionExpire = "SUBSCRIPTION_EXPIRE",
+    SubscriptionUpdate = "SUBSCRIPTION_UPDATE",
+    SubscriptionResume = "SUBSCRIPTION_RESUME",
+    SubscriptionTerminate = "SUBSCRIPTION_TERMINATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

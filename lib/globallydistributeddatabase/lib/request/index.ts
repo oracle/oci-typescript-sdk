@@ -57,6 +57,8 @@ import * as PatchShardedDatabaseRequest from "./patch-sharded-database-request";
 export import PatchShardedDatabaseRequest = PatchShardedDatabaseRequest.PatchShardedDatabaseRequest;
 import * as PrevalidateShardedDatabaseRequest from "./prevalidate-sharded-database-request";
 export import PrevalidateShardedDatabaseRequest = PrevalidateShardedDatabaseRequest.PrevalidateShardedDatabaseRequest;
+import * as ReinstateProxyInstanceRequest from "./reinstate-proxy-instance-request";
+export import ReinstateProxyInstanceRequest = ReinstateProxyInstanceRequest.ReinstateProxyInstanceRequest;
 import * as StartShardedDatabaseRequest from "./start-sharded-database-request";
 export import StartShardedDatabaseRequest = StartShardedDatabaseRequest.StartShardedDatabaseRequest;
 import * as StopShardedDatabaseRequest from "./stop-sharded-database-request";

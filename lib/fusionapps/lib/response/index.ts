@@ -37,6 +37,8 @@ import * as DeleteRefreshActivityResponse from "./delete-refresh-activity-respon
 export import DeleteRefreshActivityResponse = DeleteRefreshActivityResponse.DeleteRefreshActivityResponse;
 import * as DeleteServiceAttachmentResponse from "./delete-service-attachment-response";
 export import DeleteServiceAttachmentResponse = DeleteServiceAttachmentResponse.DeleteServiceAttachmentResponse;
+import * as GenerateExtractDetailsResponse from "./generate-extract-details-response";
+export import GenerateExtractDetailsResponse = GenerateExtractDetailsResponse.GenerateExtractDetailsResponse;
 import * as GetDataMaskingActivityResponse from "./get-data-masking-activity-response";
 export import GetDataMaskingActivityResponse = GetDataMaskingActivityResponse.GetDataMaskingActivityResponse;
 import * as GetFusionEnvironmentResponse from "./get-fusion-environment-response";
@@ -57,6 +59,8 @@ import * as GetServiceAttachmentResponse from "./get-service-attachment-response
 export import GetServiceAttachmentResponse = GetServiceAttachmentResponse.GetServiceAttachmentResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as InitiateExtractResponse from "./initiate-extract-response";
+export import InitiateExtractResponse = InitiateExtractResponse.InitiateExtractResponse;
 import * as ListAdminUsersResponse from "./list-admin-users-response";
 export import ListAdminUsersResponse = ListAdminUsersResponse.ListAdminUsersResponse;
 import * as ListDataMaskingActivitiesResponse from "./list-data-masking-activities-response";

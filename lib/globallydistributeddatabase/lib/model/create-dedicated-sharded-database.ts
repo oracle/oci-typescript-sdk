@@ -19,6 +19,19 @@ import common = require("oci-common");
  */
 export interface CreateDedicatedShardedDatabase extends model.CreateShardedDatabaseDetails {
   /**
+   * The Replication method for sharded database.
+   */
+  "replicationMethod"?: string;
+  /**
+   * The Replication factor for RAFT replication based sharded database. Currently supported values are 3, 5 and 7.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "replicationFactor"?: number;
+  /**
+   * For RAFT replication based sharded database, the value should be atleast twice the number of shards. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "replicationUnit"?: number;
+  /**
    * The certificate common name used in all cloudAutonomousVmClusters for the sharded database topology. Eg. Production.
    * All the clusters used in one sharded database topology shall have same CABundle setup. Valid characterset for
    * clusterCertificateCommonName include uppercase or lowercase letters, numbers, hyphens, underscores, and period.

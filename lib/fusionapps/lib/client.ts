@@ -1234,6 +1234,78 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Begin the process of showing the details about where to retrieve data extract for a Fusion environment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateExtractDetailsRequest
+   * @return GenerateExtractDetailsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GenerateExtractDetails.ts.html |here} to see how to use GenerateExtractDetails API.
+   */
+  public async generateExtractDetails(
+    generateExtractDetailsRequest: requests.GenerateExtractDetailsRequest
+  ): Promise<responses.GenerateExtractDetailsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#generateExtractDetails.");
+    const operationName = "generateExtractDetails";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": generateExtractDetailsRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateExtractDetailsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateExtractDetailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/actions/generateExtractDetails",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateExtractDetailsResponse>{},
+        body: await response.json(),
+        bodyKey: "extractDetailsCollection",
+        bodyModel: model.ExtractDetailsCollection,
+        type: "model.ExtractDetailsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a DataMaskingActivity by identifier
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDataMaskingActivityRequest
@@ -1989,6 +2061,79 @@ export class FusionApplicationsClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Begin the process of generating the data extract for a Fusion environment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param InitiateExtractRequest
+   * @return InitiateExtractResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/InitiateExtract.ts.html |here} to see how to use InitiateExtract API.
+   */
+  public async initiateExtract(
+    initiateExtractRequest: requests.InitiateExtractRequest
+  ): Promise<responses.InitiateExtractResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#initiateExtract.");
+    const operationName = "initiateExtract";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": initiateExtractRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": initiateExtractRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      initiateExtractRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/actions/initiateExtract",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.InitiateExtractResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });

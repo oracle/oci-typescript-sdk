@@ -70,9 +70,21 @@ export interface SightingEndpointSummary {
    */
   "services"?: Array<string>;
   /**
-   * Date and time when activities were created
+   * Time the activities were first detected.
+   */
+  "timeFirstDetected"?: Date;
+  /**
+   * Time the activities were last detected.
    */
   "timeLastDetected": Date;
+  /**
+   * Time the activities were first performed.
+   */
+  "timeFirstOccurred"?: Date;
+  /**
+   * Time the activities were last performed.
+   */
+  "timeLastOccurred"?: Date;
 }
 
 export namespace SightingEndpointSummary {

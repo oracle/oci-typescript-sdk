@@ -25,6 +25,8 @@ import * as RetrieveNamespaceMetricsResponse from "./retrieve-namespace-metrics-
 export import RetrieveNamespaceMetricsResponse = RetrieveNamespaceMetricsResponse.RetrieveNamespaceMetricsResponse;
 import * as RetrieveNamespacesResponse from "./retrieve-namespaces-response";
 export import RetrieveNamespacesResponse = RetrieveNamespacesResponse.RetrieveNamespacesResponse;
+import * as TestResponse from "./test-response";
+export import TestResponse = TestResponse.TestResponse;
 import * as UpdateConfigResponse from "./update-config-response";
 export import UpdateConfigResponse = UpdateConfigResponse.UpdateConfigResponse;
 import * as ValidateSpanFilterPatternResponse from "./validate-span-filter-pattern-response";

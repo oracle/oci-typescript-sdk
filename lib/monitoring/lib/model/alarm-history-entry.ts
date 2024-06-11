@@ -25,6 +25,16 @@ import common = require("oci-common");
  */
 export interface AlarmHistoryEntry {
   /**
+   * Customizable alarm summary ({@code alarmSummary} [alarm message parameter](https://docs.cloud.oracle.com/iaas/Content/Monitoring/alarm-message-format.htm)).
+   * Optionally include [dynamic variables](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/update-alarm-dynamic-variables.htm).
+   * The alarm summary appears within the body of the alarm message and in responses to
+   * {@link #listAlarmsStatus(ListAlarmsStatusRequest) listAlarmsStatus}
+   * {@link #getAlarmHistory(GetAlarmHistoryRequest) getAlarmHistory} and
+   * {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
+   *
+   */
+  "alarmSummary": string;
+  /**
     * Description for this alarm history entry.
 * <p>
 Example 1 - alarm state history entry: {@code The alarm state is FIRING}

@@ -54,7 +54,9 @@ Example: {@code CRITICAL}
     */
   "severity"?: string;
   /**
-    * The human-readable content of the delivered alarm notification. Oracle recommends providing guidance
+    * The human-readable content of the delivered alarm notification.
+* Optionally include [dynamic variables](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/update-alarm-dynamic-variables.htm).
+* Oracle recommends providing guidance
 * to operators for resolving the alarm condition. Consider adding links to standard runbook
 * practices. Avoid entering confidential information.
 * <p>
@@ -74,7 +76,10 @@ Example: {@code High CPU usage alert. Follow runbook instructions for resolution
 * rule condition has been met. The query must specify a metric, statistic, interval, and trigger
 * rule (threshold or absence). Supported values for interval depend on the specified time range. More
 * interval values are supported for smaller time ranges. You can optionally
-* specify dimensions and grouping functions. Supported grouping functions: {@code grouping()}, {@code groupBy()}.
+* specify dimensions and grouping functions.
+* Also, you can customize the 
+* [absence detection period](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/create-edit-alarm-query-absence-detection-period.htm).
+* Supported grouping functions: {@code grouping()}, {@code groupBy()}.
 * For information about writing MQL expressions, see
 * [Editing the MQL Expression for a Query](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/query-metric-mql.htm).
 * For details about MQL, see
@@ -97,6 +102,13 @@ Example of absence alarm:
     CpuUtilization[1m]{availabilityDomain=\"cumS:PHX-AD-1\"}.absent()
 * <p>
   -----
+* Example of absence alarm with custom absence detection period of 20 hours:
+* <p>
+  -----
+*     
+*     CpuUtilization[1m]{availabilityDomain=\"cumS:PHX-AD-1\"}.absent(20h)
+*   
+*   -----
 * 
     */
   "query"?: string;
