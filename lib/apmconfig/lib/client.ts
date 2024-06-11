@@ -674,6 +674,87 @@ export class ConfigClient {
   }
 
   /**
+   * Tests a data processing operation on the provided input, returning the potentially modified
+   * input as output. Returns 200 on success, 422 when the input can not be processed.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param TestRequest
+   * @return TestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/Test.ts.html |here} to see how to use Test API.
+   */
+  public async test(testRequest: requests.TestRequest): Promise<responses.TestResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#test.");
+    const operationName = "test";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/TestOutput/Test";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": testRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": testRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/test",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        testRequest.testDetails,
+        "TestDetails",
+        model.TestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TestResponse>{},
+        body: await response.json(),
+        bodyKey: "testOutput",
+        bodyModel: model.TestOutput,
+        type: "model.TestOutput",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the details of the configuration item identified by the OCID.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateConfigRequest

@@ -44,4 +44,8 @@ export interface GenerateGsmCertificateSigningRequestRequest extends common.Base
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * The ID of the Ca Bundle.
+   */
+  "caBundleId"?: string;
 }

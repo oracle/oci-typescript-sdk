@@ -29,6 +29,29 @@ export interface SecurityPolicyCollection {
    * Locks associated with this resource.
    */
   "locks"?: Array<model.ResourceLock>;
+  /**
+    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+* Example: {@code {\"bar-key\": \"value\"}}
+* <p>
+Avoid entering confidential information.
+* 
+    */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * System tags for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* System tags can be viewed by users, but can only be created by the system.
+* <p>
+Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+* 
+    */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace SecurityPolicyCollection {

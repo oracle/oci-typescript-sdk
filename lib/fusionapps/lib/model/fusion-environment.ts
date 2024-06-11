@@ -129,6 +129,10 @@ export interface FusionEnvironment {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Environment suspended status
+   */
+  "isSuspended"?: boolean;
 }
 
 export namespace FusionEnvironment {

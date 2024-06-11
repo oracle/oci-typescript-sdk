@@ -1149,7 +1149,9 @@ export class ShardedDatabaseServiceClient {
       "{shardedDatabaseId}": generateGsmCertificateSigningRequestRequest.shardedDatabaseId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "caBundleId": generateGsmCertificateSigningRequestRequest.caBundleId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1322,6 +1324,7 @@ export class ShardedDatabaseServiceClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-none-match": getPrivateEndpointRequest.ifNoneMatch,
       "opc-request-id": getPrivateEndpointRequest.opcRequestId
     };
 
@@ -1401,6 +1404,7 @@ export class ShardedDatabaseServiceClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-none-match": getShardedDatabaseRequest.ifNoneMatch,
       "opc-request-id": getShardedDatabaseRequest.opcRequestId
     };
 
@@ -2091,6 +2095,81 @@ export class ShardedDatabaseServiceClient {
         bodyModel: model.PrevalidateShardedDatabaseResult,
         type: "model.PrevalidateShardedDatabaseResult",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * API to reinstate the proxy instances associated with the private endpoint.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReinstateProxyInstanceRequest
+   * @return ReinstateProxyInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ReinstateProxyInstance.ts.html |here} to see how to use ReinstateProxyInstance API.
+   */
+  public async reinstateProxyInstance(
+    reinstateProxyInstanceRequest: requests.ReinstateProxyInstanceRequest
+  ): Promise<responses.ReinstateProxyInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ShardedDatabaseServiceClient#reinstateProxyInstance.");
+    const operationName = "reinstateProxyInstance";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{privateEndpointId}": reinstateProxyInstanceRequest.privateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": reinstateProxyInstanceRequest.opcRequestId,
+      "if-match": reinstateProxyInstanceRequest.ifMatch,
+      "opc-retry-token": reinstateProxyInstanceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reinstateProxyInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateEndpoints/{privateEndpointId}/actions/reinstateProxyInstance",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReinstateProxyInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

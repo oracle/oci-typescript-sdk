@@ -24,6 +24,16 @@ import common = require("oci-common");
  */
 export interface AlarmDimensionStatesEntry {
   /**
+   * Customizable alarm summary ({@code alarmSummary} [alarm message parameter](https://docs.cloud.oracle.com/iaas/Content/Monitoring/alarm-message-format.htm)).
+   * Optionally include [dynamic variables](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/update-alarm-dynamic-variables.htm).
+   * The alarm summary appears within the body of the alarm message and in responses to
+   * {@link #listAlarmsStatus(ListAlarmsStatusRequest) listAlarmsStatus}
+   * {@link #getAlarmHistory(GetAlarmHistoryRequest) getAlarmHistory} and
+   * {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
+   *
+   */
+  "alarmSummary": string;
+  /**
    * Indicator of the metric stream associated with the alarm state entry. Includes one or more dimension key-value pairs.
    *
    */
@@ -37,8 +47,7 @@ Example: {@code FIRING}
   "status": AlarmDimensionStatesEntry.Status;
   /**
    * Identifier of the alarm's base values for alarm evaluation, for use when the alarm contains overrides.
-   * A valid ruleName value starts with an alphabetic character and includes only alphanumeric characters, underscores and square brackets.
-   * Minimum number of characters: 3. Default value is {@code BASE}. For information about alarm overrides, see {@link #alarmOverride(AlarmOverrideRequest) alarmOverride}.
+   * Default value is {@code BASE}. For information about alarm overrides, see {@link #alarmOverride(AlarmOverrideRequest) alarmOverride}.
    *
    */
   "ruleName": string;

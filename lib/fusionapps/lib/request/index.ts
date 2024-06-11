@@ -37,6 +37,8 @@ import * as DeleteRefreshActivityRequest from "./delete-refresh-activity-request
 export import DeleteRefreshActivityRequest = DeleteRefreshActivityRequest.DeleteRefreshActivityRequest;
 import * as DeleteServiceAttachmentRequest from "./delete-service-attachment-request";
 export import DeleteServiceAttachmentRequest = DeleteServiceAttachmentRequest.DeleteServiceAttachmentRequest;
+import * as GenerateExtractDetailsRequest from "./generate-extract-details-request";
+export import GenerateExtractDetailsRequest = GenerateExtractDetailsRequest.GenerateExtractDetailsRequest;
 import * as GetDataMaskingActivityRequest from "./get-data-masking-activity-request";
 export import GetDataMaskingActivityRequest = GetDataMaskingActivityRequest.GetDataMaskingActivityRequest;
 import * as GetFusionEnvironmentRequest from "./get-fusion-environment-request";
@@ -57,6 +59,8 @@ import * as GetServiceAttachmentRequest from "./get-service-attachment-request";
 export import GetServiceAttachmentRequest = GetServiceAttachmentRequest.GetServiceAttachmentRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as InitiateExtractRequest from "./initiate-extract-request";
+export import InitiateExtractRequest = InitiateExtractRequest.InitiateExtractRequest;
 import * as ListAdminUsersRequest from "./list-admin-users-request";
 export import ListAdminUsersRequest = ListAdminUsersRequest.ListAdminUsersRequest;
 import * as ListDataMaskingActivitiesRequest from "./list-data-masking-activities-request";

@@ -82,13 +82,21 @@ export interface Sighting {
    */
   "confidence": model.Confidence;
   /**
-   * The date and time the sighting was first detected. Format defined by RFC3339.
+   * Time the activities were first detected. Format defined by RFC3339.
    */
   "timeFirstDetected": Date;
   /**
-   * The date and time the sighting was last detected. Format defined by RFC3339.
+   * Time the activities were last detected. Format defined by RFC3339.
    */
   "timeLastDetected": Date;
+  /**
+   * Time the activities were first performed. Format defined by RFC3339.
+   */
+  "timeFirstOccurred"?: Date;
+  /**
+   * Time the activities were last performed. Format defined by RFC3339.
+   */
+  "timeLastOccurred"?: Date;
   /**
    * List of regions involved in the sighting
    */

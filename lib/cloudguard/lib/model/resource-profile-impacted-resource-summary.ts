@@ -65,6 +65,22 @@ export interface ResourceProfileImpactedResourceSummary {
    * Time when the impacted resource is identified for the resource profile.
    */
   "timeIdentified": Date;
+  /**
+   * Time the activities were first detected.
+   */
+  "timeFirstDetected"?: Date;
+  /**
+   * Time the activities were last detected. Same as timeIdentified.
+   */
+  "timeLastDetected"?: Date;
+  /**
+   * Time the activities were first performed.
+   */
+  "timeFirstOccurred"?: Date;
+  /**
+   * Time the activities were last performed.
+   */
+  "timeLastOccurred"?: Date;
 }
 
 export namespace ResourceProfileImpactedResourceSummary {

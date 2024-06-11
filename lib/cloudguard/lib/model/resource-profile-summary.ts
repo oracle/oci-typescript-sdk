@@ -50,13 +50,21 @@ export interface ResourceProfileSummary {
    */
   "tactics": Array<model.TacticSummary>;
   /**
-   * The date and time the resource profile was first detected. Format defined by RFC3339.
+   * Time the activities were first detected. Format defined by RFC3339.
    */
   "timeFirstDetected": Date;
   /**
-   * The date and time the resource profile was last detected. Format defined by RFC3339.
+   * Time the activities were last detected. Format defined by RFC3339.
    */
   "timeLastDetected": Date;
+  /**
+   * Time the activities were first performed. Format defined by RFC3339.
+   */
+  "timeFirstOccurred"?: Date;
+  /**
+   * Time the activities were last performed. Format defined by RFC3339.
+   */
+  "timeLastOccurred"?: Date;
   /**
    * Number of problems associated with this resource profile Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

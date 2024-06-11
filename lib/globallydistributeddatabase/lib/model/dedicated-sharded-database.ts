@@ -19,6 +19,21 @@ import common = require("oci-common");
  */
 export interface DedicatedShardedDatabase extends model.ShardedDatabase {
   /**
+   * The Replication method for sharded database. Use RAFT for Raft replication, and DG for
+   * DataGuard. If replicationMethod is not provided, it defaults to DG.
+   *
+   */
+  "replicationMethod"?: DedicatedShardedDatabase.ReplicationMethod;
+  /**
+   * The Replication factor for RAFT replication based sharded database. Currently supported values are 3, 5 and 7.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "replicationFactor"?: number;
+  /**
+   * For RAFT replication based sharded database, the value should be atleast twice the number of shards. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "replicationUnit"?: number;
+  /**
    * The certificate common name used in all cloudAutonomousVmClusters for the sharded database topology. Eg. Production.
    * All the clusters used in one sharded database topology shall have same CABundle setup. Valid characterset for
    * clusterCertificateCommonName include uppercase or lowercase letters, numbers, hyphens, underscores, and period.
@@ -97,6 +112,16 @@ export interface DedicatedShardedDatabase extends model.ShardedDatabase {
 }
 
 export namespace DedicatedShardedDatabase {
+  export enum ReplicationMethod {
+    Raft = "RAFT",
+    Dg = "DG",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum DbWorkload {
     Oltp = "OLTP",
     Dw = "DW",
