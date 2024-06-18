@@ -1,6 +1,6 @@
 {
   "name": "oci-globallydistributeddatabase",
-  "version": "2.88.1",
+  "version": "2.88.2",
   "description": "OCI NodeJS client for Globally Distributed Database Service",
   "repository": {
     "type": "git",

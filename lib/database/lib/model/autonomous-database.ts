@@ -206,6 +206,10 @@ For Autonomous Databases on Dedicated Exadata Infrastructure, the maximum number
   "connectionStrings"?: model.AutonomousDatabaseConnectionStrings;
   "connectionUrls"?: model.AutonomousDatabaseConnectionUrls;
   /**
+   * The Public URLs of Private Endpoint database for accessing Oracle Application Express (APEX) and SQL Developer Web with a browser from a Compute instance within your VCN or that has a direct connection to your VCN.
+   */
+  "publicConnectionUrls"?: model.AutonomousDatabaseConnectionUrls;
+  /**
     * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud.
 * License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service.
 * Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the
@@ -258,6 +262,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    * The private endpoint for the resource.
    */
   "privateEndpoint"?: string;
+  /**
+   * The public endpoint for the private endpoint enabled resource.
+   */
+  "publicEndpoint"?: string;
   /**
     * The resource's private endpoint label.
 * - Setting the endpoint label to a non-empty string creates a private endpoint database.
@@ -845,6 +853,9 @@ export namespace AutonomousDatabase {
         "connectionUrls": obj.connectionUrls
           ? model.AutonomousDatabaseConnectionUrls.getJsonObj(obj.connectionUrls)
           : undefined,
+        "publicConnectionUrls": obj.publicConnectionUrls
+          ? model.AutonomousDatabaseConnectionUrls.getJsonObj(obj.publicConnectionUrls)
+          : undefined,
 
         "apexDetails": obj.apexDetails
           ? model.AutonomousDatabaseApex.getJsonObj(obj.apexDetails)
@@ -910,6 +921,9 @@ export namespace AutonomousDatabase {
           : undefined,
         "connectionUrls": obj.connectionUrls
           ? model.AutonomousDatabaseConnectionUrls.getDeserializedJsonObj(obj.connectionUrls)
+          : undefined,
+        "publicConnectionUrls": obj.publicConnectionUrls
+          ? model.AutonomousDatabaseConnectionUrls.getDeserializedJsonObj(obj.publicConnectionUrls)
           : undefined,
 
         "apexDetails": obj.apexDetails
