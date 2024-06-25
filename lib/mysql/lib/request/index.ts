@@ -27,6 +27,8 @@ import * as UpdateChannelRequest from "./update-channel-request";
 export import UpdateChannelRequest = UpdateChannelRequest.UpdateChannelRequest;
 import * as ChangeBackupCompartmentRequest from "./change-backup-compartment-request";
 export import ChangeBackupCompartmentRequest = ChangeBackupCompartmentRequest.ChangeBackupCompartmentRequest;
+import * as CopyBackupRequest from "./copy-backup-request";
+export import CopyBackupRequest = CopyBackupRequest.CopyBackupRequest;
 import * as CreateBackupRequest from "./create-backup-request";
 export import CreateBackupRequest = CreateBackupRequest.CreateBackupRequest;
 import * as DeleteBackupRequest from "./delete-backup-request";

@@ -1114,6 +1114,93 @@ export class DbBackupsClient {
   }
 
   /**
+   * Creates a copy of a DB system backup available in the specified source region.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CopyBackupRequest
+   * @return CopyBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CopyBackup.ts.html |here} to see how to use CopyBackup API.
+   */
+  public async copyBackup(
+    copyBackupRequest: requests.CopyBackupRequest
+  ): Promise<responses.CopyBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#copyBackup.");
+    const operationName = "copyBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/CopyBackup";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": copyBackupRequest.ifMatch,
+      "opc-request-id": copyBackupRequest.opcRequestId,
+      "opc-retry-token": copyBackupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      copyBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/backups/actions/copy",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        copyBackupRequest.copyBackupDetails,
+        "CopyBackupDetails",
+        model.CopyBackupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CopyBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "backup",
+        bodyModel: model.Backup,
+        type: "model.Backup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a backup of a DB System.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

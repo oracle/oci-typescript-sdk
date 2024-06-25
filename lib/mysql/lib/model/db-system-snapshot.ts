@@ -138,6 +138,12 @@ export interface DbSystemSnapshot {
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
   "secureConnections"?: model.SecureConnectionDetails;
+  /**
+   * The region identifier of the region where the DB system exists.
+   * For more information, please see [Regions and Availability Domains](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm).
+   *
+   */
+  "region"?: string;
 }
 
 export namespace DbSystemSnapshot {

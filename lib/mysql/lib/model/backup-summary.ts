@@ -92,16 +92,46 @@ export interface BackupSummary {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The OCID of the immediate source DB system backup from which this DB system backup was copied.
+   *
+   */
+  "immediateSourceBackupId"?: string;
+  /**
+   * The OCID of the original source DB system backup from which this DB system backup was copied.
+   *
+   */
+  "originalSourceBackupId"?: string;
+  /**
+   * The date and time the DB system backup copy was created, as described by [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
+   *
+   */
+  "timeCopyCreated"?: Date;
+  "dbSystemSnapshotSummary"?: model.DbSystemSnapshotSummary;
 }
 
 export namespace BackupSummary {
   export function getJsonObj(obj: BackupSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbSystemSnapshotSummary": obj.dbSystemSnapshotSummary
+          ? model.DbSystemSnapshotSummary.getJsonObj(obj.dbSystemSnapshotSummary)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: BackupSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbSystemSnapshotSummary": obj.dbSystemSnapshotSummary
+          ? model.DbSystemSnapshotSummary.getDeserializedJsonObj(obj.dbSystemSnapshotSummary)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
