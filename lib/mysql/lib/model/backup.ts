@@ -105,6 +105,21 @@ export interface Backup {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The OCID of the immediate source DB system backup from which this DB system backup was copied.
+   *
+   */
+  "immediateSourceBackupId"?: string;
+  /**
+   * The OCID of the original source DB system backup from which this DB system backup was copied.
+   *
+   */
+  "originalSourceBackupId"?: string;
+  /**
+   * The date and time the DB system backup copy was created, as described by [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
+   *
+   */
+  "timeCopyCreated"?: Date;
 }
 
 export namespace Backup {
