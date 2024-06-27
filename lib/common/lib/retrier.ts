@@ -249,7 +249,7 @@ export class GenericRetrier {
       let timeElapsed = currentTime - timestamp.getTime();
       if (!shouldBeRetried || !GenericRetrier.isRequestRetryable(request)) {
         console.warn(
-          `Request cannot be retried. Not Retrying. Exception occurred : ${lastKnownError}`
+          `Request cannot be retried. Not Retrying. Exception occurred : ${JSON.stringify(lastKnownError, null, 2)}`
         );
         if (this.logger) {
           this.logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
@@ -258,7 +258,7 @@ export class GenericRetrier {
       } else if (this.retryConfiguration.terminationStrategy.shouldTerminate(waitContext)) {
         console.warn(
           `All retry attempts have exhausted. Total Attempts : ${waitContext.attemptCount +
-            1}. Last exception occurred : ${lastKnownError}`
+            1}. Last exception occurred : ${JSON.stringify(lastKnownError, null, 2)}`
         );
         if (this.logger) {
           this.logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
@@ -268,7 +268,7 @@ export class GenericRetrier {
       const delayTime = this.retryConfiguration.delayStrategy.delay(waitContext);
       waitContext.attemptCount++;
       console.warn(
-        `Request failed with Exception : ${lastKnownError}\nRetrying request -> Total Attempts : ${waitContext.attemptCount}, Retrying after ${delayTime} seconds...`
+        `Request failed with Exception : ${JSON.stringify(lastKnownError, null, 2)}\nRetrying request -> Total Attempts : ${waitContext.attemptCount}, Retrying after ${delayTime} seconds...`
       );
       await delay(delayTime);
       GenericRetrier.refreshRequest(request);
