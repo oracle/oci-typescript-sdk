@@ -27,7 +27,7 @@ export interface ListOperationsInsightsWarehousesRequest extends common.BaseRequ
    */
   "displayName"?: string;
   /**
-   * Unique Operations Insights Warehouse identifier
+   * Unique Ops Insights Warehouse identifier
    */
   "id"?: string;
   /**

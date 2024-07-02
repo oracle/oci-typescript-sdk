@@ -83,6 +83,10 @@ export interface SummarizeHostInsightNetworkUsageTrendRequest extends common.Bas
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Resource Status
+   */
+  "status"?: Array<model.ResourceStatus>;
 }
 
 export namespace SummarizeHostInsightNetworkUsageTrendRequest {

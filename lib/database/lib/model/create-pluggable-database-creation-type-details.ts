@@ -16,21 +16,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* The Pluggable Database creation type.
-* Use {@code LOCAL_CLONE_PDB} for creating a new PDB using Local Clone on Source Pluggable Database. This will Clone and starts a
-* pluggable database (PDB) in the same database (CDB) as the source PDB. The source PDB must be in the {@code READ_WRITE} openMode to
-* perform the clone operation.
-* Use {@code REMOTE_CLONE_PDB} for creating a new PDB using Remote Clone on Source Pluggable Database. This will Clone a pluggable
-* database (PDB) to a different database from the source PDB. The cloned PDB will be started upon completion of the clone
-* operation. The source PDB must be in the {@code READ_WRITE} openMode when performing the clone.
-* For Exadata Cloud@Customer instances, the source pluggable database (PDB) must be on the same Exadata Infrastructure as the
-* target container database (CDB) to create a remote clone.
-* <p>
-Use {@code RELOCATE_PDB} for relocating the Pluggable Database from Source CDB and creating it in target CDB. This will relocate a
-* pluggable database (PDB) to a different database from the source PDB. The source PDB must be in the {@code READ_WRITE} openMode when
-* performing the relocate.
-* 
-*/
+ * The Pluggable Database creation type.
+ * Use {@code LOCAL_CLONE_PDB} for creating a new PDB using Local Clone on Source Pluggable Database. This will Clone and starts a
+ * pluggable database (PDB) in the same database (CDB) as the source PDB. The source PDB must be in the {@code READ_WRITE} openMode to
+ * perform the clone operation.
+ *   sourcePluggableDatabaseSnapshotId and isThinClone options are supported only for Exadata VM cluster on Exascale Infrastructure.
+ * isThinClone options are supported only for Exadata VM cluster on Exascale Infrastructure.
+ * Use {@code REMOTE_CLONE_PDB} for creating a new PDB using Remote Clone on Source Pluggable Database. This will Clone a pluggable
+ * database (PDB) to a different database from the source PDB. The cloned PDB will be started upon completion of the clone
+ * operation. The source PDB must be in the {@code READ_WRITE} openMode when performing the clone.
+ * For Exadata Cloud@Customer instances, the source pluggable database (PDB) must be on the same Exadata Infrastructure as the
+ * target container database (CDB) to create a remote clone.
+ *   sourcePluggableDatabaseSnapshotId and isThinClone options are supported only for Exadata VM cluster on Exascale Infrastructure.
+ * isThinClone options are supported only for Exadata VM cluster on Exascale Infrastructure.
+ * Use {@code RELOCATE_PDB} for relocating the Pluggable Database from Source CDB and creating it in target CDB. This will relocate a
+ * pluggable database (PDB) to a different database from the source PDB. The source PDB must be in the {@code READ_WRITE} openMode when
+ * performing the relocate.
+ *
+ */
 export interface CreatePluggableDatabaseCreationTypeDetails {
   "creationType": string;
 }

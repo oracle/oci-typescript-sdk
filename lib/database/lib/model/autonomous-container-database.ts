@@ -124,7 +124,7 @@ export interface AutonomousContainerDatabase {
    */
   "isDstFileUpdateEnabled"?: boolean;
   /**
-   * DST Time-zone File version of the Autonomous Container Database.
+   * DST Time-Zone File version of the Autonomous Container Database.
    */
   "dstFileVersion"?: string;
   /**

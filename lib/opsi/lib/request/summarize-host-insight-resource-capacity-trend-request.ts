@@ -165,6 +165,10 @@ export interface SummarizeHostInsightResourceCapacityTrendRequest extends common
    * Percent value in which a resource metric is considered low utilized.
    */
   "lowUtilizationThreshold"?: number;
+  /**
+   * Resource Status
+   */
+  "status"?: Array<model.ResourceStatus>;
 }
 
 export namespace SummarizeHostInsightResourceCapacityTrendRequest {

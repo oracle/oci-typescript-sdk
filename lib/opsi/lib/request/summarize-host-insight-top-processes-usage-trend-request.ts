@@ -100,6 +100,10 @@ export interface SummarizeHostInsightTopProcessesUsageTrendRequest extends commo
    * Choose the type of statistic metric data to be used for forecasting.
    */
   "statistic"?: SummarizeHostInsightTopProcessesUsageTrendRequest.Statistic;
+  /**
+   * Resource Status
+   */
+  "status"?: Array<model.ResourceStatus>;
 }
 
 export namespace SummarizeHostInsightTopProcessesUsageTrendRequest {

@@ -140,6 +140,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "dbNodeStorageSizeInGBs"?: number;
   /**
+   * The total number of CPU cores reserved on the Db node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalCpuCoreCount"?: number;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exacc Db server associated with the database node.
    */
   "dbServerId"?: string;
@@ -165,6 +169,7 @@ export namespace DbNodeSummary {
 
   export enum MaintenanceType {
     VmdbRebootMigration = "VMDB_REBOOT_MIGRATION",
+    ExadbxsRebootMigration = "EXADBXS_REBOOT_MIGRATION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

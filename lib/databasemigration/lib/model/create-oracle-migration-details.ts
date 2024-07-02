@@ -28,6 +28,10 @@ export interface CreateOracleMigrationDetails extends model.CreateMigrationDetai
   "hubDetails"?: model.CreateGoldenGateHubDetails;
   "ggsDetails"?: model.CreateOracleGgsDeploymentDetails;
   /**
+   * List of Migration Parameter objects.
+   */
+  "advancedParameters"?: Array<model.MigrationParameterDetails>;
+  /**
    * The OCID of the resource being referenced.
    */
   "sourceContainerDatabaseConnectionId"?: string;
@@ -73,6 +77,11 @@ export namespace CreateOracleMigrationDetails {
         "ggsDetails": obj.ggsDetails
           ? model.CreateOracleGgsDeploymentDetails.getJsonObj(obj.ggsDetails)
           : undefined,
+        "advancedParameters": obj.advancedParameters
+          ? obj.advancedParameters.map(item => {
+              return model.MigrationParameterDetails.getJsonObj(item);
+            })
+          : undefined,
 
         "excludeObjects": obj.excludeObjects
           ? obj.excludeObjects.map(item => {
@@ -117,6 +126,11 @@ export namespace CreateOracleMigrationDetails {
           : undefined,
         "ggsDetails": obj.ggsDetails
           ? model.CreateOracleGgsDeploymentDetails.getDeserializedJsonObj(obj.ggsDetails)
+          : undefined,
+        "advancedParameters": obj.advancedParameters
+          ? obj.advancedParameters.map(item => {
+              return model.MigrationParameterDetails.getDeserializedJsonObj(item);
+            })
           : undefined,
 
         "excludeObjects": obj.excludeObjects

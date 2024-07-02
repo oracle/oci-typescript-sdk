@@ -108,6 +108,10 @@ export interface ListHostedEntitiesRequest extends common.BaseRequest {
    *
    */
   "hostId"?: string;
+  /**
+   * Resource Status
+   */
+  "status"?: Array<model.ResourceStatus>;
 }
 
 export namespace ListHostedEntitiesRequest {

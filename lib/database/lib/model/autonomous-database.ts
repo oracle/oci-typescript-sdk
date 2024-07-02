@@ -159,8 +159,13 @@ For Autonomous Databases on Dedicated Exadata Infrastructure, the maximum number
    */
   "provisionableCpus"?: Array<number>;
   /**
-   * The quantity of data in the database, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The quantity of data in the database, in terabytes.
+* <p>
+The following points apply to Autonomous Databases on Serverless Infrastructure:
+* - This is an integer field whose value remains null when the data size is in GBs and cannot be converted to TBs (by dividing the GB value by 1024) without rounding error.
+* - To get the exact value of data storage size without rounding error, please see {@code dataStorageSizeInGBs} of Autonomous Database.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "dataStorageSizeInTBs": number;
   /**
    * The amount of memory (in GBs) enabled per ECPU or OCPU.
@@ -168,8 +173,11 @@ For Autonomous Databases on Dedicated Exadata Infrastructure, the maximum number
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**
-   * The quantity of data in the database, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The quantity of data in the database, in gigabytes.
+* <p>
+For Autonomous Transaction Processing databases using ECPUs on Serverless Infrastructure, this value is always populated. In all the other cases, this value will be null and {@code dataStorageSizeInTBs} will be populated instead.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "dataStorageSizeInGBs"?: number;
   /**
    * The storage space consumed by Autonomous Database in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -220,7 +228,7 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
     */
   "licenseModel"?: AutonomousDatabase.LicenseModel;
   /**
-   * The amount of storage that has been used, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of storage that has been used for Autonomous Databases in dedicated infrastructure, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usedDataStorageSizeInTBs"?: number;
   /**

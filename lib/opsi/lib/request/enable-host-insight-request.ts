@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface EnableHostInsightRequest extends common.BaseRequest {
   /**
-   * Details for the host to be enabled in Operations Insights.
+   * Details for the host to be enabled in Ops Insights.
    */
   "enableHostInsightDetails":
     | model.EnableMacsManagedExternalHostInsightDetails

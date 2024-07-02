@@ -111,6 +111,14 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "isHydrated"?: boolean;
   /**
+   * Specifies the total number of children of a file system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cloneCount"?: number;
+  /**
+   * Specifies whether the file system is attached to its parent file system.
+   */
+  "cloneAttachStatus"?: FileSystem.CloneAttachStatus;
+  /**
    * Additional information about the current 'lifecycleState'.
    */
   "lifecycleDetails"?: string;
@@ -138,9 +146,21 @@ export namespace FileSystem {
   export enum LifecycleState {
     Creating = "CREATING",
     Active = "ACTIVE",
+    Updating = "UPDATING",
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum CloneAttachStatus {
+    Attached = "ATTACHED",
+    Detaching = "DETACHING",
+    Detached = "DETACHED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

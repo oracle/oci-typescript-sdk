@@ -67,6 +67,10 @@ export interface SummarizeHostInsightDiskStatisticsRequest extends common.BaseRe
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Resource Status
+   */
+  "status"?: Array<model.ResourceStatus>;
 }
 
 export namespace SummarizeHostInsightDiskStatisticsRequest {

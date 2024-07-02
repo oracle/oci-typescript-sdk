@@ -1,8 +1,8 @@
 /**
- * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database
+ * Ops Insights API
+ * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -44,6 +44,10 @@ export namespace HostPerformanceMetricGroup {
           return model.HostTopProcesses.getJsonObj(<model.HostTopProcesses>(<object>jsonObj), true);
         case "HOST_CPU_USAGE":
           return model.HostCpuUsage.getJsonObj(<model.HostCpuUsage>(<object>jsonObj), true);
+        case "HOST_GPU_USAGE":
+          return model.HostGpuUsage.getJsonObj(<model.HostGpuUsage>(<object>jsonObj), true);
+        case "HOST_GPU_PROCESSES":
+          return model.HostGpuProcesses.getJsonObj(<model.HostGpuProcesses>(<object>jsonObj), true);
         case "HOST_FILESYSTEM_USAGE":
           return model.HostFilesystemUsage.getJsonObj(
             <model.HostFilesystemUsage>(<object>jsonObj),
@@ -78,6 +82,16 @@ export namespace HostPerformanceMetricGroup {
         case "HOST_CPU_USAGE":
           return model.HostCpuUsage.getDeserializedJsonObj(
             <model.HostCpuUsage>(<object>jsonObj),
+            true
+          );
+        case "HOST_GPU_USAGE":
+          return model.HostGpuUsage.getDeserializedJsonObj(
+            <model.HostGpuUsage>(<object>jsonObj),
+            true
+          );
+        case "HOST_GPU_PROCESSES":
+          return model.HostGpuProcesses.getDeserializedJsonObj(
+            <model.HostGpuProcesses>(<object>jsonObj),
             true
           );
         case "HOST_FILESYSTEM_USAGE":

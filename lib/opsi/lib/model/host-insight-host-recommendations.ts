@@ -1,8 +1,8 @@
 /**
- * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database
+ * Ops Insights API
+ * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -36,6 +36,21 @@ export namespace HostInsightHostRecommendations {
             <model.HostCpuRecommendations>(<object>jsonObj),
             true
           );
+        case "HOST_NETWORK_RECOMMENDATIONS":
+          return model.HostNetworkRecommendations.getJsonObj(
+            <model.HostNetworkRecommendations>(<object>jsonObj),
+            true
+          );
+        case "HOST_MEMORY_RECOMMENDATIONS":
+          return model.HostMemoryRecommendations.getJsonObj(
+            <model.HostMemoryRecommendations>(<object>jsonObj),
+            true
+          );
+        case "HOST_STORAGE_RECOMMENDATIONS":
+          return model.HostStorageRecommendations.getJsonObj(
+            <model.HostStorageRecommendations>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger)
             common.LOG.logger.info(`Unknown value for: ${obj.metricRecommendationName}`);
@@ -51,6 +66,21 @@ export namespace HostInsightHostRecommendations {
         case "HOST_CPU_RECOMMENDATIONS":
           return model.HostCpuRecommendations.getDeserializedJsonObj(
             <model.HostCpuRecommendations>(<object>jsonObj),
+            true
+          );
+        case "HOST_NETWORK_RECOMMENDATIONS":
+          return model.HostNetworkRecommendations.getDeserializedJsonObj(
+            <model.HostNetworkRecommendations>(<object>jsonObj),
+            true
+          );
+        case "HOST_MEMORY_RECOMMENDATIONS":
+          return model.HostMemoryRecommendations.getDeserializedJsonObj(
+            <model.HostMemoryRecommendations>(<object>jsonObj),
+            true
+          );
+        case "HOST_STORAGE_RECOMMENDATIONS":
+          return model.HostStorageRecommendations.getDeserializedJsonObj(
+            <model.HostStorageRecommendations>(<object>jsonObj),
             true
           );
         default:

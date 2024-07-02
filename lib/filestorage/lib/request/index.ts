@@ -53,6 +53,8 @@ import * as DeleteReplicationTargetRequest from "./delete-replication-target-req
 export import DeleteReplicationTargetRequest = DeleteReplicationTargetRequest.DeleteReplicationTargetRequest;
 import * as DeleteSnapshotRequest from "./delete-snapshot-request";
 export import DeleteSnapshotRequest = DeleteSnapshotRequest.DeleteSnapshotRequest;
+import * as DetachCloneRequest from "./detach-clone-request";
+export import DetachCloneRequest = DetachCloneRequest.DetachCloneRequest;
 import * as EstimateReplicationRequest from "./estimate-replication-request";
 export import EstimateReplicationRequest = EstimateReplicationRequest.EstimateReplicationRequest;
 import * as GetExportRequest from "./get-export-request";

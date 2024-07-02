@@ -28,6 +28,10 @@ export interface UpdateOracleMigrationDetails extends model.UpdateMigrationDetai
   "hubDetails"?: model.UpdateGoldenGateHubDetails;
   "ggsDetails"?: model.UpdateOracleGgsDeploymentDetails;
   /**
+   * List of Migration Parameter objects.
+   */
+  "advancedParameters"?: Array<model.MigrationParameterDetails>;
+  /**
    * The OCID of the resource being referenced.
    */
   "sourceContainerDatabaseConnectionId"?: string;
@@ -56,6 +60,11 @@ export namespace UpdateOracleMigrationDetails {
           : undefined,
         "ggsDetails": obj.ggsDetails
           ? model.UpdateOracleGgsDeploymentDetails.getJsonObj(obj.ggsDetails)
+          : undefined,
+        "advancedParameters": obj.advancedParameters
+          ? obj.advancedParameters.map(item => {
+              return model.MigrationParameterDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -90,6 +99,11 @@ export namespace UpdateOracleMigrationDetails {
           : undefined,
         "ggsDetails": obj.ggsDetails
           ? model.UpdateOracleGgsDeploymentDetails.getDeserializedJsonObj(obj.ggsDetails)
+          : undefined,
+        "advancedParameters": obj.advancedParameters
+          ? obj.advancedParameters.map(item => {
+              return model.MigrationParameterDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

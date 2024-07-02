@@ -53,6 +53,8 @@ import * as DeleteReplicationTargetResponse from "./delete-replication-target-re
 export import DeleteReplicationTargetResponse = DeleteReplicationTargetResponse.DeleteReplicationTargetResponse;
 import * as DeleteSnapshotResponse from "./delete-snapshot-response";
 export import DeleteSnapshotResponse = DeleteSnapshotResponse.DeleteSnapshotResponse;
+import * as DetachCloneResponse from "./detach-clone-response";
+export import DetachCloneResponse = DetachCloneResponse.DetachCloneResponse;
 import * as EstimateReplicationResponse from "./estimate-replication-response";
 export import EstimateReplicationResponse = EstimateReplicationResponse.EstimateReplicationResponse;
 import * as GetExportResponse from "./get-export-response";

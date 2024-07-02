@@ -17,13 +17,13 @@ import common = require("oci-common");
 
 /**
  * Details to create an Oracle Autonomous Database.
- * <p>
- **Notes:**
+ *
+ * **Notes:**
  * - To specify OCPU core count, you must use either {@code ocpuCount} or {@code cpuCoreCount}. You cannot use both parameters at the same time. For Autonomous Database Serverless instances, {@code ocpuCount} is not used.
  * - To specify a storage allocation, you must use  either {@code dataStorageSizeInGBs} or {@code dataStorageSizeInTBs}.
  * - See the individual parameter discriptions for more information on the OCPU and storage value parameters.
- * <p>
- **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
+ *
+ * **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
  */
 export interface CreateAutonomousDatabaseBase {
@@ -435,14 +435,14 @@ export namespace CreateAutonomousDatabaseBase {
             <model.CreateCrossRegionDisasterRecoveryDetails>(<object>jsonObj),
             true
           );
-        case "CROSS_TENANCY_DISASTER_RECOVERY":
-          return model.CreateCrossTenancyDisasterRecoveryDetails.getJsonObj(
-            <model.CreateCrossTenancyDisasterRecoveryDetails>(<object>jsonObj),
-            true
-          );
         case "BACKUP_FROM_TIMESTAMP":
           return model.CreateAutonomousDatabaseFromBackupTimestampDetails.getJsonObj(
             <model.CreateAutonomousDatabaseFromBackupTimestampDetails>(<object>jsonObj),
+            true
+          );
+        case "CROSS_TENANCY_DISASTER_RECOVERY":
+          return model.CreateCrossTenancyDisasterRecoveryDetails.getJsonObj(
+            <model.CreateCrossTenancyDisasterRecoveryDetails>(<object>jsonObj),
             true
           );
         case "CROSS_REGION_DATAGUARD":
@@ -511,14 +511,14 @@ export namespace CreateAutonomousDatabaseBase {
             <model.CreateCrossRegionDisasterRecoveryDetails>(<object>jsonObj),
             true
           );
-        case "CROSS_TENANCY_DISASTER_RECOVERY":
-          return model.CreateCrossTenancyDisasterRecoveryDetails.getDeserializedJsonObj(
-            <model.CreateCrossTenancyDisasterRecoveryDetails>(<object>jsonObj),
-            true
-          );
         case "BACKUP_FROM_TIMESTAMP":
           return model.CreateAutonomousDatabaseFromBackupTimestampDetails.getDeserializedJsonObj(
             <model.CreateAutonomousDatabaseFromBackupTimestampDetails>(<object>jsonObj),
+            true
+          );
+        case "CROSS_TENANCY_DISASTER_RECOVERY":
+          return model.CreateCrossTenancyDisasterRecoveryDetails.getDeserializedJsonObj(
+            <model.CreateCrossTenancyDisasterRecoveryDetails>(<object>jsonObj),
             true
           );
         case "CROSS_REGION_DATAGUARD":

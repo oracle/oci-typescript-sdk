@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateOperationsInsightsWarehouseRequest extends common.BaseRequest {
   /**
-   * Details using which an Operations Insights Warehouse resource will be created in Operations Insights.
+   * Details using which an Ops Insights Warehouse resource will be created in Ops Insights.
    */
   "createOperationsInsightsWarehouseDetails": model.CreateOperationsInsightsWarehouseDetails;
   /**

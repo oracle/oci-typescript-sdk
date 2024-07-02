@@ -130,6 +130,10 @@ export interface ListHostConfigurationsRequest extends common.BaseRequest {
    *
    */
   "vmclusterName"?: Array<string>;
+  /**
+   * Resource Status
+   */
+  "status"?: Array<model.ResourceStatus>;
 }
 
 export namespace ListHostConfigurationsRequest {

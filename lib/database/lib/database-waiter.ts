@@ -657,6 +657,68 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeExadbVmClusterCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeExadbVmClusterCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeExadbVmClusterCompartment(
+    request: serviceRequests.ChangeExadbVmClusterCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeExadbVmClusterCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeExadbVmClusterCompartmentResponse = await this.client.changeExadbVmClusterCompartment(
+      request
+    );
+    if (changeExadbVmClusterCompartmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeExadbVmClusterCompartmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeExadbVmClusterCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeExadbVmClusterCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeExascaleDbStorageVaultCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeExascaleDbStorageVaultCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeExascaleDbStorageVaultCompartment(
+    request: serviceRequests.ChangeExascaleDbStorageVaultCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeExascaleDbStorageVaultCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeExascaleDbStorageVaultCompartmentResponse = await this.client.changeExascaleDbStorageVaultCompartment(
+      request
+    );
+    if (changeExascaleDbStorageVaultCompartmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeExascaleDbStorageVaultCompartmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeExascaleDbStorageVaultCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeExascaleDbStorageVaultCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeExternalContainerDatabaseCompartment
    *
    * @param request the request to send
@@ -1526,6 +1588,60 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateExadbVmCluster
+   *
+   * @param request the request to send
+   * @return response returns CreateExadbVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateExadbVmCluster(
+    request: serviceRequests.CreateExadbVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.CreateExadbVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createExadbVmClusterResponse = await this.client.createExadbVmCluster(request);
+    if (createExadbVmClusterResponse.opcWorkRequestId === undefined)
+      return { response: createExadbVmClusterResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createExadbVmClusterResponse.opcWorkRequestId
+    );
+    return { response: createExadbVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateExascaleDbStorageVault
+   *
+   * @param request the request to send
+   * @return response returns CreateExascaleDbStorageVaultResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateExascaleDbStorageVault(
+    request: serviceRequests.CreateExascaleDbStorageVaultRequest
+  ): Promise<{
+    response: serviceResponses.CreateExascaleDbStorageVaultResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createExascaleDbStorageVaultResponse = await this.client.createExascaleDbStorageVault(
+      request
+    );
+    if (createExascaleDbStorageVaultResponse.opcWorkRequestId === undefined)
+      return {
+        response: createExascaleDbStorageVaultResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createExascaleDbStorageVaultResponse.opcWorkRequestId
+    );
+    return {
+      response: createExascaleDbStorageVaultResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateExternalBackupJob
    *
    * @param request the request to send
@@ -2194,6 +2310,60 @@ export class DatabaseWaiter {
     );
     return {
       response: deleteExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteExadbVmCluster
+   *
+   * @param request the request to send
+   * @return response returns DeleteExadbVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteExadbVmCluster(
+    request: serviceRequests.DeleteExadbVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.DeleteExadbVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteExadbVmClusterResponse = await this.client.deleteExadbVmCluster(request);
+    if (deleteExadbVmClusterResponse.opcWorkRequestId === undefined)
+      return { response: deleteExadbVmClusterResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteExadbVmClusterResponse.opcWorkRequestId
+    );
+    return { response: deleteExadbVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteExascaleDbStorageVault
+   *
+   * @param request the request to send
+   * @return response returns DeleteExascaleDbStorageVaultResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteExascaleDbStorageVault(
+    request: serviceRequests.DeleteExascaleDbStorageVaultRequest
+  ): Promise<{
+    response: serviceResponses.DeleteExascaleDbStorageVaultResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteExascaleDbStorageVaultResponse = await this.client.deleteExascaleDbStorageVault(
+      request
+    );
+    if (deleteExascaleDbStorageVaultResponse.opcWorkRequestId === undefined)
+      return {
+        response: deleteExascaleDbStorageVaultResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteExascaleDbStorageVaultResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteExascaleDbStorageVaultResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -3856,6 +4026,80 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forExadbVmCluster till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExadbVmClusterResponse | null (null in case of 404 response)
+   */
+  public async forExadbVmCluster(
+    request: serviceRequests.GetExadbVmClusterRequest,
+    ...targetStates: models.ExadbVmCluster.LifecycleState[]
+  ): Promise<serviceResponses.GetExadbVmClusterResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getExadbVmCluster(request),
+      response => targetStates.includes(response.exadbVmCluster.lifecycleState!),
+      targetStates.includes(models.ExadbVmCluster.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forExadbVmClusterUpdate till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExadbVmClusterUpdateResponse
+   */
+  public async forExadbVmClusterUpdate(
+    request: serviceRequests.GetExadbVmClusterUpdateRequest,
+    ...targetStates: models.ExadbVmClusterUpdate.LifecycleState[]
+  ): Promise<serviceResponses.GetExadbVmClusterUpdateResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getExadbVmClusterUpdate(request),
+      response => targetStates.includes(response.exadbVmClusterUpdate.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forExadbVmClusterUpdateHistoryEntry till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExadbVmClusterUpdateHistoryEntryResponse
+   */
+  public async forExadbVmClusterUpdateHistoryEntry(
+    request: serviceRequests.GetExadbVmClusterUpdateHistoryEntryRequest,
+    ...targetStates: models.ExadbVmClusterUpdateHistoryEntry.LifecycleState[]
+  ): Promise<serviceResponses.GetExadbVmClusterUpdateHistoryEntryResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getExadbVmClusterUpdateHistoryEntry(request),
+      response => targetStates.includes(response.exadbVmClusterUpdateHistoryEntry.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forExascaleDbStorageVault till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExascaleDbStorageVaultResponse | null (null in case of 404 response)
+   */
+  public async forExascaleDbStorageVault(
+    request: serviceRequests.GetExascaleDbStorageVaultRequest,
+    ...targetStates: models.ExascaleDbStorageVault.LifecycleState[]
+  ): Promise<serviceResponses.GetExascaleDbStorageVaultResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getExascaleDbStorageVault(request),
+      response => targetStates.includes(response.exascaleDbStorageVault.lifecycleState!),
+      targetStates.includes(models.ExascaleDbStorageVault.LifecycleState.Terminated)
+    );
+  }
+
+  /**
    * Waits forExternalContainerDatabase till it reaches any of the provided states
    *
    * @param request the request to send
@@ -4475,6 +4719,37 @@ export class DatabaseWaiter {
     );
     return {
       response: removeVirtualMachineFromCloudVmClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRemoveVirtualMachineFromExadbVmCluster
+   *
+   * @param request the request to send
+   * @return response returns RemoveVirtualMachineFromExadbVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forRemoveVirtualMachineFromExadbVmCluster(
+    request: serviceRequests.RemoveVirtualMachineFromExadbVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.RemoveVirtualMachineFromExadbVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const removeVirtualMachineFromExadbVmClusterResponse = await this.client.removeVirtualMachineFromExadbVmCluster(
+      request
+    );
+    if (removeVirtualMachineFromExadbVmClusterResponse.opcWorkRequestId === undefined)
+      return {
+        response: removeVirtualMachineFromExadbVmClusterResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      removeVirtualMachineFromExadbVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: removeVirtualMachineFromExadbVmClusterResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -5848,6 +6123,60 @@ export class DatabaseWaiter {
     );
     return {
       response: updateExadataIormConfigResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateExadbVmCluster
+   *
+   * @param request the request to send
+   * @return response returns UpdateExadbVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateExadbVmCluster(
+    request: serviceRequests.UpdateExadbVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.UpdateExadbVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateExadbVmClusterResponse = await this.client.updateExadbVmCluster(request);
+    if (updateExadbVmClusterResponse.opcWorkRequestId === undefined)
+      return { response: updateExadbVmClusterResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateExadbVmClusterResponse.opcWorkRequestId
+    );
+    return { response: updateExadbVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateExascaleDbStorageVault
+   *
+   * @param request the request to send
+   * @return response returns UpdateExascaleDbStorageVaultResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateExascaleDbStorageVault(
+    request: serviceRequests.UpdateExascaleDbStorageVaultRequest
+  ): Promise<{
+    response: serviceResponses.UpdateExascaleDbStorageVaultResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateExascaleDbStorageVaultResponse = await this.client.updateExascaleDbStorageVault(
+      request
+    );
+    if (updateExascaleDbStorageVaultResponse.opcWorkRequestId === undefined)
+      return {
+        response: updateExascaleDbStorageVaultResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateExascaleDbStorageVaultResponse.opcWorkRequestId
+    );
+    return {
+      response: updateExascaleDbStorageVaultResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

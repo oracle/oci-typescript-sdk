@@ -1,8 +1,8 @@
 /**
- * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database
+ * Ops Insights API
+ * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -23,9 +23,21 @@ import common = require("oci-common");
  */
 export interface HostCpuRecommendations extends model.HostInsightHostRecommendations {
   /**
-   * Show if OPSI recommend to convert an instance to a burstable instance and show recommended cpu baseline if positive recommendation.
+   * Show if OPSI recommends to convert an instance to a burstable instance and show recommended cpu baseline if positive recommendation.
    */
   "burstable"?: HostCpuRecommendations.Burstable;
+  /**
+   * Show if OPSI recommends to change the shape of an instance and show recommended shape based on CPU utilization.
+   */
+  "shape"?: string;
+  /**
+   * Identify unused instances based on cpu, memory and network metrics.
+   */
+  "unusedInstance"?: HostCpuRecommendations.UnusedInstance;
+  /**
+   * Identify if an instance is abandoned.
+   */
+  "isAbandonedInstance"?: boolean;
 
   "metricRecommendationName": string;
 }
@@ -36,6 +48,17 @@ export namespace HostCpuRecommendations {
     Baseline12 = "BASELINE_1_2",
     NoRecommendation = "NO_RECOMMENDATION",
     DisableBurstable = "DISABLE_BURSTABLE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum UnusedInstance {
+    InUse = "IN_USE",
+    NotInUse = "NOT_IN_USE",
+    IsNotDetermined = "IS_NOT_DETERMINED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -1,8 +1,8 @@
 /**
- * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database
+ * Ops Insights API
+ * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -239,8 +239,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#addExadataInsightMembers.");
     const operationName = "addExadataInsightMembers";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/AddExadataInsightMembers";
+    const apiReferenceLink = "";
     const pathParams = {
       "{exadataInsightId}": addExadataInsightMembersRequest.exadataInsightId
     };
@@ -321,8 +320,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#changeAutonomousDatabaseInsightAdvancedFeatures."
       );
     const operationName = "changeAutonomousDatabaseInsightAdvancedFeatures";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ChangeAutonomousDatabaseInsightAdvancedFeatures";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseInsightId}":
         changeAutonomousDatabaseInsightAdvancedFeaturesRequest.databaseInsightId
@@ -405,8 +403,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#changeAwrHubSourceCompartment."
       );
     const operationName = "changeAwrHubSourceCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/ChangeAwrHubSourceCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": changeAwrHubSourceCompartmentRequest.awrHubSourceId
     };
@@ -487,8 +484,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#changeDatabaseInsightCompartment."
       );
     const operationName = "changeDatabaseInsightCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ChangeDatabaseInsightCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseInsightId}": changeDatabaseInsightCompartmentRequest.databaseInsightId
     };
@@ -569,8 +565,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#changeEnterpriseManagerBridgeCompartment."
       );
     const operationName = "changeEnterpriseManagerBridgeCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/ChangeEnterpriseManagerBridgeCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{enterpriseManagerBridgeId}":
         changeEnterpriseManagerBridgeCompartmentRequest.enterpriseManagerBridgeId
@@ -651,8 +646,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#changeExadataInsightCompartment."
       );
     const operationName = "changeExadataInsightCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/ChangeExadataInsightCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{exadataInsightId}": changeExadataInsightCompartmentRequest.exadataInsightId
     };
@@ -731,8 +725,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#changeHostInsightCompartment.");
     const operationName = "changeHostInsightCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ChangeHostInsightCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{hostInsightId}": changeHostInsightCompartmentRequest.hostInsightId
     };
@@ -811,8 +804,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#changeNewsReportCompartment.");
     const operationName = "changeNewsReportCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/ChangeNewsReportCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{newsReportId}": changeNewsReportCompartmentRequest.newsReportId
     };
@@ -893,8 +885,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#changeOperationsInsightsPrivateEndpointCompartment."
       );
     const operationName = "changeOperationsInsightsPrivateEndpointCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/ChangeOperationsInsightsPrivateEndpointCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsPrivateEndpointId}":
         changeOperationsInsightsPrivateEndpointCompartmentRequest.operationsInsightsPrivateEndpointId
@@ -977,8 +968,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#changeOperationsInsightsWarehouseCompartment."
       );
     const operationName = "changeOperationsInsightsWarehouseCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/ChangeOperationsInsightsWarehouseCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsWarehouseId}":
         changeOperationsInsightsWarehouseCompartmentRequest.operationsInsightsWarehouseId
@@ -1061,8 +1051,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#changeOpsiConfigurationCompartment."
       );
     const operationName = "changeOpsiConfigurationCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/ChangeOpsiConfigurationCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{opsiConfigurationId}": changeOpsiConfigurationCompartmentRequest.opsiConfigurationId
     };
@@ -1143,8 +1132,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#changePeComanagedDatabaseInsight."
       );
     const operationName = "changePeComanagedDatabaseInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ChangePeComanagedDatabaseInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseInsightId}": changePeComanagedDatabaseInsightRequest.databaseInsightId
     };
@@ -1224,8 +1212,7 @@ export class OperationsInsightsClient {
   ): Promise<responses.CreateAwrHubResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#createAwrHub.");
     const operationName = "createAwrHub";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/CreateAwrHub";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1321,8 +1308,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#createAwrHubSource.");
     const operationName = "createAwrHubSource";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/CreateAwrHubSource";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1408,8 +1394,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#createDatabaseInsight.");
     const operationName = "createDatabaseInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/CreateDatabaseInsight";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1507,8 +1492,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#createEnterpriseManagerBridge."
       );
     const operationName = "createEnterpriseManagerBridge";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/CreateEnterpriseManagerBridge";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1604,8 +1588,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#createExadataInsight.");
     const operationName = "createExadataInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/CreateExadataInsight";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1687,7 +1670,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Create a Host Insight resource for a host in Operations Insights. The host will be enabled in Operations Insights. Host metric collection and analysis will be started.
+   * Create a Host Insight resource for a host in Ops Insights. The host will be enabled in Ops Insights. Host metric collection and analysis will be started.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateHostInsightRequest
@@ -1701,8 +1684,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#createHostInsight.");
     const operationName = "createHostInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/CreateHostInsight";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1784,7 +1766,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Create a news report in Operations Insights. The report will be enabled in Operations Insights. Insights will be emailed as per selected frequency.
+   * Create a news report in Ops Insights. The report will be enabled in Ops Insights. Insights will be emailed as per selected frequency.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateNewsReportRequest
@@ -1798,8 +1780,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#createNewsReport.");
     const operationName = "createNewsReport";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/CreateNewsReport";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1881,7 +1862,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Create a private endpoint resource for the tenant in Operations Insights.
+   * Create a private endpoint resource for the tenant in Ops Insights.
    * This resource will be created in customer compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1898,8 +1879,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#createOperationsInsightsPrivateEndpoint."
       );
     const operationName = "createOperationsInsightsPrivateEndpoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/CreateOperationsInsightsPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1981,7 +1961,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Create a Operations Insights Warehouse resource for the tenant in Operations Insights. New ADW will be provisioned for this tenant.
+   * Create a Ops Insights Warehouse resource for the tenant in Ops Insights. New ADW will be provisioned for this tenant.
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment. If the 'opsi-warehouse-type'
    * header is passed to the API, a warehouse resource without ADW or Schema provisioning is created.
    *
@@ -1999,8 +1979,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#createOperationsInsightsWarehouse."
       );
     const operationName = "createOperationsInsightsWarehouse";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/CreateOperationsInsightsWarehouse";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -2099,8 +2078,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#createOperationsInsightsWarehouseUser."
       );
     const operationName = "createOperationsInsightsWarehouseUser";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouseUsers/CreateOperationsInsightsWarehouseUser";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -2196,8 +2174,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#createOpsiConfiguration.");
     const operationName = "createOpsiConfiguration";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/CreateOpsiConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2286,8 +2263,7 @@ export class OperationsInsightsClient {
   ): Promise<responses.DeleteAwrHubResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#deleteAwrHub.");
     const operationName = "deleteAwrHub";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/DeleteAwrHub";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": deleteAwrHubRequest.awrHubId
     };
@@ -2360,8 +2336,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#deleteAwrHubObject.");
     const operationName = "deleteAwrHubObject";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/DeleteAwrHubObject";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": deleteAwrHubObjectRequest.awrHubSourceId,
       "{objectName}": deleteAwrHubObjectRequest.objectName
@@ -2450,8 +2425,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#deleteAwrHubSource.");
     const operationName = "deleteAwrHubSource";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/DeleteAwrHubSource";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": deleteAwrHubSourceRequest.awrHubSourceId
     };
@@ -2524,8 +2498,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#deleteDatabaseInsight.");
     const operationName = "deleteDatabaseInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/DeleteDatabaseInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseInsightId}": deleteDatabaseInsightRequest.databaseInsightId
     };
@@ -2600,8 +2573,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#deleteEnterpriseManagerBridge."
       );
     const operationName = "deleteEnterpriseManagerBridge";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/DeleteEnterpriseManagerBridge";
+    const apiReferenceLink = "";
     const pathParams = {
       "{enterpriseManagerBridgeId}": deleteEnterpriseManagerBridgeRequest.enterpriseManagerBridgeId
     };
@@ -2674,8 +2646,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#deleteExadataInsight.");
     const operationName = "deleteExadataInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/DeleteExadataInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{exadataInsightId}": deleteExadataInsightRequest.exadataInsightId
     };
@@ -2748,8 +2719,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#deleteHostInsight.");
     const operationName = "deleteHostInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/DeleteHostInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{hostInsightId}": deleteHostInsightRequest.hostInsightId
     };
@@ -2822,8 +2792,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#deleteNewsReport.");
     const operationName = "deleteNewsReport";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/DeleteNewsReport";
+    const apiReferenceLink = "";
     const pathParams = {
       "{newsReportId}": deleteNewsReportRequest.newsReportId
     };
@@ -2898,8 +2867,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#deleteOperationsInsightsPrivateEndpoint."
       );
     const operationName = "deleteOperationsInsightsPrivateEndpoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/DeleteOperationsInsightsPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsPrivateEndpointId}":
         deleteOperationsInsightsPrivateEndpointRequest.operationsInsightsPrivateEndpointId
@@ -2979,8 +2947,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#deleteOperationsInsightsWarehouse."
       );
     const operationName = "deleteOperationsInsightsWarehouse";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/DeleteOperationsInsightsWarehouse";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsWarehouseId}":
         deleteOperationsInsightsWarehouseRequest.operationsInsightsWarehouseId
@@ -3056,8 +3023,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#deleteOperationsInsightsWarehouseUser."
       );
     const operationName = "deleteOperationsInsightsWarehouseUser";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouseUsers/DeleteOperationsInsightsWarehouseUser";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsWarehouseUserId}":
         deleteOperationsInsightsWarehouseUserRequest.operationsInsightsWarehouseUserId
@@ -3131,8 +3097,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#deleteOpsiConfiguration.");
     const operationName = "deleteOpsiConfiguration";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/DeleteOpsiConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {
       "{opsiConfigurationId}": deleteOpsiConfigurationRequest.opsiConfigurationId
     };
@@ -3207,8 +3172,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#disableAutonomousDatabaseInsightAdvancedFeatures."
       );
     const operationName = "disableAutonomousDatabaseInsightAdvancedFeatures";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/DisableAutonomousDatabaseInsightAdvancedFeatures";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseInsightId}":
         disableAutonomousDatabaseInsightAdvancedFeaturesRequest.databaseInsightId
@@ -3284,8 +3248,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#disableAwrHubSource.");
     const operationName = "disableAwrHubSource";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/DisableAwrHubSource";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": disableAwrHubSourceRequest.awrHubSourceId
     };
@@ -3359,8 +3322,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#disableDatabaseInsight.");
     const operationName = "disableDatabaseInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/DisableDatabaseInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseInsightId}": disableDatabaseInsightRequest.databaseInsightId
     };
@@ -3434,8 +3396,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#disableExadataInsight.");
     const operationName = "disableExadataInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/DisableExadataInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{exadataInsightId}": disableExadataInsightRequest.exadataInsightId
     };
@@ -3496,7 +3457,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Disables a host in Operations Insights. Host metric collection and analysis will be stopped.
+   * Disables a host in Ops Insights. Host metric collection and analysis will be stopped.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisableHostInsightRequest
    * @return DisableHostInsightResponse
@@ -3509,8 +3470,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#disableHostInsight.");
     const operationName = "disableHostInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/DisableHostInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{hostInsightId}": disableHostInsightRequest.hostInsightId
     };
@@ -3586,8 +3546,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#downloadOperationsInsightsWarehouseWallet."
       );
     const operationName = "downloadOperationsInsightsWarehouseWallet";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/DownloadOperationsInsightsWarehouseWallet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsWarehouseId}":
         downloadOperationsInsightsWarehouseWalletRequest.operationsInsightsWarehouseId
@@ -3683,8 +3642,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#enableAutonomousDatabaseInsightAdvancedFeatures."
       );
     const operationName = "enableAutonomousDatabaseInsightAdvancedFeatures";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/EnableAutonomousDatabaseInsightAdvancedFeatures";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseInsightId}":
         enableAutonomousDatabaseInsightAdvancedFeaturesRequest.databaseInsightId
@@ -3765,8 +3723,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#enableAwrHubSource.");
     const operationName = "enableAwrHubSource";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/EnableAwrHubSource";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": enableAwrHubSourceRequest.awrHubSourceId
     };
@@ -3840,8 +3797,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#enableDatabaseInsight.");
     const operationName = "enableDatabaseInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/EnableDatabaseInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseInsightId}": enableDatabaseInsightRequest.databaseInsightId
     };
@@ -3920,8 +3876,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#enableExadataInsight.");
     const operationName = "enableExadataInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/EnableExadataInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{exadataInsightId}": enableExadataInsightRequest.exadataInsightId
     };
@@ -3987,7 +3942,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Enables a host in Operations Insights. Host metric collection and analysis will be started.
+   * Enables a host in Ops Insights. Host metric collection and analysis will be started.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EnableHostInsightRequest
    * @return EnableHostInsightResponse
@@ -4000,8 +3955,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#enableHostInsight.");
     const operationName = "enableHostInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/EnableHostInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{hostInsightId}": enableHostInsightRequest.hostInsightId
     };
@@ -4081,8 +4035,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getAwrDatabaseReport.");
     const operationName = "getAwrDatabaseReport";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/GetAwrDatabaseReport";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": getAwrDatabaseReportRequest.awrHubId
     };
@@ -4165,8 +4118,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getAwrDatabaseSqlReport.");
     const operationName = "getAwrDatabaseSqlReport";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/GetAwrDatabaseSqlReport";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": getAwrDatabaseSqlReportRequest.awrHubId
     };
@@ -4247,8 +4199,7 @@ export class OperationsInsightsClient {
   ): Promise<responses.GetAwrHubResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#getAwrHub.");
     const operationName = "getAwrHub";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/GetAwrHub";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": getAwrHubRequest.awrHubId
     };
@@ -4324,8 +4275,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getAwrHubObject.");
     const operationName = "getAwrHubObject";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/GetAwrHubObject";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": getAwrHubObjectRequest.awrHubSourceId,
       "{objectName}": getAwrHubObjectRequest.objectName
@@ -4490,8 +4440,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getAwrHubSource.");
     const operationName = "getAwrHubSource";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/GetAwrHubSource";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": getAwrHubSourceRequest.awrHubSourceId
     };
@@ -4568,8 +4517,7 @@ export class OperationsInsightsClient {
   ): Promise<responses.GetAwrReportResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#getAwrReport.");
     const operationName = "getAwrReport";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/GetAwrReport";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": getAwrReportRequest.awrHubId
     };
@@ -4650,8 +4598,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getDatabaseInsight.");
     const operationName = "getDatabaseInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/GetDatabaseInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseInsightId}": getDatabaseInsightRequest.databaseInsightId
     };
@@ -4727,8 +4674,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getEnterpriseManagerBridge.");
     const operationName = "getEnterpriseManagerBridge";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/GetEnterpriseManagerBridge";
+    const apiReferenceLink = "";
     const pathParams = {
       "{enterpriseManagerBridgeId}": getEnterpriseManagerBridgeRequest.enterpriseManagerBridgeId
     };
@@ -4804,8 +4750,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getExadataInsight.");
     const operationName = "getExadataInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/GetExadataInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{exadataInsightId}": getExadataInsightRequest.exadataInsightId
     };
@@ -4881,8 +4826,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getHostInsight.");
     const operationName = "getHostInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/GetHostInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{hostInsightId}": getHostInsightRequest.hostInsightId
     };
@@ -4957,8 +4901,7 @@ export class OperationsInsightsClient {
   ): Promise<responses.GetNewsReportResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#getNewsReport.");
     const operationName = "getNewsReport";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/GetNewsReport";
+    const apiReferenceLink = "";
     const pathParams = {
       "{newsReportId}": getNewsReportRequest.newsReportId
     };
@@ -5036,8 +4979,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#getOperationsInsightsPrivateEndpoint."
       );
     const operationName = "getOperationsInsightsPrivateEndpoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/GetOperationsInsightsPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsPrivateEndpointId}":
         getOperationsInsightsPrivateEndpointRequest.operationsInsightsPrivateEndpointId
@@ -5101,7 +5043,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Gets details of an Operations Insights Warehouse.
+   * Gets details of an Ops Insights Warehouse.
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -5118,8 +5060,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#getOperationsInsightsWarehouse."
       );
     const operationName = "getOperationsInsightsWarehouse";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/GetOperationsInsightsWarehouse";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsWarehouseId}":
         getOperationsInsightsWarehouseRequest.operationsInsightsWarehouseId
@@ -5198,8 +5139,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#getOperationsInsightsWarehouseUser."
       );
     const operationName = "getOperationsInsightsWarehouseUser";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouseUsers/GetOperationsInsightsWarehouseUser";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsWarehouseUserId}":
         getOperationsInsightsWarehouseUserRequest.operationsInsightsWarehouseUserId
@@ -5279,8 +5219,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getOpsiConfiguration.");
     const operationName = "getOpsiConfiguration";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/GetOpsiConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {
       "{opsiConfigurationId}": getOpsiConfigurationRequest.opsiConfigurationId
     };
@@ -5361,8 +5300,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getOpsiDataObject.");
     const operationName = "getOpsiDataObject";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiDataObjects/GetOpsiDataObject";
+    const apiReferenceLink = "";
     const pathParams = {
       "{opsiDataObjectIdentifier}": getOpsiDataObjectRequest.opsiDataObjectIdentifier
     };
@@ -5435,8 +5373,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/WorkRequests/GetWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -5518,8 +5455,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#headAwrHubObject.");
     const operationName = "headAwrHubObject";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/HeadAwrHubObject";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": headAwrHubObjectRequest.awrHubSourceId,
       "{objectName}": headAwrHubObjectRequest.objectName
@@ -5672,8 +5608,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#ingestAddmReports.");
     const operationName = "ingestAddmReports";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestAddmReports";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -5757,8 +5692,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#ingestDatabaseConfiguration.");
     const operationName = "ingestDatabaseConfiguration";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestDatabaseConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -5842,8 +5776,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#ingestHostConfiguration.");
     const operationName = "ingestHostConfiguration";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/IngestHostConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -5926,8 +5859,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#ingestHostMetrics.");
     const operationName = "ingestHostMetrics";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/IngestHostMetrics";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -5997,7 +5929,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * The sqlbucket endpoint takes in a JSON payload, persists it in Operations Insights ingest pipeline.
+   * The sqlbucket endpoint takes in a JSON payload, persists it in Ops Insights ingest pipeline.
    * Either databaseId or id must be specified.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -6012,8 +5944,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#ingestSqlBucket.");
     const operationName = "ingestSqlBucket";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestSqlBucket";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6100,8 +6031,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#ingestSqlPlanLines.");
     const operationName = "ingestSqlPlanLines";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestSqlPlanLines";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6173,7 +6103,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * The SQL Stats endpoint takes in a JSON payload, persists it in Operations Insights ingest pipeline.
+   * The SQL Stats endpoint takes in a JSON payload, persists it in Ops Insights ingest pipeline.
    * Either databaseId or id must be specified.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -6188,8 +6118,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#ingestSqlStats.");
     const operationName = "ingestSqlStats";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestSqlStats";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6275,8 +6204,7 @@ export class OperationsInsightsClient {
   ): Promise<responses.IngestSqlTextResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#ingestSqlText.");
     const operationName = "ingestSqlText";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestSqlText";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6362,8 +6290,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listAddmDbFindingCategories.");
     const operationName = "listAddmDbFindingCategories";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbFindingCategories";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6451,8 +6378,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listAddmDbFindingsTimeSeries.");
     const operationName = "listAddmDbFindingsTimeSeries";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbFindingsTimeSeries";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6546,8 +6472,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#listAddmDbParameterCategories."
       );
     const operationName = "listAddmDbParameterCategories";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbParameterCategories";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6637,8 +6562,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#listAddmDbRecommendationCategories."
       );
     const operationName = "listAddmDbRecommendationCategories";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbRecommendationCategories";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6728,8 +6652,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#listAddmDbRecommendationsTimeSeries."
       );
     const operationName = "listAddmDbRecommendationsTimeSeries";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbRecommendationsTimeSeries";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6824,8 +6747,7 @@ export class OperationsInsightsClient {
   ): Promise<responses.ListAddmDbsResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#listAddmDbs.");
     const operationName = "listAddmDbs";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbs";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6915,8 +6837,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listAwrDatabaseSnapshots.");
     const operationName = "listAwrDatabaseSnapshots";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/ListAwrDatabaseSnapshots";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": listAwrDatabaseSnapshotsRequest.awrHubId
     };
@@ -7006,8 +6927,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listAwrDatabases.");
     const operationName = "listAwrDatabases";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/ListAwrDatabases";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": listAwrDatabasesRequest.awrHubId
     };
@@ -7092,8 +7012,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listAwrHubObjects.");
     const operationName = "listAwrHubObjects";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/ListAwrHubObjects";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": listAwrHubObjectsRequest.awrHubSourceId
     };
@@ -7183,8 +7102,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listAwrHubSources.");
     const operationName = "listAwrHubSources";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/ListAwrHubSources";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -7270,8 +7188,7 @@ export class OperationsInsightsClient {
   ): Promise<responses.ListAwrHubsResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#listAwrHubs.");
     const operationName = "listAwrHubs";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/ListAwrHubs";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -7357,8 +7274,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listAwrSnapshots.");
     const operationName = "listAwrSnapshots";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/ListAwrSnapshots";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": listAwrSnapshotsRequest.awrHubId
     };
@@ -7444,8 +7360,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listDatabaseConfigurations.");
     const operationName = "listDatabaseConfigurations";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListDatabaseConfigurations";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -7545,8 +7460,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listDatabaseInsights.");
     const operationName = "listDatabaseInsights";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListDatabaseInsights";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -7628,7 +7542,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Gets a list of Operations Insights Enterprise Manager bridges. Either compartmentId or id must be specified.
+   * Gets a list of Ops Insights Enterprise Manager bridges. Either compartmentId or id must be specified.
    * When both compartmentId and compartmentIdInSubtree are specified, a list of bridges in that compartment and in all sub-compartments will be returned.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -7643,8 +7557,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listEnterpriseManagerBridges.");
     const operationName = "listEnterpriseManagerBridges";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/ListEnterpriseManagerBridges";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -7728,8 +7641,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listExadataConfigurations.");
     const operationName = "listExadataConfigurations";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/ListExadataConfigurations";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -7822,8 +7734,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listExadataInsights.");
     const operationName = "listExadataInsights";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/ListExadataInsights";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -7916,8 +7827,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listHostConfigurations.");
     const operationName = "listHostConfigurations";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListHostConfigurations";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -7937,7 +7847,8 @@ export class OperationsInsightsClient {
       "compartmentIdInSubtree": listHostConfigurationsRequest.compartmentIdInSubtree,
       "hostType": listHostConfigurationsRequest.hostType,
       "hostId": listHostConfigurationsRequest.hostId,
-      "vmclusterName": listHostConfigurationsRequest.vmclusterName
+      "vmclusterName": listHostConfigurationsRequest.vmclusterName,
+      "status": listHostConfigurationsRequest.status
     };
 
     let headerParams = {
@@ -8016,8 +7927,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listHostInsights.");
     const operationName = "listHostInsights";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListHostInsights";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -8111,8 +8021,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listHostedEntities.");
     const operationName = "listHostedEntities";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListHostedEntities";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -8128,7 +8037,8 @@ export class OperationsInsightsClient {
       "sortOrder": listHostedEntitiesRequest.sortOrder,
       "sortBy": listHostedEntitiesRequest.sortBy,
       "hostType": listHostedEntitiesRequest.hostType,
-      "hostId": listHostedEntitiesRequest.hostId
+      "hostId": listHostedEntitiesRequest.hostId,
+      "status": listHostedEntitiesRequest.status
     };
 
     let headerParams = {
@@ -8205,8 +8115,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listImportableAgentEntities.");
     const operationName = "listImportableAgentEntities";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListImportableAgentEntities";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -8295,8 +8204,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#listImportableComputeEntities."
       );
     const operationName = "listImportableComputeEntities";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListImportableComputeEntities";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -8379,8 +8287,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#listImportableEnterpriseManagerEntities."
       );
     const operationName = "listImportableEnterpriseManagerEntities";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/ListImportableEnterpriseManagerEntities";
+    const apiReferenceLink = "";
     const pathParams = {
       "{enterpriseManagerBridgeId}":
         listImportableEnterpriseManagerEntitiesRequest.enterpriseManagerBridgeId
@@ -8468,8 +8375,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listNewsReports.");
     const operationName = "listNewsReports";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReport/ListNewsReports";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -8560,8 +8466,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#listOperationsInsightsPrivateEndpoints."
       );
     const operationName = "listOperationsInsightsPrivateEndpoints";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/ListOperationsInsightsPrivateEndpoints";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -8650,8 +8555,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#listOperationsInsightsWarehouseUsers."
       );
     const operationName = "listOperationsInsightsWarehouseUsers";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouseUsers/ListOperationsInsightsWarehouseUsers";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -8723,7 +8627,7 @@ export class OperationsInsightsClient {
   }
 
   /**
-   * Gets a list of Operations Insights warehouses. Either compartmentId or id must be specified.
+   * Gets a list of Ops Insights warehouses. Either compartmentId or id must be specified.
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -8740,8 +8644,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#listOperationsInsightsWarehouses."
       );
     const operationName = "listOperationsInsightsWarehouses";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/ListOperationsInsightsWarehouses";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -8825,8 +8728,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listOpsiConfigurations.");
     const operationName = "listOpsiConfigurations";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/ListOpsiConfigurations";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -8910,8 +8812,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listOpsiDataObjects.");
     const operationName = "listOpsiDataObjects";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiDataObjects/ListOpsiDataObjects";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -8996,8 +8897,7 @@ export class OperationsInsightsClient {
   ): Promise<responses.ListSqlPlansResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#listSqlPlans.");
     const operationName = "listSqlPlans";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListSqlPlans";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -9080,8 +8980,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listSqlSearches.");
     const operationName = "listSqlSearches";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListSqlSearches";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -9167,8 +9066,7 @@ export class OperationsInsightsClient {
   ): Promise<responses.ListSqlTextsResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#listSqlTexts.");
     const operationName = "listSqlTexts";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListSqlTexts";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -9254,8 +9152,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listWarehouseDataObjects.");
     const operationName = "listWarehouseDataObjects";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiWarehouseDataObjects/ListWarehouseDataObjects";
+    const apiReferenceLink = "";
     const pathParams = {
       "{warehouseType}": listWarehouseDataObjectsRequest.warehouseType,
       "{warehouseId}": listWarehouseDataObjectsRequest.warehouseId
@@ -9342,8 +9239,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/WorkRequests/ListWorkRequestErrors";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -9425,8 +9321,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/WorkRequests/ListWorkRequestLogs";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -9508,8 +9403,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/WorkRequests/ListWorkRequests";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -9594,8 +9488,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#putAwrHubObject.");
     const operationName = "putAwrHubObject";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubObjects/PutAwrHubObject";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": putAwrHubObjectRequest.awrHubSourceId,
       "{objectName}": putAwrHubObjectRequest.objectName
@@ -9688,8 +9581,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#queryOpsiDataObjectData.");
     const operationName = "queryOpsiDataObjectData";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiDataObjects/QueryOpsiDataObjectData";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -9774,8 +9666,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#queryWarehouseDataObjectData.");
     const operationName = "queryWarehouseDataObjectData";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiWarehouseDataObjects/QueryWarehouseDataObjectData";
+    const apiReferenceLink = "";
     const pathParams = {
       "{warehouseType}": queryWarehouseDataObjectDataRequest.warehouseType,
       "{warehouseId}": queryWarehouseDataObjectDataRequest.warehouseId
@@ -9862,8 +9753,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#rotateOperationsInsightsWarehouseWallet."
       );
     const operationName = "rotateOperationsInsightsWarehouseWallet";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/RotateOperationsInsightsWarehouseWallet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsWarehouseId}":
         rotateOperationsInsightsWarehouseWalletRequest.operationsInsightsWarehouseId
@@ -9939,8 +9829,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbFindings.");
     const operationName = "summarizeAddmDbFindings";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbFindings";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -10036,8 +9925,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#summarizeAddmDbParameterChanges."
       );
     const operationName = "summarizeAddmDbParameterChanges";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbParameterChanges";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -10133,8 +10021,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbParameters.");
     const operationName = "summarizeAddmDbParameters";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbParameters";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -10232,8 +10119,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#summarizeAddmDbRecommendations."
       );
     const operationName = "summarizeAddmDbRecommendations";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbRecommendations";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -10330,8 +10216,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbSchemaObjects.");
     const operationName = "summarizeAddmDbSchemaObjects";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbSchemaObjects";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -10420,8 +10305,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbSqlStatements.");
     const operationName = "summarizeAddmDbSqlStatements";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbSqlStatements";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -10516,8 +10400,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#summarizeAwrDatabaseCpuUsages."
       );
     const operationName = "summarizeAwrDatabaseCpuUsages";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseCpuUsages";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": summarizeAwrDatabaseCpuUsagesRequest.awrHubId
     };
@@ -10609,8 +10492,7 @@ export class OperationsInsightsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseMetrics.");
     const operationName = "summarizeAwrDatabaseMetrics";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseMetrics";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": summarizeAwrDatabaseMetricsRequest.awrHubId
     };
@@ -10707,8 +10589,7 @@ export class OperationsInsightsClient {
         "Calling operation OperationsInsightsClient#summarizeAwrDatabaseParameterChanges."
       );
     const operationName = "summarizeAwrDatabaseParameterChanges";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseParameterChanges";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": summarizeAwrDatabaseParameterChangesRequest.awrHubId
     };
@@ -10813,8 +10694,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeAwrDatabaseParameters."
       );
     const operationName = "summarizeAwrDatabaseParameters";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseParameters";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": summarizeAwrDatabaseParametersRequest.awrHubId
     };
@@ -10912,8 +10792,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeAwrDatabaseSnapshotRanges."
       );
     const operationName = "summarizeAwrDatabaseSnapshotRanges";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseSnapshotRanges";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": summarizeAwrDatabaseSnapshotRangesRequest.awrHubId
     };
@@ -10999,8 +10878,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseSysstats.");
     const operationName = "summarizeAwrDatabaseSysstats";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseSysstats";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": summarizeAwrDatabaseSysstatsRequest.awrHubId
     };
@@ -11094,8 +10972,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeAwrDatabaseTopWaitEvents."
       );
     const operationName = "summarizeAwrDatabaseTopWaitEvents";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseTopWaitEvents";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": summarizeAwrDatabaseTopWaitEventsRequest.awrHubId
     };
@@ -11188,8 +11065,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeAwrDatabaseWaitEventBuckets."
       );
     const operationName = "summarizeAwrDatabaseWaitEventBuckets";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseWaitEventBuckets";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": summarizeAwrDatabaseWaitEventBucketsRequest.awrHubId
     };
@@ -11287,8 +11163,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeAwrDatabaseWaitEvents."
       );
     const operationName = "summarizeAwrDatabaseWaitEvents";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseWaitEvents";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": summarizeAwrDatabaseWaitEventsRequest.awrHubId
     };
@@ -11381,8 +11256,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeAwrSourcesSummaries.");
     const operationName = "summarizeAwrSourcesSummaries";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrSourcesSummaries";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": summarizeAwrSourcesSummariesRequest.awrHubId
     };
@@ -11467,8 +11341,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeConfigurationItems.");
     const operationName = "summarizeConfigurationItems";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/SummarizeConfigurationItems";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -11556,8 +11429,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceCapacityTrend."
       );
     const operationName = "summarizeDatabaseInsightResourceCapacityTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceCapacityTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -11666,8 +11538,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceForecastTrend."
       );
     const operationName = "summarizeDatabaseInsightResourceForecastTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceForecastTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -11778,8 +11649,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceStatistics."
       );
     const operationName = "summarizeDatabaseInsightResourceStatistics";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceStatistics";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -11892,8 +11762,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceUsage."
       );
     const operationName = "summarizeDatabaseInsightResourceUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceUsage";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -11994,8 +11863,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceUsageTrend."
       );
     const operationName = "summarizeDatabaseInsightResourceUsageTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceUsageTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -12098,8 +11966,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeDatabaseInsightResourceUtilizationInsight."
       );
     const operationName = "summarizeDatabaseInsightResourceUtilizationInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightResourceUtilizationInsight";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -12212,8 +12079,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeDatabaseInsightTablespaceUsageTrend."
       );
     const operationName = "summarizeDatabaseInsightTablespaceUsageTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeDatabaseInsightTablespaceUsageTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -12307,8 +12173,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceCapacityTrend."
       );
     const operationName = "summarizeExadataInsightResourceCapacityTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceCapacityTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -12408,8 +12273,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceCapacityTrendAggregated."
       );
     const operationName = "summarizeExadataInsightResourceCapacityTrendAggregated";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceCapacityTrendAggregated";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -12522,8 +12386,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceForecastTrend."
       );
     const operationName = "summarizeExadataInsightResourceForecastTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceForecastTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -12626,8 +12489,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceForecastTrendAggregated."
       );
     const operationName = "summarizeExadataInsightResourceForecastTrendAggregated";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceForecastTrendAggregated";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -12741,8 +12603,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceStatistics."
       );
     const operationName = "summarizeExadataInsightResourceStatistics";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceStatistics";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -12844,8 +12705,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUsage."
       );
     const operationName = "summarizeExadataInsightResourceUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceUsage";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -12947,8 +12807,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUsageAggregated."
       );
     const operationName = "summarizeExadataInsightResourceUsageAggregated";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceUsageAggregated";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13042,8 +12901,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeExadataInsightResourceUtilizationInsight."
       );
     const operationName = "summarizeExadataInsightResourceUtilizationInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataInsightResourceUtilizationInsight";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13145,8 +13003,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeExadataMembers.");
     const operationName = "summarizeExadataMembers";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/SummarizeExadataMembers";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13235,8 +13092,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightDiskStatistics."
       );
     const operationName = "summarizeHostInsightDiskStatistics";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightDiskStatistics";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13246,7 +13102,8 @@ Note that this API does not return information on the number of times each datab
       "timeIntervalStart": summarizeHostInsightDiskStatisticsRequest.timeIntervalStart,
       "timeIntervalEnd": summarizeHostInsightDiskStatisticsRequest.timeIntervalEnd,
       "hostId": summarizeHostInsightDiskStatisticsRequest.hostId,
-      "statistic": summarizeHostInsightDiskStatisticsRequest.statistic
+      "statistic": summarizeHostInsightDiskStatisticsRequest.statistic,
+      "status": summarizeHostInsightDiskStatisticsRequest.status
     };
 
     let headerParams = {
@@ -13321,8 +13178,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightHostRecommendation."
       );
     const operationName = "summarizeHostInsightHostRecommendation";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightHostRecommendation";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13409,8 +13265,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightNetworkUsageTrend."
       );
     const operationName = "summarizeHostInsightNetworkUsageTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightNetworkUsageTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13422,7 +13277,8 @@ Note that this API does not return information on the number of times each datab
       "hostId": summarizeHostInsightNetworkUsageTrendRequest.hostId,
       "page": summarizeHostInsightNetworkUsageTrendRequest.page,
       "limit": summarizeHostInsightNetworkUsageTrendRequest.limit,
-      "statistic": summarizeHostInsightNetworkUsageTrendRequest.statistic
+      "statistic": summarizeHostInsightNetworkUsageTrendRequest.statistic,
+      "status": summarizeHostInsightNetworkUsageTrendRequest.status
     };
 
     let headerParams = {
@@ -13499,8 +13355,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightResourceCapacityTrend."
       );
     const operationName = "summarizeHostInsightResourceCapacityTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceCapacityTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13528,7 +13383,8 @@ Note that this API does not return information on the number of times each datab
       "highUtilizationThreshold":
         summarizeHostInsightResourceCapacityTrendRequest.highUtilizationThreshold,
       "lowUtilizationThreshold":
-        summarizeHostInsightResourceCapacityTrendRequest.lowUtilizationThreshold
+        summarizeHostInsightResourceCapacityTrendRequest.lowUtilizationThreshold,
+      "status": summarizeHostInsightResourceCapacityTrendRequest.status
     };
 
     let headerParams = {
@@ -13604,8 +13460,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightResourceForecastTrend."
       );
     const operationName = "summarizeHostInsightResourceForecastTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceForecastTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13637,7 +13492,8 @@ Note that this API does not return information on the number of times each datab
       "lowUtilizationThreshold":
         summarizeHostInsightResourceForecastTrendRequest.lowUtilizationThreshold,
       "mountPoint": summarizeHostInsightResourceForecastTrendRequest.mountPoint,
-      "interfaceName": summarizeHostInsightResourceForecastTrendRequest.interfaceName
+      "interfaceName": summarizeHostInsightResourceForecastTrendRequest.interfaceName,
+      "status": summarizeHostInsightResourceForecastTrendRequest.status
     };
 
     let headerParams = {
@@ -13708,8 +13564,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightResourceStatistics."
       );
     const operationName = "summarizeHostInsightResourceStatistics";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceStatistics";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13740,7 +13595,8 @@ Note that this API does not return information on the number of times each datab
       "highUtilizationThreshold":
         summarizeHostInsightResourceStatisticsRequest.highUtilizationThreshold,
       "lowUtilizationThreshold":
-        summarizeHostInsightResourceStatisticsRequest.lowUtilizationThreshold
+        summarizeHostInsightResourceStatisticsRequest.lowUtilizationThreshold,
+      "status": summarizeHostInsightResourceStatisticsRequest.status
     };
 
     let headerParams = {
@@ -13818,8 +13674,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUsage."
       );
     const operationName = "summarizeHostInsightResourceUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceUsage";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13840,7 +13695,8 @@ Note that this API does not return information on the number of times each datab
       "compartmentIdInSubtree": summarizeHostInsightResourceUsageRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceUsageRequest.hostType,
       "hostId": summarizeHostInsightResourceUsageRequest.hostId,
-      "vmclusterName": summarizeHostInsightResourceUsageRequest.vmclusterName
+      "vmclusterName": summarizeHostInsightResourceUsageRequest.vmclusterName,
+      "status": summarizeHostInsightResourceUsageRequest.status
     };
 
     let headerParams = {
@@ -13912,8 +13768,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUsageTrend."
       );
     const operationName = "summarizeHostInsightResourceUsageTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceUsageTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -13936,7 +13791,8 @@ Note that this API does not return information on the number of times each datab
         summarizeHostInsightResourceUsageTrendRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceUsageTrendRequest.hostType,
       "hostId": summarizeHostInsightResourceUsageTrendRequest.hostId,
-      "vmclusterName": summarizeHostInsightResourceUsageTrendRequest.vmclusterName
+      "vmclusterName": summarizeHostInsightResourceUsageTrendRequest.vmclusterName,
+      "status": summarizeHostInsightResourceUsageTrendRequest.status
     };
 
     let headerParams = {
@@ -14012,8 +13868,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightResourceUtilizationInsight."
       );
     const operationName = "summarizeHostInsightResourceUtilizationInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightResourceUtilizationInsight";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -14040,7 +13895,8 @@ Note that this API does not return information on the number of times each datab
       "highUtilizationThreshold":
         summarizeHostInsightResourceUtilizationInsightRequest.highUtilizationThreshold,
       "lowUtilizationThreshold":
-        summarizeHostInsightResourceUtilizationInsightRequest.lowUtilizationThreshold
+        summarizeHostInsightResourceUtilizationInsightRequest.lowUtilizationThreshold,
+      "status": summarizeHostInsightResourceUtilizationInsightRequest.status
     };
 
     let headerParams = {
@@ -14110,8 +13966,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightStorageUsageTrend."
       );
     const operationName = "summarizeHostInsightStorageUsageTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightStorageUsageTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -14123,7 +13978,8 @@ Note that this API does not return information on the number of times each datab
       "hostId": summarizeHostInsightStorageUsageTrendRequest.hostId,
       "page": summarizeHostInsightStorageUsageTrendRequest.page,
       "limit": summarizeHostInsightStorageUsageTrendRequest.limit,
-      "statistic": summarizeHostInsightStorageUsageTrendRequest.statistic
+      "statistic": summarizeHostInsightStorageUsageTrendRequest.statistic,
+      "status": summarizeHostInsightStorageUsageTrendRequest.status
     };
 
     let headerParams = {
@@ -14200,8 +14056,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightTopProcessesUsage."
       );
     const operationName = "summarizeHostInsightTopProcessesUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightTopProcessesUsage";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -14216,7 +14071,8 @@ Note that this API does not return information on the number of times each datab
       "hostType": summarizeHostInsightTopProcessesUsageRequest.hostType,
       "hostId": summarizeHostInsightTopProcessesUsageRequest.hostId,
       "timestamp": summarizeHostInsightTopProcessesUsageRequest.timestamp,
-      "statistic": summarizeHostInsightTopProcessesUsageRequest.statistic
+      "statistic": summarizeHostInsightTopProcessesUsageRequest.statistic,
+      "status": summarizeHostInsightTopProcessesUsageRequest.status
     };
 
     let headerParams = {
@@ -14293,8 +14149,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeHostInsightTopProcessesUsageTrend."
       );
     const operationName = "summarizeHostInsightTopProcessesUsageTrend";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightTopProcessesUsageTrend";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -14310,7 +14165,8 @@ Note that this API does not return information on the number of times each datab
       "hostType": summarizeHostInsightTopProcessesUsageTrendRequest.hostType,
       "hostId": summarizeHostInsightTopProcessesUsageTrendRequest.hostId,
       "processHash": summarizeHostInsightTopProcessesUsageTrendRequest.processHash,
-      "statistic": summarizeHostInsightTopProcessesUsageTrendRequest.statistic
+      "statistic": summarizeHostInsightTopProcessesUsageTrendRequest.statistic,
+      "status": summarizeHostInsightTopProcessesUsageTrendRequest.status
     };
 
     let headerParams = {
@@ -14386,8 +14242,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeOperationsInsightsWarehouseResourceUsage."
       );
     const operationName = "summarizeOperationsInsightsWarehouseResourceUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/SummarizeOperationsInsightsWarehouseResourceUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsWarehouseId}":
         summarizeOperationsInsightsWarehouseResourceUsageRequest.operationsInsightsWarehouseId
@@ -14466,8 +14321,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeSqlInsights.");
     const operationName = "summarizeSqlInsights";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlInsights";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -14562,8 +14416,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeSqlPlanInsights.");
     const operationName = "summarizeSqlPlanInsights";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlPlanInsights";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -14650,8 +14503,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeSqlResponseTimeDistributions."
       );
     const operationName = "summarizeSqlResponseTimeDistributions";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlResponseTimeDistributions";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -14736,8 +14588,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#summarizeSqlStatistics.");
     const operationName = "summarizeSqlStatistics";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlStatistics";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -14839,8 +14690,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeSqlStatisticsTimeSeries."
       );
     const operationName = "summarizeSqlStatisticsTimeSeries";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlStatisticsTimeSeries";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -14936,8 +14786,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#summarizeSqlStatisticsTimeSeriesByPlan."
       );
     const operationName = "summarizeSqlStatisticsTimeSeriesByPlan";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeSqlStatisticsTimeSeriesByPlan";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -15019,8 +14868,7 @@ Note that this API does not return information on the number of times each datab
   ): Promise<responses.UpdateAwrHubResponse> {
     if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#updateAwrHub.");
     const operationName = "updateAwrHub";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/UpdateAwrHub";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubId}": updateAwrHubRequest.awrHubId
     };
@@ -15098,8 +14946,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#updateAwrHubSource.");
     const operationName = "updateAwrHubSource";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubSources/UpdateAwrHubSource";
+    const apiReferenceLink = "";
     const pathParams = {
       "{awrHubSourceId}": updateAwrHubSourceRequest.awrHubSourceId
     };
@@ -15177,8 +15024,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#updateDatabaseInsight.");
     const operationName = "updateDatabaseInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/UpdateDatabaseInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseInsightId}": updateDatabaseInsightRequest.databaseInsightId
     };
@@ -15258,8 +15104,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#updateEnterpriseManagerBridge."
       );
     const operationName = "updateEnterpriseManagerBridge";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/EnterpriseManagerBridges/UpdateEnterpriseManagerBridge";
+    const apiReferenceLink = "";
     const pathParams = {
       "{enterpriseManagerBridgeId}": updateEnterpriseManagerBridgeRequest.enterpriseManagerBridgeId
     };
@@ -15337,8 +15182,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#updateExadataInsight.");
     const operationName = "updateExadataInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/ExadataInsights/UpdateExadataInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{exadataInsightId}": updateExadataInsightRequest.exadataInsightId
     };
@@ -15416,8 +15260,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#updateHostInsight.");
     const operationName = "updateHostInsight";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/UpdateHostInsight";
+    const apiReferenceLink = "";
     const pathParams = {
       "{hostInsightId}": updateHostInsightRequest.hostInsightId
     };
@@ -15495,8 +15338,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#updateNewsReport.");
     const operationName = "updateNewsReport";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/UpdateNewsReport";
+    const apiReferenceLink = "";
     const pathParams = {
       "{newsReportId}": updateNewsReportRequest.newsReportId
     };
@@ -15576,8 +15418,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#updateOperationsInsightsPrivateEndpoint."
       );
     const operationName = "updateOperationsInsightsPrivateEndpoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/UpdateOperationsInsightsPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsPrivateEndpointId}":
         updateOperationsInsightsPrivateEndpointRequest.operationsInsightsPrivateEndpointId
@@ -15643,7 +15484,7 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
-   * Updates the configuration of an Operations Insights Warehouse.
+   * Updates the configuration of an Ops Insights Warehouse.
    * There is only expected to be 1 warehouse per tenant. The warehouse is expected to be in the root compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -15660,8 +15501,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#updateOperationsInsightsWarehouse."
       );
     const operationName = "updateOperationsInsightsWarehouse";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouses/UpdateOperationsInsightsWarehouse";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsWarehouseId}":
         updateOperationsInsightsWarehouseRequest.operationsInsightsWarehouseId
@@ -15742,8 +15582,7 @@ Note that this API does not return information on the number of times each datab
         "Calling operation OperationsInsightsClient#updateOperationsInsightsWarehouseUser."
       );
     const operationName = "updateOperationsInsightsWarehouseUser";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsWarehouseUsers/UpdateOperationsInsightsWarehouseUser";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operationsInsightsWarehouseUserId}":
         updateOperationsInsightsWarehouseUserRequest.operationsInsightsWarehouseUserId
@@ -15822,8 +15661,7 @@ Note that this API does not return information on the number of times each datab
     if (this.logger)
       this.logger.debug("Calling operation OperationsInsightsClient#updateOpsiConfiguration.");
     const operationName = "updateOpsiConfiguration";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/UpdateOpsiConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {
       "{opsiConfigurationId}": updateOpsiConfigurationRequest.opsiConfigurationId
     };

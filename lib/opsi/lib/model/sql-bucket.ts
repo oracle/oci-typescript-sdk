@@ -1,8 +1,8 @@
 /**
- * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database
+ * Ops Insights API
+ * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -28,7 +28,7 @@ export interface SqlBucket {
    */
   "version"?: number;
   /**
-   * Operations Insights internal representation of the database type.
+   * Ops Insights internal representation of the database type.
    */
   "databaseType"?: string;
   /**
