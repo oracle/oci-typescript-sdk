@@ -192,6 +192,10 @@ export interface SummarizeHostInsightResourceForecastTrendRequest extends common
    *
    */
   "interfaceName"?: string;
+  /**
+   * Resource Status
+   */
+  "status"?: Array<model.ResourceStatus>;
 }
 
 export namespace SummarizeHostInsightResourceForecastTrendRequest {

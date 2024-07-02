@@ -1,8 +1,8 @@
 /**
- * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database
+ * Ops Insights API
+ * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -875,6 +875,12 @@ import * as HostFilesystemConfiguration from "./host-filesystem-configuration";
 export import HostFilesystemConfiguration = HostFilesystemConfiguration.HostFilesystemConfiguration;
 import * as HostFilesystemUsage from "./host-filesystem-usage";
 export import HostFilesystemUsage = HostFilesystemUsage.HostFilesystemUsage;
+import * as HostGpuConfiguration from "./host-gpu-configuration";
+export import HostGpuConfiguration = HostGpuConfiguration.HostGpuConfiguration;
+import * as HostGpuProcesses from "./host-gpu-processes";
+export import HostGpuProcesses = HostGpuProcesses.HostGpuProcesses;
+import * as HostGpuUsage from "./host-gpu-usage";
+export import HostGpuUsage = HostGpuUsage.HostGpuUsage;
 import * as HostHardwareConfiguration from "./host-hardware-configuration";
 export import HostHardwareConfiguration = HostHardwareConfiguration.HostHardwareConfiguration;
 import * as HostImportableAgentEntitySummary from "./host-importable-agent-entity-summary";
@@ -885,6 +891,8 @@ import * as HostInsightsDataObjectSummary from "./host-insights-data-object-summ
 export import HostInsightsDataObjectSummary = HostInsightsDataObjectSummary.HostInsightsDataObjectSummary;
 import * as HostMemoryConfiguration from "./host-memory-configuration";
 export import HostMemoryConfiguration = HostMemoryConfiguration.HostMemoryConfiguration;
+import * as HostMemoryRecommendations from "./host-memory-recommendations";
+export import HostMemoryRecommendations = HostMemoryRecommendations.HostMemoryRecommendations;
 import * as HostMemoryStatistics from "./host-memory-statistics";
 export import HostMemoryStatistics = HostMemoryStatistics.HostMemoryStatistics;
 import * as HostMemoryUsage from "./host-memory-usage";
@@ -893,12 +901,16 @@ import * as HostNetworkActivitySummary from "./host-network-activity-summary";
 export import HostNetworkActivitySummary = HostNetworkActivitySummary.HostNetworkActivitySummary;
 import * as HostNetworkConfiguration from "./host-network-configuration";
 export import HostNetworkConfiguration = HostNetworkConfiguration.HostNetworkConfiguration;
+import * as HostNetworkRecommendations from "./host-network-recommendations";
+export import HostNetworkRecommendations = HostNetworkRecommendations.HostNetworkRecommendations;
 import * as HostNetworkStatistics from "./host-network-statistics";
 export import HostNetworkStatistics = HostNetworkStatistics.HostNetworkStatistics;
 import * as HostProduct from "./host-product";
 export import HostProduct = HostProduct.HostProduct;
 import * as HostResourceAllocation from "./host-resource-allocation";
 export import HostResourceAllocation = HostResourceAllocation.HostResourceAllocation;
+import * as HostStorageRecommendations from "./host-storage-recommendations";
+export import HostStorageRecommendations = HostStorageRecommendations.HostStorageRecommendations;
 import * as HostStorageStatistics from "./host-storage-statistics";
 export import HostStorageStatistics = HostStorageStatistics.HostStorageStatistics;
 import * as HostTopProcesses from "./host-top-processes";

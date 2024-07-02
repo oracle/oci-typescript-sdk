@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeOperationsInsightsWarehouseCompartmentRequest extends common.BaseRequest {
   /**
-   * Unique Operations Insights Warehouse identifier
+   * Unique Ops Insights Warehouse identifier
    */
   "operationsInsightsWarehouseId": string;
   /**

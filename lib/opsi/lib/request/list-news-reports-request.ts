@@ -23,7 +23,7 @@ export interface ListNewsReportsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * Unique Operations Insights news report identifier
+   * Unique Ops Insights news report identifier
    */
   "newsReportId"?: string;
   /**

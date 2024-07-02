@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of the Exacc Db server resource. Applies to Exadata Cloud@Customer instances only.
+ * Details of the Db server resource.
  *
  */
 export interface DbServer {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exacc Db server.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Db server.
    */
   "id"?: string;
   /**

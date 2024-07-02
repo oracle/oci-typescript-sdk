@@ -157,18 +157,18 @@ export interface SummarizeAddmDbParametersRequest extends common.BaseRequest {
 
 export namespace SummarizeAddmDbParametersRequest {
   export enum IsChanged {
-    True = "true",
-    False = "false"
+    True = "TRUE",
+    False = "FALSE"
   }
 
   export enum IsDefault {
-    True = "true",
-    False = "false"
+    True = "TRUE",
+    False = "FALSE"
   }
 
   export enum HasRecommendations {
-    True = "true",
-    False = "false"
+    True = "TRUE",
+    False = "FALSE"
   }
 
   export enum SortBy {

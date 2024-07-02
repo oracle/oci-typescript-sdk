@@ -1,8 +1,8 @@
 /**
- * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database
+ * Ops Insights API
+ * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -38,7 +38,9 @@ export interface CreateOperationsInsightsPrivateEndpointDetails {
    */
   "subnetId": string;
   /**
-   * The flag to identify if private endpoint is used for rac database or not
+   * This flag was previously used to create a private endpoint with scan proxy. Setting this to true will now create a private endpoint with a
+   * DNS proxy causing {@code isProxyEnabled} flag to be true; this is used exclusively for full feature support for dedicated Autonomous Databases.
+   *
    */
   "isUsedForRacDbs": boolean;
   /**

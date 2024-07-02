@@ -66,6 +66,13 @@ Example: {@code My file system}
    */
   "sourceSnapshotId"?: string;
   /**
+   * Specifies whether the clone file system is attached to its parent file system.
+   * If the value is set to 'DETACH', then the file system will be created, which is deep copied from the snapshot
+   * specified by sourceSnapshotId, else will remain attached to its parent.
+   *
+   */
+  "cloneAttachStatus"?: CreateFileSystemDetails.CloneAttachStatus;
+  /**
     * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the associated file system snapshot policy, which
 * controls the frequency of snapshot creation and retention period of the taken snapshots.
 * <p>
@@ -76,6 +83,11 @@ May be unset as a blank value.
 }
 
 export namespace CreateFileSystemDetails {
+  export enum CloneAttachStatus {
+    Detach = "DETACH",
+    Attach = "ATTACH"
+  }
+
   export function getJsonObj(obj: CreateFileSystemDetails): object {
     const jsonObj = { ...obj, ...{} };
 

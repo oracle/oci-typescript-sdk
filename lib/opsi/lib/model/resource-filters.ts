@@ -1,8 +1,8 @@
 /**
- * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database
+ * Ops Insights API
+ * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -62,9 +62,20 @@ export interface ResourceFilters {
    * A flag to consider all resources within a given compartment and all sub-compartments.
    */
   "compartmentIdInSubtree"?: boolean;
+  /**
+   * Filter resources by status, multiple options could be chosen to show authorized resources even if those are disabled or deleted.
+   *
+   */
+  "resourceStatus"?: Array<ResourceFilters.ResourceStatus>;
 }
 
 export namespace ResourceFilters {
+  export enum ResourceStatus {
+    Disabled = "DISABLED",
+    Enabled = "ENABLED",
+    Terminated = "TERMINATED"
+  }
+
   export function getJsonObj(obj: ResourceFilters): object {
     const jsonObj = { ...obj, ...{} };
 

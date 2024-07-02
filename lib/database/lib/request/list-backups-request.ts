@@ -34,4 +34,19 @@ export interface ListBackupsRequest extends common.BaseRequest {
    * The pagination token to continue listing from.
    */
   "page"?: string;
+  /**
+   * If provided, filters the results to the set of database versions which are supported for the given shape family.
+   */
+  "shapeFamily"?: ListBackupsRequest.ShapeFamily;
+}
+
+export namespace ListBackupsRequest {
+  export enum ShapeFamily {
+    Singlenode = "SINGLENODE",
+    Yoda = "YODA",
+    Virtualmachine = "VIRTUALMACHINE",
+    Exadata = "EXADATA",
+    Exacc = "EXACC",
+    ExadbXs = "EXADB_XS"
+  }
 }

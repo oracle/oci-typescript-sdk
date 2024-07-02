@@ -1,8 +1,8 @@
 /**
- * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database
+ * Ops Insights API
+ * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -30,7 +30,7 @@ export interface OperationsInsightsWarehouseSummary {
    */
   "compartmentId": string;
   /**
-   * User-friedly name of Operations Insights Warehouse that does not have to be unique.
+   * User-friedly name of Ops Insights Warehouse that does not have to be unique.
    */
   "displayName": string;
   /**
@@ -58,11 +58,11 @@ export interface OperationsInsightsWarehouseSummary {
    */
   "dynamicGroupId"?: string;
   /**
-   * Tenancy Identifier of Operations Insights service
+   * Tenancy Identifier of Ops Insights service
    */
   "operationsInsightsTenancyId"?: string;
   /**
-   * The time at which the ADW wallet was last rotated for the Operations Insights Warehouse. An RFC3339 formatted datetime string
+   * The time at which the ADW wallet was last rotated for the Ops Insights Warehouse. An RFC3339 formatted datetime string
    */
   "timeLastWalletRotated"?: Date;
   /**

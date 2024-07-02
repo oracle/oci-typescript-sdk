@@ -59,6 +59,8 @@ import * as ListMigrationObjectTypesResponse from "./list-migration-object-types
 export import ListMigrationObjectTypesResponse = ListMigrationObjectTypesResponse.ListMigrationObjectTypesResponse;
 import * as ListMigrationObjectsResponse from "./list-migration-objects-response";
 export import ListMigrationObjectsResponse = ListMigrationObjectsResponse.ListMigrationObjectsResponse;
+import * as ListMigrationParametersResponse from "./list-migration-parameters-response";
+export import ListMigrationParametersResponse = ListMigrationParametersResponse.ListMigrationParametersResponse;
 import * as ListMigrationsResponse from "./list-migrations-response";
 export import ListMigrationsResponse = ListMigrationsResponse.ListMigrationsResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";

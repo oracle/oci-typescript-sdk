@@ -31,6 +31,10 @@ export interface OracleMigration extends model.Migration {
    * The OCID of the resource being referenced.
    */
   "sourceContainerDatabaseConnectionId"?: string;
+  /**
+   * List of Migration Parameter objects.
+   */
+  "advancedParameters"?: Array<model.MigrationParameterDetails>;
 
   "databaseCombination": string;
 }
@@ -54,6 +58,12 @@ export namespace OracleMigration {
           : undefined,
         "ggsDetails": obj.ggsDetails
           ? model.OracleGgsDeploymentDetails.getJsonObj(obj.ggsDetails)
+          : undefined,
+
+        "advancedParameters": obj.advancedParameters
+          ? obj.advancedParameters.map(item => {
+              return model.MigrationParameterDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -81,6 +91,12 @@ export namespace OracleMigration {
           : undefined,
         "ggsDetails": obj.ggsDetails
           ? model.OracleGgsDeploymentDetails.getDeserializedJsonObj(obj.ggsDetails)
+          : undefined,
+
+        "advancedParameters": obj.advancedParameters
+          ? obj.advancedParameters.map(item => {
+              return model.MigrationParameterDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

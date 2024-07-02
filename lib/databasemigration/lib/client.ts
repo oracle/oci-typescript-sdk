@@ -2135,6 +2135,88 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * List of parameters that can be used to customize migrations.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMigrationParametersRequest
+   * @return ListMigrationParametersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListMigrationParameters.ts.html |here} to see how to use ListMigrationParameters API.
+   */
+  public async listMigrationParameters(
+    listMigrationParametersRequest: requests.ListMigrationParametersRequest
+  ): Promise<responses.ListMigrationParametersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listMigrationParameters.");
+    const operationName = "listMigrationParameters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/MigrationParameterSummary/ListMigrationParameters";
+    const pathParams = {};
+
+    const queryParams = {
+      "migrationType": listMigrationParametersRequest.migrationType,
+      "databaseCombination": listMigrationParametersRequest.databaseCombination,
+      "limit": listMigrationParametersRequest.limit,
+      "page": listMigrationParametersRequest.page,
+      "sortBy": listMigrationParametersRequest.sortBy,
+      "sortOrder": listMigrationParametersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMigrationParametersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMigrationParametersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/migrationParameters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMigrationParametersResponse>{},
+        body: await response.json(),
+        bodyKey: "migrationParameterSummaryCollection",
+        bodyModel: model.MigrationParameterSummaryCollection,
+        type: "model.MigrationParameterSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List all Migrations.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

@@ -13,6 +13,8 @@
 
 import * as AdminCredentials from "./admin-credentials";
 export import AdminCredentials = AdminCredentials.AdminCredentials;
+import * as AdvancedParameterDataTypes from "./advanced-parameter-data-types";
+export import AdvancedParameterDataTypes = AdvancedParameterDataTypes.AdvancedParameterDataTypes;
 import * as AdvisorReport from "./advisor-report";
 export import AdvisorReport = AdvisorReport.AdvisorReport;
 import * as AdvisorReportBucketDetails from "./advisor-report-bucket-details";
@@ -155,6 +157,14 @@ import * as MigrationObjectTypeSummary from "./migration-object-type-summary";
 export import MigrationObjectTypeSummary = MigrationObjectTypeSummary.MigrationObjectTypeSummary;
 import * as MigrationObjectTypeSummaryCollection from "./migration-object-type-summary-collection";
 export import MigrationObjectTypeSummaryCollection = MigrationObjectTypeSummaryCollection.MigrationObjectTypeSummaryCollection;
+import * as MigrationParameterBase from "./migration-parameter-base";
+export import MigrationParameterBase = MigrationParameterBase.MigrationParameterBase;
+import * as MigrationParameterDetails from "./migration-parameter-details";
+export import MigrationParameterDetails = MigrationParameterDetails.MigrationParameterDetails;
+import * as MigrationParameterSummary from "./migration-parameter-summary";
+export import MigrationParameterSummary = MigrationParameterSummary.MigrationParameterSummary;
+import * as MigrationParameterSummaryCollection from "./migration-parameter-summary-collection";
+export import MigrationParameterSummaryCollection = MigrationParameterSummaryCollection.MigrationParameterSummaryCollection;
 import * as MigrationPhaseCollection from "./migration-phase-collection";
 export import MigrationPhaseCollection = MigrationPhaseCollection.MigrationPhaseCollection;
 import * as MigrationPhaseSummary from "./migration-phase-summary";

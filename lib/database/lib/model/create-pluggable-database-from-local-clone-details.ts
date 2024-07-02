@@ -24,6 +24,10 @@ export interface CreatePluggableDatabaseFromLocalCloneDetails
    * The OCID of the Source Pluggable Database.
    */
   "sourcePluggableDatabaseId": string;
+  /**
+   * True if Pluggable Database needs to be thin cloned and false if Pluggable Database needs to be thick cloned.
+   */
+  "isThinClone"?: boolean;
 
   "creationType": string;
 }

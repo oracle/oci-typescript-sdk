@@ -1375,7 +1375,9 @@ All Oracle Cloud Infrastructure Services resources, including
       "{fileSystemId}": deleteFileSystemRequest.fileSystemId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "canDetachChildFileSystem": deleteFileSystemRequest.canDetachChildFileSystem
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1833,6 +1835,75 @@ All Oracle Cloud Infrastructure Services resources, including
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSnapshotResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Detaches the file system from its parent file system
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DetachCloneRequest
+   * @return DetachCloneResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DetachClone.ts.html |here} to see how to use DetachClone API.
+   */
+  public async detachClone(
+    detachCloneRequest: requests.DetachCloneRequest
+  ): Promise<responses.DetachCloneResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#detachClone.");
+    const operationName = "detachClone";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/DetachClone";
+    const pathParams = {
+      "{fileSystemId}": detachCloneRequest.fileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": detachCloneRequest.ifMatch,
+      "opc-request-id": detachCloneRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachCloneRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fileSystems/{fileSystemId}/actions/detachClone",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DetachCloneResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

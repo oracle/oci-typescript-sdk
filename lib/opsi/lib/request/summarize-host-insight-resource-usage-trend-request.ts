@@ -148,6 +148,10 @@ export interface SummarizeHostInsightResourceUsageTrendRequest extends common.Ba
    *
    */
   "vmclusterName"?: Array<string>;
+  /**
+   * Resource Status
+   */
+  "status"?: Array<model.ResourceStatus>;
 }
 
 export namespace SummarizeHostInsightResourceUsageTrendRequest {

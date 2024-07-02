@@ -104,15 +104,31 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * Additional information about the current 'lifecycleState'.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Specifies whether the file system is attached to its parent file system.
+   */
+  "cloneAttachStatus"?: FileSystemSummary.CloneAttachStatus;
 }
 
 export namespace FileSystemSummary {
   export enum LifecycleState {
     Creating = "CREATING",
     Active = "ACTIVE",
+    Updating = "UPDATING",
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum CloneAttachStatus {
+    Attached = "ATTACHED",
+    Detaching = "DETACHING",
+    Detached = "DETACHED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

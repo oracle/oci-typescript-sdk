@@ -38,6 +38,10 @@ export interface ListGiVersionsRequest extends common.BaseRequest {
    * If provided, filters the results for the given shape.
    */
   "shape"?: string;
+  /**
+   * The target availability domain. Only passed if the limit is AD-specific.
+   */
+  "availabilityDomain"?: string;
 }
 
 export namespace ListGiVersionsRequest {

@@ -1,8 +1,8 @@
 /**
- * Operations Insights API
- * Use the Operations Insights API to perform data extraction operations to obtain database
+ * Ops Insights API
+ * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -20,7 +20,7 @@ import common = require("oci-common");
 /**
  * Basic configuration item summary.
  * Value field contain the most preferred value for the specified scope (compartmentId), which could be from any of the ConfigurationItemValueSourceConfigurationType.
- * Default value field contains the default value from Operations Insights.
+ * Default value field contains the default value from Ops Insights.
  *
  */
 export interface BasicConfigurationItemSummary extends model.ConfigurationItemSummary {
@@ -41,7 +41,7 @@ export interface BasicConfigurationItemSummary extends model.ConfigurationItemSu
    */
   "defaultValue"?: string;
   /**
-   * List of contexts in Operations Insights where this configuration item is applicable.
+   * List of contexts in Ops Insights where this configuration item is applicable.
    */
   "applicableContexts"?: Array<string>;
   "metadata"?: model.BasicConfigurationItemMetadata;

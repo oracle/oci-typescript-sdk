@@ -40,6 +40,10 @@ export interface CreatePluggableDatabaseFromRemoteCloneDetails
    */
   "sourceContainerDatabaseAdminPassword": string;
   "refreshableCloneDetails"?: model.CreatePluggableDatabaseRefreshableCloneDetails;
+  /**
+   * True if Pluggable Database needs to be thin cloned and false if Pluggable Database needs to be thick cloned.
+   */
+  "isThinClone"?: boolean;
 
   "creationType": string;
 }

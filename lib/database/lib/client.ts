@@ -2060,6 +2060,171 @@ export class DatabaseClient {
   }
 
   /**
+   * Moves a Exadata VM cluster on Exascale Infrastructure and its dependent resources to another compartment. Applies to Exadata Database Service on Exascale Infrastructure only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeExadbVmClusterCompartmentRequest
+   * @return ChangeExadbVmClusterCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExadbVmClusterCompartment.ts.html |here} to see how to use ChangeExadbVmClusterCompartment API.
+   */
+  public async changeExadbVmClusterCompartment(
+    changeExadbVmClusterCompartmentRequest: requests.ChangeExadbVmClusterCompartmentRequest
+  ): Promise<responses.ChangeExadbVmClusterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeExadbVmClusterCompartment.");
+    const operationName = "changeExadbVmClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/ChangeExadbVmClusterCompartment";
+    const pathParams = {
+      "{exadbVmClusterId}": changeExadbVmClusterCompartmentRequest.exadbVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeExadbVmClusterCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeExadbVmClusterCompartmentRequest.opcRequestId,
+      "if-match": changeExadbVmClusterCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExadbVmClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeExadbVmClusterCompartmentRequest.changeExadbVmClusterCompartmentDetails,
+        "ChangeExadbVmClusterCompartmentDetails",
+        model.ChangeExadbVmClusterCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeExadbVmClusterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a Exadata Database Storage Vault to another compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeExascaleDbStorageVaultCompartmentRequest
+   * @return ChangeExascaleDbStorageVaultCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExascaleDbStorageVaultCompartment.ts.html |here} to see how to use ChangeExascaleDbStorageVaultCompartment API.
+   */
+  public async changeExascaleDbStorageVaultCompartment(
+    changeExascaleDbStorageVaultCompartmentRequest: requests.ChangeExascaleDbStorageVaultCompartmentRequest
+  ): Promise<responses.ChangeExascaleDbStorageVaultCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeExascaleDbStorageVaultCompartment."
+      );
+    const operationName = "changeExascaleDbStorageVaultCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExascaleDbStorageVault/ChangeExascaleDbStorageVaultCompartment";
+    const pathParams = {
+      "{exascaleDbStorageVaultId}":
+        changeExascaleDbStorageVaultCompartmentRequest.exascaleDbStorageVaultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeExascaleDbStorageVaultCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeExascaleDbStorageVaultCompartmentRequest.opcRequestId,
+      "if-match": changeExascaleDbStorageVaultCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExascaleDbStorageVaultCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exascaleDbStorageVaults/{exascaleDbStorageVaultId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeExascaleDbStorageVaultCompartmentRequest.changeExascaleDbStorageVaultCompartmentDetails,
+        "ChangeExascaleDbStorageVaultCompartmentDetails",
+        model.ChangeExascaleDbStorageVaultCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeExascaleDbStorageVaultCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Move the {@link #createExternalContainerDatabaseDetails(CreateExternalContainerDatabaseDetailsRequest) createExternalContainerDatabaseDetails}
    * and its dependent resources to the specified compartment.
    * For more information about moving external container databases, see
@@ -4848,6 +5013,179 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Creates an Exadata VM cluster on Exascale Infrastructure
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateExadbVmClusterRequest
+   * @return CreateExadbVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExadbVmCluster.ts.html |here} to see how to use CreateExadbVmCluster API.
+   */
+  public async createExadbVmCluster(
+    createExadbVmClusterRequest: requests.CreateExadbVmClusterRequest
+  ): Promise<responses.CreateExadbVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createExadbVmCluster.");
+    const operationName = "createExadbVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/CreateExadbVmCluster";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createExadbVmClusterRequest.opcRetryToken,
+      "opc-request-id": createExadbVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExadbVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExadbVmClusterRequest.createExadbVmClusterDetails,
+        "CreateExadbVmClusterDetails",
+        model.CreateExadbVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExadbVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "exadbVmCluster",
+        bodyModel: model.ExadbVmCluster,
+        type: "model.ExadbVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates an Exadata Database Storage Vault
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateExascaleDbStorageVaultRequest
+   * @return CreateExascaleDbStorageVaultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExascaleDbStorageVault.ts.html |here} to see how to use CreateExascaleDbStorageVault API.
+   */
+  public async createExascaleDbStorageVault(
+    createExascaleDbStorageVaultRequest: requests.CreateExascaleDbStorageVaultRequest
+  ): Promise<responses.CreateExascaleDbStorageVaultResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createExascaleDbStorageVault.");
+    const operationName = "createExascaleDbStorageVault";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExascaleDbStorageVault/CreateExascaleDbStorageVault";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createExascaleDbStorageVaultRequest.opcRetryToken,
+      "opc-request-id": createExascaleDbStorageVaultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExascaleDbStorageVaultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exascaleDbStorageVaults",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExascaleDbStorageVaultRequest.createExascaleDbStorageVaultDetails,
+        "CreateExascaleDbStorageVaultDetails",
+        model.CreateExascaleDbStorageVaultDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExascaleDbStorageVaultResponse>{},
+        body: await response.json(),
+        bodyKey: "exascaleDbStorageVault",
+        bodyModel: model.ExascaleDbStorageVault,
+        type: "model.ExascaleDbStorageVault",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new backup resource and returns the information the caller needs to back up an on-premises Oracle Database to Oracle Cloud Infrastructure.
    * <p>
    **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.cloud.oracle.com/Content/Database/Tasks/mig-onprembackup.htm) for more information.
@@ -7066,6 +7404,155 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExadataInfrastructureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified Exadata VM cluster on Exascale Infrastructure. Applies to Exadata Database Service on Exascale Infrastructure only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExadbVmClusterRequest
+   * @return DeleteExadbVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExadbVmCluster.ts.html |here} to see how to use DeleteExadbVmCluster API.
+   */
+  public async deleteExadbVmCluster(
+    deleteExadbVmClusterRequest: requests.DeleteExadbVmClusterRequest
+  ): Promise<responses.DeleteExadbVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteExadbVmCluster.");
+    const operationName = "deleteExadbVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/DeleteExadbVmCluster";
+    const pathParams = {
+      "{exadbVmClusterId}": deleteExadbVmClusterRequest.exadbVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExadbVmClusterRequest.ifMatch,
+      "opc-request-id": deleteExadbVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExadbVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExadbVmClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified Exadata Database Storage Vault.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExascaleDbStorageVaultRequest
+   * @return DeleteExascaleDbStorageVaultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExascaleDbStorageVault.ts.html |here} to see how to use DeleteExascaleDbStorageVault API.
+   */
+  public async deleteExascaleDbStorageVault(
+    deleteExascaleDbStorageVaultRequest: requests.DeleteExascaleDbStorageVaultRequest
+  ): Promise<responses.DeleteExascaleDbStorageVaultResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteExascaleDbStorageVault.");
+    const operationName = "deleteExascaleDbStorageVault";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExascaleDbStorageVault/DeleteExascaleDbStorageVault";
+    const pathParams = {
+      "{exascaleDbStorageVaultId}": deleteExascaleDbStorageVaultRequest.exascaleDbStorageVaultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExascaleDbStorageVaultRequest.ifMatch,
+      "opc-request-id": deleteExascaleDbStorageVaultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExascaleDbStorageVaultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exascaleDbStorageVaults/{exascaleDbStorageVaultId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExascaleDbStorageVaultResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -14165,6 +14652,313 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   }
 
   /**
+   * Gets information about the specified Exadata VM cluster on Exascale Infrastructure. Applies to Exadata Database Service on Exascale Infrastructure only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExadbVmClusterRequest
+   * @return GetExadbVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadbVmCluster.ts.html |here} to see how to use GetExadbVmCluster API.
+   */
+  public async getExadbVmCluster(
+    getExadbVmClusterRequest: requests.GetExadbVmClusterRequest
+  ): Promise<responses.GetExadbVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getExadbVmCluster.");
+    const operationName = "getExadbVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/GetExadbVmCluster";
+    const pathParams = {
+      "{exadbVmClusterId}": getExadbVmClusterRequest.exadbVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExadbVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExadbVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExadbVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "exadbVmCluster",
+        bodyModel: model.ExadbVmCluster,
+        type: "model.ExadbVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a specified maintenance update package for a Exadata VM cluster on Exascale Infrastructure.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExadbVmClusterUpdateRequest
+   * @return GetExadbVmClusterUpdateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadbVmClusterUpdate.ts.html |here} to see how to use GetExadbVmClusterUpdate API.
+   */
+  public async getExadbVmClusterUpdate(
+    getExadbVmClusterUpdateRequest: requests.GetExadbVmClusterUpdateRequest
+  ): Promise<responses.GetExadbVmClusterUpdateResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getExadbVmClusterUpdate.");
+    const operationName = "getExadbVmClusterUpdate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmClusterUpdate/GetExadbVmClusterUpdate";
+    const pathParams = {
+      "{exadbVmClusterId}": getExadbVmClusterUpdateRequest.exadbVmClusterId,
+      "{updateId}": getExadbVmClusterUpdateRequest.updateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExadbVmClusterUpdateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExadbVmClusterUpdateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}/updates/{updateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExadbVmClusterUpdateResponse>{},
+        body: await response.json(),
+        bodyKey: "exadbVmClusterUpdate",
+        bodyModel: model.ExadbVmClusterUpdate,
+        type: "model.ExadbVmClusterUpdate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the maintenance update history details for the specified update history entry.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExadbVmClusterUpdateHistoryEntryRequest
+   * @return GetExadbVmClusterUpdateHistoryEntryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadbVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetExadbVmClusterUpdateHistoryEntry API.
+   */
+  public async getExadbVmClusterUpdateHistoryEntry(
+    getExadbVmClusterUpdateHistoryEntryRequest: requests.GetExadbVmClusterUpdateHistoryEntryRequest
+  ): Promise<responses.GetExadbVmClusterUpdateHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExadbVmClusterUpdateHistoryEntry.");
+    const operationName = "getExadbVmClusterUpdateHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmClusterUpdateHistoryEntry/GetExadbVmClusterUpdateHistoryEntry";
+    const pathParams = {
+      "{exadbVmClusterId}": getExadbVmClusterUpdateHistoryEntryRequest.exadbVmClusterId,
+      "{updateHistoryEntryId}": getExadbVmClusterUpdateHistoryEntryRequest.updateHistoryEntryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExadbVmClusterUpdateHistoryEntryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExadbVmClusterUpdateHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}/updateHistoryEntries/{updateHistoryEntryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExadbVmClusterUpdateHistoryEntryResponse>{},
+        body: await response.json(),
+        bodyKey: "exadbVmClusterUpdateHistoryEntry",
+        bodyModel: model.ExadbVmClusterUpdateHistoryEntry,
+        type: "model.ExadbVmClusterUpdateHistoryEntry",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified Exadata Database Storage Vaults in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExascaleDbStorageVaultRequest
+   * @return GetExascaleDbStorageVaultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExascaleDbStorageVault.ts.html |here} to see how to use GetExascaleDbStorageVault API.
+   */
+  public async getExascaleDbStorageVault(
+    getExascaleDbStorageVaultRequest: requests.GetExascaleDbStorageVaultRequest
+  ): Promise<responses.GetExascaleDbStorageVaultResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getExascaleDbStorageVault.");
+    const operationName = "getExascaleDbStorageVault";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExascaleDbStorageVault/GetExascaleDbStorageVault";
+    const pathParams = {
+      "{exascaleDbStorageVaultId}": getExascaleDbStorageVaultRequest.exascaleDbStorageVaultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExascaleDbStorageVaultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExascaleDbStorageVaultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exascaleDbStorageVaults/{exascaleDbStorageVaultId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExascaleDbStorageVaultResponse>{},
+        body: await response.json(),
+        bodyKey: "exascaleDbStorageVault",
+        bodyModel: model.ExascaleDbStorageVault,
+        type: "model.ExascaleDbStorageVault",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified external backup job.
    * <p>
    **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.cloud.oracle.com/Content/Database/Tasks/mig-onprembackup.htm) for more information.
@@ -18280,7 +19074,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "databaseId": listBackupsRequest.databaseId,
       "compartmentId": listBackupsRequest.compartmentId,
       "limit": listBackupsRequest.limit,
-      "page": listBackupsRequest.page
+      "page": listBackupsRequest.page,
+      "shapeFamily": listBackupsRequest.shapeFamily
     };
 
     let headerParams = {
@@ -21824,6 +22619,547 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Gets the history of the maintenance update actions performed on the specified Exadata VM cluster on Exascale Infrastructure.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExadbVmClusterUpdateHistoryEntriesRequest
+   * @return ListExadbVmClusterUpdateHistoryEntriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListExadbVmClusterUpdateHistoryEntries API.
+   */
+  public async listExadbVmClusterUpdateHistoryEntries(
+    listExadbVmClusterUpdateHistoryEntriesRequest: requests.ListExadbVmClusterUpdateHistoryEntriesRequest
+  ): Promise<responses.ListExadbVmClusterUpdateHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExadbVmClusterUpdateHistoryEntries.");
+    const operationName = "listExadbVmClusterUpdateHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmClusterUpdateHistoryEntry/ListExadbVmClusterUpdateHistoryEntries";
+    const pathParams = {
+      "{exadbVmClusterId}": listExadbVmClusterUpdateHistoryEntriesRequest.exadbVmClusterId
+    };
+
+    const queryParams = {
+      "updateType": listExadbVmClusterUpdateHistoryEntriesRequest.updateType,
+      "limit": listExadbVmClusterUpdateHistoryEntriesRequest.limit,
+      "page": listExadbVmClusterUpdateHistoryEntriesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExadbVmClusterUpdateHistoryEntriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExadbVmClusterUpdateHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}/updateHistoryEntries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExadbVmClusterUpdateHistoryEntriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ExadbVmClusterUpdateHistoryEntrySummary,
+        type: "Array<model.ExadbVmClusterUpdateHistoryEntrySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExadbVmClusterUpdateHistoryEntriesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ExadbVmClusterUpdateHistoryEntrySummary objects
+   * contained in responses from the listExadbVmClusterUpdateHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExadbVmClusterUpdateHistoryEntries(
+    request: requests.ListExadbVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<model.ExadbVmClusterUpdateHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listExadbVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExadbVmClusterUpdateHistoryEntriesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listExadbVmClusterUpdateHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExadbVmClusterUpdateHistoryEntriesResponses(
+    request: requests.ListExadbVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListExadbVmClusterUpdateHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listExadbVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExadbVmClusterUpdateHistoryEntrySummary objects
+   * contained in responses from the listExadbVmClusterUpdateHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExadbVmClusterUpdateHistoryEntriesRecordIterator(
+    request: requests.ListExadbVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<model.ExadbVmClusterUpdateHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listExadbVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExadbVmClusterUpdateHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExadbVmClusterUpdateHistoryEntriesResponseIterator(
+    request: requests.ListExadbVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListExadbVmClusterUpdateHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listExadbVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Lists the maintenance updates that can be applied to the specified Exadata VM cluster on Exascale Infrastructure.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExadbVmClusterUpdatesRequest
+   * @return ListExadbVmClusterUpdatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusterUpdates.ts.html |here} to see how to use ListExadbVmClusterUpdates API.
+   */
+  public async listExadbVmClusterUpdates(
+    listExadbVmClusterUpdatesRequest: requests.ListExadbVmClusterUpdatesRequest
+  ): Promise<responses.ListExadbVmClusterUpdatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExadbVmClusterUpdates.");
+    const operationName = "listExadbVmClusterUpdates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmClusterUpdate/ListExadbVmClusterUpdates";
+    const pathParams = {
+      "{exadbVmClusterId}": listExadbVmClusterUpdatesRequest.exadbVmClusterId
+    };
+
+    const queryParams = {
+      "updateType": listExadbVmClusterUpdatesRequest.updateType,
+      "version": listExadbVmClusterUpdatesRequest.version,
+      "limit": listExadbVmClusterUpdatesRequest.limit,
+      "page": listExadbVmClusterUpdatesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExadbVmClusterUpdatesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExadbVmClusterUpdatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}/updates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExadbVmClusterUpdatesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ExadbVmClusterUpdateSummary,
+        type: "Array<model.ExadbVmClusterUpdateSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExadbVmClusterUpdatesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ExadbVmClusterUpdateSummary objects
+   * contained in responses from the listExadbVmClusterUpdates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExadbVmClusterUpdates(
+    request: requests.ListExadbVmClusterUpdatesRequest
+  ): AsyncIterableIterator<model.ExadbVmClusterUpdateSummary> {
+    return paginateRecords(request, req => this.listExadbVmClusterUpdates(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExadbVmClusterUpdatesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listExadbVmClusterUpdates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExadbVmClusterUpdatesResponses(
+    request: requests.ListExadbVmClusterUpdatesRequest
+  ): AsyncIterableIterator<responses.ListExadbVmClusterUpdatesResponse> {
+    return paginateResponses(request, req => this.listExadbVmClusterUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExadbVmClusterUpdateSummary objects
+   * contained in responses from the listExadbVmClusterUpdates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExadbVmClusterUpdatesRecordIterator(
+    request: requests.ListExadbVmClusterUpdatesRequest
+  ): AsyncIterableIterator<model.ExadbVmClusterUpdateSummary> {
+    return paginateRecords(request, req => this.listExadbVmClusterUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExadbVmClusterUpdates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExadbVmClusterUpdatesResponseIterator(
+    request: requests.ListExadbVmClusterUpdatesRequest
+  ): AsyncIterableIterator<responses.ListExadbVmClusterUpdatesResponse> {
+    return paginateResponses(request, req => this.listExadbVmClusterUpdates(req));
+  }
+
+  /**
+   * Gets a list of the Exadata VM clusters on Exascale Infrastructure in the specified compartment. Applies to Exadata Database Service on Exascale Infrastructure only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExadbVmClustersRequest
+   * @return ListExadbVmClustersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusters.ts.html |here} to see how to use ListExadbVmClusters API.
+   */
+  public async listExadbVmClusters(
+    listExadbVmClustersRequest: requests.ListExadbVmClustersRequest
+  ): Promise<responses.ListExadbVmClustersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listExadbVmClusters.");
+    const operationName = "listExadbVmClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/ListExadbVmClusters";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExadbVmClustersRequest.compartmentId,
+      "limit": listExadbVmClustersRequest.limit,
+      "page": listExadbVmClustersRequest.page,
+      "sortBy": listExadbVmClustersRequest.sortBy,
+      "sortOrder": listExadbVmClustersRequest.sortOrder,
+      "lifecycleState": listExadbVmClustersRequest.lifecycleState,
+      "exascaleDbStorageVaultId": listExadbVmClustersRequest.exascaleDbStorageVaultId,
+      "displayName": listExadbVmClustersRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExadbVmClustersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExadbVmClustersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExadbVmClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ExadbVmClusterSummary,
+        type: "Array<model.ExadbVmClusterSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExadbVmClustersRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ExadbVmClusterSummary objects
+   * contained in responses from the listExadbVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExadbVmClusters(
+    request: requests.ListExadbVmClustersRequest
+  ): AsyncIterableIterator<model.ExadbVmClusterSummary> {
+    return paginateRecords(request, req => this.listExadbVmClusters(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExadbVmClustersResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listExadbVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExadbVmClustersResponses(
+    request: requests.ListExadbVmClustersRequest
+  ): AsyncIterableIterator<responses.ListExadbVmClustersResponse> {
+    return paginateResponses(request, req => this.listExadbVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExadbVmClusterSummary objects
+   * contained in responses from the listExadbVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExadbVmClustersRecordIterator(
+    request: requests.ListExadbVmClustersRequest
+  ): AsyncIterableIterator<model.ExadbVmClusterSummary> {
+    return paginateRecords(request, req => this.listExadbVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExadbVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExadbVmClustersResponseIterator(
+    request: requests.ListExadbVmClustersRequest
+  ): AsyncIterableIterator<responses.ListExadbVmClustersResponse> {
+    return paginateResponses(request, req => this.listExadbVmClusters(req));
+  }
+
+  /**
+   * Gets a list of the Exadata Database Storage Vaults in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExascaleDbStorageVaultsRequest
+   * @return ListExascaleDbStorageVaultsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExascaleDbStorageVaults.ts.html |here} to see how to use ListExascaleDbStorageVaults API.
+   */
+  public async listExascaleDbStorageVaults(
+    listExascaleDbStorageVaultsRequest: requests.ListExascaleDbStorageVaultsRequest
+  ): Promise<responses.ListExascaleDbStorageVaultsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listExascaleDbStorageVaults.");
+    const operationName = "listExascaleDbStorageVaults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExascaleDbStorageVault/ListExascaleDbStorageVaults";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExascaleDbStorageVaultsRequest.compartmentId,
+      "limit": listExascaleDbStorageVaultsRequest.limit,
+      "page": listExascaleDbStorageVaultsRequest.page,
+      "sortBy": listExascaleDbStorageVaultsRequest.sortBy,
+      "sortOrder": listExascaleDbStorageVaultsRequest.sortOrder,
+      "lifecycleState": listExascaleDbStorageVaultsRequest.lifecycleState,
+      "displayName": listExascaleDbStorageVaultsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExascaleDbStorageVaultsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExascaleDbStorageVaultsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exascaleDbStorageVaults",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExascaleDbStorageVaultsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ExascaleDbStorageVaultSummary,
+        type: "Array<model.ExascaleDbStorageVaultSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExascaleDbStorageVaultsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ExascaleDbStorageVaultSummary objects
+   * contained in responses from the listExascaleDbStorageVaults operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExascaleDbStorageVaults(
+    request: requests.ListExascaleDbStorageVaultsRequest
+  ): AsyncIterableIterator<model.ExascaleDbStorageVaultSummary> {
+    return paginateRecords(request, req => this.listExascaleDbStorageVaults(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExascaleDbStorageVaultsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listExascaleDbStorageVaults operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExascaleDbStorageVaultsResponses(
+    request: requests.ListExascaleDbStorageVaultsRequest
+  ): AsyncIterableIterator<responses.ListExascaleDbStorageVaultsResponse> {
+    return paginateResponses(request, req => this.listExascaleDbStorageVaults(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExascaleDbStorageVaultSummary objects
+   * contained in responses from the listExascaleDbStorageVaults operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExascaleDbStorageVaultsRecordIterator(
+    request: requests.ListExascaleDbStorageVaultsRequest
+  ): AsyncIterableIterator<model.ExascaleDbStorageVaultSummary> {
+    return paginateRecords(request, req => this.listExascaleDbStorageVaults(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExascaleDbStorageVaults operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExascaleDbStorageVaultsResponseIterator(
+    request: requests.ListExascaleDbStorageVaultsRequest
+  ): AsyncIterableIterator<responses.ListExascaleDbStorageVaultsResponse> {
+    return paginateResponses(request, req => this.listExascaleDbStorageVaults(req));
+  }
+
+  /**
    * Gets a list of the external container databases in the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -22452,6 +23788,145 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Gets a list of supported Oracle Grid Infrastructure minor versions for the given major version and shape family.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListGiVersionMinorVersionsRequest
+   * @return ListGiVersionMinorVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListGiVersionMinorVersions.ts.html |here} to see how to use ListGiVersionMinorVersions API.
+   */
+  public async listGiVersionMinorVersions(
+    listGiVersionMinorVersionsRequest: requests.ListGiVersionMinorVersionsRequest
+  ): Promise<responses.ListGiVersionMinorVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listGiVersionMinorVersions.");
+    const operationName = "listGiVersionMinorVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/GiMinorVersionSummary/ListGiVersionMinorVersions";
+    const pathParams = {
+      "{version}": listGiVersionMinorVersionsRequest.version
+    };
+
+    const queryParams = {
+      "availabilityDomain": listGiVersionMinorVersionsRequest.availabilityDomain,
+      "compartmentId": listGiVersionMinorVersionsRequest.compartmentId,
+      "shapeFamily": listGiVersionMinorVersionsRequest.shapeFamily,
+      "isGiVersionForProvisioning": listGiVersionMinorVersionsRequest.isGiVersionForProvisioning,
+      "shape": listGiVersionMinorVersionsRequest.shape,
+      "sortBy": listGiVersionMinorVersionsRequest.sortBy,
+      "sortOrder": listGiVersionMinorVersionsRequest.sortOrder,
+      "limit": listGiVersionMinorVersionsRequest.limit,
+      "page": listGiVersionMinorVersionsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listGiVersionMinorVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGiVersionMinorVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/giVersions/{version}/minorVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListGiVersionMinorVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.GiMinorVersionSummary,
+        type: "Array<model.GiMinorVersionSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listGiVersionMinorVersionsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.GiMinorVersionSummary objects
+   * contained in responses from the listGiVersionMinorVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllGiVersionMinorVersions(
+    request: requests.ListGiVersionMinorVersionsRequest
+  ): AsyncIterableIterator<model.GiMinorVersionSummary> {
+    return paginateRecords(request, req => this.listGiVersionMinorVersions(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listGiVersionMinorVersionsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listGiVersionMinorVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllGiVersionMinorVersionsResponses(
+    request: requests.ListGiVersionMinorVersionsRequest
+  ): AsyncIterableIterator<responses.ListGiVersionMinorVersionsResponse> {
+    return paginateResponses(request, req => this.listGiVersionMinorVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.GiMinorVersionSummary objects
+   * contained in responses from the listGiVersionMinorVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listGiVersionMinorVersionsRecordIterator(
+    request: requests.ListGiVersionMinorVersionsRequest
+  ): AsyncIterableIterator<model.GiMinorVersionSummary> {
+    return paginateRecords(request, req => this.listGiVersionMinorVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listGiVersionMinorVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listGiVersionMinorVersionsResponseIterator(
+    request: requests.ListGiVersionMinorVersionsRequest
+  ): AsyncIterableIterator<responses.ListGiVersionMinorVersionsResponse> {
+    return paginateResponses(request, req => this.listGiVersionMinorVersions(req));
+  }
+
+  /**
    * Gets a list of supported GI versions.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListGiVersionsRequest
@@ -22473,7 +23948,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "limit": listGiVersionsRequest.limit,
       "page": listGiVersionsRequest.page,
       "sortOrder": listGiVersionsRequest.sortOrder,
-      "shape": listGiVersionsRequest.shape
+      "shape": listGiVersionsRequest.shape,
+      "availabilityDomain": listGiVersionsRequest.availabilityDomain
     };
 
     let headerParams = {
@@ -25229,6 +26705,96 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyKey: "cloudVmCluster",
         bodyModel: model.CloudVmCluster,
         type: "model.CloudVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove Virtual Machines from the Exadata VM cluster on Exascale Infrastructure. Applies to Exadata Cloud instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveVirtualMachineFromExadbVmClusterRequest
+   * @return RemoveVirtualMachineFromExadbVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromExadbVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromExadbVmCluster API.
+   */
+  public async removeVirtualMachineFromExadbVmCluster(
+    removeVirtualMachineFromExadbVmClusterRequest: requests.RemoveVirtualMachineFromExadbVmClusterRequest
+  ): Promise<responses.RemoveVirtualMachineFromExadbVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#removeVirtualMachineFromExadbVmCluster.");
+    const operationName = "removeVirtualMachineFromExadbVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/RemoveVirtualMachineFromExadbVmCluster";
+    const pathParams = {
+      "{exadbVmClusterId}": removeVirtualMachineFromExadbVmClusterRequest.exadbVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeVirtualMachineFromExadbVmClusterRequest.opcRetryToken,
+      "opc-request-id": removeVirtualMachineFromExadbVmClusterRequest.opcRequestId,
+      "if-match": removeVirtualMachineFromExadbVmClusterRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeVirtualMachineFromExadbVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}/actions/removeVirtualMachine",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeVirtualMachineFromExadbVmClusterRequest.removeVirtualMachineFromExadbVmClusterDetails,
+        "RemoveVirtualMachineFromExadbVmClusterDetails",
+        model.RemoveVirtualMachineFromExadbVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveVirtualMachineFromExadbVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "exadbVmCluster",
+        bodyModel: model.ExadbVmCluster,
+        type: "model.ExadbVmCluster",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -29848,6 +31414,183 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified Exadata VM cluster on Exascale Infrastructure. Applies to Exadata Database Service on Exascale Infrastructure only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExadbVmClusterRequest
+   * @return UpdateExadbVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadbVmCluster.ts.html |here} to see how to use UpdateExadbVmCluster API.
+   */
+  public async updateExadbVmCluster(
+    updateExadbVmClusterRequest: requests.UpdateExadbVmClusterRequest
+  ): Promise<responses.UpdateExadbVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateExadbVmCluster.");
+    const operationName = "updateExadbVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/UpdateExadbVmCluster";
+    const pathParams = {
+      "{exadbVmClusterId}": updateExadbVmClusterRequest.exadbVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExadbVmClusterRequest.ifMatch,
+      "opc-request-id": updateExadbVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExadbVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExadbVmClusterRequest.updateExadbVmClusterDetails,
+        "UpdateExadbVmClusterDetails",
+        model.UpdateExadbVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExadbVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "exadbVmCluster",
+        bodyModel: model.ExadbVmCluster,
+        type: "model.ExadbVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified Exadata Database Storage Vault.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExascaleDbStorageVaultRequest
+   * @return UpdateExascaleDbStorageVaultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExascaleDbStorageVault.ts.html |here} to see how to use UpdateExascaleDbStorageVault API.
+   */
+  public async updateExascaleDbStorageVault(
+    updateExascaleDbStorageVaultRequest: requests.UpdateExascaleDbStorageVaultRequest
+  ): Promise<responses.UpdateExascaleDbStorageVaultResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateExascaleDbStorageVault.");
+    const operationName = "updateExascaleDbStorageVault";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExascaleDbStorageVault/UpdateExascaleDbStorageVault";
+    const pathParams = {
+      "{exascaleDbStorageVaultId}": updateExascaleDbStorageVaultRequest.exascaleDbStorageVaultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExascaleDbStorageVaultRequest.ifMatch,
+      "opc-request-id": updateExascaleDbStorageVaultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExascaleDbStorageVaultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exascaleDbStorageVaults/{exascaleDbStorageVaultId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExascaleDbStorageVaultRequest.updateExascaleDbStorageVaultDetails,
+        "UpdateExascaleDbStorageVaultDetails",
+        model.UpdateExascaleDbStorageVaultDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExascaleDbStorageVaultResponse>{},
+        body: await response.json(),
+        bodyKey: "exascaleDbStorageVault",
+        bodyModel: model.ExascaleDbStorageVault,
+        type: "model.ExascaleDbStorageVault",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

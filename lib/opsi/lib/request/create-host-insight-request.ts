@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateHostInsightRequest extends common.BaseRequest {
   /**
-   * Details for the host for which a Host Insight resource will be created in Operations Insights.
+   * Details for the host for which a Host Insight resource will be created in Ops Insights.
    */
   "createHostInsightDetails":
     | model.CreateMacsManagedCloudHostInsightDetails

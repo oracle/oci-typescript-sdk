@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateNewsReportRequest extends common.BaseRequest {
   /**
-   * Details for the news report that will be created in Operations Insights.
+   * Details for the news report that will be created in Ops Insights.
    */
   "createNewsReportDetails": model.CreateNewsReportDetails;
   /**

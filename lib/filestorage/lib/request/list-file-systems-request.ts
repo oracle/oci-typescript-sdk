@@ -110,6 +110,7 @@ export namespace ListFileSystemsRequest {
   export enum LifecycleState {
     Creating = "CREATING",
     Active = "ACTIVE",
+    Updating = "UPDATING",
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED"

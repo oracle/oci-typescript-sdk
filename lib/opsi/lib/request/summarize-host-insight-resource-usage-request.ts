@@ -143,6 +143,10 @@ export interface SummarizeHostInsightResourceUsageRequest extends common.BaseReq
    *
    */
   "vmclusterName"?: Array<string>;
+  /**
+   * Resource Status
+   */
+  "status"?: Array<model.ResourceStatus>;
 }
 
 export namespace SummarizeHostInsightResourceUsageRequest {
