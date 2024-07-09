@@ -1037,6 +1037,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forConfirmKeyStoreDetailsAreCorrect
+   *
+   * @param request the request to send
+   * @return response returns ConfirmKeyStoreDetailsAreCorrectResponse, GetWorkRequestResponse tuple
+   */
+  public async forConfirmKeyStoreDetailsAreCorrect(
+    request: serviceRequests.ConfirmKeyStoreDetailsAreCorrectRequest
+  ): Promise<{
+    response: serviceResponses.ConfirmKeyStoreDetailsAreCorrectResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const confirmKeyStoreDetailsAreCorrectResponse = await this.client.confirmKeyStoreDetailsAreCorrect(
+      request
+    );
+    if (confirmKeyStoreDetailsAreCorrectResponse.opcWorkRequestId === undefined)
+      return {
+        response: confirmKeyStoreDetailsAreCorrectResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      confirmKeyStoreDetailsAreCorrectResponse.opcWorkRequestId
+    );
+    return {
+      response: confirmKeyStoreDetailsAreCorrectResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forConvertToPdb
    *
    * @param request the request to send

@@ -80,6 +80,8 @@ import * as ConfigureAutonomousDatabaseVaultKeyResponse from "./configure-autono
 export import ConfigureAutonomousDatabaseVaultKeyResponse = ConfigureAutonomousDatabaseVaultKeyResponse.ConfigureAutonomousDatabaseVaultKeyResponse;
 import * as ConfigureSaasAdminUserResponse from "./configure-saas-admin-user-response";
 export import ConfigureSaasAdminUserResponse = ConfigureSaasAdminUserResponse.ConfigureSaasAdminUserResponse;
+import * as ConfirmKeyStoreDetailsAreCorrectResponse from "./confirm-key-store-details-are-correct-response";
+export import ConfirmKeyStoreDetailsAreCorrectResponse = ConfirmKeyStoreDetailsAreCorrectResponse.ConfirmKeyStoreDetailsAreCorrectResponse;
 import * as ConvertToPdbResponse from "./convert-to-pdb-response";
 export import ConvertToPdbResponse = ConvertToPdbResponse.ConvertToPdbResponse;
 import * as ConvertToRegularPluggableDatabaseResponse from "./convert-to-regular-pluggable-database-response";

@@ -107,6 +107,14 @@ export interface UsageSummary {
    */
   "computedQuantity"?: number;
   /**
+   * The attributed cost with a max value of 9999999999.999999999999 and a minimum value of 0.
+   */
+  "attributedCost"?: string;
+  /**
+   * The attributed usage with a max value of 9999999999.999999999999 and a minimum value of 0.
+   */
+  "attributedUsage"?: string;
+  /**
    * The SPM OverageFlag.
    */
   "overagesFlag"?: string;
