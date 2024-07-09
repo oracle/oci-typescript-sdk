@@ -3172,6 +3172,83 @@ export class DatabaseClient {
   }
 
   /**
+   * This is for user to confirm to DBaaS that the Oracle Key Valut (OKV) connection IPs, username and password are all correct. This operation will put
+   * the Key Store back into Active state. If details are incorrect, your OKV account may get locked after some unsuccessful attempts to connect.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ConfirmKeyStoreDetailsAreCorrectRequest
+   * @return ConfirmKeyStoreDetailsAreCorrectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfirmKeyStoreDetailsAreCorrect.ts.html |here} to see how to use ConfirmKeyStoreDetailsAreCorrect API.
+   */
+  public async confirmKeyStoreDetailsAreCorrect(
+    confirmKeyStoreDetailsAreCorrectRequest: requests.ConfirmKeyStoreDetailsAreCorrectRequest
+  ): Promise<responses.ConfirmKeyStoreDetailsAreCorrectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#confirmKeyStoreDetailsAreCorrect.");
+    const operationName = "confirmKeyStoreDetailsAreCorrect";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/ConfirmKeyStoreDetailsAreCorrect";
+    const pathParams = {
+      "{keyStoreId}": confirmKeyStoreDetailsAreCorrectRequest.keyStoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": confirmKeyStoreDetailsAreCorrectRequest.opcRetryToken,
+      "opc-request-id": confirmKeyStoreDetailsAreCorrectRequest.opcRequestId,
+      "if-match": confirmKeyStoreDetailsAreCorrectRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      confirmKeyStoreDetailsAreCorrectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/keyStores/{keyStoreId}/actions/confirmDetailsAreCorrect",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConfirmKeyStoreDetailsAreCorrectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Converts a non-container database to a pluggable database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

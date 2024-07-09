@@ -100,6 +100,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "sidPrefix"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the key store of Oracle Vault.
+   */
+  "keyStoreId"?: string;
 }
 
 export namespace CreateDatabaseDetails {

@@ -1,6 +1,6 @@
 {
   "name": "oci-networkloadbalancer",
-  "version": "2.89.1",
+  "version": "2.89.2",
   "description": "OCI NodeJS client for Network Load Balancer Service",
   "repository": {
     "type": "git",

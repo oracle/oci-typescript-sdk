@@ -80,6 +80,8 @@ import * as ConfigureAutonomousDatabaseVaultKeyRequest from "./configure-autonom
 export import ConfigureAutonomousDatabaseVaultKeyRequest = ConfigureAutonomousDatabaseVaultKeyRequest.ConfigureAutonomousDatabaseVaultKeyRequest;
 import * as ConfigureSaasAdminUserRequest from "./configure-saas-admin-user-request";
 export import ConfigureSaasAdminUserRequest = ConfigureSaasAdminUserRequest.ConfigureSaasAdminUserRequest;
+import * as ConfirmKeyStoreDetailsAreCorrectRequest from "./confirm-key-store-details-are-correct-request";
+export import ConfirmKeyStoreDetailsAreCorrectRequest = ConfirmKeyStoreDetailsAreCorrectRequest.ConfirmKeyStoreDetailsAreCorrectRequest;
 import * as ConvertToPdbRequest from "./convert-to-pdb-request";
 export import ConvertToPdbRequest = ConvertToPdbRequest.ConvertToPdbRequest;
 import * as ConvertToRegularPluggableDatabaseRequest from "./convert-to-regular-pluggable-database-request";
