@@ -13,7 +13,7 @@
  * <li>The second argument is the namespaceName</li>
  * <li>The third argument is the name of an existing bucket to uplod object</li>
  * </ul>
- * NodeJS V8 Engine have a buffer size limitation, 2GB for 64-bit machine and 1GB for 32-bit machine.
+ * Node.js V8 Engine have a buffer size limitation, 2GB for 64-bit machine and 1GB for 32-bit machine.
  * Do not pass in a partSize option greater than the buffer size limitation.
  */
 

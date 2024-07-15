@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Jms Service
+# OCI Node.js client for Jms Service
 
 This module enables you to write code to manage resources for Jms Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Operator Access Control Service
+# OCI Node.js client for Operator Access Control Service
 
 This module enables you to write code to manage resources for Operator Access Control Service.
 

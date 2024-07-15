@@ -1,7 +1,7 @@
 {
   "name": "oci-managementdashboard",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Management Dashboard Service",
+  "description": "OCI Node.js client for Management Dashboard Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

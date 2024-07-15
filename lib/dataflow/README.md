@@ -1,4 +1,4 @@
-# OCI NodeJS client for Dataflow Service
+# OCI Node.js client for Dataflow Service
 
 This module enables you to write code to manage resources for Dataflow Service.
 

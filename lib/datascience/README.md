@@ -1,4 +1,4 @@
-# OCI NodeJS client for Datascience Service
+# OCI Node.js client for Datascience Service
 
 This module enables you to write code to manage resources for Datascience Service.
 

@@ -1,4 +1,4 @@
-# OCI NodeJS client for Resource Search Service
+# OCI Node.js client for Resource Search Service
 
 This module enables you to write code to manage resources for Resource Search Service.
 

@@ -1,4 +1,4 @@
-# OCI NodeJS client for Container Engine Service
+# OCI Node.js client for Container Engine Service
 
 This module enables you to write code to manage resources for Container Engine Service.
 

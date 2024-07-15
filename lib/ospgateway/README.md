@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Osp Gateway Service
+# OCI Node.js client for Osp Gateway Service
 
 This module enables you to write code to manage resources for Osp Gateway Service.
 

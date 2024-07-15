@@ -1,7 +1,7 @@
 {
   "name": "oci-dns",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for DNS",
+  "description": "OCI Node.js client for DNS",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

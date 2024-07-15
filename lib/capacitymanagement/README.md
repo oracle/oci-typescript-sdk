@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Capacity Management Service
+# OCI Node.js client for Capacity Management Service
 
 This module enables you to write code to manage resources for Capacity Management Service.
 

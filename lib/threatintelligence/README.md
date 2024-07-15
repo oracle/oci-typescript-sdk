@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Threat Intelligence Service
+# OCI Node.js client for Threat Intelligence Service
 
 This module enables you to write code to manage resources for Threat Intelligence Service.
 

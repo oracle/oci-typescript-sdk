@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Sch Service
+# OCI Node.js client for Sch Service
 
 This module enables you to write code to manage resources for Sch Service.
 

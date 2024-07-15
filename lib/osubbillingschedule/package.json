@@ -1,7 +1,7 @@
 {
   "name": "oci-osubbillingschedule",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Osub Billing Schedule Service",
+  "description": "OCI Node.js client for Osub Billing Schedule Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

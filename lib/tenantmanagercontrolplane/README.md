@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Tenant Manager Control Plane Service
+# OCI Node.js client for Tenant Manager Control Plane Service
 
 This module enables you to write code to manage resources for Tenant Manager Control Plane Service.
 

@@ -1,7 +1,7 @@
 {
   "name": "oci-genericartifactscontent",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Generic Artifacts Content Service",
+  "description": "OCI Node.js client for Generic Artifacts Content Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

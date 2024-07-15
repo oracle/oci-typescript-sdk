@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Compute Cloud At Customer Service
+# OCI Node.js client for Compute Cloud At Customer Service
 
 This module enables you to write code to manage resources for Compute Cloud At Customer Service.
 

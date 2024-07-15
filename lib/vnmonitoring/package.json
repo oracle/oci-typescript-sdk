@@ -1,7 +1,7 @@
 {
   "name": "oci-vnmonitoring",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Vn Monitoring Service",
+  "description": "OCI Node.js client for Vn Monitoring Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

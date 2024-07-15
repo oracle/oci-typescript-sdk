@@ -1,7 +1,7 @@
 {
   "name": "oci-keymanagement",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Key Management",
+  "description": "OCI Node.js client for Key Management",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

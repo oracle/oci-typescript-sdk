@@ -1,7 +1,7 @@
 {
   "name": "oci-stackmonitoring",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Stack Monitoring Service",
+  "description": "OCI Node.js client for Stack Monitoring Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

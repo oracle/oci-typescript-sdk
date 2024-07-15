@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Apm Control Plane Service
+# OCI Node.js client for Apm Control Plane Service
 
 This module enables you to write code to manage resources for Apm Control Plane Service.
 

@@ -1,4 +1,4 @@
-# OCI NodeJS client for Work Requests Service
+# OCI Node.js client for Work Requests Service
 
 This module enables you to write code to manage resources for Work Requests Service.
 

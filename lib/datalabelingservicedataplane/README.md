@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Data Labeling Service Dataplane Service
+# OCI Node.js client for Data Labeling Service Dataplane Service
 
 This module enables you to write code to manage resources for Data Labeling Service Dataplane Service.
 

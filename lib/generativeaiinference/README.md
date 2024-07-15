@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Generative Ai Inference Service
+# OCI Node.js client for Generative Ai Inference Service
 
 This module enables you to write code to manage resources for Generative Ai Inference Service.
 

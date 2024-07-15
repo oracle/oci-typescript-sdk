@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Loggingsearch Service
+# OCI Node.js client for Loggingsearch Service
 
 This module enables you to write code to manage resources for Loggingsearch Service.
 

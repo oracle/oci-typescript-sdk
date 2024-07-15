@@ -1,7 +1,7 @@
 {
   "name": "oci-visualbuilder",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Visual Builder Service",
+  "description": "OCI Node.js client for Visual Builder Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

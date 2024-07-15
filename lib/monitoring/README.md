@@ -1,4 +1,4 @@
-# OCI NodeJS client for Monitoring Service
+# OCI Node.js client for Monitoring Service
 
 This module enables you to write code to manage resources for Monitoring Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Container Instances Service
+# OCI Node.js client for Container Instances Service
 
 This module enables you to write code to manage resources for Container Instances Service.
 

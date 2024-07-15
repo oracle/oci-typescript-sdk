@@ -1,4 +1,4 @@
-# OCI NodeJS client for Announcements Service
+# OCI Node.js client for Announcements Service
 
 This module enables you to write code to manage resources for Announcements Service.
 

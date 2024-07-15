@@ -1,7 +1,7 @@
 {
   "name": "oci-queue",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Queue Service",
+  "description": "OCI Node.js client for Queue Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

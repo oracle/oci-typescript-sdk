@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Generic Artifacts Content Service
+# OCI Node.js client for Generic Artifacts Content Service
 
 This module enables you to write code to manage resources for Generic Artifacts Content Service.
 

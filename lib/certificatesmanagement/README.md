@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Certificates Management Service
+# OCI Node.js client for Certificates Management Service
 
 This module enables you to write code to manage resources for Certificates Management Service.
 

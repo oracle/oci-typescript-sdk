@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Opsi Service
+# OCI Node.js client for Opsi Service
 
 This module enables you to write code to manage resources for Opsi Service.
 

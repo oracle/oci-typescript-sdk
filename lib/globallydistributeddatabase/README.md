@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Globally Distributed Database Service
+# OCI Node.js client for Globally Distributed Database Service
 
 This module enables you to write code to manage resources for Globally Distributed Database Service.
 

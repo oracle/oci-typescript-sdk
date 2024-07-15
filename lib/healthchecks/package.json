@@ -1,7 +1,7 @@
 {
   "name": "oci-healthchecks",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Healthchecks Service",
+  "description": "OCI Node.js client for Healthchecks Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

@@ -1,7 +1,7 @@
 {
   "name": "oci-networkloadbalancer",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Network Load Balancer Service",
+  "description": "OCI Node.js client for Network Load Balancer Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

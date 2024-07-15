@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Database Tools Service
+# OCI Node.js client for Database Tools Service
 
 This module enables you to write code to manage resources for Database Tools Service.
 

@@ -1,7 +1,7 @@
 {
   "name": "oci-generativeai",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Generative Ai Service",
+  "description": "OCI Node.js client for Generative Ai Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

@@ -1,4 +1,4 @@
-# OCI NodeJS client for Filestorage Service
+# OCI Node.js client for Filestorage Service
 
 This module enables you to write code to manage resources for Filestorage Service.
 

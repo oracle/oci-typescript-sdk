@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Opensearch Service
+# OCI Node.js client for Opensearch Service
 
 This module enables you to write code to manage resources for Opensearch Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Vn Monitoring Service
+# OCI Node.js client for Vn Monitoring Service
 
 This module enables you to write code to manage resources for Vn Monitoring Service.
 

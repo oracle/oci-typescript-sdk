@@ -1,7 +1,7 @@
 {
   "name": "oci-usageapi",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Usage Api Service",
+  "description": "OCI Node.js client for Usage Api Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

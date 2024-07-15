@@ -1,4 +1,4 @@
-# OCI NodeJS client for Integration Service
+# OCI Node.js client for Integration Service
 
 This module enables you to write code to manage resources for Integration Service.
 

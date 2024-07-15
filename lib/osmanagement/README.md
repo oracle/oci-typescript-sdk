@@ -1,4 +1,4 @@
-# OCI NodeJS client for OS management Service
+# OCI Node.js client for OS management Service
 
 This module enables you to write code to manage resources for OS management Service.
 

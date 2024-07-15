@@ -1,4 +1,4 @@
-# OCI NodeJS client for Email Service
+# OCI Node.js client for Email Service
 
 This module enables you to write code to manage resources for Email Service.
 

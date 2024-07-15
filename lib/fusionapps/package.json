@@ -1,7 +1,7 @@
 {
   "name": "oci-fusionapps",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Fusion Apps Service",
+  "description": "OCI Node.js client for Fusion Apps Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

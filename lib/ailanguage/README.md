@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Ai Language Service
+# OCI Node.js client for AI Language Service
 
 This module enables you to write code to manage resources for Ai Language Service.
 

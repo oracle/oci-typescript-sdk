@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Apm Config Service
+# OCI Node.js client for Apm Config Service
 
 This module enables you to write code to manage resources for Apm Config Service.
 

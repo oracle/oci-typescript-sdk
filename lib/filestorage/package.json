@@ -1,7 +1,7 @@
 {
   "name": "oci-filestorage",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for File Storage",
+  "description": "OCI Node.js client for File Storage",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Adm Service
+# OCI Node.js client for Adm Service
 
 This module enables you to write code to manage resources for Adm Service.
 

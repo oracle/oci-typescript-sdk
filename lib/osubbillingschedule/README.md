@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Osub Billing Schedule Service
+# OCI Node.js client for Osub Billing Schedule Service
 
 This module enables you to write code to manage resources for Osub Billing Schedule Service.
 

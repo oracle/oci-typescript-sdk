@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Rover Service
+# OCI Node.js client for Rover Service
 
 This module enables you to write code to manage resources for Rover Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Resource Scheduler Service
+# OCI Node.js client for Resource Scheduler Service
 
 This module enables you to write code to manage resources for Resource Scheduler Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Vbs Inst Service
+# OCI Node.js client for Vbs Inst Service
 
 This module enables you to write code to manage resources for Vbs Inst Service.
 

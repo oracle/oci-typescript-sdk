@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Logging Service
+# OCI Node.js client for Logging Service
 
 This module enables you to write code to manage resources for Logging Service.
 

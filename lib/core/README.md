@@ -1,4 +1,4 @@
-# OCI NodeJS client for Core Service
+# OCI Node.js client for Core Service
 
 This module enables you to write code to manage resources for Core Service.
 

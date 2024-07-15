@@ -1,4 +1,4 @@
-# OCI NodeJS client for Autoscaling Service
+# OCI Node.js client for Autoscaling Service
 
 This module enables you to write code to manage resources for Autoscaling Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Ai Vision Service
+# OCI Node.js client for Ai Vision Service
 
 This module enables you to write code to manage resources for Ai Vision Service.
 

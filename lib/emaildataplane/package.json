@@ -1,7 +1,7 @@
 {
   "name": "oci-emaildataplane",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Email Data Plane Service",
+  "description": "OCI Node.js client for Email Data Plane Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

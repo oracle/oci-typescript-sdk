@@ -1,4 +1,4 @@
-# OCI NodeJS client for OCE Service
+# OCI Node.js client for OCE Service
 
 This module enables you to write code to manage resources for OCE Service.
 

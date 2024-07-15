@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Network Load Balancer Service
+# OCI Node.js client for Network Load Balancer Service
 
 This module enables you to write code to manage resources for Network Load Balancer Service.
 

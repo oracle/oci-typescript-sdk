@@ -1,4 +1,4 @@
-# OCI NodeJS client for ONS Service
+# OCI Node.js client for ONS Service
 
 This module enables you to write code to manage resources for ONs Service.
 

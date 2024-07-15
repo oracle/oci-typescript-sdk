@@ -1,4 +1,4 @@
-# OCI NodeJS client for Vault Service
+# OCI Node.js client for Vault Service
 
 This module enables you to write code to manage resources for Vault Service.
 

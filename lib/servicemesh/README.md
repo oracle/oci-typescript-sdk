@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Service Mesh Service
+# OCI Node.js client for Service Mesh Service
 
 This module enables you to write code to manage resources for Service Mesh Service.
 

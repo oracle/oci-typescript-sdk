@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Network Firewall Service
+# OCI Node.js client for Network Firewall Service
 
 This module enables you to write code to manage resources for Network Firewall Service.
 

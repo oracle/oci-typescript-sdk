@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Fleet Software Update Service
+# OCI Node.js client for Fleet Software Update Service
 
 This module enables you to write code to manage resources for Fleet Software Update Service.
 

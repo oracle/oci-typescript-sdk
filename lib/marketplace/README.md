@@ -1,4 +1,4 @@
-# OCI NodeJS client for Marketplace Service
+# OCI Node.js client for Marketplace Service
 
 This module enables you to write code to manage resources for Marketplace Service.
 

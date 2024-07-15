@@ -1,4 +1,4 @@
-# OCI NodeJS client for DTS Service
+# OCI Node.js client for DTS Service
 
 This module enables you to write code to manage resources for DTS Service.
 

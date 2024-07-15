@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Os Management Hub Service
+# OCI Node.js client for Os Management Hub Service
 
 This module enables you to write code to manage resources for Os Management Hub Service.
 

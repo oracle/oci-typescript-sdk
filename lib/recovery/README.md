@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Recovery Service
+# OCI Node.js client for Recovery Service
 
 This module enables you to write code to manage resources for Recovery Service.
 

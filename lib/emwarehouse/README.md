@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Em Warehouse Service
+# OCI Node.js client for Em Warehouse Service
 
 This module enables you to write code to manage resources for Em Warehouse Service.
 

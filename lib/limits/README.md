@@ -1,4 +1,4 @@
-# OCI NodeJS client for Limits Service
+# OCI Node.js client for Limits Service
 
 This module enables you to write code to manage resources for Limits Service.
 

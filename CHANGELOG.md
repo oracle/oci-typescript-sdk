@@ -533,7 +533,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Support for domains while creating integration instances in Oracle Integration Cloud service
 
 ### Fixed
-- Fixed an issue that causes http request failures when requesting certificates from the server in `URLBasedX509CertificateSupplier` with NodeJS 20
+- Fixed an issue that causes http request failures when requesting certificates from the server in `URLBasedX509CertificateSupplier` with Node.js 20
 
 ## 2.70.1 - 2023-09-12
 
@@ -622,7 +622,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Support for support field in class metric in the AI Language service
 - Support for Compute Cloud at Customer resource type in the Operator Access Control service
 - Support for managing account management info, account recovery settings, app roles, apps, app status changers, grants, identity propagation trusts and settings, request-able groups, requests, security questions, OAuth tokens, and user attribute settings in the Identity Domains service
-- Added support for NodeJS 20
+- Added support for Node.js 20
 
 
 ### Breaking Changes

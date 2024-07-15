@@ -1,7 +1,7 @@
 {
   "name": "oci-psql",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Psql Service",
+  "description": "OCI Node.js client for Psql Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

@@ -1,7 +1,7 @@
 {
   "name": "oci-limits",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Limits Service",
+  "description": "OCI Node.js client for Limits Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

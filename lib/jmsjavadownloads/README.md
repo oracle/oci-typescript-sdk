@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Jms Java Downloads Service
+# OCI Node.js client for Jms Java Downloads Service
 
 This module enables you to write code to manage resources for Jms Java Downloads Service.
 

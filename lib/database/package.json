@@ -1,7 +1,7 @@
 {
   "name": "oci-database",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Database",
+  "description": "OCI Node.js client for Database",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

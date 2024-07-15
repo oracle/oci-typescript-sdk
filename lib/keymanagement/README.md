@@ -1,4 +1,4 @@
-# OCI NodeJS client for KeyManagement Service
+# OCI Node.js client for KeyManagement Service
 
 This module enables you to write code to manage resources for KeyManagement Service.
 

@@ -1,7 +1,7 @@
 {
   "name": "oci-servicemanagerproxy",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Service Manager Proxy Service",
+  "description": "OCI Node.js client for Service Manager Proxy Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

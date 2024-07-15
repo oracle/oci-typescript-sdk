@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Queue Service
+# OCI Node.js client for Queue Service
 
 This module enables you to write code to manage resources for Queue Service.
 

@@ -1,4 +1,4 @@
-# OCI NodeJS client for Secrets Service
+# OCI Node.js client for Secrets Service
 
 This module enables you to write code to manage resources for Secrets Service.
 

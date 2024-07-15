@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020, 2021 Oracle and/or its affiliates.  All rights reserved.
+ * Copyright (c) 2020, 2024 Oracle and/or its affiliates.  All rights reserved.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
@@ -10,7 +10,7 @@
  * <li>The third is the name of object to create inside bucket</li>
  * <li>The fourth is the path of the file. i.e: "/Users/File/location";
  * </ul>
- * Note: there is a 2GB for 64-bit machine and 1GB for 32-bit machine buffer limitation from the NodeJS V8 Engine
+ * Note: there is a 2GB for 64-bit machine and 1GB for 32-bit machine buffer limitation from the Node.js V8 Engine
  * Cannot upload file size greater than the limit
  */
 

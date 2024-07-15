@@ -1,4 +1,4 @@
-/**
+!/**
  * Copyright (c) 2020, 2021 Oracle and/or its affiliates.  All rights reserved.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
@@ -28,11 +28,11 @@ export default function getChunk(data: BinaryBody, partSize: number) {
     if (stream.getReader) {
       return ChunkStream<ReadableStream>(stream, partSize, getReadableStreamData);
     } else {
-      // Some fetch libraries have blob's .stream implemented as NodeJS's readable
+      // Some fetch libraries have blob's .stream implemented as Node.js's readable
       return ChunkStream<Readable>(stream as Readable, partSize, getReadableData);
     }
   } else if (isReadableStream(data)) {
-    // NodeJS run-time does not know what ReadableStream is, isReadableStream helps detect if stream is a ReadableStream
+    // Node.js run-time does not know what ReadableStream is, isReadableStream helps detect if stream is a ReadableStream
     return ChunkStream<ReadableStream>(data as ReadableStream, partSize, getReadableStreamData);
   } else {
     throw new Error(
