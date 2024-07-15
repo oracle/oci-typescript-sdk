@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Optimizer Service
+# OCI Node.js client for Optimizer Service
 
 This module enables you to write code to manage resources for Optimizer Service.
 

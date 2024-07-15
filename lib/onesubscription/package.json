@@ -1,7 +1,7 @@
 {
   "name": "oci-onesubscription",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Onesubscription Service",
+  "description": "OCI Node.js client for Onesubscription Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

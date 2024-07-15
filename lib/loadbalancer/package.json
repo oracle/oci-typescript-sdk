@@ -1,7 +1,7 @@
 {
   "name": "oci-loadbalancer",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Load Balancer",
+  "description": "OCI Node.js client for Load Balancer",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

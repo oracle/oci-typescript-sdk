@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Database Migration Service
+# OCI Node.js client for Database Migration Service
 
 This module enables you to write code to manage resources for Database Migration Service.
 

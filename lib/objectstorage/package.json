@@ -1,7 +1,7 @@
 {
   "name": "oci-objectstorage",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for ObjectStorage",
+  "description": "OCI Node.js client for ObjectStorage",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

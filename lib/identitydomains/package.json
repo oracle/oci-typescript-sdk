@@ -1,7 +1,7 @@
 {
   "name": "oci-identitydomains",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Identity Domains Service",
+  "description": "OCI Node.js client for Identity Domains Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

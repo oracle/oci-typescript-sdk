@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Ai Document Service
+# OCI Node.js client for Ai Document Service
 
 This module enables you to write code to manage resources for Ai Document Service.
 

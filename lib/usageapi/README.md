@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Usage Api Service
+# OCI Node.js client for Usage Api Service
 
 This module enables you to write code to manage resources for Usage Api Service.
 

@@ -1,7 +1,7 @@
 {
   "name": "oci-datasafe",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Data Safe ",
+  "description": "OCI Node.js client for Data Safe ",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

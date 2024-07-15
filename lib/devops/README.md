@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Devops Service
+# OCI Node.js client for Devops Service
 
 This module enables you to write code to manage resources for Devops Service.
 

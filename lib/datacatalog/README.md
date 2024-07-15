@@ -1,4 +1,4 @@
-# OCI NodeJS client for Data Catalog Service
+# OCI Node.js client for Data Catalog Service
 
 This module enables you to write code to manage resources for Data Catalog Service.
 

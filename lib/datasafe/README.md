@@ -1,4 +1,4 @@
-# OCI NodeJS client for Datasafe Service
+# OCI Node.js client for Datasafe Service
 
 This module enables you to write code to manage resources for Datasafe Service.
 

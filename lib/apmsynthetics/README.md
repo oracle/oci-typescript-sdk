@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Apm Synthetics Service
+# OCI Node.js client for Apm Synthetics Service
 
 This module enables you to write code to manage resources for Apm Synthetics Service.
 

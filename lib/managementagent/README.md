@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Management Agent Service
+# OCI Node.js client for Management Agent Service
 
 This module enables you to write code to manage resources for Management Agent Service.
 

@@ -1,7 +1,7 @@
 {
   "name": "oci-desktops",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Desktops Service",
+  "description": "OCI Node.js client for Desktops Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

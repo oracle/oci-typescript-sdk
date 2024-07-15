@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Compute Instance Agent Service
+# OCI Node.js client for Compute Instance Agent Service
 
 This module enables you to write code to manage resources for Compute Instance Agent Service.
 

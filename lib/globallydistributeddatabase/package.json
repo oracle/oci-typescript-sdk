@@ -1,7 +1,7 @@
 {
   "name": "oci-globallydistributeddatabase",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Globally Distributed Database Service",
+  "description": "OCI Node.js client for Globally Distributed Database Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

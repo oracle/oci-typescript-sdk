@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Waa Service
+# OCI Node.js client for Waa Service
 
 This module enables you to write code to manage resources for Waa Service.
 

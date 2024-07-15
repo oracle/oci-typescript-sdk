@@ -1,7 +1,7 @@
 {
   "name": "oci-dataflow",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Dataflow service",
+  "description": "OCI Node.js client for Dataflow service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

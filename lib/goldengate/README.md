@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Golden Gate Service
+# OCI Node.js client for Golden Gate Service
 
 This module enables you to write code to manage resources for Golden Gate Service.
 

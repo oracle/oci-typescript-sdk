@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Waf Service
+# OCI Node.js client for Waf Service
 
 This module enables you to write code to manage resources for Waf Service.
 

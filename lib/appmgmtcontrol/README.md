@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Appmgmt Control Service
+# OCI Node.js client for Appmgmt Control Service
 
 This module enables you to write code to manage resources for Appmgmt Control Service.
 

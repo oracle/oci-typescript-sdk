@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Osub Usage Service
+# OCI Node.js client for Osub Usage Service
 
 This module enables you to write code to manage resources for Osub Usage Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Oci Control Center Service
+# OCI Node.js client for Oci Control Center Service
 
 This module enables you to write code to manage resources for Oci Control Center Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Lockbox Service
+# OCI Node.js client for Lockbox Service
 
 This module enables you to write code to manage resources for Lockbox Service.
 

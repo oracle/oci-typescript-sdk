@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Log Analytics Service
+# OCI Node.js client for Log Analytics Service
 
 This module enables you to write code to manage resources for Log Analytics Service.
 

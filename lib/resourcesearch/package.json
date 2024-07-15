@@ -1,7 +1,7 @@
 {
   "name": "oci-resourcesearch",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for resource research Service",
+  "description": "OCI Node.js client for resource research Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

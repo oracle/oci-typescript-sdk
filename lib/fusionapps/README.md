@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Fusion Apps Service
+# OCI Node.js client for Fusion Apps Service
 
 This module enables you to write code to manage resources for Fusion Apps Service.
 

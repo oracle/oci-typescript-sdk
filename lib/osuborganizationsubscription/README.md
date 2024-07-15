@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Osub Organization Subscription Service
+# OCI Node.js client for Osub Organization Subscription Service
 
 This module enables you to write code to manage resources for Osub Organization Subscription Service.
 

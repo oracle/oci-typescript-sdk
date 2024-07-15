@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Opa Service
+# OCI Node.js client for Opa Service
 
 This module enables you to write code to manage resources for Opa Service.
 

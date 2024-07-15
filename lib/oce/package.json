@@ -1,7 +1,7 @@
 {
   "name": "oci-oce",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for OCE Service",
+  "description": "OCI Node.js client for OCE Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

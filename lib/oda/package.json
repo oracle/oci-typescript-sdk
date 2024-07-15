@@ -1,7 +1,7 @@
 {
   "name": "oci-oda",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Oda Service",
+  "description": "OCI Node.js client for ODA Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

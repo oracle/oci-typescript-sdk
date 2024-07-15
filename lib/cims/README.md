@@ -1,4 +1,4 @@
-# OCI NodeJS client for Cims Service
+# OCI Node.js client for Cims Service
 
 This module enables you to write code to manage resources for Cims Service.
 

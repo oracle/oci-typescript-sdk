@@ -1,4 +1,4 @@
-# OCI NodeJS client for DNS Service
+# OCI Node.js client for DNS Service
 
 This module enables you to write code to manage resources for DNS Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Ai Anomaly Detection Service
+# OCI Node.js client for Ai Anomaly Detection Service
 
 This module enables you to write code to manage resources for Ai Anomaly Detection Service.
 

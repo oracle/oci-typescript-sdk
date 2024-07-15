@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Identity Data Plane Service
+# OCI Node.js client for Identity Data Plane Service
 
 This module enables you to write code to manage resources for Identity Data Plane Service.
 

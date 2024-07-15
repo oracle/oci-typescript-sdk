@@ -1,4 +1,4 @@
-# OCI NodeJS client for Budget Service
+# OCI Node.js client for Budget Service
 
 This module enables you to write code to manage resources for Budget Service.
 

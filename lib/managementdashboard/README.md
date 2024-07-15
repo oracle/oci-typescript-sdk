@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Management Dashboard Service
+# OCI Node.js client for Management Dashboard Service
 
 This module enables you to write code to manage resources for Management Dashboard Service.
 

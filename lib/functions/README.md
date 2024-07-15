@@ -1,4 +1,4 @@
-# OCI NodeJS client for Functions Service
+# OCI Node.js client for Functions Service
 
 This module enables you to write code to manage resources for Functions Service.
 

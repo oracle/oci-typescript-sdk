@@ -1,4 +1,4 @@
-# OCI NodeJS client for Common utilities.
+# OCI Node.js client for Common utilities.
 
 ## Requirements
 

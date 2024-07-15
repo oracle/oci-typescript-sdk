@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Service Catalog Service
+# OCI Node.js client for Service Catalog Service
 
 This module enables you to write code to manage resources for Service Catalog Service.
 

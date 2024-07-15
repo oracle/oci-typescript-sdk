@@ -1,4 +1,4 @@
-# OCI NodeJS client for Streaming Service
+# OCI Node.js client for Streaming Service
 
 This module enables you to write code to manage resources for Streaming Service.
 

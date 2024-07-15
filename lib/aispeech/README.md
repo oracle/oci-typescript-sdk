@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Ai Speech Service
+# OCI Node.js client for Ai Speech Service
 
 This module enables you to write code to manage resources for Ai Speech Service.
 

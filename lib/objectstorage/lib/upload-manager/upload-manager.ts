@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020, 2021 Oracle and/or its affiliates.  All rights reserved.
+ * Copyright (c) 2020, 2024 Oracle and/or its affiliates.  All rights reserved.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
@@ -45,7 +45,7 @@ const UPLOAD_MANAGER_DEBUG_INFORMATION_LOG = `Client Version: ${CLIENT_VERSION},
  * An advantage of using multi-part uploads is the ability to be able to upload parts in parallel to reduce upload time.
  * <p>
  * Callers still have full control over how the UploadManager decides to perform the upload using UploadOptions.
- * NodeJS V8 Engine have a buffer size limitation, 2GB for 64-bit machine and 1GB for 32-bit machine.
+ * Node.js V8 Engine have a buffer size limitation, 2GB for 64-bit machine and 1GB for 32-bit machine.
  * Do not make the partSize greater than the buffer size limitation.
  */
 

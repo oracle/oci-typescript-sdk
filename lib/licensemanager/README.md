@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for License Manager Service
+# OCI Node.js client for License Manager Service
 
 This module enables you to write code to manage resources for License Manager Service.
 

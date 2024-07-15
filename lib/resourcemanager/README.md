@@ -1,4 +1,4 @@
-# OCI NodeJS client for Resource Manager Service
+# OCI Node.js client for Resource Manager Service
 
 This module enables you to write code to manage resources for Resource Manager Service.
 

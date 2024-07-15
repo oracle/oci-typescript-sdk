@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Identity Domains Service
+# OCI Node.js client for Identity Domains Service
 
 This module enables you to write code to manage resources for Identity Domains Service.
 

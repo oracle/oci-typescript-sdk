@@ -1,7 +1,7 @@
 {
   "name": "oci-autoscaling",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Autoscaling Service",
+  "description": "OCI Node.js client for Autoscaling Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

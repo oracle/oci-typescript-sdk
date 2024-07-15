@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Psql Service
+# OCI Node.js client for Psql Service
 
 This module enables you to write code to manage resources for Psql Service.
 

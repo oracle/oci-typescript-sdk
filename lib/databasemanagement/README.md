@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Database Management Service
+# OCI Node.js client for Database Management Service
 
 This module enables you to write code to manage resources for Database Management Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Marketplace Private Offer Service
+# OCI Node.js client for Marketplace Private Offer Service
 
 This module enables you to write code to manage resources for Marketplace Private Offer Service.
 

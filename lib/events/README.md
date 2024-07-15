@@ -1,4 +1,4 @@
-# OCI NodeJS client for Events Service
+# OCI Node.js client for Events Service
 
 This module enables you to write code to manage resources for Events Service.
 

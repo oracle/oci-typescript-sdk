@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Loggingingestion Service
+# OCI Node.js client for Loggingingestion Service
 
 This module enables you to write code to manage resources for Loggingingestion Service.
 

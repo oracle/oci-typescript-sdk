@@ -1,4 +1,4 @@
-# OCI NodeJS client for Audit Service
+# OCI Node.js client for Audit Service
 
 This module enables you to write code to manage resources for Audit Service.
 

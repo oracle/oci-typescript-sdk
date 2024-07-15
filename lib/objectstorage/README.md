@@ -1,4 +1,4 @@
-# OCI NodeJS client for Objectstorage Service
+# OCI Node.js client for Objectstorage Service
 
 This module enables you to write code to manage resources for Objectstorage Service.
 

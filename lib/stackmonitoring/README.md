@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Stack Monitoring Service
+# OCI Node.js client for Stack Monitoring Service
 
 This module enables you to write code to manage resources for Stack Monitoring Service.
 

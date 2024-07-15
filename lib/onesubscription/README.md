@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Onesubscription Service
+# OCI Node.js client for Onesubscription Service
 
 This module enables you to write code to manage resources for Onesubscription Service.
 

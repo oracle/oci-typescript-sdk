@@ -1,4 +1,4 @@
-# OCI NodeJS client for ODA Service
+# OCI Node.js client for ODA Service
 
 This module enables you to write code to manage resources for ODA Service.
 

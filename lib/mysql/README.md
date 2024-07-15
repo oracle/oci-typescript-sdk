@@ -1,4 +1,4 @@
-# OCI NodeJS client for Mysql Service
+# OCI Node.js client for Mysql Service
 
 This module enables you to write code to manage resources for Mysql Service.
 

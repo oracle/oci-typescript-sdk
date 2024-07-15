@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Ocvp Service
+# OCI Node.js client for Ocvp Service
 
 This module enables you to write code to manage resources for Ocvp Service.
 

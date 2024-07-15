@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Cloud Bridge Service
+# OCI Node.js client for Cloud Bridge Service
 
 This module enables you to write code to manage resources for Cloud Bridge Service.
 

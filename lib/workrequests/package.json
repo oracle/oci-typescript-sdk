@@ -1,7 +1,7 @@
 {
   "name": "oci-workrequests",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for WorkRequests",
+  "description": "OCI Node.js client for WorkRequests",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

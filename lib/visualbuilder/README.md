@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Visual Builder Service
+# OCI Node.js client for Visual Builder Service
 
 This module enables you to write code to manage resources for Visual Builder Service.
 

@@ -1,4 +1,4 @@
-# OCI NodeJS client for Healthchecks Service
+# OCI Node.js client for Healthchecks Service
 
 This module enables you to write code to manage resources for Healthchecks Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Desktops Service
+# OCI Node.js client for Desktops Service
 
 This module enables you to write code to manage resources for Desktops Service.
 

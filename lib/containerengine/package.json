@@ -1,7 +1,7 @@
 {
   "name": "oci-containerengine",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Container Engine",
+  "description": "OCI Node.js client for Container Engine",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

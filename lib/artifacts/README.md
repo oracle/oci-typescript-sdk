@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Artifacts Service
+# OCI Node.js client for Artifacts Service
 
 This module enables you to write code to manage resources for Artifacts Service.
 

@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Email Data Plane Service
+# OCI Node.js client for Email Data Plane Service
 
 This module enables you to write code to manage resources for Email Data Plane Service.
 

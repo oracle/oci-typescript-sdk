@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Cloud Guard Service
+# OCI Node.js client for Cloud Guard Service
 
 This module enables you to write code to manage resources for Cloud Guard Service.
 

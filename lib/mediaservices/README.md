@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Media Services Service
+# OCI Node.js client for Media Services Service
 
 This module enables you to write code to manage resources for Media Services Service.
 

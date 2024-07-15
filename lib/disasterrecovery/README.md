@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Disaster Recovery Service
+# OCI Node.js client for Disaster Recovery Service
 
 This module enables you to write code to manage resources for Disaster Recovery Service.
 

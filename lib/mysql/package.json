@@ -1,7 +1,7 @@
 {
   "name": "oci-mysql",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Mysql ",
+  "description": "OCI Node.js client for Mysql ",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

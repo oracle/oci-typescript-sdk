@@ -1,4 +1,4 @@
-# OCI NodeJS client for Analytics Service
+# OCI Node.js client for Analytics Service
 
 This module enables you to write code to manage resources for Analytics Service.
 

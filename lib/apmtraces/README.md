@@ -1,5 +1,5 @@
 
-# OCI NodeJS client for Apm Traces Service
+# OCI Node.js client for Apm Traces Service
 
 This module enables you to write code to manage resources for Apm Traces Service.
 

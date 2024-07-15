@@ -1,4 +1,4 @@
-# OCI NodeJS client for Identity Service
+# OCI Node.js client for Identity Service
 
 This module enables you to write code to manage resources for Identity Service.
 

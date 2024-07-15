@@ -1,7 +1,7 @@
 {
   "name": "oci-operatoraccesscontrol",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Operator Access Control Service",
+  "description": "OCI Node.js client for Operator Access Control Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"

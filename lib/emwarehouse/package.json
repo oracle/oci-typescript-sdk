@@ -1,7 +1,7 @@
 {
   "name": "oci-emwarehouse",
   "version": "2.89.2",
-  "description": "OCI NodeJS client for Em Warehouse Service",
+  "description": "OCI Node.js client for Em Warehouse Service",
   "repository": {
     "type": "git",
     "url": "https://github.com/oracle/oci-typescript-sdk"
