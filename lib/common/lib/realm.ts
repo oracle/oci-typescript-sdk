@@ -57,6 +57,7 @@ export class Realm {
   public static OC21: Realm = Realm.register("oc21", "oraclecloud21.com");
   public static OC26: Realm = Realm.register("oc26", "oraclecloud26.com");
   public static OC15: Realm = Realm.register("oc15", "oraclecloud15.com");
+  public static OC29: Realm = Realm.register("oc29", "oraclecloud29.com");
 
   public static values(): Realm[] {
     if (useOnlyDeveloperToolConfigurationRegions()) {
