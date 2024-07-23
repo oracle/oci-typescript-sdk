@@ -26,6 +26,10 @@ export interface VantagePointInfo {
    * Unique name that can be edited. The name should not contain any confidential information.
    */
   "displayName": string;
+  /**
+   * List of workers running the assigned monitor.
+   */
+  "workerList"?: Array<string>;
 }
 
 export namespace VantagePointInfo {

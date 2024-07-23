@@ -66,6 +66,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "clusterPlacementGroupId"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
+  /**
    * Customer contacts.
    */
   "customerContacts"?: Array<model.CustomerContact>;

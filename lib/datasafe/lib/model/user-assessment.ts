@@ -71,6 +71,10 @@ export interface UserAssessment {
    */
   "scheduleAssessmentId"?: string;
   /**
+   * Indicates whether the assessment is scheduled to run.
+   */
+  "isAssessmentScheduled"?: boolean;
+  /**
     * Schedule of the assessment that runs periodically in this specified format:
 *   <version-string>;<version-specific-schedule>
 * <p>

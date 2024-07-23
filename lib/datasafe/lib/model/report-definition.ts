@@ -105,7 +105,7 @@ Allowed version strings - \"v1\"
     */
   "schedule"?: string;
   /**
-   * Specifies the format of the report ( either .xls or .pdf )
+   * Specifies the format of the report ( either .xls or .pdf or .json)
    */
   "scheduledReportMimeType"?: ReportDefinition.ScheduledReportMimeType;
   /**

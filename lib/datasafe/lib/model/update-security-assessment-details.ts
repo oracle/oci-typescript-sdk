@@ -27,6 +27,10 @@ export interface UpdateSecurityAssessmentDetails {
    */
   "description"?: string;
   /**
+   * Indicates whether the assessment is scheduled to run.
+   */
+  "isAssessmentScheduled"?: boolean;
+  /**
     * This is applicable only for save schedule and latest assessment. It updates the existing schedule in a specified format:
 * <version-string>;<version-specific-schedule>
 * <p>

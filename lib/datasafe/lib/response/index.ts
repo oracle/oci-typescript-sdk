@@ -403,6 +403,8 @@ import * as ListSecurityPolicyReportsResponse from "./list-security-policy-repor
 export import ListSecurityPolicyReportsResponse = ListSecurityPolicyReportsResponse.ListSecurityPolicyReportsResponse;
 import * as ListSensitiveColumnsResponse from "./list-sensitive-columns-response";
 export import ListSensitiveColumnsResponse = ListSensitiveColumnsResponse.ListSensitiveColumnsResponse;
+import * as ListSensitiveDataModelSensitiveTypesResponse from "./list-sensitive-data-model-sensitive-types-response";
+export import ListSensitiveDataModelSensitiveTypesResponse = ListSensitiveDataModelSensitiveTypesResponse.ListSensitiveDataModelSensitiveTypesResponse;
 import * as ListSensitiveDataModelsResponse from "./list-sensitive-data-models-response";
 export import ListSensitiveDataModelsResponse = ListSensitiveDataModelsResponse.ListSensitiveDataModelsResponse;
 import * as ListSensitiveObjectsResponse from "./list-sensitive-objects-response";

@@ -1109,6 +1109,87 @@ export class DatabaseClient {
   }
 
   /**
+   * Associate an Autonomous Database with a different subscription.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeAutonomousDatabaseSubscriptionRequest
+   * @return ChangeAutonomousDatabaseSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseSubscription.ts.html |here} to see how to use ChangeAutonomousDatabaseSubscription API.
+   */
+  public async changeAutonomousDatabaseSubscription(
+    changeAutonomousDatabaseSubscriptionRequest: requests.ChangeAutonomousDatabaseSubscriptionRequest
+  ): Promise<responses.ChangeAutonomousDatabaseSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeAutonomousDatabaseSubscription.");
+    const operationName = "changeAutonomousDatabaseSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ChangeAutonomousDatabaseSubscription";
+    const pathParams = {
+      "{autonomousDatabaseId}": changeAutonomousDatabaseSubscriptionRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeAutonomousDatabaseSubscriptionRequest.opcRetryToken,
+      "opc-request-id": changeAutonomousDatabaseSubscriptionRequest.opcRequestId,
+      "if-match": changeAutonomousDatabaseSubscriptionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAutonomousDatabaseSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/changeSubscription",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAutonomousDatabaseSubscriptionRequest.changeAutonomousDatabaseSubscriptionDetails,
+        "ChangeAutonomousDatabaseSubscriptionDetails",
+        model.ChangeAutonomousDatabaseSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAutonomousDatabaseSubscriptionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * **Deprecated.** Use the {@link #changeCloudExadataInfrastructureCompartment(ChangeCloudExadataInfrastructureCompartmentRequest) changeCloudExadataInfrastructureCompartment} operation to move an Exadata infrastructure resource to a different compartment and  {@link #changeCloudAutonomousVmClusterCompartment(ChangeCloudAutonomousVmClusterCompartmentRequest) changeCloudAutonomousVmClusterCompartment} operation to move an Autonomous Exadata VM cluster to a different compartment.
    * For more information, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
@@ -1538,6 +1619,91 @@ export class DatabaseClient {
   }
 
   /**
+   * Associate a cloud Exadata infrastructure with a different subscription.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeCloudExadataInfrastructureSubscriptionRequest
+   * @return ChangeCloudExadataInfrastructureSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudExadataInfrastructureSubscription.ts.html |here} to see how to use ChangeCloudExadataInfrastructureSubscription API.
+   */
+  public async changeCloudExadataInfrastructureSubscription(
+    changeCloudExadataInfrastructureSubscriptionRequest: requests.ChangeCloudExadataInfrastructureSubscriptionRequest
+  ): Promise<responses.ChangeCloudExadataInfrastructureSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeCloudExadataInfrastructureSubscription."
+      );
+    const operationName = "changeCloudExadataInfrastructureSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/ChangeCloudExadataInfrastructureSubscription";
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        changeCloudExadataInfrastructureSubscriptionRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeCloudExadataInfrastructureSubscriptionRequest.opcRetryToken,
+      "opc-request-id": changeCloudExadataInfrastructureSubscriptionRequest.opcRequestId,
+      "if-match": changeCloudExadataInfrastructureSubscriptionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCloudExadataInfrastructureSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}/actions/changeSubscription",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCloudExadataInfrastructureSubscriptionRequest.changeCloudExadataInfrastructureSubscriptionDetails,
+        "ChangeCloudExadataInfrastructureSubscriptionDetails",
+        model.ChangeCloudExadataInfrastructureSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCloudExadataInfrastructureSubscriptionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a cloud VM cluster and its dependent resources to another compartment. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1598,6 +1764,87 @@ export class DatabaseClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCloudVmClusterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Associate a cloud VM cluster with a different subscription.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeCloudVmClusterSubscriptionRequest
+   * @return ChangeCloudVmClusterSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudVmClusterSubscription.ts.html |here} to see how to use ChangeCloudVmClusterSubscription API.
+   */
+  public async changeCloudVmClusterSubscription(
+    changeCloudVmClusterSubscriptionRequest: requests.ChangeCloudVmClusterSubscriptionRequest
+  ): Promise<responses.ChangeCloudVmClusterSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeCloudVmClusterSubscription.");
+    const operationName = "changeCloudVmClusterSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/ChangeCloudVmClusterSubscription";
+    const pathParams = {
+      "{cloudVmClusterId}": changeCloudVmClusterSubscriptionRequest.cloudVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeCloudVmClusterSubscriptionRequest.opcRetryToken,
+      "opc-request-id": changeCloudVmClusterSubscriptionRequest.opcRequestId,
+      "if-match": changeCloudVmClusterSubscriptionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCloudVmClusterSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}/actions/changeSubscription",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCloudVmClusterSubscriptionRequest.changeCloudVmClusterSubscriptionDetails,
+        "ChangeCloudVmClusterSubscriptionDetails",
+        model.ChangeCloudVmClusterSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCloudVmClusterSubscriptionResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

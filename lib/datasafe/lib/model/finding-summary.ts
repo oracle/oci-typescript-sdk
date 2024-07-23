@@ -55,6 +55,10 @@ export interface FindingSummary {
    */
   "summary"?: string;
   /**
+   * Provides a recommended approach to take to remediate the finding reported.
+   */
+  "oneline"?: string;
+  /**
    * Provides information on whether the finding is related to a CIS Oracle Database Benchmark recommendation, a STIG rule, or a GDPR Article/Recital.
    */
   "references"?: model.References;

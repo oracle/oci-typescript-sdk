@@ -57,6 +57,14 @@ export interface ResourceStatistics {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalHostCapacity"?: number;
+  /**
+   * Specifies if MYSQL DB System has heatwave cluster attached.
+   */
+  "isHeatWaveClusterAttached"?: boolean;
+  /**
+   * Specifies if MYSQL DB System is highly available.
+   */
+  "isHighlyAvailable"?: boolean;
 }
 
 export namespace ResourceStatistics {

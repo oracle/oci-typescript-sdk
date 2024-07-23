@@ -43,4 +43,8 @@ export interface UnsetUserAssessmentBaselineRequest extends common.BaseRequest {
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;
+  /**
+   * Details of the target associated with the user assessment for which the user intents to unset the baseline.
+   */
+  "unsetUserAssessmentBaselineDetails"?: model.UnsetUserAssessmentBaselineDetails;
 }

@@ -35,6 +35,10 @@ export interface CreateSecurityAssessmentDetails {
    */
   "targetId": string;
   /**
+   * Indicates whether the assessment is scheduled to run.
+   */
+  "isAssessmentScheduled"?: boolean;
+  /**
     * To schedule the assessment for running periodically, specify the schedule in this attribute.
 * Create or schedule one assessment per compartment. If not defined, the assessment runs immediately.
 * Format -

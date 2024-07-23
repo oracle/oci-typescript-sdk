@@ -28,6 +28,10 @@ import common = require("oci-common");
  */
 export interface CreateAutonomousDatabaseBase {
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment of the Autonomous Database.
    */
   "compartmentId": string;
@@ -151,6 +155,10 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
 * 
     */
   "licenseModel"?: CreateAutonomousDatabaseBase.LicenseModel;
+  /**
+   * The maximum number of CPUs allowed with a Bring Your Own License (BYOL), including those used for auto-scaling, disaster recovery, tools, etc. Any CPU usage above this limit is considered as License Included and billed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "byolComputeCountLimit"?: number;
   /**
    * If set to {@code TRUE}, indicates that an Autonomous Database preview version is being provisioned, and that the preview version's terms of service have been accepted. Note that preview version software is only available for Autonomous Database Serverless instances (https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/).
    *

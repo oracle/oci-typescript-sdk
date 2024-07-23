@@ -43,6 +43,13 @@ export interface UpdateSensitiveDataModelDetails {
    */
   "schemasForDiscovery"?: Array<string>;
   /**
+   * The data discovery jobs will scan the tables specified here, including both schemas and tables.
+   * For instance, the input could be in the format: [{schemaName: \"HR\", tableName: [\"T1\", \"T2\"]}, {schemaName:
+   * \"OE\", tableName : [\"T3\", \"T4\"]}].
+   *
+   */
+  "tablesForDiscovery"?: Array<model.TablesForDiscovery>;
+  /**
    * The OCIDs of the sensitive types to be used for future data discovery jobs. If OCID of a sensitive category is
    * provided, all its child sensitive types are used for data discovery.
    *
@@ -85,12 +92,30 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 
 export namespace UpdateSensitiveDataModelDetails {
   export function getJsonObj(obj: UpdateSensitiveDataModelDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tablesForDiscovery": obj.tablesForDiscovery
+          ? obj.tablesForDiscovery.map(item => {
+              return model.TablesForDiscovery.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateSensitiveDataModelDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tablesForDiscovery": obj.tablesForDiscovery
+          ? obj.tablesForDiscovery.map(item => {
+              return model.TablesForDiscovery.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

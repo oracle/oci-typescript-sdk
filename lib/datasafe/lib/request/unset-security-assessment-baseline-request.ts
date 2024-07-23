@@ -43,4 +43,8 @@ export interface UnsetSecurityAssessmentBaselineRequest extends common.BaseReque
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;
+  /**
+   * Details of the target associated with the security assessment for which the user intents to unset the baseline.
+   */
+  "unsetSecurityAssessmentBaselineDetails"?: model.UnsetSecurityAssessmentBaselineDetails;
 }

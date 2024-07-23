@@ -35,6 +35,11 @@ export namespace EnableDatabaseInsightDetails {
             <model.EnableEmManagedExternalDatabaseInsightDetails>(<object>jsonObj),
             true
           );
+        case "MDS_MYSQL_DATABASE_SYSTEM":
+          return model.EnableMdsMySqlDatabaseInsightDetails.getJsonObj(
+            <model.EnableMdsMySqlDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         case "PE_COMANAGED_DATABASE":
           return model.EnablePeComanagedDatabaseInsightDetails.getJsonObj(
             <model.EnablePeComanagedDatabaseInsightDetails>(<object>jsonObj),
@@ -54,6 +59,11 @@ export namespace EnableDatabaseInsightDetails {
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.EnableEmManagedExternalDatabaseInsightDetails.getDeserializedJsonObj(
             <model.EnableEmManagedExternalDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
+        case "MDS_MYSQL_DATABASE_SYSTEM":
+          return model.EnableMdsMySqlDatabaseInsightDetails.getDeserializedJsonObj(
+            <model.EnableMdsMySqlDatabaseInsightDetails>(<object>jsonObj),
             true
           );
         case "PE_COMANAGED_DATABASE":

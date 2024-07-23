@@ -64,6 +64,11 @@ export interface DiscoveryJob {
    */
   "schemasForDiscovery"?: Array<string>;
   /**
+   * The data discovery jobs will scan the tables specified here, including both schemas and tables.
+   *
+   */
+  "tablesForDiscovery"?: Array<model.TablesForDiscovery>;
+  /**
    * The OCIDs of the sensitive types used for data discovery.
    */
   "sensitiveTypeIdsForDiscovery"?: Array<string>;
@@ -157,12 +162,30 @@ export namespace DiscoveryJob {
   }
 
   export function getJsonObj(obj: DiscoveryJob): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tablesForDiscovery": obj.tablesForDiscovery
+          ? obj.tablesForDiscovery.map(item => {
+              return model.TablesForDiscovery.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DiscoveryJob): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tablesForDiscovery": obj.tablesForDiscovery
+          ? obj.tablesForDiscovery.map(item => {
+              return model.TablesForDiscovery.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -11928,7 +11928,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
      * By default the ListAuditEventAnalytics operation will return all of the summary columns. To filter for a specific summary column, specify
 * it in the `summaryField` query parameter.
 * <p>
-**Example:** 
+**Example:**
 * /ListAuditEventAnalytics?summaryField=targetName&summaryField=userName&summaryField=clientHostname
 * &summaryField=dmls&summaryField=privilegeChanges&summaryField=ddls&summaryField=loginFailure&summaryField=loginSuccess
 * &summaryField=allRecord&q=(auditEventTime ge \"2021-06-13T23:49:14\")
@@ -12250,7 +12250,7 @@ The parameter `accessLevel` specifies whether to return only those compartments 
 * principal doesn't have access to even one of the child compartments. This is valid only when
 * `compartmentIdInSubtree` is set to `true`.
 * <p>
-The parameter `compartmentIdInSubtree` applies when you perform SummarizedAuditPolicyInfo on the specified 
+The parameter `compartmentIdInSubtree` applies when you perform SummarizedAuditPolicyInfo on the specified
 * `compartmentId` and when it is set to true, the entire hierarchy of compartments can be returned.
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
@@ -13340,16 +13340,16 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDatabaseSecu
   }
 
   /**
-   * Retrieves a list of all database table access entries in Data Safe.
-   *
-   * The ListDatabaseTableAccessEntries operation returns only the database table access reports for the specified security policy report.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param ListDatabaseTableAccessEntriesRequest
-   * @return ListDatabaseTableAccessEntriesResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDatabaseTableAccessEntries.ts.html |here} to see how to use ListDatabaseTableAccessEntries API.
-   */
+     * Retrieves a list of all database table access entries in Data Safe.
+* <p>
+The ListDatabaseTableAccessEntries operation returns only the database table access reports for the specified security policy report.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListDatabaseTableAccessEntriesRequest
+     * @return ListDatabaseTableAccessEntriesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDatabaseTableAccessEntries.ts.html |here} to see how to use ListDatabaseTableAccessEntries API.
+     */
   public async listDatabaseTableAccessEntries(
     listDatabaseTableAccessEntriesRequest: requests.ListDatabaseTableAccessEntriesRequest
   ): Promise<responses.ListDatabaseTableAccessEntriesResponse> {
@@ -13892,7 +13892,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
 
   /**
      * Gets a list of findings aggregated details in the specified compartment. This provides information about the overall state
-* of security assessment findings. You can use groupBy to get the count of findings under a certain risk level and with a certain findingKey, 
+* of security assessment findings. You can use groupBy to get the count of findings under a certain risk level and with a certain findingKey,
 * and as well as get the list of the targets that match the condition.
 * This data is especially useful content for the statistic chart or to support analytics.
 * <p>
@@ -14019,6 +14019,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       "page": listFindingsRequest.page,
       "compartmentIdInSubtree": listFindingsRequest.compartmentIdInSubtree,
       "accessLevel": listFindingsRequest.accessLevel,
+      "targetId": listFindingsRequest.targetId,
       "findingKey": listFindingsRequest.findingKey
     };
 
@@ -15538,7 +15539,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   }
 
   /**
-     * Gets a list of aggregated user profile details in the specified compartment. This provides information about the 
+     * Gets a list of aggregated user profile details in the specified compartment. This provides information about the
 * overall profiles available. For example, the user profile details include how many users have the profile assigned
 * and do how many use password verification function. This data is especially useful content for dashboards or to support analytics.
 * <p>
@@ -15702,8 +15703,8 @@ The ListProfiles operation returns only the profiles belonging to a certain targ
 * id is provided, then profile information for all the targets belonging to the pertaining compartment is returned.
 * The list does not include any subcompartments of the compartment under consideration.
 * <p>
-The parameter 'accessLevel' specifies whether to return only those compartments for which the requestor has 
-* INSPECT permissions on at least one resource directly or indirectly (ACCESSIBLE) (the resource can be in a 
+The parameter 'accessLevel' specifies whether to return only those compartments for which the requestor has
+* INSPECT permissions on at least one resource directly or indirectly (ACCESSIBLE) (the resource can be in a
 * subcompartment) or to return Not Authorized if Principal doesn't have access to even one of the child compartments.
 * This is valid only when 'compartmentIdInSubtree' is set to 'true'.
 * <p>
@@ -15986,6 +15987,8 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
       "sortOrder": listReportsRequest.sortOrder,
       "sortBy": listReportsRequest.sortBy,
       "reportDefinitionId": listReportsRequest.reportDefinitionId,
+      "timeGeneratedGreaterThanOrEqualTo": listReportsRequest.timeGeneratedGreaterThanOrEqualTo,
+      "timeGeneratedLessThan": listReportsRequest.timeGeneratedLessThan,
       "lifecycleState": listReportsRequest.lifecycleState,
       "type": listReportsRequest.type
     };
@@ -17375,6 +17378,95 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
   }
 
   /**
+   * Gets a list of sensitive type Ids present in the specified sensitive data model.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSensitiveDataModelSensitiveTypesRequest
+   * @return ListSensitiveDataModelSensitiveTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveDataModelSensitiveTypes.ts.html |here} to see how to use ListSensitiveDataModelSensitiveTypes API.
+   */
+  public async listSensitiveDataModelSensitiveTypes(
+    listSensitiveDataModelSensitiveTypesRequest: requests.ListSensitiveDataModelSensitiveTypesRequest
+  ): Promise<responses.ListSensitiveDataModelSensitiveTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSensitiveDataModelSensitiveTypes.");
+    const operationName = "listSensitiveDataModelSensitiveTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModelSensitiveTypeCollection/ListSensitiveDataModelSensitiveTypes";
+    const pathParams = {
+      "{sensitiveDataModelId}": listSensitiveDataModelSensitiveTypesRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {
+      "sensitiveTypeId": listSensitiveDataModelSensitiveTypesRequest.sensitiveTypeId,
+      "sortBy": listSensitiveDataModelSensitiveTypesRequest.sortBy,
+      "sortOrder": listSensitiveDataModelSensitiveTypesRequest.sortOrder,
+      "limit": listSensitiveDataModelSensitiveTypesRequest.limit,
+      "page": listSensitiveDataModelSensitiveTypesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSensitiveDataModelSensitiveTypesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSensitiveDataModelSensitiveTypesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/sensitiveTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSensitiveDataModelSensitiveTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveDataModelSensitiveTypeCollection",
+        bodyModel: model.SensitiveDataModelSensitiveTypeCollection,
+        type: "model.SensitiveDataModelSensitiveTypeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of sensitive data models based on the specified query parameters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -18371,7 +18463,7 @@ The parameter `accessLevel` specifies whether to return only those compartments 
 * principal doesn't have access to even one of the child compartments. This is valid only when
 * `compartmentIdInSubtree` is set to `true`.
 * <p>
-The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFirewallPolicyInfo on the specified 
+The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFirewallPolicyInfo on the specified
 * `compartmentId` and when it is set to true, the entire hierarchy of compartments can be returned.
 * To get a full list of all compartments and subcompartments in the tenancy (root compartment),
 * set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
@@ -22115,7 +22207,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
-   * Removes the baseline setting for the saved security assessment. The saved security assessment is no longer considered a baseline.
+   * Removes the baseline setting for the saved security assessment associated with the targetId passed via body.
+   * If no body or empty body is passed then the baseline settings of all the saved security assessments pertaining to the baseline assessment OCID provided in the path will be removed.
    * Sets the if-match parameter to the value of the etag from a previous GET or POST response for that resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -22157,6 +22250,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       defaultHeaders: this._defaultHeaders,
       path: "/securityAssessments/{securityAssessmentId}/actions/unsetBaseline",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        unsetSecurityAssessmentBaselineRequest.unsetSecurityAssessmentBaselineDetails,
+        "UnsetSecurityAssessmentBaselineDetails",
+        model.UnsetSecurityAssessmentBaselineDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams
@@ -22192,7 +22290,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
-   * Removes the baseline setting for the saved user assessment. The saved user assessment is no longer considered a baseline.
+   * Removes the baseline setting for the saved user assessment associated with the targetId passed via body.
+   * If no body or empty body is passed then the baseline settings of all the saved user assessments pertaining to the baseline assessment OCID provided in the path will be removed.
    * Sets the if-match parameter to the value of the etag from a previous GET or POST response for that resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -22234,6 +22333,11 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       defaultHeaders: this._defaultHeaders,
       path: "/userAssessments/{userAssessmentId}/actions/unsetBaseline",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        unsetUserAssessmentBaselineRequest.unsetUserAssessmentBaselineDetails,
+        "UnsetUserAssessmentBaselineDetails",
+        model.UnsetUserAssessmentBaselineDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams

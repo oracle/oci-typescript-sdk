@@ -193,6 +193,11 @@ export interface SummarizeHostInsightResourceForecastTrendRequest extends common
    */
   "interfaceName"?: string;
   /**
+   * GPU identifier.
+   *
+   */
+  "gpuId"?: number;
+  /**
    * Resource Status
    */
   "status"?: Array<model.ResourceStatus>;

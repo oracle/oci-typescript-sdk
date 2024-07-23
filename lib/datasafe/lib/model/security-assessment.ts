@@ -98,6 +98,10 @@ export interface SecurityAssessment {
    */
   "description"?: string;
   /**
+   * Indicates whether the assessment is scheduled to run.
+   */
+  "isAssessmentScheduled"?: boolean;
+  /**
     * Schedule to save the assessment periodically in the specified format:
 * <version-string>;<version-specific-schedule>
 * <p>
