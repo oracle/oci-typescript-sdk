@@ -32,6 +32,8 @@ import * as ChangeAutonomousDatabaseCompartmentResponse from "./change-autonomou
 export import ChangeAutonomousDatabaseCompartmentResponse = ChangeAutonomousDatabaseCompartmentResponse.ChangeAutonomousDatabaseCompartmentResponse;
 import * as ChangeAutonomousDatabaseSoftwareImageCompartmentResponse from "./change-autonomous-database-software-image-compartment-response";
 export import ChangeAutonomousDatabaseSoftwareImageCompartmentResponse = ChangeAutonomousDatabaseSoftwareImageCompartmentResponse.ChangeAutonomousDatabaseSoftwareImageCompartmentResponse;
+import * as ChangeAutonomousDatabaseSubscriptionResponse from "./change-autonomous-database-subscription-response";
+export import ChangeAutonomousDatabaseSubscriptionResponse = ChangeAutonomousDatabaseSubscriptionResponse.ChangeAutonomousDatabaseSubscriptionResponse;
 import * as ChangeAutonomousExadataInfrastructureCompartmentResponse from "./change-autonomous-exadata-infrastructure-compartment-response";
 export import ChangeAutonomousExadataInfrastructureCompartmentResponse = ChangeAutonomousExadataInfrastructureCompartmentResponse.ChangeAutonomousExadataInfrastructureCompartmentResponse;
 import * as ChangeAutonomousVmClusterCompartmentResponse from "./change-autonomous-vm-cluster-compartment-response";
@@ -42,8 +44,12 @@ import * as ChangeCloudAutonomousVmClusterCompartmentResponse from "./change-clo
 export import ChangeCloudAutonomousVmClusterCompartmentResponse = ChangeCloudAutonomousVmClusterCompartmentResponse.ChangeCloudAutonomousVmClusterCompartmentResponse;
 import * as ChangeCloudExadataInfrastructureCompartmentResponse from "./change-cloud-exadata-infrastructure-compartment-response";
 export import ChangeCloudExadataInfrastructureCompartmentResponse = ChangeCloudExadataInfrastructureCompartmentResponse.ChangeCloudExadataInfrastructureCompartmentResponse;
+import * as ChangeCloudExadataInfrastructureSubscriptionResponse from "./change-cloud-exadata-infrastructure-subscription-response";
+export import ChangeCloudExadataInfrastructureSubscriptionResponse = ChangeCloudExadataInfrastructureSubscriptionResponse.ChangeCloudExadataInfrastructureSubscriptionResponse;
 import * as ChangeCloudVmClusterCompartmentResponse from "./change-cloud-vm-cluster-compartment-response";
 export import ChangeCloudVmClusterCompartmentResponse = ChangeCloudVmClusterCompartmentResponse.ChangeCloudVmClusterCompartmentResponse;
+import * as ChangeCloudVmClusterSubscriptionResponse from "./change-cloud-vm-cluster-subscription-response";
+export import ChangeCloudVmClusterSubscriptionResponse = ChangeCloudVmClusterSubscriptionResponse.ChangeCloudVmClusterSubscriptionResponse;
 import * as ChangeDatabaseSoftwareImageCompartmentResponse from "./change-database-software-image-compartment-response";
 export import ChangeDatabaseSoftwareImageCompartmentResponse = ChangeDatabaseSoftwareImageCompartmentResponse.ChangeDatabaseSoftwareImageCompartmentResponse;
 import * as ChangeDataguardRoleResponse from "./change-dataguard-role-response";

@@ -62,6 +62,25 @@ export interface ListReportsRequest extends common.BaseRequest {
    */
   "reportDefinitionId"?: string;
   /**
+   * A filter to return only the resources that were generated after the specified date and time, as defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * Using TimeGeneratedGreaterThanOrEqualToQueryParam parameter retrieves all resources generated after that date.
+   * <p>
+   **Example:** 2016-12-19T16:39:57.600Z
+   *
+   */
+  "timeGeneratedGreaterThanOrEqualTo"?: Date;
+  /**
+   * Search for resources that were generated before a specific date.
+   * Specifying this parameter corresponding {@code timeGeneratedLessThan}
+   * parameter will retrieve all resources generated before the
+   * specified generated date, in \"YYYY-MM-ddThh:mmZ\" format with a Z offset, as
+   * defined by RFC 3339.
+   * <p>
+   **Example:** 2016-12-19T16:39:57.600Z
+   *
+   */
+  "timeGeneratedLessThan"?: Date;
+  /**
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;

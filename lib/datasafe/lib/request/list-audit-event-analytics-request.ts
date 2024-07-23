@@ -67,7 +67,7 @@ export interface ListAuditEventAnalyticsRequest extends common.BaseRequest {
    * text, date, and time values must be enclosed in quotation marks, with date and time values using ISO-8601 format.
    * (Numeric and boolean values should not be quoted.)
    * <p>
-   **Example:** query=(operationTime ge '2021-06-04T01-00-26') and (eventName eq 'LOGON')
+   **Example:** (operationTime ge \"2021-06-04T12:00:00.000Z\") and (eventName eq \"LOGON\")
    *
    */
   "scimQuery"?: string;

@@ -32,6 +32,8 @@ import * as ChangeAutonomousDatabaseCompartmentRequest from "./change-autonomous
 export import ChangeAutonomousDatabaseCompartmentRequest = ChangeAutonomousDatabaseCompartmentRequest.ChangeAutonomousDatabaseCompartmentRequest;
 import * as ChangeAutonomousDatabaseSoftwareImageCompartmentRequest from "./change-autonomous-database-software-image-compartment-request";
 export import ChangeAutonomousDatabaseSoftwareImageCompartmentRequest = ChangeAutonomousDatabaseSoftwareImageCompartmentRequest.ChangeAutonomousDatabaseSoftwareImageCompartmentRequest;
+import * as ChangeAutonomousDatabaseSubscriptionRequest from "./change-autonomous-database-subscription-request";
+export import ChangeAutonomousDatabaseSubscriptionRequest = ChangeAutonomousDatabaseSubscriptionRequest.ChangeAutonomousDatabaseSubscriptionRequest;
 import * as ChangeAutonomousExadataInfrastructureCompartmentRequest from "./change-autonomous-exadata-infrastructure-compartment-request";
 export import ChangeAutonomousExadataInfrastructureCompartmentRequest = ChangeAutonomousExadataInfrastructureCompartmentRequest.ChangeAutonomousExadataInfrastructureCompartmentRequest;
 import * as ChangeAutonomousVmClusterCompartmentRequest from "./change-autonomous-vm-cluster-compartment-request";
@@ -42,8 +44,12 @@ import * as ChangeCloudAutonomousVmClusterCompartmentRequest from "./change-clou
 export import ChangeCloudAutonomousVmClusterCompartmentRequest = ChangeCloudAutonomousVmClusterCompartmentRequest.ChangeCloudAutonomousVmClusterCompartmentRequest;
 import * as ChangeCloudExadataInfrastructureCompartmentRequest from "./change-cloud-exadata-infrastructure-compartment-request";
 export import ChangeCloudExadataInfrastructureCompartmentRequest = ChangeCloudExadataInfrastructureCompartmentRequest.ChangeCloudExadataInfrastructureCompartmentRequest;
+import * as ChangeCloudExadataInfrastructureSubscriptionRequest from "./change-cloud-exadata-infrastructure-subscription-request";
+export import ChangeCloudExadataInfrastructureSubscriptionRequest = ChangeCloudExadataInfrastructureSubscriptionRequest.ChangeCloudExadataInfrastructureSubscriptionRequest;
 import * as ChangeCloudVmClusterCompartmentRequest from "./change-cloud-vm-cluster-compartment-request";
 export import ChangeCloudVmClusterCompartmentRequest = ChangeCloudVmClusterCompartmentRequest.ChangeCloudVmClusterCompartmentRequest;
+import * as ChangeCloudVmClusterSubscriptionRequest from "./change-cloud-vm-cluster-subscription-request";
+export import ChangeCloudVmClusterSubscriptionRequest = ChangeCloudVmClusterSubscriptionRequest.ChangeCloudVmClusterSubscriptionRequest;
 import * as ChangeDatabaseSoftwareImageCompartmentRequest from "./change-database-software-image-compartment-request";
 export import ChangeDatabaseSoftwareImageCompartmentRequest = ChangeDatabaseSoftwareImageCompartmentRequest.ChangeDatabaseSoftwareImageCompartmentRequest;
 import * as ChangeDataguardRoleRequest from "./change-dataguard-role-request";

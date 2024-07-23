@@ -5929,6 +5929,180 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * The MySql SQL Stats endpoint takes in a JSON payload, persists it in Ops Insights ingest pipeline.
+   * Either databaseId or id must be specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param IngestMySqlSqlStatsRequest
+   * @return IngestMySqlSqlStatsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestMySqlSqlStats.ts.html |here} to see how to use IngestMySqlSqlStats API.
+   */
+  public async ingestMySqlSqlStats(
+    ingestMySqlSqlStatsRequest: requests.IngestMySqlSqlStatsRequest
+  ): Promise<responses.IngestMySqlSqlStatsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#ingestMySqlSqlStats.");
+    const operationName = "ingestMySqlSqlStats";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "databaseId": ingestMySqlSqlStatsRequest.databaseId,
+      "id": ingestMySqlSqlStatsRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": ingestMySqlSqlStatsRequest.opcRequestId,
+      "if-match": ingestMySqlSqlStatsRequest.ifMatch,
+      "opc-retry-token": ingestMySqlSqlStatsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ingestMySqlSqlStatsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/actions/ingestMySqlSqlStatsMetric",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        ingestMySqlSqlStatsRequest.ingestMySqlSqlStatsDetails,
+        "IngestMySqlSqlStatsDetails",
+        model.IngestMySqlSqlStatsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.IngestMySqlSqlStatsResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestMySqlSqlStatsResponseDetails",
+        bodyModel: model.IngestMySqlSqlStatsResponseDetails,
+        type: "model.IngestMySqlSqlStatsResponseDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * The SqlText endpoint takes in a JSON payload, persists it in Operation Insights ingest pipeline.
+   * Either databaseId or id must be specified.
+   * Disclaimer: SQL text being uploaded explicitly via APIs is already masked. All sensitive literals contained in the sqlFullText column are masked prior to ingestion.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param IngestMySqlSqlTextRequest
+   * @return IngestMySqlSqlTextResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestMySqlSqlText.ts.html |here} to see how to use IngestMySqlSqlText API.
+   */
+  public async ingestMySqlSqlText(
+    ingestMySqlSqlTextRequest: requests.IngestMySqlSqlTextRequest
+  ): Promise<responses.IngestMySqlSqlTextResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#ingestMySqlSqlText.");
+    const operationName = "ingestMySqlSqlText";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": ingestMySqlSqlTextRequest.compartmentId,
+      "databaseId": ingestMySqlSqlTextRequest.databaseId,
+      "id": ingestMySqlSqlTextRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": ingestMySqlSqlTextRequest.opcRequestId,
+      "if-match": ingestMySqlSqlTextRequest.ifMatch,
+      "opc-retry-token": ingestMySqlSqlTextRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ingestMySqlSqlTextRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/actions/ingestMySqlSqlText",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        ingestMySqlSqlTextRequest.ingestMySqlSqlTextDetails,
+        "IngestMySqlSqlTextDetails",
+        model.IngestMySqlSqlTextDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.IngestMySqlSqlTextResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestMySqlSqlTextResponseDetails",
+        bodyModel: model.IngestMySqlSqlTextResponseDetails,
+        type: "model.IngestMySqlSqlTextResponseDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * The sqlbucket endpoint takes in a JSON payload, persists it in Ops Insights ingest pipeline.
    * Either databaseId or id must be specified.
    *
@@ -13493,6 +13667,7 @@ Note that this API does not return information on the number of times each datab
         summarizeHostInsightResourceForecastTrendRequest.lowUtilizationThreshold,
       "mountPoint": summarizeHostInsightResourceForecastTrendRequest.mountPoint,
       "interfaceName": summarizeHostInsightResourceForecastTrendRequest.interfaceName,
+      "gpuId": summarizeHostInsightResourceForecastTrendRequest.gpuId,
       "status": summarizeHostInsightResourceForecastTrendRequest.status
     };
 

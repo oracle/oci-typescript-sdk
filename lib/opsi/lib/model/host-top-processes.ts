@@ -68,6 +68,26 @@ export interface HostTopProcesses extends model.HostPerformanceMetricGroup {
    * Container id if this process corresponds to a running container in the host
    */
   "containerId"?: string;
+  /**
+   * Bytes Read Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "diskBytesRead"?: number;
+  /**
+   * Bytes Written Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "diskBytesWritten"?: number;
+  /**
+   * Read transactions per second Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "diskIopsRead"?: number;
+  /**
+   * Write transactions per second Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "diskIopsWritten"?: number;
+  /**
+   * IO Transactions per second Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "diskIops"?: number;
 
   "metricName": string;
 }

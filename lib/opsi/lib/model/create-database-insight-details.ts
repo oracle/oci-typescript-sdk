@@ -47,6 +47,11 @@ export namespace CreateDatabaseInsightDetails {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MDS_MYSQL_DATABASE_SYSTEM":
+          return model.CreateMdsMySqlDatabaseInsightDetails.getJsonObj(
+            <model.CreateMdsMySqlDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.CreateEmManagedExternalDatabaseInsightDetails.getJsonObj(
             <model.CreateEmManagedExternalDatabaseInsightDetails>(<object>jsonObj),
@@ -68,6 +73,11 @@ export namespace CreateDatabaseInsightDetails {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MDS_MYSQL_DATABASE_SYSTEM":
+          return model.CreateMdsMySqlDatabaseInsightDetails.getDeserializedJsonObj(
+            <model.CreateMdsMySqlDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.CreateEmManagedExternalDatabaseInsightDetails.getDeserializedJsonObj(
             <model.CreateEmManagedExternalDatabaseInsightDetails>(<object>jsonObj),

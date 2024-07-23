@@ -46,6 +46,12 @@ export interface CreateDiscoveryJobDetails {
    */
   "schemasForDiscovery"?: Array<string>;
   /**
+   * The data discovery jobs will scan the tables specified here, including both schemas and tables. In the absence
+   * of explicit input, the list of tables is obtained from the tablesForDiscovery attribute of the sensitive data model.
+   *
+   */
+  "tablesForDiscovery"?: Array<model.TablesForDiscovery>;
+  /**
    * The OCIDs of the sensitive types to be used by the discovery job. If not provided, the sensitiveTypeIdsForDiscovery
    * attribute of the sensitive data model is used to get the list of sensitive types.
    *
@@ -102,12 +108,30 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 
 export namespace CreateDiscoveryJobDetails {
   export function getJsonObj(obj: CreateDiscoveryJobDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tablesForDiscovery": obj.tablesForDiscovery
+          ? obj.tablesForDiscovery.map(item => {
+              return model.TablesForDiscovery.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateDiscoveryJobDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tablesForDiscovery": obj.tablesForDiscovery
+          ? obj.tablesForDiscovery.map(item => {
+              return model.TablesForDiscovery.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

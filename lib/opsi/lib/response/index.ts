@@ -150,6 +150,10 @@ import * as IngestHostConfigurationResponse from "./ingest-host-configuration-re
 export import IngestHostConfigurationResponse = IngestHostConfigurationResponse.IngestHostConfigurationResponse;
 import * as IngestHostMetricsResponse from "./ingest-host-metrics-response";
 export import IngestHostMetricsResponse = IngestHostMetricsResponse.IngestHostMetricsResponse;
+import * as IngestMySqlSqlStatsResponse from "./ingest-my-sql-sql-stats-response";
+export import IngestMySqlSqlStatsResponse = IngestMySqlSqlStatsResponse.IngestMySqlSqlStatsResponse;
+import * as IngestMySqlSqlTextResponse from "./ingest-my-sql-sql-text-response";
+export import IngestMySqlSqlTextResponse = IngestMySqlSqlTextResponse.IngestMySqlSqlTextResponse;
 import * as IngestSqlBucketResponse from "./ingest-sql-bucket-response";
 export import IngestSqlBucketResponse = IngestSqlBucketResponse.IngestSqlBucketResponse;
 import * as IngestSqlPlanLinesResponse from "./ingest-sql-plan-lines-response";

@@ -27,6 +27,10 @@ export interface UpdateUserAssessmentDetails {
    */
   "displayName"?: string;
   /**
+   * Indicates whether the assessment is scheduled to run.
+   */
+  "isAssessmentScheduled"?: boolean;
+  /**
     * The schedule for periodically saving the assessment. This is applicable only for assessments of type save schedule and latest assessment. It updates the existing schedule in a specified format:
 * <version-string>;<version-specific-schedule>
 * <p>

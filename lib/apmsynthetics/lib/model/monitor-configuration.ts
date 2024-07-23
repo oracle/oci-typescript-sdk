@@ -40,6 +40,11 @@ export namespace MonitorConfiguration {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "FTP_CONFIG":
+          return model.FtpMonitorConfiguration.getJsonObj(
+            <model.FtpMonitorConfiguration>(<object>jsonObj),
+            true
+          );
         case "DNSSEC_CONFIG":
           return model.DnsSecMonitorConfiguration.getJsonObj(
             <model.DnsSecMonitorConfiguration>(<object>jsonObj),
@@ -48,6 +53,11 @@ export namespace MonitorConfiguration {
         case "DNS_TRACE_CONFIG":
           return model.DnsTraceMonitorConfiguration.getJsonObj(
             <model.DnsTraceMonitorConfiguration>(<object>jsonObj),
+            true
+          );
+        case "SQL_CONFIG":
+          return model.SqlMonitorConfiguration.getJsonObj(
+            <model.SqlMonitorConfiguration>(<object>jsonObj),
             true
           );
         case "SCRIPTED_REST_CONFIG":
@@ -98,6 +108,11 @@ export namespace MonitorConfiguration {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "FTP_CONFIG":
+          return model.FtpMonitorConfiguration.getDeserializedJsonObj(
+            <model.FtpMonitorConfiguration>(<object>jsonObj),
+            true
+          );
         case "DNSSEC_CONFIG":
           return model.DnsSecMonitorConfiguration.getDeserializedJsonObj(
             <model.DnsSecMonitorConfiguration>(<object>jsonObj),
@@ -106,6 +121,11 @@ export namespace MonitorConfiguration {
         case "DNS_TRACE_CONFIG":
           return model.DnsTraceMonitorConfiguration.getDeserializedJsonObj(
             <model.DnsTraceMonitorConfiguration>(<object>jsonObj),
+            true
+          );
+        case "SQL_CONFIG":
+          return model.SqlMonitorConfiguration.getDeserializedJsonObj(
+            <model.SqlMonitorConfiguration>(<object>jsonObj),
             true
           );
         case "SCRIPTED_REST_CONFIG":

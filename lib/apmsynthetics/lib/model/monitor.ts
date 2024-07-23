@@ -31,7 +31,7 @@ export interface Monitor {
    */
   "monitorType": model.MonitorTypes;
   /**
-   * List of public and dedicated vantage points where the monitor is running.
+   * List of public, dedicated and onPremise vantage points where the monitor is running.
    */
   "vantagePoints": Array<model.VantagePointInfo>;
   /**
@@ -72,10 +72,10 @@ export interface Monitor {
   "timeoutInSeconds": number;
   /**
    * Specify the endpoint on which to run the monitor.
-   * For BROWSER, REST and NETWORK monitor types, target is mandatory.
+   * For BROWSER, REST, NETWORK, DNS and FTP monitor types, target is mandatory.
    * If target is specified in the SCRIPTED_BROWSER monitor type, then the monitor will run the selected script (specified by scriptId in monitor) against the specified target endpoint.
    * If target is not specified in the SCRIPTED_BROWSER monitor type, then the monitor will run the selected script as it is.
-   * For NETWORK monitor with TCP protocol, a port needs to be provided along with target. Example: 192.168.0.1:80
+   * For NETWORK monitor with TCP protocol, a port needs to be provided along with target. Example: 192.168.0.1:80.
    *
    */
   "target"?: string;
@@ -85,8 +85,10 @@ export interface Monitor {
    */
   "scriptParameters"?: Array<model.MonitorScriptParameterInfo>;
   "configuration"?:
+    | model.FtpMonitorConfiguration
     | model.DnsSecMonitorConfiguration
     | model.DnsTraceMonitorConfiguration
+    | model.SqlMonitorConfiguration
     | model.ScriptedRestMonitorConfiguration
     | model.DnsServerMonitorConfiguration
     | model.ScriptedBrowserMonitorConfiguration
@@ -133,6 +135,18 @@ export interface Monitor {
    * Time interval between two runs in round robin batch mode (SchedulingPolicy - BATCHED_ROUND_ROBIN). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "batchIntervalInSeconds": number;
+  /**
+   * If enabled, domain name will resolve to an IPv6 address.
+   */
+  "isIPv6"?: boolean;
+  /**
+   * Name of the user that created the monitor.
+   */
+  "createdBy"?: string;
+  /**
+   * Name of the user that recently updated the monitor.
+   */
+  "lastUpdatedBy"?: string;
 }
 
 export namespace Monitor {

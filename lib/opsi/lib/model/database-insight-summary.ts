@@ -119,6 +119,11 @@ export namespace DatabaseInsightSummary {
             <model.AutonomousDatabaseInsightSummary>(<object>jsonObj),
             true
           );
+        case "MDS_MYSQL_DATABASE_SYSTEM":
+          return model.MdsMySqlDatabaseInsightSummary.getJsonObj(
+            <model.MdsMySqlDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
         case "PE_COMANAGED_DATABASE":
           return model.PeComanagedDatabaseInsightSummary.getJsonObj(
             <model.PeComanagedDatabaseInsightSummary>(<object>jsonObj),
@@ -148,6 +153,11 @@ export namespace DatabaseInsightSummary {
         case "AUTONOMOUS_DATABASE":
           return model.AutonomousDatabaseInsightSummary.getDeserializedJsonObj(
             <model.AutonomousDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
+        case "MDS_MYSQL_DATABASE_SYSTEM":
+          return model.MdsMySqlDatabaseInsightSummary.getDeserializedJsonObj(
+            <model.MdsMySqlDatabaseInsightSummary>(<object>jsonObj),
             true
           );
         case "PE_COMANAGED_DATABASE":

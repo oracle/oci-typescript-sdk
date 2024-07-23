@@ -31,6 +31,10 @@ export interface CreateUserAssessmentDetails {
    */
   "displayName"?: string;
   /**
+   * Indicates whether the assessment is scheduled to run.
+   */
+  "isAssessmentScheduled"?: boolean;
+  /**
     * To schedule the assessment for saving periodically, specify the schedule in this attribute.
 * Create or schedule one assessment per compartment. If not defined, the assessment runs immediately.
 *  Format -

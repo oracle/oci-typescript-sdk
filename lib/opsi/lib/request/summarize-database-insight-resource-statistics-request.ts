@@ -209,7 +209,8 @@ export namespace SummarizeDatabaseInsightResourceStatisticsRequest {
     ComanagedBmNoncdb = "COMANAGED-BM-NONCDB",
     ComanagedExacsCdb = "COMANAGED-EXACS-CDB",
     ComanagedExacsPdb = "COMANAGED-EXACS-PDB",
-    ComanagedExacsNoncdb = "COMANAGED-EXACS-NONCDB"
+    ComanagedExacsNoncdb = "COMANAGED-EXACS-NONCDB",
+    MdsMysql = "MDS-MYSQL"
   }
 
   export enum SortBy {

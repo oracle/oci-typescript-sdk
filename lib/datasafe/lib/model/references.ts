@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * References to the sections of STIG, CIS, and/or GDPR relevant to the current finding.
+ * References to the sections of STIG, CIS, GDPR and/or OBP relevant to the current finding.
  */
 export interface References {
   /**
@@ -30,6 +30,10 @@ export interface References {
    * Relevant section from GDPR.
    */
   "gdpr"?: string;
+  /**
+   * Relevant section from OBP.
+   */
+  "obp"?: string;
 }
 
 export namespace References {

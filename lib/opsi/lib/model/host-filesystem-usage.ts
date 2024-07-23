@@ -28,6 +28,7 @@ export interface HostFilesystemUsage extends model.HostPerformanceMetricGroup {
   "mountPoint"?: string;
   "fileSystemUsageInGB"?: number;
   "fileSystemAvailInPercent"?: number;
+  "fileSystemAvailInGBs"?: number;
 
   "metricName": string;
 }

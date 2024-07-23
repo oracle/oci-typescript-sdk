@@ -29,6 +29,10 @@ export interface AutonomousDatabase {
    */
   "compartmentId": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
+  /**
    * The current state of the Autonomous Database.
    */
   "lifecycleState": AutonomousDatabase.LifecycleState;
@@ -227,6 +231,10 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
 * 
     */
   "licenseModel"?: AutonomousDatabase.LicenseModel;
+  /**
+   * The maximum number of CPUs allowed with a Bring Your Own License (BYOL), including those used for auto-scaling, disaster recovery, tools, etc. Any CPU usage above this limit is considered as License Included and billed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "byolComputeCountLimit"?: number;
   /**
    * The amount of storage that has been used for Autonomous Databases in dedicated infrastructure, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

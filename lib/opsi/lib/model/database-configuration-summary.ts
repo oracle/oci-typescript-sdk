@@ -95,6 +95,11 @@ export namespace DatabaseConfigurationSummary {
             <model.PeComanagedManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
             true
           );
+        case "MDS_MYSQL_DATABASE_SYSTEM":
+          return model.MdsMysqlDatabaseConfigurationSummary.getJsonObj(
+            <model.MdsMysqlDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -124,6 +129,11 @@ export namespace DatabaseConfigurationSummary {
         case "PE_COMANAGED_DATABASE":
           return model.PeComanagedManagedExternalDatabaseConfigurationSummary.getDeserializedJsonObj(
             <model.PeComanagedManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "MDS_MYSQL_DATABASE_SYSTEM":
+          return model.MdsMysqlDatabaseConfigurationSummary.getDeserializedJsonObj(
+            <model.MdsMysqlDatabaseConfigurationSummary>(<object>jsonObj),
             true
           );
         default:

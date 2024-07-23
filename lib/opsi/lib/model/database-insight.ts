@@ -113,6 +113,11 @@ export namespace DatabaseInsight {
             <model.AutonomousDatabaseInsight>(<object>jsonObj),
             true
           );
+        case "MDS_MYSQL_DATABASE_SYSTEM":
+          return model.MdsMySqlDatabaseInsight.getJsonObj(
+            <model.MdsMySqlDatabaseInsight>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -142,6 +147,11 @@ export namespace DatabaseInsight {
         case "AUTONOMOUS_DATABASE":
           return model.AutonomousDatabaseInsight.getDeserializedJsonObj(
             <model.AutonomousDatabaseInsight>(<object>jsonObj),
+            true
+          );
+        case "MDS_MYSQL_DATABASE_SYSTEM":
+          return model.MdsMySqlDatabaseInsight.getDeserializedJsonObj(
+            <model.MdsMySqlDatabaseInsight>(<object>jsonObj),
             true
           );
         default:

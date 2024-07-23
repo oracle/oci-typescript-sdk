@@ -329,6 +329,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeAutonomousDatabaseSubscription
+   *
+   * @param request the request to send
+   * @return response returns ChangeAutonomousDatabaseSubscriptionResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeAutonomousDatabaseSubscription(
+    request: serviceRequests.ChangeAutonomousDatabaseSubscriptionRequest
+  ): Promise<{
+    response: serviceResponses.ChangeAutonomousDatabaseSubscriptionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeAutonomousDatabaseSubscriptionResponse = await this.client.changeAutonomousDatabaseSubscription(
+      request
+    );
+    if (changeAutonomousDatabaseSubscriptionResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeAutonomousDatabaseSubscriptionResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeAutonomousDatabaseSubscriptionResponse.opcWorkRequestId
+    );
+    return {
+      response: changeAutonomousDatabaseSubscriptionResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeAutonomousExadataInfrastructureCompartment
    *
    * @param request the request to send
@@ -484,6 +515,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeCloudExadataInfrastructureSubscription
+   *
+   * @param request the request to send
+   * @return response returns ChangeCloudExadataInfrastructureSubscriptionResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeCloudExadataInfrastructureSubscription(
+    request: serviceRequests.ChangeCloudExadataInfrastructureSubscriptionRequest
+  ): Promise<{
+    response: serviceResponses.ChangeCloudExadataInfrastructureSubscriptionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeCloudExadataInfrastructureSubscriptionResponse = await this.client.changeCloudExadataInfrastructureSubscription(
+      request
+    );
+    if (changeCloudExadataInfrastructureSubscriptionResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeCloudExadataInfrastructureSubscriptionResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeCloudExadataInfrastructureSubscriptionResponse.opcWorkRequestId
+    );
+    return {
+      response: changeCloudExadataInfrastructureSubscriptionResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeCloudVmClusterCompartment
    *
    * @param request the request to send
@@ -510,6 +572,37 @@ export class DatabaseWaiter {
     );
     return {
       response: changeCloudVmClusterCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeCloudVmClusterSubscription
+   *
+   * @param request the request to send
+   * @return response returns ChangeCloudVmClusterSubscriptionResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeCloudVmClusterSubscription(
+    request: serviceRequests.ChangeCloudVmClusterSubscriptionRequest
+  ): Promise<{
+    response: serviceResponses.ChangeCloudVmClusterSubscriptionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeCloudVmClusterSubscriptionResponse = await this.client.changeCloudVmClusterSubscription(
+      request
+    );
+    if (changeCloudVmClusterSubscriptionResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeCloudVmClusterSubscriptionResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeCloudVmClusterSubscriptionResponse.opcWorkRequestId
+    );
+    return {
+      response: changeCloudVmClusterSubscriptionResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

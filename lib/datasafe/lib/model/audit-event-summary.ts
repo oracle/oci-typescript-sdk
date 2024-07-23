@@ -163,6 +163,14 @@ export interface AuditEventSummary {
    */
   "databaseUniqueName"?: string;
   /**
+   * Semicolon-seperated list of application context namespace, attribute, value information in (APPCTX_NSPACE,APPCTX_ATTRIBUTE=<value>) format.
+   */
+  "applicationContexts"?: string;
+  /**
+   * Fine-grained auditing (FGA) policy name that generated this audit record.
+   */
+  "fgaPolicyName"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}

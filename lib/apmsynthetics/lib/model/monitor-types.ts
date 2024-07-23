@@ -24,6 +24,8 @@ export enum MonitorTypes {
   Rest = "REST",
   Network = "NETWORK",
   Dns = "DNS",
+  Ftp = "FTP",
+  Sql = "SQL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
