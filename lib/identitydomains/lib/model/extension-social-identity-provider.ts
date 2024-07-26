@@ -1,6 +1,7 @@
 /**
  * Identity Domains API
- * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm). This REST API is SCIM compliant.
+ * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm).
+Use this pattern to construct endpoints for identity domains: `https://<domainURL>/admin/v1/`. See [Finding an Identity Domain URL](https://docs.oracle.com/en-us/iaas/Content/Identity/api-getstarted/locate-identity-domain-url.htm) to locate the domain URL you need.
 Use the table of contents and search tool to explore the Identity Domains API.
  * OpenAPI spec version: v1
  * 
@@ -35,6 +36,70 @@ export interface ExtensionSocialIdentityProvider {
    *  - uniqueness: none
    */
   "accountLinkingEnabled": boolean;
+  /**
+   * Whether social auto redirect is enabled. The IDP policy should be configured with only one Social IDP, and without username/password selected.
+   * <p>
+   **Added In:** 2310202314
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: true
+   *  - idcsSearchable: true
+   *  - multiValued: false
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: boolean
+   *  - uniqueness: none
+   */
+  "autoRedirectEnabled"?: boolean;
+  /**
+   * Whether Social JIT Provisioning is enabled
+   * <p>
+   **Added In:** 2307282043
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: true
+   *  - idcsSearchable: true
+   *  - multiValued: false
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: boolean
+   *  - uniqueness: none
+   */
+  "socialJitProvisioningEnabled"?: boolean;
+  /**
+   * Set to true to indicate Social JIT User Provisioning Groups should be assigned from a static list
+   * <p>
+   **Added In:** 2310202314
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - idcsSearchable: false
+   *  - multiValued: false
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: boolean
+   *  - uniqueness: none
+   */
+  "jitProvGroupStaticListEnabled"?: boolean;
+  /**
+   * Lists the groups each social JIT-provisioned user is a member. Just-in-Time user-provisioning applies this static list when jitProvGroupStaticListEnabled:true.
+   * <p>
+   **Added In:** 2310202314
+   * <p>
+   **SCIM++ Properties:**
+   *  - idcsCompositeKey: [value]
+   *  - idcsSearchable: false
+   *  - multiValued: true
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: complex
+   *  - uniqueness: none
+   */
+  "jitProvAssignedGroups"?: Array<model.IdentityProviderJitProvAssignedGroups>;
   /**
    * Whether registration is enabled
    * <p>
@@ -308,6 +373,12 @@ export namespace ExtensionSocialIdentityProvider {
     const jsonObj = {
       ...obj,
       ...{
+        "jitProvAssignedGroups": obj.jitProvAssignedGroups
+          ? obj.jitProvAssignedGroups.map(item => {
+              return model.IdentityProviderJitProvAssignedGroups.getJsonObj(item);
+            })
+          : undefined,
+
         "relayIdpParamMappings": obj.relayIdpParamMappings
           ? obj.relayIdpParamMappings.map(item => {
               return model.IdentityProviderRelayIdpParamMappings.getJsonObj(item);
@@ -322,6 +393,12 @@ export namespace ExtensionSocialIdentityProvider {
     const jsonObj = {
       ...obj,
       ...{
+        "jitProvAssignedGroups": obj.jitProvAssignedGroups
+          ? obj.jitProvAssignedGroups.map(item => {
+              return model.IdentityProviderJitProvAssignedGroups.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "relayIdpParamMappings": obj.relayIdpParamMappings
           ? obj.relayIdpParamMappings.map(item => {
               return model.IdentityProviderRelayIdpParamMappings.getDeserializedJsonObj(item);

@@ -67,6 +67,11 @@ export interface Job {
    */
   "lifecycleDetails"?: string;
   /**
+   * A list of parameter file versions that can be viewed or edited for the current job.
+   *
+   */
+  "parameterFileVersions"?: Array<model.ParameterFileVersionSummary>;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see Resource Tags. Example: {\"Department\": \"Finance\"}
    *
@@ -98,6 +103,12 @@ export namespace Job {
           ? obj.unsupportedObjects.map(item => {
               return model.UnsupportedDatabaseObject.getJsonObj(item);
             })
+          : undefined,
+
+        "parameterFileVersions": obj.parameterFileVersions
+          ? obj.parameterFileVersions.map(item => {
+              return model.ParameterFileVersionSummary.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -114,6 +125,12 @@ export namespace Job {
         "unsupportedObjects": obj.unsupportedObjects
           ? obj.unsupportedObjects.map(item => {
               return model.UnsupportedDatabaseObject.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "parameterFileVersions": obj.parameterFileVersions
+          ? obj.parameterFileVersions.map(item => {
+              return model.ParameterFileVersionSummary.getDeserializedJsonObj(item);
             })
           : undefined
       }

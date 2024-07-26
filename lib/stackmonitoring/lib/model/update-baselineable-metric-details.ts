@@ -51,6 +51,10 @@ export interface UpdateBaselineableMetricDetails {
    */
   "resourceGroup": string;
   /**
+   * Resource type of the metric
+   */
+  "resourceType"?: string;
+  /**
    * Is the metric created out of box, default false
    */
   "isOutOfBox": boolean;

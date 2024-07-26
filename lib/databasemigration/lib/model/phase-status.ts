@@ -60,9 +60,29 @@ export interface PhaseStatus {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "progress"?: number;
+  /**
+   * This is returned as true if the current phase can be suspended.
+   *
+   */
+  "isSuspendAvailable"?: boolean;
+  /**
+   * Attribute that returns an array of names and types of GoldenGate configuration files that are available for read or update.
+   *
+   */
+  "editableParameterFiles"?: Array<PhaseStatus.EditableParameterFiles>;
 }
 
 export namespace PhaseStatus {
+  export enum EditableParameterFiles {
+    Extract = "EXTRACT",
+    Replicat = "REPLICAT",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: PhaseStatus): object {
     const jsonObj = {
       ...obj,

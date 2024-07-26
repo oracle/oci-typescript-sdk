@@ -365,6 +365,81 @@ export class AIServiceSpeechClient {
   }
 
   /**
+   * Moves a Customization resource into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeCustomizationCompartmentRequest
+   * @return ChangeCustomizationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ChangeCustomizationCompartment.ts.html |here} to see how to use ChangeCustomizationCompartment API.
+   */
+  public async changeCustomizationCompartment(
+    changeCustomizationCompartmentRequest: requests.ChangeCustomizationCompartmentRequest
+  ): Promise<responses.ChangeCustomizationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#changeCustomizationCompartment.");
+    const operationName = "changeCustomizationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/Customization/ChangeCustomizationCompartment";
+    const pathParams = {
+      "{customizationId}": changeCustomizationCompartmentRequest.customizationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeCustomizationCompartmentRequest.ifMatch,
+      "opc-request-id": changeCustomizationCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeCustomizationCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCustomizationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customizations/{customizationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCustomizationCompartmentRequest.changeCustomizationCompartmentDetails,
+        "ChangeCustomizationCompartmentDetails",
+        model.ChangeCustomizationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCustomizationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a transcription Job resource into a different compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeTranscriptionJobCompartmentRequest
@@ -430,6 +505,170 @@ export class AIServiceSpeechClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Customization.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateCustomizationRequest
+   * @return CreateCustomizationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CreateCustomization.ts.html |here} to see how to use CreateCustomization API.
+   */
+  public async createCustomization(
+    createCustomizationRequest: requests.CreateCustomizationRequest
+  ): Promise<responses.CreateCustomizationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#createCustomization.");
+    const operationName = "createCustomization";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/Customization/CreateCustomization";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createCustomizationRequest.opcRetryToken,
+      "opc-request-id": createCustomizationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCustomizationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customizations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCustomizationRequest.createCustomizationDetails,
+        "CreateCustomizationDetails",
+        model.CreateCustomizationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCustomizationResponse>{},
+        body: await response.json(),
+        bodyKey: "customization",
+        bodyModel: model.Customization,
+        type: "model.Customization",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns an authentication token to the user.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateRealtimeSessionTokenRequest
+   * @return CreateRealtimeSessionTokenResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CreateRealtimeSessionToken.ts.html |here} to see how to use CreateRealtimeSessionToken API.
+   */
+  public async createRealtimeSessionToken(
+    createRealtimeSessionTokenRequest: requests.CreateRealtimeSessionTokenRequest
+  ): Promise<responses.CreateRealtimeSessionTokenResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#createRealtimeSessionToken.");
+    const operationName = "createRealtimeSessionToken";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/RealtimeSessionToken/CreateRealtimeSessionToken";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createRealtimeSessionTokenRequest.opcRetryToken,
+      "opc-request-id": createRealtimeSessionTokenRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRealtimeSessionTokenRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/realtimeSessionToken",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRealtimeSessionTokenRequest.createRealtimeSessionTokenDetails,
+        "CreateRealtimeSessionTokenDetails",
+        model.CreateRealtimeSessionTokenDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRealtimeSessionTokenResponse>{},
+        body: await response.json(),
+        bodyKey: "realtimeSessionToken",
+        bodyModel: model.RealtimeSessionToken,
+        type: "model.RealtimeSessionToken",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -524,6 +763,76 @@ export class AIServiceSpeechClient {
   }
 
   /**
+   * Delete Customization and its metadata from tenancy.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCustomizationRequest
+   * @return DeleteCustomizationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/DeleteCustomization.ts.html |here} to see how to use DeleteCustomization API.
+   */
+  public async deleteCustomization(
+    deleteCustomizationRequest: requests.DeleteCustomizationRequest
+  ): Promise<responses.DeleteCustomizationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#deleteCustomization.");
+    const operationName = "deleteCustomization";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/Customization/DeleteCustomization";
+    const pathParams = {
+      "{customizationId}": deleteCustomizationRequest.customizationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteCustomizationRequest.ifMatch,
+      "opc-request-id": deleteCustomizationRequest.opcRequestId,
+      "opc-retry-token": deleteCustomizationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCustomizationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customizations/{customizationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCustomizationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete API cleans job, tasks and the related metadata. However the generated transcriptions in customer tenancy will not be deleted.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteTranscriptionJobRequest
@@ -579,6 +888,82 @@ export class AIServiceSpeechClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTranscriptionJobResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Customization by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCustomizationRequest
+   * @return GetCustomizationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/GetCustomization.ts.html |here} to see how to use GetCustomization API.
+   */
+  public async getCustomization(
+    getCustomizationRequest: requests.GetCustomizationRequest
+  ): Promise<responses.GetCustomizationResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceSpeechClient#getCustomization.");
+    const operationName = "getCustomization";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/Customization/GetCustomization";
+    const pathParams = {
+      "{customizationId}": getCustomizationRequest.customizationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCustomizationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCustomizationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customizations/{customizationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCustomizationResponse>{},
+        body: await response.json(),
+        bodyKey: "customization",
+        bodyModel: model.Customization,
+        type: "model.Customization",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -737,6 +1122,96 @@ export class AIServiceSpeechClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Customizations.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCustomizationsRequest
+   * @return ListCustomizationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ListCustomizations.ts.html |here} to see how to use ListCustomizations API.
+   */
+  public async listCustomizations(
+    listCustomizationsRequest: requests.ListCustomizationsRequest
+  ): Promise<responses.ListCustomizationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#listCustomizations.");
+    const operationName = "listCustomizations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/Customization/ListCustomizations";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCustomizationsRequest.compartmentId,
+      "lifecycleState": listCustomizationsRequest.lifecycleState,
+      "displayName": listCustomizationsRequest.displayName,
+      "id": listCustomizationsRequest.id,
+      "limit": listCustomizationsRequest.limit,
+      "page": listCustomizationsRequest.page,
+      "sortOrder": listCustomizationsRequest.sortOrder,
+      "sortBy": listCustomizationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCustomizationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCustomizationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customizations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCustomizationsResponse>{},
+        body: await response.json(),
+        bodyKey: "customizationCollection",
+        bodyModel: model.CustomizationCollection,
+        type: "model.CustomizationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
             dataType: "string"
           }
         ]
@@ -918,6 +1393,89 @@ export class AIServiceSpeechClient {
           {
             value: response.headers.get("opc-prev-page"),
             key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a Customization by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCustomizationRequest
+   * @return UpdateCustomizationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/UpdateCustomization.ts.html |here} to see how to use UpdateCustomization API.
+   */
+  public async updateCustomization(
+    updateCustomizationRequest: requests.UpdateCustomizationRequest
+  ): Promise<responses.UpdateCustomizationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceSpeechClient#updateCustomization.");
+    const operationName = "updateCustomization";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/Customization/UpdateCustomization";
+    const pathParams = {
+      "{customizationId}": updateCustomizationRequest.customizationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateCustomizationRequest.ifMatch,
+      "opc-request-id": updateCustomizationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCustomizationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/customizations/{customizationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCustomizationRequest.updateCustomizationDetails,
+        "UpdateCustomizationDetails",
+        model.UpdateCustomizationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCustomizationResponse>{},
+        body: await response.json(),
+        bodyKey: "customization",
+        bodyModel: model.Customization,
+        type: "model.Customization",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

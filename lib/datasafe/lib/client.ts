@@ -941,6 +941,86 @@ export class DataSafeClient {
   }
 
   /**
+   * Moves the specified alert policy into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeAlertPolicyCompartmentRequest
+   * @return ChangeAlertPolicyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAlertPolicyCompartment.ts.html |here} to see how to use ChangeAlertPolicyCompartment API.
+   */
+  public async changeAlertPolicyCompartment(
+    changeAlertPolicyCompartmentRequest: requests.ChangeAlertPolicyCompartmentRequest
+  ): Promise<responses.ChangeAlertPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeAlertPolicyCompartment.");
+    const operationName = "changeAlertPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicy/ChangeAlertPolicyCompartment";
+    const pathParams = {
+      "{alertPolicyId}": changeAlertPolicyCompartmentRequest.alertPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeAlertPolicyCompartmentRequest.opcRequestId,
+      "if-match": changeAlertPolicyCompartmentRequest.ifMatch,
+      "opc-retry-token": changeAlertPolicyCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAlertPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies/{alertPolicyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAlertPolicyCompartmentRequest.changeAlertPolicyCompartmentDetails,
+        "ChangeAlertPolicyCompartmentDetails",
+        model.ChangeAlertPolicyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAlertPolicyCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the archive retreival to the specified compartment. When provided, if-Match is checked against ETag value of the resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2993,6 +3073,190 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Creates a new user-defined alert policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateAlertPolicyRequest
+   * @return CreateAlertPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateAlertPolicy.ts.html |here} to see how to use CreateAlertPolicy API.
+   */
+  public async createAlertPolicy(
+    createAlertPolicyRequest: requests.CreateAlertPolicyRequest
+  ): Promise<responses.CreateAlertPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createAlertPolicy.");
+    const operationName = "createAlertPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicy/CreateAlertPolicy";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAlertPolicyRequest.opcRetryToken,
+      "opc-request-id": createAlertPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAlertPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAlertPolicyRequest.createAlertPolicyDetails,
+        "CreateAlertPolicyDetails",
+        model.CreateAlertPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAlertPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "alertPolicy",
+        bodyModel: model.AlertPolicy,
+        type: "model.AlertPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new rule for the alert policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateAlertPolicyRuleRequest
+   * @return CreateAlertPolicyRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateAlertPolicyRule.ts.html |here} to see how to use CreateAlertPolicyRule API.
+   */
+  public async createAlertPolicyRule(
+    createAlertPolicyRuleRequest: requests.CreateAlertPolicyRuleRequest
+  ): Promise<responses.CreateAlertPolicyRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createAlertPolicyRule.");
+    const operationName = "createAlertPolicyRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicyRule/CreateAlertPolicyRule";
+    const pathParams = {
+      "{alertPolicyId}": createAlertPolicyRuleRequest.alertPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAlertPolicyRuleRequest.opcRetryToken,
+      "opc-request-id": createAlertPolicyRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAlertPolicyRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies/{alertPolicyId}/rules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAlertPolicyRuleRequest.createAlertPolicyRuleDetails,
+        "CreateAlertPolicyRuleDetails",
+        model.CreateAlertPolicyRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAlertPolicyRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "alertPolicyRule",
+        bodyModel: model.AlertPolicyRule,
+        type: "model.AlertPolicyRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a work request to retrieve archived audit data. This asynchronous process will usually take over an hour to complete.
    * Save the id from the response of this operation. Call GetAuditArchiveRetrieval operation after an hour, passing the id to know the status of
    * this operation.
@@ -4715,6 +4979,153 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeactivateTargetDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified user-defined alert policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteAlertPolicyRequest
+   * @return DeleteAlertPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAlertPolicy.ts.html |here} to see how to use DeleteAlertPolicy API.
+   */
+  public async deleteAlertPolicy(
+    deleteAlertPolicyRequest: requests.DeleteAlertPolicyRequest
+  ): Promise<responses.DeleteAlertPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteAlertPolicy.");
+    const operationName = "deleteAlertPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicy/DeleteAlertPolicy";
+    const pathParams = {
+      "{alertPolicyId}": deleteAlertPolicyRequest.alertPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAlertPolicyRequest.ifMatch,
+      "opc-request-id": deleteAlertPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAlertPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies/{alertPolicyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAlertPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified user-defined alert policy rule.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteAlertPolicyRuleRequest
+   * @return DeleteAlertPolicyRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAlertPolicyRule.ts.html |here} to see how to use DeleteAlertPolicyRule API.
+   */
+  public async deleteAlertPolicyRule(
+    deleteAlertPolicyRuleRequest: requests.DeleteAlertPolicyRuleRequest
+  ): Promise<responses.DeleteAlertPolicyRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteAlertPolicyRule.");
+    const operationName = "deleteAlertPolicyRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicyRule/DeleteAlertPolicyRule";
+    const pathParams = {
+      "{alertPolicyId}": deleteAlertPolicyRuleRequest.alertPolicyId,
+      "{ruleKey}": deleteAlertPolicyRuleRequest.ruleKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAlertPolicyRuleRequest.ifMatch,
+      "opc-request-id": deleteAlertPolicyRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAlertPolicyRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies/{alertPolicyId}/rules/{ruleKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAlertPolicyRuleResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -8161,6 +8572,83 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
         bodyKey: "alertPolicy",
         bodyModel: model.AlertPolicy,
         type: "model.AlertPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of a policy rule by its key.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAlertPolicyRuleRequest
+   * @return GetAlertPolicyRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAlertPolicyRule.ts.html |here} to see how to use GetAlertPolicyRule API.
+   */
+  public async getAlertPolicyRule(
+    getAlertPolicyRuleRequest: requests.GetAlertPolicyRuleRequest
+  ): Promise<responses.GetAlertPolicyRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAlertPolicyRule.");
+    const operationName = "getAlertPolicyRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicyRule/GetAlertPolicyRule";
+    const pathParams = {
+      "{alertPolicyId}": getAlertPolicyRuleRequest.alertPolicyId,
+      "{ruleKey}": getAlertPolicyRuleRequest.ruleKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAlertPolicyRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAlertPolicyRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies/{alertPolicyId}/rules/{ruleKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAlertPolicyRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "alertPolicyRule",
+        bodyModel: model.AlertPolicyRule,
+        type: "model.AlertPolicyRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -22443,6 +22931,163 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified alert policy .
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAlertPolicyRequest
+   * @return UpdateAlertPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlertPolicy.ts.html |here} to see how to use UpdateAlertPolicy API.
+   */
+  public async updateAlertPolicy(
+    updateAlertPolicyRequest: requests.UpdateAlertPolicyRequest
+  ): Promise<responses.UpdateAlertPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAlertPolicy.");
+    const operationName = "updateAlertPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicy/UpdateAlertPolicy";
+    const pathParams = {
+      "{alertPolicyId}": updateAlertPolicyRequest.alertPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAlertPolicyRequest.ifMatch,
+      "opc-request-id": updateAlertPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAlertPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies/{alertPolicyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAlertPolicyRequest.updateAlertPolicyDetails,
+        "UpdateAlertPolicyDetails",
+        model.UpdateAlertPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAlertPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified alert policy rule.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAlertPolicyRuleRequest
+   * @return UpdateAlertPolicyRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlertPolicyRule.ts.html |here} to see how to use UpdateAlertPolicyRule API.
+   */
+  public async updateAlertPolicyRule(
+    updateAlertPolicyRuleRequest: requests.UpdateAlertPolicyRuleRequest
+  ): Promise<responses.UpdateAlertPolicyRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAlertPolicyRule.");
+    const operationName = "updateAlertPolicyRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicyRule/UpdateAlertPolicyRule";
+    const pathParams = {
+      "{alertPolicyId}": updateAlertPolicyRuleRequest.alertPolicyId,
+      "{ruleKey}": updateAlertPolicyRuleRequest.ruleKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAlertPolicyRuleRequest.ifMatch,
+      "opc-request-id": updateAlertPolicyRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAlertPolicyRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alertPolicies/{alertPolicyId}/rules/{ruleKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAlertPolicyRuleRequest.updateAlertPolicyRuleDetails,
+        "UpdateAlertPolicyRuleDetails",
+        model.UpdateAlertPolicyRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAlertPolicyRuleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

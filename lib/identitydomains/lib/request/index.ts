@@ -1,6 +1,7 @@
 /**
  * Identity Domains API
- * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm). This REST API is SCIM compliant.
+ * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm).
+Use this pattern to construct endpoints for identity domains: `https://<domainURL>/admin/v1/`. See [Finding an Identity Domain URL](https://docs.oracle.com/en-us/iaas/Content/Identity/api-getstarted/locate-identity-domain-url.htm) to locate the domain URL you need.
 Use the table of contents and search tool to explore the Identity Domains API.
  * OpenAPI spec version: v1
  * 
@@ -92,6 +93,8 @@ import * as CreateSelfRegistrationProfileRequest from "./create-self-registratio
 export import CreateSelfRegistrationProfileRequest = CreateSelfRegistrationProfileRequest.CreateSelfRegistrationProfileRequest;
 import * as CreateSmtpCredentialRequest from "./create-smtp-credential-request";
 export import CreateSmtpCredentialRequest = CreateSmtpCredentialRequest.CreateSmtpCredentialRequest;
+import * as CreateSocialIdentityProviderRequest from "./create-social-identity-provider-request";
+export import CreateSocialIdentityProviderRequest = CreateSocialIdentityProviderRequest.CreateSocialIdentityProviderRequest;
 import * as CreateUserRequest from "./create-user-request";
 export import CreateUserRequest = CreateUserRequest.CreateUserRequest;
 import * as CreateUserDbCredentialRequest from "./create-user-db-credential-request";
@@ -168,6 +171,8 @@ import * as DeleteSelfRegistrationProfileRequest from "./delete-self-registratio
 export import DeleteSelfRegistrationProfileRequest = DeleteSelfRegistrationProfileRequest.DeleteSelfRegistrationProfileRequest;
 import * as DeleteSmtpCredentialRequest from "./delete-smtp-credential-request";
 export import DeleteSmtpCredentialRequest = DeleteSmtpCredentialRequest.DeleteSmtpCredentialRequest;
+import * as DeleteSocialIdentityProviderRequest from "./delete-social-identity-provider-request";
+export import DeleteSocialIdentityProviderRequest = DeleteSocialIdentityProviderRequest.DeleteSocialIdentityProviderRequest;
 import * as DeleteUserRequest from "./delete-user-request";
 export import DeleteUserRequest = DeleteUserRequest.DeleteUserRequest;
 import * as DeleteUserDbCredentialRequest from "./delete-user-db-credential-request";
@@ -272,6 +277,8 @@ import * as GetSettingRequest from "./get-setting-request";
 export import GetSettingRequest = GetSettingRequest.GetSettingRequest;
 import * as GetSmtpCredentialRequest from "./get-smtp-credential-request";
 export import GetSmtpCredentialRequest = GetSmtpCredentialRequest.GetSmtpCredentialRequest;
+import * as GetSocialIdentityProviderRequest from "./get-social-identity-provider-request";
+export import GetSocialIdentityProviderRequest = GetSocialIdentityProviderRequest.GetSocialIdentityProviderRequest;
 import * as GetUserRequest from "./get-user-request";
 export import GetUserRequest = GetUserRequest.GetUserRequest;
 import * as GetUserAttributesSettingRequest from "./get-user-attributes-setting-request";
@@ -384,6 +391,8 @@ import * as ListSettingsRequest from "./list-settings-request";
 export import ListSettingsRequest = ListSettingsRequest.ListSettingsRequest;
 import * as ListSmtpCredentialsRequest from "./list-smtp-credentials-request";
 export import ListSmtpCredentialsRequest = ListSmtpCredentialsRequest.ListSmtpCredentialsRequest;
+import * as ListSocialIdentityProvidersRequest from "./list-social-identity-providers-request";
+export import ListSocialIdentityProvidersRequest = ListSocialIdentityProvidersRequest.ListSocialIdentityProvidersRequest;
 import * as ListUserAttributesSettingsRequest from "./list-user-attributes-settings-request";
 export import ListUserAttributesSettingsRequest = ListUserAttributesSettingsRequest.ListUserAttributesSettingsRequest;
 import * as ListUserDbCredentialsRequest from "./list-user-db-credentials-request";
@@ -468,6 +477,8 @@ import * as PatchSettingRequest from "./patch-setting-request";
 export import PatchSettingRequest = PatchSettingRequest.PatchSettingRequest;
 import * as PatchSmtpCredentialRequest from "./patch-smtp-credential-request";
 export import PatchSmtpCredentialRequest = PatchSmtpCredentialRequest.PatchSmtpCredentialRequest;
+import * as PatchSocialIdentityProviderRequest from "./patch-social-identity-provider-request";
+export import PatchSocialIdentityProviderRequest = PatchSocialIdentityProviderRequest.PatchSocialIdentityProviderRequest;
 import * as PatchUserRequest from "./patch-user-request";
 export import PatchUserRequest = PatchUserRequest.PatchUserRequest;
 import * as PatchUserAttributesSettingRequest from "./patch-user-attributes-setting-request";
@@ -524,6 +535,8 @@ import * as PutSelfRegistrationProfileRequest from "./put-self-registration-prof
 export import PutSelfRegistrationProfileRequest = PutSelfRegistrationProfileRequest.PutSelfRegistrationProfileRequest;
 import * as PutSettingRequest from "./put-setting-request";
 export import PutSettingRequest = PutSettingRequest.PutSettingRequest;
+import * as PutSocialIdentityProviderRequest from "./put-social-identity-provider-request";
+export import PutSocialIdentityProviderRequest = PutSocialIdentityProviderRequest.PutSocialIdentityProviderRequest;
 import * as PutUserRequest from "./put-user-request";
 export import PutUserRequest = PutUserRequest.PutUserRequest;
 import * as PutUserCapabilitiesChangerRequest from "./put-user-capabilities-changer-request";
@@ -606,6 +619,8 @@ import * as SearchSettingsRequest from "./search-settings-request";
 export import SearchSettingsRequest = SearchSettingsRequest.SearchSettingsRequest;
 import * as SearchSmtpCredentialsRequest from "./search-smtp-credentials-request";
 export import SearchSmtpCredentialsRequest = SearchSmtpCredentialsRequest.SearchSmtpCredentialsRequest;
+import * as SearchSocialIdentityProvidersRequest from "./search-social-identity-providers-request";
+export import SearchSocialIdentityProvidersRequest = SearchSocialIdentityProvidersRequest.SearchSocialIdentityProvidersRequest;
 import * as SearchUserAttributesSettingsRequest from "./search-user-attributes-settings-request";
 export import SearchUserAttributesSettingsRequest = SearchUserAttributesSettingsRequest.SearchUserAttributesSettingsRequest;
 import * as SearchUserDbCredentialsRequest from "./search-user-db-credentials-request";

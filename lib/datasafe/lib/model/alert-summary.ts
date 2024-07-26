@@ -83,6 +83,14 @@ export interface AlertSummary {
    */
   "lifecycleState": model.AlertLifecycleState;
   /**
+   * The key of the rule of alert policy that triggered alert.
+   */
+  "alertPolicyRuleKey"?: string;
+  /**
+   * The display name of the rule of alert policy that triggered alert.
+   */
+  "alertPolicyRuleName"?: string;
+  /**
    * Map that contains maps of values.
    *  Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *

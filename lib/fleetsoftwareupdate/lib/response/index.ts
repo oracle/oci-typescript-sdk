@@ -41,6 +41,8 @@ import * as DeleteFsuActionResponse from "./delete-fsu-action-response";
 export import DeleteFsuActionResponse = DeleteFsuActionResponse.DeleteFsuActionResponse;
 import * as DeleteFsuCollectionResponse from "./delete-fsu-collection-response";
 export import DeleteFsuCollectionResponse = DeleteFsuCollectionResponse.DeleteFsuCollectionResponse;
+import * as DeleteFsuCollectionTargetResponse from "./delete-fsu-collection-target-response";
+export import DeleteFsuCollectionTargetResponse = DeleteFsuCollectionTargetResponse.DeleteFsuCollectionTargetResponse;
 import * as DeleteFsuCycleResponse from "./delete-fsu-cycle-response";
 export import DeleteFsuCycleResponse = DeleteFsuCycleResponse.DeleteFsuCycleResponse;
 import * as DeleteFsuDiscoveryResponse from "./delete-fsu-discovery-response";
@@ -53,6 +55,8 @@ import * as GetFsuActionOutputContentResponse from "./get-fsu-action-output-cont
 export import GetFsuActionOutputContentResponse = GetFsuActionOutputContentResponse.GetFsuActionOutputContentResponse;
 import * as GetFsuCollectionResponse from "./get-fsu-collection-response";
 export import GetFsuCollectionResponse = GetFsuCollectionResponse.GetFsuCollectionResponse;
+import * as GetFsuCollectionTargetResponse from "./get-fsu-collection-target-response";
+export import GetFsuCollectionTargetResponse = GetFsuCollectionTargetResponse.GetFsuCollectionTargetResponse;
 import * as GetFsuCycleResponse from "./get-fsu-cycle-response";
 export import GetFsuCycleResponse = GetFsuCycleResponse.GetFsuCycleResponse;
 import * as GetFsuDiscoveryResponse from "./get-fsu-discovery-response";
