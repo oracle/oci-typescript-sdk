@@ -630,6 +630,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    * Enabling SHARED server architecture enables a database server to allow many client processes to share very few server processes, thereby increasing the number of supported users.
    */
   "netServicesArchitecture"?: AutonomousDatabaseSummary.NetServicesArchitecture;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Autonomous Serverless Database.
+   */
+  "clusterPlacementGroupId"?: string;
 }
 
 export namespace AutonomousDatabaseSummary {

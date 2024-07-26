@@ -25,7 +25,7 @@ export interface CreateBaselineableMetricDetails {
   /**
    * name of the metric
    */
-  "name": string;
+  "name"?: string;
   /**
    * metric column name
    */
@@ -37,7 +37,11 @@ export interface CreateBaselineableMetricDetails {
   /**
    * Resource group of the metric
    */
-  "resourceGroup": string;
+  "resourceGroup"?: string;
+  /**
+   * Resource type of the metric
+   */
+  "resourceType"?: string;
 }
 
 export namespace CreateBaselineableMetricDetails {

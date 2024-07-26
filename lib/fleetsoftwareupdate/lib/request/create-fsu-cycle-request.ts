@@ -19,7 +19,8 @@ import common = require("oci-common");
  */
 export interface CreateFsuCycleRequest extends common.BaseRequest {
   /**
-   * Details for the new Exadata Fleet Update Cycle.
+   * Details for the new Exadata Fleet Update Maintenance Cycle.
+   * Targets can only exist in one active Fleet Software Update Maintenance Cycle.
    *
    */
   "createFsuCycleDetails": model.CreatePatchFsuCycle;

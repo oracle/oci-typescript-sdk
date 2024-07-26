@@ -159,7 +159,10 @@ export namespace ListAlertAnalyticsRequest {
     High = "high",
     Medium = "medium",
     Low = "low",
-    Alertcount = "alertcount"
+    Alertcount = "alertcount",
+    AlertPolicyRuleKey = "alertPolicyRuleKey",
+    AlertPolicyRuleName = "alertPolicyRuleName",
+    Throttled = "throttled"
   }
 
   export enum GroupBy {
@@ -169,6 +172,8 @@ export namespace ListAlertAnalyticsRequest {
     AlertSeverity = "alertSeverity",
     AlertStatus = "alertStatus",
     TimeCreated = "timeCreated",
-    PolicyId = "policyId"
+    PolicyId = "policyId",
+    AlertPolicyRuleKey = "alertPolicyRuleKey",
+    AlertPolicyRuleName = "alertPolicyRuleName"
   }
 }

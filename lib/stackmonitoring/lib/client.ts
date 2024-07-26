@@ -3095,6 +3095,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
 
     const queryParams = {
       "resourceGroup": listBaselineableMetricsRequest.resourceGroup,
+      "resourceType": listBaselineableMetricsRequest.resourceType,
+      "isOutOfBox": listBaselineableMetricsRequest.isOutOfBox,
       "name": listBaselineableMetricsRequest.name,
       "metricNamespace": listBaselineableMetricsRequest.metricNamespace,
       "limit": listBaselineableMetricsRequest.limit,

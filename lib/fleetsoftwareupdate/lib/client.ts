@@ -1377,6 +1377,83 @@ export class FleetSoftwareUpdateClient {
   }
 
   /**
+   * Removes a target from an existing Exadata Fleet Update Collection.
+   * This operation can only be performed on Collections that do not have an Action executing under an active Fleet Software Update Cycle.
+   * Additionally, during an active Fleet Software Update Cycle, a target can be removed only prior to executing an Apply Action.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteFsuCollectionTargetRequest
+   * @return DeleteFsuCollectionTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuCollectionTarget.ts.html |here} to see how to use DeleteFsuCollectionTarget API.
+   */
+  public async deleteFsuCollectionTarget(
+    deleteFsuCollectionTargetRequest: requests.DeleteFsuCollectionTargetRequest
+  ): Promise<responses.DeleteFsuCollectionTargetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuCollectionTarget.");
+    const operationName = "deleteFsuCollectionTarget";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fsuCollectionId}": deleteFsuCollectionTargetRequest.fsuCollectionId,
+      "{targetId}": deleteFsuCollectionTargetRequest.targetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteFsuCollectionTargetRequest.ifMatch,
+      "opc-request-id": deleteFsuCollectionTargetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFsuCollectionTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fsuCollections/{fsuCollectionId}/targets/{targetId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteFsuCollectionTargetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a Exadata Fleet Update Cycle resource by identifier.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1798,6 +1875,84 @@ export class FleetSoftwareUpdateClient {
         bodyKey: "fsuCollection",
         bodyModel: model.FsuCollection,
         type: "model.FsuCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Exadata Fleet Update Collection Target by identifier.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetFsuCollectionTargetRequest
+   * @return GetFsuCollectionTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuCollectionTarget.ts.html |here} to see how to use GetFsuCollectionTarget API.
+   */
+  public async getFsuCollectionTarget(
+    getFsuCollectionTargetRequest: requests.GetFsuCollectionTargetRequest
+  ): Promise<responses.GetFsuCollectionTargetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuCollectionTarget.");
+    const operationName = "getFsuCollectionTarget";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fsuCollectionId}": getFsuCollectionTargetRequest.fsuCollectionId,
+      "{targetId}": getFsuCollectionTargetRequest.targetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getFsuCollectionTargetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFsuCollectionTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fsuCollections/{fsuCollectionId}/targets/{targetId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetFsuCollectionTargetResponse>{},
+        body: await response.json(),
+        bodyKey: "fsuCollectionTarget",
+        bodyModel: model.FsuCollectionTarget,
+        type: "model.FsuCollectionTarget",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

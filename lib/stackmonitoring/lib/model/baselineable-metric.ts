@@ -19,22 +19,6 @@ import common = require("oci-common");
  */
 export interface BaselineableMetric {
   /**
-   * Created user id
-   */
-  "createdBy"?: string;
-  /**
-   * last Updated user id
-   */
-  "lastUpdatedBy"?: string;
-  /**
-   * creation date
-   */
-  "timeCreated"?: Date;
-  /**
-   * last updated time
-   */
-  "timeLastUpdated"?: Date;
-  /**
    * OCID of the metric
    */
   "id": string;
@@ -67,9 +51,29 @@ export interface BaselineableMetric {
    */
   "resourceGroup": string;
   /**
+   * Resource type of the metric
+   */
+  "resourceType"?: string;
+  /**
    * Is the metric created out of box, default false
    */
   "isOutOfBox": boolean;
+  /**
+   * Created user id
+   */
+  "createdBy"?: string;
+  /**
+   * last Updated user id
+   */
+  "lastUpdatedBy"?: string;
+  /**
+   * creation date
+   */
+  "timeCreated"?: Date;
+  /**
+   * last updated time
+   */
+  "timeLastUpdated"?: Date;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}

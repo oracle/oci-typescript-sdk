@@ -44,6 +44,7 @@ export interface CreateFsuCycleDetails {
     | model.CreateNonRollingBatchingStrategyDetails;
   "stageActionSchedule"?: model.CreateStartTimeScheduleDetails;
   "applyActionSchedule"?: model.CreateStartTimeScheduleDetails;
+  "diagnosticsCollection"?: model.DiagnosticsCollectionDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -76,6 +77,9 @@ export namespace CreateFsuCycleDetails {
           : undefined,
         "applyActionSchedule": obj.applyActionSchedule
           ? model.CreateScheduleDetails.getJsonObj(obj.applyActionSchedule)
+          : undefined,
+        "diagnosticsCollection": obj.diagnosticsCollection
+          ? model.DiagnosticsCollectionDetails.getJsonObj(obj.diagnosticsCollection)
           : undefined
       }
     };
@@ -108,6 +112,9 @@ export namespace CreateFsuCycleDetails {
           : undefined,
         "applyActionSchedule": obj.applyActionSchedule
           ? model.CreateScheduleDetails.getDeserializedJsonObj(obj.applyActionSchedule)
+          : undefined,
+        "diagnosticsCollection": obj.diagnosticsCollection
+          ? model.DiagnosticsCollectionDetails.getDeserializedJsonObj(obj.diagnosticsCollection)
           : undefined
       }
     };
