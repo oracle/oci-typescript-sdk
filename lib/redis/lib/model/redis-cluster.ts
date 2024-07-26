@@ -80,7 +80,10 @@ export interface RedisCluster {
   "timeUpdated"?: Date;
   "nodeCollection": model.NodeCollection;
   /**
-   * OCIDs of the NSGs to control access in the customer network
+   * A list of Network Security Group (NSG) [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
+   * associated with this cluster. For more information,
+   * see [Using an NSG for Redis Clusters](https://docs.cloud.oracle.com/iaas/Content/redis/connecttorediscluster.htm#connecttorediscluster__networksecuritygroup).
+   *
    */
   "nsgIds"?: Array<string>;
   /**
@@ -120,6 +123,7 @@ export namespace RedisCluster {
 
   export enum SoftwareVersion {
     V705 = "V7_0_5",
+    Redis70 = "REDIS_7_0",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

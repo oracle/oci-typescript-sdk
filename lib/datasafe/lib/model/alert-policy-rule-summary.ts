@@ -30,6 +30,18 @@ export interface AlertPolicyRuleSummary {
    * The conditional expression of the alert policy rule which evaluates to boolean value.
    */
   "expression": string;
+  /**
+   * The current state of the alert policy rule.
+   */
+  "lifecycleState"?: model.AlertPolicyRuleLifecycleState;
+  /**
+   * The display name of the alert policy rule.
+   */
+  "displayName"?: string;
+  /**
+   * Creation date and time of the alert policy rule, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   */
+  "timeCreated"?: Date;
 }
 
 export namespace AlertPolicyRuleSummary {

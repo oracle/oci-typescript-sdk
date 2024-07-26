@@ -20,8 +20,7 @@
     "prettier:check": "prettier --config .prettierrc --c \"**/*.ts\"",
     "prettier:format": "prettier --config .prettierrc --write",
     "prettier:format-all": "npm run prettier:format -- \"**/*.ts\"",
-    "cleanup": "rm -rf target",
-    "fixup-docs": "rm ./custom-packages/docs/assets/css/main.css && cp ./scripts/assets/main.css ./custom-packages/docs/assets/css/"
+    "cleanup": "rm -rf target"
   },
   "license": "(UPL-1.0 OR Apache-2.0)",
   "dependencies": {

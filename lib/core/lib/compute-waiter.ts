@@ -537,6 +537,24 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forInstanceMaintenanceEvent till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetInstanceMaintenanceEventResponse
+   */
+  public async forInstanceMaintenanceEvent(
+    request: serviceRequests.GetInstanceMaintenanceEventRequest,
+    ...targetStates: models.InstanceMaintenanceEvent.LifecycleState[]
+  ): Promise<serviceResponses.GetInstanceMaintenanceEventResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getInstanceMaintenanceEvent(request),
+      response => targetStates.includes(response.instanceMaintenanceEvent.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forVnicAttachment till it reaches any of the provided states
    *
    * @param request the request to send
@@ -678,5 +696,36 @@ export class ComputeWaiter {
       updateInstanceResponse.opcWorkRequestId
     );
     return { response: updateInstanceResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateInstanceMaintenanceEvent
+   *
+   * @param request the request to send
+   * @return response returns UpdateInstanceMaintenanceEventResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateInstanceMaintenanceEvent(
+    request: serviceRequests.UpdateInstanceMaintenanceEventRequest
+  ): Promise<{
+    response: serviceResponses.UpdateInstanceMaintenanceEventResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateInstanceMaintenanceEventResponse = await this.client.updateInstanceMaintenanceEvent(
+      request
+    );
+    if (updateInstanceMaintenanceEventResponse.opcWorkRequestId === undefined)
+      return {
+        response: updateInstanceMaintenanceEventResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateInstanceMaintenanceEventResponse.opcWorkRequestId
+    );
+    return {
+      response: updateInstanceMaintenanceEventResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 }

@@ -28,6 +28,11 @@ export interface CloudVmClusterTargetSummary extends model.TargetDetails {
    *
    */
   "infrastructureId"?: string;
+  /**
+   * OCID of the Grid Infrastructure software image.
+   *
+   */
+  "softwareImageId"?: string;
 
   "entityType": string;
 }

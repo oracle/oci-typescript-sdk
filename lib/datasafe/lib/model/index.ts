@@ -35,6 +35,8 @@ import * as AlertPolicyRule from "./alert-policy-rule";
 export import AlertPolicyRule = AlertPolicyRule.AlertPolicyRule;
 import * as AlertPolicyRuleCollection from "./alert-policy-rule-collection";
 export import AlertPolicyRuleCollection = AlertPolicyRuleCollection.AlertPolicyRuleCollection;
+import * as AlertPolicyRuleLifecycleState from "./alert-policy-rule-lifecycle-state";
+export import AlertPolicyRuleLifecycleState = AlertPolicyRuleLifecycleState.AlertPolicyRuleLifecycleState;
 import * as AlertPolicyRuleSummary from "./alert-policy-rule-summary";
 export import AlertPolicyRuleSummary = AlertPolicyRuleSummary.AlertPolicyRuleSummary;
 import * as AlertPolicySummary from "./alert-policy-summary";
@@ -739,6 +741,8 @@ import * as UnsetUserAssessmentBaselineDetails from "./unset-user-assessment-bas
 export import UnsetUserAssessmentBaselineDetails = UnsetUserAssessmentBaselineDetails.UnsetUserAssessmentBaselineDetails;
 import * as UpdateAlertDetails from "./update-alert-details";
 export import UpdateAlertDetails = UpdateAlertDetails.UpdateAlertDetails;
+import * as UpdateAlertPolicyDetails from "./update-alert-policy-details";
+export import UpdateAlertPolicyDetails = UpdateAlertPolicyDetails.UpdateAlertPolicyDetails;
 import * as UpdateAlertPolicyRuleDetails from "./update-alert-policy-rule-details";
 export import UpdateAlertPolicyRuleDetails = UpdateAlertPolicyRuleDetails.UpdateAlertPolicyRuleDetails;
 import * as UpdateAuditArchiveRetrievalDetails from "./update-audit-archive-retrieval-details";
