@@ -26,6 +26,10 @@ export interface UpdateAlertPolicyRuleDetails {
    * The conditional expression of the alert policy rule which evaluates to boolean value.
    */
   "expression"?: string;
+  /**
+   * The display name of the alert policy rule.
+   */
+  "displayName"?: string;
 }
 
 export namespace UpdateAlertPolicyRuleDetails {

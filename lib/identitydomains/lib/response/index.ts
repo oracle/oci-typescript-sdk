@@ -1,6 +1,7 @@
 /**
  * Identity Domains API
- * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm). This REST API is SCIM compliant.
+ * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm).
+Use this pattern to construct endpoints for identity domains: `https://<domainURL>/admin/v1/`. See [Finding an Identity Domain URL](https://docs.oracle.com/en-us/iaas/Content/Identity/api-getstarted/locate-identity-domain-url.htm) to locate the domain URL you need.
 Use the table of contents and search tool to explore the Identity Domains API.
  * OpenAPI spec version: v1
  * 
@@ -92,6 +93,8 @@ import * as CreateSelfRegistrationProfileResponse from "./create-self-registrati
 export import CreateSelfRegistrationProfileResponse = CreateSelfRegistrationProfileResponse.CreateSelfRegistrationProfileResponse;
 import * as CreateSmtpCredentialResponse from "./create-smtp-credential-response";
 export import CreateSmtpCredentialResponse = CreateSmtpCredentialResponse.CreateSmtpCredentialResponse;
+import * as CreateSocialIdentityProviderResponse from "./create-social-identity-provider-response";
+export import CreateSocialIdentityProviderResponse = CreateSocialIdentityProviderResponse.CreateSocialIdentityProviderResponse;
 import * as CreateUserResponse from "./create-user-response";
 export import CreateUserResponse = CreateUserResponse.CreateUserResponse;
 import * as CreateUserDbCredentialResponse from "./create-user-db-credential-response";
@@ -168,6 +171,8 @@ import * as DeleteSelfRegistrationProfileResponse from "./delete-self-registrati
 export import DeleteSelfRegistrationProfileResponse = DeleteSelfRegistrationProfileResponse.DeleteSelfRegistrationProfileResponse;
 import * as DeleteSmtpCredentialResponse from "./delete-smtp-credential-response";
 export import DeleteSmtpCredentialResponse = DeleteSmtpCredentialResponse.DeleteSmtpCredentialResponse;
+import * as DeleteSocialIdentityProviderResponse from "./delete-social-identity-provider-response";
+export import DeleteSocialIdentityProviderResponse = DeleteSocialIdentityProviderResponse.DeleteSocialIdentityProviderResponse;
 import * as DeleteUserResponse from "./delete-user-response";
 export import DeleteUserResponse = DeleteUserResponse.DeleteUserResponse;
 import * as DeleteUserDbCredentialResponse from "./delete-user-db-credential-response";
@@ -272,6 +277,8 @@ import * as GetSettingResponse from "./get-setting-response";
 export import GetSettingResponse = GetSettingResponse.GetSettingResponse;
 import * as GetSmtpCredentialResponse from "./get-smtp-credential-response";
 export import GetSmtpCredentialResponse = GetSmtpCredentialResponse.GetSmtpCredentialResponse;
+import * as GetSocialIdentityProviderResponse from "./get-social-identity-provider-response";
+export import GetSocialIdentityProviderResponse = GetSocialIdentityProviderResponse.GetSocialIdentityProviderResponse;
 import * as GetUserResponse from "./get-user-response";
 export import GetUserResponse = GetUserResponse.GetUserResponse;
 import * as GetUserAttributesSettingResponse from "./get-user-attributes-setting-response";
@@ -384,6 +391,8 @@ import * as ListSettingsResponse from "./list-settings-response";
 export import ListSettingsResponse = ListSettingsResponse.ListSettingsResponse;
 import * as ListSmtpCredentialsResponse from "./list-smtp-credentials-response";
 export import ListSmtpCredentialsResponse = ListSmtpCredentialsResponse.ListSmtpCredentialsResponse;
+import * as ListSocialIdentityProvidersResponse from "./list-social-identity-providers-response";
+export import ListSocialIdentityProvidersResponse = ListSocialIdentityProvidersResponse.ListSocialIdentityProvidersResponse;
 import * as ListUserAttributesSettingsResponse from "./list-user-attributes-settings-response";
 export import ListUserAttributesSettingsResponse = ListUserAttributesSettingsResponse.ListUserAttributesSettingsResponse;
 import * as ListUserDbCredentialsResponse from "./list-user-db-credentials-response";
@@ -468,6 +477,8 @@ import * as PatchSettingResponse from "./patch-setting-response";
 export import PatchSettingResponse = PatchSettingResponse.PatchSettingResponse;
 import * as PatchSmtpCredentialResponse from "./patch-smtp-credential-response";
 export import PatchSmtpCredentialResponse = PatchSmtpCredentialResponse.PatchSmtpCredentialResponse;
+import * as PatchSocialIdentityProviderResponse from "./patch-social-identity-provider-response";
+export import PatchSocialIdentityProviderResponse = PatchSocialIdentityProviderResponse.PatchSocialIdentityProviderResponse;
 import * as PatchUserResponse from "./patch-user-response";
 export import PatchUserResponse = PatchUserResponse.PatchUserResponse;
 import * as PatchUserAttributesSettingResponse from "./patch-user-attributes-setting-response";
@@ -524,6 +535,8 @@ import * as PutSelfRegistrationProfileResponse from "./put-self-registration-pro
 export import PutSelfRegistrationProfileResponse = PutSelfRegistrationProfileResponse.PutSelfRegistrationProfileResponse;
 import * as PutSettingResponse from "./put-setting-response";
 export import PutSettingResponse = PutSettingResponse.PutSettingResponse;
+import * as PutSocialIdentityProviderResponse from "./put-social-identity-provider-response";
+export import PutSocialIdentityProviderResponse = PutSocialIdentityProviderResponse.PutSocialIdentityProviderResponse;
 import * as PutUserResponse from "./put-user-response";
 export import PutUserResponse = PutUserResponse.PutUserResponse;
 import * as PutUserCapabilitiesChangerResponse from "./put-user-capabilities-changer-response";
@@ -606,6 +619,8 @@ import * as SearchSettingsResponse from "./search-settings-response";
 export import SearchSettingsResponse = SearchSettingsResponse.SearchSettingsResponse;
 import * as SearchSmtpCredentialsResponse from "./search-smtp-credentials-response";
 export import SearchSmtpCredentialsResponse = SearchSmtpCredentialsResponse.SearchSmtpCredentialsResponse;
+import * as SearchSocialIdentityProvidersResponse from "./search-social-identity-providers-response";
+export import SearchSocialIdentityProvidersResponse = SearchSocialIdentityProvidersResponse.SearchSocialIdentityProvidersResponse;
 import * as SearchUserAttributesSettingsResponse from "./search-user-attributes-settings-response";
 export import SearchUserAttributesSettingsResponse = SearchUserAttributesSettingsResponse.SearchUserAttributesSettingsResponse;
 import * as SearchUserDbCredentialsResponse from "./search-user-db-credentials-response";

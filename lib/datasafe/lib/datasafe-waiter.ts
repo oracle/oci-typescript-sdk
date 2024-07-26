@@ -61,6 +61,24 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forAlertPolicyRule till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAlertPolicyRuleResponse
+   */
+  public async forAlertPolicyRule(
+    request: serviceRequests.GetAlertPolicyRuleRequest,
+    ...targetStates: models.AlertPolicyRuleLifecycleState[]
+  ): Promise<serviceResponses.GetAlertPolicyRuleResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getAlertPolicyRule(request),
+      response => targetStates.includes(response.alertPolicyRule.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forAuditArchiveRetrieval till it reaches any of the provided states
    *
    * @param request the request to send
