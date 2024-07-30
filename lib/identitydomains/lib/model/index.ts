@@ -1,6 +1,7 @@
 /**
  * Identity Domains API
- * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm). This REST API is SCIM compliant.
+ * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm).
+Use this pattern to construct endpoints for identity domains: `https://<domainURL>/admin/v1/`. See [Finding an Identity Domain URL](https://docs.oracle.com/en-us/iaas/Content/Identity/api-getstarted/locate-identity-domain-url.htm) to locate the domain URL you need.
 Use the table of contents and search tool to explore the Identity Domains API.
  * OpenAPI spec version: v1
  * 
@@ -434,6 +435,8 @@ import * as IdentityProvider from "./identity-provider";
 export import IdentityProvider = IdentityProvider.IdentityProvider;
 import * as IdentityProviderCorrelationPolicy from "./identity-provider-correlation-policy";
 export import IdentityProviderCorrelationPolicy = IdentityProviderCorrelationPolicy.IdentityProviderCorrelationPolicy;
+import * as IdentityProviderJitProvAssignedGroups from "./identity-provider-jit-prov-assigned-groups";
+export import IdentityProviderJitProvAssignedGroups = IdentityProviderJitProvAssignedGroups.IdentityProviderJitProvAssignedGroups;
 import * as IdentityProviderJitUserProvAssignedGroups from "./identity-provider-jit-user-prov-assigned-groups";
 export import IdentityProviderJitUserProvAssignedGroups = IdentityProviderJitUserProvAssignedGroups.IdentityProviderJitUserProvAssignedGroups;
 import * as IdentityProviderJitUserProvAttributes from "./identity-provider-jit-user-prov-attributes";
@@ -798,6 +801,16 @@ import * as SmtpCredentialUser from "./smtp-credential-user";
 export import SmtpCredentialUser = SmtpCredentialUser.SmtpCredentialUser;
 import * as SmtpCredentials from "./smtp-credentials";
 export import SmtpCredentials = SmtpCredentials.SmtpCredentials;
+import * as SocialIdentityProvider from "./social-identity-provider";
+export import SocialIdentityProvider = SocialIdentityProvider.SocialIdentityProvider;
+import * as SocialIdentityProviderJitProvAssignedGroups from "./social-identity-provider-jit-prov-assigned-groups";
+export import SocialIdentityProviderJitProvAssignedGroups = SocialIdentityProviderJitProvAssignedGroups.SocialIdentityProviderJitProvAssignedGroups;
+import * as SocialIdentityProviderRelayIdpParamMappings from "./social-identity-provider-relay-idp-param-mappings";
+export import SocialIdentityProviderRelayIdpParamMappings = SocialIdentityProviderRelayIdpParamMappings.SocialIdentityProviderRelayIdpParamMappings;
+import * as SocialIdentityProviderSearchRequest from "./social-identity-provider-search-request";
+export import SocialIdentityProviderSearchRequest = SocialIdentityProviderSearchRequest.SocialIdentityProviderSearchRequest;
+import * as SocialIdentityProviders from "./social-identity-providers";
+export import SocialIdentityProviders = SocialIdentityProviders.SocialIdentityProviders;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as Tags from "./tags";

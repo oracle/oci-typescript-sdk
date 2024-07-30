@@ -997,6 +997,83 @@ export class NetworkFirewallClient {
   }
 
   /**
+   * Creates a new Tunnel Inspection Rule at bulk for the Network Firewall Policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkUploadTunnelInspectionRulesRequest
+   * @return BulkUploadTunnelInspectionRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadTunnelInspectionRules.ts.html |here} to see how to use BulkUploadTunnelInspectionRules API.
+   */
+  public async bulkUploadTunnelInspectionRules(
+    bulkUploadTunnelInspectionRulesRequest: requests.BulkUploadTunnelInspectionRulesRequest
+  ): Promise<responses.BulkUploadTunnelInspectionRulesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadTunnelInspectionRules.");
+    const operationName = "bulkUploadTunnelInspectionRules";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": bulkUploadTunnelInspectionRulesRequest.networkFirewallPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-retry-token": bulkUploadTunnelInspectionRulesRequest.opcRetryToken,
+      "opc-request-id": bulkUploadTunnelInspectionRulesRequest.opcRequestId,
+      "if-match": bulkUploadTunnelInspectionRulesRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkUploadTunnelInspectionRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/networkFirewallPolicies/{networkFirewallPolicyId}/tunnelInspectionRules/actions/bulkUpload",
+      method: "POST",
+      bodyContent: bulkUploadTunnelInspectionRulesRequest.bulkUploadTunnelInspectionRulesDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkUploadTunnelInspectionRulesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Url Lists at bulk for the Network Firewall Policy.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2305,6 +2382,89 @@ export class NetworkFirewallClient {
   }
 
   /**
+   * Creates a new tunnel inspection rule for the network firewall policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateTunnelInspectionRuleRequest
+   * @return CreateTunnelInspectionRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateTunnelInspectionRule.ts.html |here} to see how to use CreateTunnelInspectionRule API.
+   */
+  public async createTunnelInspectionRule(
+    createTunnelInspectionRuleRequest: requests.CreateTunnelInspectionRuleRequest
+  ): Promise<responses.CreateTunnelInspectionRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#createTunnelInspectionRule.");
+    const operationName = "createTunnelInspectionRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": createTunnelInspectionRuleRequest.networkFirewallPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createTunnelInspectionRuleRequest.opcRetryToken,
+      "opc-request-id": createTunnelInspectionRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTunnelInspectionRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/networkFirewallPolicies/{networkFirewallPolicyId}/tunnelInspectionRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createTunnelInspectionRuleRequest.createTunnelInspectionRuleDetails,
+        "CreateTunnelInspectionRuleDetails",
+        model.CreateTunnelInspectionRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateTunnelInspectionRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "tunnelInspectionRule",
+        bodyModel: model.TunnelInspectionRule,
+        type: "model.TunnelInspectionRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Url List for the Network Firewall Policy.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -3140,6 +3300,76 @@ export class NetworkFirewallClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteServiceListResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a tunnel inspection rule resource with the given identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteTunnelInspectionRuleRequest
+   * @return DeleteTunnelInspectionRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteTunnelInspectionRule.ts.html |here} to see how to use DeleteTunnelInspectionRule API.
+   */
+  public async deleteTunnelInspectionRule(
+    deleteTunnelInspectionRuleRequest: requests.DeleteTunnelInspectionRuleRequest
+  ): Promise<responses.DeleteTunnelInspectionRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#deleteTunnelInspectionRule.");
+    const operationName = "deleteTunnelInspectionRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": deleteTunnelInspectionRuleRequest.networkFirewallPolicyId,
+      "{tunnelInspectionRuleName}": deleteTunnelInspectionRuleRequest.tunnelInspectionRuleName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteTunnelInspectionRuleRequest.ifMatch,
+      "opc-request-id": deleteTunnelInspectionRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTunnelInspectionRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/networkFirewallPolicies/{networkFirewallPolicyId}/tunnelInspectionRules/{tunnelInspectionRuleName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteTunnelInspectionRuleResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4057,6 +4287,84 @@ export class NetworkFirewallClient {
         bodyKey: "serviceList",
         bodyModel: model.ServiceList,
         type: "model.ServiceList",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get tunnel inspection rule by the given name in the context of network firewall policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetTunnelInspectionRuleRequest
+   * @return GetTunnelInspectionRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetTunnelInspectionRule.ts.html |here} to see how to use GetTunnelInspectionRule API.
+   */
+  public async getTunnelInspectionRule(
+    getTunnelInspectionRuleRequest: requests.GetTunnelInspectionRuleRequest
+  ): Promise<responses.GetTunnelInspectionRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#getTunnelInspectionRule.");
+    const operationName = "getTunnelInspectionRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": getTunnelInspectionRuleRequest.networkFirewallPolicyId,
+      "{tunnelInspectionRuleName}": getTunnelInspectionRuleRequest.tunnelInspectionRuleName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTunnelInspectionRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTunnelInspectionRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/networkFirewallPolicies/{networkFirewallPolicyId}/tunnelInspectionRules/{tunnelInspectionRuleName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTunnelInspectionRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "tunnelInspectionRule",
+        bodyModel: model.TunnelInspectionRule,
+        type: "model.TunnelInspectionRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5278,6 +5586,106 @@ export class NetworkFirewallClient {
         bodyKey: "serviceSummaryCollection",
         bodyModel: model.ServiceSummaryCollection,
         type: "model.ServiceSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-page-count"),
+            key: "opcPageCount",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of tunnel inspection rules for the network firewall policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListTunnelInspectionRulesRequest
+   * @return ListTunnelInspectionRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListTunnelInspectionRules.ts.html |here} to see how to use ListTunnelInspectionRules API.
+   */
+  public async listTunnelInspectionRules(
+    listTunnelInspectionRulesRequest: requests.ListTunnelInspectionRulesRequest
+  ): Promise<responses.ListTunnelInspectionRulesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#listTunnelInspectionRules.");
+    const operationName = "listTunnelInspectionRules";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": listTunnelInspectionRulesRequest.networkFirewallPolicyId
+    };
+
+    const queryParams = {
+      "limit": listTunnelInspectionRulesRequest.limit,
+      "page": listTunnelInspectionRulesRequest.page,
+      "sortOrder": listTunnelInspectionRulesRequest.sortOrder,
+      "sortBy": listTunnelInspectionRulesRequest.sortBy,
+      "displayName": listTunnelInspectionRulesRequest.displayName,
+      "tunnelInspectionRulePriorityOrder":
+        listTunnelInspectionRulesRequest.tunnelInspectionRulePriorityOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTunnelInspectionRulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTunnelInspectionRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/networkFirewallPolicies/{networkFirewallPolicyId}/tunnelInspectionRules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTunnelInspectionRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "tunnelInspectionRuleSummaryCollection",
+        bodyModel: model.TunnelInspectionRuleSummaryCollection,
+        type: "model.TunnelInspectionRuleSummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6681,6 +7089,90 @@ export class NetworkFirewallClient {
         bodyKey: "serviceList",
         bodyModel: model.ServiceList,
         type: "model.ServiceList",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the tunnel inspection rule with the given name in the network firewall policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateTunnelInspectionRuleRequest
+   * @return UpdateTunnelInspectionRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateTunnelInspectionRule.ts.html |here} to see how to use UpdateTunnelInspectionRule API.
+   */
+  public async updateTunnelInspectionRule(
+    updateTunnelInspectionRuleRequest: requests.UpdateTunnelInspectionRuleRequest
+  ): Promise<responses.UpdateTunnelInspectionRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#updateTunnelInspectionRule.");
+    const operationName = "updateTunnelInspectionRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": updateTunnelInspectionRuleRequest.networkFirewallPolicyId,
+      "{tunnelInspectionRuleName}": updateTunnelInspectionRuleRequest.tunnelInspectionRuleName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateTunnelInspectionRuleRequest.ifMatch,
+      "opc-request-id": updateTunnelInspectionRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTunnelInspectionRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/networkFirewallPolicies/{networkFirewallPolicyId}/tunnelInspectionRules/{tunnelInspectionRuleName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateTunnelInspectionRuleRequest.updateTunnelInspectionRuleDetails,
+        "UpdateTunnelInspectionRuleDetails",
+        model.UpdateTunnelInspectionRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateTunnelInspectionRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "tunnelInspectionRule",
+        bodyModel: model.TunnelInspectionRule,
+        type: "model.TunnelInspectionRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

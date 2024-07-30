@@ -9934,6 +9934,84 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   }
 
   /**
+   * Gets the maintenance event for the given instance.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetInstanceMaintenanceEventRequest
+   * @return GetInstanceMaintenanceEventResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceMaintenanceEvent.ts.html |here} to see how to use GetInstanceMaintenanceEvent API.
+   */
+  public async getInstanceMaintenanceEvent(
+    getInstanceMaintenanceEventRequest: requests.GetInstanceMaintenanceEventRequest
+  ): Promise<responses.GetInstanceMaintenanceEventResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getInstanceMaintenanceEvent.");
+    const operationName = "getInstanceMaintenanceEvent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceMaintenanceEvent/GetInstanceMaintenanceEvent";
+    const pathParams = {
+      "{instanceMaintenanceEventId}": getInstanceMaintenanceEventRequest.instanceMaintenanceEventId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getInstanceMaintenanceEventRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstanceMaintenanceEventRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instanceMaintenanceEvents/{instanceMaintenanceEventId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetInstanceMaintenanceEventResponse>{},
+        body: await response.json(),
+        bodyKey: "instanceMaintenanceEvent",
+        bodyModel: model.InstanceMaintenanceEvent,
+        type: "model.InstanceMaintenanceEvent",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the maximum possible date that a maintenance reboot can be extended. For more information, see
    * [Infrastructure Maintenance](https://docs.cloud.oracle.com/iaas/Content/Compute/References/infrastructure-maintenance.htm).
    *
@@ -13597,6 +13675,148 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
+   * Gets a list of all the maintenance events for the given instance.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListInstanceMaintenanceEventsRequest
+   * @return ListInstanceMaintenanceEventsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstanceMaintenanceEvents.ts.html |here} to see how to use ListInstanceMaintenanceEvents API.
+   */
+  public async listInstanceMaintenanceEvents(
+    listInstanceMaintenanceEventsRequest: requests.ListInstanceMaintenanceEventsRequest
+  ): Promise<responses.ListInstanceMaintenanceEventsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listInstanceMaintenanceEvents.");
+    const operationName = "listInstanceMaintenanceEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceMaintenanceEventSummary/ListInstanceMaintenanceEvents";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listInstanceMaintenanceEventsRequest.compartmentId,
+      "instanceId": listInstanceMaintenanceEventsRequest.instanceId,
+      "lifecycleState": listInstanceMaintenanceEventsRequest.lifecycleState,
+      "correlationToken": listInstanceMaintenanceEventsRequest.correlationToken,
+      "instanceAction": listInstanceMaintenanceEventsRequest.instanceAction,
+      "timeWindowStartGreaterThanOrEqualTo":
+        listInstanceMaintenanceEventsRequest.timeWindowStartGreaterThanOrEqualTo,
+      "timeWindowStartLessThanOrEqualTo":
+        listInstanceMaintenanceEventsRequest.timeWindowStartLessThanOrEqualTo,
+      "limit": listInstanceMaintenanceEventsRequest.limit,
+      "page": listInstanceMaintenanceEventsRequest.page,
+      "sortBy": listInstanceMaintenanceEventsRequest.sortBy,
+      "sortOrder": listInstanceMaintenanceEventsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInstanceMaintenanceEventsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstanceMaintenanceEventsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instanceMaintenanceEvents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInstanceMaintenanceEventsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.InstanceMaintenanceEventSummary,
+        type: "Array<model.InstanceMaintenanceEventSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listInstanceMaintenanceEventsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.InstanceMaintenanceEventSummary objects
+   * contained in responses from the listInstanceMaintenanceEvents operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllInstanceMaintenanceEvents(
+    request: requests.ListInstanceMaintenanceEventsRequest
+  ): AsyncIterableIterator<model.InstanceMaintenanceEventSummary> {
+    return paginateRecords(request, req => this.listInstanceMaintenanceEvents(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listInstanceMaintenanceEventsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listInstanceMaintenanceEvents operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllInstanceMaintenanceEventsResponses(
+    request: requests.ListInstanceMaintenanceEventsRequest
+  ): AsyncIterableIterator<responses.ListInstanceMaintenanceEventsResponse> {
+    return paginateResponses(request, req => this.listInstanceMaintenanceEvents(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstanceMaintenanceEventSummary objects
+   * contained in responses from the listInstanceMaintenanceEvents operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceMaintenanceEventsRecordIterator(
+    request: requests.ListInstanceMaintenanceEventsRequest
+  ): AsyncIterableIterator<model.InstanceMaintenanceEventSummary> {
+    return paginateRecords(request, req => this.listInstanceMaintenanceEvents(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listInstanceMaintenanceEvents operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listInstanceMaintenanceEventsResponseIterator(
+    request: requests.ListInstanceMaintenanceEventsRequest
+  ): AsyncIterableIterator<responses.ListInstanceMaintenanceEventsResponse> {
+    return paginateResponses(request, req => this.listInstanceMaintenanceEvents(req));
+  }
+
+  /**
    * Lists the instances in the specified compartment and the specified availability domain.
    * You can filter the results by specifying an instance name (the list will include all the identically-named
    * instances in the compartment).
@@ -15043,6 +15263,88 @@ The OCID of the instance remains the same.
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the maintenance event for the given instance.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateInstanceMaintenanceEventRequest
+   * @return UpdateInstanceMaintenanceEventResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstanceMaintenanceEvent.ts.html |here} to see how to use UpdateInstanceMaintenanceEvent API.
+   */
+  public async updateInstanceMaintenanceEvent(
+    updateInstanceMaintenanceEventRequest: requests.UpdateInstanceMaintenanceEventRequest
+  ): Promise<responses.UpdateInstanceMaintenanceEventResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateInstanceMaintenanceEvent.");
+    const operationName = "updateInstanceMaintenanceEvent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceMaintenanceEvent/UpdateInstanceMaintenanceEvent";
+    const pathParams = {
+      "{instanceMaintenanceEventId}":
+        updateInstanceMaintenanceEventRequest.instanceMaintenanceEventId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateInstanceMaintenanceEventRequest.opcRequestId,
+      "if-match": updateInstanceMaintenanceEventRequest.ifMatch,
+      "opc-retry-token": updateInstanceMaintenanceEventRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateInstanceMaintenanceEventRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instanceMaintenanceEvents/{instanceMaintenanceEventId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateInstanceMaintenanceEventRequest.updateInstanceMaintenanceEventDetails,
+        "UpdateInstanceMaintenanceEventDetails",
+        model.UpdateInstanceMaintenanceEventDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateInstanceMaintenanceEventResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

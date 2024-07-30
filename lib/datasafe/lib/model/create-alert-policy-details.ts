@@ -40,6 +40,10 @@ export interface CreateAlertPolicyDetails {
    */
   "compartmentId": string;
   /**
+   * The details of the alert policy rule.
+   */
+  "alertPolicyRuleDetails"?: Array<model.CreateAlertPolicyRuleDetails>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
@@ -57,12 +61,30 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 
 export namespace CreateAlertPolicyDetails {
   export function getJsonObj(obj: CreateAlertPolicyDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "alertPolicyRuleDetails": obj.alertPolicyRuleDetails
+          ? obj.alertPolicyRuleDetails.map(item => {
+              return model.CreateAlertPolicyRuleDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateAlertPolicyDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "alertPolicyRuleDetails": obj.alertPolicyRuleDetails
+          ? obj.alertPolicyRuleDetails.map(item => {
+              return model.CreateAlertPolicyRuleDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

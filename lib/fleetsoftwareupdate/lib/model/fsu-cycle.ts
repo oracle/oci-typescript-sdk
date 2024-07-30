@@ -70,6 +70,7 @@ export interface FsuCycle {
     | model.FiftyFiftyBatchingStrategyDetails;
   "stageActionSchedule"?: model.StartTimeScheduleDetails;
   "applyActionSchedule"?: model.StartTimeScheduleDetails;
+  "diagnosticsCollection"?: model.DiagnosticsCollectionDetails;
   /**
    * The date and time the Exadata Fleet Update Cycle was created, as described in
    * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
@@ -143,6 +144,9 @@ export namespace FsuCycle {
           : undefined,
         "applyActionSchedule": obj.applyActionSchedule
           ? model.ScheduleDetails.getJsonObj(obj.applyActionSchedule)
+          : undefined,
+        "diagnosticsCollection": obj.diagnosticsCollection
+          ? model.DiagnosticsCollectionDetails.getJsonObj(obj.diagnosticsCollection)
           : undefined
       }
     };
@@ -178,6 +182,9 @@ export namespace FsuCycle {
           : undefined,
         "applyActionSchedule": obj.applyActionSchedule
           ? model.ScheduleDetails.getDeserializedJsonObj(obj.applyActionSchedule)
+          : undefined,
+        "diagnosticsCollection": obj.diagnosticsCollection
+          ? model.DiagnosticsCollectionDetails.getDeserializedJsonObj(obj.diagnosticsCollection)
           : undefined
       }
     };

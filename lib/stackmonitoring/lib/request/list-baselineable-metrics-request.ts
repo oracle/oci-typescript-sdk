@@ -29,6 +29,15 @@ export interface ListBaselineableMetricsRequest extends common.BaseRequest {
    */
   "resourceGroup"?: string;
   /**
+   * Resource Type
+   */
+  "resourceType"?: string;
+  /**
+   * Is the baseline enabled metric defined out of box by Oracle or by end-user
+   *
+   */
+  "isOutOfBox"?: boolean;
+  /**
    * Metric Name
    */
   "name"?: string;

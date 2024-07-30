@@ -33,6 +33,7 @@ export interface UpdateFsuCycleDetails {
     | model.UpdateServiceAvailabilityFactorBatchingStrategyDetails
     | model.UpdateFiftyFiftyBatchingStrategyDetails
     | model.NoneBatchingStrategyDetails;
+  "diagnosticsCollection"?: model.DiagnosticsCollectionDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -59,6 +60,9 @@ export namespace UpdateFsuCycleDetails {
           : undefined,
         "batchingStrategy": obj.batchingStrategy
           ? model.UpdateBatchingStrategyDetails.getJsonObj(obj.batchingStrategy)
+          : undefined,
+        "diagnosticsCollection": obj.diagnosticsCollection
+          ? model.DiagnosticsCollectionDetails.getJsonObj(obj.diagnosticsCollection)
           : undefined
       }
     };
@@ -85,6 +89,9 @@ export namespace UpdateFsuCycleDetails {
           : undefined,
         "batchingStrategy": obj.batchingStrategy
           ? model.UpdateBatchingStrategyDetails.getDeserializedJsonObj(obj.batchingStrategy)
+          : undefined,
+        "diagnosticsCollection": obj.diagnosticsCollection
+          ? model.DiagnosticsCollectionDetails.getDeserializedJsonObj(obj.diagnosticsCollection)
           : undefined
       }
     };

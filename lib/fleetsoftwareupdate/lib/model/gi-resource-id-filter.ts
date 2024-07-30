@@ -43,6 +43,7 @@ export interface GiResourceIdFilter extends model.GiFleetDiscoveryFilter {
 
 export namespace GiResourceIdFilter {
   export enum EntityType {
+    Databasesoftwareimage = "DATABASESOFTWAREIMAGE",
     Exadatainfrastructure = "EXADATAINFRASTRUCTURE",
     Cloudexadatainfrastructure = "CLOUDEXADATAINFRASTRUCTURE",
     Vmcluster = "VMCLUSTER",
