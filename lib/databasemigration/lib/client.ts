@@ -873,6 +873,87 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Creates a new version of the current parameter file contents to the specified value.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateParameterFileVersionRequest
+   * @return CreateParameterFileVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CreateParameterFileVersion.ts.html |here} to see how to use CreateParameterFileVersion API.
+   */
+  public async createParameterFileVersion(
+    createParameterFileVersionRequest: requests.CreateParameterFileVersionRequest
+  ): Promise<responses.CreateParameterFileVersionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#createParameterFileVersion.");
+    const operationName = "createParameterFileVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Job/CreateParameterFileVersion";
+    const pathParams = {
+      "{jobId}": createParameterFileVersionRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": createParameterFileVersionRequest.ifMatch,
+      "opc-retry-token": createParameterFileVersionRequest.opcRetryToken,
+      "opc-request-id": createParameterFileVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createParameterFileVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/parameterFileVersions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createParameterFileVersionRequest.createParameterFileVersionDetails,
+        "CreateParameterFileVersionDetails",
+        model.CreateParameterFileVersionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateParameterFileVersionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the Database Connection represented by the specified connection ID.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1071,6 +1152,82 @@ export class DatabaseMigrationClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMigrationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the given parameter file version
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteParameterFileVersionRequest
+   * @return DeleteParameterFileVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/DeleteParameterFileVersion.ts.html |here} to see how to use DeleteParameterFileVersion API.
+   */
+  public async deleteParameterFileVersion(
+    deleteParameterFileVersionRequest: requests.DeleteParameterFileVersionRequest
+  ): Promise<responses.DeleteParameterFileVersionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#deleteParameterFileVersion.");
+    const operationName = "deleteParameterFileVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Job/DeleteParameterFileVersion";
+    const pathParams = {
+      "{jobId}": deleteParameterFileVersionRequest.jobId,
+      "{parameterFileName}": deleteParameterFileVersionRequest.parameterFileName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteParameterFileVersionRequest.opcRequestId,
+      "if-match": deleteParameterFileVersionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteParameterFileVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/parameterFileVersions/{parameterFileName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteParameterFileVersionResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1537,6 +1694,86 @@ export class DatabaseMigrationClient {
         bodyKey: "migration",
         bodyModel: model.Migration,
         type: "model.Migration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Obtain the parameter file version contents for the specified parameter file name and the associated job. This operation will
+   * be allowed only if the job is certain acceptable lifecycle states.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetParameterFileVersionRequest
+   * @return GetParameterFileVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetParameterFileVersion.ts.html |here} to see how to use GetParameterFileVersion API.
+   */
+  public async getParameterFileVersion(
+    getParameterFileVersionRequest: requests.GetParameterFileVersionRequest
+  ): Promise<responses.GetParameterFileVersionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#getParameterFileVersion.");
+    const operationName = "getParameterFileVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Job/GetParameterFileVersion";
+    const pathParams = {
+      "{parameterFileName}": getParameterFileVersionRequest.parameterFileName,
+      "{jobId}": getParameterFileVersionRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getParameterFileVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getParameterFileVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/parameterFileVersions/{parameterFileName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetParameterFileVersionResponse>{},
+        body: await response.json(),
+        bodyKey: "parameterFileVersion",
+        bodyModel: model.ParameterFileVersion,
+        type: "model.ParameterFileVersion",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2301,6 +2538,92 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Return a list of the parameter file metadata of the migration execution of the specified job.  This will
+   * only be acceptable if the job is in particular state. It will be accessible if the job is in
+   * the FAILED, PAUSED or SUSPENDED state.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListParameterFileVersionsRequest
+   * @return ListParameterFileVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListParameterFileVersions.ts.html |here} to see how to use ListParameterFileVersions API.
+   */
+  public async listParameterFileVersions(
+    listParameterFileVersionsRequest: requests.ListParameterFileVersionsRequest
+  ): Promise<responses.ListParameterFileVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listParameterFileVersions.");
+    const operationName = "listParameterFileVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Job/ListParameterFileVersions";
+    const pathParams = {
+      "{jobId}": listParameterFileVersionsRequest.jobId
+    };
+
+    const queryParams = {
+      "name": listParameterFileVersionsRequest.name,
+      "limit": listParameterFileVersionsRequest.limit,
+      "page": listParameterFileVersionsRequest.page,
+      "sortBy": listParameterFileVersionsRequest.sortBy,
+      "sortOrder": listParameterFileVersionsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listParameterFileVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listParameterFileVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/parameterFileVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListParameterFileVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "parameterFileVersionCollection",
+        bodyModel: model.ParameterFileVersionCollection,
+        type: "model.ParameterFileVersionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the errors for a work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2539,6 +2862,89 @@ export class DatabaseMigrationClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Make current the given parameter file version
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param MakeCurrentParameterFileVersionRequest
+   * @return MakeCurrentParameterFileVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/MakeCurrentParameterFileVersion.ts.html |here} to see how to use MakeCurrentParameterFileVersion API.
+   */
+  public async makeCurrentParameterFileVersion(
+    makeCurrentParameterFileVersionRequest: requests.MakeCurrentParameterFileVersionRequest
+  ): Promise<responses.MakeCurrentParameterFileVersionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseMigrationClient#makeCurrentParameterFileVersion."
+      );
+    const operationName = "makeCurrentParameterFileVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Job/MakeCurrentParameterFileVersion";
+    const pathParams = {
+      "{jobId}": makeCurrentParameterFileVersionRequest.jobId,
+      "{parameterFileName}": makeCurrentParameterFileVersionRequest.parameterFileName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": makeCurrentParameterFileVersionRequest.ifMatch,
+      "opc-retry-token": makeCurrentParameterFileVersionRequest.opcRetryToken,
+      "opc-request-id": makeCurrentParameterFileVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      makeCurrentParameterFileVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/parameterFileVersions/{parameterFileName}/actions/makeCurrent",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MakeCurrentParameterFileVersionResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -2855,6 +3261,85 @@ export class DatabaseMigrationClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Place the currently executing migration Job in a Suspended State.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SuspendJobRequest
+   * @return SuspendJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/SuspendJob.ts.html |here} to see how to use SuspendJob API.
+   */
+  public async suspendJob(
+    suspendJobRequest: requests.SuspendJobRequest
+  ): Promise<responses.SuspendJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#suspendJob.");
+    const operationName = "suspendJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Job/SuspendJob";
+    const pathParams = {
+      "{jobId}": suspendJobRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": suspendJobRequest.ifMatch,
+      "opc-retry-token": suspendJobRequest.opcRetryToken,
+      "opc-request-id": suspendJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      suspendJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/actions/suspend",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SuspendJobResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {

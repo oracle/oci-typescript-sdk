@@ -27,6 +27,10 @@ export interface CreateAlertPolicyRuleDetails {
    * Describes the alert policy rule.
    */
   "description"?: string;
+  /**
+   * The display name of the alert policy rule.
+   */
+  "displayName"?: string;
 }
 
 export namespace CreateAlertPolicyRuleDetails {

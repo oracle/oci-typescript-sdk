@@ -17,7 +17,10 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Exadata Fleet Update Cycle Target Image Id details.
+ * The Database service Database Software Image resource is required as goal version for the Exadata Fleet Update Maintenance Cycle
+ * when IMAGE_ID type is selected.
+ * Specify a Database Software Image of type DATABASE_IMAGE for a DB Collection.
+ * Specify a Database Software Image of type GRID_IMAGE for a GI Collection.
  *
  */
 export interface ImageIdFsuTargetDetails extends model.FsuGoalVersionDetails {

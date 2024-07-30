@@ -1,6 +1,7 @@
 /**
  * Identity Domains API
- * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm). This REST API is SCIM compliant.
+ * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm).
+Use this pattern to construct endpoints for identity domains: `https://<domainURL>/admin/v1/`. See [Finding an Identity Domain URL](https://docs.oracle.com/en-us/iaas/Content/Identity/api-getstarted/locate-identity-domain-url.htm) to locate the domain URL you need.
 Use the table of contents and search tool to explore the Identity Domains API.
  * OpenAPI spec version: v1
  * 
@@ -3462,6 +3463,87 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Create a Social Identity Provider
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSocialIdentityProviderRequest
+   * @return CreateSocialIdentityProviderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateSocialIdentityProvider.ts.html |here} to see how to use CreateSocialIdentityProvider API.
+   */
+  public async createSocialIdentityProvider(
+    createSocialIdentityProviderRequest: requests.CreateSocialIdentityProviderRequest
+  ): Promise<responses.CreateSocialIdentityProviderResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createSocialIdentityProvider.");
+    const operationName = "createSocialIdentityProvider";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createSocialIdentityProviderRequest.authorization,
+      "resource_type_schema_version": createSocialIdentityProviderRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createSocialIdentityProviderRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSocialIdentityProviderRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SocialIdentityProviders",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSocialIdentityProviderRequest.socialIdentityProvider,
+        "SocialIdentityProvider",
+        model.SocialIdentityProvider.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSocialIdentityProviderResponse>{},
+        body: await response.json(),
+        bodyKey: "socialIdentityProvider",
+        bodyModel: model.SocialIdentityProvider,
+        type: "model.SocialIdentityProvider",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a user.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateUserRequest
@@ -6203,6 +6285,78 @@ export class IdentityDomainsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSmtpCredentialResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a Social Identity Provider
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSocialIdentityProviderRequest
+   * @return DeleteSocialIdentityProviderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteSocialIdentityProvider.ts.html |here} to see how to use DeleteSocialIdentityProvider API.
+   */
+  public async deleteSocialIdentityProvider(
+    deleteSocialIdentityProviderRequest: requests.DeleteSocialIdentityProviderRequest
+  ): Promise<responses.DeleteSocialIdentityProviderResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#deleteSocialIdentityProvider.");
+    const operationName = "deleteSocialIdentityProvider";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{socialIdentityProviderId}": deleteSocialIdentityProviderRequest.socialIdentityProviderId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteSocialIdentityProviderRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteSocialIdentityProviderRequest.authorization,
+      "resource_type_schema_version": deleteSocialIdentityProviderRequest.resourceTypeSchemaVersion,
+      "if-match": deleteSocialIdentityProviderRequest.ifMatch,
+      "opc-retry-token": deleteSocialIdentityProviderRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSocialIdentityProviderRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SocialIdentityProviders/{socialIdentityProviderId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSocialIdentityProviderResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10090,6 +10244,79 @@ export class IdentityDomainsClient {
         bodyKey: "smtpCredential",
         bodyModel: model.SmtpCredential,
         type: "model.SmtpCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a Social Identity Provider
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSocialIdentityProviderRequest
+   * @return GetSocialIdentityProviderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSocialIdentityProvider.ts.html |here} to see how to use GetSocialIdentityProvider API.
+   */
+  public async getSocialIdentityProvider(
+    getSocialIdentityProviderRequest: requests.GetSocialIdentityProviderRequest
+  ): Promise<responses.GetSocialIdentityProviderResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getSocialIdentityProvider.");
+    const operationName = "getSocialIdentityProvider";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{socialIdentityProviderId}": getSocialIdentityProviderRequest.socialIdentityProviderId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getSocialIdentityProviderRequest.authorization,
+      "resource_type_schema_version": getSocialIdentityProviderRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getSocialIdentityProviderRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSocialIdentityProviderRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SocialIdentityProviders/{socialIdentityProviderId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSocialIdentityProviderResponse>{},
+        body: await response.json(),
+        bodyKey: "socialIdentityProvider",
+        bodyModel: model.SocialIdentityProvider,
+        type: "model.SocialIdentityProvider",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -14812,6 +15039,90 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Search Social Identity Providers
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSocialIdentityProvidersRequest
+   * @return ListSocialIdentityProvidersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSocialIdentityProviders.ts.html |here} to see how to use ListSocialIdentityProviders API.
+   */
+  public async listSocialIdentityProviders(
+    listSocialIdentityProvidersRequest: requests.ListSocialIdentityProvidersRequest
+  ): Promise<responses.ListSocialIdentityProvidersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listSocialIdentityProviders.");
+    const operationName = "listSocialIdentityProviders";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listSocialIdentityProvidersRequest.filter,
+      "sortBy": listSocialIdentityProvidersRequest.sortBy,
+      "sortOrder": listSocialIdentityProvidersRequest.sortOrder,
+      "startIndex": listSocialIdentityProvidersRequest.startIndex,
+      "count": listSocialIdentityProvidersRequest.count,
+      "page": listSocialIdentityProvidersRequest.page,
+      "limit": listSocialIdentityProvidersRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listSocialIdentityProvidersRequest.authorization,
+      "resource_type_schema_version": listSocialIdentityProvidersRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listSocialIdentityProvidersRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSocialIdentityProvidersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SocialIdentityProviders",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSocialIdentityProvidersResponse>{},
+        body: await response.json(),
+        bodyKey: "socialIdentityProviders",
+        bodyModel: model.SocialIdentityProviders,
+        type: "model.SocialIdentityProviders",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Search User Schema Attribute Settings
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListUserAttributesSettingsRequest
@@ -18420,6 +18731,90 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Update a Social Identity Provider
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchSocialIdentityProviderRequest
+   * @return PatchSocialIdentityProviderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSocialIdentityProvider.ts.html |here} to see how to use PatchSocialIdentityProvider API.
+   */
+  public async patchSocialIdentityProvider(
+    patchSocialIdentityProviderRequest: requests.PatchSocialIdentityProviderRequest
+  ): Promise<responses.PatchSocialIdentityProviderResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#patchSocialIdentityProvider.");
+    const operationName = "patchSocialIdentityProvider";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{socialIdentityProviderId}": patchSocialIdentityProviderRequest.socialIdentityProviderId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchSocialIdentityProviderRequest.authorization,
+      "resource_type_schema_version": patchSocialIdentityProviderRequest.resourceTypeSchemaVersion,
+      "if-match": patchSocialIdentityProviderRequest.ifMatch,
+      "opc-retry-token": patchSocialIdentityProviderRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchSocialIdentityProviderRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SocialIdentityProviders/{socialIdentityProviderId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchSocialIdentityProviderRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchSocialIdentityProviderResponse>{},
+        body: await response.json(),
+        bodyKey: "socialIdentityProvider",
+        bodyModel: model.SocialIdentityProvider,
+        type: "model.SocialIdentityProvider",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update a user.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchUserRequest
@@ -20808,6 +21203,90 @@ export class IdentityDomainsClient {
         bodyKey: "setting",
         bodyModel: model.Setting,
         type: "model.Setting",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace a Social Identity Provider
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutSocialIdentityProviderRequest
+   * @return PutSocialIdentityProviderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSocialIdentityProvider.ts.html |here} to see how to use PutSocialIdentityProvider API.
+   */
+  public async putSocialIdentityProvider(
+    putSocialIdentityProviderRequest: requests.PutSocialIdentityProviderRequest
+  ): Promise<responses.PutSocialIdentityProviderResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#putSocialIdentityProvider.");
+    const operationName = "putSocialIdentityProvider";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{socialIdentityProviderId}": putSocialIdentityProviderRequest.socialIdentityProviderId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putSocialIdentityProviderRequest.authorization,
+      "resource_type_schema_version": putSocialIdentityProviderRequest.resourceTypeSchemaVersion,
+      "if-match": putSocialIdentityProviderRequest.ifMatch,
+      "opc-retry-token": putSocialIdentityProviderRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putSocialIdentityProviderRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SocialIdentityProviders/{socialIdentityProviderId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putSocialIdentityProviderRequest.socialIdentityProvider,
+        "SocialIdentityProvider",
+        model.SocialIdentityProvider.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutSocialIdentityProviderResponse>{},
+        body: await response.json(),
+        bodyKey: "socialIdentityProvider",
+        bodyModel: model.SocialIdentityProvider,
+        type: "model.SocialIdentityProvider",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -24253,6 +24732,91 @@ export class IdentityDomainsClient {
         bodyKey: "smtpCredentials",
         bodyModel: model.SmtpCredentials,
         type: "model.SmtpCredentials",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Social Identity Providers Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchSocialIdentityProvidersRequest
+   * @return SearchSocialIdentityProvidersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSocialIdentityProviders.ts.html |here} to see how to use SearchSocialIdentityProviders API.
+   */
+  public async searchSocialIdentityProviders(
+    searchSocialIdentityProvidersRequest: requests.SearchSocialIdentityProvidersRequest
+  ): Promise<responses.SearchSocialIdentityProvidersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#searchSocialIdentityProviders.");
+    const operationName = "searchSocialIdentityProviders";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchSocialIdentityProvidersRequest.page,
+      "limit": searchSocialIdentityProvidersRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchSocialIdentityProvidersRequest.authorization,
+      "resource_type_schema_version":
+        searchSocialIdentityProvidersRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchSocialIdentityProvidersRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchSocialIdentityProvidersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/SocialIdentityProviders/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchSocialIdentityProvidersRequest.socialIdentityProviderSearchRequest,
+        "SocialIdentityProviderSearchRequest",
+        model.SocialIdentityProviderSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchSocialIdentityProvidersResponse>{},
+        body: await response.json(),
+        bodyKey: "socialIdentityProviders",
+        bodyModel: model.SocialIdentityProviders,
+        type: "model.SocialIdentityProviders",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

@@ -68,6 +68,7 @@ export interface FsuCycleSummary {
    */
   "lastCompletedAction"?: model.DetailedActionTypes;
   "goalVersionDetails": model.VersionFsuTargetDetails | model.ImageIdFsuTargetDetails;
+  "diagnosticsCollection"?: model.DiagnosticsCollectionDetails;
   /**
    * The date and time the Exadata Fleet Update Cycle was created, as described in
    * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
@@ -130,6 +131,9 @@ export namespace FsuCycleSummary {
 
         "goalVersionDetails": obj.goalVersionDetails
           ? model.FsuGoalVersionDetails.getJsonObj(obj.goalVersionDetails)
+          : undefined,
+        "diagnosticsCollection": obj.diagnosticsCollection
+          ? model.DiagnosticsCollectionDetails.getJsonObj(obj.diagnosticsCollection)
           : undefined
       }
     };
@@ -148,6 +152,9 @@ export namespace FsuCycleSummary {
 
         "goalVersionDetails": obj.goalVersionDetails
           ? model.FsuGoalVersionDetails.getDeserializedJsonObj(obj.goalVersionDetails)
+          : undefined,
+        "diagnosticsCollection": obj.diagnosticsCollection
+          ? model.DiagnosticsCollectionDetails.getDeserializedJsonObj(obj.diagnosticsCollection)
           : undefined
       }
     };
