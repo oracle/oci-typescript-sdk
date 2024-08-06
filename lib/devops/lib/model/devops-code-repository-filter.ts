@@ -31,6 +31,8 @@ export interface DevopsCodeRepositoryFilter extends model.Filter {
 export namespace DevopsCodeRepositoryFilter {
   export enum Events {
     Push = "PUSH",
+    PullRequestCreated = "PULL_REQUEST_CREATED",
+    PullRequestUpdated = "PULL_REQUEST_UPDATED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

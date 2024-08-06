@@ -3,17 +3,43 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
-## 2.90.0 - 2025-07-30
+## 2.91.0 - 2024-08-06
 ### Added 
--Support for cluster placement groups on get operations in the Database service 
--Support for baseline metric for imported resources and metric extensions in the Stack Monitoring service 
--Support for implicit JIT and group membership provisioning during OpenID connect flow in the Identity Domains service 
--Support for realtime speech and customizations in the AI Speech service 
--Support for self-service instance maintenance API in the Compute service 
--Support for GoldenGate suspend phase in the Database Migration service 
--Support for creating custom alert policies in the Data Safe service 
--Support for tunnel inspection in the Network firewall service 
--Support for diagnostics collection preferences and custom GI images in the Exadata Fleet Update service    
+- Support for calling Oracle Cloud Infrastructure services in the `me-riyadh-1` region 
+- Support for vertically scaling a Database system in the PostgreSQL service 
+- Support for flex shapes in the PostgreSQL service 
+- Support for new fork repository feature in the Source Code Management service 
+- Support for Developer Charts in the Source Code Management service 
+- Support for pull requests and merge in Source Code Management service 
+- Support for limiting custom and versioned custom software source content to the latest package versions in the OS Management service 
+- Support for Open Data Hub (ODH) patching in a staged manner in the Big Data service 
+- Support for Autoscale Memory Utilization in the Big Data service 
+- Support for Resource Principal configuration feature in the Big Data service 
+- Support for a new optional parameter compartment ID in the Java Management service 
+- Support for Agent Installer in the Java Management service 
+- Support for Java migration analysis request of deployed applications in the Java Management service 
+- Support for JmsPlugin in the Java Management service 
+- Support for improved cryptographic analysis result listing in the Java Management service 
+- Support for improved fleet agent configuration setting in the Java Management service 
+- Support for improved Java migration analysis result listing in the Java Management service 
+- Support for improved library usage summary in the Java Management service 
+- Support for improved performance tuning analysis result listing in the Java Management service 
+- Support for improved work request listing in the Java Management service    
+
+### Breaking Changes 
+- The field `credentials` was made required in the model `CreateDbSystemDetails` in the PostgreSQL service
+
+## 2.90.0 - 2024-07-30
+### Added 
+- Support for cluster placement groups on get operations in the Database service 
+- Support for baseline metric for imported resources and metric extensions in the Stack Monitoring service 
+- Support for implicit JIT and group membership provisioning during OpenID connect flow in the Identity Domains service 
+- Support for realtime speech and customizations in the AI Speech service 
+- Support for self-service instance maintenance API in the Compute service 
+- Support for GoldenGate suspend phase in the Database Migration service 
+- Support for creating custom alert policies in the Data Safe service 
+- Support for tunnel inspection in the Network firewall service 
+- Support for diagnostics collection preferences and custom GI images in the Exadata Fleet Update service    
 
 ### Breaking Changes 
 -The property `servicePrincipals` was removed from the model `IdentityPropagationTrust` in the Identity Domains service

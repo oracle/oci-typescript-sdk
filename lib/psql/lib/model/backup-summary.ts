@@ -57,7 +57,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "lifecycleDetails"?: string;
   /**
-   * Specifies whether the backup was created manually, or by a management policy.
+   * Specifies whether the backup was created manually, taken on schedule defined in the a backup policy, or copied from the remote location.
    */
   "sourceType"?: string;
   /**

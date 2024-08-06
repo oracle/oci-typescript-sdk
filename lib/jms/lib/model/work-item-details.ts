@@ -1,6 +1,6 @@
 /**
- * Java Management Service API
- * API for the Java Management Service. Use this API to view, create, and manage Fleets.
+ * Java Management Service Fleets API
+ * The APIs for the [Fleet Management](https://docs.oracle.com/en-us/iaas/jms/doc/fleet-management.html) feature of Java Management Service to monitor and manage the usage of Java in your enterprise. Use these APIs to manage fleets, configure managed instances to report to fleets, and gain insights into the Java workloads running on these instances by carrying out basic and advanced features.
  * OpenAPI spec version: 20210610
  *
  *
@@ -32,6 +32,11 @@ export namespace WorkItemDetails {
 
     if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
+        case "DEPLOYED_APPLICATION":
+          return model.DeployedApplicationWorkItemDetails.getJsonObj(
+            <model.DeployedApplicationWorkItemDetails>(<object>jsonObj),
+            true
+          );
         case "LCM":
           return model.LcmWorkItemDetails.getJsonObj(
             <model.LcmWorkItemDetails>(<object>jsonObj),
@@ -58,6 +63,11 @@ export namespace WorkItemDetails {
 
     if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
+        case "DEPLOYED_APPLICATION":
+          return model.DeployedApplicationWorkItemDetails.getDeserializedJsonObj(
+            <model.DeployedApplicationWorkItemDetails>(<object>jsonObj),
+            true
+          );
         case "LCM":
           return model.LcmWorkItemDetails.getDeserializedJsonObj(
             <model.LcmWorkItemDetails>(<object>jsonObj),

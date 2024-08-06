@@ -22,6 +22,10 @@ export interface DevopsCodeRepositoryFilterAttributes {
    * Branch for push event; source branch for pull requests
    */
   "headRef"?: string;
+  /**
+   * The target branch for pull requests; not applicable for push requests.
+   */
+  "baseRef"?: string;
   "fileFilter"?: model.FileFilter;
 }
 

@@ -1425,6 +1425,189 @@ export class DevopsClient {
   }
 
   /**
+   * Creates a new reference or updates an existing one.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateOrUpdateGitRefRequest
+   * @return CreateOrUpdateGitRefResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateOrUpdateGitRef.ts.html |here} to see how to use CreateOrUpdateGitRef API.
+   */
+  public async createOrUpdateGitRef(
+    createOrUpdateGitRefRequest: requests.CreateOrUpdateGitRefRequest
+  ): Promise<responses.CreateOrUpdateGitRefResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#createOrUpdateGitRef.");
+    const operationName = "createOrUpdateGitRef";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/CreateOrUpdateGitRef";
+    const pathParams = {
+      "{repositoryId}": createOrUpdateGitRefRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": createOrUpdateGitRefRequest.ifMatch,
+      "opc-retry-token": createOrUpdateGitRefRequest.opcRetryToken,
+      "opc-request-id": createOrUpdateGitRefRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOrUpdateGitRefRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/actions/createOrUpdateGitRef",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOrUpdateGitRefRequest.createOrUpdateGitRefDetails,
+        "CreateOrUpdateGitRefDetails",
+        model.CreateOrUpdateGitRefDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOrUpdateGitRefResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryRef",
+        bodyModel: model.RepositoryRef,
+        type: "model.RepositoryRef",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a restriction on a branch that prevents certain actions on it.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateOrUpdateProtectedBranchRequest
+   * @return CreateOrUpdateProtectedBranchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateOrUpdateProtectedBranch.ts.html |here} to see how to use CreateOrUpdateProtectedBranch API.
+   */
+  public async createOrUpdateProtectedBranch(
+    createOrUpdateProtectedBranchRequest: requests.CreateOrUpdateProtectedBranchRequest
+  ): Promise<responses.CreateOrUpdateProtectedBranchResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#createOrUpdateProtectedBranch.");
+    const operationName = "createOrUpdateProtectedBranch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ProtectedBranch/CreateOrUpdateProtectedBranch";
+    const pathParams = {
+      "{repositoryId}": createOrUpdateProtectedBranchRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": createOrUpdateProtectedBranchRequest.ifMatch,
+      "opc-retry-token": createOrUpdateProtectedBranchRequest.opcRetryToken,
+      "opc-request-id": createOrUpdateProtectedBranchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOrUpdateProtectedBranchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/actions/createOrUpdateProtectedBranch",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOrUpdateProtectedBranchRequest.createOrUpdateProtectedBranchDetails,
+        "CreateOrUpdateProtectedBranchDetails",
+        model.CreateOrUpdateProtectedBranchDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOrUpdateProtectedBranchResponse>{},
+        body: await response.json(),
+        bodyKey: "protectedBranch",
+        bodyModel: model.ProtectedBranch,
+        type: "model.ProtectedBranch",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new project.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateProjectRequest
@@ -1503,6 +1686,276 @@ export class DevopsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new PullRequest.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreatePullRequestRequest
+   * @return CreatePullRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreatePullRequest.ts.html |here} to see how to use CreatePullRequest API.
+   */
+  public async createPullRequest(
+    createPullRequestRequest: requests.CreatePullRequestRequest
+  ): Promise<responses.CreatePullRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#createPullRequest.");
+    const operationName = "createPullRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/CreatePullRequest";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPullRequestRequest.opcRetryToken,
+      "opc-request-id": createPullRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPullRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPullRequestRequest.createPullRequestDetails,
+        "CreatePullRequestDetails",
+        model.CreatePullRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePullRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequest",
+        bodyModel: model.PullRequest,
+        type: "model.PullRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates PullRequest attachment
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreatePullRequestAttachmentRequest
+   * @return CreatePullRequestAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreatePullRequestAttachment.ts.html |here} to see how to use CreatePullRequestAttachment API.
+   */
+  public async createPullRequestAttachment(
+    createPullRequestAttachmentRequest: requests.CreatePullRequestAttachmentRequest
+  ): Promise<responses.CreatePullRequestAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#createPullRequestAttachment.");
+    const operationName = "createPullRequestAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/CreatePullRequestAttachment";
+    const pathParams = {
+      "{pullRequestId}": createPullRequestAttachmentRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "content-disposition": createPullRequestAttachmentRequest.contentDisposition,
+      "opc-retry-token": createPullRequestAttachmentRequest.opcRetryToken,
+      "opc-request-id": createPullRequestAttachmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPullRequestAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/attachments",
+      method: "POST",
+      bodyContent: createPullRequestAttachmentRequest.createPullRequestAttachmentBody,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePullRequestAttachmentResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestAttachment",
+        bodyModel: model.PullRequestAttachment,
+        type: "model.PullRequestAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new PullRequest comment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreatePullRequestCommentRequest
+   * @return CreatePullRequestCommentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreatePullRequestComment.ts.html |here} to see how to use CreatePullRequestComment API.
+   */
+  public async createPullRequestComment(
+    createPullRequestCommentRequest: requests.CreatePullRequestCommentRequest
+  ): Promise<responses.CreatePullRequestCommentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#createPullRequestComment.");
+    const operationName = "createPullRequestComment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/CreatePullRequestComment";
+    const pathParams = {
+      "{pullRequestId}": createPullRequestCommentRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPullRequestCommentRequest.opcRetryToken,
+      "opc-request-id": createPullRequestCommentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPullRequestCommentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/comments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPullRequestCommentRequest.createPullRequestCommentDetails,
+        "CreatePullRequestCommentDetails",
+        model.CreatePullRequestCommentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePullRequestCommentResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestComment",
+        bodyModel: model.PullRequestComment,
+        type: "model.PullRequestComment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -1685,6 +2138,89 @@ export class DevopsClient {
           {
             value: response.headers.get("location"),
             key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Decline a PullRequest
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeclinePullRequestRequest
+   * @return DeclinePullRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeclinePullRequest.ts.html |here} to see how to use DeclinePullRequest API.
+   */
+  public async declinePullRequest(
+    declinePullRequestRequest: requests.DeclinePullRequestRequest
+  ): Promise<responses.DeclinePullRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#declinePullRequest.");
+    const operationName = "declinePullRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/DeclinePullRequest";
+    const pathParams = {
+      "{pullRequestId}": declinePullRequestRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": declinePullRequestRequest.ifMatch,
+      "opc-request-id": declinePullRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      declinePullRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/actions/decline",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeclinePullRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequest",
+        bodyModel: model.PullRequest,
+        type: "model.PullRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -2208,6 +2744,85 @@ export class DevopsClient {
   }
 
   /**
+   * Deletes a Repository's Ref by its name. Returns an error if the name is ambiguous. Can be disambiguated by using full names like \"heads/<name>\" or \"tags/<name>\".
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteGitRefRequest
+   * @return DeleteGitRefResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteGitRef.ts.html |here} to see how to use DeleteGitRef API.
+   */
+  public async deleteGitRef(
+    deleteGitRefRequest: requests.DeleteGitRefRequest
+  ): Promise<responses.DeleteGitRefResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteGitRef.");
+    const operationName = "deleteGitRef";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/DeleteGitRef";
+    const pathParams = {
+      "{repositoryId}": deleteGitRefRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteGitRefRequest.ifMatch,
+      "opc-retry-token": deleteGitRefRequest.opcRetryToken,
+      "opc-request-id": deleteGitRefRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteGitRefRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/actions/deleteGitRef",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        deleteGitRefRequest.deleteGitRefDetails,
+        "DeleteGitRefDetails",
+        model.DeleteGitRefDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteGitRefResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a project resource by identifier
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteProjectRequest
@@ -2266,6 +2881,357 @@ export class DevopsClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes the custom repository settings configured for a project.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteProjectRepositorySettingsRequest
+   * @return DeleteProjectRepositorySettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteProjectRepositorySettings.ts.html |here} to see how to use DeleteProjectRepositorySettings API.
+   */
+  public async deleteProjectRepositorySettings(
+    deleteProjectRepositorySettingsRequest: requests.DeleteProjectRepositorySettingsRequest
+  ): Promise<responses.DeleteProjectRepositorySettingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#deleteProjectRepositorySettings.");
+    const operationName = "deleteProjectRepositorySettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ProjectRepositorySettings/DeleteProjectRepositorySettings";
+    const pathParams = {
+      "{projectId}": deleteProjectRepositorySettingsRequest.projectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteProjectRepositorySettingsRequest.ifMatch,
+      "opc-retry-token": deleteProjectRepositorySettingsRequest.opcRetryToken,
+      "opc-request-id": deleteProjectRepositorySettingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteProjectRepositorySettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/repositorySettings",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteProjectRepositorySettingsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes the protection from a branch
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteProtectedBranchRequest
+   * @return DeleteProtectedBranchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteProtectedBranch.ts.html |here} to see how to use DeleteProtectedBranch API.
+   */
+  public async deleteProtectedBranch(
+    deleteProtectedBranchRequest: requests.DeleteProtectedBranchRequest
+  ): Promise<responses.DeleteProtectedBranchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteProtectedBranch.");
+    const operationName = "deleteProtectedBranch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ProtectedBranch/DeleteProtectedBranch";
+    const pathParams = {
+      "{repositoryId}": deleteProtectedBranchRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteProtectedBranchRequest.ifMatch,
+      "opc-retry-token": deleteProtectedBranchRequest.opcRetryToken,
+      "opc-request-id": deleteProtectedBranchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteProtectedBranchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/actions/deleteProtectedBranch",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        deleteProtectedBranchRequest.deleteProtectedBranchDetails,
+        "DeleteProtectedBranchDetails",
+        model.DeleteProtectedBranchDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteProtectedBranchResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a PullRequest resource by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeletePullRequestRequest
+   * @return DeletePullRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeletePullRequest.ts.html |here} to see how to use DeletePullRequest API.
+   */
+  public async deletePullRequest(
+    deletePullRequestRequest: requests.DeletePullRequestRequest
+  ): Promise<responses.DeletePullRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deletePullRequest.");
+    const operationName = "deletePullRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/DeletePullRequest";
+    const pathParams = {
+      "{pullRequestId}": deletePullRequestRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePullRequestRequest.ifMatch,
+      "opc-request-id": deletePullRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePullRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePullRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a PullRequest attachment metadata by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeletePullRequestAttachmentRequest
+   * @return DeletePullRequestAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeletePullRequestAttachment.ts.html |here} to see how to use DeletePullRequestAttachment API.
+   */
+  public async deletePullRequestAttachment(
+    deletePullRequestAttachmentRequest: requests.DeletePullRequestAttachmentRequest
+  ): Promise<responses.DeletePullRequestAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#deletePullRequestAttachment.");
+    const operationName = "deletePullRequestAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/DeletePullRequestAttachment";
+    const pathParams = {
+      "{pullRequestId}": deletePullRequestAttachmentRequest.pullRequestId,
+      "{attachmentId}": deletePullRequestAttachmentRequest.attachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePullRequestAttachmentRequest.ifMatch,
+      "opc-request-id": deletePullRequestAttachmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePullRequestAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/attachments/{attachmentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePullRequestAttachmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a PullRequest comment by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeletePullRequestCommentRequest
+   * @return DeletePullRequestCommentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeletePullRequestComment.ts.html |here} to see how to use DeletePullRequestComment API.
+   */
+  public async deletePullRequestComment(
+    deletePullRequestCommentRequest: requests.DeletePullRequestCommentRequest
+  ): Promise<responses.DeletePullRequestCommentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deletePullRequestComment.");
+    const operationName = "deletePullRequestComment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/DeletePullRequestComment";
+    const pathParams = {
+      "{pullRequestId}": deletePullRequestCommentRequest.pullRequestId,
+      "{commentId}": deletePullRequestCommentRequest.commentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePullRequestCommentRequest.ifMatch,
+      "opc-request-id": deletePullRequestCommentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePullRequestCommentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/comments/{commentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePullRequestCommentResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -2419,6 +3385,75 @@ export class DevopsClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes the custom settings configured for a repository
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteRepositorySettingsRequest
+   * @return DeleteRepositorySettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteRepositorySettings.ts.html |here} to see how to use DeleteRepositorySettings API.
+   */
+  public async deleteRepositorySettings(
+    deleteRepositorySettingsRequest: requests.DeleteRepositorySettingsRequest
+  ): Promise<responses.DeleteRepositorySettingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteRepositorySettings.");
+    const operationName = "deleteRepositorySettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositorySettings/DeleteRepositorySettings";
+    const pathParams = {
+      "{repositoryId}": deleteRepositorySettingsRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteRepositorySettingsRequest.ifMatch,
+      "opc-retry-token": deleteRepositorySettingsRequest.opcRetryToken,
+      "opc-request-id": deleteRepositorySettingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRepositorySettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/repositorySettings",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRepositorySettingsResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -2835,6 +3870,7 @@ export class DevopsClient {
     const queryParams = {
       "baseVersion": getCommitDiffRequest.baseVersion,
       "targetVersion": getCommitDiffRequest.targetVersion,
+      "targetRepositoryId": getCommitDiffRequest.targetRepositoryId,
       "isComparisonFromMergeBase": getCommitDiffRequest.isComparisonFromMergeBase
     };
 
@@ -3756,6 +4792,620 @@ export class DevopsClient {
   }
 
   /**
+   * Get the project notification preference for the user passed as path param
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetProjectNotificationPreferenceRequest
+   * @return GetProjectNotificationPreferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetProjectNotificationPreference.ts.html |here} to see how to use GetProjectNotificationPreference API.
+   */
+  public async getProjectNotificationPreference(
+    getProjectNotificationPreferenceRequest: requests.GetProjectNotificationPreferenceRequest
+  ): Promise<responses.GetProjectNotificationPreferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#getProjectNotificationPreference.");
+    const operationName = "getProjectNotificationPreference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ProjectNotificationPreference/GetProjectNotificationPreference";
+    const pathParams = {
+      "{projectId}": getProjectNotificationPreferenceRequest.projectId,
+      "{principalId}": getProjectNotificationPreferenceRequest.principalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getProjectNotificationPreferenceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProjectNotificationPreferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/principals/{principalId}/pullRequestNotificationPreference",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetProjectNotificationPreferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "projectNotificationPreference",
+        bodyModel: model.ProjectNotificationPreference,
+        type: "model.ProjectNotificationPreference",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a project's repository settings details.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetProjectRepositorySettingsRequest
+   * @return GetProjectRepositorySettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetProjectRepositorySettings.ts.html |here} to see how to use GetProjectRepositorySettings API.
+   */
+  public async getProjectRepositorySettings(
+    getProjectRepositorySettingsRequest: requests.GetProjectRepositorySettingsRequest
+  ): Promise<responses.GetProjectRepositorySettingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#getProjectRepositorySettings.");
+    const operationName = "getProjectRepositorySettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ProjectRepositorySettings/GetProjectRepositorySettings";
+    const pathParams = {
+      "{projectId}": getProjectRepositorySettingsRequest.projectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getProjectRepositorySettingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProjectRepositorySettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/repositorySettings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetProjectRepositorySettingsResponse>{},
+        body: await response.json(),
+        bodyKey: "projectRepositorySettings",
+        bodyModel: model.ProjectRepositorySettings,
+        type: "model.ProjectRepositorySettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a PullRequest by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPullRequestRequest
+   * @return GetPullRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequest.ts.html |here} to see how to use GetPullRequest API.
+   */
+  public async getPullRequest(
+    getPullRequestRequest: requests.GetPullRequestRequest
+  ): Promise<responses.GetPullRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getPullRequest.");
+    const operationName = "getPullRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/GetPullRequest";
+    const pathParams = {
+      "{pullRequestId}": getPullRequestRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPullRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPullRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPullRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequest",
+        bodyModel: model.PullRequest,
+        type: "model.PullRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get PullRequest attachment metadata by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPullRequestAttachmentRequest
+   * @return GetPullRequestAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestAttachment.ts.html |here} to see how to use GetPullRequestAttachment API.
+   */
+  public async getPullRequestAttachment(
+    getPullRequestAttachmentRequest: requests.GetPullRequestAttachmentRequest
+  ): Promise<responses.GetPullRequestAttachmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getPullRequestAttachment.");
+    const operationName = "getPullRequestAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/GetPullRequestAttachment";
+    const pathParams = {
+      "{pullRequestId}": getPullRequestAttachmentRequest.pullRequestId,
+      "{attachmentId}": getPullRequestAttachmentRequest.attachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPullRequestAttachmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPullRequestAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/attachments/{attachmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPullRequestAttachmentResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestAttachment",
+        bodyModel: model.PullRequestAttachment,
+        type: "model.PullRequestAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the content of the attachment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPullRequestAttachmentContentRequest
+   * @return GetPullRequestAttachmentContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestAttachmentContent.ts.html |here} to see how to use GetPullRequestAttachmentContent API.
+   */
+  public async getPullRequestAttachmentContent(
+    getPullRequestAttachmentContentRequest: requests.GetPullRequestAttachmentContentRequest
+  ): Promise<responses.GetPullRequestAttachmentContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#getPullRequestAttachmentContent.");
+    const operationName = "getPullRequestAttachmentContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/GetPullRequestAttachmentContent";
+    const pathParams = {
+      "{pullRequestId}": getPullRequestAttachmentContentRequest.pullRequestId,
+      "{attachmentId}": getPullRequestAttachmentContentRequest.attachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPullRequestAttachmentContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPullRequestAttachmentContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/attachments/{attachmentId}/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPullRequestAttachmentContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get pull request diff summary metric
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPullRequestChangeSummaryMetricsRequest
+   * @return GetPullRequestChangeSummaryMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestChangeSummaryMetrics.ts.html |here} to see how to use GetPullRequestChangeSummaryMetrics API.
+   */
+  public async getPullRequestChangeSummaryMetrics(
+    getPullRequestChangeSummaryMetricsRequest: requests.GetPullRequestChangeSummaryMetricsRequest
+  ): Promise<responses.GetPullRequestChangeSummaryMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#getPullRequestChangeSummaryMetrics.");
+    const operationName = "getPullRequestChangeSummaryMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/GetPullRequestChangeSummaryMetrics";
+    const pathParams = {
+      "{pullRequestId}": getPullRequestChangeSummaryMetricsRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPullRequestChangeSummaryMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPullRequestChangeSummaryMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/changeSummaryMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPullRequestChangeSummaryMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestChangeSummaryMetrics",
+        bodyModel: model.PullRequestChangeSummaryMetrics,
+        type: "model.PullRequestChangeSummaryMetrics",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get PullRequest comment by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPullRequestCommentRequest
+   * @return GetPullRequestCommentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestComment.ts.html |here} to see how to use GetPullRequestComment API.
+   */
+  public async getPullRequestComment(
+    getPullRequestCommentRequest: requests.GetPullRequestCommentRequest
+  ): Promise<responses.GetPullRequestCommentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getPullRequestComment.");
+    const operationName = "getPullRequestComment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/GetPullRequestComment";
+    const pathParams = {
+      "{pullRequestId}": getPullRequestCommentRequest.pullRequestId,
+      "{commentId}": getPullRequestCommentRequest.commentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPullRequestCommentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPullRequestCommentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/comments/{commentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPullRequestCommentResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestComment",
+        bodyModel: model.PullRequestComment,
+        type: "model.PullRequestComment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the pull request notification preference for the user passed as path param
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPullRequestNotificationPreferenceRequest
+   * @return GetPullRequestNotificationPreferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestNotificationPreference.ts.html |here} to see how to use GetPullRequestNotificationPreference API.
+   */
+  public async getPullRequestNotificationPreference(
+    getPullRequestNotificationPreferenceRequest: requests.GetPullRequestNotificationPreferenceRequest
+  ): Promise<responses.GetPullRequestNotificationPreferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#getPullRequestNotificationPreference.");
+    const operationName = "getPullRequestNotificationPreference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequestNotificationPreference/GetPullRequestNotificationPreference";
+    const pathParams = {
+      "{pullRequestId}": getPullRequestNotificationPreferenceRequest.pullRequestId,
+      "{principalId}": getPullRequestNotificationPreferenceRequest.principalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPullRequestNotificationPreferenceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPullRequestNotificationPreferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/pullRequests/{pullRequestId}/principals/{principalId}/pullRequestNotificationPreference",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPullRequestNotificationPreferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestNotificationPreference",
+        bodyModel: model.PullRequestNotificationPreference,
+        type: "model.PullRequestNotificationPreference",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * This API will be deprecated on Wed, 12 June 2024 01:00:00 GMT as it does not get recognized when refName has '/'. This will be replaced by \"/repositories/{repositoryId}/refs\". Retrieves a repository's reference by its name with preference for branches over tags if the name is ambiguous. This can be disambiguated by using full names like \"heads/<name>\" or \"tags/<name>\".
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRefRequest
@@ -4251,6 +5901,161 @@ export class DevopsClient {
   }
 
   /**
+   * Get the repository notification preference for the user passed as path param
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRepositoryNotificationPreferenceRequest
+   * @return GetRepositoryNotificationPreferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositoryNotificationPreference.ts.html |here} to see how to use GetRepositoryNotificationPreference API.
+   */
+  public async getRepositoryNotificationPreference(
+    getRepositoryNotificationPreferenceRequest: requests.GetRepositoryNotificationPreferenceRequest
+  ): Promise<responses.GetRepositoryNotificationPreferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#getRepositoryNotificationPreference.");
+    const operationName = "getRepositoryNotificationPreference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryNotificationPreference/GetRepositoryNotificationPreference";
+    const pathParams = {
+      "{repositoryId}": getRepositoryNotificationPreferenceRequest.repositoryId,
+      "{principalId}": getRepositoryNotificationPreferenceRequest.principalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRepositoryNotificationPreferenceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRepositoryNotificationPreferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/repositories/{repositoryId}/principals/{principalId}/pullRequestNotificationPreference",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRepositoryNotificationPreferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryNotificationPreference",
+        bodyModel: model.RepositoryNotificationPreference,
+        type: "model.RepositoryNotificationPreference",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a repository's settings details.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRepositorySettingsRequest
+   * @return GetRepositorySettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositorySettings.ts.html |here} to see how to use GetRepositorySettings API.
+   */
+  public async getRepositorySettings(
+    getRepositorySettingsRequest: requests.GetRepositorySettingsRequest
+  ): Promise<responses.GetRepositorySettingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepositorySettings.");
+    const operationName = "getRepositorySettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositorySettings/GetRepositorySettings";
+    const pathParams = {
+      "{repositoryId}": getRepositorySettingsRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRepositorySettingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRepositorySettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/repositorySettings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRepositorySettingsResponse>{},
+        body: await response.json(),
+        bodyKey: "repositorySettings",
+        bodyModel: model.RepositorySettings,
+        type: "model.RepositorySettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a trigger by identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTriggerRequest
@@ -4392,6 +6197,85 @@ export class DevopsClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Like a PullRequest comment
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param LikePullRequestCommentRequest
+   * @return LikePullRequestCommentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/LikePullRequestComment.ts.html |here} to see how to use LikePullRequestComment API.
+   */
+  public async likePullRequestComment(
+    likePullRequestCommentRequest: requests.LikePullRequestCommentRequest
+  ): Promise<responses.LikePullRequestCommentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#likePullRequestComment.");
+    const operationName = "likePullRequestComment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/LikePullRequestComment";
+    const pathParams = {
+      "{pullRequestId}": likePullRequestCommentRequest.pullRequestId,
+      "{commentId}": likePullRequestCommentRequest.commentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": likePullRequestCommentRequest.ifMatch,
+      "opc-request-id": likePullRequestCommentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      likePullRequestCommentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/comments/{commentId}/actions/like",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.LikePullRequestCommentResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestComment",
+        bodyModel: model.PullRequestComment,
+        type: "model.PullRequestComment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
           }
         ]
       });
@@ -4655,6 +6539,91 @@ export class DevopsClient {
   }
 
   /**
+   * Returns a list of build run snapshots for a given commit or the latest commit on a pull request if no commit is provided.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListBuildRunSnapshotsRequest
+   * @return ListBuildRunSnapshotsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildRunSnapshots.ts.html |here} to see how to use ListBuildRunSnapshots API.
+   */
+  public async listBuildRunSnapshots(
+    listBuildRunSnapshotsRequest: requests.ListBuildRunSnapshotsRequest
+  ): Promise<responses.ListBuildRunSnapshotsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listBuildRunSnapshots.");
+    const operationName = "listBuildRunSnapshots";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListBuildRunSnapshots";
+    const pathParams = {
+      "{pullRequestId}": listBuildRunSnapshotsRequest.pullRequestId
+    };
+
+    const queryParams = {
+      "pipelineId": listBuildRunSnapshotsRequest.pipelineId,
+      "buildRunId": listBuildRunSnapshotsRequest.buildRunId,
+      "commitId": listBuildRunSnapshotsRequest.commitId,
+      "limit": listBuildRunSnapshotsRequest.limit,
+      "page": listBuildRunSnapshotsRequest.page,
+      "sortOrder": listBuildRunSnapshotsRequest.sortOrder,
+      "sortBy": listBuildRunSnapshotsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBuildRunSnapshotsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBuildRunSnapshotsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/buildRunSnapshots",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBuildRunSnapshotsResponse>{},
+        body: await response.json(),
+        bodyKey: "buildRunSnapshotCollection",
+        bodyModel: model.BuildRunSnapshotCollection,
+        type: "model.BuildRunSnapshotCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of build run summary.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4763,6 +6732,7 @@ export class DevopsClient {
     const queryParams = {
       "baseVersion": listCommitDiffsRequest.baseVersion,
       "targetVersion": listCommitDiffsRequest.targetVersion,
+      "targetRepositoryId": listCommitDiffsRequest.targetRepositoryId,
       "isComparisonFromMergeBase": listCommitDiffsRequest.isComparisonFromMergeBase,
       "limit": listCommitDiffsRequest.limit,
       "page": listCommitDiffsRequest.page
@@ -5420,6 +7390,85 @@ export class DevopsClient {
   }
 
   /**
+   * LIST operation that returns a collection of fork sync status objects.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListForkSyncStatusesRequest
+   * @return ListForkSyncStatusesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListForkSyncStatuses.ts.html |here} to see how to use ListForkSyncStatuses API.
+   */
+  public async listForkSyncStatuses(
+    listForkSyncStatusesRequest: requests.ListForkSyncStatusesRequest
+  ): Promise<responses.ListForkSyncStatusesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listForkSyncStatuses.");
+    const operationName = "listForkSyncStatuses";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListForkSyncStatuses";
+    const pathParams = {
+      "{repositoryId}": listForkSyncStatusesRequest.repositoryId
+    };
+
+    const queryParams = {
+      "branchNameQueryParam": listForkSyncStatusesRequest.branchNameQueryParam
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": listForkSyncStatusesRequest.ifMatch,
+      "opc-request-id": listForkSyncStatusesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listForkSyncStatusesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/forkSyncStatuses",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListForkSyncStatusesResponse>{},
+        body: await response.json(),
+        bodyKey: "forkSyncStatusCollection",
+        bodyModel: model.ForkSyncStatusCollection,
+        type: "model.ForkSyncStatusCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of mirror entry in history within 30 days.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -5587,6 +7636,89 @@ export class DevopsClient {
   }
 
   /**
+   * Retrieve a list of all the Commit Analytics authors.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListProjectCommitAnalyticsAuthorsRequest
+   * @return ListProjectCommitAnalyticsAuthorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListProjectCommitAnalyticsAuthors.ts.html |here} to see how to use ListProjectCommitAnalyticsAuthors API.
+   */
+  public async listProjectCommitAnalyticsAuthors(
+    listProjectCommitAnalyticsAuthorsRequest: requests.ListProjectCommitAnalyticsAuthorsRequest
+  ): Promise<responses.ListProjectCommitAnalyticsAuthorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#listProjectCommitAnalyticsAuthors.");
+    const operationName = "listProjectCommitAnalyticsAuthors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListProjectCommitAnalyticsAuthors";
+    const pathParams = {
+      "{projectId}": listProjectCommitAnalyticsAuthorsRequest.projectId
+    };
+
+    const queryParams = {
+      "limit": listProjectCommitAnalyticsAuthorsRequest.limit,
+      "page": listProjectCommitAnalyticsAuthorsRequest.page,
+      "sortOrder": listProjectCommitAnalyticsAuthorsRequest.sortOrder,
+      "sortBy": listProjectCommitAnalyticsAuthorsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listProjectCommitAnalyticsAuthorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProjectCommitAnalyticsAuthorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/commitAnalyticsAuthors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListProjectCommitAnalyticsAuthorsResponse>{},
+        body: await response.json(),
+        bodyKey: "commitAnalyticsAuthorCollection",
+        bodyModel: model.CommitAnalyticsAuthorCollection,
+        type: "model.CommitAnalyticsAuthorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of projects.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListProjectsRequest
@@ -5649,6 +7781,671 @@ export class DevopsClient {
         bodyKey: "projectCollection",
         bodyModel: model.ProjectCollection,
         type: "model.ProjectCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Protected Branches.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListProtectedBranchesRequest
+   * @return ListProtectedBranchesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListProtectedBranches.ts.html |here} to see how to use ListProtectedBranches API.
+   */
+  public async listProtectedBranches(
+    listProtectedBranchesRequest: requests.ListProtectedBranchesRequest
+  ): Promise<responses.ListProtectedBranchesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listProtectedBranches.");
+    const operationName = "listProtectedBranches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ProtectedBranchCollection/ListProtectedBranches";
+    const pathParams = {
+      "{repositoryId}": listProtectedBranchesRequest.repositoryId
+    };
+
+    const queryParams = {
+      "name": listProtectedBranchesRequest.name,
+      "limit": listProtectedBranchesRequest.limit,
+      "page": listProtectedBranchesRequest.page,
+      "sortOrder": listProtectedBranchesRequest.sortOrder,
+      "sortBy": listProtectedBranchesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listProtectedBranchesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProtectedBranchesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/protectedBranches",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListProtectedBranchesResponse>{},
+        body: await response.json(),
+        bodyKey: "protectedBranchCollection",
+        bodyModel: model.ProtectedBranchCollection,
+        type: "model.ProtectedBranchCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List actions that have been taken on a pull request
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPullRequestActivitiesRequest
+   * @return ListPullRequestActivitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestActivities.ts.html |here} to see how to use ListPullRequestActivities API.
+   */
+  public async listPullRequestActivities(
+    listPullRequestActivitiesRequest: requests.ListPullRequestActivitiesRequest
+  ): Promise<responses.ListPullRequestActivitiesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listPullRequestActivities.");
+    const operationName = "listPullRequestActivities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/ListPullRequestActivities";
+    const pathParams = {
+      "{pullRequestId}": listPullRequestActivitiesRequest.pullRequestId
+    };
+
+    const queryParams = {
+      "activityType": listPullRequestActivitiesRequest.activityType,
+      "sortOrder": listPullRequestActivitiesRequest.sortOrder,
+      "limit": listPullRequestActivitiesRequest.limit,
+      "page": listPullRequestActivitiesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPullRequestActivitiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPullRequestActivitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/activities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPullRequestActivitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestActivityCollection",
+        bodyModel: model.PullRequestActivityCollection,
+        type: "model.PullRequestActivityCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List PullRequest level attachments by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPullRequestAttachmentsRequest
+   * @return ListPullRequestAttachmentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestAttachments.ts.html |here} to see how to use ListPullRequestAttachments API.
+   */
+  public async listPullRequestAttachments(
+    listPullRequestAttachmentsRequest: requests.ListPullRequestAttachmentsRequest
+  ): Promise<responses.ListPullRequestAttachmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#listPullRequestAttachments.");
+    const operationName = "listPullRequestAttachments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/ListPullRequestAttachments";
+    const pathParams = {
+      "{pullRequestId}": listPullRequestAttachmentsRequest.pullRequestId
+    };
+
+    const queryParams = {
+      "compartmentId": listPullRequestAttachmentsRequest.compartmentId,
+      "sortOrder": listPullRequestAttachmentsRequest.sortOrder,
+      "sortBy": listPullRequestAttachmentsRequest.sortBy,
+      "fileName": listPullRequestAttachmentsRequest.fileName,
+      "limit": listPullRequestAttachmentsRequest.limit,
+      "page": listPullRequestAttachmentsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPullRequestAttachmentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPullRequestAttachmentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/attachments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPullRequestAttachmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestAttachmentCollection",
+        bodyModel: model.PullRequestAttachmentCollection,
+        type: "model.PullRequestAttachmentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve a list of all the PR authors.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPullRequestAuthorsRequest
+   * @return ListPullRequestAuthorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestAuthors.ts.html |here} to see how to use ListPullRequestAuthors API.
+   */
+  public async listPullRequestAuthors(
+    listPullRequestAuthorsRequest: requests.ListPullRequestAuthorsRequest
+  ): Promise<responses.ListPullRequestAuthorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listPullRequestAuthors.");
+    const operationName = "listPullRequestAuthors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListPullRequestAuthors";
+    const pathParams = {
+      "{repositoryId}": listPullRequestAuthorsRequest.repositoryId
+    };
+
+    const queryParams = {
+      "limit": listPullRequestAuthorsRequest.limit,
+      "page": listPullRequestAuthorsRequest.page,
+      "sortOrder": listPullRequestAuthorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPullRequestAuthorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPullRequestAuthorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/pullRequestAuthors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPullRequestAuthorsResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestAuthorCollection",
+        bodyModel: model.PullRequestAuthorCollection,
+        type: "model.PullRequestAuthorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List PullRequest level comments by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPullRequestCommentsRequest
+   * @return ListPullRequestCommentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestComments.ts.html |here} to see how to use ListPullRequestComments API.
+   */
+  public async listPullRequestComments(
+    listPullRequestCommentsRequest: requests.ListPullRequestCommentsRequest
+  ): Promise<responses.ListPullRequestCommentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listPullRequestComments.");
+    const operationName = "listPullRequestComments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/ListPullRequestComments";
+    const pathParams = {
+      "{pullRequestId}": listPullRequestCommentsRequest.pullRequestId
+    };
+
+    const queryParams = {
+      "compartmentId": listPullRequestCommentsRequest.compartmentId,
+      "sortOrder": listPullRequestCommentsRequest.sortOrder,
+      "sortBy": listPullRequestCommentsRequest.sortBy,
+      "commentId": listPullRequestCommentsRequest.commentId,
+      "commitId": listPullRequestCommentsRequest.commitId,
+      "filePath": listPullRequestCommentsRequest.filePath,
+      "limit": listPullRequestCommentsRequest.limit,
+      "page": listPullRequestCommentsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPullRequestCommentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPullRequestCommentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/comments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPullRequestCommentsResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestCommentCollection",
+        bodyModel: model.PullRequestCommentCollection,
+        type: "model.PullRequestCommentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List pull request commits
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPullRequestCommitsRequest
+   * @return ListPullRequestCommitsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestCommits.ts.html |here} to see how to use ListPullRequestCommits API.
+   */
+  public async listPullRequestCommits(
+    listPullRequestCommitsRequest: requests.ListPullRequestCommitsRequest
+  ): Promise<responses.ListPullRequestCommitsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listPullRequestCommits.");
+    const operationName = "listPullRequestCommits";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/ListPullRequestCommits";
+    const pathParams = {
+      "{pullRequestId}": listPullRequestCommitsRequest.pullRequestId
+    };
+
+    const queryParams = {
+      "limit": listPullRequestCommitsRequest.limit,
+      "page": listPullRequestCommitsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPullRequestCommitsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPullRequestCommitsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/commits",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPullRequestCommitsResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryCommitCollection",
+        bodyModel: model.RepositoryCommitCollection,
+        type: "model.RepositoryCommitCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List pull request file changes
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPullRequestFileChangesRequest
+   * @return ListPullRequestFileChangesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestFileChanges.ts.html |here} to see how to use ListPullRequestFileChanges API.
+   */
+  public async listPullRequestFileChanges(
+    listPullRequestFileChangesRequest: requests.ListPullRequestFileChangesRequest
+  ): Promise<responses.ListPullRequestFileChangesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#listPullRequestFileChanges.");
+    const operationName = "listPullRequestFileChanges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/ListPullRequestFileChanges";
+    const pathParams = {
+      "{pullRequestId}": listPullRequestFileChangesRequest.pullRequestId
+    };
+
+    const queryParams = {
+      "filePath": listPullRequestFileChangesRequest.filePath,
+      "limit": listPullRequestFileChangesRequest.limit,
+      "page": listPullRequestFileChangesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPullRequestFileChangesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPullRequestFileChangesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/fileChanges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPullRequestFileChangesResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestFileChangeCollection",
+        bodyModel: model.PullRequestFileChangeCollection,
+        type: "model.PullRequestFileChangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of PullRequests.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPullRequestsRequest
+   * @return ListPullRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequests.ts.html |here} to see how to use ListPullRequests API.
+   */
+  public async listPullRequests(
+    listPullRequestsRequest: requests.ListPullRequestsRequest
+  ): Promise<responses.ListPullRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#listPullRequests.");
+    const operationName = "listPullRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequestCollection/ListPullRequests";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPullRequestsRequest.compartmentId,
+      "lifecycleState": listPullRequestsRequest.lifecycleState,
+      "lifecycleDetails": listPullRequestsRequest.lifecycleDetails,
+      "repositoryId": listPullRequestsRequest.repositoryId,
+      "displayName": listPullRequestsRequest.displayName,
+      "id": listPullRequestsRequest.id,
+      "createdBy": listPullRequestsRequest.createdBy,
+      "destinationBranch": listPullRequestsRequest.destinationBranch,
+      "sourceBranch": listPullRequestsRequest.sourceBranch,
+      "reviewerPrincipalId": listPullRequestsRequest.reviewerPrincipalId,
+      "sourceRepositoryId": listPullRequestsRequest.sourceRepositoryId,
+      "limit": listPullRequestsRequest.limit,
+      "page": listPullRequestsRequest.page,
+      "sortOrder": listPullRequestsRequest.sortOrder,
+      "sortBy": listPullRequestsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPullRequestsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPullRequestsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPullRequestsResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestCollection",
+        bodyModel: model.PullRequestCollection,
+        type: "model.PullRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5819,6 +8616,89 @@ export class DevopsClient {
         bodyKey: "repositoryCollection",
         bodyModel: model.RepositoryCollection,
         type: "model.RepositoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve a list of all the Commit Analytics authors.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRepositoryCommitAnalyticsAuthorsRequest
+   * @return ListRepositoryCommitAnalyticsAuthorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListRepositoryCommitAnalyticsAuthors.ts.html |here} to see how to use ListRepositoryCommitAnalyticsAuthors API.
+   */
+  public async listRepositoryCommitAnalyticsAuthors(
+    listRepositoryCommitAnalyticsAuthorsRequest: requests.ListRepositoryCommitAnalyticsAuthorsRequest
+  ): Promise<responses.ListRepositoryCommitAnalyticsAuthorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#listRepositoryCommitAnalyticsAuthors.");
+    const operationName = "listRepositoryCommitAnalyticsAuthors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListRepositoryCommitAnalyticsAuthors";
+    const pathParams = {
+      "{repositoryId}": listRepositoryCommitAnalyticsAuthorsRequest.repositoryId
+    };
+
+    const queryParams = {
+      "limit": listRepositoryCommitAnalyticsAuthorsRequest.limit,
+      "page": listRepositoryCommitAnalyticsAuthorsRequest.page,
+      "sortOrder": listRepositoryCommitAnalyticsAuthorsRequest.sortOrder,
+      "sortBy": listRepositoryCommitAnalyticsAuthorsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRepositoryCommitAnalyticsAuthorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRepositoryCommitAnalyticsAuthorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/commitAnalyticsAuthors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRepositoryCommitAnalyticsAuthorsResponse>{},
+        body: await response.json(),
+        bodyKey: "commitAnalyticsAuthorCollection",
+        bodyModel: model.CommitAnalyticsAuthorCollection,
+        type: "model.CommitAnalyticsAuthorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6171,6 +9051,99 @@ export class DevopsClient {
   }
 
   /**
+   * Merge the PullRequest
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param MergePullRequestRequest
+   * @return MergePullRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/MergePullRequest.ts.html |here} to see how to use MergePullRequest API.
+   */
+  public async mergePullRequest(
+    mergePullRequestRequest: requests.MergePullRequestRequest
+  ): Promise<responses.MergePullRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#mergePullRequest.");
+    const operationName = "mergePullRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/MergePullRequest";
+    const pathParams = {
+      "{pullRequestId}": mergePullRequestRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": mergePullRequestRequest.ifMatch,
+      "opc-request-id": mergePullRequestRequest.opcRequestId,
+      "opc-retry-token": mergePullRequestRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      mergePullRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/actions/merge",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        mergePullRequestRequest.mergePullRequestDetails,
+        "MergePullRequestDetails",
+        model.MergePullRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MergePullRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequest",
+        bodyModel: model.PullRequest,
+        type: "model.PullRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Synchronize a mirrored repository to the latest version from external providers.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -6233,6 +9206,94 @@ export class DevopsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the reviewer list of a pull request
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PatchPullRequestRequest
+   * @return PatchPullRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/PatchPullRequest.ts.html |here} to see how to use PatchPullRequest API.
+   */
+  public async patchPullRequest(
+    patchPullRequestRequest: requests.PatchPullRequestRequest
+  ): Promise<responses.PatchPullRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#patchPullRequest.");
+    const operationName = "patchPullRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/PatchPullRequest";
+    const pathParams = {
+      "{pullRequestId}": patchPullRequestRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": patchPullRequestRequest.ifMatch,
+      "opc-request-id": patchPullRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchPullRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchPullRequestRequest.patchPullRequestDetails,
+        "PatchPullRequestDetails",
+        model.PatchPullRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchPullRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequest",
+        bodyModel: model.PullRequest,
+        type: "model.PullRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -6345,6 +9406,178 @@ export class DevopsClient {
   }
 
   /**
+   * Reopen a PullRequest
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReopenPullRequestRequest
+   * @return ReopenPullRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ReopenPullRequest.ts.html |here} to see how to use ReopenPullRequest API.
+   */
+  public async reopenPullRequest(
+    reopenPullRequestRequest: requests.ReopenPullRequestRequest
+  ): Promise<responses.ReopenPullRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#reopenPullRequest.");
+    const operationName = "reopenPullRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/ReopenPullRequest";
+    const pathParams = {
+      "{pullRequestId}": reopenPullRequestRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": reopenPullRequestRequest.ifMatch,
+      "opc-request-id": reopenPullRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reopenPullRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/actions/reopen",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReopenPullRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequest",
+        bodyModel: model.PullRequest,
+        type: "model.PullRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Review a PullRequest
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReviewPullRequestRequest
+   * @return ReviewPullRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ReviewPullRequest.ts.html |here} to see how to use ReviewPullRequest API.
+   */
+  public async reviewPullRequest(
+    reviewPullRequestRequest: requests.ReviewPullRequestRequest
+  ): Promise<responses.ReviewPullRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#reviewPullRequest.");
+    const operationName = "reviewPullRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/ReviewPullRequest";
+    const pathParams = {
+      "{pullRequestId}": reviewPullRequestRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": reviewPullRequestRequest.ifMatch,
+      "opc-retry-token": reviewPullRequestRequest.opcRetryToken,
+      "opc-request-id": reviewPullRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reviewPullRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/actions/review",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        reviewPullRequestRequest.reviewPullRequestDetails,
+        "ReviewPullRequestDetails",
+        model.ReviewPullRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReviewPullRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequest",
+        bodyModel: model.PullRequest,
+        type: "model.PullRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cascading operation that marks Project and child DevOps resources in a DELETING state for a retention period
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ScheduleCascadingProjectDeletionRequest
@@ -6403,6 +9636,421 @@ export class DevopsClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves repository analytics for a given project.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeProjectRepositoryAnalyticsRequest
+   * @return SummarizeProjectRepositoryAnalyticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SummarizeProjectRepositoryAnalytics.ts.html |here} to see how to use SummarizeProjectRepositoryAnalytics API.
+   */
+  public async summarizeProjectRepositoryAnalytics(
+    summarizeProjectRepositoryAnalyticsRequest: requests.SummarizeProjectRepositoryAnalyticsRequest
+  ): Promise<responses.SummarizeProjectRepositoryAnalyticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#summarizeProjectRepositoryAnalytics.");
+    const operationName = "summarizeProjectRepositoryAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryMetricAggregation/SummarizeProjectRepositoryAnalytics";
+    const pathParams = {
+      "{projectId}": summarizeProjectRepositoryAnalyticsRequest.projectId
+    };
+
+    const queryParams = {
+      "limit": summarizeProjectRepositoryAnalyticsRequest.limit,
+      "page": summarizeProjectRepositoryAnalyticsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeProjectRepositoryAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeProjectRepositoryAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/repositoryAnalytics",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        summarizeProjectRepositoryAnalyticsRequest.summarizeProjectRepositoryAnalyticsDetails,
+        "SummarizeProjectRepositoryAnalyticsDetails",
+        model.SummarizeProjectRepositoryAnalyticsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeProjectRepositoryAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryMetricAggregation",
+        bodyModel: model.RepositoryMetricAggregation,
+        type: "model.RepositoryMetricAggregation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves repository analytics for a given repository.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeRepositoryAnalyticsRequest
+   * @return SummarizeRepositoryAnalyticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SummarizeRepositoryAnalytics.ts.html |here} to see how to use SummarizeRepositoryAnalytics API.
+   */
+  public async summarizeRepositoryAnalytics(
+    summarizeRepositoryAnalyticsRequest: requests.SummarizeRepositoryAnalyticsRequest
+  ): Promise<responses.SummarizeRepositoryAnalyticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#summarizeRepositoryAnalytics.");
+    const operationName = "summarizeRepositoryAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryMetricAggregation/SummarizeRepositoryAnalytics";
+    const pathParams = {
+      "{repositoryId}": summarizeRepositoryAnalyticsRequest.repositoryId
+    };
+
+    const queryParams = {
+      "limit": summarizeRepositoryAnalyticsRequest.limit,
+      "page": summarizeRepositoryAnalyticsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeRepositoryAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeRepositoryAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repository/{repositoryId}/repositoryAnalytics",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        summarizeRepositoryAnalyticsRequest.summarizeRepositoryAnalyticsDetails,
+        "SummarizeRepositoryAnalyticsDetails",
+        model.SummarizeRepositoryAnalyticsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeRepositoryAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryMetricAggregation",
+        bodyModel: model.RepositoryMetricAggregation,
+        type: "model.RepositoryMetricAggregation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Synchronize a forked repository to the latest version
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SyncRepositoryRequest
+   * @return SyncRepositoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SyncRepository.ts.html |here} to see how to use SyncRepository API.
+   */
+  public async syncRepository(
+    syncRepositoryRequest: requests.SyncRepositoryRequest
+  ): Promise<responses.SyncRepositoryResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#syncRepository.");
+    const operationName = "syncRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/SyncRepository";
+    const pathParams = {
+      "{repositoryId}": syncRepositoryRequest.repositoryId
+    };
+
+    const queryParams = {
+      "syncMergeStrategy": syncRepositoryRequest.syncMergeStrategy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": syncRepositoryRequest.ifMatch,
+      "opc-request-id": syncRepositoryRequest.opcRequestId,
+      "opc-retry-token": syncRepositoryRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      syncRepositoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/actions/sync",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        syncRepositoryRequest.syncRepositoryDetails,
+        "SyncRepositoryDetails",
+        model.SyncRepositoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SyncRepositoryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Unlike a PullRequest comment
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UnlikePullRequestCommentRequest
+   * @return UnlikePullRequestCommentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UnlikePullRequestComment.ts.html |here} to see how to use UnlikePullRequestComment API.
+   */
+  public async unlikePullRequestComment(
+    unlikePullRequestCommentRequest: requests.UnlikePullRequestCommentRequest
+  ): Promise<responses.UnlikePullRequestCommentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#unlikePullRequestComment.");
+    const operationName = "unlikePullRequestComment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/UnlikePullRequestComment";
+    const pathParams = {
+      "{pullRequestId}": unlikePullRequestCommentRequest.pullRequestId,
+      "{commentId}": unlikePullRequestCommentRequest.commentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": unlikePullRequestCommentRequest.ifMatch,
+      "opc-request-id": unlikePullRequestCommentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unlikePullRequestCommentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/comments/{commentId}/actions/unlike",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnlikePullRequestCommentResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestComment",
+        bodyModel: model.PullRequestComment,
+        type: "model.PullRequestComment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * unsubscribe the PullRequest
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UnsubscribePullRequestRequest
+   * @return UnsubscribePullRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UnsubscribePullRequest.ts.html |here} to see how to use UnsubscribePullRequest API.
+   */
+  public async unsubscribePullRequest(
+    unsubscribePullRequestRequest: requests.UnsubscribePullRequestRequest
+  ): Promise<responses.UnsubscribePullRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#unsubscribePullRequest.");
+    const operationName = "unsubscribePullRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/UnsubscribePullRequest";
+    const pathParams = {
+      "{pullRequestId}": unsubscribePullRequestRequest.pullRequestId
+    };
+
+    const queryParams = {
+      "token": unsubscribePullRequestRequest.token
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": unsubscribePullRequestRequest.ifMatch,
+      "opc-request-id": unsubscribePullRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unsubscribePullRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/actions/unsubscribe",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnsubscribePullRequestResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -7325,6 +10973,449 @@ export class DevopsClient {
   }
 
   /**
+   * Update the project notification preference for the user passed as path param
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateProjectNotificationPreferenceRequest
+   * @return UpdateProjectNotificationPreferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateProjectNotificationPreference.ts.html |here} to see how to use UpdateProjectNotificationPreference API.
+   */
+  public async updateProjectNotificationPreference(
+    updateProjectNotificationPreferenceRequest: requests.UpdateProjectNotificationPreferenceRequest
+  ): Promise<responses.UpdateProjectNotificationPreferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#updateProjectNotificationPreference.");
+    const operationName = "updateProjectNotificationPreference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ProjectNotificationPreference/UpdateProjectNotificationPreference";
+    const pathParams = {
+      "{projectId}": updateProjectNotificationPreferenceRequest.projectId,
+      "{principalId}": updateProjectNotificationPreferenceRequest.principalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateProjectNotificationPreferenceRequest.ifMatch,
+      "opc-request-id": updateProjectNotificationPreferenceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProjectNotificationPreferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/principals/{principalId}/pullRequestNotificationPreference",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateProjectNotificationPreferenceRequest.updateProjectNotificationPreferenceDetails,
+        "UpdateProjectNotificationPreferenceDetails",
+        model.UpdateProjectNotificationPreferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateProjectNotificationPreferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "projectNotificationPreference",
+        bodyModel: model.ProjectNotificationPreference,
+        type: "model.ProjectNotificationPreference",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the repository settings for a project.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateProjectRepositorySettingsRequest
+   * @return UpdateProjectRepositorySettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateProjectRepositorySettings.ts.html |here} to see how to use UpdateProjectRepositorySettings API.
+   */
+  public async updateProjectRepositorySettings(
+    updateProjectRepositorySettingsRequest: requests.UpdateProjectRepositorySettingsRequest
+  ): Promise<responses.UpdateProjectRepositorySettingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#updateProjectRepositorySettings.");
+    const operationName = "updateProjectRepositorySettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ProjectRepositorySettings/UpdateProjectRepositorySettings";
+    const pathParams = {
+      "{projectId}": updateProjectRepositorySettingsRequest.projectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateProjectRepositorySettingsRequest.ifMatch,
+      "opc-retry-token": updateProjectRepositorySettingsRequest.opcRetryToken,
+      "opc-request-id": updateProjectRepositorySettingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProjectRepositorySettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/repositorySettings",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateProjectRepositorySettingsRequest.updateProjectRepositorySettingsDetails,
+        "UpdateProjectRepositorySettingsDetails",
+        model.UpdateProjectRepositorySettingsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateProjectRepositorySettingsResponse>{},
+        body: await response.json(),
+        bodyKey: "projectRepositorySettings",
+        bodyModel: model.ProjectRepositorySettings,
+        type: "model.ProjectRepositorySettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the PullRequest
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdatePullRequestRequest
+   * @return UpdatePullRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdatePullRequest.ts.html |here} to see how to use UpdatePullRequest API.
+   */
+  public async updatePullRequest(
+    updatePullRequestRequest: requests.UpdatePullRequestRequest
+  ): Promise<responses.UpdatePullRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#updatePullRequest.");
+    const operationName = "updatePullRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/UpdatePullRequest";
+    const pathParams = {
+      "{pullRequestId}": updatePullRequestRequest.pullRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePullRequestRequest.ifMatch,
+      "opc-request-id": updatePullRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePullRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePullRequestRequest.updatePullRequestDetails,
+        "UpdatePullRequestDetails",
+        model.UpdatePullRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePullRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequest",
+        bodyModel: model.PullRequest,
+        type: "model.PullRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the PullRequest comment
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdatePullRequestCommentRequest
+   * @return UpdatePullRequestCommentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdatePullRequestComment.ts.html |here} to see how to use UpdatePullRequestComment API.
+   */
+  public async updatePullRequestComment(
+    updatePullRequestCommentRequest: requests.UpdatePullRequestCommentRequest
+  ): Promise<responses.UpdatePullRequestCommentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#updatePullRequestComment.");
+    const operationName = "updatePullRequestComment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/UpdatePullRequestComment";
+    const pathParams = {
+      "{pullRequestId}": updatePullRequestCommentRequest.pullRequestId,
+      "{commentId}": updatePullRequestCommentRequest.commentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePullRequestCommentRequest.ifMatch,
+      "opc-request-id": updatePullRequestCommentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePullRequestCommentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/comments/{commentId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePullRequestCommentRequest.updatePullRequestCommentDetails,
+        "UpdatePullRequestCommentDetails",
+        model.UpdatePullRequestCommentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePullRequestCommentResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestComment",
+        bodyModel: model.PullRequestComment,
+        type: "model.PullRequestComment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the pull request notification preference for the user passed as path param
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdatePullRequestNotificationPreferenceRequest
+   * @return UpdatePullRequestNotificationPreferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdatePullRequestNotificationPreference.ts.html |here} to see how to use UpdatePullRequestNotificationPreference API.
+   */
+  public async updatePullRequestNotificationPreference(
+    updatePullRequestNotificationPreferenceRequest: requests.UpdatePullRequestNotificationPreferenceRequest
+  ): Promise<responses.UpdatePullRequestNotificationPreferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#updatePullRequestNotificationPreference.");
+    const operationName = "updatePullRequestNotificationPreference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequestNotificationPreference/UpdatePullRequestNotificationPreference";
+    const pathParams = {
+      "{pullRequestId}": updatePullRequestNotificationPreferenceRequest.pullRequestId,
+      "{principalId}": updatePullRequestNotificationPreferenceRequest.principalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePullRequestNotificationPreferenceRequest.ifMatch,
+      "opc-request-id": updatePullRequestNotificationPreferenceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePullRequestNotificationPreferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/pullRequests/{pullRequestId}/principals/{principalId}/pullRequestNotificationPreference",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePullRequestNotificationPreferenceRequest.updatePullRequestNotificationPreferenceDetails,
+        "UpdatePullRequestNotificationPreferenceDetails",
+        model.UpdatePullRequestNotificationPreferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePullRequestNotificationPreferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestNotificationPreference",
+        bodyModel: model.PullRequestNotificationPreference,
+        type: "model.PullRequestNotificationPreference",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the repository.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateRepositoryRequest
@@ -7400,6 +11491,184 @@ export class DevopsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the repository notification preference for the user passed as path param
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateRepositoryNotificationPreferenceRequest
+   * @return UpdateRepositoryNotificationPreferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateRepositoryNotificationPreference.ts.html |here} to see how to use UpdateRepositoryNotificationPreference API.
+   */
+  public async updateRepositoryNotificationPreference(
+    updateRepositoryNotificationPreferenceRequest: requests.UpdateRepositoryNotificationPreferenceRequest
+  ): Promise<responses.UpdateRepositoryNotificationPreferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#updateRepositoryNotificationPreference.");
+    const operationName = "updateRepositoryNotificationPreference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryNotificationPreference/UpdateRepositoryNotificationPreference";
+    const pathParams = {
+      "{repositoryId}": updateRepositoryNotificationPreferenceRequest.repositoryId,
+      "{principalId}": updateRepositoryNotificationPreferenceRequest.principalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateRepositoryNotificationPreferenceRequest.ifMatch,
+      "opc-request-id": updateRepositoryNotificationPreferenceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRepositoryNotificationPreferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/repositories/{repositoryId}/principals/{principalId}/pullRequestNotificationPreference",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRepositoryNotificationPreferenceRequest.updateRepositoryNotificationPreferenceDetails,
+        "UpdateRepositoryNotificationPreferenceDetails",
+        model.UpdateRepositoryNotificationPreferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRepositoryNotificationPreferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "repositoryNotificationPreference",
+        bodyModel: model.RepositoryNotificationPreference,
+        type: "model.RepositoryNotificationPreference",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the settings for a repository.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateRepositorySettingsRequest
+   * @return UpdateRepositorySettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateRepositorySettings.ts.html |here} to see how to use UpdateRepositorySettings API.
+   */
+  public async updateRepositorySettings(
+    updateRepositorySettingsRequest: requests.UpdateRepositorySettingsRequest
+  ): Promise<responses.UpdateRepositorySettingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#updateRepositorySettings.");
+    const operationName = "updateRepositorySettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositorySettings/UpdateRepositorySettings";
+    const pathParams = {
+      "{repositoryId}": updateRepositorySettingsRequest.repositoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateRepositorySettingsRequest.ifMatch,
+      "opc-retry-token": updateRepositorySettingsRequest.opcRetryToken,
+      "opc-request-id": updateRepositorySettingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRepositorySettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/repositories/{repositoryId}/repositorySettings",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRepositorySettingsRequest.updateRepositorySettingsDetails,
+        "UpdateRepositorySettingsDetails",
+        model.UpdateRepositorySettingsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRepositorySettingsResponse>{},
+        body: await response.json(),
+        bodyKey: "repositorySettings",
+        bodyModel: model.RepositorySettings,
+        type: "model.RepositorySettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

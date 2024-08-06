@@ -27,7 +27,7 @@ export interface ListDefaultConfigurationsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * Verison of the PostgreSQL database, such as 14.9.
+   * Version of the PostgreSQL database, such as 14.9.
    */
   "dbVersion"?: string;
   /**

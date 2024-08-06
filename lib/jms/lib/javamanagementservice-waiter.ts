@@ -1,6 +1,6 @@
 /**
- * Java Management Service API
- * API for the Java Management Service. Use this API to view, create, and manage Fleets.
+ * Java Management Service Fleets API
+ * The APIs for the [Fleet Management](https://docs.oracle.com/en-us/iaas/jms/doc/fleet-management.html) feature of Java Management Service to monitor and manage the usage of Java in your enterprise. Use these APIs to manage fleets, configure managed instances to report to fleets, and gain insights into the Java workloads running on these instances by carrying out basic and advanced features.
  * OpenAPI spec version: 20210610
  *
  *
@@ -39,6 +39,25 @@ export class JavaManagementServiceWaiter {
       () => this.client.getFleet(request),
       response => targetStates.includes(response.fleet.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forJmsPlugin till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetJmsPluginResponse | null (null in case of 404 response)
+   */
+  public async forJmsPlugin(
+    request: serviceRequests.GetJmsPluginRequest,
+    ...targetStates: models.JmsPluginLifecycleState[]
+  ): Promise<serviceResponses.GetJmsPluginResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getJmsPlugin(request),
+      response => targetStates.includes(response.jmsPlugin.lifecycleState!),
+      targetStates.includes(models.JmsPluginLifecycleState.Deleted)
     );
   }
 

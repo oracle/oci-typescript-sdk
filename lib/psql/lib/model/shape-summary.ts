@@ -31,6 +31,10 @@ export interface ShapeSummary {
    */
   "shape": string;
   /**
+   * Indicates if the shape is a flex shape.
+   */
+  "isFlexible"?: boolean;
+  /**
    * The number of OCPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpuCount": number;
@@ -38,16 +42,38 @@ export interface ShapeSummary {
    * The amount of memory in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs": number;
+  "shapeOcpuOptions"?: model.ShapeOcpuOptions;
+  "shapeMemoryOptions"?: model.ShapeMemoryOptions;
 }
 
 export namespace ShapeSummary {
   export function getJsonObj(obj: ShapeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeOcpuOptions": obj.shapeOcpuOptions
+          ? model.ShapeOcpuOptions.getJsonObj(obj.shapeOcpuOptions)
+          : undefined,
+        "shapeMemoryOptions": obj.shapeMemoryOptions
+          ? model.ShapeMemoryOptions.getJsonObj(obj.shapeMemoryOptions)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ShapeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeOcpuOptions": obj.shapeOcpuOptions
+          ? model.ShapeOcpuOptions.getDeserializedJsonObj(obj.shapeOcpuOptions)
+          : undefined,
+        "shapeMemoryOptions": obj.shapeMemoryOptions
+          ? model.ShapeMemoryOptions.getDeserializedJsonObj(obj.shapeMemoryOptions)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

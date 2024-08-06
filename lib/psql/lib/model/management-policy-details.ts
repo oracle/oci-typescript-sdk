@@ -21,9 +21,13 @@ import common = require("oci-common");
  */
 export interface ManagementPolicyDetails {
   /**
-   * The start of the maintenance window.
-   *
-   */
+    * The start of the maintenance window in UTC.
+* <p>
+This string is of the format: \"{day-of-week} {time-of-day}\".
+* \"{day-of-week}\" is a case-insensitive string like \"mon\", \"tue\", &c.
+* \"{time-of-day}\" is the \"Time\" portion of an RFC3339-formatted timestamp. Any second or sub-second time data will be truncated to zero.
+* 
+    */
   "maintenanceWindowStart"?: string;
   "backupPolicy"?:
     | model.DailyBackupPolicy

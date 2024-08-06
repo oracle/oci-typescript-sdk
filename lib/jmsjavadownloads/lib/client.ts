@@ -751,11 +751,11 @@ export class JavaDownloadClient {
   }
 
   /**
-     * Generates a short-lived download URL and returns it in the response payload.
-* The returned URL can then be used for downloading the specific Java runtime artifact.
+     * Generates a download URL and returns it in the response payload.
+* The URL in the response can then be used for downloading the specific Java runtime artifact.
 * <p>
 Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
-* to get information about available artifacts for a specific release. Each such artifact is uniquely identified by an `artifactId`.
+* to get information about available artifacts for a specific release. Each artifact is uniquely identified by an `artifactId`.
 * Refer {@link #javaArtifact(JavaArtifactRequest) javaArtifact} for more details.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

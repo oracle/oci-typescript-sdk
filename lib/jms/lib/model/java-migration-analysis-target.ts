@@ -1,6 +1,6 @@
 /**
- * Java Management Service API
- * API for the Java Management Service. Use this API to view, create, and manage Fleets.
+ * Java Management Service Fleets API
+ * The APIs for the [Fleet Management](https://docs.oracle.com/en-us/iaas/jms/doc/fleet-management.html) feature of Java Management Service to monitor and manage the usage of Java in your enterprise. Use these APIs to manage fleets, configure managed instances to report to fleets, and gain insights into the Java workloads running on these instances by carrying out basic and advanced features.
  * OpenAPI spec version: 20210610
  *
  *
@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * The target describes the input data for Java migration analysis.
- * A target contains a managed instance, application Installation Key, sourceJdkVersion, and targetJdkVersion.
+ * A target contains a managed instance, application Installation Key, sourceJdkVersion, targetJdkVersion and optional excludePackagePrefixes.
  *
  */
 export interface JavaMigrationAnalysisTarget {
@@ -36,6 +36,10 @@ export interface JavaMigrationAnalysisTarget {
    * The JDK version against which the migration analysis was performed to identify effort required to move from source JDK.
    */
   "targetJdkVersion": string;
+  /**
+   * Excludes the packages that starts with the prefix from the migration analysis result.
+   */
+  "excludePackagePrefixes"?: Array<string>;
 }
 
 export namespace JavaMigrationAnalysisTarget {

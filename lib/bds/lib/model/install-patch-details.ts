@@ -27,16 +27,34 @@ export interface InstallPatchDetails {
    * Base-64 encoded password for the cluster admin user.
    */
   "clusterAdminPassword": string;
+  "patchingConfig"?:
+    | model.DowntimeBasedOdhPatchingConfig
+    | model.DomainBasedOdhPatchingConfig
+    | model.BatchingBasedOdhPatchingConfig;
 }
 
 export namespace InstallPatchDetails {
   export function getJsonObj(obj: InstallPatchDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "patchingConfig": obj.patchingConfig
+          ? model.OdhPatchingConfig.getJsonObj(obj.patchingConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: InstallPatchDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "patchingConfig": obj.patchingConfig
+          ? model.OdhPatchingConfig.getDeserializedJsonObj(obj.patchingConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -10354,7 +10354,7 @@ export class SoftwareSourceClient {
   }
 
   /**
-   * Registers the necessary entitlement credentials for OS vendor software sources.
+   * Registers the necessary entitlement credentials for OS vendor software sources for a tenancy.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateEntitlementRequest

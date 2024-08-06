@@ -24,7 +24,7 @@ export interface ListFleetsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * The ID of the Fleet.
+   * The ID.
    */
   "id"?: string;
   /**

@@ -47,4 +47,12 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    * The Fleet-unique identifier of the managed instance.
    */
   "managedInstanceId"?: string;
+  /**
+   * The operation type of the work request.
+   */
+  "operationType"?: model.OperationType;
+  /**
+   * The status of the work request.
+   */
+  "status"?: Array<model.OperationStatus>;
 }
