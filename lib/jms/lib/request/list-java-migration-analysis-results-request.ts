@@ -27,6 +27,22 @@ export interface ListJavaMigrationAnalysisResultsRequest extends common.BaseRequ
    */
   "managedInstanceId"?: string;
   /**
+   * The host [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the managed instance.
+   */
+  "hostName"?: string;
+  /**
+   * The name of the application.
+   */
+  "applicationName"?: string;
+  /**
+   * The start of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   */
+  "timeStart"?: Date;
+  /**
+   * The end of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   */
+  "timeEnd"?: Date;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;
@@ -49,12 +65,4 @@ export interface ListJavaMigrationAnalysisResultsRequest extends common.BaseRequ
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
-  /**
-   * The start of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
-   */
-  "timeStart"?: Date;
-  /**
-   * The end of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
-   */
-  "timeEnd"?: Date;
 }

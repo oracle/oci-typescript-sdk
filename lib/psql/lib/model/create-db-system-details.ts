@@ -70,7 +70,7 @@ export interface CreateDbSystemDetails {
    *
    */
   "instancesDetails"?: Array<model.CreateDbInstanceDetails>;
-  "credentials"?: model.Credentials;
+  "credentials": model.Credentials;
   "networkDetails": model.NetworkDetails;
   "managementPolicy"?: model.ManagementPolicyDetails;
   "source"?: model.BackupSourceDetails | model.NoneSourceDetails;

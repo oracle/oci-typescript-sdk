@@ -1,6 +1,6 @@
 /**
- * Java Management Service API
- * API for the Java Management Service. Use this API to view, create, and manage Fleets.
+ * Java Management Service Fleets API
+ * The APIs for the [Fleet Management](https://docs.oracle.com/en-us/iaas/jms/doc/fleet-management.html) feature of Java Management Service to monitor and manage the usage of Java in your enterprise. Use these APIs to manage fleets, configure managed instances to report to fleets, and gain insights into the Java workloads running on these instances by carrying out basic and advanced features.
  * OpenAPI spec version: 20210610
  *
  *
@@ -61,7 +61,7 @@ export interface JavaArtifact {
   /**
    * The endpoint that returns a short-lived artifact download URL in the response payload.
    * This download url can then be used for downloading the artifact.
-   * See this [API](https://docs.oracle.com/en-us/iaas/api/#/en/jms/20230601/JavaArtifact/GenerateArtifactDownloadUrl) for more details.
+   * See this [API](https://docs.oracle.com/en-us/iaas/api/#/en/jms-java-download/20230601/DownloadUrl/GenerateArtifactDownloadUrl) for more details.
    *
    */
   "downloadUrl": string;

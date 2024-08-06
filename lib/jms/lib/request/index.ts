@@ -1,6 +1,6 @@
 /**
- * Java Management Service API
- * API for the Java Management Service. Use this API to view, create, and manage Fleets.
+ * Java Management Service Fleets API
+ * The APIs for the [Fleet Management](https://docs.oracle.com/en-us/iaas/jms/doc/fleet-management.html) feature of Java Management Service to monitor and manage the usage of Java in your enterprise. Use these APIs to manage fleets, configure managed instances to report to fleets, and gain insights into the Java workloads running on these instances by carrying out basic and advanced features.
  * OpenAPI spec version: 20210610
  *
  *
@@ -23,6 +23,8 @@ import * as CreateDrsFileRequest from "./create-drs-file-request";
 export import CreateDrsFileRequest = CreateDrsFileRequest.CreateDrsFileRequest;
 import * as CreateFleetRequest from "./create-fleet-request";
 export import CreateFleetRequest = CreateFleetRequest.CreateFleetRequest;
+import * as CreateJmsPluginRequest from "./create-jms-plugin-request";
+export import CreateJmsPluginRequest = CreateJmsPluginRequest.CreateJmsPluginRequest;
 import * as DeleteBlocklistRequest from "./delete-blocklist-request";
 export import DeleteBlocklistRequest = DeleteBlocklistRequest.DeleteBlocklistRequest;
 import * as DeleteCryptoAnalysisResultRequest from "./delete-crypto-analysis-result-request";
@@ -33,6 +35,8 @@ import * as DeleteFleetRequest from "./delete-fleet-request";
 export import DeleteFleetRequest = DeleteFleetRequest.DeleteFleetRequest;
 import * as DeleteJavaMigrationAnalysisResultRequest from "./delete-java-migration-analysis-result-request";
 export import DeleteJavaMigrationAnalysisResultRequest = DeleteJavaMigrationAnalysisResultRequest.DeleteJavaMigrationAnalysisResultRequest;
+import * as DeleteJmsPluginRequest from "./delete-jms-plugin-request";
+export import DeleteJmsPluginRequest = DeleteJmsPluginRequest.DeleteJmsPluginRequest;
 import * as DeletePerformanceTuningAnalysisResultRequest from "./delete-performance-tuning-analysis-result-request";
 export import DeletePerformanceTuningAnalysisResultRequest = DeletePerformanceTuningAnalysisResultRequest.DeletePerformanceTuningAnalysisResultRequest;
 import * as DisableDrsRequest from "./disable-drs-request";
@@ -41,6 +45,10 @@ import * as EnableDrsRequest from "./enable-drs-request";
 export import EnableDrsRequest = EnableDrsRequest.EnableDrsRequest;
 import * as GenerateAgentDeployScriptRequest from "./generate-agent-deploy-script-request";
 export import GenerateAgentDeployScriptRequest = GenerateAgentDeployScriptRequest.GenerateAgentDeployScriptRequest;
+import * as GenerateAgentInstallerConfigurationRequest from "./generate-agent-installer-configuration-request";
+export import GenerateAgentInstallerConfigurationRequest = GenerateAgentInstallerConfigurationRequest.GenerateAgentInstallerConfigurationRequest;
+import * as GenerateLoadPipelineScriptRequest from "./generate-load-pipeline-script-request";
+export import GenerateLoadPipelineScriptRequest = GenerateLoadPipelineScriptRequest.GenerateLoadPipelineScriptRequest;
 import * as GetCryptoAnalysisResultRequest from "./get-crypto-analysis-result-request";
 export import GetCryptoAnalysisResultRequest = GetCryptoAnalysisResultRequest.GetCryptoAnalysisResultRequest;
 import * as GetDrsFileRequest from "./get-drs-file-request";
@@ -61,10 +69,14 @@ import * as GetJavaMigrationAnalysisResultRequest from "./get-java-migration-ana
 export import GetJavaMigrationAnalysisResultRequest = GetJavaMigrationAnalysisResultRequest.GetJavaMigrationAnalysisResultRequest;
 import * as GetJavaReleaseRequest from "./get-java-release-request";
 export import GetJavaReleaseRequest = GetJavaReleaseRequest.GetJavaReleaseRequest;
+import * as GetJmsPluginRequest from "./get-jms-plugin-request";
+export import GetJmsPluginRequest = GetJmsPluginRequest.GetJmsPluginRequest;
 import * as GetPerformanceTuningAnalysisResultRequest from "./get-performance-tuning-analysis-result-request";
 export import GetPerformanceTuningAnalysisResultRequest = GetPerformanceTuningAnalysisResultRequest.GetPerformanceTuningAnalysisResultRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as ListAgentInstallersRequest from "./list-agent-installers-request";
+export import ListAgentInstallersRequest = ListAgentInstallersRequest.ListAgentInstallersRequest;
 import * as ListAnnouncementsRequest from "./list-announcements-request";
 export import ListAnnouncementsRequest = ListAnnouncementsRequest.ListAnnouncementsRequest;
 import * as ListBlocklistsRequest from "./list-blocklists-request";
@@ -85,6 +97,8 @@ import * as ListJavaMigrationAnalysisResultsRequest from "./list-java-migration-
 export import ListJavaMigrationAnalysisResultsRequest = ListJavaMigrationAnalysisResultsRequest.ListJavaMigrationAnalysisResultsRequest;
 import * as ListJavaReleasesRequest from "./list-java-releases-request";
 export import ListJavaReleasesRequest = ListJavaReleasesRequest.ListJavaReleasesRequest;
+import * as ListJmsPluginsRequest from "./list-jms-plugins-request";
+export import ListJmsPluginsRequest = ListJmsPluginsRequest.ListJmsPluginsRequest;
 import * as ListJreUsageRequest from "./list-jre-usage-request";
 export import ListJreUsageRequest = ListJreUsageRequest.ListJreUsageRequest;
 import * as ListPerformanceTuningAnalysisResultsRequest from "./list-performance-tuning-analysis-results-request";
@@ -101,6 +115,8 @@ import * as RemoveFleetInstallationSitesRequest from "./remove-fleet-installatio
 export import RemoveFleetInstallationSitesRequest = RemoveFleetInstallationSitesRequest.RemoveFleetInstallationSitesRequest;
 import * as RequestCryptoAnalysesRequest from "./request-crypto-analyses-request";
 export import RequestCryptoAnalysesRequest = RequestCryptoAnalysesRequest.RequestCryptoAnalysesRequest;
+import * as RequestDeployedApplicationMigrationAnalysesRequest from "./request-deployed-application-migration-analyses-request";
+export import RequestDeployedApplicationMigrationAnalysesRequest = RequestDeployedApplicationMigrationAnalysesRequest.RequestDeployedApplicationMigrationAnalysesRequest;
 import * as RequestJavaMigrationAnalysesRequest from "./request-java-migration-analyses-request";
 export import RequestJavaMigrationAnalysesRequest = RequestJavaMigrationAnalysesRequest.RequestJavaMigrationAnalysesRequest;
 import * as RequestJfrRecordingsRequest from "./request-jfr-recordings-request";
@@ -143,3 +159,5 @@ import * as UpdateFleetAdvancedFeatureConfigurationRequest from "./update-fleet-
 export import UpdateFleetAdvancedFeatureConfigurationRequest = UpdateFleetAdvancedFeatureConfigurationRequest.UpdateFleetAdvancedFeatureConfigurationRequest;
 import * as UpdateFleetAgentConfigurationRequest from "./update-fleet-agent-configuration-request";
 export import UpdateFleetAgentConfigurationRequest = UpdateFleetAgentConfigurationRequest.UpdateFleetAgentConfigurationRequest;
+import * as UpdateJmsPluginRequest from "./update-jms-plugin-request";
+export import UpdateJmsPluginRequest = UpdateJmsPluginRequest.UpdateJmsPluginRequest;

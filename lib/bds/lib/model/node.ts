@@ -108,6 +108,10 @@ export interface Node {
    */
   "isRebootRequired"?: boolean;
   /**
+   * Version of the ODH (Oracle Distribution including Apache Hadoop) for the node.
+   */
+  "odhVersion"?: string;
+  /**
    * The date and time the instance was replaced by a new vm with a node backup.
    */
   "timeReplaced"?: Date;

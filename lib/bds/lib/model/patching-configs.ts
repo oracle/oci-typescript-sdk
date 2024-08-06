@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Detailed configurations for defining the behavior when installing os patches. If not provided, nodes will be patched and rebooted AD/FD by AD/FD.
+ * Detailed configurations for defining the behavior when installing os patches. If not provided, nodes will be patched and rebooted AD/FD by AD/FD for regular patches or will be patched with down time if the patch is an emergent patch.
  */
 export interface PatchingConfigs {
   "patchingConfigStrategy": string;
@@ -36,6 +36,11 @@ export namespace PatchingConfigs {
         case "DOWNTIME_BASED":
           return model.DowntimeBasedPatchingConfigs.getJsonObj(
             <model.DowntimeBasedPatchingConfigs>(<object>jsonObj),
+            true
+          );
+        case "DOMAIN_BASED":
+          return model.DomainBasedPatchingConfigs.getJsonObj(
+            <model.DomainBasedPatchingConfigs>(<object>jsonObj),
             true
           );
         default:
@@ -58,6 +63,11 @@ export namespace PatchingConfigs {
         case "DOWNTIME_BASED":
           return model.DowntimeBasedPatchingConfigs.getDeserializedJsonObj(
             <model.DowntimeBasedPatchingConfigs>(<object>jsonObj),
+            true
+          );
+        case "DOMAIN_BASED":
+          return model.DomainBasedPatchingConfigs.getDeserializedJsonObj(
+            <model.DomainBasedPatchingConfigs>(<object>jsonObj),
             true
           );
         default:

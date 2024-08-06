@@ -1,6 +1,6 @@
 /**
- * Java Management Service API
- * API for the Java Management Service. Use this API to view, create, and manage Fleets.
+ * Java Management Service Fleets API
+ * The APIs for the [Fleet Management](https://docs.oracle.com/en-us/iaas/jms/doc/fleet-management.html) feature of Java Management Service to monitor and manage the usage of Java in your enterprise. Use these APIs to manage fleets, configure managed instances to report to fleets, and gain insights into the Java workloads running on these instances by carrying out basic and advanced features.
  * OpenAPI spec version: 20210610
  *
  *
@@ -65,6 +65,14 @@ export interface ApplicationInstallationUsageSummary {
    * The approximate count of managed instances reporting this application. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateManagedInstanceCount"?: number;
+  /**
+   * The approximate count of libraries in this application. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "approximateLibraryCount"?: number;
+  /**
+   * Comma separated list of user names that invoked application installations.
+   */
+  "applicationInvokedBy"?: string;
   /**
    * Lower bound of the specified time period filter. JMS provides a view of the data that is _per day_. The query uses only the date element of the parameter.
    */

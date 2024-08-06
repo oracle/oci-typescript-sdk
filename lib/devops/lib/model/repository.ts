@@ -39,6 +39,10 @@ export interface Repository {
    */
   "projectId": string;
   /**
+   * The OCID of the parent repository.
+   */
+  "parentRepositoryId"?: string;
+  /**
    * Unique project name in a namespace.
    */
   "projectName"?: string;
@@ -62,6 +66,7 @@ export interface Repository {
    * Type of repository:
    * MIRRORED - Repository created by mirroring an existing repository.
    * HOSTED - Repository created and hosted using OCI DevOps code repository.
+   * FORKED - Repository created by forking an existing repository.
    *
    */
   "repositoryType"?: Repository.RepositoryType;
@@ -121,6 +126,7 @@ export namespace Repository {
   export enum RepositoryType {
     Mirrored = "MIRRORED",
     Hosted = "HOSTED",
+    Forked = "FORKED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -132,6 +138,7 @@ export namespace Repository {
     Active = "ACTIVE",
     Creating = "CREATING",
     Deleted = "DELETED",
+    Failed = "FAILED",
     Deleting = "DELETING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

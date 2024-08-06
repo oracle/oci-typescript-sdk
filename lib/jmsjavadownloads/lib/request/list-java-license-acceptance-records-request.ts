@@ -26,7 +26,7 @@ export interface ListJavaLicenseAcceptanceRecordsRequest extends common.BaseRequ
   /**
    * A filter to return only resources that match the user principal detail.
    * The search string can be any of the property values from the {@link #principal(PrincipalRequest) principal} object.
-   * This object is used as response datatype for the {@code createdBy} and {@code lastUpdatedBy} fields in applicable resource.
+   * This object is used as a response datatype for the {@code createdBy} and {@code lastUpdatedBy} fields in applicable resource.
    *
    */
   "searchByUser"?: string;

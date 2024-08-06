@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface MirrorRepositoryConfig {
   /**
-   * Upstream git repository connection identifer.
+   * Upstream git repository connection identifier.
    */
   "connectorId"?: string;
   /**

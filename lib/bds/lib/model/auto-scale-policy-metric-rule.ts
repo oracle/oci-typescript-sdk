@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface AutoScalePolicyMetricRule {
   /**
-   * Allowed value is CPU_UTILIZATION.
+   * Allowed values are CPU_UTILIZATION and MEMORY_UTILIZATION.
    */
   "metricType": AutoScalePolicyMetricRule.MetricType;
   "threshold": model.MetricThresholdRule;
@@ -29,6 +29,7 @@ export interface AutoScalePolicyMetricRule {
 export namespace AutoScalePolicyMetricRule {
   export enum MetricType {
     CpuUtilization = "CPU_UTILIZATION",
+    MemoryUtilization = "MEMORY_UTILIZATION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

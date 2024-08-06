@@ -34,6 +34,7 @@ export interface UpdateRepositoryDetails {
    * Type of repository. Allowed values:
    * {@code MIRRORED}
    * {@code HOSTED}
+   * {@code FORKED}
    *
    */
   "repositoryType"?: string;

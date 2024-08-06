@@ -52,6 +52,14 @@ export interface SummarizeLibraryUsageRequest extends common.BaseRequest {
    */
   "libraryName"?: string;
   /**
+   * Total Common Vulnerability Scoring System (CVSS) Score reported by the analysis.
+   */
+  "cvssScoreGreaterThan"?: number;
+  /**
+   * Total Common Vulnerability Scoring System (CVSS) Score reported by the analysis.
+   */
+  "cvssScoreLessThan"?: number;
+  /**
    * The start of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timeStart"?: Date;

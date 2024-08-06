@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Patching configurations which allows patch the nodes batch by batch.
+ * Configuration that applies the patch in batches, the batch size is a user defined parameter.
  */
 export interface BatchingBasedPatchingConfigs extends model.PatchingConfigs {
   /**

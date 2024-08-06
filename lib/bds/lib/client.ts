@@ -1587,6 +1587,86 @@ export class BdsClient {
   }
 
   /**
+   * Create a resource principal session token configuration.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateResourcePrincipalConfigurationRequest
+   * @return CreateResourcePrincipalConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateResourcePrincipalConfiguration.ts.html |here} to see how to use CreateResourcePrincipalConfiguration API.
+   */
+  public async createResourcePrincipalConfiguration(
+    createResourcePrincipalConfigurationRequest: requests.CreateResourcePrincipalConfigurationRequest
+  ): Promise<responses.CreateResourcePrincipalConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#createResourcePrincipalConfiguration.");
+    const operationName = "createResourcePrincipalConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/CreateResourcePrincipalConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": createResourcePrincipalConfigurationRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createResourcePrincipalConfigurationRequest.opcRequestId,
+      "opc-retry-token": createResourcePrincipalConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createResourcePrincipalConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/resourcePrincipalConfigurations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createResourcePrincipalConfigurationRequest.createResourcePrincipalConfigurationDetails,
+        "CreateResourcePrincipalConfigurationDetails",
+        model.CreateResourcePrincipalConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateResourcePrincipalConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the user's API key represented by the provided ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBdsApiKeyRequest
@@ -2177,6 +2257,90 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExecuteBootstrapScriptResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Force Refresh Resource Principal for the cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ForceRefreshResourcePrincipalRequest
+   * @return ForceRefreshResourcePrincipalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ForceRefreshResourcePrincipal.ts.html |here} to see how to use ForceRefreshResourcePrincipal API.
+   */
+  public async forceRefreshResourcePrincipal(
+    forceRefreshResourcePrincipalRequest: requests.ForceRefreshResourcePrincipalRequest
+  ): Promise<responses.ForceRefreshResourcePrincipalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#forceRefreshResourcePrincipal.");
+    const operationName = "forceRefreshResourcePrincipal";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ForceRefreshResourcePrincipal";
+    const pathParams = {
+      "{bdsInstanceId}": forceRefreshResourcePrincipalRequest.bdsInstanceId,
+      "{resourcePrincipalConfigurationId}":
+        forceRefreshResourcePrincipalRequest.resourcePrincipalConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": forceRefreshResourcePrincipalRequest.opcRequestId,
+      "if-match": forceRefreshResourcePrincipalRequest.ifMatch,
+      "opc-retry-token": forceRefreshResourcePrincipalRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      forceRefreshResourcePrincipalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/resourcePrincipalConfigurations/{resourcePrincipalConfigurationId}/actions/forceRefreshResourcePrincipal",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        forceRefreshResourcePrincipalRequest.forceRefreshResourcePrincipalDetails,
+        "ForceRefreshResourcePrincipalDetails",
+        model.ForceRefreshResourcePrincipalDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ForceRefreshResourcePrincipalResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2799,6 +2963,87 @@ export class BdsClient {
         bodyKey: "osPatchDetails",
         bodyModel: model.OsPatchDetails,
         type: "model.OsPatchDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns details of the resourcePrincipalConfiguration identified by the given ID.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetResourcePrincipalConfigurationRequest
+   * @return GetResourcePrincipalConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetResourcePrincipalConfiguration.ts.html |here} to see how to use GetResourcePrincipalConfiguration API.
+   */
+  public async getResourcePrincipalConfiguration(
+    getResourcePrincipalConfigurationRequest: requests.GetResourcePrincipalConfigurationRequest
+  ): Promise<responses.GetResourcePrincipalConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#getResourcePrincipalConfiguration.");
+    const operationName = "getResourcePrincipalConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetResourcePrincipalConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": getResourcePrincipalConfigurationRequest.bdsInstanceId,
+      "{resourcePrincipalConfigurationId}":
+        getResourcePrincipalConfigurationRequest.resourcePrincipalConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getResourcePrincipalConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResourcePrincipalConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/resourcePrincipalConfigurations/{resourcePrincipalConfigurationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetResourcePrincipalConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "resourcePrincipalConfiguration",
+        bodyModel: model.ResourcePrincipalConfiguration,
+        type: "model.ResourcePrincipalConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4425,6 +4670,143 @@ export class BdsClient {
   }
 
   /**
+   * Returns information about the ResourcePrincipalConfiguration.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListResourcePrincipalConfigurationsRequest
+   * @return ListResourcePrincipalConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListResourcePrincipalConfigurations.ts.html |here} to see how to use ListResourcePrincipalConfigurations API.
+   */
+  public async listResourcePrincipalConfigurations(
+    listResourcePrincipalConfigurationsRequest: requests.ListResourcePrincipalConfigurationsRequest
+  ): Promise<responses.ListResourcePrincipalConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#listResourcePrincipalConfigurations.");
+    const operationName = "listResourcePrincipalConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListResourcePrincipalConfigurations";
+    const pathParams = {
+      "{bdsInstanceId}": listResourcePrincipalConfigurationsRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "page": listResourcePrincipalConfigurationsRequest.page,
+      "limit": listResourcePrincipalConfigurationsRequest.limit,
+      "sortBy": listResourcePrincipalConfigurationsRequest.sortBy,
+      "sortOrder": listResourcePrincipalConfigurationsRequest.sortOrder,
+      "displayName": listResourcePrincipalConfigurationsRequest.displayName,
+      "lifecycleState": listResourcePrincipalConfigurationsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listResourcePrincipalConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResourcePrincipalConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/resourcePrincipalConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListResourcePrincipalConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ResourcePrincipalConfigurationSummary,
+        type: "Array<model.ResourcePrincipalConfigurationSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listResourcePrincipalConfigurationsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ResourcePrincipalConfigurationSummary objects
+   * contained in responses from the listResourcePrincipalConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllResourcePrincipalConfigurations(
+    request: requests.ListResourcePrincipalConfigurationsRequest
+  ): AsyncIterableIterator<model.ResourcePrincipalConfigurationSummary> {
+    return paginateRecords(request, req => this.listResourcePrincipalConfigurations(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listResourcePrincipalConfigurationsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listResourcePrincipalConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllResourcePrincipalConfigurationsResponses(
+    request: requests.ListResourcePrincipalConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListResourcePrincipalConfigurationsResponse> {
+    return paginateResponses(request, req => this.listResourcePrincipalConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ResourcePrincipalConfigurationSummary objects
+   * contained in responses from the listResourcePrincipalConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listResourcePrincipalConfigurationsRecordIterator(
+    request: requests.ListResourcePrincipalConfigurationsRequest
+  ): AsyncIterableIterator<model.ResourcePrincipalConfigurationSummary> {
+    return paginateRecords(request, req => this.listResourcePrincipalConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listResourcePrincipalConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listResourcePrincipalConfigurationsResponseIterator(
+    request: requests.ListResourcePrincipalConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListResourcePrincipalConfigurationsResponse> {
+    return paginateResponses(request, req => this.listResourcePrincipalConfigurations(req));
+  }
+
+  /**
    * Returns a paginated list of errors for a work request identified by the given ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -5213,6 +5595,89 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveNodeReplaceConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the resource principal configuration for the cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveResourcePrincipalConfigurationRequest
+   * @return RemoveResourcePrincipalConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveResourcePrincipalConfiguration.ts.html |here} to see how to use RemoveResourcePrincipalConfiguration API.
+   */
+  public async removeResourcePrincipalConfiguration(
+    removeResourcePrincipalConfigurationRequest: requests.RemoveResourcePrincipalConfigurationRequest
+  ): Promise<responses.RemoveResourcePrincipalConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#removeResourcePrincipalConfiguration.");
+    const operationName = "removeResourcePrincipalConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/ResourcePrincipalConfiguration/RemoveResourcePrincipalConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": removeResourcePrincipalConfigurationRequest.bdsInstanceId,
+      "{resourcePrincipalConfigurationId}":
+        removeResourcePrincipalConfigurationRequest.resourcePrincipalConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeResourcePrincipalConfigurationRequest.opcRequestId,
+      "if-match": removeResourcePrincipalConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeResourcePrincipalConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/resourcePrincipalConfigurations/{resourcePrincipalConfigurationId}/actions/remove",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeResourcePrincipalConfigurationRequest.removeResourcePrincipalConfigurationDetails,
+        "RemoveResourcePrincipalConfigurationDetails",
+        model.RemoveResourcePrincipalConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveResourcePrincipalConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6177,6 +6642,90 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNodeReplaceConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates fields on resourcePrincipalConfiguration, including the name, the lifeSpanInHours of the token.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateResourcePrincipalConfigurationRequest
+   * @return UpdateResourcePrincipalConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateResourcePrincipalConfiguration.ts.html |here} to see how to use UpdateResourcePrincipalConfiguration API.
+   */
+  public async updateResourcePrincipalConfiguration(
+    updateResourcePrincipalConfigurationRequest: requests.UpdateResourcePrincipalConfigurationRequest
+  ): Promise<responses.UpdateResourcePrincipalConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#updateResourcePrincipalConfiguration.");
+    const operationName = "updateResourcePrincipalConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/UpdateResourcePrincipalConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": updateResourcePrincipalConfigurationRequest.bdsInstanceId,
+      "{resourcePrincipalConfigurationId}":
+        updateResourcePrincipalConfigurationRequest.resourcePrincipalConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateResourcePrincipalConfigurationRequest.opcRequestId,
+      "if-match": updateResourcePrincipalConfigurationRequest.ifMatch,
+      "opc-retry-token": updateResourcePrincipalConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateResourcePrincipalConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/resourcePrincipalConfigurations/{resourcePrincipalConfigurationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateResourcePrincipalConfigurationRequest.updateResourcePrincipalConfigurationDetails,
+        "UpdateResourcePrincipalConfigurationDetails",
+        model.UpdateResourcePrincipalConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateResourcePrincipalConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

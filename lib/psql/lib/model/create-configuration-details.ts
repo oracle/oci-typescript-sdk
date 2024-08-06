@@ -33,25 +33,33 @@ export interface CreateConfigurationDetails {
    */
   "description"?: string;
   /**
+   * Version of the PostgreSQL database.
+   */
+  "dbVersion": string;
+  /**
    * The name of the shape for the configuration.
    * Example: {@code VM.Standard.E4.Flex}
    *
    */
   "shape": string;
   /**
-   * Version of the PostgreSQL database.
+   * Whether the configuration supports flexible shapes.
    */
-  "dbVersion": string;
+  "isFlexible"?: boolean;
   /**
-   * CPU core count.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "instanceOcpuCount": number;
+    * CPU core count.
+* <p>
+Skip or set it's value to 0 if configuration is for a flexible shape.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "instanceOcpuCount"?: number;
   /**
-   * Memory size in gigabytes with 1GB increment.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "instanceMemorySizeInGBs": number;
+    * Memory size in gigabytes with 1GB increment.
+* <p>
+Skip or set it's value to 0 if configuration is for a flexible shape.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "instanceMemorySizeInGBs"?: number;
   "dbConfigurationOverrides": model.DbConfigurationOverrideCollection;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.

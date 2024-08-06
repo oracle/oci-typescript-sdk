@@ -35,6 +35,10 @@ export interface RepositorySummary {
    */
   "projectId": string;
   /**
+   * The OCID of the parent repository.
+   */
+  "parentRepositoryId"?: string;
+  /**
    * Tenancy unique namespace.
    */
   "namespace"?: string;
@@ -54,6 +58,7 @@ export interface RepositorySummary {
    * Type of repository. Allowed values:
    * {@code MIRRORED}
    * {@code HOSTED}
+   * {@code FORKED}
    *
    */
   "repositoryType"?: string;

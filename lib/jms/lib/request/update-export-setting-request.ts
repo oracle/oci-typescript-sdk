@@ -23,7 +23,7 @@ export interface UpdateExportSettingRequest extends common.BaseRequest {
    */
   "fleetId": string;
   /**
-   * The new details for the Export setting.
+   * The new details for the export setting.
    */
   "updateExportSettingDetails": model.UpdateExportSettingDetails;
   /**

@@ -28,9 +28,24 @@ export interface UpdateDbSystemDetails {
    * A user-provided description of the database system.
    */
   "description"?: string;
+  /**
+   * The name of the shape for the database system nodes.
+   * Example: {@code VM.Standard.E4.Flex}
+   *
+   */
+  "shape"?: string;
+  /**
+   * The total number of OCPUs available to each database system node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "instanceOcpuCount"?: number;
+  /**
+   * The total amount of memory available to each database system node, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "instanceMemorySizeInGBs"?: number;
   "dbConfigurationParams"?: model.UpdateDbConfigParams;
   "managementPolicy"?: model.ManagementPolicyDetails;
   "storageDetails"?: model.UpdateStorageDetailsParams;
+  "networkDetails"?: model.UpdateNetworkDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -58,6 +73,9 @@ export namespace UpdateDbSystemDetails {
           : undefined,
         "storageDetails": obj.storageDetails
           ? model.UpdateStorageDetailsParams.getJsonObj(obj.storageDetails)
+          : undefined,
+        "networkDetails": obj.networkDetails
+          ? model.UpdateNetworkDetails.getJsonObj(obj.networkDetails)
           : undefined
       }
     };
@@ -76,6 +94,9 @@ export namespace UpdateDbSystemDetails {
           : undefined,
         "storageDetails": obj.storageDetails
           ? model.UpdateStorageDetailsParams.getDeserializedJsonObj(obj.storageDetails)
+          : undefined,
+        "networkDetails": obj.networkDetails
+          ? model.UpdateNetworkDetails.getDeserializedJsonObj(obj.networkDetails)
           : undefined
       }
     };

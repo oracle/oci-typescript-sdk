@@ -1,6 +1,6 @@
 /**
- * Java Management Service API
- * API for the Java Management Service. Use this API to view, create, and manage Fleets.
+ * Java Management Service Fleets API
+ * The APIs for the [Fleet Management](https://docs.oracle.com/en-us/iaas/jms/doc/fleet-management.html) feature of Java Management Service to monitor and manage the usage of Java in your enterprise. Use these APIs to manage fleets, configure managed instances to report to fleets, and gain insights into the Java workloads running on these instances by carrying out basic and advanced features.
  * OpenAPI spec version: 20210610
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summarize usage information about an application deployed on Java servers including installation information during a specified time period. The main difference between DeployedApplicationInstallationUsageSummary and DeployedApplicationUsage is the presence of the applicationSourcePath. DeployedApplicationUsage provides only an aggregated view to the deployed applications without installation information. It therefore doesn\u2019t distinguish between applications with the identical deployment information deployed to different paths. DeployedApplicationInstallationUsageSummary contains installation information, and it\u2019s therefore possible to target actions.
+ * Summarize usage information about an application deployed on Java servers including installation information during a specified time period. The main difference between DeployedApplicationInstallationUsageSummary and DeployedApplicationUsage is the presence of the applicationSourcePath. DeployedApplicationUsage provides only an aggregated view to the deployed applications without installation information. DeployedApplicationUsage does not distinguish between applications with the identical deployment information deployed to different paths. DeployedApplicationInstallationUsageSummary contains installation information used to select target actions.
  *
  */
 export interface DeployedApplicationInstallationUsageSummary {
@@ -60,6 +60,11 @@ export interface DeployedApplicationInstallationUsageSummary {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateJavaServerInstanceCount"?: number;
+  /**
+   * The approximate count of libraries in the deployed application.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "approximateLibraryCount"?: number;
   /**
    * Lower bound of the specified time period filter. JMS provides a view of the data that is _per day_. The query uses only the date element of the parameter.
    */

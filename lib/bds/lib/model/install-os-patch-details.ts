@@ -27,7 +27,10 @@ export interface InstallOsPatchDetails {
    * Base-64 encoded password for the cluster admin user.
    */
   "clusterAdminPassword": string;
-  "patchingConfigs"?: model.BatchingBasedPatchingConfigs | model.DowntimeBasedPatchingConfigs;
+  "patchingConfigs"?:
+    | model.BatchingBasedPatchingConfigs
+    | model.DowntimeBasedPatchingConfigs
+    | model.DomainBasedPatchingConfigs;
 }
 
 export namespace InstallOsPatchDetails {

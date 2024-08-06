@@ -155,6 +155,25 @@ export class BdsWaiter {
   }
 
   /**
+   * Waits forResourcePrincipalConfiguration till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetResourcePrincipalConfigurationResponse | null (null in case of 404 response)
+   */
+  public async forResourcePrincipalConfiguration(
+    request: serviceRequests.GetResourcePrincipalConfigurationRequest,
+    ...targetStates: models.ResourcePrincipalConfiguration.LifecycleState[]
+  ): Promise<serviceResponses.GetResourcePrincipalConfigurationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getResourcePrincipalConfiguration(request),
+      response => targetStates.includes(response.resourcePrincipalConfiguration.lifecycleState!),
+      targetStates.includes(models.ResourcePrincipalConfiguration.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

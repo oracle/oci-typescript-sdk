@@ -208,6 +208,25 @@ export class DevopsWaiter {
   }
 
   /**
+   * Waits forPullRequest till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPullRequestResponse | null (null in case of 404 response)
+   */
+  public async forPullRequest(
+    request: serviceRequests.GetPullRequestRequest,
+    ...targetStates: models.PullRequest.LifecycleState[]
+  ): Promise<serviceResponses.GetPullRequestResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPullRequest(request),
+      response => targetStates.includes(response.pullRequest.lifecycleState!),
+      targetStates.includes(models.PullRequest.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forRepository till it reaches any of the provided states
    *
    * @param request the request to send

@@ -27,6 +27,10 @@ export interface CreateRepositoryDetails {
    */
   "projectId": string;
   /**
+   * The OCID of the parent repository.
+   */
+  "parentRepositoryId"?: string;
+  /**
    * The default branch of the repository.
    */
   "defaultBranch"?: string;
@@ -34,6 +38,7 @@ export interface CreateRepositoryDetails {
    * Type of repository. Allowed values:
    * {@code MIRRORED}
    * {@code HOSTED}
+   * {@code FORKED}
    *
    */
   "repositoryType": string;

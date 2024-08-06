@@ -1,6 +1,6 @@
 /**
- * Java Management Service API
- * API for the Java Management Service. Use this API to view, create, and manage Fleets.
+ * Java Management Service Fleets API
+ * The APIs for the [Fleet Management](https://docs.oracle.com/en-us/iaas/jms/doc/fleet-management.html) feature of Java Management Service to monitor and manage the usage of Java in your enterprise. Use these APIs to manage fleets, configure managed instances to report to fleets, and gain insights into the Java workloads running on these instances by carrying out basic and advanced features.
  * OpenAPI spec version: 20210610
  *
  *
@@ -237,8 +237,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#addFleetInstallationSites.");
     const operationName = "addFleetInstallationSites";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationSiteSummary/AddFleetInstallationSites";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": addFleetInstallationSitesRequest.fleetId
     };
@@ -317,8 +316,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequest/CancelWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -387,8 +385,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#changeFleetCompartment.");
     const operationName = "changeFleetCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/ChangeFleetCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": changeFleetCompartmentRequest.fleetId
     };
@@ -468,8 +465,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#createBlocklist.");
     const operationName = "createBlocklist";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Blocklist/CreateBlocklist";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": createBlocklistRequest.fleetId
     };
@@ -538,7 +534,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Request to perform validaition of the DRS file and create the file to the Object Storage.
+   * Request to perform validation of the DRS file and create the file to the Object Storage.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDrsFileRequest
@@ -552,8 +548,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#createDrsFile.");
     const operationName = "createDrsFile";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/CreateDrsFile";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": createDrsFileRequest.fleetId
     };
@@ -639,7 +634,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#createFleet.");
     const operationName = "createFleet";
-    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/CreateFleet";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -702,6 +697,89 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Registers an agent's JmsPlugin, optionally attaching to an existing fleet of the tenancy.
+   * JmsPlugins registered fleet-less are created with lifecycle state INACTIVE.
+   * For the operation to be authorized, the agent must exist, and the authorized user requires JMS_PLUGIN_CREATE permission for the agent's compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateJmsPluginRequest
+   * @return CreateJmsPluginResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateJmsPlugin.ts.html |here} to see how to use CreateJmsPlugin API.
+   */
+  public async createJmsPlugin(
+    createJmsPluginRequest: requests.CreateJmsPluginRequest
+  ): Promise<responses.CreateJmsPluginResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#createJmsPlugin.");
+    const operationName = "createJmsPlugin";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createJmsPluginRequest.opcRetryToken,
+      "opc-request-id": createJmsPluginRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createJmsPluginRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jmsPlugins",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createJmsPluginRequest.createJmsPluginDetails,
+        "CreateJmsPluginDetails",
+        model.CreateJmsPluginDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateJmsPluginResponse>{},
+        body: await response.json(),
+        bodyKey: "jmsPlugin",
+        bodyModel: model.JmsPlugin,
+        type: "model.JmsPlugin",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the blocklist record specified by an identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteBlocklistRequest
@@ -715,8 +793,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#deleteBlocklist.");
     const operationName = "deleteBlocklist";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Blocklist/DeleteBlocklist";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": deleteBlocklistRequest.fleetId,
       "{blocklistKey}": deleteBlocklistRequest.blocklistKey
@@ -787,8 +864,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#deleteCryptoAnalysisResult."
       );
     const operationName = "deleteCryptoAnalysisResult";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/CryptoAnalysisResult/DeleteCryptoAnalysisResult";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": deleteCryptoAnalysisResultRequest.fleetId,
       "{cryptoAnalysisResultId}": deleteCryptoAnalysisResultRequest.cryptoAnalysisResultId
@@ -863,8 +939,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#deleteDrsFile.");
     const operationName = "deleteDrsFile";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DrsFile/DeleteDrsFile";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": deleteDrsFileRequest.fleetId,
       "{drsFileKey}": deleteDrsFileRequest.drsFileKey
@@ -938,7 +1013,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#deleteFleet.");
     const operationName = "deleteFleet";
-    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/DeleteFleet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": deleteFleetRequest.fleetId
     };
@@ -1013,8 +1088,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#deleteJavaMigrationAnalysisResult."
       );
     const operationName = "deleteJavaMigrationAnalysisResult";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaMigrationAnalysisResult/DeleteJavaMigrationAnalysisResult";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": deleteJavaMigrationAnalysisResultRequest.fleetId,
       "{javaMigrationAnalysisResultId}":
@@ -1076,6 +1150,76 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Deletes a JmsPlugin. The JmsPlugin may be visible for some time with state DELETED.
+   * Deleted plugins will not be able to communicate with the JMS service.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteJmsPluginRequest
+   * @return DeleteJmsPluginResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteJmsPlugin.ts.html |here} to see how to use DeleteJmsPlugin API.
+   */
+  public async deleteJmsPlugin(
+    deleteJmsPluginRequest: requests.DeleteJmsPluginRequest
+  ): Promise<responses.DeleteJmsPluginResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#deleteJmsPlugin.");
+    const operationName = "deleteJmsPlugin";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{jmsPluginId}": deleteJmsPluginRequest.jmsPluginId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteJmsPluginRequest.opcRequestId,
+      "if-match": deleteJmsPluginRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteJmsPluginRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jmsPlugins/{jmsPluginId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteJmsPluginResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes only the metadata of the Performance Tuning Analysis result, but the file remains in the object storage.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeletePerformanceTuningAnalysisResultRequest
@@ -1091,8 +1235,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#deletePerformanceTuningAnalysisResult."
       );
     const operationName = "deletePerformanceTuningAnalysisResult";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/PerformanceTuningAnalysisResult/DeletePerformanceTuningAnalysisResult";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": deletePerformanceTuningAnalysisResultRequest.fleetId,
       "{performanceTuningAnalysisResultId}":
@@ -1168,7 +1311,7 @@ export class JavaManagementServiceClient {
   ): Promise<responses.DisableDrsResponse> {
     if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#disableDrs.");
     const operationName = "disableDrs";
-    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/DisableDrs";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": disableDrsRequest.fleetId
     };
@@ -1247,7 +1390,7 @@ export class JavaManagementServiceClient {
   ): Promise<responses.EnableDrsResponse> {
     if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#enableDrs.");
     const operationName = "enableDrs";
-    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/EnableDrs";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": enableDrsRequest.fleetId
     };
@@ -1327,8 +1470,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#generateAgentDeployScript.");
     const operationName = "generateAgentDeployScript";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/GenerateAgentDeployScript";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": generateAgentDeployScriptRequest.fleetId
     };
@@ -1401,6 +1543,182 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Generates the agent installer configuration using the information provided.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateAgentInstallerConfigurationRequest
+   * @return GenerateAgentInstallerConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GenerateAgentInstallerConfiguration.ts.html |here} to see how to use GenerateAgentInstallerConfiguration API.
+   */
+  public async generateAgentInstallerConfiguration(
+    generateAgentInstallerConfigurationRequest: requests.GenerateAgentInstallerConfigurationRequest
+  ): Promise<responses.GenerateAgentInstallerConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#generateAgentInstallerConfiguration."
+      );
+    const operationName = "generateAgentInstallerConfiguration";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateAgentInstallerConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateAgentInstallerConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/agentInstallers/actions/generateAgentInstallerConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateAgentInstallerConfigurationRequest.generateAgentInstallerConfigurationDetails,
+        "GenerateAgentInstallerConfigurationDetails",
+        model.GenerateAgentInstallerConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateAgentInstallerConfigurationResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-type"),
+            key: "contentType",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates Load Pipeline Script
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateLoadPipelineScriptRequest
+   * @return GenerateLoadPipelineScriptResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GenerateLoadPipelineScript.ts.html |here} to see how to use GenerateLoadPipelineScript API.
+   */
+  public async generateLoadPipelineScript(
+    generateLoadPipelineScriptRequest: requests.GenerateLoadPipelineScriptRequest
+  ): Promise<responses.GenerateLoadPipelineScriptResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#generateLoadPipelineScript."
+      );
+    const operationName = "generateLoadPipelineScript";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fleetId}": generateLoadPipelineScriptRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateLoadPipelineScriptRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateLoadPipelineScriptRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/generateLoadPipelineScript",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateLoadPipelineScriptRequest.generateLoadPipelineScriptDetails,
+        "GenerateLoadPipelineScriptDetails",
+        model.GenerateLoadPipelineScriptDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateLoadPipelineScriptResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-type"),
+            key: "contentType",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieve the metadata for the result of a Crypto event analysis.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCryptoAnalysisResultRequest
@@ -1414,8 +1732,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#getCryptoAnalysisResult.");
     const operationName = "getCryptoAnalysisResult";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/CryptoAnalysisResult/GetCryptoAnalysisResult";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": getCryptoAnalysisResultRequest.fleetId,
       "{cryptoAnalysisResultId}": getCryptoAnalysisResultRequest.cryptoAnalysisResultId
@@ -1491,8 +1808,7 @@ export class JavaManagementServiceClient {
   ): Promise<responses.GetDrsFileResponse> {
     if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#getDrsFile.");
     const operationName = "getDrsFile";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DrsFile/GetDrsFile";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": getDrsFileRequest.fleetId,
       "{drsFileKey}": getDrsFileRequest.drsFileKey
@@ -1558,7 +1874,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Returns export setting for the specified Fleet.
+   * Returns export setting for the specified fleet.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetExportSettingRequest
    * @return GetExportSettingResponse
@@ -1571,8 +1887,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#getExportSetting.");
     const operationName = "getExportSetting";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ExportSetting/GetExportSetting";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": getExportSettingRequest.fleetId
     };
@@ -1635,7 +1950,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Returns last export status for the specified Fleet.
+   * Returns last export status for the specified fleet.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetExportStatusRequest
    * @return GetExportStatusResponse
@@ -1648,8 +1963,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#getExportStatus.");
     const operationName = "getExportStatus";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ExportStatus/GetExportStatus";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": getExportStatusRequest.fleetId
     };
@@ -1724,7 +2038,7 @@ export class JavaManagementServiceClient {
   ): Promise<responses.GetFleetResponse> {
     if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#getFleet.");
     const operationName = "getFleet";
-    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/GetFleet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": getFleetRequest.fleetId
     };
@@ -1803,8 +2117,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#getFleetAdvancedFeatureConfiguration."
       );
     const operationName = "getFleetAdvancedFeatureConfiguration";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAdvancedFeatureConfiguration/GetFleetAdvancedFeatureConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": getFleetAdvancedFeatureConfigurationRequest.fleetId
     };
@@ -1883,8 +2196,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#getFleetAgentConfiguration."
       );
     const operationName = "getFleetAgentConfiguration";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAgentConfiguration/GetFleetAgentConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": getFleetAgentConfigurationRequest.fleetId
     };
@@ -1961,8 +2273,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#getJavaFamily.");
     const operationName = "getJavaFamily";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaFamily/GetJavaFamily";
+    const apiReferenceLink = "";
     const pathParams = {
       "{familyVersion}": getJavaFamilyRequest.familyVersion
     };
@@ -2035,8 +2346,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#getJavaMigrationAnalysisResult."
       );
     const operationName = "getJavaMigrationAnalysisResult";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaMigrationAnalysisResult/GetJavaMigrationAnalysisResult";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": getJavaMigrationAnalysisResultRequest.fleetId,
       "{javaMigrationAnalysisResultId}":
@@ -2114,8 +2424,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#getJavaRelease.");
     const operationName = "getJavaRelease";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaRelease/GetJavaRelease";
+    const apiReferenceLink = "";
     const pathParams = {
       "{releaseVersion}": getJavaReleaseRequest.releaseVersion
     };
@@ -2173,6 +2482,87 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Returns the JmsPlugin.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetJmsPluginRequest
+   * @return GetJmsPluginResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJmsPlugin.ts.html |here} to see how to use GetJmsPlugin API.
+   */
+  public async getJmsPlugin(
+    getJmsPluginRequest: requests.GetJmsPluginRequest
+  ): Promise<responses.GetJmsPluginResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getJmsPlugin.");
+    const operationName = "getJmsPlugin";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{jmsPluginId}": getJmsPluginRequest.jmsPluginId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getJmsPluginRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJmsPluginRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jmsPlugins/{jmsPluginId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetJmsPluginResponse>{},
+        body: await response.json(),
+        bodyKey: "jmsPlugin",
+        bodyModel: model.JmsPlugin,
+        type: "model.JmsPlugin",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieve metadata of the Performance Tuning Analysis result.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPerformanceTuningAnalysisResultRequest
@@ -2188,8 +2578,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#getPerformanceTuningAnalysisResult."
       );
     const operationName = "getPerformanceTuningAnalysisResult";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/PerformanceTuningAnalysisResult/GetPerformanceTuningAnalysisResult";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": getPerformanceTuningAnalysisResultRequest.fleetId,
       "{performanceTuningAnalysisResultId}":
@@ -2268,8 +2657,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#getWorkRequest.");
     const operationName = "getWorkRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequest/GetWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2337,6 +2725,90 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Returns a list of the agent installer information.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAgentInstallersRequest
+   * @return ListAgentInstallersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListAgentInstallers.ts.html |here} to see how to use ListAgentInstallers API.
+   */
+  public async listAgentInstallers(
+    listAgentInstallersRequest: requests.ListAgentInstallersRequest
+  ): Promise<responses.ListAgentInstallersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listAgentInstallers.");
+    const operationName = "listAgentInstallers";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAgentInstallersRequest.compartmentId,
+      "fleetId": listAgentInstallersRequest.fleetId,
+      "platformArchitecture": listAgentInstallersRequest.platformArchitecture,
+      "osFamily": listAgentInstallersRequest.osFamily,
+      "limit": listAgentInstallersRequest.limit,
+      "page": listAgentInstallersRequest.page,
+      "sortOrder": listAgentInstallersRequest.sortOrder,
+      "sortBy": listAgentInstallersRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAgentInstallersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAgentInstallersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/agentInstallers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAgentInstallersResponse>{},
+        body: await response.json(),
+        bodyKey: "agentInstallerCollection",
+        bodyModel: model.AgentInstallerCollection,
+        type: "model.AgentInstallerCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Return a list of AnnouncementSummary items
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAnnouncementsRequest
@@ -2350,8 +2822,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listAnnouncements.");
     const operationName = "listAnnouncements";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/AnnouncementCollection/ListAnnouncements";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2434,8 +2905,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listBlocklists.");
     const operationName = "listBlocklists";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Blocklist/ListBlocklists";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": listBlocklistsRequest.fleetId
     };
@@ -2518,8 +2988,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listCryptoAnalysisResults.");
     const operationName = "listCryptoAnalysisResults";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/CryptoAnalysisResult/ListCryptoAnalysisResults";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": listCryptoAnalysisResultsRequest.fleetId
     };
@@ -2527,12 +2996,18 @@ export class JavaManagementServiceClient {
     const queryParams = {
       "aggregationMode": listCryptoAnalysisResultsRequest.aggregationMode,
       "managedInstanceId": listCryptoAnalysisResultsRequest.managedInstanceId,
+      "hostName": listCryptoAnalysisResultsRequest.hostName,
+      "nonCompliantFindingCount": listCryptoAnalysisResultsRequest.nonCompliantFindingCount,
+      "nonCompliantFindingCountGreaterThan":
+        listCryptoAnalysisResultsRequest.nonCompliantFindingCountGreaterThan,
+      "findingCount": listCryptoAnalysisResultsRequest.findingCount,
+      "findingCountGreaterThan": listCryptoAnalysisResultsRequest.findingCountGreaterThan,
+      "timeStart": listCryptoAnalysisResultsRequest.timeStart,
+      "timeEnd": listCryptoAnalysisResultsRequest.timeEnd,
       "limit": listCryptoAnalysisResultsRequest.limit,
       "page": listCryptoAnalysisResultsRequest.page,
       "sortOrder": listCryptoAnalysisResultsRequest.sortOrder,
-      "sortBy": listCryptoAnalysisResultsRequest.sortBy,
-      "timeStart": listCryptoAnalysisResultsRequest.timeStart,
-      "timeEnd": listCryptoAnalysisResultsRequest.timeEnd
+      "sortBy": listCryptoAnalysisResultsRequest.sortBy
     };
 
     let headerParams = {
@@ -2604,8 +3079,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listDrsFiles.");
     const operationName = "listDrsFiles";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DrsFileCollection/ListDrsFiles";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": listDrsFilesRequest.fleetId
     };
@@ -2687,8 +3161,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listFleetDiagnoses.");
     const operationName = "listFleetDiagnoses";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetDiagnosisSummary/ListFleetDiagnoses";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": listFleetDiagnosesRequest.fleetId
     };
@@ -2768,7 +3241,7 @@ export class JavaManagementServiceClient {
   ): Promise<responses.ListFleetsResponse> {
     if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#listFleets.");
     const operationName = "listFleets";
-    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/ListFleets";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2852,8 +3325,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listInstallationSites.");
     const operationName = "listInstallationSites";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationSiteSummary/ListInstallationSites";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": listInstallationSitesRequest.fleetId
     };
@@ -2947,8 +3419,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listJavaFamilies.");
     const operationName = "listJavaFamilies";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaFamily/ListJavaFamilies";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3032,20 +3503,21 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#listJavaMigrationAnalysisResults."
       );
     const operationName = "listJavaMigrationAnalysisResults";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaMigrationAnalysisResult/ListJavaMigrationAnalysisResults";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": listJavaMigrationAnalysisResultsRequest.fleetId
     };
 
     const queryParams = {
       "managedInstanceId": listJavaMigrationAnalysisResultsRequest.managedInstanceId,
+      "hostName": listJavaMigrationAnalysisResultsRequest.hostName,
+      "applicationName": listJavaMigrationAnalysisResultsRequest.applicationName,
+      "timeStart": listJavaMigrationAnalysisResultsRequest.timeStart,
+      "timeEnd": listJavaMigrationAnalysisResultsRequest.timeEnd,
       "limit": listJavaMigrationAnalysisResultsRequest.limit,
       "page": listJavaMigrationAnalysisResultsRequest.page,
       "sortOrder": listJavaMigrationAnalysisResultsRequest.sortOrder,
-      "sortBy": listJavaMigrationAnalysisResultsRequest.sortBy,
-      "timeStart": listJavaMigrationAnalysisResultsRequest.timeStart,
-      "timeEnd": listJavaMigrationAnalysisResultsRequest.timeEnd
+      "sortBy": listJavaMigrationAnalysisResultsRequest.sortBy
     };
 
     let headerParams = {
@@ -3118,8 +3590,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listJavaReleases.");
     const operationName = "listJavaReleases";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaRelease/ListJavaReleases";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3190,6 +3661,95 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Lists the JmsPlugins.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListJmsPluginsRequest
+   * @return ListJmsPluginsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJmsPlugins.ts.html |here} to see how to use ListJmsPlugins API.
+   */
+  public async listJmsPlugins(
+    listJmsPluginsRequest: requests.ListJmsPluginsRequest
+  ): Promise<responses.ListJmsPluginsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listJmsPlugins.");
+    const operationName = "listJmsPlugins";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listJmsPluginsRequest.compartmentId,
+      "compartmentIdInSubtree": listJmsPluginsRequest.compartmentIdInSubtree,
+      "id": listJmsPluginsRequest.id,
+      "fleetId": listJmsPluginsRequest.fleetId,
+      "agentId": listJmsPluginsRequest.agentId,
+      "lifecycleState": listJmsPluginsRequest.lifecycleState,
+      "availabilityStatus": listJmsPluginsRequest.availabilityStatus,
+      "timeRegisteredLessThanOrEqualTo": listJmsPluginsRequest.timeRegisteredLessThanOrEqualTo,
+      "timeLastSeenLessThanOrEqualTo": listJmsPluginsRequest.timeLastSeenLessThanOrEqualTo,
+      "limit": listJmsPluginsRequest.limit,
+      "page": listJmsPluginsRequest.page,
+      "sortOrder": listJmsPluginsRequest.sortOrder,
+      "sortBy": listJmsPluginsRequest.sortBy,
+      "hostnameContains": listJmsPluginsRequest.hostnameContains
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJmsPluginsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJmsPluginsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jmsPlugins",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJmsPluginsResponse>{},
+        body: await response.json(),
+        bodyKey: "jmsPluginCollection",
+        bodyModel: model.JmsPluginCollection,
+        type: "model.JmsPluginCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List Java Runtime usage in a specified host filtered by query parameters.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListJreUsageRequest
@@ -3203,8 +3763,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listJreUsage.");
     const operationName = "listJreUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JreUsage/ListJreUsage";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3291,8 +3850,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#listPerformanceTuningAnalysisResults."
       );
     const operationName = "listPerformanceTuningAnalysisResults";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/PerformanceTuningAnalysisResult/ListPerformanceTuningAnalysisResults";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": listPerformanceTuningAnalysisResultsRequest.fleetId
     };
@@ -3300,12 +3858,13 @@ export class JavaManagementServiceClient {
     const queryParams = {
       "managedInstanceId": listPerformanceTuningAnalysisResultsRequest.managedInstanceId,
       "applicationId": listPerformanceTuningAnalysisResultsRequest.applicationId,
+      "hostName": listPerformanceTuningAnalysisResultsRequest.hostName,
+      "timeStart": listPerformanceTuningAnalysisResultsRequest.timeStart,
+      "timeEnd": listPerformanceTuningAnalysisResultsRequest.timeEnd,
       "limit": listPerformanceTuningAnalysisResultsRequest.limit,
       "page": listPerformanceTuningAnalysisResultsRequest.page,
       "sortOrder": listPerformanceTuningAnalysisResultsRequest.sortOrder,
-      "sortBy": listPerformanceTuningAnalysisResultsRequest.sortBy,
-      "timeStart": listPerformanceTuningAnalysisResultsRequest.timeStart,
-      "timeEnd": listPerformanceTuningAnalysisResultsRequest.timeEnd
+      "sortBy": listPerformanceTuningAnalysisResultsRequest.sortBy
     };
 
     let headerParams = {
@@ -3378,8 +3937,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listWorkItems.");
     const operationName = "listWorkItems";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkItemSummary/ListWorkItems";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkItemsRequest.workRequestId
     };
@@ -3459,8 +4017,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequestError/ListWorkRequestErrors";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -3540,8 +4097,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequestLogEntry/ListWorkRequestLogs";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -3621,8 +4177,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listWorkRequests.");
     const operationName = "listWorkRequests";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequest/ListWorkRequests";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3631,7 +4186,9 @@ export class JavaManagementServiceClient {
       "fleetId": listWorkRequestsRequest.fleetId,
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit,
-      "managedInstanceId": listWorkRequestsRequest.managedInstanceId
+      "managedInstanceId": listWorkRequestsRequest.managedInstanceId,
+      "operationType": listWorkRequestsRequest.operationType,
+      "status": listWorkRequestsRequest.status
     };
 
     let headerParams = {
@@ -3705,8 +4262,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#removeFleetInstallationSites."
       );
     const operationName = "removeFleetInstallationSites";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationSiteSummary/RemoveFleetInstallationSites";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": removeFleetInstallationSitesRequest.fleetId
     };
@@ -3786,8 +4342,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#requestCryptoAnalyses.");
     const operationName = "requestCryptoAnalyses";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestCryptoAnalyses";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": requestCryptoAnalysesRequest.fleetId
     };
@@ -3851,6 +4406,87 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Request to perform a deployed Java migration analyses. The results of the deployed Java migration analyses will be uploaded to the
+   * Object Storage bucket that you designate when you enable the Java Migration Analyses feature.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RequestDeployedApplicationMigrationAnalysesRequest
+   * @return RequestDeployedApplicationMigrationAnalysesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestDeployedApplicationMigrationAnalyses.ts.html |here} to see how to use RequestDeployedApplicationMigrationAnalyses API.
+   */
+  public async requestDeployedApplicationMigrationAnalyses(
+    requestDeployedApplicationMigrationAnalysesRequest: requests.RequestDeployedApplicationMigrationAnalysesRequest
+  ): Promise<responses.RequestDeployedApplicationMigrationAnalysesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#requestDeployedApplicationMigrationAnalyses."
+      );
+    const operationName = "requestDeployedApplicationMigrationAnalyses";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fleetId}": requestDeployedApplicationMigrationAnalysesRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": requestDeployedApplicationMigrationAnalysesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestDeployedApplicationMigrationAnalysesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/requestDeployedApplicationMigrationAnalyses",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        requestDeployedApplicationMigrationAnalysesRequest.requestDeployedApplicationMigrationAnalysesDetails,
+        "RequestDeployedApplicationMigrationAnalysesDetails",
+        model.RequestDeployedApplicationMigrationAnalysesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RequestDeployedApplicationMigrationAnalysesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Request to perform a Java migration analysis. The results of the Java migration analysis will be uploaded to the
    * Object Storage bucket that you designate when you enable the Java Migration Analysis feature.
    *
@@ -3868,8 +4504,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#requestJavaMigrationAnalyses."
       );
     const operationName = "requestJavaMigrationAnalyses";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestJavaMigrationAnalyses";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": requestJavaMigrationAnalysesRequest.fleetId
     };
@@ -3947,8 +4582,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#requestJfrRecordings.");
     const operationName = "requestJfrRecordings";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestJfrRecordings";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": requestJfrRecordingsRequest.fleetId
     };
@@ -4029,8 +4663,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#requestPerformanceTuningAnalyses."
       );
     const operationName = "requestPerformanceTuningAnalyses";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestPerformanceTuningAnalyses";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": requestPerformanceTuningAnalysesRequest.fleetId
     };
@@ -4107,8 +4740,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#scanJavaServerUsage.");
     const operationName = "scanJavaServerUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaServerUsage/ScanJavaServerUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": scanJavaServerUsageRequest.fleetId
     };
@@ -4187,8 +4819,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#scanLibraryUsage.");
     const operationName = "scanLibraryUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/LibraryUsage/ScanLibraryUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": scanLibraryUsageRequest.fleetId
     };
@@ -4270,8 +4901,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#summarizeApplicationInstallationUsage."
       );
     const operationName = "summarizeApplicationInstallationUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ApplicationInstallationUsageSummary/SummarizeApplicationInstallationUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": summarizeApplicationInstallationUsageRequest.fleetId
     };
@@ -4369,8 +4999,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#summarizeApplicationUsage.");
     const operationName = "summarizeApplicationUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ApplicationUsage/SummarizeApplicationUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": summarizeApplicationUsageRequest.fleetId
     };
@@ -4468,8 +5097,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#summarizeDeployedApplicationInstallationUsage."
       );
     const operationName = "summarizeDeployedApplicationInstallationUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DeployedApplicationInstallationUsageSummary/SummarizeDeployedApplicationInstallationUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": summarizeDeployedApplicationInstallationUsageRequest.fleetId
     };
@@ -4567,8 +5195,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#summarizeDeployedApplicationUsage."
       );
     const operationName = "summarizeDeployedApplicationUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DeployedApplicationUsage/SummarizeDeployedApplicationUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": summarizeDeployedApplicationUsageRequest.fleetId
     };
@@ -4660,8 +5287,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#summarizeInstallationUsage."
       );
     const operationName = "summarizeInstallationUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationUsage/SummarizeInstallationUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": summarizeInstallationUsageRequest.fleetId
     };
@@ -4756,8 +5382,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#summarizeJavaServerInstanceUsage."
       );
     const operationName = "summarizeJavaServerInstanceUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaServerInstanceUsage/SummarizeJavaServerInstanceUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": summarizeJavaServerInstanceUsageRequest.fleetId
     };
@@ -4849,8 +5474,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#summarizeJavaServerUsage.");
     const operationName = "summarizeJavaServerUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaServerUsage/SummarizeJavaServerUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": summarizeJavaServerUsageRequest.fleetId
     };
@@ -4937,8 +5561,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#summarizeJreUsage.");
     const operationName = "summarizeJreUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JreUsage/SummarizeJreUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": summarizeJreUsageRequest.fleetId
     };
@@ -5031,8 +5654,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#summarizeLibraryUsage.");
     const operationName = "summarizeLibraryUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/LibraryUsage/SummarizeLibraryUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": summarizeLibraryUsageRequest.fleetId
     };
@@ -5044,6 +5666,8 @@ export class JavaManagementServiceClient {
       "libraryKey": summarizeLibraryUsageRequest.libraryKey,
       "libraryNameContains": summarizeLibraryUsageRequest.libraryNameContains,
       "libraryName": summarizeLibraryUsageRequest.libraryName,
+      "cvssScoreGreaterThan": summarizeLibraryUsageRequest.cvssScoreGreaterThan,
+      "cvssScoreLessThan": summarizeLibraryUsageRequest.cvssScoreLessThan,
       "timeStart": summarizeLibraryUsageRequest.timeStart,
       "timeEnd": summarizeLibraryUsageRequest.timeEnd,
       "limit": summarizeLibraryUsageRequest.limit,
@@ -5123,8 +5747,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#summarizeManagedInstanceUsage."
       );
     const operationName = "summarizeManagedInstanceUsage";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ManagedInstanceUsage/SummarizeManagedInstanceUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": summarizeManagedInstanceUsageRequest.fleetId
     };
@@ -5221,8 +5844,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#summarizeResourceInventory."
       );
     const operationName = "summarizeResourceInventory";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/SummarizeResourceInventory";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -5282,7 +5904,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Request to perform validaition of the DRS file and update the existing file in the Object Storage.
+   * Request to perform validation of the DRS file and update the existing file in the Object Storage.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDrsFileRequest
@@ -5296,8 +5918,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#updateDrsFile.");
     const operationName = "updateDrsFile";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/UpdateDrsFile";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": updateDrsFileRequest.fleetId,
       "{drsFileKey}": updateDrsFileRequest.drsFileKey
@@ -5364,7 +5985,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Updates existing export setting for the specified Fleet.
+   * Updates existing export setting for the specified fleet.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateExportSettingRequest
    * @return UpdateExportSettingResponse
@@ -5377,8 +5998,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#updateExportSetting.");
     const operationName = "updateExportSetting";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ExportSetting/UpdateExportSetting";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": updateExportSettingRequest.fleetId
     };
@@ -5460,7 +6080,7 @@ export class JavaManagementServiceClient {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#updateFleet.");
     const operationName = "updateFleet";
-    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/UpdateFleet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": updateFleetRequest.fleetId
     };
@@ -5542,8 +6162,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#updateFleetAdvancedFeatureConfiguration."
       );
     const operationName = "updateFleetAdvancedFeatureConfiguration";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAdvancedFeatureConfiguration/UpdateFleetAdvancedFeatureConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": updateFleetAdvancedFeatureConfigurationRequest.fleetId
     };
@@ -5628,8 +6247,7 @@ export class JavaManagementServiceClient {
         "Calling operation JavaManagementServiceClient#updateFleetAgentConfiguration."
       );
     const operationName = "updateFleetAgentConfiguration";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAgentConfiguration/UpdateFleetAgentConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {
       "{fleetId}": updateFleetAgentConfigurationRequest.fleetId
     };
@@ -5677,6 +6295,88 @@ export class JavaManagementServiceClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Fleet of a JmsPlugin.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateJmsPluginRequest
+   * @return UpdateJmsPluginResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateJmsPlugin.ts.html |here} to see how to use UpdateJmsPlugin API.
+   */
+  public async updateJmsPlugin(
+    updateJmsPluginRequest: requests.UpdateJmsPluginRequest
+  ): Promise<responses.UpdateJmsPluginResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#updateJmsPlugin.");
+    const operationName = "updateJmsPlugin";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{jmsPluginId}": updateJmsPluginRequest.jmsPluginId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateJmsPluginRequest.ifMatch,
+      "opc-request-id": updateJmsPluginRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateJmsPluginRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jmsPlugins/{jmsPluginId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateJmsPluginRequest.updateJmsPluginDetails,
+        "UpdateJmsPluginDetails",
+        model.UpdateJmsPluginDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateJmsPluginResponse>{},
+        body: await response.json(),
+        bodyKey: "jmsPlugin",
+        bodyModel: model.JmsPlugin,
+        type: "model.JmsPlugin",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

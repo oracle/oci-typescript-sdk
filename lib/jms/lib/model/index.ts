@@ -1,6 +1,6 @@
 /**
- * Java Management Service API
- * API for the Java Management Service. Use this API to view, create, and manage Fleets.
+ * Java Management Service Fleets API
+ * The APIs for the [Fleet Management](https://docs.oracle.com/en-us/iaas/jms/doc/fleet-management.html) feature of Java Management Service to monitor and manage the usage of Java in your enterprise. Use these APIs to manage fleets, configure managed instances to report to fleets, and gain insights into the Java workloads running on these instances by carrying out basic and advanced features.
  * OpenAPI spec version: 20210610
  *
  *
@@ -19,6 +19,12 @@ import * as AdvancedUsageTracking from "./advanced-usage-tracking";
 export import AdvancedUsageTracking = AdvancedUsageTracking.AdvancedUsageTracking;
 import * as Agent from "./agent";
 export import Agent = Agent.Agent;
+import * as AgentInstallerCollection from "./agent-installer-collection";
+export import AgentInstallerCollection = AgentInstallerCollection.AgentInstallerCollection;
+import * as AgentInstallerSortBy from "./agent-installer-sort-by";
+export import AgentInstallerSortBy = AgentInstallerSortBy.AgentInstallerSortBy;
+import * as AgentInstallerSummary from "./agent-installer-summary";
+export import AgentInstallerSummary = AgentInstallerSummary.AgentInstallerSummary;
 import * as AgentType from "./agent-type";
 export import AgentType = AgentType.AgentType;
 import * as Algorithms from "./algorithms";
@@ -63,6 +69,8 @@ import * as CreateDrsFileDetails from "./create-drs-file-details";
 export import CreateDrsFileDetails = CreateDrsFileDetails.CreateDrsFileDetails;
 import * as CreateFleetDetails from "./create-fleet-details";
 export import CreateFleetDetails = CreateFleetDetails.CreateFleetDetails;
+import * as CreateJmsPluginDetails from "./create-jms-plugin-details";
+export import CreateJmsPluginDetails = CreateJmsPluginDetails.CreateJmsPluginDetails;
 import * as CryptoAnalysisResult from "./crypto-analysis-result";
 export import CryptoAnalysisResult = CryptoAnalysisResult.CryptoAnalysisResult;
 import * as CryptoAnalysisResultCollection from "./crypto-analysis-result-collection";
@@ -83,6 +91,8 @@ import * as DeployedApplicationInstallationUsageSummary from "./deployed-applica
 export import DeployedApplicationInstallationUsageSummary = DeployedApplicationInstallationUsageSummary.DeployedApplicationInstallationUsageSummary;
 import * as DeployedApplicationInstallationUsageSummaryCollection from "./deployed-application-installation-usage-summary-collection";
 export import DeployedApplicationInstallationUsageSummaryCollection = DeployedApplicationInstallationUsageSummaryCollection.DeployedApplicationInstallationUsageSummaryCollection;
+import * as DeployedApplicationMigrationAnalysesTarget from "./deployed-application-migration-analyses-target";
+export import DeployedApplicationMigrationAnalysesTarget = DeployedApplicationMigrationAnalysesTarget.DeployedApplicationMigrationAnalysesTarget;
 import * as DeployedApplicationSortBy from "./deployed-application-sort-by";
 export import DeployedApplicationSortBy = DeployedApplicationSortBy.DeployedApplicationSortBy;
 import * as DeployedApplicationUsage from "./deployed-application-usage";
@@ -137,6 +147,10 @@ import * as FleetSummary from "./fleet-summary";
 export import FleetSummary = FleetSummary.FleetSummary;
 import * as GenerateAgentDeployScriptDetails from "./generate-agent-deploy-script-details";
 export import GenerateAgentDeployScriptDetails = GenerateAgentDeployScriptDetails.GenerateAgentDeployScriptDetails;
+import * as GenerateAgentInstallerConfigurationDetails from "./generate-agent-installer-configuration-details";
+export import GenerateAgentInstallerConfigurationDetails = GenerateAgentInstallerConfigurationDetails.GenerateAgentInstallerConfigurationDetails;
+import * as GenerateLoadPipelineScriptDetails from "./generate-load-pipeline-script-details";
+export import GenerateLoadPipelineScriptDetails = GenerateLoadPipelineScriptDetails.GenerateLoadPipelineScriptDetails;
 import * as GlobalLoggingLevel from "./global-logging-level";
 export import GlobalLoggingLevel = GlobalLoggingLevel.GlobalLoggingLevel;
 import * as InstallationSite from "./installation-site";
@@ -203,6 +217,18 @@ import * as JfrAttachmentTarget from "./jfr-attachment-target";
 export import JfrAttachmentTarget = JfrAttachmentTarget.JfrAttachmentTarget;
 import * as JfrRecording from "./jfr-recording";
 export import JfrRecording = JfrRecording.JfrRecording;
+import * as JmsPlugin from "./jms-plugin";
+export import JmsPlugin = JmsPlugin.JmsPlugin;
+import * as JmsPluginAvailabilityStatus from "./jms-plugin-availability-status";
+export import JmsPluginAvailabilityStatus = JmsPluginAvailabilityStatus.JmsPluginAvailabilityStatus;
+import * as JmsPluginCollection from "./jms-plugin-collection";
+export import JmsPluginCollection = JmsPluginCollection.JmsPluginCollection;
+import * as JmsPluginLifecycleState from "./jms-plugin-lifecycle-state";
+export import JmsPluginLifecycleState = JmsPluginLifecycleState.JmsPluginLifecycleState;
+import * as JmsPluginSortBy from "./jms-plugin-sort-by";
+export import JmsPluginSortBy = JmsPluginSortBy.JmsPluginSortBy;
+import * as JmsPluginSummary from "./jms-plugin-summary";
+export import JmsPluginSummary = JmsPluginSummary.JmsPluginSummary;
 import * as JreSecurityStatus from "./jre-security-status";
 export import JreSecurityStatus = JreSecurityStatus.JreSecurityStatus;
 import * as JreSortBy from "./jre-sort-by";
@@ -247,6 +273,8 @@ import * as OperationType from "./operation-type";
 export import OperationType = OperationType.OperationType;
 import * as OsFamily from "./os-family";
 export import OsFamily = OsFamily.OsFamily;
+import * as PackageType from "./package-type";
+export import PackageType = PackageType.PackageType;
 import * as PatchDetail from "./patch-detail";
 export import PatchDetail = PatchDetail.PatchDetail;
 import * as PerformanceTuningAnalysis from "./performance-tuning-analysis";
@@ -261,6 +289,8 @@ import * as PerformanceTuningAnalysisResultSummary from "./performance-tuning-an
 export import PerformanceTuningAnalysisResultSummary = PerformanceTuningAnalysisResultSummary.PerformanceTuningAnalysisResultSummary;
 import * as PerformanceTuningResultStatus from "./performance-tuning-result-status";
 export import PerformanceTuningResultStatus = PerformanceTuningResultStatus.PerformanceTuningResultStatus;
+import * as PlatformArchitectureType from "./platform-architecture-type";
+export import PlatformArchitectureType = PlatformArchitectureType.PlatformArchitectureType;
 import * as Plugin from "./plugin";
 export import Plugin = Plugin.Plugin;
 import * as PostInstallationActionSettings from "./post-installation-action-settings";
@@ -277,6 +307,8 @@ import * as RemoveFleetInstallationSitesDetails from "./remove-fleet-installatio
 export import RemoveFleetInstallationSitesDetails = RemoveFleetInstallationSitesDetails.RemoveFleetInstallationSitesDetails;
 import * as RequestCryptoAnalysesDetails from "./request-crypto-analyses-details";
 export import RequestCryptoAnalysesDetails = RequestCryptoAnalysesDetails.RequestCryptoAnalysesDetails;
+import * as RequestDeployedApplicationMigrationAnalysesDetails from "./request-deployed-application-migration-analyses-details";
+export import RequestDeployedApplicationMigrationAnalysesDetails = RequestDeployedApplicationMigrationAnalysesDetails.RequestDeployedApplicationMigrationAnalysesDetails;
 import * as RequestJavaMigrationAnalysesDetails from "./request-java-migration-analyses-details";
 export import RequestJavaMigrationAnalysesDetails = RequestJavaMigrationAnalysesDetails.RequestJavaMigrationAnalysesDetails;
 import * as RequestJfrRecordingsDetails from "./request-jfr-recordings-details";
@@ -317,6 +349,8 @@ import * as UpdateFleetAgentConfigurationDetails from "./update-fleet-agent-conf
 export import UpdateFleetAgentConfigurationDetails = UpdateFleetAgentConfigurationDetails.UpdateFleetAgentConfigurationDetails;
 import * as UpdateFleetDetails from "./update-fleet-details";
 export import UpdateFleetDetails = UpdateFleetDetails.UpdateFleetDetails;
+import * as UpdateJmsPluginDetails from "./update-jms-plugin-details";
+export import UpdateJmsPluginDetails = UpdateJmsPluginDetails.UpdateJmsPluginDetails;
 import * as WorkItemCollection from "./work-item-collection";
 export import WorkItemCollection = WorkItemCollection.WorkItemCollection;
 import * as WorkItemDetails from "./work-item-details";
@@ -346,5 +380,7 @@ import * as ApplicationWorkItemDetails from "./application-work-item-details";
 export import ApplicationWorkItemDetails = ApplicationWorkItemDetails.ApplicationWorkItemDetails;
 import * as BasicWorkItemDetails from "./basic-work-item-details";
 export import BasicWorkItemDetails = BasicWorkItemDetails.BasicWorkItemDetails;
+import * as DeployedApplicationWorkItemDetails from "./deployed-application-work-item-details";
+export import DeployedApplicationWorkItemDetails = DeployedApplicationWorkItemDetails.DeployedApplicationWorkItemDetails;
 import * as LcmWorkItemDetails from "./lcm-work-item-details";
 export import LcmWorkItemDetails = LcmWorkItemDetails.LcmWorkItemDetails;

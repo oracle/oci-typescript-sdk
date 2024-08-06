@@ -31,6 +31,10 @@ export interface ListCommitDiffsRequest extends common.BaseRequest {
    */
   "targetVersion": string;
   /**
+   * The target repository identifier
+   */
+  "targetRepositoryId"?: string;
+  /**
    * Boolean value to indicate whether to use merge base or most recent revision.
    */
   "isComparisonFromMergeBase"?: boolean;

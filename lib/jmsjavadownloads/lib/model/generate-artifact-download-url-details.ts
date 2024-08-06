@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface GenerateArtifactDownloadUrlDetails {
   /**
+   * The tenancy [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the user initiating the download.
+   */
+  "compartmentId"?: string;
+  /**
    * Unique identifier for the Java runtime artifact. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "artifactId": number;
