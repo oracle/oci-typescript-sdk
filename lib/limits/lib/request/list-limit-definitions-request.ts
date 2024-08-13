@@ -24,6 +24,11 @@ export interface ListLimitDefinitionsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * The OCID of the subscription assigned to tenant
+   *
+   */
+  "subscriptionId"?: string;
+  /**
    * The target service name.
    */
   "serviceName"?: string;

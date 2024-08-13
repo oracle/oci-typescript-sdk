@@ -102,7 +102,8 @@ export namespace CreateIntegrationInstanceDetails {
     Standard = "STANDARD",
     Enterprise = "ENTERPRISE",
     Standardx = "STANDARDX",
-    Enterprisex = "ENTERPRISEX"
+    Enterprisex = "ENTERPRISEX",
+    Healthcare = "HEALTHCARE"
   }
 
   export enum ConsumptionModel {

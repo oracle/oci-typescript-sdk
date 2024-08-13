@@ -1,6 +1,6 @@
 {
   "name": "oci-jms",
-  "version": "2.91.0",
+  "version": "2.91.1",
   "description": "OCI NodeJS client for Jms Service",
   "repository": {
     "type": "git",

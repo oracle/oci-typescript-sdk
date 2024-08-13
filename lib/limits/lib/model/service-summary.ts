@@ -26,6 +26,11 @@ export interface ServiceSummary {
    * The friendly service name.
    */
   "description"?: string;
+  /**
+   * An array of subscription types supported by the service. e,g The type of subscription, such as 'SAAS', 'ERP', 'CRM'.
+   *
+   */
+  "supportedSubscriptions"?: Array<string>;
 }
 
 export namespace ServiceSummary {
