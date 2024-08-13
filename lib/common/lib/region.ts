@@ -167,6 +167,7 @@ export class Region {
 
     // OC29
     public static ME_ABUDHABI_2: Region = Region.register("me-abudhabi-2", Realm.OC29, "rkt");
+    public static ME_ABUDHABI_4: Region = Region.register("me-abudhabi-4", Realm.OC29, "shj");
 
     /**
    * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata

@@ -43,4 +43,9 @@ export interface GetResourceAvailabilityRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * The OCID of the subscription assigned to tenant
+   *
+   */
+  "subscriptionId"?: string;
 }

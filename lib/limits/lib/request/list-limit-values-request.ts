@@ -28,6 +28,11 @@ export interface ListLimitValuesRequest extends common.BaseRequest {
    */
   "serviceName": string;
   /**
+   * The OCID of the subscription assigned to tenant
+   *
+   */
+  "subscriptionId"?: string;
+  /**
    * Filter entries by scope type.
    */
   "scopeType"?: ListLimitValuesRequest.ScopeType;

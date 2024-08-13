@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
  * The configuration of the listener.
  * For more information about backend set configuration, see
- * [Managing Network Load Balancer Listeners](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/Listeners/listener-management.htm).
+ * [Managing Network Load Balancer Listeners](https://docs.cloud.oracle.com/Content/Balance/Tasks/managinglisteners.htm).
  *
  */
 export interface UpdateListenerDetails {
@@ -53,6 +53,18 @@ Example: {@code TCP}
    * Property to enable/disable PPv2 feature for this listener.
    */
   "isPpv2Enabled"?: boolean;
+  /**
+   * The duration for TCP idle timeout in seconds.
+   * Example: {@code 300}
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "tcpIdleTimeout"?: number;
+  /**
+   * The duration for UDP idle timeout in seconds.
+   * Example: {@code 120}
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "udpIdleTimeout"?: number;
 }
 
 export namespace UpdateListenerDetails {

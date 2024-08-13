@@ -49,6 +49,11 @@ export interface ListServicesRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * The OCID of the subscription assigned to tenant
+   *
+   */
+  "subscriptionId"?: string;
 }
 
 export namespace ListServicesRequest {

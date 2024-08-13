@@ -68,6 +68,12 @@ export interface IntegrationInstance {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * Bring your own license.
    */
   "isByol": boolean;
@@ -119,6 +125,7 @@ export namespace IntegrationInstance {
     Enterprise = "ENTERPRISE",
     Standardx = "STANDARDX",
     Enterprisex = "ENTERPRISEX",
+    Healthcare = "HEALTHCARE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

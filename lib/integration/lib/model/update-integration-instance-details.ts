@@ -78,7 +78,8 @@ export namespace UpdateIntegrationInstanceDetails {
     Standard = "STANDARD",
     Enterprise = "ENTERPRISE",
     Standardx = "STANDARDX",
-    Enterprisex = "ENTERPRISEX"
+    Enterprisex = "ENTERPRISEX",
+    Healthcare = "HEALTHCARE"
   }
 
   export function getJsonObj(obj: UpdateIntegrationInstanceDetails): object {

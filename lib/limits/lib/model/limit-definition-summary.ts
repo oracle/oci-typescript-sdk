@@ -62,6 +62,16 @@ export interface LimitDefinitionSummary {
    *
    */
   "isDynamic"?: boolean;
+  /**
+   * An array of subscription types supported by the limit. e,g The type of subscription, such as 'SAAS', 'ERP', 'CRM'.
+   *
+   */
+  "supportedSubscriptions"?: Array<string>;
+  /**
+   * Supported quota family names for creation of quota policy.
+   *
+   */
+  "supportedQuotaFamilies"?: Array<string>;
 }
 
 export namespace LimitDefinitionSummary {
