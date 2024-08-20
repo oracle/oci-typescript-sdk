@@ -51,6 +51,16 @@ export namespace DatabaseFeatureDetails {
             <model.DatabaseDiagnosticsAndManagementFeatureDetails>(<object>jsonObj),
             true
           );
+        case "DB_LIFECYCLE_MANAGEMENT":
+          return model.DatabaseLifecycleManagementFeatureDetails.getJsonObj(
+            <model.DatabaseLifecycleManagementFeatureDetails>(<object>jsonObj),
+            true
+          );
+        case "SQLWATCH":
+          return model.DatabaseSqlWatchFeatureDetails.getJsonObj(
+            <model.DatabaseSqlWatchFeatureDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.feature}`);
       }
@@ -75,6 +85,16 @@ export namespace DatabaseFeatureDetails {
         case "DIAGNOSTICS_AND_MANAGEMENT":
           return model.DatabaseDiagnosticsAndManagementFeatureDetails.getDeserializedJsonObj(
             <model.DatabaseDiagnosticsAndManagementFeatureDetails>(<object>jsonObj),
+            true
+          );
+        case "DB_LIFECYCLE_MANAGEMENT":
+          return model.DatabaseLifecycleManagementFeatureDetails.getDeserializedJsonObj(
+            <model.DatabaseLifecycleManagementFeatureDetails>(<object>jsonObj),
+            true
+          );
+        case "SQLWATCH":
+          return model.DatabaseSqlWatchFeatureDetails.getDeserializedJsonObj(
+            <model.DatabaseSqlWatchFeatureDetails>(<object>jsonObj),
             true
           );
         default:

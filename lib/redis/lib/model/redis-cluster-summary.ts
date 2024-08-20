@@ -1,6 +1,6 @@
 /**
- * Redis Service API
- * Use the Redis Service API to create and manage Redis clusters. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](/iaas/Content/redis/home.htm).
+ * OCI Cache API
+ * Use the OCI Cache API to create and manage clusters. A cluster is a memory-based storage solution. For more information, see [OCI Cache](/iaas/Content/ocicache/home.htm).
  * OpenAPI spec version: 20220315
  *
  *
@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of information about a Redis cluster. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](https://docs.cloud.oracle.com/iaas/Content/redis/home.htm).
+ * Summary of information about a cluster. A cluster is a memory-based storage solution. For more information, see [OCI Cache](https://docs.cloud.oracle.com/iaas/Content/ocicache/home.htm).
  *
  */
 export interface RedisClusterSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the Redis cluster.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the cluster.
    */
   "id": string;
   /**
@@ -28,11 +28,11 @@ export interface RedisClusterSummary {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the compartment that contains the Redis cluster.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the compartment that contains the cluster.
    */
   "compartmentId": string;
   /**
-   * The current state of the Redis cluster.
+   * The current state of the cluster.
    */
   "lifecycleState"?: string;
   /**
@@ -40,49 +40,57 @@ export interface RedisClusterSummary {
    */
   "lifecycleDetails"?: string;
   /**
-   * The number of nodes in the Redis cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of nodes per shard in the cluster when clusterMode is SHARDED. This is the total number of nodes when clusterMode is NONSHARDED. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nodeCount": number;
   /**
-   * The amount of memory allocated to the Redis cluster's nodes, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory allocated to the cluster's nodes, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nodeMemoryInGBs": number;
   /**
-   * The fully qualified domain name (FQDN) of the API endpoint for the Redis cluster's primary node.
+   * The fully qualified domain name (FQDN) of the API endpoint for the cluster's primary node.
    */
   "primaryFqdn": string;
   /**
-   * The private IP address of the API endpoint for the Redis cluster's primary node.
+   * The private IP address of the API endpoint for the cluster's primary node.
    */
   "primaryEndpointIpAddress": string;
   /**
-   * The fully qualified domain name (FQDN) of the API endpoint for the Redis cluster's replica nodes.
+   * The fully qualified domain name (FQDN) of the API endpoint for the cluster's replica nodes.
    */
   "replicasFqdn": string;
   /**
-   * The private IP address of the API endpoint for the Redis cluster's replica nodes.
+   * The private IP address of the API endpoint for the cluster's replica nodes.
    */
   "replicasEndpointIpAddress": string;
   /**
-   * The Redis version that the cluster is running.
+   * The OCI Cache engine version that the cluster is running.
    */
   "softwareVersion": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the Redis cluster's subnet.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the cluster's subnet.
    */
   "subnetId": string;
   /**
-   * The date and time the Redis cluster was created. An [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) formatted datetime string.
+   * The date and time the cluster was created. An [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) formatted datetime string.
    */
   "timeCreated"?: Date;
   /**
-   * The date and time the Redis cluster was updated. An [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) formatted datetime string.
+   * The date and time the cluster was updated. An [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) formatted datetime string.
    */
   "timeUpdated"?: Date;
   /**
+   * Specifies whether the cluster is sharded or non-sharded.
+   */
+  "clusterMode"?: string;
+  /**
+   * The number of shards in a sharded cluster. Only applicable when clusterMode is SHARDED. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "shardCount"?: number;
+  /**
    * A list of Network Security Group (NSG) [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    * associated with this cluster. For more information,
-   * see [Using an NSG for Redis Clusters](https://docs.cloud.oracle.com/iaas/Content/redis/connecttorediscluster.htm#connecttorediscluster__networksecuritygroup).
+   * see [Using an NSG for Clusters](https://docs.cloud.oracle.com/iaas/Content/ocicache/connecttocluster.htm#connecttocluster__networksecuritygroup).
    *
    */
   "nsgIds"?: Array<string>;

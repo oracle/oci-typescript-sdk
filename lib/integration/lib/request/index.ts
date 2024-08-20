@@ -23,6 +23,8 @@ import * as DeleteIntegrationInstanceRequest from "./delete-integration-instance
 export import DeleteIntegrationInstanceRequest = DeleteIntegrationInstanceRequest.DeleteIntegrationInstanceRequest;
 import * as EnableProcessAutomationRequest from "./enable-process-automation-request";
 export import EnableProcessAutomationRequest = EnableProcessAutomationRequest.EnableProcessAutomationRequest;
+import * as ExtendDataRetentionRequest from "./extend-data-retention-request";
+export import ExtendDataRetentionRequest = ExtendDataRetentionRequest.ExtendDataRetentionRequest;
 import * as GetIntegrationInstanceRequest from "./get-integration-instance-request";
 export import GetIntegrationInstanceRequest = GetIntegrationInstanceRequest.GetIntegrationInstanceRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";

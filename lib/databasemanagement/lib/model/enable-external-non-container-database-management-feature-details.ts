@@ -21,7 +21,10 @@ import common = require("oci-common");
  * The details required to enable a Database Management feature for an external non-container database.
  */
 export interface EnableExternalNonContainerDatabaseManagementFeatureDetails {
-  "featureDetails": model.ExternalDatabaseDiagnosticsAndManagementFeatureDetails;
+  "featureDetails":
+    | model.ExternalDatabaseLifecycleManagementFeatureDetails
+    | model.ExternalDatabaseSqlWatchFeatureDetails
+    | model.ExternalDatabaseDiagnosticsAndManagementFeatureDetails;
 }
 
 export namespace EnableExternalNonContainerDatabaseManagementFeatureDetails {

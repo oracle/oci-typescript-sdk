@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeRedisClusterCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the Redis cluster.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the cluster.
    */
   "redisClusterId": string;
   /**

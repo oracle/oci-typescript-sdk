@@ -46,7 +46,12 @@ export namespace DatabaseFeatureConfiguration {
     EnabledWithWarnings = "ENABLED_WITH_WARNINGS",
     PendingDisable = "PENDING_DISABLE",
     Enabling = "ENABLING",
-    Disabling = "DISABLING"
+    Disabling = "DISABLING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DatabaseFeatureConfiguration): object {
@@ -67,6 +72,16 @@ export namespace DatabaseFeatureConfiguration {
         case "DIAGNOSTICS_AND_MANAGEMENT":
           return model.DatabaseDiagnosticsAndManagementFeatureConfiguration.getJsonObj(
             <model.DatabaseDiagnosticsAndManagementFeatureConfiguration>(<object>jsonObj),
+            true
+          );
+        case "DB_LIFECYCLE_MANAGEMENT":
+          return model.DatabaseLifecycleFeatureConfiguration.getJsonObj(
+            <model.DatabaseLifecycleFeatureConfiguration>(<object>jsonObj),
+            true
+          );
+        case "SQLWATCH":
+          return model.DatabaseSqlWatchFeatureConfiguration.getJsonObj(
+            <model.DatabaseSqlWatchFeatureConfiguration>(<object>jsonObj),
             true
           );
         default:
@@ -93,6 +108,16 @@ export namespace DatabaseFeatureConfiguration {
         case "DIAGNOSTICS_AND_MANAGEMENT":
           return model.DatabaseDiagnosticsAndManagementFeatureConfiguration.getDeserializedJsonObj(
             <model.DatabaseDiagnosticsAndManagementFeatureConfiguration>(<object>jsonObj),
+            true
+          );
+        case "DB_LIFECYCLE_MANAGEMENT":
+          return model.DatabaseLifecycleFeatureConfiguration.getDeserializedJsonObj(
+            <model.DatabaseLifecycleFeatureConfiguration>(<object>jsonObj),
+            true
+          );
+        case "SQLWATCH":
+          return model.DatabaseSqlWatchFeatureConfiguration.getDeserializedJsonObj(
+            <model.DatabaseSqlWatchFeatureConfiguration>(<object>jsonObj),
             true
           );
         default:

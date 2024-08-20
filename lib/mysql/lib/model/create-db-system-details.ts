@@ -104,6 +104,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;
+  "dataStorage"?: model.DataStorageDetails;
   /**
     * The hostname for the primary endpoint of the DB System. Used for DNS.
 * <p>
@@ -171,6 +172,10 @@ export namespace CreateDbSystemDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "dataStorage": obj.dataStorage
+          ? model.DataStorageDetails.getJsonObj(obj.dataStorage)
+          : undefined,
+
         "backupPolicy": obj.backupPolicy
           ? model.CreateBackupPolicyDetails.getJsonObj(obj.backupPolicy)
           : undefined,
@@ -195,6 +200,10 @@ export namespace CreateDbSystemDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "dataStorage": obj.dataStorage
+          ? model.DataStorageDetails.getDeserializedJsonObj(obj.dataStorage)
+          : undefined,
+
         "backupPolicy": obj.backupPolicy
           ? model.CreateBackupPolicyDetails.getDeserializedJsonObj(obj.backupPolicy)
           : undefined,

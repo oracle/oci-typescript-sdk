@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateRedisClusterRequest extends common.BaseRequest {
   /**
-   * Details for the new RedisCluster.
+   * Details for the new cluster.
    */
   "createRedisClusterDetails": model.CreateRedisClusterDetails;
   /**

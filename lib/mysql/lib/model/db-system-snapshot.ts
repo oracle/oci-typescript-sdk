@@ -73,10 +73,12 @@ export interface DbSystemSnapshot {
    */
   "configurationId"?: string;
   /**
-   * Initial size of the data volume in GiBs that will be created and attached.
+   * DEPRECATED: User specified size of the data volume. May be less than current allocatedStorageSizeInGBs.
+   * Replaced by dataStorage.dataStorageSizeInGBs.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs": number;
+  "dataStorage"?: model.DataStorage;
   /**
    * The hostname for the primary endpoint of the DB System. Used for DNS.
    * The value is the hostname portion of the primary private IP's fully qualified domain name (FQDN)
@@ -155,6 +157,8 @@ export namespace DbSystemSnapshot {
           ? model.BackupPolicy.getJsonObj(obj.backupPolicy)
           : undefined,
 
+        "dataStorage": obj.dataStorage ? model.DataStorage.getJsonObj(obj.dataStorage) : undefined,
+
         "endpoints": obj.endpoints
           ? obj.endpoints.map(item => {
               return model.DbSystemEndpoint.getJsonObj(item);
@@ -181,6 +185,10 @@ export namespace DbSystemSnapshot {
       ...{
         "backupPolicy": obj.backupPolicy
           ? model.BackupPolicy.getDeserializedJsonObj(obj.backupPolicy)
+          : undefined,
+
+        "dataStorage": obj.dataStorage
+          ? model.DataStorage.getDeserializedJsonObj(obj.dataStorage)
           : undefined,
 
         "endpoints": obj.endpoints

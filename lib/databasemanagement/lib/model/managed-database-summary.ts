@@ -106,16 +106,42 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The list of feature configurations
+   */
+  "dbmgmtFeatureConfigs"?: Array<model.DatabaseFeatureConfiguration>;
+  /**
+   * The operating system of database.
+   */
+  "databasePlatformName"?: string;
 }
 
 export namespace ManagedDatabaseSummary {
   export function getJsonObj(obj: ManagedDatabaseSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbmgmtFeatureConfigs": obj.dbmgmtFeatureConfigs
+          ? obj.dbmgmtFeatureConfigs.map(item => {
+              return model.DatabaseFeatureConfiguration.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ManagedDatabaseSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dbmgmtFeatureConfigs": obj.dbmgmtFeatureConfigs
+          ? obj.dbmgmtFeatureConfigs.map(item => {
+              return model.DatabaseFeatureConfiguration.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
