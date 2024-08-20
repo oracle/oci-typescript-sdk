@@ -23,6 +23,22 @@ import common = require("oci-common");
  *
  */
 export interface DrProtectionGroupMemberAutonomousDatabase extends model.DrProtectionGroupMember {
+  /**
+   * This specifies the mechanism used to create a temporary Autonomous Database instance for DR Drills.
+   * See https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/autonomous-clone-about.html for information about these clone types.
+   * See https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/autonomous-data-guard-snapshot-standby.html for information about snapshot standby.
+   *
+   */
+  "autonomousDatabaseStandbyTypeForDrDrills"?: model.AutonomousDatabaseStandbyTypeForDrDrills;
+  /**
+    * The OCID of the vault secret where the database SYSDBA password is stored.
+* This password is required and used for performing database DR Drill operations when using full clone.
+* <p>
+Example: {@code ocid1.vaultsecret.oc1..uniqueID}
+* 
+    */
+  "passwordVaultSecretId"?: string;
+
   "memberType": string;
 }
 

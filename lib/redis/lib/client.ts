@@ -1,6 +1,6 @@
 /**
- * Redis Service API
- * Use the Redis Service API to create and manage Redis clusters. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](/iaas/Content/redis/home.htm).
+ * OCI Cache API
+ * Use the OCI Cache API to create and manage clusters. A cluster is a memory-based storage solution. For more information, see [OCI Cache](/iaas/Content/ocicache/home.htm).
  * OpenAPI spec version: 20220315
  *
  *
@@ -289,7 +289,7 @@ export class RedisClusterClient {
   }
 
   /**
-   * Moves a Redis cluster into a different compartment within the same tenancy. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](https://docs.cloud.oracle.com/iaas/Content/redis/home.htm).
+   * Moves an OCI Cache cluster into a different compartment within the same tenancy. A cluster is a memory-based storage solution. For more information, see [OCI Cache](https://docs.cloud.oracle.com/iaas/Content/ocicache/home.htm).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeRedisClusterCompartmentRequest
    * @return ChangeRedisClusterCompartmentResponse
@@ -368,7 +368,7 @@ export class RedisClusterClient {
   }
 
   /**
-   * Creates a new Redis cluster. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](https://docs.cloud.oracle.com/iaas/Content/redis/home.htm).
+   * Creates a new OCI Cache cluster. A cluster is a memory-based storage solution. For more information, see [OCI Cache](https://docs.cloud.oracle.com/iaas/Content/ocicache/home.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateRedisClusterRequest
@@ -453,7 +453,7 @@ export class RedisClusterClient {
   }
 
   /**
-   * Deletes the specified Redis cluster. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](https://docs.cloud.oracle.com/iaas/Content/redis/home.htm).
+   * Deletes the specified OCI Cache cluster. A cluster is a memory-based storage solution. For more information, see [OCI Cache](https://docs.cloud.oracle.com/iaas/Content/ocicache/home.htm).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteRedisClusterRequest
    * @return DeleteRedisClusterResponse
@@ -525,7 +525,7 @@ export class RedisClusterClient {
   }
 
   /**
-   * Retrieves the specified Redis cluster. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](https://docs.cloud.oracle.com/iaas/Content/redis/home.htm).
+   * Retrieves the specified OCI Cache cluster. A cluster is a memory-based storage solution. For more information, see [OCI Cache](https://docs.cloud.oracle.com/iaas/Content/ocicache/home.htm).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRedisClusterRequest
    * @return GetRedisClusterResponse
@@ -680,7 +680,90 @@ export class RedisClusterClient {
   }
 
   /**
-   * Lists the Redis clusters in the specified compartment. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](https://docs.cloud.oracle.com/iaas/Content/redis/home.htm).
+   * Gets the list of all nodes in a cluster.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRedisClusterNodesRequest
+   * @return ListRedisClusterNodesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/redis/ListRedisClusterNodes.ts.html |here} to see how to use ListRedisClusterNodes API.
+   */
+  public async listRedisClusterNodes(
+    listRedisClusterNodesRequest: requests.ListRedisClusterNodesRequest
+  ): Promise<responses.ListRedisClusterNodesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation RedisClusterClient#listRedisClusterNodes.");
+    const operationName = "listRedisClusterNodes";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{redisClusterId}": listRedisClusterNodesRequest.redisClusterId
+    };
+
+    const queryParams = {
+      "displayName": listRedisClusterNodesRequest.displayName,
+      "limit": listRedisClusterNodesRequest.limit,
+      "page": listRedisClusterNodesRequest.page,
+      "sortOrder": listRedisClusterNodesRequest.sortOrder,
+      "sortBy": listRedisClusterNodesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRedisClusterNodesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRedisClusterNodesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/redisClusters/{redisClusterId}/nodes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRedisClusterNodesResponse>{},
+        body: await response.json(),
+        bodyKey: "redisNodeCollection",
+        bodyModel: model.RedisNodeCollection,
+        type: "model.RedisNodeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the OCI Cache clusters in the specified compartment. A cluster is a memory-based storage solution. For more information, see [OCI Cache](https://docs.cloud.oracle.com/iaas/Content/ocicache/home.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRedisClustersRequest
@@ -1009,7 +1092,7 @@ export class RedisClusterClient {
   }
 
   /**
-   * Updates the specified Redis cluster. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](https://docs.cloud.oracle.com/iaas/Content/redis/home.htm).
+   * Updates the specified OCI Cache cluster. A cluster is a memory-based storage solution. For more information, see [OCI Cache](https://docs.cloud.oracle.com/iaas/Content/ocicache/home.htm).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateRedisClusterRequest
    * @return UpdateRedisClusterResponse

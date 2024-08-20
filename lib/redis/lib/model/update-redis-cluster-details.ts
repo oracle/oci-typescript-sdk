@@ -1,6 +1,6 @@
 /**
- * Redis Service API
- * Use the Redis Service API to create and manage Redis clusters. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](/iaas/Content/redis/home.htm).
+ * OCI Cache API
+ * Use the OCI Cache API to create and manage clusters. A cluster is a memory-based storage solution. For more information, see [OCI Cache](/iaas/Content/ocicache/home.htm).
  * OpenAPI spec version: 20220315
  *
  *
@@ -15,25 +15,29 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration to update for an existing Redis cluster.
+ * The configuration to update for an existing cluster.
  */
 export interface UpdateRedisClusterDetails {
+  /**
+   * The number of shards in sharded cluster. Only applicable when clusterMode is SHARDED. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "shardCount"?: number;
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * The number of nodes in the Redis cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of nodes per shard in the cluster when clusterMode is SHARDED. This is the total number of nodes when clusterMode is NONSHARDED. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nodeCount"?: number;
   /**
-   * The amount of memory allocated to the Redis cluster's nodes, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory allocated to the cluster's nodes, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nodeMemoryInGBs"?: number;
   /**
    * A list of Network Security Group (NSG) [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    * associated with this cluster. For more information,
-   * see [Using an NSG for Redis Clusters](https://docs.cloud.oracle.com/iaas/Content/redis/connecttorediscluster.htm#connecttorediscluster__networksecuritygroup).
+   * see [Using an NSG for Clusters](https://docs.cloud.oracle.com/iaas/Content/ocicache/connecttocluster.htm#connecttocluster__networksecuritygroup).
    *
    */
   "nsgIds"?: Array<string>;

@@ -1800,6 +1800,86 @@ export class AnalyticsClient {
   }
 
   /**
+   * Set the external service properties of an Analytics instance.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SetFeatureBundleRequest
+   * @return SetFeatureBundleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/SetFeatureBundle.ts.html |here} to see how to use SetFeatureBundle API.
+   */
+  public async setFeatureBundle(
+    setFeatureBundleRequest: requests.SetFeatureBundleRequest
+  ): Promise<responses.SetFeatureBundleResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#setFeatureBundle.");
+    const operationName = "setFeatureBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/SetFeatureBundle";
+    const pathParams = {
+      "{analyticsInstanceId}": setFeatureBundleRequest.analyticsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": setFeatureBundleRequest.ifMatch,
+      "opc-request-id": setFeatureBundleRequest.opcRequestId,
+      "opc-retry-token": setFeatureBundleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setFeatureBundleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/analyticsInstances/{analyticsInstanceId}/actions/setFeatureBundle",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        setFeatureBundleRequest.setFeatureBundleDetails,
+        "SetFeatureBundleDetails",
+        model.SetFeatureBundleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetFeatureBundleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Encrypts the customer data of this Analytics instance using either a customer OCI Vault Key or Oracle managed default key.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

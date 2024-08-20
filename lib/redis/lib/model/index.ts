@@ -1,6 +1,6 @@
 /**
- * Redis Service API
- * Use the Redis Service API to create and manage Redis clusters. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](/iaas/Content/redis/home.htm).
+ * OCI Cache API
+ * Use the OCI Cache API to create and manage clusters. A cluster is a memory-based storage solution. For more information, see [OCI Cache](/iaas/Content/ocicache/home.htm).
  * OpenAPI spec version: 20220315
  *
  *
@@ -21,6 +21,8 @@ import * as Node from "./node";
 export import Node = Node.Node;
 import * as NodeCollection from "./node-collection";
 export import NodeCollection = NodeCollection.NodeCollection;
+import * as NodeSummary from "./node-summary";
+export import NodeSummary = NodeSummary.NodeSummary;
 import * as OperationStatus from "./operation-status";
 export import OperationStatus = OperationStatus.OperationStatus;
 import * as OperationType from "./operation-type";
@@ -31,6 +33,8 @@ import * as RedisClusterCollection from "./redis-cluster-collection";
 export import RedisClusterCollection = RedisClusterCollection.RedisClusterCollection;
 import * as RedisClusterSummary from "./redis-cluster-summary";
 export import RedisClusterSummary = RedisClusterSummary.RedisClusterSummary;
+import * as RedisNodeCollection from "./redis-node-collection";
+export import RedisNodeCollection = RedisNodeCollection.RedisNodeCollection;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as UpdateRedisClusterDetails from "./update-redis-cluster-details";

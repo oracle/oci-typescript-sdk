@@ -1,6 +1,6 @@
 {
   "name": "oci-dataintegration",
-  "version": "2.91.1",
+  "version": "2.92.0",
   "description": "OCI NodeJS client for Data Integration Service",
   "repository": {
     "type": "git",

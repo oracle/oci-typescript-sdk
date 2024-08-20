@@ -21,7 +21,10 @@ import common = require("oci-common");
  * The details required to enable a Database Management feature for an Oracle cloud pluggable database.
  */
 export interface EnablePluggableDatabaseManagementFeatureDetails {
-  "featureDetails": model.DatabaseDiagnosticsAndManagementFeatureDetails;
+  "featureDetails":
+    | model.DatabaseDiagnosticsAndManagementFeatureDetails
+    | model.DatabaseLifecycleManagementFeatureDetails
+    | model.DatabaseSqlWatchFeatureDetails;
 }
 
 export namespace EnablePluggableDatabaseManagementFeatureDetails {

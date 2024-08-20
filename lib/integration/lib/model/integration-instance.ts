@@ -117,6 +117,10 @@ export interface IntegrationInstance {
   "privateEndpointOutboundConnection"?:
     | model.PrivateEndpointOutboundConnection
     | model.NoneOutboundConnection;
+  /**
+   * Data retention period set for given integration instance
+   */
+  "dataRetentionPeriod"?: IntegrationInstance.DataRetentionPeriod;
 }
 
 export namespace IntegrationInstance {
@@ -141,6 +145,7 @@ export namespace IntegrationInstance {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    Standby = "STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -162,6 +167,17 @@ export namespace IntegrationInstance {
   export enum Shape {
     Development = "DEVELOPMENT",
     Production = "PRODUCTION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DataRetentionPeriod {
+    Months1 = "MONTHS_1",
+    Months3 = "MONTHS_3",
+    Months6 = "MONTHS_6",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -706,6 +706,87 @@ export class IntegrationInstanceClient {
   }
 
   /**
+   * Extend Data Retention period for given Integration Instance
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExtendDataRetentionRequest
+   * @return ExtendDataRetentionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/ExtendDataRetention.ts.html |here} to see how to use ExtendDataRetention API.
+   */
+  public async extendDataRetention(
+    extendDataRetentionRequest: requests.ExtendDataRetentionRequest
+  ): Promise<responses.ExtendDataRetentionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#extendDataRetention.");
+    const operationName = "extendDataRetention";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/ExtendDataRetention";
+    const pathParams = {
+      "{integrationInstanceId}": extendDataRetentionRequest.integrationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": extendDataRetentionRequest.ifMatch,
+      "opc-request-id": extendDataRetentionRequest.opcRequestId,
+      "opc-retry-token": extendDataRetentionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      extendDataRetentionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/integrationInstances/{integrationInstanceId}/actions/extendDataRetention",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        extendDataRetentionRequest.extendDataRetentionDetails,
+        "ExtendDataRetentionDetails",
+        model.ExtendDataRetentionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExtendDataRetentionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a IntegrationInstance by identifier
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIntegrationInstanceRequest

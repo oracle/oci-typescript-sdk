@@ -98,10 +98,12 @@ For a standalone DB System, this defines the fault domain in which the DB System
    */
   "configurationId"?: string;
   /**
-   * Initial size of the data volume in GiBs that will be created and attached.
+   * DEPRECATED: User specified size of the data volume. May be less than current allocatedStorageSizeInGBs.
+   * Replaced by dataStorage.dataStorageSizeInGBs.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs": number;
+  "dataStorage": model.DataStorage;
   /**
    * The hostname for the primary endpoint of the DB System. Used for DNS.
    * The value is the hostname portion of the primary private IP's fully qualified domain name (FQDN)
@@ -214,6 +216,8 @@ export namespace DbSystem {
           : undefined,
         "source": obj.source ? model.DbSystemSource.getJsonObj(obj.source) : undefined,
 
+        "dataStorage": obj.dataStorage ? model.DataStorage.getJsonObj(obj.dataStorage) : undefined,
+
         "endpoints": obj.endpoints
           ? obj.endpoints.map(item => {
               return model.DbSystemEndpoint.getJsonObj(item);
@@ -260,6 +264,10 @@ export namespace DbSystem {
           ? model.BackupPolicy.getDeserializedJsonObj(obj.backupPolicy)
           : undefined,
         "source": obj.source ? model.DbSystemSource.getDeserializedJsonObj(obj.source) : undefined,
+
+        "dataStorage": obj.dataStorage
+          ? model.DataStorage.getDeserializedJsonObj(obj.dataStorage)
+          : undefined,
 
         "endpoints": obj.endpoints
           ? obj.endpoints.map(item => {

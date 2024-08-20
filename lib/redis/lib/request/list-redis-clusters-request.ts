@@ -31,7 +31,7 @@ export interface ListRedisClustersRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the Redis cluster.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the cluster.
    */
   "id"?: string;
   /**

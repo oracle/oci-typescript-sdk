@@ -25,6 +25,8 @@ import * as CreateIntegrationInstanceDetails from "./create-integration-instance
 export import CreateIntegrationInstanceDetails = CreateIntegrationInstanceDetails.CreateIntegrationInstanceDetails;
 import * as CustomEndpointDetails from "./custom-endpoint-details";
 export import CustomEndpointDetails = CustomEndpointDetails.CustomEndpointDetails;
+import * as ExtendDataRetentionDetails from "./extend-data-retention-details";
+export import ExtendDataRetentionDetails = ExtendDataRetentionDetails.ExtendDataRetentionDetails;
 import * as IdcsInfoDetails from "./idcs-info-details";
 export import IdcsInfoDetails = IdcsInfoDetails.IdcsInfoDetails;
 import * as IntegrationInstance from "./integration-instance";
