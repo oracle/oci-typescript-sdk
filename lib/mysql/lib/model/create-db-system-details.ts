@@ -104,6 +104,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;
+  "dataStorage"?: model.DataStorageDetails;
   /**
     * The hostname for the primary endpoint of the DB System. Used for DNS.
 * <p>
@@ -164,6 +165,13 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
   "secureConnections"?: model.SecureConnectionDetails;
+  /**
+   * The list of customer email addresses that receive information from Oracle about the specified OCI DB System resource.
+   * Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators.
+   * Up to 10 email addresses can be added to the customer contacts for a DB System.
+   *
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
 }
 
 export namespace CreateDbSystemDetails {
@@ -171,6 +179,10 @@ export namespace CreateDbSystemDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "dataStorage": obj.dataStorage
+          ? model.DataStorageDetails.getJsonObj(obj.dataStorage)
+          : undefined,
+
         "backupPolicy": obj.backupPolicy
           ? model.CreateBackupPolicyDetails.getJsonObj(obj.backupPolicy)
           : undefined,
@@ -185,6 +197,11 @@ export namespace CreateDbSystemDetails {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
+          : undefined,
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -195,6 +212,10 @@ export namespace CreateDbSystemDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "dataStorage": obj.dataStorage
+          ? model.DataStorageDetails.getDeserializedJsonObj(obj.dataStorage)
+          : undefined,
+
         "backupPolicy": obj.backupPolicy
           ? model.CreateBackupPolicyDetails.getDeserializedJsonObj(obj.backupPolicy)
           : undefined,
@@ -211,6 +232,11 @@ export namespace CreateDbSystemDetails {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
+          : undefined,
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

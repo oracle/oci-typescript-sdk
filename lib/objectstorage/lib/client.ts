@@ -925,6 +925,97 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   }
 
   /**
+   * Create a PrivateEndpoint.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreatePrivateEndpointRequest
+   * @return CreatePrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CreatePrivateEndpoint.ts.html |here} to see how to use CreatePrivateEndpoint API.
+   */
+  public async createPrivateEndpoint(
+    createPrivateEndpointRequest: requests.CreatePrivateEndpointRequest
+  ): Promise<responses.CreatePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#createPrivateEndpoint.");
+    const operationName = "createPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PrivateEndpoint/CreatePrivateEndpoint";
+    const pathParams = {
+      "{namespaceName}": createPrivateEndpointRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-client-request-id": createPrivateEndpointRequest.opcClientRequestId
+    };
+
+    const requiredParams = new Set<string>(["namespaceName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/n/{namespaceName}/pe",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPrivateEndpointRequest.createPrivateEndpointDetails,
+        "CreatePrivateEndpointDetails",
+        model.CreatePrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a replication policy for the specified bucket.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1443,6 +1534,94 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePreauthenticatedRequestResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Private Endpoint if it exists in the given namespace.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeletePrivateEndpointRequest
+   * @return DeletePrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/DeletePrivateEndpoint.ts.html |here} to see how to use DeletePrivateEndpoint API.
+   */
+  public async deletePrivateEndpoint(
+    deletePrivateEndpointRequest: requests.DeletePrivateEndpointRequest
+  ): Promise<responses.DeletePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#deletePrivateEndpoint.");
+    const operationName = "deletePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PrivateEndpoint/DeletePrivateEndpoint";
+    const pathParams = {
+      "{namespaceName}": deletePrivateEndpointRequest.namespaceName,
+      "{peName}": deletePrivateEndpointRequest.peName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePrivateEndpointRequest.ifMatch,
+      "opc-client-request-id": deletePrivateEndpointRequest.opcClientRequestId
+    };
+
+    const requiredParams = new Set<string>(["namespaceName", "peName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/n/{namespaceName}/pe/{peName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-client-request-id"),
             key: "opcClientRequestId",
@@ -2246,6 +2425,98 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the current representation of the given Private Endpoint in the given Object Storage namespace.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPrivateEndpointRequest
+   * @return GetPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetPrivateEndpoint.ts.html |here} to see how to use GetPrivateEndpoint API.
+   */
+  public async getPrivateEndpoint(
+    getPrivateEndpointRequest: requests.GetPrivateEndpointRequest
+  ): Promise<responses.GetPrivateEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getPrivateEndpoint.");
+    const operationName = "getPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PrivateEndpoint/GetPrivateEndpoint";
+    const pathParams = {
+      "{namespaceName}": getPrivateEndpointRequest.namespaceName,
+      "{peName}": getPrivateEndpointRequest.peName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": getPrivateEndpointRequest.ifMatch,
+      "if-none-match": getPrivateEndpointRequest.ifNoneMatch,
+      "opc-client-request-id": getPrivateEndpointRequest.opcClientRequestId
+    };
+
+    const requiredParams = new Set<string>(["namespaceName", "peName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/n/{namespaceName}/pe/{peName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "privateEndpoint",
+        bodyModel: model.PrivateEndpoint,
+        type: "model.PrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
             dataType: "string"
           }
         ]
@@ -3665,6 +3936,157 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   }
 
   /**
+   * Gets a list of all PrivateEndpointSummary in a compartment associated with a namespace.
+   * To use this and other API operations, you must be authorized in an IAM policy. If you are not authorized,
+   * talk to an administrator. If you are an administrator who needs to write policies to give users access, see
+   * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPrivateEndpointsRequest
+   * @return ListPrivateEndpointsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListPrivateEndpoints.ts.html |here} to see how to use ListPrivateEndpoints API.
+   */
+  public async listPrivateEndpoints(
+    listPrivateEndpointsRequest: requests.ListPrivateEndpointsRequest
+  ): Promise<responses.ListPrivateEndpointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#listPrivateEndpoints.");
+    const operationName = "listPrivateEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PrivateEndpointSummary/ListPrivateEndpoints";
+    const pathParams = {
+      "{namespaceName}": listPrivateEndpointsRequest.namespaceName
+    };
+
+    const queryParams = {
+      "compartmentId": listPrivateEndpointsRequest.compartmentId,
+      "limit": listPrivateEndpointsRequest.limit,
+      "page": listPrivateEndpointsRequest.page,
+      "fields": listPrivateEndpointsRequest.fields,
+      "lifecycleState": listPrivateEndpointsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-client-request-id": listPrivateEndpointsRequest.opcClientRequestId
+    };
+
+    const requiredParams = new Set<string>(["namespaceName", "compartmentId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/n/{namespaceName}/pe",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPrivateEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.PrivateEndpointSummary,
+        type: "Array<model.PrivateEndpointSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPrivateEndpointsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.PrivateEndpointSummary objects
+   * contained in responses from the listPrivateEndpoints operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPrivateEndpoints(
+    request: requests.ListPrivateEndpointsRequest
+  ): AsyncIterableIterator<model.PrivateEndpointSummary> {
+    return paginateRecords(request, req => this.listPrivateEndpoints(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPrivateEndpointsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listPrivateEndpoints operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPrivateEndpointsResponses(
+    request: requests.ListPrivateEndpointsRequest
+  ): AsyncIterableIterator<responses.ListPrivateEndpointsResponse> {
+    return paginateResponses(request, req => this.listPrivateEndpoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PrivateEndpointSummary objects
+   * contained in responses from the listPrivateEndpoints operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPrivateEndpointsRecordIterator(
+    request: requests.ListPrivateEndpointsRequest
+  ): AsyncIterableIterator<model.PrivateEndpointSummary> {
+    return paginateRecords(request, req => this.listPrivateEndpoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPrivateEndpoints operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPrivateEndpointsResponseIterator(
+    request: requests.ListPrivateEndpointsRequest
+  ): AsyncIterableIterator<responses.ListPrivateEndpointsResponse> {
+    return paginateResponses(request, req => this.listPrivateEndpoints(req));
+  }
+
+  /**
    * List the replication policies associated with a bucket.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4356,6 +4778,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
 
     const queryParams = {
       "compartmentId": listWorkRequestsRequest.compartmentId,
+      "privateEndpointName": listWorkRequestsRequest.privateEndpointName,
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit
     };
@@ -5094,8 +5517,8 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   }
 
   /**
-   * Restores one or more objects specified by the objectName parameter.
-   * By default objects will be restored for 24 hours. Duration can be configured using the hours parameter.
+   * Restores the object specified by the objectName parameter.
+   * By default object will be restored for 24 hours. Duration can be configured using the hours parameter.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RestoreObjectsRequest
@@ -5444,6 +5867,106 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateObjectStorageTierResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Performs a partial or full update of a user-defined data associated with the Private Endpoint.
+* <p>
+Use UpdatePrivateEndpoint to move a Private Endpoint from one compartment to another within the same tenancy. Supply the compartmentID
+* of the compartment that you want to move the Private Endpoint to. Or use it to update the name, subnetId, endpointFqdn or privateEndpointIp or accessTargets of the Private Endpoint.
+* For more information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* <p>
+This API follows replace semantics (rather than merge semantics). That means if the body provides values for 
+* parameters and the resource has exisiting ones, this operation will replace those existing values.  
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param UpdatePrivateEndpointRequest
+     * @return UpdatePrivateEndpointResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/UpdatePrivateEndpoint.ts.html |here} to see how to use UpdatePrivateEndpoint API.
+     */
+  public async updatePrivateEndpoint(
+    updatePrivateEndpointRequest: requests.UpdatePrivateEndpointRequest
+  ): Promise<responses.UpdatePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ObjectStorageClient#updatePrivateEndpoint.");
+    const operationName = "updatePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PrivateEndpoint/UpdatePrivateEndpoint";
+    const pathParams = {
+      "{namespaceName}": updatePrivateEndpointRequest.namespaceName,
+      "{peName}": updatePrivateEndpointRequest.peName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-client-request-id": updatePrivateEndpointRequest.opcClientRequestId,
+      "if-match": updatePrivateEndpointRequest.ifMatch
+    };
+
+    const requiredParams = new Set<string>(["namespaceName", "peName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/n/{namespaceName}/pe/{peName}",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePrivateEndpointRequest.updatePrivateEndpointDetails,
+        "UpdatePrivateEndpointDetails",
+        model.UpdatePrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-client-request-id"),
             key: "opcClientRequestId",

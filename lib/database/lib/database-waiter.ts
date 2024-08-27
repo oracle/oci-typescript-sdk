@@ -236,6 +236,60 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCancelExecutionWindow
+   *
+   * @param request the request to send
+   * @return response returns CancelExecutionWindowResponse, GetWorkRequestResponse tuple
+   */
+  public async forCancelExecutionWindow(
+    request: serviceRequests.CancelExecutionWindowRequest
+  ): Promise<{
+    response: serviceResponses.CancelExecutionWindowResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const cancelExecutionWindowResponse = await this.client.cancelExecutionWindow(request);
+    if (cancelExecutionWindowResponse.opcWorkRequestId === undefined)
+      return { response: cancelExecutionWindowResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      cancelExecutionWindowResponse.opcWorkRequestId
+    );
+    return { response: cancelExecutionWindowResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCascadingDeleteSchedulingPlan
+   *
+   * @param request the request to send
+   * @return response returns CascadingDeleteSchedulingPlanResponse, GetWorkRequestResponse tuple
+   */
+  public async forCascadingDeleteSchedulingPlan(
+    request: serviceRequests.CascadingDeleteSchedulingPlanRequest
+  ): Promise<{
+    response: serviceResponses.CascadingDeleteSchedulingPlanResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const cascadingDeleteSchedulingPlanResponse = await this.client.cascadingDeleteSchedulingPlan(
+      request
+    );
+    if (cascadingDeleteSchedulingPlanResponse.opcWorkRequestId === undefined)
+      return {
+        response: cascadingDeleteSchedulingPlanResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      cascadingDeleteSchedulingPlanResponse.opcWorkRequestId
+    );
+    return {
+      response: cascadingDeleteSchedulingPlanResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeAutonomousContainerDatabaseCompartment
    *
    * @param request the request to send
@@ -980,6 +1034,68 @@ export class DatabaseWaiter {
     );
     return {
       response: changeOneoffPatchCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeSchedulingPlanCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeSchedulingPlanCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeSchedulingPlanCompartment(
+    request: serviceRequests.ChangeSchedulingPlanCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeSchedulingPlanCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeSchedulingPlanCompartmentResponse = await this.client.changeSchedulingPlanCompartment(
+      request
+    );
+    if (changeSchedulingPlanCompartmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeSchedulingPlanCompartmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeSchedulingPlanCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeSchedulingPlanCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeSchedulingPolicyCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeSchedulingPolicyCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeSchedulingPolicyCompartment(
+    request: serviceRequests.ChangeSchedulingPolicyCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeSchedulingPolicyCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeSchedulingPolicyCompartmentResponse = await this.client.changeSchedulingPolicyCompartment(
+      request
+    );
+    if (changeSchedulingPolicyCompartmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeSchedulingPolicyCompartmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeSchedulingPolicyCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeSchedulingPolicyCompartmentResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -1766,6 +1882,52 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateExecutionAction
+   *
+   * @param request the request to send
+   * @return response returns CreateExecutionActionResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateExecutionAction(
+    request: serviceRequests.CreateExecutionActionRequest
+  ): Promise<{
+    response: serviceResponses.CreateExecutionActionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createExecutionActionResponse = await this.client.createExecutionAction(request);
+    if (createExecutionActionResponse.opcWorkRequestId === undefined)
+      return { response: createExecutionActionResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createExecutionActionResponse.opcWorkRequestId
+    );
+    return { response: createExecutionActionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateExecutionWindow
+   *
+   * @param request the request to send
+   * @return response returns CreateExecutionWindowResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateExecutionWindow(
+    request: serviceRequests.CreateExecutionWindowRequest
+  ): Promise<{
+    response: serviceResponses.CreateExecutionWindowResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createExecutionWindowResponse = await this.client.createExecutionWindow(request);
+    if (createExecutionWindowResponse.opcWorkRequestId === undefined)
+      return { response: createExecutionWindowResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createExecutionWindowResponse.opcWorkRequestId
+    );
+    return { response: createExecutionWindowResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forCreateExternalBackupJob
    *
    * @param request the request to send
@@ -1960,6 +2122,104 @@ export class DatabaseWaiter {
     );
     return {
       response: createPluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateScheduledAction
+   *
+   * @param request the request to send
+   * @return response returns CreateScheduledActionResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateScheduledAction(
+    request: serviceRequests.CreateScheduledActionRequest
+  ): Promise<{
+    response: serviceResponses.CreateScheduledActionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createScheduledActionResponse = await this.client.createScheduledAction(request);
+    if (createScheduledActionResponse.opcWorkRequestId === undefined)
+      return { response: createScheduledActionResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createScheduledActionResponse.opcWorkRequestId
+    );
+    return { response: createScheduledActionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateSchedulingPlan
+   *
+   * @param request the request to send
+   * @return response returns CreateSchedulingPlanResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateSchedulingPlan(
+    request: serviceRequests.CreateSchedulingPlanRequest
+  ): Promise<{
+    response: serviceResponses.CreateSchedulingPlanResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createSchedulingPlanResponse = await this.client.createSchedulingPlan(request);
+    if (createSchedulingPlanResponse.opcWorkRequestId === undefined)
+      return { response: createSchedulingPlanResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createSchedulingPlanResponse.opcWorkRequestId
+    );
+    return { response: createSchedulingPlanResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateSchedulingPolicy
+   *
+   * @param request the request to send
+   * @return response returns CreateSchedulingPolicyResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateSchedulingPolicy(
+    request: serviceRequests.CreateSchedulingPolicyRequest
+  ): Promise<{
+    response: serviceResponses.CreateSchedulingPolicyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createSchedulingPolicyResponse = await this.client.createSchedulingPolicy(request);
+    if (createSchedulingPolicyResponse.opcWorkRequestId === undefined)
+      return { response: createSchedulingPolicyResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createSchedulingPolicyResponse.opcWorkRequestId
+    );
+    return {
+      response: createSchedulingPolicyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateSchedulingWindow
+   *
+   * @param request the request to send
+   * @return response returns CreateSchedulingWindowResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateSchedulingWindow(
+    request: serviceRequests.CreateSchedulingWindowRequest
+  ): Promise<{
+    response: serviceResponses.CreateSchedulingWindowResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createSchedulingWindowResponse = await this.client.createSchedulingWindow(request);
+    if (createSchedulingWindowResponse.opcWorkRequestId === undefined)
+      return { response: createSchedulingWindowResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createSchedulingWindowResponse.opcWorkRequestId
+    );
+    return {
+      response: createSchedulingWindowResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -2493,6 +2753,29 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDeleteExecutionAction
+   *
+   * @param request the request to send
+   * @return response returns DeleteExecutionActionResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteExecutionAction(
+    request: serviceRequests.DeleteExecutionActionRequest
+  ): Promise<{
+    response: serviceResponses.DeleteExecutionActionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteExecutionActionResponse = await this.client.deleteExecutionAction(request);
+    if (deleteExecutionActionResponse.opcWorkRequestId === undefined)
+      return { response: deleteExecutionActionResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteExecutionActionResponse.opcWorkRequestId
+    );
+    return { response: deleteExecutionActionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forDeleteExternalContainerDatabase
    *
    * @param request the request to send
@@ -2663,6 +2946,52 @@ export class DatabaseWaiter {
       response: deletePluggableDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forDeleteScheduledAction
+   *
+   * @param request the request to send
+   * @return response returns DeleteScheduledActionResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteScheduledAction(
+    request: serviceRequests.DeleteScheduledActionRequest
+  ): Promise<{
+    response: serviceResponses.DeleteScheduledActionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteScheduledActionResponse = await this.client.deleteScheduledAction(request);
+    if (deleteScheduledActionResponse.opcWorkRequestId === undefined)
+      return { response: deleteScheduledActionResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteScheduledActionResponse.opcWorkRequestId
+    );
+    return { response: deleteScheduledActionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteSchedulingPlan
+   *
+   * @param request the request to send
+   * @return response returns DeleteSchedulingPlanResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteSchedulingPlan(
+    request: serviceRequests.DeleteSchedulingPlanRequest
+  ): Promise<{
+    response: serviceResponses.DeleteSchedulingPlanResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteSchedulingPlanResponse = await this.client.deleteSchedulingPlan(request);
+    if (deleteSchedulingPlanResponse.opcWorkRequestId === undefined)
+      return { response: deleteSchedulingPlanResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteSchedulingPlanResponse.opcWorkRequestId
+    );
+    return { response: deleteSchedulingPlanResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -4224,6 +4553,44 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forExecutionAction till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExecutionActionResponse | null (null in case of 404 response)
+   */
+  public async forExecutionAction(
+    request: serviceRequests.GetExecutionActionRequest,
+    ...targetStates: models.ExecutionAction.LifecycleState[]
+  ): Promise<serviceResponses.GetExecutionActionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getExecutionAction(request),
+      response => targetStates.includes(response.executionAction.lifecycleState!),
+      targetStates.includes(models.ExecutionAction.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forExecutionWindow till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExecutionWindowResponse | null (null in case of 404 response)
+   */
+  public async forExecutionWindow(
+    request: serviceRequests.GetExecutionWindowRequest,
+    ...targetStates: models.ExecutionWindow.LifecycleState[]
+  ): Promise<serviceResponses.GetExecutionWindowResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getExecutionWindow(request),
+      response => targetStates.includes(response.executionWindow.lifecycleState!),
+      targetStates.includes(models.ExecutionWindow.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forExternalContainerDatabase till it reaches any of the provided states
    *
    * @param request the request to send
@@ -4390,6 +4757,82 @@ export class DatabaseWaiter {
       () => this.client.getPluggableDatabase(request),
       response => targetStates.includes(response.pluggableDatabase.lifecycleState!),
       targetStates.includes(models.PluggableDatabase.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forScheduledAction till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetScheduledActionResponse | null (null in case of 404 response)
+   */
+  public async forScheduledAction(
+    request: serviceRequests.GetScheduledActionRequest,
+    ...targetStates: models.ScheduledAction.LifecycleState[]
+  ): Promise<serviceResponses.GetScheduledActionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getScheduledAction(request),
+      response => targetStates.includes(response.scheduledAction.lifecycleState!),
+      targetStates.includes(models.ScheduledAction.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSchedulingPlan till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSchedulingPlanResponse | null (null in case of 404 response)
+   */
+  public async forSchedulingPlan(
+    request: serviceRequests.GetSchedulingPlanRequest,
+    ...targetStates: models.SchedulingPlan.LifecycleState[]
+  ): Promise<serviceResponses.GetSchedulingPlanResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSchedulingPlan(request),
+      response => targetStates.includes(response.schedulingPlan.lifecycleState!),
+      targetStates.includes(models.SchedulingPlan.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSchedulingPolicy till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSchedulingPolicyResponse | null (null in case of 404 response)
+   */
+  public async forSchedulingPolicy(
+    request: serviceRequests.GetSchedulingPolicyRequest,
+    ...targetStates: models.SchedulingPolicy.LifecycleState[]
+  ): Promise<serviceResponses.GetSchedulingPolicyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSchedulingPolicy(request),
+      response => targetStates.includes(response.schedulingPolicy.lifecycleState!),
+      targetStates.includes(models.SchedulingPolicy.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSchedulingWindow till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSchedulingWindowResponse | null (null in case of 404 response)
+   */
+  public async forSchedulingWindow(
+    request: serviceRequests.GetSchedulingWindowRequest,
+    ...targetStates: models.SchedulingWindow.LifecycleState[]
+  ): Promise<serviceResponses.GetSchedulingWindowResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSchedulingWindow(request),
+      response => targetStates.includes(response.schedulingWindow.lifecycleState!),
+      targetStates.includes(models.SchedulingWindow.LifecycleState.Deleted)
     );
   }
 
@@ -4664,6 +5107,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forMoveExecutionActionMember
+   *
+   * @param request the request to send
+   * @return response returns MoveExecutionActionMemberResponse, GetWorkRequestResponse tuple
+   */
+  public async forMoveExecutionActionMember(
+    request: serviceRequests.MoveExecutionActionMemberRequest
+  ): Promise<{
+    response: serviceResponses.MoveExecutionActionMemberResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const moveExecutionActionMemberResponse = await this.client.moveExecutionActionMember(request);
+    if (moveExecutionActionMemberResponse.opcWorkRequestId === undefined)
+      return { response: moveExecutionActionMemberResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      moveExecutionActionMemberResponse.opcWorkRequestId
+    );
+    return {
+      response: moveExecutionActionMemberResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forRefreshPluggableDatabase
    *
    * @param request the request to send
@@ -4905,6 +5374,58 @@ export class DatabaseWaiter {
     );
     return {
       response: removeVirtualMachineFromVmClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forReorderExecutionActions
+   *
+   * @param request the request to send
+   * @return response returns ReorderExecutionActionsResponse, GetWorkRequestResponse tuple
+   */
+  public async forReorderExecutionActions(
+    request: serviceRequests.ReorderExecutionActionsRequest
+  ): Promise<{
+    response: serviceResponses.ReorderExecutionActionsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const reorderExecutionActionsResponse = await this.client.reorderExecutionActions(request);
+    if (reorderExecutionActionsResponse.opcWorkRequestId === undefined)
+      return { response: reorderExecutionActionsResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      reorderExecutionActionsResponse.opcWorkRequestId
+    );
+    return {
+      response: reorderExecutionActionsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forReorderScheduledActions
+   *
+   * @param request the request to send
+   * @return response returns ReorderScheduledActionsResponse, GetWorkRequestResponse tuple
+   */
+  public async forReorderScheduledActions(
+    request: serviceRequests.ReorderScheduledActionsRequest
+  ): Promise<{
+    response: serviceResponses.ReorderScheduledActionsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const reorderScheduledActionsResponse = await this.client.reorderScheduledActions(request);
+    if (reorderScheduledActionsResponse.opcWorkRequestId === undefined)
+      return { response: reorderScheduledActionsResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      reorderScheduledActionsResponse.opcWorkRequestId
+    );
+    return {
+      response: reorderScheduledActionsResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -6306,6 +6827,52 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forUpdateExecutionAction
+   *
+   * @param request the request to send
+   * @return response returns UpdateExecutionActionResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateExecutionAction(
+    request: serviceRequests.UpdateExecutionActionRequest
+  ): Promise<{
+    response: serviceResponses.UpdateExecutionActionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateExecutionActionResponse = await this.client.updateExecutionAction(request);
+    if (updateExecutionActionResponse.opcWorkRequestId === undefined)
+      return { response: updateExecutionActionResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateExecutionActionResponse.opcWorkRequestId
+    );
+    return { response: updateExecutionActionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateExecutionWindow
+   *
+   * @param request the request to send
+   * @return response returns UpdateExecutionWindowResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateExecutionWindow(
+    request: serviceRequests.UpdateExecutionWindowRequest
+  ): Promise<{
+    response: serviceResponses.UpdateExecutionWindowResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateExecutionWindowResponse = await this.client.updateExecutionWindow(request);
+    if (updateExecutionWindowResponse.opcWorkRequestId === undefined)
+      return { response: updateExecutionWindowResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateExecutionWindowResponse.opcWorkRequestId
+    );
+    return { response: updateExecutionWindowResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forUpdateExternalContainerDatabase
    *
    * @param request the request to send
@@ -6451,6 +7018,81 @@ export class DatabaseWaiter {
     );
     return {
       response: updatePluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateScheduledAction
+   *
+   * @param request the request to send
+   * @return response returns UpdateScheduledActionResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateScheduledAction(
+    request: serviceRequests.UpdateScheduledActionRequest
+  ): Promise<{
+    response: serviceResponses.UpdateScheduledActionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateScheduledActionResponse = await this.client.updateScheduledAction(request);
+    if (updateScheduledActionResponse.opcWorkRequestId === undefined)
+      return { response: updateScheduledActionResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateScheduledActionResponse.opcWorkRequestId
+    );
+    return { response: updateScheduledActionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateSchedulingPolicy
+   *
+   * @param request the request to send
+   * @return response returns UpdateSchedulingPolicyResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateSchedulingPolicy(
+    request: serviceRequests.UpdateSchedulingPolicyRequest
+  ): Promise<{
+    response: serviceResponses.UpdateSchedulingPolicyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateSchedulingPolicyResponse = await this.client.updateSchedulingPolicy(request);
+    if (updateSchedulingPolicyResponse.opcWorkRequestId === undefined)
+      return { response: updateSchedulingPolicyResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateSchedulingPolicyResponse.opcWorkRequestId
+    );
+    return {
+      response: updateSchedulingPolicyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateSchedulingWindow
+   *
+   * @param request the request to send
+   * @return response returns UpdateSchedulingWindowResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateSchedulingWindow(
+    request: serviceRequests.UpdateSchedulingWindowRequest
+  ): Promise<{
+    response: serviceResponses.UpdateSchedulingWindowResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateSchedulingWindowResponse = await this.client.updateSchedulingWindow(request);
+    if (updateSchedulingWindowResponse.opcWorkRequestId === undefined)
+      return { response: updateSchedulingWindowResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateSchedulingWindowResponse.opcWorkRequestId
+    );
+    return {
+      response: updateSchedulingWindowResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

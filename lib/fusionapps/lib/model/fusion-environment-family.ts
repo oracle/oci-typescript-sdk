@@ -67,6 +67,10 @@ export interface FusionEnvironmentFamily {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Indicates when the family received the last subscription update
+   */
+  "timeLastSubscriptionUpdate"?: Date;
 }
 
 export namespace FusionEnvironmentFamily {

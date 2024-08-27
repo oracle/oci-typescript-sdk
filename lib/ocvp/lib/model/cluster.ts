@@ -198,6 +198,12 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags": { [key: string]: { [key: string]: any } };
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code {orcl-cloud: {free-tier-retain: true}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace Cluster {

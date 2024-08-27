@@ -15,6 +15,8 @@ import * as CancelProtectedDatabaseDeletionResponse from "./cancel-protected-dat
 export import CancelProtectedDatabaseDeletionResponse = CancelProtectedDatabaseDeletionResponse.CancelProtectedDatabaseDeletionResponse;
 import * as ChangeProtectedDatabaseCompartmentResponse from "./change-protected-database-compartment-response";
 export import ChangeProtectedDatabaseCompartmentResponse = ChangeProtectedDatabaseCompartmentResponse.ChangeProtectedDatabaseCompartmentResponse;
+import * as ChangeProtectedDatabaseSubscriptionResponse from "./change-protected-database-subscription-response";
+export import ChangeProtectedDatabaseSubscriptionResponse = ChangeProtectedDatabaseSubscriptionResponse.ChangeProtectedDatabaseSubscriptionResponse;
 import * as ChangeProtectionPolicyCompartmentResponse from "./change-protection-policy-compartment-response";
 export import ChangeProtectionPolicyCompartmentResponse = ChangeProtectionPolicyCompartmentResponse.ChangeProtectionPolicyCompartmentResponse;
 import * as ChangeRecoveryServiceSubnetCompartmentResponse from "./change-recovery-service-subnet-compartment-response";

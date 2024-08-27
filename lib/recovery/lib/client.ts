@@ -372,6 +372,86 @@ export class DatabaseRecoveryClient {
   }
 
   /**
+   * Associates the protected database with a new cloud service environment, such as Microsoft Azure.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeProtectedDatabaseSubscriptionRequest
+   * @return ChangeProtectedDatabaseSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeProtectedDatabaseSubscription.ts.html |here} to see how to use ChangeProtectedDatabaseSubscription API.
+   */
+  public async changeProtectedDatabaseSubscription(
+    changeProtectedDatabaseSubscriptionRequest: requests.ChangeProtectedDatabaseSubscriptionRequest
+  ): Promise<responses.ChangeProtectedDatabaseSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseRecoveryClient#changeProtectedDatabaseSubscription."
+      );
+    const operationName = "changeProtectedDatabaseSubscription";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{protectedDatabaseId}": changeProtectedDatabaseSubscriptionRequest.protectedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeProtectedDatabaseSubscriptionRequest.opcRequestId,
+      "if-match": changeProtectedDatabaseSubscriptionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeProtectedDatabaseSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/protectedDatabases/{protectedDatabaseId}/actions/changeSubscription",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeProtectedDatabaseSubscriptionRequest.changeProtectedDatabaseSubscriptionDetails,
+        "ChangeProtectedDatabaseSubscriptionDetails",
+        model.ChangeProtectedDatabaseSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeProtectedDatabaseSubscriptionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a protection policy resource from the existing compartment to the specified compartment. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeProtectionPolicyCompartmentRequest

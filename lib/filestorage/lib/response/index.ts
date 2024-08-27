@@ -13,6 +13,8 @@ For more information, see [Overview of File Storage](/iaas/Content/File/Concepts
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CancelDowngradeShapeMountTargetResponse from "./cancel-downgrade-shape-mount-target-response";
+export import CancelDowngradeShapeMountTargetResponse = CancelDowngradeShapeMountTargetResponse.CancelDowngradeShapeMountTargetResponse;
 import * as ChangeFileSystemCompartmentResponse from "./change-file-system-compartment-response";
 export import ChangeFileSystemCompartmentResponse = ChangeFileSystemCompartmentResponse.ChangeFileSystemCompartmentResponse;
 import * as ChangeFilesystemSnapshotPolicyCompartmentResponse from "./change-filesystem-snapshot-policy-compartment-response";
@@ -95,6 +97,8 @@ import * as ListSnapshotsResponse from "./list-snapshots-response";
 export import ListSnapshotsResponse = ListSnapshotsResponse.ListSnapshotsResponse;
 import * as PauseFilesystemSnapshotPolicyResponse from "./pause-filesystem-snapshot-policy-response";
 export import PauseFilesystemSnapshotPolicyResponse = PauseFilesystemSnapshotPolicyResponse.PauseFilesystemSnapshotPolicyResponse;
+import * as ScheduleDowngradeShapeMountTargetResponse from "./schedule-downgrade-shape-mount-target-response";
+export import ScheduleDowngradeShapeMountTargetResponse = ScheduleDowngradeShapeMountTargetResponse.ScheduleDowngradeShapeMountTargetResponse;
 import * as UnpauseFilesystemSnapshotPolicyResponse from "./unpause-filesystem-snapshot-policy-response";
 export import UnpauseFilesystemSnapshotPolicyResponse = UnpauseFilesystemSnapshotPolicyResponse.UnpauseFilesystemSnapshotPolicyResponse;
 import * as UpdateExportResponse from "./update-export-response";
@@ -113,5 +117,7 @@ import * as UpdateReplicationResponse from "./update-replication-response";
 export import UpdateReplicationResponse = UpdateReplicationResponse.UpdateReplicationResponse;
 import * as UpdateSnapshotResponse from "./update-snapshot-response";
 export import UpdateSnapshotResponse = UpdateSnapshotResponse.UpdateSnapshotResponse;
+import * as UpgradeShapeMountTargetResponse from "./upgrade-shape-mount-target-response";
+export import UpgradeShapeMountTargetResponse = UpgradeShapeMountTargetResponse.UpgradeShapeMountTargetResponse;
 import * as ValidateKeyTabsResponse from "./validate-key-tabs-response";
 export import ValidateKeyTabsResponse = ValidateKeyTabsResponse.ValidateKeyTabsResponse;

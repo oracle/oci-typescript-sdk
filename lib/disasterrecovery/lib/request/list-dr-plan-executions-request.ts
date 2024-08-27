@@ -38,10 +38,6 @@ Example: {@code ocid1.drplanexecution.oc1..uniqueID}
  */
   "drPlanExecutionId"?: string;
   /**
-   * The DR plan execution type.
-   */
-  "drPlanExecutionType"?: model.DrPlanExecutionType;
-  /**
  * A filter to return only resources that match the given display name.
 * <p>
 Example: {@code MyResourceDisplayName}

@@ -1505,7 +1505,6 @@ export class DisasterRecoveryClient {
       "drProtectionGroupId": listDrPlanExecutionsRequest.drProtectionGroupId,
       "lifecycleState": listDrPlanExecutionsRequest.lifecycleState,
       "drPlanExecutionId": listDrPlanExecutionsRequest.drPlanExecutionId,
-      "drPlanExecutionType": listDrPlanExecutionsRequest.drPlanExecutionType,
       "displayName": listDrPlanExecutionsRequest.displayName,
       "limit": listDrPlanExecutionsRequest.limit,
       "page": listDrPlanExecutionsRequest.page,

@@ -23,6 +23,7 @@ import common = require("oci-common");
 export interface ExternalDatabaseFeatureDetails {
   "connectorDetails":
     | model.ExternalConnectorDetails
+    | model.DirectConnectorDetails
     | model.MacsConnectorDetails
     | model.PrivateEndPointConnectorDetails;
 
@@ -42,6 +43,16 @@ export namespace ExternalDatabaseFeatureDetails {
 
     if (obj && "feature" in obj && obj.feature) {
       switch (obj.feature) {
+        case "DB_LIFECYCLE_MANAGEMENT":
+          return model.ExternalDatabaseLifecycleManagementFeatureDetails.getJsonObj(
+            <model.ExternalDatabaseLifecycleManagementFeatureDetails>(<object>jsonObj),
+            true
+          );
+        case "SQLWATCH":
+          return model.ExternalDatabaseSqlWatchFeatureDetails.getJsonObj(
+            <model.ExternalDatabaseSqlWatchFeatureDetails>(<object>jsonObj),
+            true
+          );
         case "DIAGNOSTICS_AND_MANAGEMENT":
           return model.ExternalDatabaseDiagnosticsAndManagementFeatureDetails.getJsonObj(
             <model.ExternalDatabaseDiagnosticsAndManagementFeatureDetails>(<object>jsonObj),
@@ -65,6 +76,16 @@ export namespace ExternalDatabaseFeatureDetails {
 
     if (obj && "feature" in obj && obj.feature) {
       switch (obj.feature) {
+        case "DB_LIFECYCLE_MANAGEMENT":
+          return model.ExternalDatabaseLifecycleManagementFeatureDetails.getDeserializedJsonObj(
+            <model.ExternalDatabaseLifecycleManagementFeatureDetails>(<object>jsonObj),
+            true
+          );
+        case "SQLWATCH":
+          return model.ExternalDatabaseSqlWatchFeatureDetails.getDeserializedJsonObj(
+            <model.ExternalDatabaseSqlWatchFeatureDetails>(<object>jsonObj),
+            true
+          );
         case "DIAGNOSTICS_AND_MANAGEMENT":
           return model.ExternalDatabaseDiagnosticsAndManagementFeatureDetails.getDeserializedJsonObj(
             <model.ExternalDatabaseDiagnosticsAndManagementFeatureDetails>(<object>jsonObj),

@@ -50,4 +50,8 @@ export interface ListSupportedVmwareSoftwareVersionsRequest extends common.BaseR
    * A filter to return only resources that match or support the given ESXi host shape.
    */
   "hostShapeName"?: string;
+  /**
+   * A filter to return only VMware software versions that the given VMware software version can be upgraded to.
+   */
+  "versionToUpgrade"?: string;
 }

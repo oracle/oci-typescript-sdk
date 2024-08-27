@@ -24,3 +24,4 @@ export import AnnouncementClient = client.AnnouncementClient;
 export import AnnouncementSubscriptionClient = client.AnnouncementSubscriptionClient;
 export import AnnouncementSubscriptionWaiter = announcementsubscription_waiter.AnnouncementSubscriptionWaiter;
 export import AnnouncementsPreferencesClient = client.AnnouncementsPreferencesClient;
+export import ServiceClient = client.ServiceClient;

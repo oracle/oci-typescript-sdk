@@ -92,6 +92,8 @@ import * as DisableAutomaticInitialPlanCaptureRequest from "./disable-automatic-
 export import DisableAutomaticInitialPlanCaptureRequest = DisableAutomaticInitialPlanCaptureRequest.DisableAutomaticInitialPlanCaptureRequest;
 import * as DisableAutomaticSpmEvolveAdvisorTaskRequest from "./disable-automatic-spm-evolve-advisor-task-request";
 export import DisableAutomaticSpmEvolveAdvisorTaskRequest = DisableAutomaticSpmEvolveAdvisorTaskRequest.DisableAutomaticSpmEvolveAdvisorTaskRequest;
+import * as DisableAutonomousDatabaseManagementFeatureRequest from "./disable-autonomous-database-management-feature-request";
+export import DisableAutonomousDatabaseManagementFeatureRequest = DisableAutonomousDatabaseManagementFeatureRequest.DisableAutonomousDatabaseManagementFeatureRequest;
 import * as DisableDatabaseManagementFeatureRequest from "./disable-database-management-feature-request";
 export import DisableDatabaseManagementFeatureRequest = DisableDatabaseManagementFeatureRequest.DisableDatabaseManagementFeatureRequest;
 import * as DisableExternalContainerDatabaseManagementFeatureRequest from "./disable-external-container-database-management-feature-request";
@@ -122,6 +124,8 @@ import * as EnableAutomaticInitialPlanCaptureRequest from "./enable-automatic-in
 export import EnableAutomaticInitialPlanCaptureRequest = EnableAutomaticInitialPlanCaptureRequest.EnableAutomaticInitialPlanCaptureRequest;
 import * as EnableAutomaticSpmEvolveAdvisorTaskRequest from "./enable-automatic-spm-evolve-advisor-task-request";
 export import EnableAutomaticSpmEvolveAdvisorTaskRequest = EnableAutomaticSpmEvolveAdvisorTaskRequest.EnableAutomaticSpmEvolveAdvisorTaskRequest;
+import * as EnableAutonomousDatabaseManagementFeatureRequest from "./enable-autonomous-database-management-feature-request";
+export import EnableAutonomousDatabaseManagementFeatureRequest = EnableAutonomousDatabaseManagementFeatureRequest.EnableAutonomousDatabaseManagementFeatureRequest;
 import * as EnableDatabaseManagementFeatureRequest from "./enable-database-management-feature-request";
 export import EnableDatabaseManagementFeatureRequest = EnableDatabaseManagementFeatureRequest.EnableDatabaseManagementFeatureRequest;
 import * as EnableExternalContainerDatabaseManagementFeatureRequest from "./enable-external-container-database-management-feature-request";
@@ -332,6 +336,8 @@ import * as LoadSqlPlanBaselinesFromAwrRequest from "./load-sql-plan-baselines-f
 export import LoadSqlPlanBaselinesFromAwrRequest = LoadSqlPlanBaselinesFromAwrRequest.LoadSqlPlanBaselinesFromAwrRequest;
 import * as LoadSqlPlanBaselinesFromCursorCacheRequest from "./load-sql-plan-baselines-from-cursor-cache-request";
 export import LoadSqlPlanBaselinesFromCursorCacheRequest = LoadSqlPlanBaselinesFromCursorCacheRequest.LoadSqlPlanBaselinesFromCursorCacheRequest;
+import * as ModifyAutonomousDatabaseManagementFeatureRequest from "./modify-autonomous-database-management-feature-request";
+export import ModifyAutonomousDatabaseManagementFeatureRequest = ModifyAutonomousDatabaseManagementFeatureRequest.ModifyAutonomousDatabaseManagementFeatureRequest;
 import * as ModifyDatabaseManagementFeatureRequest from "./modify-database-management-feature-request";
 export import ModifyDatabaseManagementFeatureRequest = ModifyDatabaseManagementFeatureRequest.ModifyDatabaseManagementFeatureRequest;
 import * as ModifyPluggableDatabaseManagementFeatureRequest from "./modify-pluggable-database-management-feature-request";

@@ -1,6 +1,6 @@
 /**
- * Redis Service API
- * Use the Redis Service API to create and manage Redis clusters. A Redis cluster is a memory-based storage solution. For more information, see [OCI Caching Service with Redis](/iaas/Content/redis/home.htm).
+ * OCI Cache API
+ * Use the OCI Cache API to create and manage clusters. A cluster is a memory-based storage solution. For more information, see [OCI Cache](/iaas/Content/ocicache/home.htm).
  * OpenAPI spec version: 20220315
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The collection of Redis cluster nodes.
+ * The collection of  cluster nodes.
  */
 export interface NodeCollection {
   /**

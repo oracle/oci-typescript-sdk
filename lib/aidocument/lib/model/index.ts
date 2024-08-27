@@ -13,6 +13,10 @@
 
 import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
+import * as AddModelLockDetails from "./add-model-lock-details";
+export import AddModelLockDetails = AddModelLockDetails.AddModelLockDetails;
+import * as AddProjectLockDetails from "./add-project-lock-details";
+export import AddProjectLockDetails = AddProjectLockDetails.AddProjectLockDetails;
 import * as AnalyzeDocumentDetails from "./analyze-document-details";
 export import AnalyzeDocumentDetails = AnalyzeDocumentDetails.AnalyzeDocumentDetails;
 import * as AnalyzeDocumentResult from "./analyze-document-result";
@@ -115,6 +119,12 @@ import * as ProjectCollection from "./project-collection";
 export import ProjectCollection = ProjectCollection.ProjectCollection;
 import * as ProjectSummary from "./project-summary";
 export import ProjectSummary = ProjectSummary.ProjectSummary;
+import * as RemoveModelLockDetails from "./remove-model-lock-details";
+export import RemoveModelLockDetails = RemoveModelLockDetails.RemoveModelLockDetails;
+import * as RemoveProjectLockDetails from "./remove-project-lock-details";
+export import RemoveProjectLockDetails = RemoveProjectLockDetails.RemoveProjectLockDetails;
+import * as ResourceLock from "./resource-lock";
+export import ResourceLock = ResourceLock.ResourceLock;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as Table from "./table";

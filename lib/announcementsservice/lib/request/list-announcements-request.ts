@@ -115,6 +115,7 @@ export namespace ListAnnouncementsRequest {
 
   export enum PlatformType {
     Iaas = "IAAS",
-    Saas = "SAAS"
+    Saas = "SAAS",
+    Paas = "PAAS"
   }
 }

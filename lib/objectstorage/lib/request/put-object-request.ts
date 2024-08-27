@@ -68,7 +68,7 @@ export interface PutObjectRequest extends common.BaseRequest {
    */
   "expect"?: string;
   /**
- * The optional base-64 header that defines the encoded MD5 hash of the body. If the optional Content-MD5 header is present, Object
+ * The optional header that defines the base64-encoded MD5 hash of the body. If the optional Content-MD5 header is present, Object
 * Storage performs an integrity check on the body of the HTTP request by computing the MD5 hash for the body and comparing it to the
 * MD5 hash supplied in the header. If the two hashes do not match, the object is rejected and an HTTP-400 Unmatched Content MD5 error
 * is returned with the message:

@@ -22,12 +22,14 @@ import common = require("oci-common");
 export interface Capacity {
   /**
    * The capacity model to use.
+   * Accepted values are:
+   * OLPU_COUNT, USER_COUNT
    *
    */
   "capacityType": model.CapacityType;
   /**
-   * The capacity value selected (OLPU count, number of users, ...etc...). This parameter affects the
-   * number of CPUs, amount of memory or other resources allocated to the instance.
+   * The capacity value selected, either the number of OCPUs (OLPU_COUNT) or the number of users (USER_COUNT).
+   * This parameter affects the number of OCPUs, amount of memory, and other resources allocated to the instance.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "capacityValue": number;

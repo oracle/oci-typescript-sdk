@@ -223,6 +223,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * If true, the infrastructure is using granular maintenance scheduling preference.
+   */
+  "isSchedulingPolicyAssociated"?: boolean;
 }
 
 export namespace ExadataInfrastructure {

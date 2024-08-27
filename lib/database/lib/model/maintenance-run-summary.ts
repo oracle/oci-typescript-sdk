@@ -139,6 +139,18 @@ export interface MaintenanceRunSummary {
    * The estimated start time of the next infrastruture component patching operation.
    */
   "estimatedComponentPatchingStartTime"?: Date;
+  /**
+   * If {@code FALSE}, the maintenance run doesn't support granular maintenance.
+   */
+  "isMaintenanceRunGranular"?: boolean;
+  /**
+   * The total time taken by corresponding resource activity in minutes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalTimeTakenInMins"?: number;
+  /**
+   * The Autonomous Database Software Image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   */
+  "databaseSoftwareImageId"?: string;
 }
 
 export namespace MaintenanceRunSummary {
@@ -194,6 +206,7 @@ export namespace MaintenanceRunSummary {
     Oneoff = "ONEOFF",
     SecurityMonthly = "SECURITY_MONTHLY",
     Timezone = "TIMEZONE",
+    CustomDatabaseSoftwareImage = "CUSTOM_DATABASE_SOFTWARE_IMAGE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -16,15 +16,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the HSM resource that you want to create.
+ * The details of the HSM cluster resource that you want to create.
  */
 export interface CreateHsmClusterDetails {
   /**
-   * The OCID of the compartment where you want to create this HSM resource.
+   * The OCID of the compartment where you want to create this HSM cluster resource.
    */
   "compartmentId": string;
   /**
-   * A user-friendly name for the HSM resource. It does not have to be unique, and it is changeable.
+   * A user-friendly display name for the HSM cluster resource. It does not have to be unique, and it is changeable.
    * Avoid entering confidential information.
    *
    */

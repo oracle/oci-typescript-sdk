@@ -35,6 +35,11 @@ export namespace ConnectorDetails {
             <model.ExternalConnectorDetails>(<object>jsonObj),
             true
           );
+        case "DIRECT":
+          return model.DirectConnectorDetails.getJsonObj(
+            <model.DirectConnectorDetails>(<object>jsonObj),
+            true
+          );
         case "MACS":
           return model.MacsConnectorDetails.getJsonObj(
             <model.MacsConnectorDetails>(<object>jsonObj),
@@ -59,6 +64,11 @@ export namespace ConnectorDetails {
         case "EXTERNAL":
           return model.ExternalConnectorDetails.getDeserializedJsonObj(
             <model.ExternalConnectorDetails>(<object>jsonObj),
+            true
+          );
+        case "DIRECT":
+          return model.DirectConnectorDetails.getDeserializedJsonObj(
+            <model.DirectConnectorDetails>(<object>jsonObj),
             true
           );
         case "MACS":

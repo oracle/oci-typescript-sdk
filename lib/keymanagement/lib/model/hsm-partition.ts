@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface HsmPartition {
   /**
-   * The OCID of the HSM resource.
+   * The OCID of the HSM resource. Each HSM resource has a unique OCID as an identifier.
    */
   "id": string;
   /**
@@ -28,7 +28,7 @@ export interface HsmPartition {
    */
   "compartmentId": string;
   /**
-   * Details of PortNumber and PortType.
+   * Details of a single portInformation item include the PortNumber (an integer used as an identifier) and the PortType (refers to either an enum value of Managementutility,Clientutility, or null)
    */
   "portInformation": Array<model.PortInformation>;
   /**
@@ -46,8 +46,11 @@ Example: {@code 2018-04-03T21:10:29.600Z}
     */
   "timeUpdated": Date;
   /**
-   * The HSMPartition's current lifecycle state.
-   */
+    * A HSMCluster resource's current lifecycle state.
+* <p>
+Example: {@code ACTIVE}
+* 
+    */
   "lifecycleState": HsmPartition.LifecycleState;
 }
 
@@ -57,6 +60,10 @@ export namespace HsmPartition {
     Inactive = "INACTIVE",
     Activating = "ACTIVATING",
     ActivationRequired = "ACTIVATION_REQUIRED",
+    SchedulingDeletion = "SCHEDULING_DELETION",
+    PendingDeletion = "PENDING_DELETION",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

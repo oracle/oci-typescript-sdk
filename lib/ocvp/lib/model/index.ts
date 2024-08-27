@@ -31,6 +31,8 @@ import * as CreateEsxiHostDetails from "./create-esxi-host-details";
 export import CreateEsxiHostDetails = CreateEsxiHostDetails.CreateEsxiHostDetails;
 import * as CreateSddcDetails from "./create-sddc-details";
 export import CreateSddcDetails = CreateSddcDetails.CreateSddcDetails;
+import * as DatastoreClusterTypes from "./datastore-cluster-types";
+export import DatastoreClusterTypes = DatastoreClusterTypes.DatastoreClusterTypes;
 import * as DatastoreDetails from "./datastore-details";
 export import DatastoreDetails = DatastoreDetails.DatastoreDetails;
 import * as DatastoreInfo from "./datastore-info";

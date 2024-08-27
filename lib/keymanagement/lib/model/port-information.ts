@@ -16,15 +16,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the port.
+ * Details of a single portInformation item include the PortNumber (an integer used as an identifier) and the PortType (this refers to either an enum value of Management Utility, Client Utility, or null)
  */
 export interface PortInformation {
   /**
-   * The port number of the cavium server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The port number is a unique identifier which is typically used as the loadbalancer listener. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "portNumber": number;
   /**
-   * Port type associated for the port number.
+   * Port type associated for the port number. The two port type enums are {@code CLIENTUTILITY} and {@code MANAGEMENTUTILITY}. The CLIENTUTILITY enum corresponds to a port which is used by the client daemon. The MANAGEMENTUTILITY enum corresponds to a port used by user management utility.
    */
   "portType": PortInformation.PortType;
 }

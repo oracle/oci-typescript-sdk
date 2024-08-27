@@ -34,7 +34,12 @@ export interface DatabaseDiagnosticsAndManagementFeatureConfiguration
 export namespace DatabaseDiagnosticsAndManagementFeatureConfiguration {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
-    BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+    BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(

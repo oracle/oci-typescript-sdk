@@ -36,6 +36,12 @@ export interface ListDbManagementPrivateEndpointsRequest extends common.BaseRequ
    */
   "isCluster"?: boolean;
   /**
+   * The option to filter Database Management private endpoints which are endbled with DNS proxy server. This should be used along with the vcnId query parameter.
+   * Only one of this parameter and IsClusterDbManagementPrivateEndpointQueryParam should be set to true at one time.
+   *
+   */
+  "isDnsResolutionEnabled"?: boolean;
+  /**
    * The lifecycle state of a resource.
    */
   "lifecycleState"?: model.LifecycleStates;

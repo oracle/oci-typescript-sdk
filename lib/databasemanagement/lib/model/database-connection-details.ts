@@ -23,6 +23,7 @@ import common = require("oci-common");
 export interface DatabaseConnectionDetails {
   "connectionString": model.BasicDatabaseConnectionStringDetails;
   "connectionCredentials":
+    | model.DatabaseNamedCredentialConnectionDetails
     | model.DatabaseConnectionCredentailsByName
     | model.DatabaseSslConnectionCredentials
     | model.DatabaseConnectionCredentialsByDetails;

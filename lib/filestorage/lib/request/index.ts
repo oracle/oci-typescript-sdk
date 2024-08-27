@@ -13,6 +13,8 @@ For more information, see [Overview of File Storage](/iaas/Content/File/Concepts
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CancelDowngradeShapeMountTargetRequest from "./cancel-downgrade-shape-mount-target-request";
+export import CancelDowngradeShapeMountTargetRequest = CancelDowngradeShapeMountTargetRequest.CancelDowngradeShapeMountTargetRequest;
 import * as ChangeFileSystemCompartmentRequest from "./change-file-system-compartment-request";
 export import ChangeFileSystemCompartmentRequest = ChangeFileSystemCompartmentRequest.ChangeFileSystemCompartmentRequest;
 import * as ChangeFilesystemSnapshotPolicyCompartmentRequest from "./change-filesystem-snapshot-policy-compartment-request";
@@ -95,6 +97,8 @@ import * as ListSnapshotsRequest from "./list-snapshots-request";
 export import ListSnapshotsRequest = ListSnapshotsRequest.ListSnapshotsRequest;
 import * as PauseFilesystemSnapshotPolicyRequest from "./pause-filesystem-snapshot-policy-request";
 export import PauseFilesystemSnapshotPolicyRequest = PauseFilesystemSnapshotPolicyRequest.PauseFilesystemSnapshotPolicyRequest;
+import * as ScheduleDowngradeShapeMountTargetRequest from "./schedule-downgrade-shape-mount-target-request";
+export import ScheduleDowngradeShapeMountTargetRequest = ScheduleDowngradeShapeMountTargetRequest.ScheduleDowngradeShapeMountTargetRequest;
 import * as UnpauseFilesystemSnapshotPolicyRequest from "./unpause-filesystem-snapshot-policy-request";
 export import UnpauseFilesystemSnapshotPolicyRequest = UnpauseFilesystemSnapshotPolicyRequest.UnpauseFilesystemSnapshotPolicyRequest;
 import * as UpdateExportRequest from "./update-export-request";
@@ -113,5 +117,7 @@ import * as UpdateReplicationRequest from "./update-replication-request";
 export import UpdateReplicationRequest = UpdateReplicationRequest.UpdateReplicationRequest;
 import * as UpdateSnapshotRequest from "./update-snapshot-request";
 export import UpdateSnapshotRequest = UpdateSnapshotRequest.UpdateSnapshotRequest;
+import * as UpgradeShapeMountTargetRequest from "./upgrade-shape-mount-target-request";
+export import UpgradeShapeMountTargetRequest = UpgradeShapeMountTargetRequest.UpgradeShapeMountTargetRequest;
 import * as ValidateKeyTabsRequest from "./validate-key-tabs-request";
 export import ValidateKeyTabsRequest = ValidateKeyTabsRequest.ValidateKeyTabsRequest;
