@@ -74,6 +74,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * To what shape the image is meant for.
    */
   "imageShapeFamily": AutonomousDatabaseSoftwareImage.ImageShapeFamily;
+  /**
+   * DST Time-Zone File version of the Autonomous Container Database.
+   */
+  "dstFileVersion"?: string;
 }
 
 export namespace AutonomousDatabaseSoftwareImage {

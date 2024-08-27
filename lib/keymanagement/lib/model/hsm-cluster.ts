@@ -28,7 +28,7 @@ export interface HsmCluster {
    */
   "compartmentId": string;
   /**
-   * A user-friendly name for the HSMCluster resource. It does not have to be unique, and it is changeable.
+   * A user-friendly display name for the HSMCluster resource. It does not have to be unique, and it is changeable.
    * Avoid entering confidential information.
    *
    */
@@ -55,7 +55,7 @@ Example: {@code ACTIVE}
     */
   "lifecycleState": HsmCluster.LifecycleState;
   /**
-   * DNS name for the Hsm Cluster.
+   * DNS name for the HSM Cluster -- this will contain information about the region as well.
    */
   "dnsName": string;
   /**

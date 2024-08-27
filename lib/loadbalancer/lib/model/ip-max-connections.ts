@@ -28,7 +28,10 @@ export interface IpMaxConnections {
    */
   "ipAddresses": Array<string>;
   /**
-   * The max number of connections that the specified IPs can make to the Listener.
+   * The maximum number of simultaneous connections that the specified IPs can make to the
+   * Listener. IPs without a maxConnections setting can make either defaultMaxConnections
+   * simultaneous connections to a listener or, if no defaultMaxConnections is specified, an
+   * unlimited number of simultaneous connections to a listener.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxConnections": number;

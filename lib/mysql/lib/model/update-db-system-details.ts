@@ -110,6 +110,7 @@ It is not possible to decrease data storage size.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "dataStorageSizeInGBs"?: number;
+  "dataStorage"?: model.DataStorageDetails;
   /**
    * The hostname for the primary endpoint of the DB System. Used for DNS.
    * The value is the hostname portion of the primary private IP's fully qualified domain name (FQDN)
@@ -162,6 +163,13 @@ It is not possible to decrease data storage size.
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
   "secureConnections"?: model.SecureConnectionDetails;
+  /**
+   * The list of customer email addresses that receive information from Oracle about the specified OCI DB System resource.
+   * Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators.
+   * Up to 10 email addresses can be added to the customer contacts for a DB System.
+   *
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
 }
 
 export namespace UpdateDbSystemDetails {
@@ -169,6 +177,10 @@ export namespace UpdateDbSystemDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "dataStorage": obj.dataStorage
+          ? model.DataStorageDetails.getJsonObj(obj.dataStorage)
+          : undefined,
+
         "backupPolicy": obj.backupPolicy
           ? model.UpdateBackupPolicyDetails.getJsonObj(obj.backupPolicy)
           : undefined,
@@ -182,6 +194,11 @@ export namespace UpdateDbSystemDetails {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
+          : undefined,
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -192,6 +209,10 @@ export namespace UpdateDbSystemDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "dataStorage": obj.dataStorage
+          ? model.DataStorageDetails.getDeserializedJsonObj(obj.dataStorage)
+          : undefined,
+
         "backupPolicy": obj.backupPolicy
           ? model.UpdateBackupPolicyDetails.getDeserializedJsonObj(obj.backupPolicy)
           : undefined,
@@ -205,6 +226,11 @@ export namespace UpdateDbSystemDetails {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
+          : undefined,
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

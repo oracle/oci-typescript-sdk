@@ -92,6 +92,8 @@ import * as DisableAutomaticInitialPlanCaptureResponse from "./disable-automatic
 export import DisableAutomaticInitialPlanCaptureResponse = DisableAutomaticInitialPlanCaptureResponse.DisableAutomaticInitialPlanCaptureResponse;
 import * as DisableAutomaticSpmEvolveAdvisorTaskResponse from "./disable-automatic-spm-evolve-advisor-task-response";
 export import DisableAutomaticSpmEvolveAdvisorTaskResponse = DisableAutomaticSpmEvolveAdvisorTaskResponse.DisableAutomaticSpmEvolveAdvisorTaskResponse;
+import * as DisableAutonomousDatabaseManagementFeatureResponse from "./disable-autonomous-database-management-feature-response";
+export import DisableAutonomousDatabaseManagementFeatureResponse = DisableAutonomousDatabaseManagementFeatureResponse.DisableAutonomousDatabaseManagementFeatureResponse;
 import * as DisableDatabaseManagementFeatureResponse from "./disable-database-management-feature-response";
 export import DisableDatabaseManagementFeatureResponse = DisableDatabaseManagementFeatureResponse.DisableDatabaseManagementFeatureResponse;
 import * as DisableExternalContainerDatabaseManagementFeatureResponse from "./disable-external-container-database-management-feature-response";
@@ -122,6 +124,8 @@ import * as EnableAutomaticInitialPlanCaptureResponse from "./enable-automatic-i
 export import EnableAutomaticInitialPlanCaptureResponse = EnableAutomaticInitialPlanCaptureResponse.EnableAutomaticInitialPlanCaptureResponse;
 import * as EnableAutomaticSpmEvolveAdvisorTaskResponse from "./enable-automatic-spm-evolve-advisor-task-response";
 export import EnableAutomaticSpmEvolveAdvisorTaskResponse = EnableAutomaticSpmEvolveAdvisorTaskResponse.EnableAutomaticSpmEvolveAdvisorTaskResponse;
+import * as EnableAutonomousDatabaseManagementFeatureResponse from "./enable-autonomous-database-management-feature-response";
+export import EnableAutonomousDatabaseManagementFeatureResponse = EnableAutonomousDatabaseManagementFeatureResponse.EnableAutonomousDatabaseManagementFeatureResponse;
 import * as EnableDatabaseManagementFeatureResponse from "./enable-database-management-feature-response";
 export import EnableDatabaseManagementFeatureResponse = EnableDatabaseManagementFeatureResponse.EnableDatabaseManagementFeatureResponse;
 import * as EnableExternalContainerDatabaseManagementFeatureResponse from "./enable-external-container-database-management-feature-response";
@@ -332,6 +336,8 @@ import * as LoadSqlPlanBaselinesFromAwrResponse from "./load-sql-plan-baselines-
 export import LoadSqlPlanBaselinesFromAwrResponse = LoadSqlPlanBaselinesFromAwrResponse.LoadSqlPlanBaselinesFromAwrResponse;
 import * as LoadSqlPlanBaselinesFromCursorCacheResponse from "./load-sql-plan-baselines-from-cursor-cache-response";
 export import LoadSqlPlanBaselinesFromCursorCacheResponse = LoadSqlPlanBaselinesFromCursorCacheResponse.LoadSqlPlanBaselinesFromCursorCacheResponse;
+import * as ModifyAutonomousDatabaseManagementFeatureResponse from "./modify-autonomous-database-management-feature-response";
+export import ModifyAutonomousDatabaseManagementFeatureResponse = ModifyAutonomousDatabaseManagementFeatureResponse.ModifyAutonomousDatabaseManagementFeatureResponse;
 import * as ModifyDatabaseManagementFeatureResponse from "./modify-database-management-feature-response";
 export import ModifyDatabaseManagementFeatureResponse = ModifyDatabaseManagementFeatureResponse.ModifyDatabaseManagementFeatureResponse;
 import * as ModifyPluggableDatabaseManagementFeatureResponse from "./modify-pluggable-database-management-feature-response";

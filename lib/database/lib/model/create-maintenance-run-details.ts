@@ -40,7 +40,7 @@ export interface CreateMaintenanceRunDetails {
    */
   "patchingMode"?: CreateMaintenanceRunDetails.PatchingMode;
   /**
-   * Patch type, either \"QUARTERLY\" or \"TIMEZONE\".
+   * Patch type, either \"QUARTERLY\", \"TIMEZONE\" or \"CUSTOM_DATABASE_SOFTWARE_IMAGE\".
    *
    */
   "patchType": CreateMaintenanceRunDetails.PatchType;
@@ -48,6 +48,10 @@ export interface CreateMaintenanceRunDetails {
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the Maintenance Run.
    */
   "compartmentId"?: string;
+  /**
+   * The Autonomous Database Software Image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   */
+  "databaseSoftwareImageId"?: string;
 }
 
 export namespace CreateMaintenanceRunDetails {
@@ -58,7 +62,8 @@ export namespace CreateMaintenanceRunDetails {
 
   export enum PatchType {
     Quarterly = "QUARTERLY",
-    Timezone = "TIMEZONE"
+    Timezone = "TIMEZONE",
+    CustomDatabaseSoftwareImage = "CUSTOM_DATABASE_SOFTWARE_IMAGE"
   }
 
   export function getJsonObj(obj: CreateMaintenanceRunDetails): object {

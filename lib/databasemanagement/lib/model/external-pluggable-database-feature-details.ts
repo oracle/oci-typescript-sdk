@@ -23,6 +23,7 @@ import common = require("oci-common");
 export interface ExternalPluggableDatabaseFeatureDetails {
   "connectorDetails":
     | model.ExternalConnectorDetails
+    | model.DirectConnectorDetails
     | model.MacsConnectorDetails
     | model.PrivateEndPointConnectorDetails;
 
@@ -49,6 +50,16 @@ export namespace ExternalPluggableDatabaseFeatureDetails {
             ),
             true
           );
+        case "DB_LIFECYCLE_MANAGEMENT":
+          return model.ExternalPluggableDatabaseLifecycleManagementFeatureDetails.getJsonObj(
+            <model.ExternalPluggableDatabaseLifecycleManagementFeatureDetails>(<object>jsonObj),
+            true
+          );
+        case "SQLWATCH":
+          return model.ExternalPluggableDatabaseSqlWatchFeatureDetails.getJsonObj(
+            <model.ExternalPluggableDatabaseSqlWatchFeatureDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.feature}`);
       }
@@ -72,6 +83,16 @@ export namespace ExternalPluggableDatabaseFeatureDetails {
             <model.ExternalPluggableDatabaseDiagnosticsAndManagementFeatureDetails>(
               (<object>jsonObj)
             ),
+            true
+          );
+        case "DB_LIFECYCLE_MANAGEMENT":
+          return model.ExternalPluggableDatabaseLifecycleManagementFeatureDetails.getDeserializedJsonObj(
+            <model.ExternalPluggableDatabaseLifecycleManagementFeatureDetails>(<object>jsonObj),
+            true
+          );
+        case "SQLWATCH":
+          return model.ExternalPluggableDatabaseSqlWatchFeatureDetails.getDeserializedJsonObj(
+            <model.ExternalPluggableDatabaseSqlWatchFeatureDetails>(<object>jsonObj),
             true
           );
         default:

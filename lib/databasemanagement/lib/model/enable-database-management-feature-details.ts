@@ -21,7 +21,10 @@ import common = require("oci-common");
  * The details required to enable Database Management features for an Oracle cloud database.
  */
 export interface EnableDatabaseManagementFeatureDetails {
-  "featureDetails": model.DatabaseDiagnosticsAndManagementFeatureDetails;
+  "featureDetails":
+    | model.DatabaseDiagnosticsAndManagementFeatureDetails
+    | model.DatabaseLifecycleManagementFeatureDetails
+    | model.DatabaseSqlWatchFeatureDetails;
 }
 
 export namespace EnableDatabaseManagementFeatureDetails {

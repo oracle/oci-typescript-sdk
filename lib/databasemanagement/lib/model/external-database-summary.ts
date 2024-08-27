@@ -94,6 +94,18 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The list of feature configurations
+   */
+  "dbmgmtFeatureConfigs"?: Array<model.DatabaseFeatureConfiguration>;
+  /**
+   * The Oracle database version.
+   */
+  "databaseVersion"?: string;
+  /**
+   * The operating system of database.
+   */
+  "databasePlatformName"?: string;
 }
 
 export namespace ExternalDatabaseSummary {
@@ -126,6 +138,12 @@ export namespace ExternalDatabaseSummary {
           ? obj.instanceDetails.map(item => {
               return model.ExternalDatabaseInstance.getJsonObj(item);
             })
+          : undefined,
+
+        "dbmgmtFeatureConfigs": obj.dbmgmtFeatureConfigs
+          ? obj.dbmgmtFeatureConfigs.map(item => {
+              return model.DatabaseFeatureConfiguration.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -145,6 +163,12 @@ export namespace ExternalDatabaseSummary {
         "instanceDetails": obj.instanceDetails
           ? obj.instanceDetails.map(item => {
               return model.ExternalDatabaseInstance.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "dbmgmtFeatureConfigs": obj.dbmgmtFeatureConfigs
+          ? obj.dbmgmtFeatureConfigs.map(item => {
+              return model.DatabaseFeatureConfiguration.getDeserializedJsonObj(item);
             })
           : undefined
       }

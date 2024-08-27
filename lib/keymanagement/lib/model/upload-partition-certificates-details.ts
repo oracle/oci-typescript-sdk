@@ -16,15 +16,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the partition certificates.
+ * An object that encapsulates the necessary partition certificates.
  */
 export interface UploadPartitionCertificatesDetails {
   /**
-   * Base64 encoded (StandardCharsets.UTF_8) Partition Certificate.
+   * Base64 encoded (StandardCharsets.UTF_8) Partition Certificate, which gets created when the CSR is signed.
    */
   "partitionCertificate": string;
   /**
-   * Base64 encoded (StandardCharsets.UTF_8) Partition Owner Certificate.
+   * Base64 encoded (StandardCharsets.UTF_8) Partition Owner Certificate, which is used to help sign the CSR.
    */
   "partitionOwnerCertificate": string;
 }

@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Datastore summary for a getting an Sddc.
+ * Datastore details for a getting an Sddc.
  *
  */
 export interface DatastoreDetails {

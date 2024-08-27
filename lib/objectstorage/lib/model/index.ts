@@ -14,6 +14,8 @@ For more information, see [Overview of Object Storage](/Content/Object/Concepts/
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AccessTargetDetails from "./access-target-details";
+export import AccessTargetDetails = AccessTargetDetails.AccessTargetDetails;
 import * as ArchivalState from "./archival-state";
 export import ArchivalState = ArchivalState.ArchivalState;
 import * as Bucket from "./bucket";
@@ -32,12 +34,16 @@ import * as CreateMultipartUploadDetails from "./create-multipart-upload-details
 export import CreateMultipartUploadDetails = CreateMultipartUploadDetails.CreateMultipartUploadDetails;
 import * as CreatePreauthenticatedRequestDetails from "./create-preauthenticated-request-details";
 export import CreatePreauthenticatedRequestDetails = CreatePreauthenticatedRequestDetails.CreatePreauthenticatedRequestDetails;
+import * as CreatePrivateEndpointDetails from "./create-private-endpoint-details";
+export import CreatePrivateEndpointDetails = CreatePrivateEndpointDetails.CreatePrivateEndpointDetails;
 import * as CreateReplicationPolicyDetails from "./create-replication-policy-details";
 export import CreateReplicationPolicyDetails = CreateReplicationPolicyDetails.CreateReplicationPolicyDetails;
 import * as CreateRetentionRuleDetails from "./create-retention-rule-details";
 export import CreateRetentionRuleDetails = CreateRetentionRuleDetails.CreateRetentionRuleDetails;
 import * as Duration from "./duration";
 export import Duration = Duration.Duration;
+import * as Fqdns from "./fqdns";
+export import Fqdns = Fqdns.Fqdns;
 import * as ListObjects from "./list-objects";
 export import ListObjects = ListObjects.ListObjects;
 import * as MultipartUpload from "./multipart-upload";
@@ -64,6 +70,12 @@ import * as PreauthenticatedRequest from "./preauthenticated-request";
 export import PreauthenticatedRequest = PreauthenticatedRequest.PreauthenticatedRequest;
 import * as PreauthenticatedRequestSummary from "./preauthenticated-request-summary";
 export import PreauthenticatedRequestSummary = PreauthenticatedRequestSummary.PreauthenticatedRequestSummary;
+import * as PrefixFqdns from "./prefix-fqdns";
+export import PrefixFqdns = PrefixFqdns.PrefixFqdns;
+import * as PrivateEndpoint from "./private-endpoint";
+export import PrivateEndpoint = PrivateEndpoint.PrivateEndpoint;
+import * as PrivateEndpointSummary from "./private-endpoint-summary";
+export import PrivateEndpointSummary = PrivateEndpointSummary.PrivateEndpointSummary;
 import * as PutObjectLifecyclePolicyDetails from "./put-object-lifecycle-policy-details";
 export import PutObjectLifecyclePolicyDetails = PutObjectLifecyclePolicyDetails.PutObjectLifecyclePolicyDetails;
 import * as ReencryptObjectDetails from "./reencrypt-object-details";
@@ -96,6 +108,8 @@ import * as UpdateNamespaceMetadataDetails from "./update-namespace-metadata-det
 export import UpdateNamespaceMetadataDetails = UpdateNamespaceMetadataDetails.UpdateNamespaceMetadataDetails;
 import * as UpdateObjectStorageTierDetails from "./update-object-storage-tier-details";
 export import UpdateObjectStorageTierDetails = UpdateObjectStorageTierDetails.UpdateObjectStorageTierDetails;
+import * as UpdatePrivateEndpointDetails from "./update-private-endpoint-details";
+export import UpdatePrivateEndpointDetails = UpdatePrivateEndpointDetails.UpdatePrivateEndpointDetails;
 import * as UpdateRetentionRuleDetails from "./update-retention-rule-details";
 export import UpdateRetentionRuleDetails = UpdateRetentionRuleDetails.UpdateRetentionRuleDetails;
 import * as WorkRequest from "./work-request";

@@ -13,6 +13,8 @@
 
 import * as GetAnnouncementResponse from "./get-announcement-response";
 export import GetAnnouncementResponse = GetAnnouncementResponse.GetAnnouncementResponse;
+import * as GetAnnouncementCompartmentResponse from "./get-announcement-compartment-response";
+export import GetAnnouncementCompartmentResponse = GetAnnouncementCompartmentResponse.GetAnnouncementCompartmentResponse;
 import * as GetAnnouncementUserStatusResponse from "./get-announcement-user-status-response";
 export import GetAnnouncementUserStatusResponse = GetAnnouncementUserStatusResponse.GetAnnouncementUserStatusResponse;
 import * as ListAnnouncementsResponse from "./list-announcements-response";
@@ -45,3 +47,5 @@ import * as ListAnnouncementsPreferencesResponse from "./list-announcements-pref
 export import ListAnnouncementsPreferencesResponse = ListAnnouncementsPreferencesResponse.ListAnnouncementsPreferencesResponse;
 import * as UpdateAnnouncementsPreferenceResponse from "./update-announcements-preference-response";
 export import UpdateAnnouncementsPreferenceResponse = UpdateAnnouncementsPreferenceResponse.UpdateAnnouncementsPreferenceResponse;
+import * as ListServicesResponse from "./list-services-response";
+export import ListServicesResponse = ListServicesResponse.ListServicesResponse;

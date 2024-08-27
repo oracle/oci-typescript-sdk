@@ -68,6 +68,28 @@ export interface AnalyticsInstanceSummary {
    */
   "serviceUrl"?: string;
   /**
+    * Defined tags for this resource. Each key is predefined and scoped to a
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
+* 
+    */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * Free-form tags for this resource. Each tag is a simple key-value pair with no
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"Department\": \"Finance\"}}
+* 
+    */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * System tags for this resource. These predefined keys are scoped to namespaces.
+   * Example: {@code {\"orcl-cloud\": {\"key\": \"value\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
     * The date and time the instance was created, in the format defined by RFC3339.
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}

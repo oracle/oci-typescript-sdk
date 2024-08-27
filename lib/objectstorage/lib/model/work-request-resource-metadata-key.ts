@@ -24,7 +24,8 @@ export enum WorkRequestResourceMetadataKey {
   Region = "REGION",
   Namespace = "NAMESPACE",
   Bucket = "BUCKET",
-  Object = "OBJECT"
+  Object = "OBJECT",
+  PrivateEndpointName = "PRIVATE_ENDPOINT_NAME"
 }
 
 export namespace WorkRequestResourceMetadataKey {

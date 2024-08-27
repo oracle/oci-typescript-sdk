@@ -19,6 +19,10 @@ import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
 import * as AssociateDrProtectionGroupDetails from "./associate-dr-protection-group-details";
 export import AssociateDrProtectionGroupDetails = AssociateDrProtectionGroupDetails.AssociateDrProtectionGroupDetails;
+import * as AutonomousContainerDatabaseSnapshotStandbyConnectionStringType from "./autonomous-container-database-snapshot-standby-connection-string-type";
+export import AutonomousContainerDatabaseSnapshotStandbyConnectionStringType = AutonomousContainerDatabaseSnapshotStandbyConnectionStringType.AutonomousContainerDatabaseSnapshotStandbyConnectionStringType;
+import * as AutonomousDatabaseStandbyTypeForDrDrills from "./autonomous-database-standby-type-for-dr-drills";
+export import AutonomousDatabaseStandbyTypeForDrDrills = AutonomousDatabaseStandbyTypeForDrDrills.AutonomousDatabaseStandbyTypeForDrDrills;
 import * as BlockVolumeAttachmentDetails from "./block-volume-attachment-details";
 export import BlockVolumeAttachmentDetails = BlockVolumeAttachmentDetails.BlockVolumeAttachmentDetails;
 import * as BlockVolumeMountDetails from "./block-volume-mount-details";
@@ -210,6 +214,8 @@ export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRe
 
 import * as CancelDrPlanExecutionDetails from "./cancel-dr-plan-execution-details";
 export import CancelDrPlanExecutionDetails = CancelDrPlanExecutionDetails.CancelDrPlanExecutionDetails;
+import * as CreateDrProtectionGroupMemberAutonomousContainerDatabaseDetails from "./create-dr-protection-group-member-autonomous-container-database-details";
+export import CreateDrProtectionGroupMemberAutonomousContainerDatabaseDetails = CreateDrProtectionGroupMemberAutonomousContainerDatabaseDetails.CreateDrProtectionGroupMemberAutonomousContainerDatabaseDetails;
 import * as CreateDrProtectionGroupMemberAutonomousDatabaseDetails from "./create-dr-protection-group-member-autonomous-database-details";
 export import CreateDrProtectionGroupMemberAutonomousDatabaseDetails = CreateDrProtectionGroupMemberAutonomousDatabaseDetails.CreateDrProtectionGroupMemberAutonomousDatabaseDetails;
 import * as CreateDrProtectionGroupMemberComputeInstanceDetails from "./create-dr-protection-group-member-compute-instance-details";
@@ -226,10 +232,14 @@ import * as CreateDrProtectionGroupMemberLoadBalancerDetails from "./create-dr-p
 export import CreateDrProtectionGroupMemberLoadBalancerDetails = CreateDrProtectionGroupMemberLoadBalancerDetails.CreateDrProtectionGroupMemberLoadBalancerDetails;
 import * as CreateDrProtectionGroupMemberNetworkLoadBalancerDetails from "./create-dr-protection-group-member-network-load-balancer-details";
 export import CreateDrProtectionGroupMemberNetworkLoadBalancerDetails = CreateDrProtectionGroupMemberNetworkLoadBalancerDetails.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails;
+import * as CreateDrProtectionGroupMemberObjectStorageBucketDetails from "./create-dr-protection-group-member-object-storage-bucket-details";
+export import CreateDrProtectionGroupMemberObjectStorageBucketDetails = CreateDrProtectionGroupMemberObjectStorageBucketDetails.CreateDrProtectionGroupMemberObjectStorageBucketDetails;
 import * as CreateDrProtectionGroupMemberVolumeGroupDetails from "./create-dr-protection-group-member-volume-group-details";
 export import CreateDrProtectionGroupMemberVolumeGroupDetails = CreateDrProtectionGroupMemberVolumeGroupDetails.CreateDrProtectionGroupMemberVolumeGroupDetails;
 import * as DisassociateDrProtectionGroupDefaultDetails from "./disassociate-dr-protection-group-default-details";
 export import DisassociateDrProtectionGroupDefaultDetails = DisassociateDrProtectionGroupDefaultDetails.DisassociateDrProtectionGroupDefaultDetails;
+import * as DrProtectionGroupMemberAutonomousContainerDatabase from "./dr-protection-group-member-autonomous-container-database";
+export import DrProtectionGroupMemberAutonomousContainerDatabase = DrProtectionGroupMemberAutonomousContainerDatabase.DrProtectionGroupMemberAutonomousContainerDatabase;
 import * as DrProtectionGroupMemberAutonomousDatabase from "./dr-protection-group-member-autonomous-database";
 export import DrProtectionGroupMemberAutonomousDatabase = DrProtectionGroupMemberAutonomousDatabase.DrProtectionGroupMemberAutonomousDatabase;
 import * as DrProtectionGroupMemberComputeInstance from "./dr-protection-group-member-compute-instance";
@@ -246,6 +256,8 @@ import * as DrProtectionGroupMemberLoadBalancer from "./dr-protection-group-memb
 export import DrProtectionGroupMemberLoadBalancer = DrProtectionGroupMemberLoadBalancer.DrProtectionGroupMemberLoadBalancer;
 import * as DrProtectionGroupMemberNetworkLoadBalancer from "./dr-protection-group-member-network-load-balancer";
 export import DrProtectionGroupMemberNetworkLoadBalancer = DrProtectionGroupMemberNetworkLoadBalancer.DrProtectionGroupMemberNetworkLoadBalancer;
+import * as DrProtectionGroupMemberObjectStorageBucket from "./dr-protection-group-member-object-storage-bucket";
+export import DrProtectionGroupMemberObjectStorageBucket = DrProtectionGroupMemberObjectStorageBucket.DrProtectionGroupMemberObjectStorageBucket;
 import * as DrProtectionGroupMemberVolumeGroup from "./dr-protection-group-member-volume-group";
 export import DrProtectionGroupMemberVolumeGroup = DrProtectionGroupMemberVolumeGroup.DrProtectionGroupMemberVolumeGroup;
 import * as FailoverExecutionOptionDetails from "./failover-execution-option-details";
@@ -296,6 +308,8 @@ import * as SwitchoverPrecheckExecutionOptionDetails from "./switchover-precheck
 export import SwitchoverPrecheckExecutionOptionDetails = SwitchoverPrecheckExecutionOptionDetails.SwitchoverPrecheckExecutionOptionDetails;
 import * as SwitchoverPrecheckExecutionOptions from "./switchover-precheck-execution-options";
 export import SwitchoverPrecheckExecutionOptions = SwitchoverPrecheckExecutionOptions.SwitchoverPrecheckExecutionOptions;
+import * as UpdateDrProtectionGroupMemberAutonomousContainerDatabaseDetails from "./update-dr-protection-group-member-autonomous-container-database-details";
+export import UpdateDrProtectionGroupMemberAutonomousContainerDatabaseDetails = UpdateDrProtectionGroupMemberAutonomousContainerDatabaseDetails.UpdateDrProtectionGroupMemberAutonomousContainerDatabaseDetails;
 import * as UpdateDrProtectionGroupMemberAutonomousDatabaseDetails from "./update-dr-protection-group-member-autonomous-database-details";
 export import UpdateDrProtectionGroupMemberAutonomousDatabaseDetails = UpdateDrProtectionGroupMemberAutonomousDatabaseDetails.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails;
 import * as UpdateDrProtectionGroupMemberComputeInstanceDetails from "./update-dr-protection-group-member-compute-instance-details";
@@ -312,6 +326,8 @@ import * as UpdateDrProtectionGroupMemberLoadBalancerDetails from "./update-dr-p
 export import UpdateDrProtectionGroupMemberLoadBalancerDetails = UpdateDrProtectionGroupMemberLoadBalancerDetails.UpdateDrProtectionGroupMemberLoadBalancerDetails;
 import * as UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails from "./update-dr-protection-group-member-network-load-balancer-details";
 export import UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails = UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails;
+import * as UpdateDrProtectionGroupMemberObjectStorageBucketDetails from "./update-dr-protection-group-member-object-storage-bucket-details";
+export import UpdateDrProtectionGroupMemberObjectStorageBucketDetails = UpdateDrProtectionGroupMemberObjectStorageBucketDetails.UpdateDrProtectionGroupMemberObjectStorageBucketDetails;
 import * as UpdateDrProtectionGroupMemberVolumeGroupDetails from "./update-dr-protection-group-member-volume-group-details";
 export import UpdateDrProtectionGroupMemberVolumeGroupDetails = UpdateDrProtectionGroupMemberVolumeGroupDetails.UpdateDrProtectionGroupMemberVolumeGroupDetails;
 import * as UpdateInvokeFunctionPrecheckStepDetails from "./update-invoke-function-precheck-step-details";

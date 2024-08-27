@@ -50,6 +50,8 @@ Example: {@code 3}
   "weight"?: number;
   /**
     * The maximum number of simultaneous connections the load balancer can make to the backend.
+* If this is not set then number of simultaneous connections the load balancer can make to
+* the backend is unlimited.
 * <p>
 Example: {@code 300}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

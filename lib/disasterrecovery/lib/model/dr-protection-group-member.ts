@@ -49,6 +49,11 @@ export namespace DrProtectionGroupMember {
             <model.DrProtectionGroupMemberNetworkLoadBalancer>(<object>jsonObj),
             true
           );
+        case "OBJECT_STORAGE_BUCKET":
+          return model.DrProtectionGroupMemberObjectStorageBucket.getJsonObj(
+            <model.DrProtectionGroupMemberObjectStorageBucket>(<object>jsonObj),
+            true
+          );
         case "FILE_SYSTEM":
           return model.DrProtectionGroupMemberFileSystem.getJsonObj(
             <model.DrProtectionGroupMemberFileSystem>(<object>jsonObj),
@@ -79,6 +84,11 @@ export namespace DrProtectionGroupMember {
             <model.DrProtectionGroupMemberComputeInstanceNonMovable>(<object>jsonObj),
             true
           );
+        case "AUTONOMOUS_CONTAINER_DATABASE":
+          return model.DrProtectionGroupMemberAutonomousContainerDatabase.getJsonObj(
+            <model.DrProtectionGroupMemberAutonomousContainerDatabase>(<object>jsonObj),
+            true
+          );
         case "DATABASE":
           return model.DrProtectionGroupMemberDatabase.getJsonObj(
             <model.DrProtectionGroupMemberDatabase>(<object>jsonObj),
@@ -103,6 +113,11 @@ export namespace DrProtectionGroupMember {
         case "NETWORK_LOAD_BALANCER":
           return model.DrProtectionGroupMemberNetworkLoadBalancer.getDeserializedJsonObj(
             <model.DrProtectionGroupMemberNetworkLoadBalancer>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_BUCKET":
+          return model.DrProtectionGroupMemberObjectStorageBucket.getDeserializedJsonObj(
+            <model.DrProtectionGroupMemberObjectStorageBucket>(<object>jsonObj),
             true
           );
         case "FILE_SYSTEM":
@@ -133,6 +148,11 @@ export namespace DrProtectionGroupMember {
         case "COMPUTE_INSTANCE_NON_MOVABLE":
           return model.DrProtectionGroupMemberComputeInstanceNonMovable.getDeserializedJsonObj(
             <model.DrProtectionGroupMemberComputeInstanceNonMovable>(<object>jsonObj),
+            true
+          );
+        case "AUTONOMOUS_CONTAINER_DATABASE":
+          return model.DrProtectionGroupMemberAutonomousContainerDatabase.getDeserializedJsonObj(
+            <model.DrProtectionGroupMemberAutonomousContainerDatabase>(<object>jsonObj),
             true
           );
         case "DATABASE":

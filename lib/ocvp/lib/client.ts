@@ -2419,7 +2419,8 @@ Use the {@link WorkRequest} operations to track the
       "limit": listSupportedVmwareSoftwareVersionsRequest.limit,
       "page": listSupportedVmwareSoftwareVersionsRequest.page,
       "version": listSupportedVmwareSoftwareVersionsRequest.version,
-      "hostShapeName": listSupportedVmwareSoftwareVersionsRequest.hostShapeName
+      "hostShapeName": listSupportedVmwareSoftwareVersionsRequest.hostShapeName,
+      "versionToUpgrade": listSupportedVmwareSoftwareVersionsRequest.versionToUpgrade
     };
 
     let headerParams = {

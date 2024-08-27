@@ -116,6 +116,10 @@ export interface Model {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace Model {
@@ -162,7 +166,13 @@ export namespace Model {
             })
           : undefined,
 
-        "metrics": obj.metrics ? model.ModelMetrics.getJsonObj(obj.metrics) : undefined
+        "metrics": obj.metrics ? model.ModelMetrics.getJsonObj(obj.metrics) : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -187,7 +197,13 @@ export namespace Model {
             })
           : undefined,
 
-        "metrics": obj.metrics ? model.ModelMetrics.getDeserializedJsonObj(obj.metrics) : undefined
+        "metrics": obj.metrics ? model.ModelMetrics.getDeserializedJsonObj(obj.metrics) : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
       }
     };
 

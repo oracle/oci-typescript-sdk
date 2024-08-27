@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the HSM resource.
+ * An object which encapsulates the details of a given HSM Cluster.
  */
 export interface HsmClusterSummary {
   /**
@@ -41,7 +41,7 @@ Example: {@code ACTIVE}
     */
   "lifecycleState": string;
   /**
-   * DNS name for the HSMCluster.
+   * DNS name for the HSMCluster -- this will contain information about the region as well.
    */
   "dnsName": string;
   /**

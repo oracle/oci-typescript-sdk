@@ -40,6 +40,10 @@ export interface AutonomousDatabaseStandbySummary {
    * The date and time the Disaster Recovery role was switched for the standby Autonomous Database.
    */
   "timeDisasterRecoveryRoleChanged"?: Date;
+  /**
+   * The availability domain of a local Autonomous Data Guard standby database of an Autonomous Database Serverless instance.
+   */
+  "availabilityDomain"?: string;
 }
 
 export namespace AutonomousDatabaseStandbySummary {

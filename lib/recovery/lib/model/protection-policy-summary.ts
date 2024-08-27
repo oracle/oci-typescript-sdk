@@ -49,6 +49,10 @@ export interface ProtectionPolicySummary {
    */
   "policyLockedDateTime"?: string;
   /**
+   * Indicates whether the protection policy enforces Recovery Service to retain backups in the same cloud service environment where your Oracle Database is provisioned.
+   */
+  "mustEnforceCloudLocality"?: boolean;
+  /**
    * The time the Protection Policy was created. An RFC3339 formatted datetime string
    */
   "timeCreated"?: Date;

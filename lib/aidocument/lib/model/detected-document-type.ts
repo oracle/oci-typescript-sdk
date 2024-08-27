@@ -23,10 +23,6 @@ export interface DetectedDocumentType {
    */
   "documentType": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Key-Value Extraction model that was used to extract the key-value pairs.
-   */
-  "documentId"?: string;
-  /**
    * The confidence score between 0 and 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "confidence": number;

@@ -25,6 +25,7 @@ import common = require("oci-common");
 export interface ExternalDatabaseConnectionInfo extends model.ExternalDbSystemConnectionInfo {
   "connectionString": model.DatabaseConnectionString;
   "connectionCredentials"?:
+    | model.DatabaseNamedCredentialConnectionDetails
     | model.DatabaseConnectionCredentailsByName
     | model.DatabaseSslConnectionCredentials
     | model.DatabaseConnectionCredentialsByDetails;

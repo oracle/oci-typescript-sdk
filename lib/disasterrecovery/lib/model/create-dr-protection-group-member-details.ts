@@ -44,6 +44,13 @@ export namespace CreateDrProtectionGroupMemberDetails {
             <model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails>(<object>jsonObj),
             true
           );
+        case "AUTONOMOUS_CONTAINER_DATABASE":
+          return model.CreateDrProtectionGroupMemberAutonomousContainerDatabaseDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberAutonomousContainerDatabaseDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "COMPUTE_INSTANCE_NON_MOVABLE":
           return model.CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails.getJsonObj(
             <model.CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
@@ -79,6 +86,11 @@ export namespace CreateDrProtectionGroupMemberDetails {
             <model.CreateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
             true
           );
+        case "OBJECT_STORAGE_BUCKET":
+          return model.CreateDrProtectionGroupMemberObjectStorageBucketDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberObjectStorageBucketDetails>(<object>jsonObj),
+            true
+          );
         case "LOAD_BALANCER":
           return model.CreateDrProtectionGroupMemberLoadBalancerDetails.getJsonObj(
             <model.CreateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
@@ -98,6 +110,13 @@ export namespace CreateDrProtectionGroupMemberDetails {
         case "COMPUTE_INSTANCE_MOVABLE":
           return model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails.getDeserializedJsonObj(
             <model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails>(<object>jsonObj),
+            true
+          );
+        case "AUTONOMOUS_CONTAINER_DATABASE":
+          return model.CreateDrProtectionGroupMemberAutonomousContainerDatabaseDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberAutonomousContainerDatabaseDetails>(
+              (<object>jsonObj)
+            ),
             true
           );
         case "COMPUTE_INSTANCE_NON_MOVABLE":
@@ -133,6 +152,11 @@ export namespace CreateDrProtectionGroupMemberDetails {
         case "FILE_SYSTEM":
           return model.CreateDrProtectionGroupMemberFileSystemDetails.getDeserializedJsonObj(
             <model.CreateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_BUCKET":
+          return model.CreateDrProtectionGroupMemberObjectStorageBucketDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberObjectStorageBucketDetails>(<object>jsonObj),
             true
           );
         case "LOAD_BALANCER":

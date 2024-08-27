@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface PreCoUserCredentials {
   /**
-   * The pre crypto officer username..
+   * The pre crypto officer username, which should be chosen as a non confidential string.
    */
   "username": string;
   /**

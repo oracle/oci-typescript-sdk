@@ -122,6 +122,8 @@ import * as CreateNetworkAddressListVcnAddressesDetails from "./create-network-a
 export import CreateNetworkAddressListVcnAddressesDetails = CreateNetworkAddressListVcnAddressesDetails.CreateNetworkAddressListVcnAddressesDetails;
 import * as CreateWebAppFirewallLoadBalancerDetails from "./create-web-app-firewall-load-balancer-details";
 export import CreateWebAppFirewallLoadBalancerDetails = CreateWebAppFirewallLoadBalancerDetails.CreateWebAppFirewallLoadBalancerDetails;
+import * as DynamicHttpResponseBody from "./dynamic-http-response-body";
+export import DynamicHttpResponseBody = DynamicHttpResponseBody.DynamicHttpResponseBody;
 import * as NetworkAddressListAddresses from "./network-address-list-addresses";
 export import NetworkAddressListAddresses = NetworkAddressListAddresses.NetworkAddressListAddresses;
 import * as NetworkAddressListAddressesSummary from "./network-address-list-addresses-summary";

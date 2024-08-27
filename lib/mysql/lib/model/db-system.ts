@@ -98,10 +98,12 @@ For a standalone DB System, this defines the fault domain in which the DB System
    */
   "configurationId"?: string;
   /**
-   * Initial size of the data volume in GiBs that will be created and attached.
+   * DEPRECATED: User specified size of the data volume. May be less than current allocatedStorageSizeInGBs.
+   * Replaced by dataStorage.dataStorageSizeInGBs.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs": number;
+  "dataStorage": model.DataStorage;
   /**
    * The hostname for the primary endpoint of the DB System. Used for DNS.
    * The value is the hostname portion of the primary private IP's fully qualified domain name (FQDN)
@@ -179,6 +181,13 @@ For a standalone DB System, this defines the fault domain in which the DB System
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
   "secureConnections"?: model.SecureConnectionDetails;
+  /**
+   * The list of customer email addresses that receive information from Oracle about the specified OCI DB System resource.
+   * Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators.
+   * Up to 10 email addresses can be added to the customer contacts for a DB System.
+   *
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
 }
 
 export namespace DbSystem {
@@ -214,6 +223,8 @@ export namespace DbSystem {
           : undefined,
         "source": obj.source ? model.DbSystemSource.getJsonObj(obj.source) : undefined,
 
+        "dataStorage": obj.dataStorage ? model.DataStorage.getJsonObj(obj.dataStorage) : undefined,
+
         "endpoints": obj.endpoints
           ? obj.endpoints.map(item => {
               return model.DbSystemEndpoint.getJsonObj(item);
@@ -238,6 +249,11 @@ export namespace DbSystem {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
+          : undefined,
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -260,6 +276,10 @@ export namespace DbSystem {
           ? model.BackupPolicy.getDeserializedJsonObj(obj.backupPolicy)
           : undefined,
         "source": obj.source ? model.DbSystemSource.getDeserializedJsonObj(obj.source) : undefined,
+
+        "dataStorage": obj.dataStorage
+          ? model.DataStorage.getDeserializedJsonObj(obj.dataStorage)
+          : undefined,
 
         "endpoints": obj.endpoints
           ? obj.endpoints.map(item => {
@@ -285,6 +305,11 @@ export namespace DbSystem {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
+          : undefined,
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

@@ -26,7 +26,7 @@ export interface PutObjectResponse {
    */
   "opcRequestId": string;
   /**
-   * The base-64 encoded MD5 hash of the request body as computed by the server.
+   * The base64-encoded MD5 hash of the request body as computed by the server.
    */
   "opcContentMd5": string;
   /**

@@ -123,8 +123,14 @@ The maximum length of the combined hostname and domain is 63 characters.
    */
   "giVersion"?: string;
   /**
-   * Grid Setup will be done using this grid image id
-   */
+    * Grid Setup will be done using this grid image id.
+* <p>
+The grid image id can be extracted from
+* 1. Obtain the supported major versions using API /20160918/giVersions?compartmentId=<compartmentId>&shape=EXADB_XS&availabilityDomain=<AD name>
+* 2. Replace {version} with one of the supported major versions and obtain the supported minor versions using 
+* API /20160918/giVersions/{version}/minorVersions?compartmentId=<compartmentId>&shapeFamily=EXADB_XS&availabilityDomain=<AD name>
+* 
+    */
   "gridImageId"?: string;
   /**
    * The type of Grid Image

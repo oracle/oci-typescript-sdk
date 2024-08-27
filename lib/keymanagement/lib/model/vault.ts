@@ -101,6 +101,10 @@ Example: {@code 2018-04-03T21:10:29.600Z}
    * A Boolean value that indicates whether the Vault is primary Vault or replica Vault.
    */
   "isPrimary"?: boolean;
+  /**
+   * A Boolean value that indicates whether the Vault has cross region replication capability. Always true for Virtual Private Vaults.
+   */
+  "isVaultReplicable"?: boolean;
   "externalKeyManagerMetadataSummary"?: model.ExternalKeyManagerMetadataSummary;
 }
 

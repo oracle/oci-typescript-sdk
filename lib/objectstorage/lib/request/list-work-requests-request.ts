@@ -23,6 +23,10 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * The name of the privateEndpoint for which to list work requests.
+   */
+  "privateEndpointName"?: string;
+  /**
    * The client request ID for tracing.
    */
   "opcClientRequestId"?: string;

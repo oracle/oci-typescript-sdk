@@ -72,6 +72,12 @@ export interface CreateProtectedDatabaseDetails {
    */
   "isRedoLogsShipped"?: boolean;
   /**
+   * The OCID of the cloud service subscription to which you want to link the protected database.
+   * For example, specify the Microsoft Azure subscription ID if you want to provision the protected database in Azure.
+   *
+   */
+  "subscriptionId"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetHsmPartitionRequest extends common.BaseRequest {
   /**
-   * The OCID of the HSM Cluster.
+   * The OCID of the HSM Cluster. This is a unique identifier assigned to each hsmCluster.
    */
   "hsmClusterId": string;
   /**
-   * The OCID of the HSM Partition.
+   * The OCID of the HSM Partition. This is a unique identifier which each hsmPartition will have.
    */
   "hsmPartitionId": string;
   /**

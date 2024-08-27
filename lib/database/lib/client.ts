@@ -839,6 +839,171 @@ export class DatabaseClient {
   }
 
   /**
+   * Cancels the in progress maintenance activity under this execution window.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CancelExecutionWindowRequest
+   * @return CancelExecutionWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CancelExecutionWindow.ts.html |here} to see how to use CancelExecutionWindow API.
+   */
+  public async cancelExecutionWindow(
+    cancelExecutionWindowRequest: requests.CancelExecutionWindowRequest
+  ): Promise<responses.CancelExecutionWindowResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#cancelExecutionWindow.");
+    const operationName = "cancelExecutionWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionWindow/CancelExecutionWindow";
+    const pathParams = {
+      "{executionWindowId}": cancelExecutionWindowRequest.executionWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelExecutionWindowRequest.ifMatch,
+      "opc-request-id": cancelExecutionWindowRequest.opcRequestId,
+      "opc-retry-token": cancelExecutionWindowRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelExecutionWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionWindows/{executionWindowId}/actions/cancel",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        cancelExecutionWindowRequest.cancelExecutionWindowDetails,
+        "CancelExecutionWindowDetails",
+        model.CancelExecutionWindowDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelExecutionWindowResponse>{},
+        body: await response.json(),
+        bodyKey: "executionWindow",
+        bodyModel: model.ExecutionWindow,
+        type: "model.ExecutionWindow",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the scheduling plan resource along with all the scheduled actions associated with this resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CascadingDeleteSchedulingPlanRequest
+   * @return CascadingDeleteSchedulingPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CascadingDeleteSchedulingPlan.ts.html |here} to see how to use CascadingDeleteSchedulingPlan API.
+   */
+  public async cascadingDeleteSchedulingPlan(
+    cascadingDeleteSchedulingPlanRequest: requests.CascadingDeleteSchedulingPlanRequest
+  ): Promise<responses.CascadingDeleteSchedulingPlanResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#cascadingDeleteSchedulingPlan.");
+    const operationName = "cascadingDeleteSchedulingPlan";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPlan/CascadingDeleteSchedulingPlan";
+    const pathParams = {
+      "{schedulingPlanId}": cascadingDeleteSchedulingPlanRequest.schedulingPlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": cascadingDeleteSchedulingPlanRequest.opcRetryToken,
+      "if-match": cascadingDeleteSchedulingPlanRequest.ifMatch,
+      "opc-request-id": cascadingDeleteSchedulingPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cascadingDeleteSchedulingPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPlans/{schedulingPlanId}/actions/cascadingDeleteSchedulingPlan",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CascadingDeleteSchedulingPlanResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Move the Autonomous Container Database and its dependent resources to the specified compartment.
    * For more information about moving Autonomous Container Databases, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
@@ -2970,6 +3135,168 @@ export class DatabaseClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeOneoffPatchCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves an scheduling plan resource to another compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeSchedulingPlanCompartmentRequest
+   * @return ChangeSchedulingPlanCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeSchedulingPlanCompartment.ts.html |here} to see how to use ChangeSchedulingPlanCompartment API.
+   */
+  public async changeSchedulingPlanCompartment(
+    changeSchedulingPlanCompartmentRequest: requests.ChangeSchedulingPlanCompartmentRequest
+  ): Promise<responses.ChangeSchedulingPlanCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeSchedulingPlanCompartment.");
+    const operationName = "changeSchedulingPlanCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPlan/ChangeSchedulingPlanCompartment";
+    const pathParams = {
+      "{schedulingPlanId}": changeSchedulingPlanCompartmentRequest.schedulingPlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSchedulingPlanCompartmentRequest.ifMatch,
+      "opc-request-id": changeSchedulingPlanCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSchedulingPlanCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSchedulingPlanCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPlans/{schedulingPlanId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSchedulingPlanCompartmentRequest.changeSchedulingPlanCompartmentDetails,
+        "ChangeSchedulingPlanCompartmentDetails",
+        model.ChangeSchedulingPlanCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSchedulingPlanCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves an scheduling policy resource to another compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeSchedulingPolicyCompartmentRequest
+   * @return ChangeSchedulingPolicyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeSchedulingPolicyCompartment.ts.html |here} to see how to use ChangeSchedulingPolicyCompartment API.
+   */
+  public async changeSchedulingPolicyCompartment(
+    changeSchedulingPolicyCompartmentRequest: requests.ChangeSchedulingPolicyCompartmentRequest
+  ): Promise<responses.ChangeSchedulingPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeSchedulingPolicyCompartment.");
+    const operationName = "changeSchedulingPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPolicy/ChangeSchedulingPolicyCompartment";
+    const pathParams = {
+      "{schedulingPolicyId}": changeSchedulingPolicyCompartmentRequest.schedulingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSchedulingPolicyCompartmentRequest.ifMatch,
+      "opc-request-id": changeSchedulingPolicyCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSchedulingPolicyCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSchedulingPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies/{schedulingPolicyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSchedulingPolicyCompartmentRequest.changeSchedulingPolicyCompartmentDetails,
+        "ChangeSchedulingPolicyCompartmentDetails",
+        model.ChangeSchedulingPolicyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSchedulingPolicyCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -5510,6 +5837,178 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Creates an execution action resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateExecutionActionRequest
+   * @return CreateExecutionActionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExecutionAction.ts.html |here} to see how to use CreateExecutionAction API.
+   */
+  public async createExecutionAction(
+    createExecutionActionRequest: requests.CreateExecutionActionRequest
+  ): Promise<responses.CreateExecutionActionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createExecutionAction.");
+    const operationName = "createExecutionAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionAction/CreateExecutionAction";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createExecutionActionRequest.opcRetryToken,
+      "opc-request-id": createExecutionActionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExecutionActionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionActions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExecutionActionRequest.createExecutionActionDetails,
+        "CreateExecutionActionDetails",
+        model.CreateExecutionActionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExecutionActionResponse>{},
+        body: await response.json(),
+        bodyKey: "executionAction",
+        bodyModel: model.ExecutionAction,
+        type: "model.ExecutionAction",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates an execution window resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateExecutionWindowRequest
+   * @return CreateExecutionWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExecutionWindow.ts.html |here} to see how to use CreateExecutionWindow API.
+   */
+  public async createExecutionWindow(
+    createExecutionWindowRequest: requests.CreateExecutionWindowRequest
+  ): Promise<responses.CreateExecutionWindowResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createExecutionWindow.");
+    const operationName = "createExecutionWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionWindow/CreateExecutionWindow";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createExecutionWindowRequest.opcRetryToken,
+      "opc-request-id": createExecutionWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExecutionWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionWindows",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExecutionWindowRequest.createExecutionWindowDetails,
+        "CreateExecutionWindowDetails",
+        model.CreateExecutionWindowDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExecutionWindowResponse>{},
+        body: await response.json(),
+        bodyKey: "executionWindow",
+        bodyModel: model.ExecutionWindow,
+        type: "model.ExecutionWindow",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new backup resource and returns the information the caller needs to back up an on-premises Oracle Database to Oracle Cloud Infrastructure.
    * <p>
    **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.cloud.oracle.com/Content/Database/Tasks/mig-onprembackup.htm) for more information.
@@ -6257,6 +6756,350 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
         bodyKey: "pluggableDatabase",
         bodyModel: model.PluggableDatabase,
         type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a Scheduled Action resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateScheduledActionRequest
+   * @return CreateScheduledActionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateScheduledAction.ts.html |here} to see how to use CreateScheduledAction API.
+   */
+  public async createScheduledAction(
+    createScheduledActionRequest: requests.CreateScheduledActionRequest
+  ): Promise<responses.CreateScheduledActionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createScheduledAction.");
+    const operationName = "createScheduledAction";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createScheduledActionRequest.opcRetryToken,
+      "opc-request-id": createScheduledActionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createScheduledActionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledActions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createScheduledActionRequest.createScheduledActionDetails,
+        "CreateScheduledActionDetails",
+        model.CreateScheduledActionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateScheduledActionResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduledAction",
+        bodyModel: model.ScheduledAction,
+        type: "model.ScheduledAction",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a Scheduling Plan resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSchedulingPlanRequest
+   * @return CreateSchedulingPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingPlan.ts.html |here} to see how to use CreateSchedulingPlan API.
+   */
+  public async createSchedulingPlan(
+    createSchedulingPlanRequest: requests.CreateSchedulingPlanRequest
+  ): Promise<responses.CreateSchedulingPlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createSchedulingPlan.");
+    const operationName = "createSchedulingPlan";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSchedulingPlanRequest.opcRetryToken,
+      "opc-request-id": createSchedulingPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSchedulingPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPlans",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSchedulingPlanRequest.createSchedulingPlanDetails,
+        "CreateSchedulingPlanDetails",
+        model.CreateSchedulingPlanDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSchedulingPlanResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulingPlan",
+        bodyModel: model.SchedulingPlan,
+        type: "model.SchedulingPlan",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a Scheduling Policy resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSchedulingPolicyRequest
+   * @return CreateSchedulingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingPolicy.ts.html |here} to see how to use CreateSchedulingPolicy API.
+   */
+  public async createSchedulingPolicy(
+    createSchedulingPolicyRequest: requests.CreateSchedulingPolicyRequest
+  ): Promise<responses.CreateSchedulingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createSchedulingPolicy.");
+    const operationName = "createSchedulingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPolicy/CreateSchedulingPolicy";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSchedulingPolicyRequest.opcRetryToken,
+      "opc-request-id": createSchedulingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSchedulingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSchedulingPolicyRequest.createSchedulingPolicyDetails,
+        "CreateSchedulingPolicyDetails",
+        model.CreateSchedulingPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSchedulingPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulingPolicy",
+        bodyModel: model.SchedulingPolicy,
+        type: "model.SchedulingPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a Scheduling Window resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSchedulingWindowRequest
+   * @return CreateSchedulingWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingWindow.ts.html |here} to see how to use CreateSchedulingWindow API.
+   */
+  public async createSchedulingWindow(
+    createSchedulingWindowRequest: requests.CreateSchedulingWindowRequest
+  ): Promise<responses.CreateSchedulingWindowResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createSchedulingWindow.");
+    const operationName = "createSchedulingWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingWindow/CreateSchedulingWindow";
+    const pathParams = {
+      "{schedulingPolicyId}": createSchedulingWindowRequest.schedulingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSchedulingWindowRequest.opcRetryToken,
+      "opc-request-id": createSchedulingWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSchedulingWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies/{schedulingPolicyId}/schedulingWindows",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSchedulingWindowRequest.createSchedulingWindowDetails,
+        "CreateSchedulingWindowDetails",
+        model.CreateSchedulingWindowDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSchedulingWindowResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulingWindow",
+        bodyModel: model.SchedulingWindow,
+        type: "model.SchedulingWindow",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -7898,6 +8741,149 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Deletes the execution action.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExecutionActionRequest
+   * @return DeleteExecutionActionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExecutionAction.ts.html |here} to see how to use DeleteExecutionAction API.
+   */
+  public async deleteExecutionAction(
+    deleteExecutionActionRequest: requests.DeleteExecutionActionRequest
+  ): Promise<responses.DeleteExecutionActionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteExecutionAction.");
+    const operationName = "deleteExecutionAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionAction/DeleteExecutionAction";
+    const pathParams = {
+      "{executionActionId}": deleteExecutionActionRequest.executionActionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExecutionActionRequest.ifMatch,
+      "opc-request-id": deleteExecutionActionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExecutionActionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionActions/{executionActionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExecutionActionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the execution window.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExecutionWindowRequest
+   * @return DeleteExecutionWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExecutionWindow.ts.html |here} to see how to use DeleteExecutionWindow API.
+   */
+  public async deleteExecutionWindow(
+    deleteExecutionWindowRequest: requests.DeleteExecutionWindowRequest
+  ): Promise<responses.DeleteExecutionWindowResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteExecutionWindow.");
+    const operationName = "deleteExecutionWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionWindow/DeleteExecutionWindow";
+    const pathParams = {
+      "{executionWindowId}": deleteExecutionWindowRequest.executionWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExecutionWindowRequest.ifMatch,
+      "opc-request-id": deleteExecutionWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExecutionWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionWindows/{executionWindowId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExecutionWindowResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the {@link #createExternalContainerDatabaseDetails(CreateExternalContainerDatabaseDetailsRequest) createExternalContainerDatabaseDetails}
    * resource. Any external pluggable databases registered under this container database must be deleted in
    * your Oracle Cloud Infrastructure tenancy prior to this operation.
@@ -8408,6 +9394,293 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the scheduled action.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteScheduledActionRequest
+   * @return DeleteScheduledActionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteScheduledAction.ts.html |here} to see how to use DeleteScheduledAction API.
+   */
+  public async deleteScheduledAction(
+    deleteScheduledActionRequest: requests.DeleteScheduledActionRequest
+  ): Promise<responses.DeleteScheduledActionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteScheduledAction.");
+    const operationName = "deleteScheduledAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ScheduledAction/DeleteScheduledAction";
+    const pathParams = {
+      "{scheduledActionId}": deleteScheduledActionRequest.scheduledActionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteScheduledActionRequest.ifMatch,
+      "opc-request-id": deleteScheduledActionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteScheduledActionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledActions/{scheduledActionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteScheduledActionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the scheduling plan.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSchedulingPlanRequest
+   * @return DeleteSchedulingPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingPlan.ts.html |here} to see how to use DeleteSchedulingPlan API.
+   */
+  public async deleteSchedulingPlan(
+    deleteSchedulingPlanRequest: requests.DeleteSchedulingPlanRequest
+  ): Promise<responses.DeleteSchedulingPlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteSchedulingPlan.");
+    const operationName = "deleteSchedulingPlan";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPlan/DeleteSchedulingPlan";
+    const pathParams = {
+      "{schedulingPlanId}": deleteSchedulingPlanRequest.schedulingPlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSchedulingPlanRequest.ifMatch,
+      "opc-request-id": deleteSchedulingPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSchedulingPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPlans/{schedulingPlanId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSchedulingPlanResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the scheduling policy.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSchedulingPolicyRequest
+   * @return DeleteSchedulingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingPolicy.ts.html |here} to see how to use DeleteSchedulingPolicy API.
+   */
+  public async deleteSchedulingPolicy(
+    deleteSchedulingPolicyRequest: requests.DeleteSchedulingPolicyRequest
+  ): Promise<responses.DeleteSchedulingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteSchedulingPolicy.");
+    const operationName = "deleteSchedulingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPolicy/DeleteSchedulingPolicy";
+    const pathParams = {
+      "{schedulingPolicyId}": deleteSchedulingPolicyRequest.schedulingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSchedulingPolicyRequest.ifMatch,
+      "opc-request-id": deleteSchedulingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSchedulingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies/{schedulingPolicyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSchedulingPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the scheduling window.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSchedulingWindowRequest
+   * @return DeleteSchedulingWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingWindow.ts.html |here} to see how to use DeleteSchedulingWindow API.
+   */
+  public async deleteSchedulingWindow(
+    deleteSchedulingWindowRequest: requests.DeleteSchedulingWindowRequest
+  ): Promise<responses.DeleteSchedulingWindowResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteSchedulingWindow.");
+    const operationName = "deleteSchedulingWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingWindow/DeleteSchedulingWindow";
+    const pathParams = {
+      "{schedulingPolicyId}": deleteSchedulingWindowRequest.schedulingPolicyId,
+      "{schedulingWindowId}": deleteSchedulingWindowRequest.schedulingWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSchedulingWindowRequest.ifMatch,
+      "opc-request-id": deleteSchedulingWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSchedulingWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies/{schedulingPolicyId}/schedulingWindows/{schedulingWindowId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSchedulingWindowResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -15283,6 +16556,160 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   }
 
   /**
+   * Gets information about the specified execution action.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExecutionActionRequest
+   * @return GetExecutionActionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExecutionAction.ts.html |here} to see how to use GetExecutionAction API.
+   */
+  public async getExecutionAction(
+    getExecutionActionRequest: requests.GetExecutionActionRequest
+  ): Promise<responses.GetExecutionActionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getExecutionAction.");
+    const operationName = "getExecutionAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionAction/GetExecutionAction";
+    const pathParams = {
+      "{executionActionId}": getExecutionActionRequest.executionActionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExecutionActionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExecutionActionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionActions/{executionActionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExecutionActionResponse>{},
+        body: await response.json(),
+        bodyKey: "executionAction",
+        bodyModel: model.ExecutionAction,
+        type: "model.ExecutionAction",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified execution window.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExecutionWindowRequest
+   * @return GetExecutionWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExecutionWindow.ts.html |here} to see how to use GetExecutionWindow API.
+   */
+  public async getExecutionWindow(
+    getExecutionWindowRequest: requests.GetExecutionWindowRequest
+  ): Promise<responses.GetExecutionWindowResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getExecutionWindow.");
+    const operationName = "getExecutionWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionWindow/GetExecutionWindow";
+    const pathParams = {
+      "{executionWindowId}": getExecutionWindowRequest.executionWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExecutionWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExecutionWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionWindows/{executionWindowId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExecutionWindowResponse>{},
+        body: await response.json(),
+        bodyKey: "executionWindow",
+        bodyModel: model.ExecutionWindow,
+        type: "model.ExecutionWindow",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified external backup job.
    * <p>
    **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.cloud.oracle.com/Content/Database/Tasks/mig-onprembackup.htm) for more information.
@@ -16190,6 +17617,315 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         bodyKey: "pluggableDatabase",
         bodyModel: model.PluggableDatabase,
         type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified Scheduled Action.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetScheduledActionRequest
+   * @return GetScheduledActionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetScheduledAction.ts.html |here} to see how to use GetScheduledAction API.
+   */
+  public async getScheduledAction(
+    getScheduledActionRequest: requests.GetScheduledActionRequest
+  ): Promise<responses.GetScheduledActionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getScheduledAction.");
+    const operationName = "getScheduledAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ScheduledAction/GetScheduledAction";
+    const pathParams = {
+      "{scheduledActionId}": getScheduledActionRequest.scheduledActionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getScheduledActionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getScheduledActionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledActions/{scheduledActionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetScheduledActionResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduledAction",
+        bodyModel: model.ScheduledAction,
+        type: "model.ScheduledAction",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified Scheduling Plan.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSchedulingPlanRequest
+   * @return GetSchedulingPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetSchedulingPlan.ts.html |here} to see how to use GetSchedulingPlan API.
+   */
+  public async getSchedulingPlan(
+    getSchedulingPlanRequest: requests.GetSchedulingPlanRequest
+  ): Promise<responses.GetSchedulingPlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getSchedulingPlan.");
+    const operationName = "getSchedulingPlan";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPlan/GetSchedulingPlan";
+    const pathParams = {
+      "{schedulingPlanId}": getSchedulingPlanRequest.schedulingPlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSchedulingPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSchedulingPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPlans/{schedulingPlanId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSchedulingPlanResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulingPlan",
+        bodyModel: model.SchedulingPlan,
+        type: "model.SchedulingPlan",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified Scheduling Policy.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSchedulingPolicyRequest
+   * @return GetSchedulingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetSchedulingPolicy.ts.html |here} to see how to use GetSchedulingPolicy API.
+   */
+  public async getSchedulingPolicy(
+    getSchedulingPolicyRequest: requests.GetSchedulingPolicyRequest
+  ): Promise<responses.GetSchedulingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getSchedulingPolicy.");
+    const operationName = "getSchedulingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPolicy/GetSchedulingPolicy";
+    const pathParams = {
+      "{schedulingPolicyId}": getSchedulingPolicyRequest.schedulingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSchedulingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSchedulingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies/{schedulingPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSchedulingPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulingPolicy",
+        bodyModel: model.SchedulingPolicy,
+        type: "model.SchedulingPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified Scheduling Window.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSchedulingWindowRequest
+   * @return GetSchedulingWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetSchedulingWindow.ts.html |here} to see how to use GetSchedulingWindow API.
+   */
+  public async getSchedulingWindow(
+    getSchedulingWindowRequest: requests.GetSchedulingWindowRequest
+  ): Promise<responses.GetSchedulingWindowResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getSchedulingWindow.");
+    const operationName = "getSchedulingWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingWindow/GetSchedulingWindow";
+    const pathParams = {
+      "{schedulingPolicyId}": getSchedulingWindowRequest.schedulingPolicyId,
+      "{schedulingWindowId}": getSchedulingWindowRequest.schedulingWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSchedulingWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSchedulingWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies/{schedulingPolicyId}/schedulingWindows/{schedulingWindowId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSchedulingWindowResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulingWindow",
+        bodyModel: model.SchedulingWindow,
+        type: "model.SchedulingWindow",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -23484,6 +25220,278 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Lists the execution action resources in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExecutionActionsRequest
+   * @return ListExecutionActionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExecutionActions.ts.html |here} to see how to use ListExecutionActions API.
+   */
+  public async listExecutionActions(
+    listExecutionActionsRequest: requests.ListExecutionActionsRequest
+  ): Promise<responses.ListExecutionActionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listExecutionActions.");
+    const operationName = "listExecutionActions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionAction/ListExecutionActions";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExecutionActionsRequest.compartmentId,
+      "limit": listExecutionActionsRequest.limit,
+      "page": listExecutionActionsRequest.page,
+      "sortBy": listExecutionActionsRequest.sortBy,
+      "sortOrder": listExecutionActionsRequest.sortOrder,
+      "lifecycleState": listExecutionActionsRequest.lifecycleState,
+      "executionWindowId": listExecutionActionsRequest.executionWindowId,
+      "displayName": listExecutionActionsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExecutionActionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExecutionActionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionActions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExecutionActionsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ExecutionActionSummary,
+        type: "Array<model.ExecutionActionSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExecutionActionsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ExecutionActionSummary objects
+   * contained in responses from the listExecutionActions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExecutionActions(
+    request: requests.ListExecutionActionsRequest
+  ): AsyncIterableIterator<model.ExecutionActionSummary> {
+    return paginateRecords(request, req => this.listExecutionActions(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExecutionActionsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listExecutionActions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExecutionActionsResponses(
+    request: requests.ListExecutionActionsRequest
+  ): AsyncIterableIterator<responses.ListExecutionActionsResponse> {
+    return paginateResponses(request, req => this.listExecutionActions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExecutionActionSummary objects
+   * contained in responses from the listExecutionActions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExecutionActionsRecordIterator(
+    request: requests.ListExecutionActionsRequest
+  ): AsyncIterableIterator<model.ExecutionActionSummary> {
+    return paginateRecords(request, req => this.listExecutionActions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExecutionActions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExecutionActionsResponseIterator(
+    request: requests.ListExecutionActionsRequest
+  ): AsyncIterableIterator<responses.ListExecutionActionsResponse> {
+    return paginateResponses(request, req => this.listExecutionActions(req));
+  }
+
+  /**
+   * Lists the execution window resources in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExecutionWindowsRequest
+   * @return ListExecutionWindowsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExecutionWindows.ts.html |here} to see how to use ListExecutionWindows API.
+   */
+  public async listExecutionWindows(
+    listExecutionWindowsRequest: requests.ListExecutionWindowsRequest
+  ): Promise<responses.ListExecutionWindowsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listExecutionWindows.");
+    const operationName = "listExecutionWindows";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionWindow/ListExecutionWindows";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExecutionWindowsRequest.compartmentId,
+      "limit": listExecutionWindowsRequest.limit,
+      "page": listExecutionWindowsRequest.page,
+      "sortBy": listExecutionWindowsRequest.sortBy,
+      "executionResourceId": listExecutionWindowsRequest.executionResourceId,
+      "sortOrder": listExecutionWindowsRequest.sortOrder,
+      "lifecycleState": listExecutionWindowsRequest.lifecycleState,
+      "displayName": listExecutionWindowsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExecutionWindowsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExecutionWindowsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionWindows",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExecutionWindowsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ExecutionWindowSummary,
+        type: "Array<model.ExecutionWindowSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExecutionWindowsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ExecutionWindowSummary objects
+   * contained in responses from the listExecutionWindows operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExecutionWindows(
+    request: requests.ListExecutionWindowsRequest
+  ): AsyncIterableIterator<model.ExecutionWindowSummary> {
+    return paginateRecords(request, req => this.listExecutionWindows(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listExecutionWindowsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listExecutionWindows operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllExecutionWindowsResponses(
+    request: requests.ListExecutionWindowsRequest
+  ): AsyncIterableIterator<responses.ListExecutionWindowsResponse> {
+    return paginateResponses(request, req => this.listExecutionWindows(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ExecutionWindowSummary objects
+   * contained in responses from the listExecutionWindows operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExecutionWindowsRecordIterator(
+    request: requests.ListExecutionWindowsRequest
+  ): AsyncIterableIterator<model.ExecutionWindowSummary> {
+    return paginateRecords(request, req => this.listExecutionWindows(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listExecutionWindows operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listExecutionWindowsResponseIterator(
+    request: requests.ListExecutionWindowsRequest
+  ): AsyncIterableIterator<responses.ListExecutionWindowsResponse> {
+    return paginateResponses(request, req => this.listExecutionWindows(req));
+  }
+
+  /**
    * Gets a list of the external container databases in the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -24926,6 +26934,85 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * List all the action params and their possible values for a given action type
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListParamsForActionTypeRequest
+   * @return ListParamsForActionTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListParamsForActionType.ts.html |here} to see how to use ListParamsForActionType API.
+   */
+  public async listParamsForActionType(
+    listParamsForActionTypeRequest: requests.ListParamsForActionTypeRequest
+  ): Promise<responses.ListParamsForActionTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listParamsForActionType.");
+    const operationName = "listParamsForActionType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ActionParamValuesSummary/ListParamsForActionType";
+    const pathParams = {};
+
+    const queryParams = {
+      "type": listParamsForActionTypeRequest.type,
+      "limit": listParamsForActionTypeRequest.limit,
+      "page": listParamsForActionTypeRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listParamsForActionTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listParamsForActionTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledActionParams",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListParamsForActionTypeResponse>{},
+        body: await response.json(),
+        bodyKey: "actionParamValuesCollection",
+        bodyModel: model.ActionParamValuesCollection,
+        type: "model.ActionParamValuesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the pluggable database conversion history for a specified database in a bare metal or virtual machine DB system.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -25195,6 +27282,534 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     request: requests.ListPluggableDatabasesRequest
   ): AsyncIterableIterator<responses.ListPluggableDatabasesResponse> {
     return paginateResponses(request, req => this.listPluggableDatabases(req));
+  }
+
+  /**
+   * Returns a recommended Scheduled Actions configuration for a given resource, plan intent and scheduling policy.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListRecommendedScheduledActionsRequest
+   * @return ListRecommendedScheduledActionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListRecommendedScheduledActions.ts.html |here} to see how to use ListRecommendedScheduledActions API.
+   */
+  public async listRecommendedScheduledActions(
+    listRecommendedScheduledActionsRequest: requests.ListRecommendedScheduledActionsRequest
+  ): Promise<responses.ListRecommendedScheduledActionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listRecommendedScheduledActions.");
+    const operationName = "listRecommendedScheduledActions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/RecommendedScheduledActionSummary/ListRecommendedScheduledActions";
+    const pathParams = {
+      "{schedulingPolicyId}": listRecommendedScheduledActionsRequest.schedulingPolicyId
+    };
+
+    const queryParams = {
+      "schedulingPolicyTargetResourceId":
+        listRecommendedScheduledActionsRequest.schedulingPolicyTargetResourceId,
+      "planIntent": listRecommendedScheduledActionsRequest.planIntent,
+      "limit": listRecommendedScheduledActionsRequest.limit,
+      "page": listRecommendedScheduledActionsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRecommendedScheduledActionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRecommendedScheduledActionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies/{schedulingPolicyId}/recommendedScheduledActions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRecommendedScheduledActionsResponse>{},
+        body: await response.json(),
+        bodyKey: "recommendedScheduledActionsCollection",
+        bodyModel: model.RecommendedScheduledActionsCollection,
+        type: "model.RecommendedScheduledActionsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Scheduled Action resources in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListScheduledActionsRequest
+   * @return ListScheduledActionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListScheduledActions.ts.html |here} to see how to use ListScheduledActions API.
+   */
+  public async listScheduledActions(
+    listScheduledActionsRequest: requests.ListScheduledActionsRequest
+  ): Promise<responses.ListScheduledActionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listScheduledActions.");
+    const operationName = "listScheduledActions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ScheduledAction/ListScheduledActions";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listScheduledActionsRequest.limit,
+      "compartmentId": listScheduledActionsRequest.compartmentId,
+      "page": listScheduledActionsRequest.page,
+      "sortOrder": listScheduledActionsRequest.sortOrder,
+      "serviceType": listScheduledActionsRequest.serviceType,
+      "schedulingPlanId": listScheduledActionsRequest.schedulingPlanId,
+      "displayName": listScheduledActionsRequest.displayName,
+      "sortBy": listScheduledActionsRequest.sortBy,
+      "id": listScheduledActionsRequest.id,
+      "lifecycleState": listScheduledActionsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listScheduledActionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listScheduledActionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledActions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListScheduledActionsResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduledActionCollection",
+        bodyModel: model.ScheduledActionCollection,
+        type: "model.ScheduledActionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Scheduling Plan resources in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSchedulingPlansRequest
+   * @return ListSchedulingPlansResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingPlans.ts.html |here} to see how to use ListSchedulingPlans API.
+   */
+  public async listSchedulingPlans(
+    listSchedulingPlansRequest: requests.ListSchedulingPlansRequest
+  ): Promise<responses.ListSchedulingPlansResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listSchedulingPlans.");
+    const operationName = "listSchedulingPlans";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPlan/ListSchedulingPlans";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSchedulingPlansRequest.compartmentId,
+      "limit": listSchedulingPlansRequest.limit,
+      "page": listSchedulingPlansRequest.page,
+      "sortBy": listSchedulingPlansRequest.sortBy,
+      "sortOrder": listSchedulingPlansRequest.sortOrder,
+      "lifecycleState": listSchedulingPlansRequest.lifecycleState,
+      "schedulingPolicyId": listSchedulingPlansRequest.schedulingPolicyId,
+      "displayName": listSchedulingPlansRequest.displayName,
+      "resourceId": listSchedulingPlansRequest.resourceId,
+      "id": listSchedulingPlansRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSchedulingPlansRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSchedulingPlansRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPlans",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSchedulingPlansResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulingPlanCollection",
+        bodyModel: model.SchedulingPlanCollection,
+        type: "model.SchedulingPlanCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Scheduling Policy resources in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSchedulingPoliciesRequest
+   * @return ListSchedulingPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingPolicies.ts.html |here} to see how to use ListSchedulingPolicies API.
+   */
+  public async listSchedulingPolicies(
+    listSchedulingPoliciesRequest: requests.ListSchedulingPoliciesRequest
+  ): Promise<responses.ListSchedulingPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listSchedulingPolicies.");
+    const operationName = "listSchedulingPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPolicy/ListSchedulingPolicies";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSchedulingPoliciesRequest.compartmentId,
+      "limit": listSchedulingPoliciesRequest.limit,
+      "page": listSchedulingPoliciesRequest.page,
+      "sortBy": listSchedulingPoliciesRequest.sortBy,
+      "sortOrder": listSchedulingPoliciesRequest.sortOrder,
+      "lifecycleState": listSchedulingPoliciesRequest.lifecycleState,
+      "displayName": listSchedulingPoliciesRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSchedulingPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSchedulingPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSchedulingPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.SchedulingPolicySummary,
+        type: "Array<model.SchedulingPolicySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listSchedulingPoliciesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.SchedulingPolicySummary objects
+   * contained in responses from the listSchedulingPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllSchedulingPolicies(
+    request: requests.ListSchedulingPoliciesRequest
+  ): AsyncIterableIterator<model.SchedulingPolicySummary> {
+    return paginateRecords(request, req => this.listSchedulingPolicies(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listSchedulingPoliciesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listSchedulingPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllSchedulingPoliciesResponses(
+    request: requests.ListSchedulingPoliciesRequest
+  ): AsyncIterableIterator<responses.ListSchedulingPoliciesResponse> {
+    return paginateResponses(request, req => this.listSchedulingPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SchedulingPolicySummary objects
+   * contained in responses from the listSchedulingPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSchedulingPoliciesRecordIterator(
+    request: requests.ListSchedulingPoliciesRequest
+  ): AsyncIterableIterator<model.SchedulingPolicySummary> {
+    return paginateRecords(request, req => this.listSchedulingPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSchedulingPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSchedulingPoliciesResponseIterator(
+    request: requests.ListSchedulingPoliciesRequest
+  ): AsyncIterableIterator<responses.ListSchedulingPoliciesResponse> {
+    return paginateResponses(request, req => this.listSchedulingPolicies(req));
+  }
+
+  /**
+   * Lists the Scheduling Window resources in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSchedulingWindowsRequest
+   * @return ListSchedulingWindowsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingWindows.ts.html |here} to see how to use ListSchedulingWindows API.
+   */
+  public async listSchedulingWindows(
+    listSchedulingWindowsRequest: requests.ListSchedulingWindowsRequest
+  ): Promise<responses.ListSchedulingWindowsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listSchedulingWindows.");
+    const operationName = "listSchedulingWindows";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingWindow/ListSchedulingWindows";
+    const pathParams = {
+      "{schedulingPolicyId}": listSchedulingWindowsRequest.schedulingPolicyId
+    };
+
+    const queryParams = {
+      "compartmentId": listSchedulingWindowsRequest.compartmentId,
+      "limit": listSchedulingWindowsRequest.limit,
+      "page": listSchedulingWindowsRequest.page,
+      "sortBy": listSchedulingWindowsRequest.sortBy,
+      "sortOrder": listSchedulingWindowsRequest.sortOrder,
+      "lifecycleState": listSchedulingWindowsRequest.lifecycleState,
+      "displayName": listSchedulingWindowsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSchedulingWindowsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSchedulingWindowsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies/{schedulingPolicyId}/schedulingWindows",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSchedulingWindowsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.SchedulingWindowSummary,
+        type: "Array<model.SchedulingWindowSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listSchedulingWindowsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.SchedulingWindowSummary objects
+   * contained in responses from the listSchedulingWindows operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllSchedulingWindows(
+    request: requests.ListSchedulingWindowsRequest
+  ): AsyncIterableIterator<model.SchedulingWindowSummary> {
+    return paginateRecords(request, req => this.listSchedulingWindows(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listSchedulingWindowsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listSchedulingWindows operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllSchedulingWindowsResponses(
+    request: requests.ListSchedulingWindowsRequest
+  ): AsyncIterableIterator<responses.ListSchedulingWindowsResponse> {
+    return paginateResponses(request, req => this.listSchedulingWindows(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.SchedulingWindowSummary objects
+   * contained in responses from the listSchedulingWindows operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSchedulingWindowsRecordIterator(
+    request: requests.ListSchedulingWindowsRequest
+  ): AsyncIterableIterator<model.SchedulingWindowSummary> {
+    return paginateRecords(request, req => this.listSchedulingWindows(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSchedulingWindows operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSchedulingWindowsResponseIterator(
+    request: requests.ListSchedulingWindowsRequest
+  ): AsyncIterableIterator<responses.ListSchedulingWindowsResponse> {
+    return paginateResponses(request, req => this.listSchedulingWindows(req));
   }
 
   /**
@@ -26528,6 +29143,96 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Moves an execution action member to this execution action resource from another.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param MoveExecutionActionMemberRequest
+   * @return MoveExecutionActionMemberResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MoveExecutionActionMember.ts.html |here} to see how to use MoveExecutionActionMember API.
+   */
+  public async moveExecutionActionMember(
+    moveExecutionActionMemberRequest: requests.MoveExecutionActionMemberRequest
+  ): Promise<responses.MoveExecutionActionMemberResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#moveExecutionActionMember.");
+    const operationName = "moveExecutionActionMember";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionAction/MoveExecutionActionMember";
+    const pathParams = {
+      "{executionActionId}": moveExecutionActionMemberRequest.executionActionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": moveExecutionActionMemberRequest.ifMatch,
+      "opc-request-id": moveExecutionActionMemberRequest.opcRequestId,
+      "opc-retry-token": moveExecutionActionMemberRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      moveExecutionActionMemberRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionActions/{executionActionId}/actions/moveActionMember",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        moveExecutionActionMemberRequest.moveExecutionActionMemberDetails,
+        "MoveExecutionActionMemberDetails",
+        model.MoveExecutionActionMemberDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MoveExecutionActionMemberResponse>{},
+        body: await response.json(),
+        bodyKey: "executionAction",
+        bodyModel: model.ExecutionAction,
+        type: "model.ExecutionAction",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Refreshes a pluggable database (PDB) Refreshable clone.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -27223,6 +29928,189 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Reorders the execution actions under this execution window resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ReorderExecutionActionsRequest
+   * @return ReorderExecutionActionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReorderExecutionActions.ts.html |here} to see how to use ReorderExecutionActions API.
+   */
+  public async reorderExecutionActions(
+    reorderExecutionActionsRequest: requests.ReorderExecutionActionsRequest
+  ): Promise<responses.ReorderExecutionActionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#reorderExecutionActions.");
+    const operationName = "reorderExecutionActions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionWindow/ReorderExecutionActions";
+    const pathParams = {
+      "{executionWindowId}": reorderExecutionActionsRequest.executionWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": reorderExecutionActionsRequest.ifMatch,
+      "opc-request-id": reorderExecutionActionsRequest.opcRequestId,
+      "opc-retry-token": reorderExecutionActionsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reorderExecutionActionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionWindows/{executionWindowId}/actions/reorder",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        reorderExecutionActionsRequest.reorderExecutionActionDetails,
+        "ReorderExecutionActionDetails",
+        model.ReorderExecutionActionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReorderExecutionActionsResponse>{},
+        body: await response.json(),
+        bodyKey: "executionWindow",
+        bodyModel: model.ExecutionWindow,
+        type: "model.ExecutionWindow",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Re-order the scheduled actions under this scheduling plan resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ReorderScheduledActionsRequest
+   * @return ReorderScheduledActionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReorderScheduledActions.ts.html |here} to see how to use ReorderScheduledActions API.
+   */
+  public async reorderScheduledActions(
+    reorderScheduledActionsRequest: requests.ReorderScheduledActionsRequest
+  ): Promise<responses.ReorderScheduledActionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#reorderScheduledActions.");
+    const operationName = "reorderScheduledActions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPlan/ReorderScheduledActions";
+    const pathParams = {
+      "{schedulingPlanId}": reorderScheduledActionsRequest.schedulingPlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": reorderScheduledActionsRequest.opcRetryToken,
+      "opc-request-id": reorderScheduledActionsRequest.opcRequestId,
+      "if-match": reorderScheduledActionsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reorderScheduledActionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPlans/{schedulingPlanId}/actions/reorder",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        reorderScheduledActionsRequest.reorderScheduledActionsDetails,
+        "ReorderScheduledActionsDetails",
+        model.ReorderScheduledActionsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReorderScheduledActionsResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulingPlan",
+        bodyModel: model.SchedulingPlan,
+        type: "model.SchedulingPlan",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -31927,6 +34815,182 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   }
 
   /**
+   * Updates the execution action resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExecutionActionRequest
+   * @return UpdateExecutionActionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExecutionAction.ts.html |here} to see how to use UpdateExecutionAction API.
+   */
+  public async updateExecutionAction(
+    updateExecutionActionRequest: requests.UpdateExecutionActionRequest
+  ): Promise<responses.UpdateExecutionActionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateExecutionAction.");
+    const operationName = "updateExecutionAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionAction/UpdateExecutionAction";
+    const pathParams = {
+      "{executionActionId}": updateExecutionActionRequest.executionActionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExecutionActionRequest.ifMatch,
+      "opc-request-id": updateExecutionActionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExecutionActionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionActions/{executionActionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExecutionActionRequest.updateExecutionActionDetails,
+        "UpdateExecutionActionDetails",
+        model.UpdateExecutionActionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExecutionActionResponse>{},
+        body: await response.json(),
+        bodyKey: "executionAction",
+        bodyModel: model.ExecutionAction,
+        type: "model.ExecutionAction",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the execution window resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExecutionWindowRequest
+   * @return UpdateExecutionWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExecutionWindow.ts.html |here} to see how to use UpdateExecutionWindow API.
+   */
+  public async updateExecutionWindow(
+    updateExecutionWindowRequest: requests.UpdateExecutionWindowRequest
+  ): Promise<responses.UpdateExecutionWindowResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateExecutionWindow.");
+    const operationName = "updateExecutionWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExecutionWindow/UpdateExecutionWindow";
+    const pathParams = {
+      "{executionWindowId}": updateExecutionWindowRequest.executionWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExecutionWindowRequest.ifMatch,
+      "opc-request-id": updateExecutionWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExecutionWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/executionWindows/{executionWindowId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExecutionWindowRequest.updateExecutionWindowDetails,
+        "UpdateExecutionWindowDetails",
+        model.UpdateExecutionWindowDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExecutionWindowResponse>{},
+        body: await response.json(),
+        bodyKey: "executionWindow",
+        bodyModel: model.ExecutionWindow,
+        type: "model.ExecutionWindow",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the properties of
    * an {@link #createExternalContainerDatabaseDetails(CreateExternalContainerDatabaseDetailsRequest) createExternalContainerDatabaseDetails} resource,
    * such as the display name.
@@ -32596,6 +35660,270 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         bodyKey: "pluggableDatabase",
         bodyModel: model.PluggableDatabase,
         type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Scheduled Action resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateScheduledActionRequest
+   * @return UpdateScheduledActionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateScheduledAction.ts.html |here} to see how to use UpdateScheduledAction API.
+   */
+  public async updateScheduledAction(
+    updateScheduledActionRequest: requests.UpdateScheduledActionRequest
+  ): Promise<responses.UpdateScheduledActionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateScheduledAction.");
+    const operationName = "updateScheduledAction";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{scheduledActionId}": updateScheduledActionRequest.scheduledActionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateScheduledActionRequest.ifMatch,
+      "opc-request-id": updateScheduledActionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateScheduledActionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledActions/{scheduledActionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateScheduledActionRequest.updateScheduledActionDetails,
+        "UpdateScheduledActionDetails",
+        model.UpdateScheduledActionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateScheduledActionResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduledAction",
+        bodyModel: model.ScheduledAction,
+        type: "model.ScheduledAction",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Scheduling Policy resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateSchedulingPolicyRequest
+   * @return UpdateSchedulingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateSchedulingPolicy.ts.html |here} to see how to use UpdateSchedulingPolicy API.
+   */
+  public async updateSchedulingPolicy(
+    updateSchedulingPolicyRequest: requests.UpdateSchedulingPolicyRequest
+  ): Promise<responses.UpdateSchedulingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateSchedulingPolicy.");
+    const operationName = "updateSchedulingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingPolicy/UpdateSchedulingPolicy";
+    const pathParams = {
+      "{schedulingPolicyId}": updateSchedulingPolicyRequest.schedulingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSchedulingPolicyRequest.ifMatch,
+      "opc-request-id": updateSchedulingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSchedulingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies/{schedulingPolicyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSchedulingPolicyRequest.updateSchedulingPolicyDetails,
+        "UpdateSchedulingPolicyDetails",
+        model.UpdateSchedulingPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSchedulingPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulingPolicy",
+        bodyModel: model.SchedulingPolicy,
+        type: "model.SchedulingPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Scheduling Window resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateSchedulingWindowRequest
+   * @return UpdateSchedulingWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateSchedulingWindow.ts.html |here} to see how to use UpdateSchedulingWindow API.
+   */
+  public async updateSchedulingWindow(
+    updateSchedulingWindowRequest: requests.UpdateSchedulingWindowRequest
+  ): Promise<responses.UpdateSchedulingWindowResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateSchedulingWindow.");
+    const operationName = "updateSchedulingWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SchedulingWindow/UpdateSchedulingWindow";
+    const pathParams = {
+      "{schedulingPolicyId}": updateSchedulingWindowRequest.schedulingPolicyId,
+      "{schedulingWindowId}": updateSchedulingWindowRequest.schedulingWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSchedulingWindowRequest.ifMatch,
+      "opc-request-id": updateSchedulingWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSchedulingWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulingPolicies/{schedulingPolicyId}/schedulingWindows/{schedulingWindowId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSchedulingWindowRequest.updateSchedulingWindowDetails,
+        "UpdateSchedulingWindowDetails",
+        model.UpdateSchedulingWindowDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSchedulingWindowResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulingWindow",
+        bodyModel: model.SchedulingWindow,
+        type: "model.SchedulingWindow",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
