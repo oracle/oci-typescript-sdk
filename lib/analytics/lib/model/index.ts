@@ -34,6 +34,8 @@ import * as CreatePrivateAccessChannelDetails from "./create-private-access-chan
 export import CreatePrivateAccessChannelDetails = CreatePrivateAccessChannelDetails.CreatePrivateAccessChannelDetails;
 import * as CreateVanityUrlDetails from "./create-vanity-url-details";
 export import CreateVanityUrlDetails = CreateVanityUrlDetails.CreateVanityUrlDetails;
+import * as FeatureBundle from "./feature-bundle";
+export import FeatureBundle = FeatureBundle.FeatureBundle;
 import * as FeatureSet from "./feature-set";
 export import FeatureSet = FeatureSet.FeatureSet;
 import * as LicenseType from "./license-type";
@@ -50,6 +52,8 @@ import * as PrivateSourceScanHost from "./private-source-scan-host";
 export import PrivateSourceScanHost = PrivateSourceScanHost.PrivateSourceScanHost;
 import * as ScaleAnalyticsInstanceDetails from "./scale-analytics-instance-details";
 export import ScaleAnalyticsInstanceDetails = ScaleAnalyticsInstanceDetails.ScaleAnalyticsInstanceDetails;
+import * as SetFeatureBundleDetails from "./set-feature-bundle-details";
+export import SetFeatureBundleDetails = SetFeatureBundleDetails.SetFeatureBundleDetails;
 import * as SetKmsKeyDetails from "./set-kms-key-details";
 export import SetKmsKeyDetails = SetKmsKeyDetails.SetKmsKeyDetails;
 import * as SortBy from "./sort-by";

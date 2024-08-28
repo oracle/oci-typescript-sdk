@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.93.0 - 2024-08-27
+### Added 
+- Support for Delegate Access Control service 
+- Support for upgrade and downgrade of shapes of high performance mount targets in the File Storage service 
+- Support for private endpoints in the Object Storage service 
+- Support for create, update, list and delete operations on scheduling policies and scheduling windows in the Database service 
+- Support for specifying domains while creating data guard associations in the Database service 
+- Support for provision of developer autonomous databases in the Database service 
+- Support for upgrade of developer autonomous databases to paid autonomous databases in the Database service 
+- Support for scheduling plans, actions, execution windows and execution actions for maintenance scheduling in the Database service 
+- Support for cross-region replication of virtual vaults in the Key Management service 
+- Support for listing all active service summaries in the Announcements service 
+- Support for VMware major and minor version upgrades in VMware Solution service 
+- Support for updating protected database subscriptions in the Autonomous Recovery service 
+- Support for health insurance id as an allowed document type in the Document Understanding service 
+- Support for advanced database management features for autonomous databases in the Database Management service 
+- Support for propagating request ids to load balancer servers in the Load balancer service 
+- Support for automatic update orders in Fusion Application as a Service   
+
+### Breaking Changes 
+- The property `tenancyId` was removed from `DocumentKeyValueExtractionFeature` and `DocumentClassificationFeature` models in the Document Understanding service 
+- The property `documentId` was removed from `DetectedDocumentType` in the Document Understanding service 
+- The enum member `INSURANCE_CLAIM` was removed from the enum `DocumentType` in the Document Understanding service
+
+## 2.92.0 - 2024-08-20
+### Added 
+- Support for Fleet Application Management service 
+- Support for creating maintenance runs using autonomous database software images in the Database service 
+- Support for Object Storage buckets, Oracle databases, Oracle databases on exascale Infrastructure, autonomous container databases, and autonomous container databases on Cloud at Customer in the Disaster Recovery service 
+- Support for multiple sharing modes in the OCI Cache service 
+- Support for extended data retention periods for instances in the Integration Cloud service 
+- Support for SQL watch and lifecycle management in the Database management service 
+- Support for identity domains and feature sets in the Analytics Cloud service 
+- Support for automatically extending the storage space for MySQL DB systems in pre-defined increments in the MySQL Database service     
+
+### Breaking Changes 
+- The field `drPlanExecutionType` has been removed from the model `ListDrPlanExecutionsRequest` in the Disaster Recovery service
+
 ## 2.91.1 - 2024-08-12
 ### Added 
 - Support for calling Oracle Cloud Infrastructure services in the `me-abudhabi-4` region 

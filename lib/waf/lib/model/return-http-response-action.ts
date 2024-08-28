@@ -91,7 +91,7 @@ Hop-by-hop headers are not allowed to be set:
 * 
     */
   "headers"?: Array<model.ResponseHeader>;
-  "body"?: model.StaticTextHttpResponseBody;
+  "body"?: model.DynamicHttpResponseBody | model.StaticTextHttpResponseBody;
 
   "type": string;
 }

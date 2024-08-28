@@ -104,6 +104,10 @@ The retention lock feature controls whether Recovery Service strictly preserves 
   "isReadOnlyResource"?: boolean;
   "metrics"?: model.MetricsSummary;
   /**
+   * The OCID of the cloud service subscription to which the protected database is linked.
+   */
+  "subscriptionId"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *

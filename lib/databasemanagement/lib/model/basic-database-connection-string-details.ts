@@ -41,7 +41,12 @@ export interface BasicDatabaseConnectionStringDetails
 export namespace BasicDatabaseConnectionStringDetails {
   export enum Protocol {
     Tcp = "TCP",
-    Tcps = "TCPS"
+    Tcps = "TCPS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(

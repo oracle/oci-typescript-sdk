@@ -158,7 +158,8 @@ export namespace BaseAnnouncement {
 
   export enum PlatformType {
     Iaas = "IAAS",
-    Saas = "SAAS"
+    Saas = "SAAS",
+    Paas = "PAAS"
   }
 
   export function getJsonObj(obj: BaseAnnouncement): object {

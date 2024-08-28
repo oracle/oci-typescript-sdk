@@ -24,7 +24,7 @@ export interface ListEsxiHostsRequest extends common.BaseRequest {
    */
   "sddcId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Cluster.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the SDDC Cluster.
    *
    */
   "clusterId"?: string;

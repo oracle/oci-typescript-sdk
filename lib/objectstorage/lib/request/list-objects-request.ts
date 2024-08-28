@@ -33,11 +33,11 @@ export interface ListObjectsRequest extends common.BaseRequest {
    */
   "prefix"?: string;
   /**
-   * Object names returned by a list query must be greater or equal to this parameter.
+   * Returns object names which are lexicographically greater than or equal to this parameter.
    */
   "start"?: string;
   /**
-   * Object names returned by a list query must be strictly less than this parameter.
+   * Returns object names which are lexicographically strictly less than this parameter.
    */
   "end"?: string;
   /**
@@ -70,7 +70,7 @@ export interface ListObjectsRequest extends common.BaseRequest {
    */
   "opcClientRequestId"?: string;
   /**
-   * Object names returned by a list query must be greater than this parameter.
+   * Returns object names which are lexicographically strictly greater than this parameter.
    */
   "startAfter"?: string;
 }

@@ -223,6 +223,174 @@ export class AIServiceDocumentClient {
   }
 
   /**
+   * Adds a lock to a resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddModelLockRequest
+   * @return AddModelLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/AddModelLock.ts.html |here} to see how to use AddModelLock API.
+   */
+  public async addModelLock(
+    addModelLockRequest: requests.AddModelLockRequest
+  ): Promise<responses.AddModelLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#addModelLock.");
+    const operationName = "addModelLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{modelId}": addModelLockRequest.modelId
+    };
+
+    const queryParams = {
+      "isLockOverride": addModelLockRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addModelLockRequest.opcRetryToken,
+      "opc-request-id": addModelLockRequest.opcRequestId,
+      "if-match": addModelLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addModelLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addModelLockRequest.addModelLockDetails,
+        "AddModelLockDetails",
+        model.AddModelLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddModelLockResponse>{},
+        body: await response.json(),
+        bodyKey: "model",
+        bodyModel: model.Model,
+        type: "model.Model",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddProjectLockRequest
+   * @return AddProjectLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/AddProjectLock.ts.html |here} to see how to use AddProjectLock API.
+   */
+  public async addProjectLock(
+    addProjectLockRequest: requests.AddProjectLockRequest
+  ): Promise<responses.AddProjectLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#addProjectLock.");
+    const operationName = "addProjectLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{projectId}": addProjectLockRequest.projectId
+    };
+
+    const queryParams = {
+      "isLockOverride": addProjectLockRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addProjectLockRequest.opcRetryToken,
+      "opc-request-id": addProjectLockRequest.opcRequestId,
+      "if-match": addProjectLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addProjectLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addProjectLockRequest.addProjectLockDetails,
+        "AddProjectLockDetails",
+        model.AddProjectLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddProjectLockResponse>{},
+        body: await response.json(),
+        bodyKey: "project",
+        bodyModel: model.Project,
+        type: "model.Project",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Perform different types of document analysis.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -469,7 +637,9 @@ export class AIServiceDocumentClient {
       "{modelId}": changeModelCompartmentRequest.modelId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeModelCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -542,7 +712,9 @@ export class AIServiceDocumentClient {
       "{projectId}": changeProjectCompartmentRequest.projectId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeProjectCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -885,7 +1057,9 @@ export class AIServiceDocumentClient {
       "{modelId}": deleteModelRequest.modelId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteModelRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -957,7 +1131,9 @@ export class AIServiceDocumentClient {
       "{projectId}": deleteProjectRequest.projectId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteProjectRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1820,6 +1996,176 @@ export class AIServiceDocumentClient {
   }
 
   /**
+   * Remove a lock from a resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveModelLockRequest
+   * @return RemoveModelLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/RemoveModelLock.ts.html |here} to see how to use RemoveModelLock API.
+   */
+  public async removeModelLock(
+    removeModelLockRequest: requests.RemoveModelLockRequest
+  ): Promise<responses.RemoveModelLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#removeModelLock.");
+    const operationName = "removeModelLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{modelId}": removeModelLockRequest.modelId
+    };
+
+    const queryParams = {
+      "isLockOverride": removeModelLockRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeModelLockRequest.opcRetryToken,
+      "opc-request-id": removeModelLockRequest.opcRequestId,
+      "if-match": removeModelLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeModelLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeModelLockRequest.removeModelLockDetails,
+        "RemoveModelLockDetails",
+        model.RemoveModelLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveModelLockResponse>{},
+        body: await response.json(),
+        bodyKey: "model",
+        bodyModel: model.Model,
+        type: "model.Model",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a lock from a resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveProjectLockRequest
+   * @return RemoveProjectLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/RemoveProjectLock.ts.html |here} to see how to use RemoveProjectLock API.
+   */
+  public async removeProjectLock(
+    removeProjectLockRequest: requests.RemoveProjectLockRequest
+  ): Promise<responses.RemoveProjectLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#removeProjectLock.");
+    const operationName = "removeProjectLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{projectId}": removeProjectLockRequest.projectId
+    };
+
+    const queryParams = {
+      "isLockOverride": removeProjectLockRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeProjectLockRequest.opcRetryToken,
+      "opc-request-id": removeProjectLockRequest.opcRequestId,
+      "if-match": removeProjectLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeProjectLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeProjectLockRequest.removeProjectLockDetails,
+        "RemoveProjectLockDetails",
+        model.RemoveProjectLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveProjectLockResponse>{},
+        body: await response.json(),
+        bodyKey: "project",
+        bodyModel: model.Project,
+        type: "model.Project",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the model metadata.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateModelRequest
@@ -1837,7 +2183,9 @@ export class AIServiceDocumentClient {
       "{modelId}": updateModelRequest.modelId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateModelRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1914,7 +2262,9 @@ export class AIServiceDocumentClient {
       "{projectId}": updateProjectRequest.projectId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateProjectRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

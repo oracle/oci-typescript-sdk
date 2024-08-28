@@ -29,6 +29,14 @@ export interface MaintenanceRunHistory {
    * List of database server history details.
    */
   "dbServersHistoryDetails"?: Array<model.DbServerHistorySummary>;
+  /**
+   * The OCID of the current execution window.
+   */
+  "currentExecutionWindow"?: string;
+  /**
+   * The list of granular maintenance history details.
+   */
+  "granularMaintenanceHistory"?: Array<model.GranularMaintenanceHistoryDetails>;
 }
 
 export namespace MaintenanceRunHistory {
@@ -42,6 +50,12 @@ export namespace MaintenanceRunHistory {
         "dbServersHistoryDetails": obj.dbServersHistoryDetails
           ? obj.dbServersHistoryDetails.map(item => {
               return model.DbServerHistorySummary.getJsonObj(item);
+            })
+          : undefined,
+
+        "granularMaintenanceHistory": obj.granularMaintenanceHistory
+          ? obj.granularMaintenanceHistory.map(item => {
+              return model.GranularMaintenanceHistoryDetails.getJsonObj(item);
             })
           : undefined
       }
@@ -59,6 +73,12 @@ export namespace MaintenanceRunHistory {
         "dbServersHistoryDetails": obj.dbServersHistoryDetails
           ? obj.dbServersHistoryDetails.map(item => {
               return model.DbServerHistorySummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "granularMaintenanceHistory": obj.granularMaintenanceHistory
+          ? obj.granularMaintenanceHistory.map(item => {
+              return model.GranularMaintenanceHistoryDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

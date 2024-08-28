@@ -32,6 +32,11 @@ export namespace DatabaseConnectionCredentials {
 
     if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
+        case "NAMED_CREDENTIAL":
+          return model.DatabaseNamedCredentialConnectionDetails.getJsonObj(
+            <model.DatabaseNamedCredentialConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "NAME_REFERENCE":
           return model.DatabaseConnectionCredentailsByName.getJsonObj(
             <model.DatabaseConnectionCredentailsByName>(<object>jsonObj),
@@ -58,6 +63,11 @@ export namespace DatabaseConnectionCredentials {
 
     if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
+        case "NAMED_CREDENTIAL":
+          return model.DatabaseNamedCredentialConnectionDetails.getDeserializedJsonObj(
+            <model.DatabaseNamedCredentialConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "NAME_REFERENCE":
           return model.DatabaseConnectionCredentailsByName.getDeserializedJsonObj(
             <model.DatabaseConnectionCredentailsByName>(<object>jsonObj),

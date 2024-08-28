@@ -103,6 +103,10 @@ export interface ModelSummary {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace ModelSummary {
@@ -122,6 +126,12 @@ export namespace ModelSummary {
         "componentModels": obj.componentModels
           ? obj.componentModels.map(item => {
               return model.ComponentModel.getJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -145,6 +155,12 @@ export namespace ModelSummary {
         "componentModels": obj.componentModels
           ? obj.componentModels.map(item => {
               return model.ComponentModel.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

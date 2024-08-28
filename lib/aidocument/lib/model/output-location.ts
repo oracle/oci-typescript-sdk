@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The object storage location where to store analysis results.
+ * The Object Storage Location.
  */
 export interface OutputLocation {
   /**

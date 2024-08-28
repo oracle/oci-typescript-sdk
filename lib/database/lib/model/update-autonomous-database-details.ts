@@ -45,7 +45,7 @@ export interface UpdateAutonomousDatabaseDetails {
   /**
     * The number of CPUs to be made available to the Autonomous Database.<br>
 * For Autonomous Databases on Dedicated Exadata Infrastructure:
-* - The CPU type (OCPUs or ECPUs) is determined by the parent Autonomous Exadata VM Cluster's compute model. 
+* - The CPU type (OCPUs or ECPUs) is determined by the parent Autonomous Exadata VM Cluster's compute model.
 * - It is suggested to use 'computeCount' parameter if you want to use fractional value to provision less than 1 core.
 * <p>
 **Note:** This parameter cannot be used with the {@code ocpuCount} or {@code computeCount} parameter.
@@ -56,7 +56,7 @@ This cannot be updated in parallel with any of the following: licenseModel, data
   "cpuCoreCount"?: number;
   "longTermBackupSchedule"?: model.LongTermBackUpScheduleDetails;
   /**
-   * Autonomous Database for Developers are free Autonomous Databases that developers can use to build and test new applications.With Autonomous these database instancess instances, you can try new Autonomous Database features for free and apply them to ongoing or new development projects. Developer database comes with limited resources and is, therefore, not suitable for large-scale testing and production deployments. When you need more compute or storage resources, you can transition to a paid database licensing by cloning your developer database into a regular Autonomous Database. See [Autonomous Database documentation](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/eddjo/index.html) for more details.
+   * Autonomous Database for Developers are fixed-shape Autonomous Databases that developers can use to build and test new applications. On Serverless, these are low-cost and billed per instance, on Dedicated and Cloud@Customer there is no additional cost to create Developer databases. Developer databases come with limited resources and is not intended for large-scale testing and production deployments. When you need more compute or storage resources, you may upgrade to a full paid production database.
    *
    */
   "isDevTier"?: boolean;

@@ -15,6 +15,8 @@ import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
 import * as ChangeProtectedDatabaseCompartmentDetails from "./change-protected-database-compartment-details";
 export import ChangeProtectedDatabaseCompartmentDetails = ChangeProtectedDatabaseCompartmentDetails.ChangeProtectedDatabaseCompartmentDetails;
+import * as ChangeProtectedDatabaseSubscriptionDetails from "./change-protected-database-subscription-details";
+export import ChangeProtectedDatabaseSubscriptionDetails = ChangeProtectedDatabaseSubscriptionDetails.ChangeProtectedDatabaseSubscriptionDetails;
 import * as ChangeProtectionPolicyCompartmentDetails from "./change-protection-policy-compartment-details";
 export import ChangeProtectionPolicyCompartmentDetails = ChangeProtectionPolicyCompartmentDetails.ChangeProtectionPolicyCompartmentDetails;
 import * as ChangeRecoveryServiceSubnetCompartmentDetails from "./change-recovery-service-subnet-compartment-details";

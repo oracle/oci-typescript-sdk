@@ -34,6 +34,10 @@ export interface CreateDbManagementPrivateEndpointDetails {
    */
   "isCluster"?: boolean;
   /**
+   * Specifies whether the Database Management private endpoint has DNS proxy server enabled to resolve private host name.
+   */
+  "isDnsResolutionEnabled"?: boolean;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet.
    */
   "subnetId": string;

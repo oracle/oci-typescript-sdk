@@ -182,6 +182,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Details of the file system configuration of the Exadata infrastructure.
    */
   "definedFileSystemConfigurations"?: Array<model.DefinedFileSystemConfiguration>;
+  /**
+   * If true, the infrastructure is using granular maintenance scheduling preference.
+   */
+  "isSchedulingPolicyAssociated"?: boolean;
 }
 
 export namespace CloudExadataInfrastructure {

@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the Hsm.
+ * An object which encapsulates the details of a given HSM.
  */
 export interface HsmPartitionSummary {
   /**
-   * The OCID of the HSM resource.
+   * The OCID of the HSM resource. Each HSM resource will have a unique OCID identifier.
    */
   "id": string;
   /**
@@ -28,15 +28,18 @@ export interface HsmPartitionSummary {
    */
   "hsmClusterId": string;
   /**
-   * The Hsm's current lifecycle state.
-   */
+    * A HSMCluster resource's current lifecycle state.
+* <p>
+Example: {@code ACTIVE}
+* 
+    */
   "lifecycleState": string;
   /**
    * The OCID of the compartment that contains a particular HSM resource.
    */
   "compartmentId": string;
   /**
-   * Port summary.
+   * Details of a single portInformation item include the PortNumber (an integer used as an identifier) and the PortType (refers to either an enum value of Managementutility,Clientutility, or null)
    */
   "portInformation": Array<model.PortInformation>;
   /**

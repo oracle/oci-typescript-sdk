@@ -28,6 +28,8 @@ import * as CreateMultipartUploadResponse from "./create-multipart-upload-respon
 export import CreateMultipartUploadResponse = CreateMultipartUploadResponse.CreateMultipartUploadResponse;
 import * as CreatePreauthenticatedRequestResponse from "./create-preauthenticated-request-response";
 export import CreatePreauthenticatedRequestResponse = CreatePreauthenticatedRequestResponse.CreatePreauthenticatedRequestResponse;
+import * as CreatePrivateEndpointResponse from "./create-private-endpoint-response";
+export import CreatePrivateEndpointResponse = CreatePrivateEndpointResponse.CreatePrivateEndpointResponse;
 import * as CreateReplicationPolicyResponse from "./create-replication-policy-response";
 export import CreateReplicationPolicyResponse = CreateReplicationPolicyResponse.CreateReplicationPolicyResponse;
 import * as CreateRetentionRuleResponse from "./create-retention-rule-response";
@@ -40,6 +42,8 @@ import * as DeleteObjectLifecyclePolicyResponse from "./delete-object-lifecycle-
 export import DeleteObjectLifecyclePolicyResponse = DeleteObjectLifecyclePolicyResponse.DeleteObjectLifecyclePolicyResponse;
 import * as DeletePreauthenticatedRequestResponse from "./delete-preauthenticated-request-response";
 export import DeletePreauthenticatedRequestResponse = DeletePreauthenticatedRequestResponse.DeletePreauthenticatedRequestResponse;
+import * as DeletePrivateEndpointResponse from "./delete-private-endpoint-response";
+export import DeletePrivateEndpointResponse = DeletePrivateEndpointResponse.DeletePrivateEndpointResponse;
 import * as DeleteReplicationPolicyResponse from "./delete-replication-policy-response";
 export import DeleteReplicationPolicyResponse = DeleteReplicationPolicyResponse.DeleteReplicationPolicyResponse;
 import * as DeleteRetentionRuleResponse from "./delete-retention-rule-response";
@@ -56,6 +60,8 @@ import * as GetObjectLifecyclePolicyResponse from "./get-object-lifecycle-policy
 export import GetObjectLifecyclePolicyResponse = GetObjectLifecyclePolicyResponse.GetObjectLifecyclePolicyResponse;
 import * as GetPreauthenticatedRequestResponse from "./get-preauthenticated-request-response";
 export import GetPreauthenticatedRequestResponse = GetPreauthenticatedRequestResponse.GetPreauthenticatedRequestResponse;
+import * as GetPrivateEndpointResponse from "./get-private-endpoint-response";
+export import GetPrivateEndpointResponse = GetPrivateEndpointResponse.GetPrivateEndpointResponse;
 import * as GetReplicationPolicyResponse from "./get-replication-policy-response";
 export import GetReplicationPolicyResponse = GetReplicationPolicyResponse.GetReplicationPolicyResponse;
 import * as GetRetentionRuleResponse from "./get-retention-rule-response";
@@ -78,6 +84,8 @@ import * as ListObjectsResponse from "./list-objects-response";
 export import ListObjectsResponse = ListObjectsResponse.ListObjectsResponse;
 import * as ListPreauthenticatedRequestsResponse from "./list-preauthenticated-requests-response";
 export import ListPreauthenticatedRequestsResponse = ListPreauthenticatedRequestsResponse.ListPreauthenticatedRequestsResponse;
+import * as ListPrivateEndpointsResponse from "./list-private-endpoints-response";
+export import ListPrivateEndpointsResponse = ListPrivateEndpointsResponse.ListPrivateEndpointsResponse;
 import * as ListReplicationPoliciesResponse from "./list-replication-policies-response";
 export import ListReplicationPoliciesResponse = ListReplicationPoliciesResponse.ListReplicationPoliciesResponse;
 import * as ListReplicationSourcesResponse from "./list-replication-sources-response";
@@ -110,6 +118,8 @@ import * as UpdateNamespaceMetadataResponse from "./update-namespace-metadata-re
 export import UpdateNamespaceMetadataResponse = UpdateNamespaceMetadataResponse.UpdateNamespaceMetadataResponse;
 import * as UpdateObjectStorageTierResponse from "./update-object-storage-tier-response";
 export import UpdateObjectStorageTierResponse = UpdateObjectStorageTierResponse.UpdateObjectStorageTierResponse;
+import * as UpdatePrivateEndpointResponse from "./update-private-endpoint-response";
+export import UpdatePrivateEndpointResponse = UpdatePrivateEndpointResponse.UpdatePrivateEndpointResponse;
 import * as UpdateRetentionRuleResponse from "./update-retention-rule-response";
 export import UpdateRetentionRuleResponse = UpdateRetentionRuleResponse.UpdateRetentionRuleResponse;
 import * as UploadPartResponse from "./upload-part-response";

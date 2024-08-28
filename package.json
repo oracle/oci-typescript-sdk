@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.91.1",
+  "version": "2.93.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -163,7 +163,9 @@
     "oci-clusterplacementgroups": "file:lib/clusterplacementgroups",
     "oci-marketplaceprivateoffer": "file:lib/marketplaceprivateoffer",
     "oci-resourcescheduler": "file:lib/resourcescheduler",
-    "oci-demandsignal": "file:lib/demandsignal"
+    "oci-demandsignal": "file:lib/demandsignal",
+    "oci-fleetappsmanagement": "file:lib/fleetappsmanagement",
+    "oci-delegateaccesscontrol": "file:lib/delegateaccesscontrol"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

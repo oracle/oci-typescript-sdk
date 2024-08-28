@@ -28,6 +28,8 @@ import * as CreateMultipartUploadRequest from "./create-multipart-upload-request
 export import CreateMultipartUploadRequest = CreateMultipartUploadRequest.CreateMultipartUploadRequest;
 import * as CreatePreauthenticatedRequestRequest from "./create-preauthenticated-request-request";
 export import CreatePreauthenticatedRequestRequest = CreatePreauthenticatedRequestRequest.CreatePreauthenticatedRequestRequest;
+import * as CreatePrivateEndpointRequest from "./create-private-endpoint-request";
+export import CreatePrivateEndpointRequest = CreatePrivateEndpointRequest.CreatePrivateEndpointRequest;
 import * as CreateReplicationPolicyRequest from "./create-replication-policy-request";
 export import CreateReplicationPolicyRequest = CreateReplicationPolicyRequest.CreateReplicationPolicyRequest;
 import * as CreateRetentionRuleRequest from "./create-retention-rule-request";
@@ -40,6 +42,8 @@ import * as DeleteObjectLifecyclePolicyRequest from "./delete-object-lifecycle-p
 export import DeleteObjectLifecyclePolicyRequest = DeleteObjectLifecyclePolicyRequest.DeleteObjectLifecyclePolicyRequest;
 import * as DeletePreauthenticatedRequestRequest from "./delete-preauthenticated-request-request";
 export import DeletePreauthenticatedRequestRequest = DeletePreauthenticatedRequestRequest.DeletePreauthenticatedRequestRequest;
+import * as DeletePrivateEndpointRequest from "./delete-private-endpoint-request";
+export import DeletePrivateEndpointRequest = DeletePrivateEndpointRequest.DeletePrivateEndpointRequest;
 import * as DeleteReplicationPolicyRequest from "./delete-replication-policy-request";
 export import DeleteReplicationPolicyRequest = DeleteReplicationPolicyRequest.DeleteReplicationPolicyRequest;
 import * as DeleteRetentionRuleRequest from "./delete-retention-rule-request";
@@ -56,6 +60,8 @@ import * as GetObjectLifecyclePolicyRequest from "./get-object-lifecycle-policy-
 export import GetObjectLifecyclePolicyRequest = GetObjectLifecyclePolicyRequest.GetObjectLifecyclePolicyRequest;
 import * as GetPreauthenticatedRequestRequest from "./get-preauthenticated-request-request";
 export import GetPreauthenticatedRequestRequest = GetPreauthenticatedRequestRequest.GetPreauthenticatedRequestRequest;
+import * as GetPrivateEndpointRequest from "./get-private-endpoint-request";
+export import GetPrivateEndpointRequest = GetPrivateEndpointRequest.GetPrivateEndpointRequest;
 import * as GetReplicationPolicyRequest from "./get-replication-policy-request";
 export import GetReplicationPolicyRequest = GetReplicationPolicyRequest.GetReplicationPolicyRequest;
 import * as GetRetentionRuleRequest from "./get-retention-rule-request";
@@ -78,6 +84,8 @@ import * as ListObjectsRequest from "./list-objects-request";
 export import ListObjectsRequest = ListObjectsRequest.ListObjectsRequest;
 import * as ListPreauthenticatedRequestsRequest from "./list-preauthenticated-requests-request";
 export import ListPreauthenticatedRequestsRequest = ListPreauthenticatedRequestsRequest.ListPreauthenticatedRequestsRequest;
+import * as ListPrivateEndpointsRequest from "./list-private-endpoints-request";
+export import ListPrivateEndpointsRequest = ListPrivateEndpointsRequest.ListPrivateEndpointsRequest;
 import * as ListReplicationPoliciesRequest from "./list-replication-policies-request";
 export import ListReplicationPoliciesRequest = ListReplicationPoliciesRequest.ListReplicationPoliciesRequest;
 import * as ListReplicationSourcesRequest from "./list-replication-sources-request";
@@ -110,6 +118,8 @@ import * as UpdateNamespaceMetadataRequest from "./update-namespace-metadata-req
 export import UpdateNamespaceMetadataRequest = UpdateNamespaceMetadataRequest.UpdateNamespaceMetadataRequest;
 import * as UpdateObjectStorageTierRequest from "./update-object-storage-tier-request";
 export import UpdateObjectStorageTierRequest = UpdateObjectStorageTierRequest.UpdateObjectStorageTierRequest;
+import * as UpdatePrivateEndpointRequest from "./update-private-endpoint-request";
+export import UpdatePrivateEndpointRequest = UpdatePrivateEndpointRequest.UpdatePrivateEndpointRequest;
 import * as UpdateRetentionRuleRequest from "./update-retention-rule-request";
 export import UpdateRetentionRuleRequest = UpdateRetentionRuleRequest.UpdateRetentionRuleRequest;
 import * as UploadPartRequest from "./upload-part-request";

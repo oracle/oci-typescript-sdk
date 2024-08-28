@@ -29,7 +29,7 @@ export interface RestoreObjectsRequest extends common.BaseRequest {
    */
   "bucketName": string;
   /**
-   * Request to restore objects.
+   * Request to restore object.
    */
   "restoreObjectsDetails": model.RestoreObjectsDetails;
   /**

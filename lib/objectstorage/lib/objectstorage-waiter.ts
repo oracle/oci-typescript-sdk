@@ -27,6 +27,25 @@ export class ObjectStorageWaiter {
   ) {}
 
   /**
+   * Waits forPrivateEndpoint till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPrivateEndpointResponse | null (null in case of 404 response)
+   */
+  public async forPrivateEndpoint(
+    request: serviceRequests.GetPrivateEndpointRequest,
+    ...targetStates: models.PrivateEndpoint.LifecycleState[]
+  ): Promise<serviceResponses.GetPrivateEndpointResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPrivateEndpoint(request),
+      response => targetStates.includes(response.privateEndpoint.lifecycleState!),
+      targetStates.includes(models.PrivateEndpoint.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

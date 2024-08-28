@@ -29,6 +29,11 @@ export namespace HttpResponseBody {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "DYNAMIC":
+          return model.DynamicHttpResponseBody.getJsonObj(
+            <model.DynamicHttpResponseBody>(<object>jsonObj),
+            true
+          );
         case "STATIC_TEXT":
           return model.StaticTextHttpResponseBody.getJsonObj(
             <model.StaticTextHttpResponseBody>(<object>jsonObj),
@@ -45,6 +50,11 @@ export namespace HttpResponseBody {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "DYNAMIC":
+          return model.DynamicHttpResponseBody.getDeserializedJsonObj(
+            <model.DynamicHttpResponseBody>(<object>jsonObj),
+            true
+          );
         case "STATIC_TEXT":
           return model.StaticTextHttpResponseBody.getDeserializedJsonObj(
             <model.StaticTextHttpResponseBody>(<object>jsonObj),

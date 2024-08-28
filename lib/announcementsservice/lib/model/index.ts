@@ -13,6 +13,8 @@
 
 import * as AffectedResource from "./affected-resource";
 export import AffectedResource = AffectedResource.AffectedResource;
+import * as AnnouncementCompartment from "./announcement-compartment";
+export import AnnouncementCompartment = AnnouncementCompartment.AnnouncementCompartment;
 import * as AnnouncementSubscription from "./announcement-subscription";
 export import AnnouncementSubscription = AnnouncementSubscription.AnnouncementSubscription;
 import * as AnnouncementSubscriptionCollection from "./announcement-subscription-collection";
@@ -29,8 +31,12 @@ import * as BaseAnnouncementsPreferences from "./base-announcements-preferences"
 export import BaseAnnouncementsPreferences = BaseAnnouncementsPreferences.BaseAnnouncementsPreferences;
 import * as BaseCreateAnnouncementsPreferencesDetails from "./base-create-announcements-preferences-details";
 export import BaseCreateAnnouncementsPreferencesDetails = BaseCreateAnnouncementsPreferencesDetails.BaseCreateAnnouncementsPreferencesDetails;
+import * as BaseService from "./base-service";
+export import BaseService = BaseService.BaseService;
 import * as ChangeAnnouncementSubscriptionCompartmentDetails from "./change-announcement-subscription-compartment-details";
 export import ChangeAnnouncementSubscriptionCompartmentDetails = ChangeAnnouncementSubscriptionCompartmentDetails.ChangeAnnouncementSubscriptionCompartmentDetails;
+import * as CommsManagerName from "./comms-manager-name";
+export import CommsManagerName = CommsManagerName.CommsManagerName;
 import * as CreateAnnouncementSubscriptionDetails from "./create-announcement-subscription-details";
 export import CreateAnnouncementSubscriptionDetails = CreateAnnouncementSubscriptionDetails.CreateAnnouncementSubscriptionDetails;
 import * as CreateFilterGroupDetails from "./create-filter-group-details";
@@ -41,8 +47,12 @@ import * as FilterGroup from "./filter-group";
 export import FilterGroup = FilterGroup.FilterGroup;
 import * as FilterGroupDetails from "./filter-group-details";
 export import FilterGroupDetails = FilterGroupDetails.FilterGroupDetails;
+import * as PlatformType from "./platform-type";
+export import PlatformType = PlatformType.PlatformType;
 import * as Property from "./property";
 export import Property = Property.Property;
+import * as ServicesCollection from "./services-collection";
+export import ServicesCollection = ServicesCollection.ServicesCollection;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as UpdateAnnouncementSubscriptionDetails from "./update-announcement-subscription-details";
@@ -60,5 +70,11 @@ import * as AnnouncementsPreferencesSummary from "./announcements-preferences-su
 export import AnnouncementsPreferencesSummary = AnnouncementsPreferencesSummary.AnnouncementsPreferencesSummary;
 import * as CreateAnnouncementsPreferencesDetails from "./create-announcements-preferences-details";
 export import CreateAnnouncementsPreferencesDetails = CreateAnnouncementsPreferencesDetails.CreateAnnouncementsPreferencesDetails;
+import * as NotificationsSummary from "./notifications-summary";
+export import NotificationsSummary = NotificationsSummary.NotificationsSummary;
+import * as Service from "./service";
+export import Service = Service.Service;
+import * as ServiceSummary from "./service-summary";
+export import ServiceSummary = ServiceSummary.ServiceSummary;
 import * as UpdateAnnouncementsPreferencesDetails from "./update-announcements-preferences-details";
 export import UpdateAnnouncementsPreferencesDetails = UpdateAnnouncementsPreferencesDetails.UpdateAnnouncementsPreferencesDetails;

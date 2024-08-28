@@ -13,6 +13,8 @@
 
 import * as GetAnnouncementRequest from "./get-announcement-request";
 export import GetAnnouncementRequest = GetAnnouncementRequest.GetAnnouncementRequest;
+import * as GetAnnouncementCompartmentRequest from "./get-announcement-compartment-request";
+export import GetAnnouncementCompartmentRequest = GetAnnouncementCompartmentRequest.GetAnnouncementCompartmentRequest;
 import * as GetAnnouncementUserStatusRequest from "./get-announcement-user-status-request";
 export import GetAnnouncementUserStatusRequest = GetAnnouncementUserStatusRequest.GetAnnouncementUserStatusRequest;
 import * as ListAnnouncementsRequest from "./list-announcements-request";
@@ -45,3 +47,5 @@ import * as ListAnnouncementsPreferencesRequest from "./list-announcements-prefe
 export import ListAnnouncementsPreferencesRequest = ListAnnouncementsPreferencesRequest.ListAnnouncementsPreferencesRequest;
 import * as UpdateAnnouncementsPreferenceRequest from "./update-announcements-preference-request";
 export import UpdateAnnouncementsPreferenceRequest = UpdateAnnouncementsPreferenceRequest.UpdateAnnouncementsPreferenceRequest;
+import * as ListServicesRequest from "./list-services-request";
+export import ListServicesRequest = ListServicesRequest.ListServicesRequest;

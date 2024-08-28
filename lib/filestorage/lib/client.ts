@@ -225,6 +225,85 @@ export class FileStorageClient {
   }
 
   /**
+   * Cancel scheduled downgrade shape request for mount target.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CancelDowngradeShapeMountTargetRequest
+   * @return CancelDowngradeShapeMountTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CancelDowngradeShapeMountTarget.ts.html |here} to see how to use CancelDowngradeShapeMountTarget API.
+   */
+  public async cancelDowngradeShapeMountTarget(
+    cancelDowngradeShapeMountTargetRequest: requests.CancelDowngradeShapeMountTargetRequest
+  ): Promise<responses.CancelDowngradeShapeMountTargetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#cancelDowngradeShapeMountTarget.");
+    const operationName = "cancelDowngradeShapeMountTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/CancelDowngradeShapeMountTarget";
+    const pathParams = {
+      "{mountTargetId}": cancelDowngradeShapeMountTargetRequest.mountTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelDowngradeShapeMountTargetRequest.ifMatch,
+      "opc-request-id": cancelDowngradeShapeMountTargetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelDowngradeShapeMountTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mountTargets/{mountTargetId}/actions/cancelShapeDowngrade",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelDowngradeShapeMountTargetResponse>{},
+        body: await response.json(),
+        bodyKey: "mountTarget",
+        bodyModel: model.MountTarget,
+        type: "model.MountTarget",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a file system and its associated snapshots into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -4019,6 +4098,90 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
   }
 
   /**
+   * Schedule a downgrade shape of the mount target.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ScheduleDowngradeShapeMountTargetRequest
+   * @return ScheduleDowngradeShapeMountTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ScheduleDowngradeShapeMountTarget.ts.html |here} to see how to use ScheduleDowngradeShapeMountTarget API.
+   */
+  public async scheduleDowngradeShapeMountTarget(
+    scheduleDowngradeShapeMountTargetRequest: requests.ScheduleDowngradeShapeMountTargetRequest
+  ): Promise<responses.ScheduleDowngradeShapeMountTargetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#scheduleDowngradeShapeMountTarget.");
+    const operationName = "scheduleDowngradeShapeMountTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/ScheduleDowngradeShapeMountTarget";
+    const pathParams = {
+      "{mountTargetId}": scheduleDowngradeShapeMountTargetRequest.mountTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": scheduleDowngradeShapeMountTargetRequest.ifMatch,
+      "opc-request-id": scheduleDowngradeShapeMountTargetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scheduleDowngradeShapeMountTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mountTargets/{mountTargetId}/actions/scheduleShapeDowngrade",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        scheduleDowngradeShapeMountTargetRequest.scheduleDowngradeShapeMountTargetDetails,
+        "ScheduleDowngradeShapeMountTargetDetails",
+        model.ScheduleDowngradeShapeMountTargetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ScheduleDowngradeShapeMountTargetResponse>{},
+        body: await response.json(),
+        bodyKey: "mountTarget",
+        bodyModel: model.MountTarget,
+        type: "model.MountTarget",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * This operation unpauses a paused file system snapshot policy and updates the lifecycle state of the file system snapshot policy from 
 * INACTIVE to ACTIVE. By default, file system snapshot policies are in the ACTIVE state. When a file system snapshot policy is not paused, or in the ACTIVE state, file systems that are associated with the
 * policy will have snapshots created and deleted according to the schedules defined in the policy.
@@ -4744,6 +4907,90 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
         bodyKey: "snapshot",
         bodyModel: model.Snapshot,
         type: "model.Snapshot",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Upgrade shape request for mount target.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpgradeShapeMountTargetRequest
+   * @return UpgradeShapeMountTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpgradeShapeMountTarget.ts.html |here} to see how to use UpgradeShapeMountTarget API.
+   */
+  public async upgradeShapeMountTarget(
+    upgradeShapeMountTargetRequest: requests.UpgradeShapeMountTargetRequest
+  ): Promise<responses.UpgradeShapeMountTargetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#upgradeShapeMountTarget.");
+    const operationName = "upgradeShapeMountTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/UpgradeShapeMountTarget";
+    const pathParams = {
+      "{mountTargetId}": upgradeShapeMountTargetRequest.mountTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": upgradeShapeMountTargetRequest.ifMatch,
+      "opc-request-id": upgradeShapeMountTargetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      upgradeShapeMountTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mountTargets/{mountTargetId}/actions/upgradeShape",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        upgradeShapeMountTargetRequest.upgradeShapeMountTargetDetails,
+        "UpgradeShapeMountTargetDetails",
+        model.UpgradeShapeMountTargetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpgradeShapeMountTargetResponse>{},
+        body: await response.json(),
+        bodyKey: "mountTarget",
+        bodyModel: model.MountTarget,
+        type: "model.MountTarget",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

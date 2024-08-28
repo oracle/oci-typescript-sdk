@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * HsmPartitionCollection object with page of HsmPartitionSummary objects.
+ * HsmPartitionCollection object with page of HsmPartitionSummary objects. A HsmPartitionSummary object contains details about the corresponding HSM.
  */
 export interface HsmPartitionCollection {
   /**

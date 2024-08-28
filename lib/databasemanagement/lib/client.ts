@@ -3350,6 +3350,90 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   }
 
   /**
+   * Disables a Database Management feature for the specified Autonomous Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableAutonomousDatabaseManagementFeatureRequest
+   * @return DisableAutonomousDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableAutonomousDatabaseManagementFeature.ts.html |here} to see how to use DisableAutonomousDatabaseManagementFeature API.
+   */
+  public async disableAutonomousDatabaseManagementFeature(
+    disableAutonomousDatabaseManagementFeatureRequest: requests.DisableAutonomousDatabaseManagementFeatureRequest
+  ): Promise<responses.DisableAutonomousDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableAutonomousDatabaseManagementFeature."
+      );
+    const operationName = "disableAutonomousDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableAutonomousDatabaseManagementFeature";
+    const pathParams = {
+      "{autonomousDatabaseId}":
+        disableAutonomousDatabaseManagementFeatureRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableAutonomousDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": disableAutonomousDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": disableAutonomousDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableAutonomousDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableAutonomousDatabaseManagementFeatureRequest.disableAutonomousDatabaseManagementFeatureDetails,
+        "DisableAutonomousDatabaseManagementFeatureDetails",
+        model.DisableAutonomousDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableAutonomousDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disables a Database Management feature for the specified Oracle cloud database.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4588,6 +4672,90 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables a Database Management feature for the specified Autonomous Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableAutonomousDatabaseManagementFeatureRequest
+   * @return EnableAutonomousDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableAutonomousDatabaseManagementFeature.ts.html |here} to see how to use EnableAutonomousDatabaseManagementFeature API.
+   */
+  public async enableAutonomousDatabaseManagementFeature(
+    enableAutonomousDatabaseManagementFeatureRequest: requests.EnableAutonomousDatabaseManagementFeatureRequest
+  ): Promise<responses.EnableAutonomousDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableAutonomousDatabaseManagementFeature."
+      );
+    const operationName = "enableAutonomousDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableAutonomousDatabaseManagementFeature";
+    const pathParams = {
+      "{autonomousDatabaseId}":
+        enableAutonomousDatabaseManagementFeatureRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableAutonomousDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": enableAutonomousDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": enableAutonomousDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableAutonomousDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableAutonomousDatabaseManagementFeatureRequest.enableAutonomousDatabaseManagementFeatureDetails,
+        "EnableAutonomousDatabaseManagementFeatureDetails",
+        model.EnableAutonomousDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableAutonomousDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -9569,6 +9737,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       "name": listDbManagementPrivateEndpointsRequest.name,
       "vcnId": listDbManagementPrivateEndpointsRequest.vcnId,
       "isCluster": listDbManagementPrivateEndpointsRequest.isCluster,
+      "isDnsResolutionEnabled": listDbManagementPrivateEndpointsRequest.isDnsResolutionEnabled,
       "lifecycleState": listDbManagementPrivateEndpointsRequest.lifecycleState,
       "limit": listDbManagementPrivateEndpointsRequest.limit,
       "page": listDbManagementPrivateEndpointsRequest.page,
@@ -13191,6 +13360,90 @@ When enabled, the optimizer uses SQL plan baselines to select plans
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Modifies the Database Management feature for the specified Autonomous Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ModifyAutonomousDatabaseManagementFeatureRequest
+   * @return ModifyAutonomousDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyAutonomousDatabaseManagementFeature.ts.html |here} to see how to use ModifyAutonomousDatabaseManagementFeature API.
+   */
+  public async modifyAutonomousDatabaseManagementFeature(
+    modifyAutonomousDatabaseManagementFeatureRequest: requests.ModifyAutonomousDatabaseManagementFeatureRequest
+  ): Promise<responses.ModifyAutonomousDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#modifyAutonomousDatabaseManagementFeature."
+      );
+    const operationName = "modifyAutonomousDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ModifyAutonomousDatabaseManagementFeature";
+    const pathParams = {
+      "{autonomousDatabaseId}":
+        modifyAutonomousDatabaseManagementFeatureRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": modifyAutonomousDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": modifyAutonomousDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": modifyAutonomousDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifyAutonomousDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/modifyDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifyAutonomousDatabaseManagementFeatureRequest.modifyAutonomousDatabaseManagementFeatureDetails,
+        "ModifyAutonomousDatabaseManagementFeatureDetails",
+        model.ModifyAutonomousDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifyAutonomousDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

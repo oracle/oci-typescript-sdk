@@ -94,7 +94,13 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the OCI Vault Key encrypting the customer data stored in this Analytics instance. A null value indicates Oracle managed default encryption.
+   * System tags for this resource. These predefined keys are scoped to namespaces.
+   * Example: {@code {\"orcl-cloud\": {\"key\": \"value\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * OCID of the OCI Vault Key encrypting the customer data stored in this Analytics instance. A null value indicates Oracle managed default encryption.
    *
    */
   "kmsKeyId"?: string;
@@ -112,6 +118,16 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "timeUpdated"?: Date;
+  /**
+   * The feature set of an Analytics instance.
+   *
+   */
+  "featureBundle"?: model.FeatureBundle;
+  /**
+   * Identity domain OCID.
+   *
+   */
+  "domainId"?: string;
 }
 
 export namespace AnalyticsInstance {

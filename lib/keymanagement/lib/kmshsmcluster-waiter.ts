@@ -48,16 +48,17 @@ export class KmsHsmClusterWaiter {
    *
    * @param request the request to send
    * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetHsmPartitionResponse
+   * @return response returns GetHsmPartitionResponse | null (null in case of 404 response)
    */
   public async forHsmPartition(
     request: serviceRequests.GetHsmPartitionRequest,
     ...targetStates: models.HsmPartition.LifecycleState[]
-  ): Promise<serviceResponses.GetHsmPartitionResponse> {
-    return genericWaiter(
+  ): Promise<serviceResponses.GetHsmPartitionResponse | null> {
+    return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getHsmPartition(request),
-      response => targetStates.includes(response.hsmPartition.lifecycleState!)
+      response => targetStates.includes(response.hsmPartition.lifecycleState!),
+      targetStates.includes(models.HsmPartition.LifecycleState.Deleted)
     );
   }
 }

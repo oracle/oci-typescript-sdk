@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface HsmClusterCollection {
   /**
-   * List of Hsm Clusters.
+   * List of HSM Cluster Summary Objects.
    */
   "items": Array<model.HsmClusterSummary>;
 }

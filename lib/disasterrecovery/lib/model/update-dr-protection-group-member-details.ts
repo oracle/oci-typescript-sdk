@@ -69,9 +69,21 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
             true
           );
+        case "AUTONOMOUS_CONTAINER_DATABASE":
+          return model.UpdateDrProtectionGroupMemberAutonomousContainerDatabaseDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberAutonomousContainerDatabaseDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "LOAD_BALANCER":
           return model.UpdateDrProtectionGroupMemberLoadBalancerDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_BUCKET":
+          return model.UpdateDrProtectionGroupMemberObjectStorageBucketDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberObjectStorageBucketDetails>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE_MOVABLE":
@@ -125,9 +137,21 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
             true
           );
+        case "AUTONOMOUS_CONTAINER_DATABASE":
+          return model.UpdateDrProtectionGroupMemberAutonomousContainerDatabaseDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberAutonomousContainerDatabaseDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "LOAD_BALANCER":
           return model.UpdateDrProtectionGroupMemberLoadBalancerDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_BUCKET":
+          return model.UpdateDrProtectionGroupMemberObjectStorageBucketDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberObjectStorageBucketDetails>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE_MOVABLE":

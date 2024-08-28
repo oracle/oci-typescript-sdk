@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the compartment you wish to move the Hsm.
+ * The details of the compartment you wish to move the hsm cluster to.
  */
 export interface ChangeHsmClusterCompartmentDetails {
   /**
-   * The [OCID] of the compartment to move the hsm to.
+   * The [OCID] of the compartment to move the hsm cluster to.
    */
   "compartmentId": string;
 }
