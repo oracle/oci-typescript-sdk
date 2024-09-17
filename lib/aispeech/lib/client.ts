@@ -1405,6 +1405,155 @@ export class AIServiceSpeechClient {
   }
 
   /**
+   * Returns a list of speakers available to the user to choose from based on language code and voice type provided.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListVoicesRequest
+   * @return ListVoicesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ListVoices.ts.html |here} to see how to use ListVoices API.
+   */
+  public async listVoices(
+    listVoicesRequest: requests.ListVoicesRequest
+  ): Promise<responses.ListVoicesResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceSpeechClient#listVoices.");
+    const operationName = "listVoices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/Voice/ListVoices";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listVoicesRequest.compartmentId,
+      "modelName": listVoicesRequest.modelName,
+      "displayName": listVoicesRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVoicesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVoicesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/voices",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVoicesResponse>{},
+        body: await response.json(),
+        bodyKey: "voiceCollection",
+        bodyModel: model.VoiceCollection,
+        type: "model.VoiceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates an audio for the given input text based on other input parameters like language, voice type, etc.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SynthesizeSpeechRequest
+   * @return SynthesizeSpeechResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/SynthesizeSpeech.ts.html |here} to see how to use SynthesizeSpeech API.
+   */
+  public async synthesizeSpeech(
+    synthesizeSpeechRequest: requests.SynthesizeSpeechRequest
+  ): Promise<responses.SynthesizeSpeechResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceSpeechClient#synthesizeSpeech.");
+    const operationName = "synthesizeSpeech";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/SynthesizeSpeech/SynthesizeSpeech";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": synthesizeSpeechRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      synthesizeSpeechRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/synthesizeSpeech",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        synthesizeSpeechRequest.synthesizeSpeechDetails,
+        "SynthesizeSpeechDetails",
+        model.SynthesizeSpeechDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SynthesizeSpeechResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates a Customization by identifier
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCustomizationRequest

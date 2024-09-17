@@ -47,6 +47,15 @@ export interface OccCapacityRequestBaseDetails {
    */
   "dateActualHandover"?: Date;
   /**
+   * The availability domain of the resource which is to be transferred. Note that this is only required for Capacity Request Transfer requests.
+   */
+  "availabilityDomain"?: string;
+  /**
+   * A list containing details about occHandoverResourceBlocks which were handed over for the corresponding resource name.
+   *
+   */
+  "associatedOccHandoverResourceBlockList"?: Array<model.AssociatedOccHandoverResourceBlock>;
+  /**
    * The name of the COMPUTE server shape for which the request is made. Do not use CAPACITY_CONSTRAINT as the resource name.
    */
   "resourceName": string;
@@ -58,12 +67,30 @@ export interface OccCapacityRequestBaseDetails {
 
 export namespace OccCapacityRequestBaseDetails {
   export function getJsonObj(obj: OccCapacityRequestBaseDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associatedOccHandoverResourceBlockList": obj.associatedOccHandoverResourceBlockList
+          ? obj.associatedOccHandoverResourceBlockList.map(item => {
+              return model.AssociatedOccHandoverResourceBlock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: OccCapacityRequestBaseDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associatedOccHandoverResourceBlockList": obj.associatedOccHandoverResourceBlockList
+          ? obj.associatedOccHandoverResourceBlockList.map(item => {
+              return model.AssociatedOccHandoverResourceBlock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

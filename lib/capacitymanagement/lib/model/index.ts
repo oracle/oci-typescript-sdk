@@ -11,10 +11,18 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AssociatedCapacityRequestDetails from "./associated-capacity-request-details";
+export import AssociatedCapacityRequestDetails = AssociatedCapacityRequestDetails.AssociatedCapacityRequestDetails;
+import * as AssociatedOccHandoverResourceBlock from "./associated-occ-handover-resource-block";
+export import AssociatedOccHandoverResourceBlock = AssociatedOccHandoverResourceBlock.AssociatedOccHandoverResourceBlock;
 import * as CreateOccAvailabilityCatalogDetails from "./create-occ-availability-catalog-details";
 export import CreateOccAvailabilityCatalogDetails = CreateOccAvailabilityCatalogDetails.CreateOccAvailabilityCatalogDetails;
 import * as CreateOccCapacityRequestDetails from "./create-occ-capacity-request-details";
 export import CreateOccCapacityRequestDetails = CreateOccCapacityRequestDetails.CreateOccCapacityRequestDetails;
+import * as CreateOccCustomerDetails from "./create-occ-customer-details";
+export import CreateOccCustomerDetails = CreateOccCustomerDetails.CreateOccCustomerDetails;
+import * as CreateOccCustomerGroupDetails from "./create-occ-customer-group-details";
+export import CreateOccCustomerGroupDetails = CreateOccCustomerGroupDetails.CreateOccCustomerGroupDetails;
 import * as MetadataDetails from "./metadata-details";
 export import MetadataDetails = MetadataDetails.MetadataDetails;
 import * as Namespace from "./namespace";
@@ -45,6 +53,14 @@ import * as OccCustomerGroupCollection from "./occ-customer-group-collection";
 export import OccCustomerGroupCollection = OccCustomerGroupCollection.OccCustomerGroupCollection;
 import * as OccCustomerGroupSummary from "./occ-customer-group-summary";
 export import OccCustomerGroupSummary = OccCustomerGroupSummary.OccCustomerGroupSummary;
+import * as OccHandoverResourceBlockCollection from "./occ-handover-resource-block-collection";
+export import OccHandoverResourceBlockCollection = OccHandoverResourceBlockCollection.OccHandoverResourceBlockCollection;
+import * as OccHandoverResourceBlockDetailCollection from "./occ-handover-resource-block-detail-collection";
+export import OccHandoverResourceBlockDetailCollection = OccHandoverResourceBlockDetailCollection.OccHandoverResourceBlockDetailCollection;
+import * as OccHandoverResourceBlockDetailSummary from "./occ-handover-resource-block-detail-summary";
+export import OccHandoverResourceBlockDetailSummary = OccHandoverResourceBlockDetailSummary.OccHandoverResourceBlockDetailSummary;
+import * as OccHandoverResourceBlockSummary from "./occ-handover-resource-block-summary";
+export import OccHandoverResourceBlockSummary = OccHandoverResourceBlockSummary.OccHandoverResourceBlockSummary;
 import * as OccOverviewCollection from "./occ-overview-collection";
 export import OccOverviewCollection = OccOverviewCollection.OccOverviewCollection;
 import * as OccOverviewSummary from "./occ-overview-summary";
@@ -53,6 +69,8 @@ import * as PatchInstruction from "./patch-instruction";
 export import PatchInstruction = PatchInstruction.PatchInstruction;
 import * as PatchOccCapacityRequestDetails from "./patch-occ-capacity-request-details";
 export import PatchOccCapacityRequestDetails = PatchOccCapacityRequestDetails.PatchOccCapacityRequestDetails;
+import * as PlacementDetails from "./placement-details";
+export import PlacementDetails = PlacementDetails.PlacementDetails;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as UpdateInternalOccCapacityRequestDetails from "./update-internal-occ-capacity-request-details";
@@ -61,6 +79,10 @@ import * as UpdateOccAvailabilityCatalogDetails from "./update-occ-availability-
 export import UpdateOccAvailabilityCatalogDetails = UpdateOccAvailabilityCatalogDetails.UpdateOccAvailabilityCatalogDetails;
 import * as UpdateOccCapacityRequestDetails from "./update-occ-capacity-request-details";
 export import UpdateOccCapacityRequestDetails = UpdateOccCapacityRequestDetails.UpdateOccCapacityRequestDetails;
+import * as UpdateOccCustomerDetails from "./update-occ-customer-details";
+export import UpdateOccCustomerDetails = UpdateOccCustomerDetails.UpdateOccCustomerDetails;
+import * as UpdateOccCustomerGroupDetails from "./update-occ-customer-group-details";
+export import UpdateOccCustomerGroupDetails = UpdateOccCustomerGroupDetails.UpdateOccCustomerGroupDetails;
 
 import * as PatchInsertInstruction from "./patch-insert-instruction";
 export import PatchInsertInstruction = PatchInsertInstruction.PatchInsertInstruction;

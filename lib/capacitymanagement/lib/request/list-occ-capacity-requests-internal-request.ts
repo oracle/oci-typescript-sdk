@@ -25,7 +25,7 @@ export interface ListOccCapacityRequestsInternalRequest extends common.BaseReque
   /**
    * The customer group ocid by which we would filter the list.
    */
-  "occCustomerGroupId"?: string;
+  "occCustomerGroupId": string;
   /**
    * A filter to return the list of capacity requests based on the OCID of the availability catalog against which they were created.
    */

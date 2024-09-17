@@ -64,9 +64,9 @@ export interface CreateOccCapacityRequestDetails {
    */
   "lifecycleDetails"?: string;
   /**
-   * The availability domain (AD) for which the capacity request is made. If this is specified then the capacity will be validated and fulfilled within the scope of this AD.
+   * The availability domain (AD) in which the new resource is to be placed. If this is specified then the capacity will be validated and fulfilled within the scope of this AD. Note that this field is NOT required for Capacity request Transfer requests.
    */
-  "availabilityDomain": string;
+  "availabilityDomain"?: string;
   /**
    * The date by which the capacity requested by customers before dateFinalCustomerOrder needs to be fulfilled.
    */

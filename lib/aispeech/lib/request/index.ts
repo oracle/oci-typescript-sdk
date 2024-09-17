@@ -41,6 +41,10 @@ import * as ListTranscriptionJobsRequest from "./list-transcription-jobs-request
 export import ListTranscriptionJobsRequest = ListTranscriptionJobsRequest.ListTranscriptionJobsRequest;
 import * as ListTranscriptionTasksRequest from "./list-transcription-tasks-request";
 export import ListTranscriptionTasksRequest = ListTranscriptionTasksRequest.ListTranscriptionTasksRequest;
+import * as ListVoicesRequest from "./list-voices-request";
+export import ListVoicesRequest = ListVoicesRequest.ListVoicesRequest;
+import * as SynthesizeSpeechRequest from "./synthesize-speech-request";
+export import SynthesizeSpeechRequest = SynthesizeSpeechRequest.SynthesizeSpeechRequest;
 import * as UpdateCustomizationRequest from "./update-customization-request";
 export import UpdateCustomizationRequest = UpdateCustomizationRequest.UpdateCustomizationRequest;
 import * as UpdateTranscriptionJobRequest from "./update-transcription-job-request";

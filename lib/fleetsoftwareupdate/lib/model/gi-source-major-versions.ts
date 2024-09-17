@@ -23,6 +23,7 @@ import common = require("oci-common");
 export enum GiSourceMajorVersions {
   Gi18 = "GI_18",
   Gi19 = "GI_19",
+  Gi23 = "GI_23",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
