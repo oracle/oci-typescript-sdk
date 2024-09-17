@@ -41,6 +41,10 @@ import * as ListTranscriptionJobsResponse from "./list-transcription-jobs-respon
 export import ListTranscriptionJobsResponse = ListTranscriptionJobsResponse.ListTranscriptionJobsResponse;
 import * as ListTranscriptionTasksResponse from "./list-transcription-tasks-response";
 export import ListTranscriptionTasksResponse = ListTranscriptionTasksResponse.ListTranscriptionTasksResponse;
+import * as ListVoicesResponse from "./list-voices-response";
+export import ListVoicesResponse = ListVoicesResponse.ListVoicesResponse;
+import * as SynthesizeSpeechResponse from "./synthesize-speech-response";
+export import SynthesizeSpeechResponse = SynthesizeSpeechResponse.SynthesizeSpeechResponse;
 import * as UpdateCustomizationResponse from "./update-customization-response";
 export import UpdateCustomizationResponse = UpdateCustomizationResponse.UpdateCustomizationResponse;
 import * as UpdateTranscriptionJobResponse from "./update-transcription-job-response";

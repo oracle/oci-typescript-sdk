@@ -15,10 +15,18 @@ import * as CreateOccAvailabilityCatalogResponse from "./create-occ-availability
 export import CreateOccAvailabilityCatalogResponse = CreateOccAvailabilityCatalogResponse.CreateOccAvailabilityCatalogResponse;
 import * as CreateOccCapacityRequestResponse from "./create-occ-capacity-request-response";
 export import CreateOccCapacityRequestResponse = CreateOccCapacityRequestResponse.CreateOccCapacityRequestResponse;
+import * as CreateOccCustomerResponse from "./create-occ-customer-response";
+export import CreateOccCustomerResponse = CreateOccCustomerResponse.CreateOccCustomerResponse;
+import * as CreateOccCustomerGroupResponse from "./create-occ-customer-group-response";
+export import CreateOccCustomerGroupResponse = CreateOccCustomerGroupResponse.CreateOccCustomerGroupResponse;
 import * as DeleteOccAvailabilityCatalogResponse from "./delete-occ-availability-catalog-response";
 export import DeleteOccAvailabilityCatalogResponse = DeleteOccAvailabilityCatalogResponse.DeleteOccAvailabilityCatalogResponse;
 import * as DeleteOccCapacityRequestResponse from "./delete-occ-capacity-request-response";
 export import DeleteOccCapacityRequestResponse = DeleteOccCapacityRequestResponse.DeleteOccCapacityRequestResponse;
+import * as DeleteOccCustomerResponse from "./delete-occ-customer-response";
+export import DeleteOccCustomerResponse = DeleteOccCustomerResponse.DeleteOccCustomerResponse;
+import * as DeleteOccCustomerGroupResponse from "./delete-occ-customer-group-response";
+export import DeleteOccCustomerGroupResponse = DeleteOccCustomerGroupResponse.DeleteOccCustomerGroupResponse;
 import * as GetOccAvailabilityCatalogResponse from "./get-occ-availability-catalog-response";
 export import GetOccAvailabilityCatalogResponse = GetOccAvailabilityCatalogResponse.GetOccAvailabilityCatalogResponse;
 import * as GetOccAvailabilityCatalogContentResponse from "./get-occ-availability-catalog-content-response";
@@ -29,6 +37,10 @@ import * as GetOccCustomerGroupResponse from "./get-occ-customer-group-response"
 export import GetOccCustomerGroupResponse = GetOccCustomerGroupResponse.GetOccCustomerGroupResponse;
 import * as ListInternalNamespaceOccOverviewsResponse from "./list-internal-namespace-occ-overviews-response";
 export import ListInternalNamespaceOccOverviewsResponse = ListInternalNamespaceOccOverviewsResponse.ListInternalNamespaceOccOverviewsResponse;
+import * as ListInternalOccHandoverResourceBlockDetailsResponse from "./list-internal-occ-handover-resource-block-details-response";
+export import ListInternalOccHandoverResourceBlockDetailsResponse = ListInternalOccHandoverResourceBlockDetailsResponse.ListInternalOccHandoverResourceBlockDetailsResponse;
+import * as ListInternalOccHandoverResourceBlocksResponse from "./list-internal-occ-handover-resource-blocks-response";
+export import ListInternalOccHandoverResourceBlocksResponse = ListInternalOccHandoverResourceBlocksResponse.ListInternalOccHandoverResourceBlocksResponse;
 import * as ListOccAvailabilitiesResponse from "./list-occ-availabilities-response";
 export import ListOccAvailabilitiesResponse = ListOccAvailabilitiesResponse.ListOccAvailabilitiesResponse;
 import * as ListOccAvailabilityCatalogsResponse from "./list-occ-availability-catalogs-response";
@@ -41,6 +53,10 @@ import * as ListOccCapacityRequestsInternalResponse from "./list-occ-capacity-re
 export import ListOccCapacityRequestsInternalResponse = ListOccCapacityRequestsInternalResponse.ListOccCapacityRequestsInternalResponse;
 import * as ListOccCustomerGroupsResponse from "./list-occ-customer-groups-response";
 export import ListOccCustomerGroupsResponse = ListOccCustomerGroupsResponse.ListOccCustomerGroupsResponse;
+import * as ListOccHandoverResourceBlockDetailsResponse from "./list-occ-handover-resource-block-details-response";
+export import ListOccHandoverResourceBlockDetailsResponse = ListOccHandoverResourceBlockDetailsResponse.ListOccHandoverResourceBlockDetailsResponse;
+import * as ListOccHandoverResourceBlocksResponse from "./list-occ-handover-resource-blocks-response";
+export import ListOccHandoverResourceBlocksResponse = ListOccHandoverResourceBlocksResponse.ListOccHandoverResourceBlocksResponse;
 import * as ListOccOverviewsResponse from "./list-occ-overviews-response";
 export import ListOccOverviewsResponse = ListOccOverviewsResponse.ListOccOverviewsResponse;
 import * as PatchInternalOccCapacityRequestResponse from "./patch-internal-occ-capacity-request-response";
@@ -55,3 +71,7 @@ import * as UpdateOccAvailabilityCatalogResponse from "./update-occ-availability
 export import UpdateOccAvailabilityCatalogResponse = UpdateOccAvailabilityCatalogResponse.UpdateOccAvailabilityCatalogResponse;
 import * as UpdateOccCapacityRequestResponse from "./update-occ-capacity-request-response";
 export import UpdateOccCapacityRequestResponse = UpdateOccCapacityRequestResponse.UpdateOccCapacityRequestResponse;
+import * as UpdateOccCustomerResponse from "./update-occ-customer-response";
+export import UpdateOccCustomerResponse = UpdateOccCustomerResponse.UpdateOccCustomerResponse;
+import * as UpdateOccCustomerGroupResponse from "./update-occ-customer-group-response";
+export import UpdateOccCustomerGroupResponse = UpdateOccCustomerGroupResponse.UpdateOccCustomerGroupResponse;

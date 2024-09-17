@@ -393,6 +393,178 @@ export class CapacityManagementClient {
   }
 
   /**
+   * Create customer.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateOccCustomerRequest
+   * @return CreateOccCustomerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccCustomer.ts.html |here} to see how to use CreateOccCustomer API.
+   */
+  public async createOccCustomer(
+    createOccCustomerRequest: requests.CreateOccCustomerRequest
+  ): Promise<responses.CreateOccCustomerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#createOccCustomer.");
+    const operationName = "createOccCustomer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occCustomerGroupId}": createOccCustomerRequest.occCustomerGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOccCustomerRequest.opcRetryToken,
+      "opc-request-id": createOccCustomerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOccCustomerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occCustomerGroups/{occCustomerGroupId}/occCustomers",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOccCustomerRequest.createOccCustomerDetails,
+        "CreateOccCustomerDetails",
+        model.CreateOccCustomerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOccCustomerResponse>{},
+        body: await response.json(),
+        bodyKey: "occCustomer",
+        bodyModel: model.OccCustomer,
+        type: "model.OccCustomer",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create customer group.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateOccCustomerGroupRequest
+   * @return CreateOccCustomerGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccCustomerGroup.ts.html |here} to see how to use CreateOccCustomerGroup API.
+   */
+  public async createOccCustomerGroup(
+    createOccCustomerGroupRequest: requests.CreateOccCustomerGroupRequest
+  ): Promise<responses.CreateOccCustomerGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#createOccCustomerGroup.");
+    const operationName = "createOccCustomerGroup";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOccCustomerGroupRequest.opcRetryToken,
+      "opc-request-id": createOccCustomerGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOccCustomerGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occCustomerGroups",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOccCustomerGroupRequest.createOccCustomerGroupDetails,
+        "CreateOccCustomerGroupDetails",
+        model.CreateOccCustomerGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOccCustomerGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "occCustomerGroup",
+        bodyModel: model.OccCustomerGroup,
+        type: "model.OccCustomerGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the availability catalog resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteOccAvailabilityCatalogRequest
@@ -518,6 +690,153 @@ export class CapacityManagementClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOccCapacityRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the customer resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOccCustomerRequest
+   * @return DeleteOccCustomerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccCustomer.ts.html |here} to see how to use DeleteOccCustomer API.
+   */
+  public async deleteOccCustomer(
+    deleteOccCustomerRequest: requests.DeleteOccCustomerRequest
+  ): Promise<responses.DeleteOccCustomerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#deleteOccCustomer.");
+    const operationName = "deleteOccCustomer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occCustomerGroupId}": deleteOccCustomerRequest.occCustomerGroupId,
+      "{occCustomerId}": deleteOccCustomerRequest.occCustomerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOccCustomerRequest.ifMatch,
+      "opc-request-id": deleteOccCustomerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOccCustomerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occCustomerGroups/{occCustomerGroupId}/occCustomers/{occCustomerId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOccCustomerResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the customer group resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOccCustomerGroupRequest
+   * @return DeleteOccCustomerGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccCustomerGroup.ts.html |here} to see how to use DeleteOccCustomerGroup API.
+   */
+  public async deleteOccCustomerGroup(
+    deleteOccCustomerGroupRequest: requests.DeleteOccCustomerGroupRequest
+  ): Promise<responses.DeleteOccCustomerGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#deleteOccCustomerGroup.");
+    const operationName = "deleteOccCustomerGroup";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occCustomerGroupId}": deleteOccCustomerGroupRequest.occCustomerGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOccCustomerGroupRequest.ifMatch,
+      "opc-request-id": deleteOccCustomerGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOccCustomerGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occCustomerGroups/{occCustomerGroupId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOccCustomerGroupResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -912,6 +1231,183 @@ export class CapacityManagementClient {
         bodyKey: "occOverviewCollection",
         bodyModel: model.OccOverviewCollection,
         type: "model.OccOverviewCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List details about a given occHandoverResourceBlock.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInternalOccHandoverResourceBlockDetailsRequest
+   * @return ListInternalOccHandoverResourceBlockDetailsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccHandoverResourceBlockDetails.ts.html |here} to see how to use ListInternalOccHandoverResourceBlockDetails API.
+   */
+  public async listInternalOccHandoverResourceBlockDetails(
+    listInternalOccHandoverResourceBlockDetailsRequest: requests.ListInternalOccHandoverResourceBlockDetailsRequest
+  ): Promise<responses.ListInternalOccHandoverResourceBlockDetailsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#listInternalOccHandoverResourceBlockDetails."
+      );
+    const operationName = "listInternalOccHandoverResourceBlockDetails";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "occHandoverResourceBlockId":
+        listInternalOccHandoverResourceBlockDetailsRequest.occHandoverResourceBlockId,
+      "hostId": listInternalOccHandoverResourceBlockDetailsRequest.hostId,
+      "limit": listInternalOccHandoverResourceBlockDetailsRequest.limit,
+      "page": listInternalOccHandoverResourceBlockDetailsRequest.page,
+      "sortOrder": listInternalOccHandoverResourceBlockDetailsRequest.sortOrder,
+      "sortBy": listInternalOccHandoverResourceBlockDetailsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInternalOccHandoverResourceBlockDetailsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInternalOccHandoverResourceBlockDetailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occHandoverResourceBlockDetails",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInternalOccHandoverResourceBlockDetailsResponse>{},
+        body: await response.json(),
+        bodyKey: "occHandoverResourceBlockDetailCollection",
+        bodyModel: model.OccHandoverResourceBlockDetailCollection,
+        type: "model.OccHandoverResourceBlockDetailCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List Occ Handover Resource blocks.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInternalOccHandoverResourceBlocksRequest
+   * @return ListInternalOccHandoverResourceBlocksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccHandoverResourceBlocks.ts.html |here} to see how to use ListInternalOccHandoverResourceBlocks API.
+   */
+  public async listInternalOccHandoverResourceBlocks(
+    listInternalOccHandoverResourceBlocksRequest: requests.ListInternalOccHandoverResourceBlocksRequest
+  ): Promise<responses.ListInternalOccHandoverResourceBlocksResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#listInternalOccHandoverResourceBlocks."
+      );
+    const operationName = "listInternalOccHandoverResourceBlocks";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "namespace": listInternalOccHandoverResourceBlocksRequest.namespace,
+      "compartmentId": listInternalOccHandoverResourceBlocksRequest.compartmentId,
+      "occCustomerGroupId": listInternalOccHandoverResourceBlocksRequest.occCustomerGroupId,
+      "handoverResourceName": listInternalOccHandoverResourceBlocksRequest.handoverResourceName,
+      "handoverDateGreaterThanOrEqualTo":
+        listInternalOccHandoverResourceBlocksRequest.handoverDateGreaterThanOrEqualTo,
+      "handoverDateLessThanOrEqualTo":
+        listInternalOccHandoverResourceBlocksRequest.handoverDateLessThanOrEqualTo,
+      "occHandoverResourceBlockId":
+        listInternalOccHandoverResourceBlocksRequest.occHandoverResourceBlockId,
+      "limit": listInternalOccHandoverResourceBlocksRequest.limit,
+      "page": listInternalOccHandoverResourceBlocksRequest.page,
+      "sortOrder": listInternalOccHandoverResourceBlocksRequest.sortOrder,
+      "sortBy": listInternalOccHandoverResourceBlocksRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInternalOccHandoverResourceBlocksRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInternalOccHandoverResourceBlocksRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occHandoverResourceBlocks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInternalOccHandoverResourceBlocksResponse>{},
+        body: await response.json(),
+        bodyKey: "occHandoverResourceBlockCollection",
+        bodyModel: model.OccHandoverResourceBlockCollection,
+        type: "model.OccHandoverResourceBlockCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1425,6 +1921,181 @@ export class CapacityManagementClient {
         bodyKey: "occCustomerGroupCollection",
         bodyModel: model.OccCustomerGroupCollection,
         type: "model.OccCustomerGroupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List details about a given occHandoverResourceBlock.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOccHandoverResourceBlockDetailsRequest
+   * @return ListOccHandoverResourceBlockDetailsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccHandoverResourceBlockDetails.ts.html |here} to see how to use ListOccHandoverResourceBlockDetails API.
+   */
+  public async listOccHandoverResourceBlockDetails(
+    listOccHandoverResourceBlockDetailsRequest: requests.ListOccHandoverResourceBlockDetailsRequest
+  ): Promise<responses.ListOccHandoverResourceBlockDetailsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#listOccHandoverResourceBlockDetails."
+      );
+    const operationName = "listOccHandoverResourceBlockDetails";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "occHandoverResourceBlockId":
+        listOccHandoverResourceBlockDetailsRequest.occHandoverResourceBlockId,
+      "hostId": listOccHandoverResourceBlockDetailsRequest.hostId,
+      "limit": listOccHandoverResourceBlockDetailsRequest.limit,
+      "page": listOccHandoverResourceBlockDetailsRequest.page,
+      "sortOrder": listOccHandoverResourceBlockDetailsRequest.sortOrder,
+      "sortBy": listOccHandoverResourceBlockDetailsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOccHandoverResourceBlockDetailsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOccHandoverResourceBlockDetailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occHandoverResourceBlockDetails",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOccHandoverResourceBlockDetailsResponse>{},
+        body: await response.json(),
+        bodyKey: "occHandoverResourceBlockDetailCollection",
+        bodyModel: model.OccHandoverResourceBlockDetailCollection,
+        type: "model.OccHandoverResourceBlockDetailCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List Occ Handover Resource blocks.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOccHandoverResourceBlocksRequest
+   * @return ListOccHandoverResourceBlocksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccHandoverResourceBlocks.ts.html |here} to see how to use ListOccHandoverResourceBlocks API.
+   */
+  public async listOccHandoverResourceBlocks(
+    listOccHandoverResourceBlocksRequest: requests.ListOccHandoverResourceBlocksRequest
+  ): Promise<responses.ListOccHandoverResourceBlocksResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CapacityManagementClient#listOccHandoverResourceBlocks."
+      );
+    const operationName = "listOccHandoverResourceBlocks";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "namespace": listOccHandoverResourceBlocksRequest.namespace,
+      "compartmentId": listOccHandoverResourceBlocksRequest.compartmentId,
+      "handoverResourceName": listOccHandoverResourceBlocksRequest.handoverResourceName,
+      "handoverDateGreaterThanOrEqualTo":
+        listOccHandoverResourceBlocksRequest.handoverDateGreaterThanOrEqualTo,
+      "handoverDateLessThanOrEqualTo":
+        listOccHandoverResourceBlocksRequest.handoverDateLessThanOrEqualTo,
+      "occHandoverResourceBlockId": listOccHandoverResourceBlocksRequest.occHandoverResourceBlockId,
+      "limit": listOccHandoverResourceBlocksRequest.limit,
+      "page": listOccHandoverResourceBlocksRequest.page,
+      "sortOrder": listOccHandoverResourceBlocksRequest.sortOrder,
+      "sortBy": listOccHandoverResourceBlocksRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOccHandoverResourceBlocksRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOccHandoverResourceBlocksRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occHandoverResourceBlocks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOccHandoverResourceBlocksResponse>{},
+        body: await response.json(),
+        bodyKey: "occHandoverResourceBlockCollection",
+        bodyModel: model.OccHandoverResourceBlockCollection,
+        type: "model.OccHandoverResourceBlockCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2007,6 +2678,181 @@ export class CapacityManagementClient {
         bodyKey: "occCapacityRequest",
         bodyModel: model.OccCapacityRequest,
         type: "model.OccCapacityRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * The request to update the customer.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateOccCustomerRequest
+   * @return UpdateOccCustomerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccCustomer.ts.html |here} to see how to use UpdateOccCustomer API.
+   */
+  public async updateOccCustomer(
+    updateOccCustomerRequest: requests.UpdateOccCustomerRequest
+  ): Promise<responses.UpdateOccCustomerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#updateOccCustomer.");
+    const operationName = "updateOccCustomer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occCustomerGroupId}": updateOccCustomerRequest.occCustomerGroupId,
+      "{occCustomerId}": updateOccCustomerRequest.occCustomerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOccCustomerRequest.ifMatch,
+      "opc-request-id": updateOccCustomerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOccCustomerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occCustomerGroups/{occCustomerGroupId}/occCustomers/{occCustomerId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOccCustomerRequest.updateOccCustomerDetails,
+        "UpdateOccCustomerDetails",
+        model.UpdateOccCustomerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOccCustomerResponse>{},
+        body: await response.json(),
+        bodyKey: "occCustomer",
+        bodyModel: model.OccCustomer,
+        type: "model.OccCustomer",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * The request to update the customer group.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateOccCustomerGroupRequest
+   * @return UpdateOccCustomerGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccCustomerGroup.ts.html |here} to see how to use UpdateOccCustomerGroup API.
+   */
+  public async updateOccCustomerGroup(
+    updateOccCustomerGroupRequest: requests.UpdateOccCustomerGroupRequest
+  ): Promise<responses.UpdateOccCustomerGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CapacityManagementClient#updateOccCustomerGroup.");
+    const operationName = "updateOccCustomerGroup";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occCustomerGroupId}": updateOccCustomerGroupRequest.occCustomerGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOccCustomerGroupRequest.ifMatch,
+      "opc-request-id": updateOccCustomerGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOccCustomerGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occCustomerGroups/{occCustomerGroupId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOccCustomerGroupRequest.updateOccCustomerGroupDetails,
+        "UpdateOccCustomerGroupDetails",
+        model.UpdateOccCustomerGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOccCustomerGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "occCustomerGroup",
+        bodyModel: model.OccCustomerGroup,
+        type: "model.OccCustomerGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

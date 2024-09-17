@@ -29,7 +29,7 @@ export interface ListInternalNamespaceOccOverviewsRequest extends common.BaseReq
   /**
    * The customer group ocid by which we would filter the list.
    */
-  "occCustomerGroupId"?: string;
+  "occCustomerGroupId": string;
   /**
    * Workload type using the resources in an availability catalog can be filtered.
    */

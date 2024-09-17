@@ -98,6 +98,12 @@ export interface AccessRequest {
    *
    */
   "requestorLocation": string;
+  /**
+   * The ticket number raised by external customers
+   * Example: {@code 3-37509643121}
+   *
+   */
+  "ticketNumber"?: string;
 }
 
 export namespace AccessRequest {

@@ -1,6 +1,6 @@
 {
   "name": "oci-apmconfig",
-  "version": "2.93.0",
+  "version": "2.94.0",
   "description": "OCI NodeJS client for Apm Config Service",
   "repository": {
     "type": "git",

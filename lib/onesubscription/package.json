@@ -1,6 +1,6 @@
 {
   "name": "oci-onesubscription",
-  "version": "2.93.0",
+  "version": "2.94.0",
   "description": "OCI NodeJS client for Onesubscription Service",
   "repository": {
     "type": "git",

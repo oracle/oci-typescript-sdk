@@ -23,6 +23,10 @@ export interface ListOccAvailabilityCatalogsInternalRequest extends common.BaseR
    */
   "compartmentId": string;
   /**
+   * The customer group ocid by which we would filter the list.
+   */
+  "occCustomerGroupId": string;
+  /**
    * The namespace by which we would filter the list.
    */
   "namespace"?: model.Namespace;
@@ -38,10 +42,6 @@ export interface ListOccAvailabilityCatalogsInternalRequest extends common.BaseR
    * Filter the list of availability catalogs based on the catalog state.
    */
   "catalogState"?: string;
-  /**
-   * The customer group ocid by which we would filter the list.
-   */
-  "occCustomerGroupId"?: string;
   /**
    * The maximum number of items to return.
    */

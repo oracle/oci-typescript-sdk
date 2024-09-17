@@ -44,6 +44,12 @@ export interface CreateAccessRequestDetails {
    * The maximum amount of time operator has access to associated resources.
    */
   "accessDuration": string;
+  /**
+   * The ticket number raised by external customers
+   * Example: {@code 3-37509643121}
+   *
+   */
+  "ticketNumber"?: string;
 }
 
 export namespace CreateAccessRequestDetails {
