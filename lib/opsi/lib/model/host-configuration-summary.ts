@@ -146,6 +146,11 @@ export namespace HostConfigurationSummary {
             <model.PeComanagedHostConfigurationSummary>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_DB_HOST":
+          return model.MacsManagedCloudDbHostConfigurationSummary.getJsonObj(
+            <model.MacsManagedCloudDbHostConfigurationSummary>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_HOST":
           return model.EmManagedExternalHostConfigurationSummary.getJsonObj(
             <model.EmManagedExternalHostConfigurationSummary>(<object>jsonObj),
@@ -175,6 +180,11 @@ export namespace HostConfigurationSummary {
         case "PE_COMANAGED_HOST":
           return model.PeComanagedHostConfigurationSummary.getDeserializedJsonObj(
             <model.PeComanagedHostConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_DB_HOST":
+          return model.MacsManagedCloudDbHostConfigurationSummary.getDeserializedJsonObj(
+            <model.MacsManagedCloudDbHostConfigurationSummary>(<object>jsonObj),
             true
           );
         case "EM_MANAGED_EXTERNAL_HOST":

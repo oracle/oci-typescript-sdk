@@ -227,3 +227,5 @@ export import resourcescheduler = require("oci-resourcescheduler");
 export import demandsignal = require("oci-demandsignal");
 export import fleetappsmanagement = require("oci-fleetappsmanagement");
 export import delegateaccesscontrol = require("oci-delegateaccesscontrol");
+export import generativeaiagent = require("oci-generativeaiagent");
+export import generativeaiagentruntime = require("oci-generativeaiagentruntime");

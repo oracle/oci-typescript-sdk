@@ -690,6 +690,10 @@ import * as SaasAdminUserStatusResponse from "./saas-admin-user-status-response"
 export import SaasAdminUserStatusResponse = SaasAdminUserStatusResponse.SaasAdminUserStatusResponse;
 import * as ScanExternalContainerDatabasePluggableDatabasesResponse from "./scan-external-container-database-pluggable-databases-response";
 export import ScanExternalContainerDatabasePluggableDatabasesResponse = ScanExternalContainerDatabasePluggableDatabasesResponse.ScanExternalContainerDatabasePluggableDatabasesResponse;
+import * as SetDbKeyVersionResponse from "./set-db-key-version-response";
+export import SetDbKeyVersionResponse = SetDbKeyVersionResponse.SetDbKeyVersionResponse;
+import * as SetPdbKeyVersionResponse from "./set-pdb-key-version-response";
+export import SetPdbKeyVersionResponse = SetPdbKeyVersionResponse.SetPdbKeyVersionResponse;
 import * as ShrinkAutonomousDatabaseResponse from "./shrink-autonomous-database-response";
 export import ShrinkAutonomousDatabaseResponse = ShrinkAutonomousDatabaseResponse.ShrinkAutonomousDatabaseResponse;
 import * as StartAutonomousDatabaseResponse from "./start-autonomous-database-response";

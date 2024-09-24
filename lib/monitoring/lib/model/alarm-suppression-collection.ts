@@ -19,12 +19,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of property summaries for dimension-specific alarm suppressions.
+ * Collection of property summaries for alarm suppressions.
  *
  */
 export interface AlarmSuppressionCollection {
   /**
-   * List of property summaries for dimension-specific alarm suppressions.
+   * List of property summaries for alarm suppressions.
    *
    */
   "items": Array<model.AlarmSuppressionSummary>;

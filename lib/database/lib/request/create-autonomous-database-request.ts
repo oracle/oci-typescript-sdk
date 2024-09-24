@@ -22,6 +22,7 @@ export interface CreateAutonomousDatabaseRequest extends common.BaseRequest {
    * Request to create a new Autonomous Database.
    */
   "createAutonomousDatabaseDetails":
+    | model.UndeleteAutonomousDatabaseDetails
     | model.CreateAutonomousDatabaseCloneDetails
     | model.CreateRefreshableAutonomousDatabaseCloneDetails
     | model.CreateAutonomousDatabaseFromBackupDetails

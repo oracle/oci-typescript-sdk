@@ -63,6 +63,10 @@ export interface RefreshActivity {
    */
   "timeUpdated"?: Date;
   /**
+   * Represents if the customer opted for Data Masking or not during refreshActivity.
+   */
+  "isDataMaskingOpted"?: boolean;
+  /**
    * Details of refresh investigation information, each item represents a different issue.
    */
   "refreshIssueDetailsList"?: Array<model.RefreshIssueDetails>;

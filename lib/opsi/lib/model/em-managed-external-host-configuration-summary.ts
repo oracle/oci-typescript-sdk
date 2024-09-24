@@ -30,6 +30,22 @@ export interface EmManagedExternalHostConfigurationSummary extends model.HostCon
    */
   "enterpriseManagerBridgeId": string;
   "exadataDetails": model.ExadataDetails;
+  /**
+   * Enterprise Manager Entity Unique Identifier
+   */
+  "enterpriseManagerEntityIdentifier": string;
+  /**
+   * Enterprise Manager Console Url
+   */
+  "enterpriseManagerConsoleUrl": string;
+  /**
+   * Enterprise Manager OMS Version
+   */
+  "enterpriseManagerOmsVer": string;
+  /**
+   * Enterprise Manager Entity Type
+   */
+  "enterpriseManagerEntityType": string;
 
   "entitySource": string;
 }

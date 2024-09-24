@@ -19,12 +19,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for an alarm-wide suppression.
- * For dimension-specific suppressions, see {@link AlarmSuppression}.
- * For information about alarms, see
- * [Alarms Overview](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#AlarmsOverview).
- *
- */
+* The configuration details for an alarm-wide suppression.
+* For dimension-specific suppressions, see {@link AlarmSuppression}.
+* <p>
+For information about alarms, see
+* [Alarms Overview](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#AlarmsOverview).
+* 
+*/
 export interface Suppression {
   /**
     * Human-readable reason for suppressing alarm notifications.

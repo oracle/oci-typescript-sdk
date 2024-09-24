@@ -28,6 +28,8 @@ import * as ChangeExadataInsightCompartmentRequest from "./change-exadata-insigh
 export import ChangeExadataInsightCompartmentRequest = ChangeExadataInsightCompartmentRequest.ChangeExadataInsightCompartmentRequest;
 import * as ChangeHostInsightCompartmentRequest from "./change-host-insight-compartment-request";
 export import ChangeHostInsightCompartmentRequest = ChangeHostInsightCompartmentRequest.ChangeHostInsightCompartmentRequest;
+import * as ChangeMacsManagedCloudDatabaseInsightConnectionRequest from "./change-macs-managed-cloud-database-insight-connection-request";
+export import ChangeMacsManagedCloudDatabaseInsightConnectionRequest = ChangeMacsManagedCloudDatabaseInsightConnectionRequest.ChangeMacsManagedCloudDatabaseInsightConnectionRequest;
 import * as ChangeNewsReportCompartmentRequest from "./change-news-report-compartment-request";
 export import ChangeNewsReportCompartmentRequest = ChangeNewsReportCompartmentRequest.ChangeNewsReportCompartmentRequest;
 import * as ChangeOperationsInsightsPrivateEndpointCompartmentRequest from "./change-operations-insights-private-endpoint-compartment-request";
@@ -346,6 +348,8 @@ import * as SummarizeSqlStatisticsTimeSeriesRequest from "./summarize-sql-statis
 export import SummarizeSqlStatisticsTimeSeriesRequest = SummarizeSqlStatisticsTimeSeriesRequest.SummarizeSqlStatisticsTimeSeriesRequest;
 import * as SummarizeSqlStatisticsTimeSeriesByPlanRequest from "./summarize-sql-statistics-time-series-by-plan-request";
 export import SummarizeSqlStatisticsTimeSeriesByPlanRequest = SummarizeSqlStatisticsTimeSeriesByPlanRequest.SummarizeSqlStatisticsTimeSeriesByPlanRequest;
+import * as TestMacsManagedCloudDatabaseInsightConnectionRequest from "./test-macs-managed-cloud-database-insight-connection-request";
+export import TestMacsManagedCloudDatabaseInsightConnectionRequest = TestMacsManagedCloudDatabaseInsightConnectionRequest.TestMacsManagedCloudDatabaseInsightConnectionRequest;
 import * as UpdateAwrHubRequest from "./update-awr-hub-request";
 export import UpdateAwrHubRequest = UpdateAwrHubRequest.UpdateAwrHubRequest;
 import * as UpdateAwrHubSourceRequest from "./update-awr-hub-source-request";

@@ -95,6 +95,11 @@ export namespace DatabaseConfigurationSummary {
             <model.PeComanagedManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.MacsManagedCloudDatabaseConfigurationSummary.getJsonObj(
+            <model.MacsManagedCloudDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
         case "MDS_MYSQL_DATABASE_SYSTEM":
           return model.MdsMysqlDatabaseConfigurationSummary.getJsonObj(
             <model.MdsMysqlDatabaseConfigurationSummary>(<object>jsonObj),
@@ -129,6 +134,11 @@ export namespace DatabaseConfigurationSummary {
         case "PE_COMANAGED_DATABASE":
           return model.PeComanagedManagedExternalDatabaseConfigurationSummary.getDeserializedJsonObj(
             <model.PeComanagedManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.MacsManagedCloudDatabaseConfigurationSummary.getDeserializedJsonObj(
+            <model.MacsManagedCloudDatabaseConfigurationSummary>(<object>jsonObj),
             true
           );
         case "MDS_MYSQL_DATABASE_SYSTEM":

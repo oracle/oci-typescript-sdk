@@ -19,18 +19,18 @@ import common = require("oci-common");
  */
 export interface ListAlarmSuppressionsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the alarm that is the target of the alarm suppression.
-   */
-  "alarmId": string;
-  /**
    * Customer part of the request identifier token. If you need to contact Oracle about a particular
    * request, please provide the complete request ID.
    *
    */
   "opcRequestId"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the alarm that is the target of the alarm suppression.
+   */
+  "alarmId"?: string;
+  /**
    * A filter to return only resources that match the given display name exactly.
-   * Use this filter to list a alarm suppression by name.
+   * Use this filter to list an alarm suppression by name.
    * Alternatively, when you know the alarm suppression OCID, use the GetAlarmSuppression operation.
    *
    */
@@ -40,6 +40,51 @@ export interface ListAlarmSuppressionsRequest extends common.BaseRequest {
    *
    */
   "lifecycleState"?: string;
+  /**
+   * The level of this alarm suppression.
+   * {@code ALARM} indicates a suppression of the entire alarm, regardless of dimension.
+   * {@code DIMENSION} indicates a suppression configured for specified dimensions.
+   *
+   */
+  "level"?: string;
+  /**
+ * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment for searching. 
+* Use the tenancy OCID to search in the root compartment.
+* <p>
+If targetType is not specified, searches all suppressions defined under the compartment. 
+* If targetType is {@code COMPARTMENT}, searches suppressions in the specified compartment only.
+* <p>
+Example: {@code ocid1.compartment.oc1..exampleuniqueID}
+* 
+ */
+  "compartmentId"?: string;
+  /**
+   * When true, returns resources from all compartments and subcompartments. The parameter can
+   * only be set to true when compartmentId is the tenancy OCID (the tenancy is the root compartment).
+   * A true value requires the user to have tenancy-level permissions. If this requirement is not met,
+   * then the call is rejected. When false, returns resources from only the compartment specified in
+   * compartmentId. Default is false.
+   *
+   */
+  "compartmentIdInSubtree"?: boolean;
+  /**
+   * The target type to use when listing alarm suppressions.
+   * {@code ALARM} lists all suppression records for the specified alarm.
+   * {@code COMPARTMENT} lists all suppression records for the specified compartment or tenancy.
+   *
+   */
+  "targetType"?: ListAlarmSuppressionsRequest.TargetType;
+  /**
+ * Setting this parameter to true requires the query to specify the alarm ({@code alarmId}).
+* <p>
+When true, lists all alarm suppressions that affect the specified alarm,
+* including suppressions that target the corresponding compartment or tenancy.
+* When false, lists only the alarm suppressions that target the specified alarm.
+* <p>
+Default is false.
+* 
+ */
+  "isAllSuppressions"?: boolean;
   /**
  * The field to use when sorting returned alarm suppressions. Only one sorting level is provided.
 * <p>
@@ -75,6 +120,11 @@ Example: 500
 }
 
 export namespace ListAlarmSuppressionsRequest {
+  export enum TargetType {
+    Alarm = "ALARM",
+    Compartment = "COMPARTMENT"
+  }
+
   export enum SortBy {
     DisplayName = "displayName",
     TimeCreated = "timeCreated",

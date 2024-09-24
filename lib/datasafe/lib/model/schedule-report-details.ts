@@ -56,7 +56,8 @@ Allowed version strings - \"v1\"
 export namespace ScheduleReportDetails {
   export enum MimeType {
     Pdf = "PDF",
-    Xls = "XLS"
+    Xls = "XLS",
+    Json = "JSON"
   }
 
   export function getJsonObj(obj: ScheduleReportDetails): object {

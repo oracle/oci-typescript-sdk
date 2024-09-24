@@ -26,6 +26,7 @@ export interface UpdateHostInsightRequest extends common.BaseRequest {
    * The configuration to be updated.
    */
   "updateHostInsightDetails":
+    | model.UpdateMacsManagedCloudDatabaseHostInsightDetails
     | model.UpdateEmManagedExternalHostInsightDetails
     | model.UpdateMacsManagedExternalHostInsightDetails
     | model.UpdateMacsManagedCloudHostInsightDetails

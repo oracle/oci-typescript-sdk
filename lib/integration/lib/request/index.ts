@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddOracleManagedCustomEndpointRequest from "./add-oracle-managed-custom-endpoint-request";
+export import AddOracleManagedCustomEndpointRequest = AddOracleManagedCustomEndpointRequest.AddOracleManagedCustomEndpointRequest;
 import * as ChangeIntegrationInstanceCompartmentRequest from "./change-integration-instance-compartment-request";
 export import ChangeIntegrationInstanceCompartmentRequest = ChangeIntegrationInstanceCompartmentRequest.ChangeIntegrationInstanceCompartmentRequest;
 import * as ChangeIntegrationInstanceNetworkEndpointRequest from "./change-integration-instance-network-endpoint-request";
@@ -37,6 +39,8 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as RemoveOracleManagedCustomEndpointRequest from "./remove-oracle-managed-custom-endpoint-request";
+export import RemoveOracleManagedCustomEndpointRequest = RemoveOracleManagedCustomEndpointRequest.RemoveOracleManagedCustomEndpointRequest;
 import * as StartIntegrationInstanceRequest from "./start-integration-instance-request";
 export import StartIntegrationInstanceRequest = StartIntegrationInstanceRequest.StartIntegrationInstanceRequest;
 import * as StopIntegrationInstanceRequest from "./stop-integration-instance-request";

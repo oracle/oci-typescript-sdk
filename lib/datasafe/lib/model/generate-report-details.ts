@@ -57,7 +57,8 @@ export interface GenerateReportDetails {
 export namespace GenerateReportDetails {
   export enum MimeType {
     Pdf = "PDF",
-    Xls = "XLS"
+    Xls = "XLS",
+    Json = "JSON"
   }
 
   export function getJsonObj(obj: GenerateReportDetails): object {

@@ -63,6 +63,10 @@ export interface RefreshActivitySummary {
    */
   "timeUpdated"?: Date;
   /**
+   * Represents if the customer opted for Data Masking or not during refreshActivity.
+   */
+  "isDataMaskingOpted"?: boolean;
+  /**
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;

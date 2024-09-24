@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddOracleManagedCustomEndpointResponse from "./add-oracle-managed-custom-endpoint-response";
+export import AddOracleManagedCustomEndpointResponse = AddOracleManagedCustomEndpointResponse.AddOracleManagedCustomEndpointResponse;
 import * as ChangeIntegrationInstanceCompartmentResponse from "./change-integration-instance-compartment-response";
 export import ChangeIntegrationInstanceCompartmentResponse = ChangeIntegrationInstanceCompartmentResponse.ChangeIntegrationInstanceCompartmentResponse;
 import * as ChangeIntegrationInstanceNetworkEndpointResponse from "./change-integration-instance-network-endpoint-response";
@@ -37,6 +39,8 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RemoveOracleManagedCustomEndpointResponse from "./remove-oracle-managed-custom-endpoint-response";
+export import RemoveOracleManagedCustomEndpointResponse = RemoveOracleManagedCustomEndpointResponse.RemoveOracleManagedCustomEndpointResponse;
 import * as StartIntegrationInstanceResponse from "./start-integration-instance-response";
 export import StartIntegrationInstanceResponse = StartIntegrationInstanceResponse.StartIntegrationInstanceResponse;
 import * as StopIntegrationInstanceResponse from "./stop-integration-instance-response";

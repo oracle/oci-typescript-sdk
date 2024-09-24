@@ -93,6 +93,11 @@ export namespace ExadataInsightSummary {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.MacsManagedCloudExadataInsightSummary.getJsonObj(
+            <model.MacsManagedCloudExadataInsightSummary>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.EmManagedExternalExadataInsightSummary.getJsonObj(
             <model.EmManagedExternalExadataInsightSummary>(<object>jsonObj),
@@ -114,6 +119,11 @@ export namespace ExadataInsightSummary {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.MacsManagedCloudExadataInsightSummary.getDeserializedJsonObj(
+            <model.MacsManagedCloudExadataInsightSummary>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.EmManagedExternalExadataInsightSummary.getDeserializedJsonObj(
             <model.EmManagedExternalExadataInsightSummary>(<object>jsonObj),

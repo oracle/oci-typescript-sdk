@@ -791,6 +791,89 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Change the connection details of a Cloud MACS-managed database insight. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeMacsManagedCloudDatabaseInsightConnectionRequest
+   * @return ChangeMacsManagedCloudDatabaseInsightConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeMacsManagedCloudDatabaseInsightConnection.ts.html |here} to see how to use ChangeMacsManagedCloudDatabaseInsightConnection API.
+   */
+  public async changeMacsManagedCloudDatabaseInsightConnection(
+    changeMacsManagedCloudDatabaseInsightConnectionRequest: requests.ChangeMacsManagedCloudDatabaseInsightConnectionRequest
+  ): Promise<responses.ChangeMacsManagedCloudDatabaseInsightConnectionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeMacsManagedCloudDatabaseInsightConnection."
+      );
+    const operationName = "changeMacsManagedCloudDatabaseInsightConnection";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseInsightId}":
+        changeMacsManagedCloudDatabaseInsightConnectionRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMacsManagedCloudDatabaseInsightConnectionRequest.ifMatch,
+      "opc-request-id": changeMacsManagedCloudDatabaseInsightConnectionRequest.opcRequestId,
+      "opc-retry-token": changeMacsManagedCloudDatabaseInsightConnectionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMacsManagedCloudDatabaseInsightConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/databaseInsights/{databaseInsightId}/actions/changeMacsManagedCloudDatabaseInsightConnectionDetails",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMacsManagedCloudDatabaseInsightConnectionRequest.changeMacsManagedCloudDatabaseInsightConnectionDetails,
+        "ChangeMacsManagedCloudDatabaseInsightConnectionDetails",
+        model.ChangeMacsManagedCloudDatabaseInsightConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMacsManagedCloudDatabaseInsightConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a news report resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeNewsReportCompartmentRequest
@@ -7829,7 +7912,8 @@ export class OperationsInsightsClient {
       "definedTagEquals": listExadataConfigurationsRequest.definedTagEquals,
       "freeformTagEquals": listExadataConfigurationsRequest.freeformTagEquals,
       "definedTagExists": listExadataConfigurationsRequest.definedTagExists,
-      "freeformTagExists": listExadataConfigurationsRequest.freeformTagExists
+      "freeformTagExists": listExadataConfigurationsRequest.freeformTagExists,
+      "compartmentIdInSubtree": listExadataConfigurationsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -12476,7 +12560,9 @@ Note that this API does not return information on the number of times each datab
       "definedTagExists":
         summarizeExadataInsightResourceCapacityTrendAggregatedRequest.definedTagExists,
       "freeformTagExists":
-        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.freeformTagExists
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeExadataInsightResourceCapacityTrendAggregatedRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -12696,7 +12782,9 @@ Note that this API does not return information on the number of times each datab
       "definedTagExists":
         summarizeExadataInsightResourceForecastTrendAggregatedRequest.definedTagExists,
       "freeformTagExists":
-        summarizeExadataInsightResourceForecastTrendAggregatedRequest.freeformTagExists
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeExadataInsightResourceForecastTrendAggregatedRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -12901,7 +12989,8 @@ Note that this API does not return information on the number of times each datab
       "definedTagEquals": summarizeExadataInsightResourceUsageRequest.definedTagEquals,
       "freeformTagEquals": summarizeExadataInsightResourceUsageRequest.freeformTagEquals,
       "definedTagExists": summarizeExadataInsightResourceUsageRequest.definedTagExists,
-      "freeformTagExists": summarizeExadataInsightResourceUsageRequest.freeformTagExists
+      "freeformTagExists": summarizeExadataInsightResourceUsageRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeExadataInsightResourceUsageRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -13001,7 +13090,9 @@ Note that this API does not return information on the number of times each datab
       "definedTagEquals": summarizeExadataInsightResourceUsageAggregatedRequest.definedTagEquals,
       "freeformTagEquals": summarizeExadataInsightResourceUsageAggregatedRequest.freeformTagEquals,
       "definedTagExists": summarizeExadataInsightResourceUsageAggregatedRequest.definedTagExists,
-      "freeformTagExists": summarizeExadataInsightResourceUsageAggregatedRequest.freeformTagExists
+      "freeformTagExists": summarizeExadataInsightResourceUsageAggregatedRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeExadataInsightResourceUsageAggregatedRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -13100,7 +13191,9 @@ Note that this API does not return information on the number of times each datab
         summarizeExadataInsightResourceUtilizationInsightRequest.freeformTagEquals,
       "definedTagExists": summarizeExadataInsightResourceUtilizationInsightRequest.definedTagExists,
       "freeformTagExists":
-        summarizeExadataInsightResourceUtilizationInsightRequest.freeformTagExists
+        summarizeExadataInsightResourceUtilizationInsightRequest.freeformTagExists,
+      "compartmentIdInSubtree":
+        summarizeExadataInsightResourceUtilizationInsightRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -15019,6 +15112,87 @@ Note that this API does not return information on the number of times each datab
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Test the connection details of a Cloud MACS-managed database.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param TestMacsManagedCloudDatabaseInsightConnectionRequest
+   * @return TestMacsManagedCloudDatabaseInsightConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/TestMacsManagedCloudDatabaseInsightConnection.ts.html |here} to see how to use TestMacsManagedCloudDatabaseInsightConnection API.
+   */
+  public async testMacsManagedCloudDatabaseInsightConnection(
+    testMacsManagedCloudDatabaseInsightConnectionRequest: requests.TestMacsManagedCloudDatabaseInsightConnectionRequest
+  ): Promise<responses.TestMacsManagedCloudDatabaseInsightConnectionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#testMacsManagedCloudDatabaseInsightConnection."
+      );
+    const operationName = "testMacsManagedCloudDatabaseInsightConnection";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "databaseId": testMacsManagedCloudDatabaseInsightConnectionRequest.databaseId,
+      "id": testMacsManagedCloudDatabaseInsightConnectionRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": testMacsManagedCloudDatabaseInsightConnectionRequest.opcRequestId,
+      "opc-retry-token": testMacsManagedCloudDatabaseInsightConnectionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testMacsManagedCloudDatabaseInsightConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/actions/testMacsManagedCloudDatabaseInsightConnectionDetails",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        testMacsManagedCloudDatabaseInsightConnectionRequest.testMacsManagedCloudDatabaseInsightConnectionDetails,
+        "TestMacsManagedCloudDatabaseInsightConnectionDetails",
+        model.TestMacsManagedCloudDatabaseInsightConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TestMacsManagedCloudDatabaseInsightConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

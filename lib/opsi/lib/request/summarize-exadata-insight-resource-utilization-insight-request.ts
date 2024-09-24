@@ -141,6 +141,11 @@ export interface SummarizeExadataInsightResourceUtilizationInsightRequest
    */
   "freeformTagExists"?: Array<string>;
   /**
+   * A flag to search all resources within a given compartment and all sub-compartments.
+   *
+   */
+  "compartmentIdInSubtree"?: boolean;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *

@@ -52,6 +52,11 @@ Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  /**
+   * Analytics instance update channel.
+   *
+   */
+  "updateChannel"?: model.UpdateChannel;
 }
 
 export namespace UpdateAnalyticsInstanceDetails {

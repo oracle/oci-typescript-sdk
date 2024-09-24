@@ -36,6 +36,11 @@ export namespace AlarmSuppressionTarget {
             <model.AlarmSuppressionAlarmTarget>(<object>jsonObj),
             true
           );
+        case "COMPARTMENT":
+          return model.AlarmSuppressionCompartmentTarget.getJsonObj(
+            <model.AlarmSuppressionCompartmentTarget>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.targetType}`);
       }
@@ -50,6 +55,11 @@ export namespace AlarmSuppressionTarget {
         case "ALARM":
           return model.AlarmSuppressionAlarmTarget.getDeserializedJsonObj(
             <model.AlarmSuppressionAlarmTarget>(<object>jsonObj),
+            true
+          );
+        case "COMPARTMENT":
+          return model.AlarmSuppressionCompartmentTarget.getDeserializedJsonObj(
+            <model.AlarmSuppressionCompartmentTarget>(<object>jsonObj),
             true
           );
         default:

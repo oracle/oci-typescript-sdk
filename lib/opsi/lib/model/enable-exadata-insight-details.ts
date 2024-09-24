@@ -30,6 +30,11 @@ export namespace EnableExadataInsightDetails {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.EnableMacsManagedCloudExadataInsightDetails.getJsonObj(
+            <model.EnableMacsManagedCloudExadataInsightDetails>(<object>jsonObj),
+            true
+          );
         case "PE_COMANAGED_EXADATA":
           return model.EnablePeComanagedExadataInsightDetails.getJsonObj(
             <model.EnablePeComanagedExadataInsightDetails>(<object>jsonObj),
@@ -51,6 +56,11 @@ export namespace EnableExadataInsightDetails {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.EnableMacsManagedCloudExadataInsightDetails.getDeserializedJsonObj(
+            <model.EnableMacsManagedCloudExadataInsightDetails>(<object>jsonObj),
+            true
+          );
         case "PE_COMANAGED_EXADATA":
           return model.EnablePeComanagedExadataInsightDetails.getDeserializedJsonObj(
             <model.EnablePeComanagedExadataInsightDetails>(<object>jsonObj),

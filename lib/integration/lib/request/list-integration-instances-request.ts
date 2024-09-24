@@ -66,8 +66,7 @@ export namespace ListIntegrationInstancesRequest {
     Inactive = "INACTIVE",
     Deleting = "DELETING",
     Deleted = "DELETED",
-    Failed = "FAILED",
-    Standby = "STANDBY"
+    Failed = "FAILED"
   }
 
   export enum SortOrder {

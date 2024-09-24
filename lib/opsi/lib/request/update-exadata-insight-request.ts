@@ -27,6 +27,7 @@ export interface UpdateExadataInsightRequest extends common.BaseRequest {
    */
   "updateExadataInsightDetails":
     | model.UpdatePeComanagedExadataInsightDetails
+    | model.UpdateMacsManagedCloudExadataInsightDetails
     | model.UpdateEmManagedExternalExadataInsightDetails;
   /**
    * Used for optimistic concurrency control. In the update or delete call for a resource, set the {@code if-match}

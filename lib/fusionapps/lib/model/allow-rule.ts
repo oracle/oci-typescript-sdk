@@ -24,7 +24,7 @@ import common = require("oci-common");
  * *  You can specify this rule only with the following {@code RuleCondition} combinations:
  * *  {@code SOURCE_IP_ADDRESS}
  * *  {@code SOURCE_VCN_ID}
- * *  {@code SOURCE_VCN_ID\", \"SOURCE_VCN_IP_ADDRESS}
+ * *  {@code SOURCE_VCN_ID}, {@code SOURCE_VCN_IP_ADDRESS}
  *
  */
 export interface AllowRule extends model.Rule {

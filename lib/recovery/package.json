@@ -1,6 +1,6 @@
 {
   "name": "oci-recovery",
-  "version": "2.94.0",
+  "version": "2.95.0",
   "description": "OCI NodeJS client for Recovery Service",
   "repository": {
     "type": "git",

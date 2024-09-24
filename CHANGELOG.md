@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.95.0 - 2024-09-24
+### Added 
+- Support for Generative AI Agent service 
+- Support for undeleting autonomous databases in the Database service 
+- Support for assigning key versions for the pluggable databases in the Database service 
+- Support for lifecycle states on list autonomous database operation in the Database service 
+- Support for data masking parameter on list refresh activity operation in the Fusion Application as a Service 
+- Support for configuring custom endpoints on an instance in the Integration Cloud service 
+- Support for updating channel schedules on instance create operation in the Analytics service 
+- Support for ExaCC via management agents in the Operations Insights service 
+- Support for appending and deleting allowed SQLs from SQL firewall policies in the Data Safe service 
+- Support for alarm suppressions with compartment targets and recurring schedules in the Monitoring service   
+
+### Breaking Changes 
+- The enum value `Standby` has been removed from the enum `LifecycleState` in the models `IntegrationInstance` and `IntegrationInstanceSummary` in the Integration Cloud service 
+- The enum value `Standby` has been removed from the enum `LifecycleState` in the request `ListIntegrationInstancesRequest` in the Integration Cloud service
+
 ## 2.94.0 - 2024-09-17
 ### Added 
 - Support for calling Oracle Cloud Infrastructure services in the eu-crissier-1 region 

@@ -23,7 +23,8 @@ export interface AddExadataInsightMembersRequest extends common.BaseRequest {
    */
   "addExadataInsightMembersDetails":
     | model.AddPeComanagedExadataInsightMembersDetails
-    | model.AddEmManagedExternalExadataInsightMembersDetails;
+    | model.AddEmManagedExternalExadataInsightMembersDetails
+    | model.AddMacsManagedCloudExadataInsightMembersDetails;
   /**
    * Unique Exadata insight identifier
    */

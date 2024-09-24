@@ -78,12 +78,13 @@ Example: {@code 2023-02-01T01:02:29.600Z}
    */
   "alarmSummary": string;
   /**
-   * The status of this alarm.
-   * Status is collective, across all metric streams in the alarm.
-   * To list alarm status for each metric stream, use {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
-   * Example: {@code FIRING}
-   *
-   */
+    * The status of this alarm.
+* Status is collective, across all metric streams in the alarm.
+* To list alarm status for each metric stream, use {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
+* <p>
+Example: {@code FIRING}
+* 
+    */
   "status": AlarmStatusSummary.Status;
   /**
    * The configuration details for suppressing an alarm.

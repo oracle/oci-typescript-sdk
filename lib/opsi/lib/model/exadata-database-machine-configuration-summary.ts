@@ -30,6 +30,22 @@ export interface ExadataDatabaseMachineConfigurationSummary
    * OPSI Enterprise Manager Bridge OCID
    */
   "enterpriseManagerBridgeId": string;
+  /**
+   * Enterprise Manager Entity Unique Identifier
+   */
+  "enterpriseManagerEntityIdentifier": string;
+  /**
+   * Enterprise Manager Console Url
+   */
+  "enterpriseManagerConsoleUrl": string;
+  /**
+   * Enterprise Manager OMS Version
+   */
+  "enterpriseManagerOmsVer": string;
+  /**
+   * Enterprise Manager Entity Type
+   */
+  "enterpriseManagerEntityType": string;
 
   "entitySource": string;
 }

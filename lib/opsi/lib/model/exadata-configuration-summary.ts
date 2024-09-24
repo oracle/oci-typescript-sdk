@@ -90,6 +90,11 @@ export namespace ExadataConfigurationSummary {
             <model.ExadataExacsConfigurationSummary>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.ExadataExaccConfigurationSummary.getJsonObj(
+            <model.ExadataExaccConfigurationSummary>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -118,6 +123,11 @@ export namespace ExadataConfigurationSummary {
         case "PE_COMANAGED_EXADATA":
           return model.ExadataExacsConfigurationSummary.getDeserializedJsonObj(
             <model.ExadataExacsConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.ExadataExaccConfigurationSummary.getDeserializedJsonObj(
+            <model.ExadataExaccConfigurationSummary>(<object>jsonObj),
             true
           );
         default:

@@ -22,6 +22,7 @@ export interface CreateDatabaseInsightRequest extends common.BaseRequest {
    * Details for the database for which a Database Insight resource will be created in Operations Insights.
    */
   "createDatabaseInsightDetails":
+    | model.CreateMacsManagedCloudDatabaseInsightDetails
     | model.CreateMdsMySqlDatabaseInsightDetails
     | model.CreateEmManagedExternalDatabaseInsightDetails
     | model.CreatePeComanagedDatabaseInsightDetails;

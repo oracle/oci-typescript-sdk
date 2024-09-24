@@ -40,6 +40,11 @@ export namespace AddExadataInsightMembersDetails {
             <model.AddEmManagedExternalExadataInsightMembersDetails>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.AddMacsManagedCloudExadataInsightMembersDetails.getJsonObj(
+            <model.AddMacsManagedCloudExadataInsightMembersDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -59,6 +64,11 @@ export namespace AddExadataInsightMembersDetails {
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.AddEmManagedExternalExadataInsightMembersDetails.getDeserializedJsonObj(
             <model.AddEmManagedExternalExadataInsightMembersDetails>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.AddMacsManagedCloudExadataInsightMembersDetails.getDeserializedJsonObj(
+            <model.AddMacsManagedCloudExadataInsightMembersDetails>(<object>jsonObj),
             true
           );
         default:

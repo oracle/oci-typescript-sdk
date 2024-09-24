@@ -108,6 +108,11 @@ export namespace DatabaseInsight {
             <model.PeComanagedDatabaseInsight>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.MacsManagedCloudDatabaseInsight.getJsonObj(
+            <model.MacsManagedCloudDatabaseInsight>(<object>jsonObj),
+            true
+          );
         case "AUTONOMOUS_DATABASE":
           return model.AutonomousDatabaseInsight.getJsonObj(
             <model.AutonomousDatabaseInsight>(<object>jsonObj),
@@ -142,6 +147,11 @@ export namespace DatabaseInsight {
         case "PE_COMANAGED_DATABASE":
           return model.PeComanagedDatabaseInsight.getDeserializedJsonObj(
             <model.PeComanagedDatabaseInsight>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.MacsManagedCloudDatabaseInsight.getDeserializedJsonObj(
+            <model.MacsManagedCloudDatabaseInsight>(<object>jsonObj),
             true
           );
         case "AUTONOMOUS_DATABASE":

@@ -48,6 +48,11 @@ export namespace UpdateExadataInsightDetails {
             <model.UpdatePeComanagedExadataInsightDetails>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.UpdateMacsManagedCloudExadataInsightDetails.getJsonObj(
+            <model.UpdateMacsManagedCloudExadataInsightDetails>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.UpdateEmManagedExternalExadataInsightDetails.getJsonObj(
             <model.UpdateEmManagedExternalExadataInsightDetails>(<object>jsonObj),
@@ -67,6 +72,11 @@ export namespace UpdateExadataInsightDetails {
         case "PE_COMANAGED_EXADATA":
           return model.UpdatePeComanagedExadataInsightDetails.getDeserializedJsonObj(
             <model.UpdatePeComanagedExadataInsightDetails>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.UpdateMacsManagedCloudExadataInsightDetails.getDeserializedJsonObj(
+            <model.UpdateMacsManagedCloudExadataInsightDetails>(<object>jsonObj),
             true
           );
         case "EM_MANAGED_EXTERNAL_EXADATA":

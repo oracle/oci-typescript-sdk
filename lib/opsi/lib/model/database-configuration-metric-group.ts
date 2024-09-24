@@ -50,11 +50,25 @@ export namespace DatabaseConfigurationMetricGroup {
           );
         case "DB_PARAMETERS":
           return model.DBParameters.getJsonObj(<model.DBParameters>(<object>jsonObj), true);
+        case "DB_CONNECTION_STATUS":
+          return model.DBConnectionStatus.getJsonObj(
+            <model.DBConnectionStatus>(<object>jsonObj),
+            true
+          );
+        case "HOST_RESOURCE_ALLOCATION":
+          return model.HostAllocation.getJsonObj(<model.HostAllocation>(<object>jsonObj), true);
+        case "EXADATA_CELL_CONFIG":
+          return model.ExadataCellConfig.getJsonObj(
+            <model.ExadataCellConfig>(<object>jsonObj),
+            true
+          );
         case "DB_EXTERNAL_PROPERTIES":
           return model.DBExternalProperties.getJsonObj(
             <model.DBExternalProperties>(<object>jsonObj),
             true
           );
+        case "ASM_ENTITY":
+          return model.ExadataAsmEntity.getJsonObj(<model.ExadataAsmEntity>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.metricName}`);
       }
@@ -81,9 +95,29 @@ export namespace DatabaseConfigurationMetricGroup {
             <model.DBParameters>(<object>jsonObj),
             true
           );
+        case "DB_CONNECTION_STATUS":
+          return model.DBConnectionStatus.getDeserializedJsonObj(
+            <model.DBConnectionStatus>(<object>jsonObj),
+            true
+          );
+        case "HOST_RESOURCE_ALLOCATION":
+          return model.HostAllocation.getDeserializedJsonObj(
+            <model.HostAllocation>(<object>jsonObj),
+            true
+          );
+        case "EXADATA_CELL_CONFIG":
+          return model.ExadataCellConfig.getDeserializedJsonObj(
+            <model.ExadataCellConfig>(<object>jsonObj),
+            true
+          );
         case "DB_EXTERNAL_PROPERTIES":
           return model.DBExternalProperties.getDeserializedJsonObj(
             <model.DBExternalProperties>(<object>jsonObj),
+            true
+          );
+        case "ASM_ENTITY":
+          return model.ExadataAsmEntity.getDeserializedJsonObj(
+            <model.ExadataAsmEntity>(<object>jsonObj),
             true
           );
         default:
