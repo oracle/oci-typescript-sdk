@@ -58,6 +58,10 @@ export interface ListReportsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListReportsRequest.SortBy;
   /**
+   * An optional filter to return only resources that match the specified mime type.
+   */
+  "mimeType"?: ListReportsRequest.MimeType;
+  /**
    * The ID of the report definition to filter the list of reports
    */
   "reportDefinitionId"?: string;
@@ -108,5 +112,11 @@ export namespace ListReportsRequest {
   export enum SortBy {
     TimeGenerated = "timeGenerated",
     DisplayName = "displayName"
+  }
+
+  export enum MimeType {
+    Pdf = "PDF",
+    Xls = "XLS",
+    Json = "JSON"
   }
 }

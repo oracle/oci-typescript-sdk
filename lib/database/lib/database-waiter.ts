@@ -5880,6 +5880,52 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forSetDbKeyVersion
+   *
+   * @param request the request to send
+   * @return response returns SetDbKeyVersionResponse, GetWorkRequestResponse tuple
+   */
+  public async forSetDbKeyVersion(
+    request: serviceRequests.SetDbKeyVersionRequest
+  ): Promise<{
+    response: serviceResponses.SetDbKeyVersionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const setDbKeyVersionResponse = await this.client.setDbKeyVersion(request);
+    if (setDbKeyVersionResponse.opcWorkRequestId === undefined)
+      return { response: setDbKeyVersionResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      setDbKeyVersionResponse.opcWorkRequestId
+    );
+    return { response: setDbKeyVersionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forSetPdbKeyVersion
+   *
+   * @param request the request to send
+   * @return response returns SetPdbKeyVersionResponse, GetWorkRequestResponse tuple
+   */
+  public async forSetPdbKeyVersion(
+    request: serviceRequests.SetPdbKeyVersionRequest
+  ): Promise<{
+    response: serviceResponses.SetPdbKeyVersionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const setPdbKeyVersionResponse = await this.client.setPdbKeyVersion(request);
+    if (setPdbKeyVersionResponse.opcWorkRequestId === undefined)
+      return { response: setPdbKeyVersionResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      setPdbKeyVersionResponse.opcWorkRequestId
+    );
+    return { response: setPdbKeyVersionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forShrinkAutonomousDatabase
    *
    * @param request the request to send

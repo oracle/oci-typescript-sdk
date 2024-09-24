@@ -107,6 +107,11 @@ export namespace ExadataInsight {
             <model.PeComanagedExadataInsight>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.MacsManagedCloudExadataInsight.getJsonObj(
+            <model.MacsManagedCloudExadataInsight>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -126,6 +131,11 @@ export namespace ExadataInsight {
         case "PE_COMANAGED_EXADATA":
           return model.PeComanagedExadataInsight.getDeserializedJsonObj(
             <model.PeComanagedExadataInsight>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_EXADATA":
+          return model.MacsManagedCloudExadataInsight.getDeserializedJsonObj(
+            <model.MacsManagedCloudExadataInsight>(<object>jsonObj),
             true
           );
         default:

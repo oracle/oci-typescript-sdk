@@ -82,6 +82,10 @@ export interface IntegrationInstance {
    */
   "instanceUrl": string;
   /**
+   * The Integration Instance Design Time URL
+   */
+  "instanceDesignTimeUrl"?: string;
+  /**
    * The number of configured message packs (if any) Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "messagePacks": number;
@@ -145,7 +149,6 @@ export namespace IntegrationInstance {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
-    Standby = "STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

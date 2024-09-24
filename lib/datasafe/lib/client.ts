@@ -632,6 +632,159 @@ export class DataSafeClient {
   }
 
   /**
+   * Appends the allowedSqls with entries from the logs.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkCreateSqlFirewallAllowedSqlsRequest
+   * @return BulkCreateSqlFirewallAllowedSqlsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/BulkCreateSqlFirewallAllowedSqls.ts.html |here} to see how to use BulkCreateSqlFirewallAllowedSqls API.
+   */
+  public async bulkCreateSqlFirewallAllowedSqls(
+    bulkCreateSqlFirewallAllowedSqlsRequest: requests.BulkCreateSqlFirewallAllowedSqlsRequest
+  ): Promise<responses.BulkCreateSqlFirewallAllowedSqlsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#bulkCreateSqlFirewallAllowedSqls.");
+    const operationName = "bulkCreateSqlFirewallAllowedSqls";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallAllowedSql/BulkCreateSqlFirewallAllowedSqls";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": bulkCreateSqlFirewallAllowedSqlsRequest.opcRequestId,
+      "opc-retry-token": bulkCreateSqlFirewallAllowedSqlsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkCreateSqlFirewallAllowedSqlsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallAllowedSqls/actions/bulkCreate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkCreateSqlFirewallAllowedSqlsRequest.bulkCreateSqlFirewallAllowedSqlsDetails,
+        "BulkCreateSqlFirewallAllowedSqlsDetails",
+        model.BulkCreateSqlFirewallAllowedSqlsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkCreateSqlFirewallAllowedSqlsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete multiple allowed sqls from the SQL firewall policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkDeleteSqlFirewallAllowedSqlsRequest
+   * @return BulkDeleteSqlFirewallAllowedSqlsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/BulkDeleteSqlFirewallAllowedSqls.ts.html |here} to see how to use BulkDeleteSqlFirewallAllowedSqls API.
+   */
+  public async bulkDeleteSqlFirewallAllowedSqls(
+    bulkDeleteSqlFirewallAllowedSqlsRequest: requests.BulkDeleteSqlFirewallAllowedSqlsRequest
+  ): Promise<responses.BulkDeleteSqlFirewallAllowedSqlsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#bulkDeleteSqlFirewallAllowedSqls.");
+    const operationName = "bulkDeleteSqlFirewallAllowedSqls";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallAllowedSql/BulkDeleteSqlFirewallAllowedSqls";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": bulkDeleteSqlFirewallAllowedSqlsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkDeleteSqlFirewallAllowedSqlsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallAllowedSqls/actions/bulkDelete",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkDeleteSqlFirewallAllowedSqlsRequest.bulkDeleteSqlFirewallAllowedSqlsDetails,
+        "BulkDeleteSqlFirewallAllowedSqlsDetails",
+        model.BulkDeleteSqlFirewallAllowedSqlsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkDeleteSqlFirewallAllowedSqlsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Calculates the volume of audit events available on the target database to be collected. Measurable up to the defined retention period of the audit target resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CalculateAuditVolumeAvailableRequest
@@ -6457,6 +6610,80 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+   * Deletes the specified allowed sql.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSqlFirewallAllowedSqlRequest
+   * @return DeleteSqlFirewallAllowedSqlResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSqlFirewallAllowedSql.ts.html |here} to see how to use DeleteSqlFirewallAllowedSql API.
+   */
+  public async deleteSqlFirewallAllowedSql(
+    deleteSqlFirewallAllowedSqlRequest: requests.DeleteSqlFirewallAllowedSqlRequest
+  ): Promise<responses.DeleteSqlFirewallAllowedSqlResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteSqlFirewallAllowedSql.");
+    const operationName = "deleteSqlFirewallAllowedSql";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallAllowedSql/DeleteSqlFirewallAllowedSql";
+    const pathParams = {
+      "{sqlFirewallAllowedSqlId}": deleteSqlFirewallAllowedSqlRequest.sqlFirewallAllowedSqlId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSqlFirewallAllowedSqlRequest.ifMatch,
+      "opc-request-id": deleteSqlFirewallAllowedSqlRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSqlFirewallAllowedSqlRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallAllowedSqls/{sqlFirewallAllowedSqlId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSqlFirewallAllowedSqlResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the SQL Firewall policy resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -11485,6 +11712,83 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   }
 
   /**
+   * Gets a SQL firewall allowed SQL by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSqlFirewallAllowedSqlRequest
+   * @return GetSqlFirewallAllowedSqlResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSqlFirewallAllowedSql.ts.html |here} to see how to use GetSqlFirewallAllowedSql API.
+   */
+  public async getSqlFirewallAllowedSql(
+    getSqlFirewallAllowedSqlRequest: requests.GetSqlFirewallAllowedSqlRequest
+  ): Promise<responses.GetSqlFirewallAllowedSqlResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSqlFirewallAllowedSql.");
+    const operationName = "getSqlFirewallAllowedSql";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallAllowedSql/GetSqlFirewallAllowedSql";
+    const pathParams = {
+      "{sqlFirewallAllowedSqlId}": getSqlFirewallAllowedSqlRequest.sqlFirewallAllowedSqlId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSqlFirewallAllowedSqlRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSqlFirewallAllowedSqlRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallAllowedSqls/{sqlFirewallAllowedSqlId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSqlFirewallAllowedSqlResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlFirewallAllowedSql",
+        bodyModel: model.SqlFirewallAllowedSql,
+        type: "model.SqlFirewallAllowedSql",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a SQL Firewall policy by identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSqlFirewallPolicyRequest
@@ -16474,6 +16778,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
       "page": listReportsRequest.page,
       "sortOrder": listReportsRequest.sortOrder,
       "sortBy": listReportsRequest.sortBy,
+      "mimeType": listReportsRequest.mimeType,
       "reportDefinitionId": listReportsRequest.reportDefinitionId,
       "timeGeneratedGreaterThanOrEqualTo": listReportsRequest.timeGeneratedGreaterThanOrEqualTo,
       "timeGeneratedLessThan": listReportsRequest.timeGeneratedLessThan,
@@ -21143,6 +21448,85 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchSensitiveColumnsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete multiple allowed sqls. You can use this operation to delete one or more allowed sqls.
+   * Create and update of multiple allowed sqls is not supported.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PatchSqlFirewallAllowedSqlRequest
+   * @return PatchSqlFirewallAllowedSqlResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchSqlFirewallAllowedSql.ts.html |here} to see how to use PatchSqlFirewallAllowedSql API.
+   */
+  public async patchSqlFirewallAllowedSql(
+    patchSqlFirewallAllowedSqlRequest: requests.PatchSqlFirewallAllowedSqlRequest
+  ): Promise<responses.PatchSqlFirewallAllowedSqlResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#patchSqlFirewallAllowedSql.");
+    const operationName = "patchSqlFirewallAllowedSql";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SqlFirewallAllowedSql/PatchSqlFirewallAllowedSql";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": patchSqlFirewallAllowedSqlRequest.opcRequestId,
+      "if-match": patchSqlFirewallAllowedSqlRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchSqlFirewallAllowedSqlRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlFirewallAllowedSqls",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchSqlFirewallAllowedSqlRequest.patchSqlFirewallAllowedSqlDetails,
+        "PatchSqlFirewallAllowedSqlDetails",
+        model.PatchSqlFirewallAllowedSqlDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchSqlFirewallAllowedSqlResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

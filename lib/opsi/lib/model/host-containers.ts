@@ -31,7 +31,7 @@ export interface HostContainers extends model.HostPerformanceMetricGroup {
    */
   "containerName"?: string;
   /**
-   * Container Image (may include tag version)
+   * Container Image
    */
   "containerImage"?: string;
   /**

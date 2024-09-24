@@ -47,6 +47,11 @@ export namespace CreateDatabaseInsightDetails {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.CreateMacsManagedCloudDatabaseInsightDetails.getJsonObj(
+            <model.CreateMacsManagedCloudDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         case "MDS_MYSQL_DATABASE_SYSTEM":
           return model.CreateMdsMySqlDatabaseInsightDetails.getJsonObj(
             <model.CreateMdsMySqlDatabaseInsightDetails>(<object>jsonObj),
@@ -73,6 +78,11 @@ export namespace CreateDatabaseInsightDetails {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.CreateMacsManagedCloudDatabaseInsightDetails.getDeserializedJsonObj(
+            <model.CreateMacsManagedCloudDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         case "MDS_MYSQL_DATABASE_SYSTEM":
           return model.CreateMdsMySqlDatabaseInsightDetails.getDeserializedJsonObj(
             <model.CreateMdsMySqlDatabaseInsightDetails>(<object>jsonObj),

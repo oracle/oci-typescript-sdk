@@ -75,8 +75,14 @@ import * as SummarizeMetricsDataDetails from "./summarize-metrics-data-details";
 export import SummarizeMetricsDataDetails = SummarizeMetricsDataDetails.SummarizeMetricsDataDetails;
 import * as Suppression from "./suppression";
 export import Suppression = Suppression.Suppression;
+import * as SuppressionCondition from "./suppression-condition";
+export import SuppressionCondition = SuppressionCondition.SuppressionCondition;
 import * as UpdateAlarmDetails from "./update-alarm-details";
 export import UpdateAlarmDetails = UpdateAlarmDetails.UpdateAlarmDetails;
 
 import * as AlarmSuppressionAlarmTarget from "./alarm-suppression-alarm-target";
 export import AlarmSuppressionAlarmTarget = AlarmSuppressionAlarmTarget.AlarmSuppressionAlarmTarget;
+import * as AlarmSuppressionCompartmentTarget from "./alarm-suppression-compartment-target";
+export import AlarmSuppressionCompartmentTarget = AlarmSuppressionCompartmentTarget.AlarmSuppressionCompartmentTarget;
+import * as Recurrence from "./recurrence";
+export import Recurrence = Recurrence.Recurrence;

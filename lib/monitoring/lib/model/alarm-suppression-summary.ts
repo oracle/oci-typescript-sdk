@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary of properties for the specified dimension-specific alarm suppression.
+ * A summary of properties for the specified alarm suppression.
  *
  */
 export interface AlarmSuppressionSummary {
@@ -31,7 +31,26 @@ export interface AlarmSuppressionSummary {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the alarm suppression.
    */
   "compartmentId": string;
-  "alarmSuppressionTarget": model.AlarmSuppressionAlarmTarget;
+  "alarmSuppressionTarget":
+    | model.AlarmSuppressionAlarmTarget
+    | model.AlarmSuppressionCompartmentTarget;
+  /**
+   * The level of this alarm suppression.
+   * {@code ALARM} indicates a suppression of the entire alarm, regardless of dimension.
+   * {@code DIMENSION} indicates a suppression configured for specified dimensions.
+   *
+   */
+  "level": string;
+  /**
+   * Array of all preconditions for alarm suppression.
+   * Example: {@code [{
+   *   conditionType: \"RECURRENCE\",
+   *   suppressionRecurrence: \"FRQ=DAILY;BYHOUR=10\",
+   *   suppressionDuration: \"PT1H\"
+   * }]}
+   *
+   */
+  "suppressionConditions"?: Array<model.SuppressionCondition>;
   /**
    * A user-friendly name for the alarm suppression. It does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
@@ -54,7 +73,7 @@ Example: {@code Planned outage due to change IT-1234.}
 Example: {@code {\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"}}
 * 
     */
-  "dimensions": { [key: string]: string };
+  "dimensions"?: { [key: string]: string };
   /**
     * The start date and time for the suppression to take place, inclusive. Format defined by RFC3339.
 * <p>
@@ -111,6 +130,12 @@ export namespace AlarmSuppressionSummary {
       ...{
         "alarmSuppressionTarget": obj.alarmSuppressionTarget
           ? model.AlarmSuppressionTarget.getJsonObj(obj.alarmSuppressionTarget)
+          : undefined,
+
+        "suppressionConditions": obj.suppressionConditions
+          ? obj.suppressionConditions.map(item => {
+              return model.SuppressionCondition.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -123,6 +148,12 @@ export namespace AlarmSuppressionSummary {
       ...{
         "alarmSuppressionTarget": obj.alarmSuppressionTarget
           ? model.AlarmSuppressionTarget.getDeserializedJsonObj(obj.alarmSuppressionTarget)
+          : undefined,
+
+        "suppressionConditions": obj.suppressionConditions
+          ? obj.suppressionConditions.map(item => {
+              return model.SuppressionCondition.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

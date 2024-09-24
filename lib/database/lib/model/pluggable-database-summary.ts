@@ -79,6 +79,15 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "pluggableDatabaseManagementConfig"?: model.PluggableDatabaseManagementConfig;
+  /**
+   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
+   */
+  "kmsKeyId"?: string;
+  /**
+   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation. Autonomous Database Serverless does not use key versions, hence is not applicable for Autonomous Database Serverless instances.
+   *
+   */
+  "kmsKeyVersionId"?: string;
   "refreshableCloneConfig"?: model.PluggableDatabaseRefreshableCloneConfig;
   /**
    * Pluggable Database Node Level Details.
@@ -135,6 +144,7 @@ export namespace PluggableDatabaseSummary {
               obj.pluggableDatabaseManagementConfig
             )
           : undefined,
+
         "refreshableCloneConfig": obj.refreshableCloneConfig
           ? model.PluggableDatabaseRefreshableCloneConfig.getJsonObj(obj.refreshableCloneConfig)
           : undefined,
@@ -161,6 +171,7 @@ export namespace PluggableDatabaseSummary {
               obj.pluggableDatabaseManagementConfig
             )
           : undefined,
+
         "refreshableCloneConfig": obj.refreshableCloneConfig
           ? model.PluggableDatabaseRefreshableCloneConfig.getDeserializedJsonObj(
               obj.refreshableCloneConfig

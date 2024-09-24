@@ -40,6 +40,11 @@ export namespace EnableDatabaseInsightDetails {
             <model.EnableMdsMySqlDatabaseInsightDetails>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.EnableMacsManagedCloudDatabaseInsightDetails.getJsonObj(
+            <model.EnableMacsManagedCloudDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         case "PE_COMANAGED_DATABASE":
           return model.EnablePeComanagedDatabaseInsightDetails.getJsonObj(
             <model.EnablePeComanagedDatabaseInsightDetails>(<object>jsonObj),
@@ -64,6 +69,11 @@ export namespace EnableDatabaseInsightDetails {
         case "MDS_MYSQL_DATABASE_SYSTEM":
           return model.EnableMdsMySqlDatabaseInsightDetails.getDeserializedJsonObj(
             <model.EnableMdsMySqlDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.EnableMacsManagedCloudDatabaseInsightDetails.getDeserializedJsonObj(
+            <model.EnableMacsManagedCloudDatabaseInsightDetails>(<object>jsonObj),
             true
           );
         case "PE_COMANAGED_DATABASE":

@@ -119,6 +119,11 @@ export namespace DatabaseInsightSummary {
             <model.AutonomousDatabaseInsightSummary>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.MacsManagedCloudDatabaseInsightSummary.getJsonObj(
+            <model.MacsManagedCloudDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
         case "MDS_MYSQL_DATABASE_SYSTEM":
           return model.MdsMySqlDatabaseInsightSummary.getJsonObj(
             <model.MdsMySqlDatabaseInsightSummary>(<object>jsonObj),
@@ -153,6 +158,11 @@ export namespace DatabaseInsightSummary {
         case "AUTONOMOUS_DATABASE":
           return model.AutonomousDatabaseInsightSummary.getDeserializedJsonObj(
             <model.AutonomousDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.MacsManagedCloudDatabaseInsightSummary.getDeserializedJsonObj(
+            <model.MacsManagedCloudDatabaseInsightSummary>(<object>jsonObj),
             true
           );
         case "MDS_MYSQL_DATABASE_SYSTEM":

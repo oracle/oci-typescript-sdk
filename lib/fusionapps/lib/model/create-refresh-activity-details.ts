@@ -24,6 +24,10 @@ export interface CreateRefreshActivityDetails {
    */
   "sourceFusionEnvironmentId": string;
   /**
+   * Represents if the customer opted for Data Masking or not during refreshActivity.
+   */
+  "isDataMaskingOpted"?: boolean;
+  /**
    * Current time the refresh activity is scheduled to start. An RFC3339 formatted datetime string.
    */
   "timeScheduledStart"?: Date;

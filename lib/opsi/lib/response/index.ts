@@ -28,6 +28,8 @@ import * as ChangeExadataInsightCompartmentResponse from "./change-exadata-insig
 export import ChangeExadataInsightCompartmentResponse = ChangeExadataInsightCompartmentResponse.ChangeExadataInsightCompartmentResponse;
 import * as ChangeHostInsightCompartmentResponse from "./change-host-insight-compartment-response";
 export import ChangeHostInsightCompartmentResponse = ChangeHostInsightCompartmentResponse.ChangeHostInsightCompartmentResponse;
+import * as ChangeMacsManagedCloudDatabaseInsightConnectionResponse from "./change-macs-managed-cloud-database-insight-connection-response";
+export import ChangeMacsManagedCloudDatabaseInsightConnectionResponse = ChangeMacsManagedCloudDatabaseInsightConnectionResponse.ChangeMacsManagedCloudDatabaseInsightConnectionResponse;
 import * as ChangeNewsReportCompartmentResponse from "./change-news-report-compartment-response";
 export import ChangeNewsReportCompartmentResponse = ChangeNewsReportCompartmentResponse.ChangeNewsReportCompartmentResponse;
 import * as ChangeOperationsInsightsPrivateEndpointCompartmentResponse from "./change-operations-insights-private-endpoint-compartment-response";
@@ -346,6 +348,8 @@ import * as SummarizeSqlStatisticsTimeSeriesResponse from "./summarize-sql-stati
 export import SummarizeSqlStatisticsTimeSeriesResponse = SummarizeSqlStatisticsTimeSeriesResponse.SummarizeSqlStatisticsTimeSeriesResponse;
 import * as SummarizeSqlStatisticsTimeSeriesByPlanResponse from "./summarize-sql-statistics-time-series-by-plan-response";
 export import SummarizeSqlStatisticsTimeSeriesByPlanResponse = SummarizeSqlStatisticsTimeSeriesByPlanResponse.SummarizeSqlStatisticsTimeSeriesByPlanResponse;
+import * as TestMacsManagedCloudDatabaseInsightConnectionResponse from "./test-macs-managed-cloud-database-insight-connection-response";
+export import TestMacsManagedCloudDatabaseInsightConnectionResponse = TestMacsManagedCloudDatabaseInsightConnectionResponse.TestMacsManagedCloudDatabaseInsightConnectionResponse;
 import * as UpdateAwrHubResponse from "./update-awr-hub-response";
 export import UpdateAwrHubResponse = UpdateAwrHubResponse.UpdateAwrHubResponse;
 import * as UpdateAwrHubSourceResponse from "./update-awr-hub-source-response";

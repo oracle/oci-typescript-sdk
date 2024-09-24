@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for a dimension-specific alarm suppression.
+ * The configuration details for an alarm suppression.
  *
  */
 export interface AlarmSuppression {
@@ -31,7 +31,26 @@ export interface AlarmSuppression {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the alarm suppression.
    */
   "compartmentId": string;
-  "alarmSuppressionTarget": model.AlarmSuppressionAlarmTarget;
+  "alarmSuppressionTarget":
+    | model.AlarmSuppressionAlarmTarget
+    | model.AlarmSuppressionCompartmentTarget;
+  /**
+   * The level of this alarm suppression.
+   * {@code ALARM} indicates a suppression of the entire alarm, regardless of dimension.
+   * {@code DIMENSION} indicates a suppression configured for specified dimensions.
+   *
+   */
+  "level": AlarmSuppression.Level;
+  /**
+   * Array of all preconditions for alarm suppression.
+   * Example: {@code [{
+   *   conditionType: \"RECURRENCE\",
+   *   suppressionRecurrence: \"FRQ=DAILY;BYHOUR=10\",
+   *   suppressionDuration: \"PT1H\"
+   * }]}
+   *
+   */
+  "suppressionConditions"?: Array<model.SuppressionCondition>;
   /**
    * A user-friendly name for the alarm suppression. It does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
@@ -54,7 +73,7 @@ Example: {@code Planned outage due to change IT-1234.}
 Example: {@code {\"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"}}
 * 
     */
-  "dimensions": { [key: string]: string };
+  "dimensions"?: { [key: string]: string };
   /**
     * The start date and time for the suppression to take place, inclusive. Format defined by RFC3339.
 * <p>
@@ -105,6 +124,16 @@ Example: {@code 2018-02-03T01:02:29.600Z}
 }
 
 export namespace AlarmSuppression {
+  export enum Level {
+    Alarm = "ALARM",
+    Dimension = "DIMENSION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum LifecycleState {
     Active = "ACTIVE",
     Deleted = "DELETED",
@@ -121,6 +150,12 @@ export namespace AlarmSuppression {
       ...{
         "alarmSuppressionTarget": obj.alarmSuppressionTarget
           ? model.AlarmSuppressionTarget.getJsonObj(obj.alarmSuppressionTarget)
+          : undefined,
+
+        "suppressionConditions": obj.suppressionConditions
+          ? obj.suppressionConditions.map(item => {
+              return model.SuppressionCondition.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -133,6 +168,12 @@ export namespace AlarmSuppression {
       ...{
         "alarmSuppressionTarget": obj.alarmSuppressionTarget
           ? model.AlarmSuppressionTarget.getDeserializedJsonObj(obj.alarmSuppressionTarget)
+          : undefined,
+
+        "suppressionConditions": obj.suppressionConditions
+          ? obj.suppressionConditions.map(item => {
+              return model.SuppressionCondition.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

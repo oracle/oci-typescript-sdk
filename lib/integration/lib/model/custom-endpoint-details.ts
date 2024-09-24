@@ -23,6 +23,18 @@ export interface CustomEndpointDetails {
    */
   "hostname": string;
   /**
+   * Indicates if custom endpoint is managed by oracle or customer.
+   */
+  "managedType"?: CustomEndpointDetails.ManagedType;
+  /**
+   * DNS Zone name
+   */
+  "dnsZoneName"?: string;
+  /**
+   * Type of DNS.
+   */
+  "dnsType"?: CustomEndpointDetails.DnsType;
+  /**
    * Optional OCID of a vault/secret containing a private SSL certificate bundle to be used for the custom hostname.
    *
    */
@@ -40,6 +52,25 @@ export interface CustomEndpointDetails {
 }
 
 export namespace CustomEndpointDetails {
+  export enum ManagedType {
+    OracleManaged = "ORACLE_MANAGED",
+    CustomerManaged = "CUSTOMER_MANAGED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DnsType {
+    Oci = "OCI",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: CustomEndpointDetails): object {
     const jsonObj = { ...obj, ...{} };
 

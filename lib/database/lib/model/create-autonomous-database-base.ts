@@ -423,6 +423,11 @@ export namespace CreateAutonomousDatabaseBase {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "UNDELETE_ADB":
+          return model.UndeleteAutonomousDatabaseDetails.getJsonObj(
+            <model.UndeleteAutonomousDatabaseDetails>(<object>jsonObj),
+            true
+          );
         case "DATABASE":
           return model.CreateAutonomousDatabaseCloneDetails.getJsonObj(
             <model.CreateAutonomousDatabaseCloneDetails>(<object>jsonObj),
@@ -499,6 +504,11 @@ export namespace CreateAutonomousDatabaseBase {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "UNDELETE_ADB":
+          return model.UndeleteAutonomousDatabaseDetails.getDeserializedJsonObj(
+            <model.UndeleteAutonomousDatabaseDetails>(<object>jsonObj),
+            true
+          );
         case "DATABASE":
           return model.CreateAutonomousDatabaseCloneDetails.getDeserializedJsonObj(
             <model.CreateAutonomousDatabaseCloneDetails>(<object>jsonObj),

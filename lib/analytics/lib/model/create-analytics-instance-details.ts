@@ -74,6 +74,11 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
+   * Analytics instance update channel.
+   *
+   */
+  "updateChannel"?: model.UpdateChannel;
+  /**
    * OCID of the OCI Vault Key encrypting the customer data stored in this Analytics instance. A null value indicates Oracle managed default encryption.
    *
    */

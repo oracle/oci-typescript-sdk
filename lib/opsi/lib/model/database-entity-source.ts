@@ -23,7 +23,8 @@ import common = require("oci-common");
 export enum DatabaseEntitySource {
   EmManagedExternalDatabase = "EM_MANAGED_EXTERNAL_DATABASE",
   PeComanagedDatabase = "PE_COMANAGED_DATABASE",
-  MdsMysqlDatabaseSystem = "MDS_MYSQL_DATABASE_SYSTEM"
+  MdsMysqlDatabaseSystem = "MDS_MYSQL_DATABASE_SYSTEM",
+  MacsManagedCloudDatabase = "MACS_MANAGED_CLOUD_DATABASE"
 }
 
 export namespace DatabaseEntitySource {

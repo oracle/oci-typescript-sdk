@@ -54,6 +54,10 @@ export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
+   * A filter to return only resources that not match the given lifecycle state.
+   */
+  "lifecycleStateNotEqualTo"?: string;
+  /**
    * A filter to return only autonomous database resources that match the specified workload type.
    */
   "dbWorkload"?: string;

@@ -102,6 +102,11 @@ export namespace HostInsightSummary {
             <model.MacsManagedExternalHostInsightSummary>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_DB_HOST":
+          return model.MacsManagedCloudDatabaseHostInsightSummary.getJsonObj(
+            <model.MacsManagedCloudDatabaseHostInsightSummary>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_HOST":
           return model.EmManagedExternalHostInsightSummary.getJsonObj(
             <model.EmManagedExternalHostInsightSummary>(<object>jsonObj),
@@ -131,6 +136,11 @@ export namespace HostInsightSummary {
         case "MACS_MANAGED_EXTERNAL_HOST":
           return model.MacsManagedExternalHostInsightSummary.getDeserializedJsonObj(
             <model.MacsManagedExternalHostInsightSummary>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_DB_HOST":
+          return model.MacsManagedCloudDatabaseHostInsightSummary.getDeserializedJsonObj(
+            <model.MacsManagedCloudDatabaseHostInsightSummary>(<object>jsonObj),
             true
           );
         case "EM_MANAGED_EXTERNAL_HOST":

@@ -68,6 +68,11 @@ export namespace UpdateDatabaseInsightDetails {
             <model.UpdateMdsMySqlDatabaseInsight>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.UpdateMacsManagedCloudDatabaseInsightDetails.getJsonObj(
+            <model.UpdateMacsManagedCloudDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -102,6 +107,11 @@ export namespace UpdateDatabaseInsightDetails {
         case "MDS_MYSQL_DATABASE_SYSTEM":
           return model.UpdateMdsMySqlDatabaseInsight.getDeserializedJsonObj(
             <model.UpdateMdsMySqlDatabaseInsight>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_DATABASE":
+          return model.UpdateMacsManagedCloudDatabaseInsightDetails.getDeserializedJsonObj(
+            <model.UpdateMacsManagedCloudDatabaseInsightDetails>(<object>jsonObj),
             true
           );
         default:

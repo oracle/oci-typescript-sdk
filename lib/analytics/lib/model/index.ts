@@ -62,6 +62,8 @@ import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as UpdateAnalyticsInstanceDetails from "./update-analytics-instance-details";
 export import UpdateAnalyticsInstanceDetails = UpdateAnalyticsInstanceDetails.UpdateAnalyticsInstanceDetails;
+import * as UpdateChannel from "./update-channel";
+export import UpdateChannel = UpdateChannel.UpdateChannel;
 import * as UpdatePrivateAccessChannelDetails from "./update-private-access-channel-details";
 export import UpdatePrivateAccessChannelDetails = UpdatePrivateAccessChannelDetails.UpdatePrivateAccessChannelDetails;
 import * as UpdateVanityUrlDetails from "./update-vanity-url-details";

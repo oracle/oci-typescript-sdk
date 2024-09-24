@@ -19,11 +19,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for creating a dimension-specific alarm suppression.
+ * The configuration details for creating an alarm suppression.
  *
  */
 export interface CreateAlarmSuppressionDetails {
-  "alarmSuppressionTarget": model.AlarmSuppressionAlarmTarget;
+  "alarmSuppressionTarget":
+    | model.AlarmSuppressionAlarmTarget
+    | model.AlarmSuppressionCompartmentTarget;
+  /**
+    * The level of this alarm suppression.
+* {@code ALARM} indicates a suppression of the entire alarm, regardless of dimension.
+* {@code DIMENSION} indicates a suppression configured for specified dimensions.
+* <p>
+Defaut: {@code DIMENSION}
+* 
+    */
+  "level"?: string;
   /**
    * A user-friendly name for the alarm suppression. It does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
@@ -46,13 +57,13 @@ Example: {@code Planned outage due to change IT-1234.}
 * and the alarm state entry corresponds to the set {\"availabilityDomain\": \"phx-ad-1\" and \"resourceId\": \"ocid1.instance.region1.phx.exampleuniqueID\"},
 * then this alarm will be included for suppression.
 * <p>
-The value cannot be an empty object.
+This is required only when the value of level is {@code DIMENSION}. If required, the value cannot be an empty object.
 * Only a single value is allowed per key. No grouping of multiple values is allowed under the same key.
 * Maximum characters (after serialization): 4000. This maximum satisfies typical use cases.
 * The response for an exceeded maximum is {@code HTTP 400} with an \"dimensions values are too long\" message.
 * 
     */
-  "dimensions": { [key: string]: string };
+  "dimensions"?: { [key: string]: string };
   /**
     * The start date and time for the suppression to take place, inclusive. Format defined by RFC3339.
 * <p>
@@ -79,6 +90,16 @@ Example: {@code 2023-02-01T02:02:29.600Z}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Array of all preconditions for alarm suppression.
+   * Example: {@code [{
+   *   conditionType: \"RECURRENCE\",
+   *   suppressionRecurrence: \"FRQ=DAILY;BYHOUR=10\",
+   *   suppressionDuration: \"PT1H\"
+   * }]}
+   *
+   */
+  "suppressionConditions"?: Array<model.SuppressionCondition>;
 }
 
 export namespace CreateAlarmSuppressionDetails {
@@ -88,6 +109,12 @@ export namespace CreateAlarmSuppressionDetails {
       ...{
         "alarmSuppressionTarget": obj.alarmSuppressionTarget
           ? model.AlarmSuppressionTarget.getJsonObj(obj.alarmSuppressionTarget)
+          : undefined,
+
+        "suppressionConditions": obj.suppressionConditions
+          ? obj.suppressionConditions.map(item => {
+              return model.SuppressionCondition.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -100,6 +127,12 @@ export namespace CreateAlarmSuppressionDetails {
       ...{
         "alarmSuppressionTarget": obj.alarmSuppressionTarget
           ? model.AlarmSuppressionTarget.getDeserializedJsonObj(obj.alarmSuppressionTarget)
+          : undefined,
+
+        "suppressionConditions": obj.suppressionConditions
+          ? obj.suppressionConditions.map(item => {
+              return model.SuppressionCondition.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

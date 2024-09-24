@@ -27,7 +27,9 @@ export interface AlarmSuppressionHistoryItem {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the alarm suppression.
    */
   "suppressionId": string;
-  "alarmSuppressionTarget": model.AlarmSuppressionAlarmTarget;
+  "alarmSuppressionTarget":
+    | model.AlarmSuppressionAlarmTarget
+    | model.AlarmSuppressionCompartmentTarget;
   /**
    * The level of this alarm suppression.
    * {@code ALARM} indicates a suppression of the entire alarm, regardless of dimension.
@@ -72,6 +74,16 @@ Example: {@code 2023-02-01T02:02:29.600Z}
 * 
     */
   "timeEffectiveUntil": Date;
+  /**
+   * Array of all preconditions for alarm suppression.
+   * Example: {@code [{
+   *   conditionType: \"RECURRENCE\",
+   *   suppressionRecurrence: \"FRQ=DAILY;BYHOUR=10\",
+   *   suppressionDuration: \"PT1H\"
+   * }]}
+   *
+   */
+  "suppressionConditions"?: Array<model.SuppressionCondition>;
 }
 
 export namespace AlarmSuppressionHistoryItem {
@@ -91,6 +103,12 @@ export namespace AlarmSuppressionHistoryItem {
       ...{
         "alarmSuppressionTarget": obj.alarmSuppressionTarget
           ? model.AlarmSuppressionTarget.getJsonObj(obj.alarmSuppressionTarget)
+          : undefined,
+
+        "suppressionConditions": obj.suppressionConditions
+          ? obj.suppressionConditions.map(item => {
+              return model.SuppressionCondition.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -103,6 +121,12 @@ export namespace AlarmSuppressionHistoryItem {
       ...{
         "alarmSuppressionTarget": obj.alarmSuppressionTarget
           ? model.AlarmSuppressionTarget.getDeserializedJsonObj(obj.alarmSuppressionTarget)
+          : undefined,
+
+        "suppressionConditions": obj.suppressionConditions
+          ? obj.suppressionConditions.map(item => {
+              return model.SuppressionCondition.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

@@ -201,6 +201,11 @@ For Autonomous Transaction Processing databases using ECPUs on Serverless Infras
    */
   "autonomousContainerDatabaseId"?: string;
   /**
+   * The date and time the Autonomous Database was most recently undeleted.
+   *
+   */
+  "timeUndeleted"?: Date;
+  /**
    * The date and time the Autonomous Database was created.
    */
   "timeCreated"?: Date;

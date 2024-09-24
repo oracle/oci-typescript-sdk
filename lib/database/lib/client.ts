@@ -19911,6 +19911,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "sortOrder": listAutonomousDatabasesRequest.sortOrder,
       "infrastructureType": listAutonomousDatabasesRequest.infrastructureType,
       "lifecycleState": listAutonomousDatabasesRequest.lifecycleState,
+      "lifecycleStateNotEqualTo": listAutonomousDatabasesRequest.lifecycleStateNotEqualTo,
       "dbWorkload": listAutonomousDatabasesRequest.dbWorkload,
       "dbVersion": listAutonomousDatabasesRequest.dbVersion,
       "isFreeTier": listAutonomousDatabasesRequest.isFreeTier,
@@ -31591,6 +31592,182 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       const sdkResponse = composeResponse({
         responseObject: <responses.ScanExternalContainerDatabasePluggableDatabasesResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Sets a new version of an existing [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SetDbKeyVersionRequest
+   * @return SetDbKeyVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SetDbKeyVersion.ts.html |here} to see how to use SetDbKeyVersion API.
+   */
+  public async setDbKeyVersion(
+    setDbKeyVersionRequest: requests.SetDbKeyVersionRequest
+  ): Promise<responses.SetDbKeyVersionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#setDbKeyVersion.");
+    const operationName = "setDbKeyVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/SetDbKeyVersion";
+    const pathParams = {
+      "{databaseId}": setDbKeyVersionRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": setDbKeyVersionRequest.ifMatch,
+      "opc-retry-token": setDbKeyVersionRequest.opcRetryToken,
+      "opc-request-id": setDbKeyVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setDbKeyVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/setKeyVersion",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        setDbKeyVersionRequest.setKeyVersionDetails,
+        "SetKeyVersionDetails",
+        model.SetKeyVersionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetDbKeyVersionResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Sets a new version of an existing [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SetPdbKeyVersionRequest
+   * @return SetPdbKeyVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SetPdbKeyVersion.ts.html |here} to see how to use SetPdbKeyVersion API.
+   */
+  public async setPdbKeyVersion(
+    setPdbKeyVersionRequest: requests.SetPdbKeyVersionRequest
+  ): Promise<responses.SetPdbKeyVersionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#setPdbKeyVersion.");
+    const operationName = "setPdbKeyVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/SetPdbKeyVersion";
+    const pathParams = {
+      "{pluggableDatabaseId}": setPdbKeyVersionRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": setPdbKeyVersionRequest.ifMatch,
+      "opc-retry-token": setPdbKeyVersionRequest.opcRetryToken,
+      "opc-request-id": setPdbKeyVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setPdbKeyVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/setKeyVersion",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        setPdbKeyVersionRequest.setKeyVersionDetails,
+        "SetKeyVersionDetails",
+        model.SetKeyVersionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetPdbKeyVersionResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",

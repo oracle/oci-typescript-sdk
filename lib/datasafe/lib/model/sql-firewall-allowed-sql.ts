@@ -103,7 +103,12 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 export namespace SqlFirewallAllowedSql {
   export enum SqlLevel {
     UserIssuedSql = "USER_ISSUED_SQL",
-    AllSql = "ALL_SQL"
+    AllSql = "ALL_SQL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: SqlFirewallAllowedSql): object {

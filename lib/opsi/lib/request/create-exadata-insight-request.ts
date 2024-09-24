@@ -23,6 +23,7 @@ export interface CreateExadataInsightRequest extends common.BaseRequest {
    */
   "createExadataInsightDetails":
     | model.CreateEmManagedExternalExadataInsightDetails
+    | model.CreateMacsManagedCloudExadataInsightDetails
     | model.CreatePeComanagedExadataInsightDetails;
   /**
    * A token that uniquely identifies a request that can be retried in case of a timeout or

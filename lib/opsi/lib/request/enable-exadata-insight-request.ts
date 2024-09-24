@@ -22,6 +22,7 @@ export interface EnableExadataInsightRequest extends common.BaseRequest {
    * Details for the Exadata system to be enabled in Operations Insights.
    */
   "enableExadataInsightDetails":
+    | model.EnableMacsManagedCloudExadataInsightDetails
     | model.EnablePeComanagedExadataInsightDetails
     | model.EnableEmManagedExternalExadataInsightDetails;
   /**

@@ -61,6 +61,11 @@ export interface AnalyticsInstance {
    *
    */
   "emailNotification"?: string;
+  /**
+   * Analytics instance update channel.
+   *
+   */
+  "updateChannel"?: model.UpdateChannel;
   "networkEndpointDetails": model.PrivateEndpointDetails | model.PublicEndpointDetails;
   /**
    * Map of PrivateAccessChannel unique identifier key as KEY and PrivateAccessChannel Object as VALUE.
