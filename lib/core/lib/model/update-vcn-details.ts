@@ -44,6 +44,13 @@ Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  /**
+    * Security Attributes for this resource. This is unique to ZPR, and helps identify which resources are allowed to be accessed by what permission controls.
+* <p>
+Example: {@code {\"Oracle-DataSecurity-ZPR\": {\"MaxEgressCount\": {\"value\":\"42\",\"mode\":\"audit\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace UpdateVcnDetails {

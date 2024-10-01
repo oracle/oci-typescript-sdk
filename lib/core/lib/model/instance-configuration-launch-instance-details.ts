@@ -61,6 +61,13 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+    * Security Attributes for this resource. This is unique to ZPR, and helps identify which resources are allowed to be accessed by what permission controls.
+* <p>
+Example: {@code {\"Oracle-DataSecurity-ZPR\": {\"MaxEgressCount\": {\"value\":\"42\",\"mode\":\"audit\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *

@@ -23,7 +23,7 @@ import common = require("oci-common");
 
 export interface CreateServiceGatewayDetails {
   /**
-   * The [OCID] (https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to contain the service gateway.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to contain the service gateway.
    *
    */
   "compartmentId": string;

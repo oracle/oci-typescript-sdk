@@ -50,6 +50,10 @@ export interface IntegrationInstanceSummary {
    */
   "lifecycleState"?: IntegrationInstanceSummary.LifecycleState;
   /**
+   * Additional details of lifecycleState or substates
+   */
+  "lifecycleDetails"?: string;
+  /**
    * An message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "stateMessage"?: string;
@@ -115,6 +119,10 @@ export interface IntegrationInstanceSummary {
   "privateEndpointOutboundConnection"?:
     | model.PrivateEndpointOutboundConnection
     | model.NoneOutboundConnection;
+  /**
+   * Is Disaster Recovery enabled for the integrationInstance
+   */
+  "isDisasterRecoveryEnabled"?: boolean;
   /**
    * Data retention period set for given integration instance
    */

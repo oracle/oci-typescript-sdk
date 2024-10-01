@@ -198,6 +198,13 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Security Attributes for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"audit\"}}}}
+   *
+   */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
    * A private IP address of your choice. Must be an available IP address within the subnet's CIDR.
    * If you don't specify a value, Oracle automatically assigns a private IP address from the subnet.
    *

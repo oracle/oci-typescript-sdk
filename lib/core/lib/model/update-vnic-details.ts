@@ -45,6 +45,13 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
+    * Security Attributes for this resource. This is unique to ZPR, and helps identify which resources are allowed to be accessed by what permission controls.
+* <p>
+Example: {@code {\"Oracle-DataSecurity-ZPR\": {\"MaxEgressCount\": {\"value\":\"42\",\"mode\":\"audit\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
     * The hostname for the VNIC's primary private IP. Used for DNS. The value is the hostname
 * portion of the primary private IP's fully qualified domain name (FQDN)
 * (for example, {@code bminstance1} in FQDN {@code bminstance1.subnet123.vcn1.oraclevcn.com}).

@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.95.0",
+  "version": "2.95.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -167,7 +167,9 @@
     "oci-fleetappsmanagement": "file:lib/fleetappsmanagement",
     "oci-delegateaccesscontrol": "file:lib/delegateaccesscontrol",
     "oci-generativeaiagent": "file:lib/generativeaiagent",
-    "oci-generativeaiagentruntime": "file:lib/generativeaiagentruntime"
+    "oci-generativeaiagentruntime": "file:lib/generativeaiagentruntime",
+    "oci-securityattribute": "file:lib/securityattribute",
+    "oci-zpr": "file:lib/zpr"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

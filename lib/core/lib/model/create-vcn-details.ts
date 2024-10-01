@@ -105,6 +105,13 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
+    * Security Attributes for this resource. This is unique to ZPR, and helps identify which resources are allowed to be accessed by what permission controls.
+* <p>
+Example: {@code {\"Oracle-DataSecurity-ZPR\": {\"MaxEgressCount\": {\"value\":\"42\",\"mode\":\"audit\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
     * Whether IPv6 is enabled for the VCN. Default is {@code false}.
 * If enabled, Oracle will assign the VCN a IPv6 /56 CIDR block.
 * You may skip having Oracle allocate the VCN a IPv6 /56 CIDR block by setting isOracleGuaAllocationEnabled to {@code false}.

@@ -1,6 +1,6 @@
 {
   "name": "oci-disasterrecovery",
-  "version": "2.95.0",
+  "version": "2.95.1",
   "description": "OCI NodeJS client for Disaster Recovery Service",
   "repository": {
     "type": "git",
