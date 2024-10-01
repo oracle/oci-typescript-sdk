@@ -23,7 +23,10 @@ import common = require("oci-common");
 
 export interface AddNetworkSecurityGroupSecurityRulesDetails {
   /**
-   * The NSG security rules to add.
+   * An array of security rules to add to the NSG. You can add up to 25 rules in a single
+   * {@code AddNetworkSecurityGroupSecurityRules} operation.
+   * Adding more than 25 rules requires multiple operations.
+   *
    */
   "securityRules"?: Array<model.AddSecurityRuleDetails>;
 }

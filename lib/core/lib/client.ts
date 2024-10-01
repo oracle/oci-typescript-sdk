@@ -10551,6 +10551,12 @@ To launch an instance from a Marketplace image listing, you must provide the ima
 * with the signature. To get the image ID for the LaunchInstance operation, call
 * {@link #getAppCatalogListingResourceVersion(GetAppCatalogListingResourceVersionRequest) getAppCatalogListingResourceVersion}.
 * <p>
+When launching an instance, you may provide the `securityAttributes` parameter in
+* {@link LaunchInstanceDetails} to manage security attributes via the instance, 
+* or in the embedded {@link CreateVnicDetails} to manage security attributes
+* via the VNIC directly, but not both.  Providing `securityAttributes` in both locations will return a
+* 400 Bad Request response.
+* <p>
 To determine whether capacity is available for a specific shape before you create an instance,
 * use the {@link #createComputeCapacityReport(CreateComputeCapacityReportRequest) createComputeCapacityReport}
 * operation.
@@ -19069,7 +19075,7 @@ export class VirtualNetworkClient {
   }
 
   /**
-   * Adds one or more security rules to the specified network security group.
+   * Adds up to 25 security rules to the specified network security group. Adding more than 25 rules requires multiple operations.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddNetworkSecurityGroupSecurityRulesRequest
@@ -23665,6 +23671,9 @@ For the purposes of access control, you must provide the [OCID](https://docs.clo
 * <p>
 You may optionally specify a *display name* for the service gateway, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
+* <p>
+Use the {@link #listServices(ListServicesRequest) listServices} operation to find service CIDR labels
+* available in the region.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateServiceGatewayRequest
@@ -34120,7 +34129,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listIpInventory.");
     const operationName = "listIpInventory";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/ListIpInventory";
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IpInventoryCollection/ListIpInventory";
     const pathParams = {};
 
     const queryParams = {};
@@ -36488,7 +36497,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
-   * The deprecated operation lists available bandwidth levels for virtual circuits. For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
+   * The operation lists available bandwidth levels for virtual circuits. For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListVirtualCircuitBandwidthShapesRequest

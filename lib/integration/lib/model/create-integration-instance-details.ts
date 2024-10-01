@@ -82,6 +82,10 @@ export interface CreateIntegrationInstanceDetails {
    * The file server is enabled or not.
    */
   "isFileServerEnabled"?: boolean;
+  /**
+   * Is Disaster Recovery enabled or not.
+   */
+  "isDisasterRecoveryEnabled"?: boolean;
   "networkEndpointDetails"?: model.PublicEndpointDetails;
   /**
    * Shape

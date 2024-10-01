@@ -83,6 +83,17 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+    * Security Attributes for this resource. This is unique to ZPR, and helps identify which resources are allowed to be accessed by what permission controls.
+* <p>
+Example: {@code {\"Oracle-DataSecurity-ZPR\": {\"MaxEgressCount\": {\"value\":\"42\",\"mode\":\"audit\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The lifecycle state of the {@code securityAttributes}
+   */
+  "securityAttributesState"?: Instance.SecurityAttributesState;
+  /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *
@@ -245,6 +256,16 @@ Example: {@code 2016-08-25T21:10:29.600Z}
 }
 
 export namespace Instance {
+  export enum SecurityAttributesState {
+    Stable = "STABLE",
+    Updating = "UPDATING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum LaunchMode {
     Native = "NATIVE",
     Emulated = "EMULATED",

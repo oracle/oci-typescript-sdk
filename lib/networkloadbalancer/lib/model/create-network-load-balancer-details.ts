@@ -133,6 +133,14 @@ Example: [\"ocid1.nsg.oc1.phx.unique_ID\"]
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * ZPR tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
+* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"oracle-zpr\": {\"td\": {\"value\": \"42\", \"mode\": \"audit\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace CreateNetworkLoadBalancerDetails {

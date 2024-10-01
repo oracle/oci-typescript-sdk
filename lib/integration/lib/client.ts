@@ -713,6 +713,85 @@ export class IntegrationInstanceClient {
   }
 
   /**
+   * Allows failover for disaster recovery. Called in the context of integration instance in that region.
+   * Upon calling the failover api in the region where given instance was created,
+   * the intigration instance if primary will be switched to standby and crossRegion integration instance
+   * will be switched to primary and vice-versa.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisasterRecoveryFailoverRequest
+   * @return DisasterRecoveryFailoverResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/DisasterRecoveryFailover.ts.html |here} to see how to use DisasterRecoveryFailover API.
+   */
+  public async disasterRecoveryFailover(
+    disasterRecoveryFailoverRequest: requests.DisasterRecoveryFailoverRequest
+  ): Promise<responses.DisasterRecoveryFailoverResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#disasterRecoveryFailover.");
+    const operationName = "disasterRecoveryFailover";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/DisasterRecoveryFailover";
+    const pathParams = {
+      "{integrationInstanceId}": disasterRecoveryFailoverRequest.integrationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disasterRecoveryFailoverRequest.ifMatch,
+      "opc-request-id": disasterRecoveryFailoverRequest.opcRequestId,
+      "opc-retry-token": disasterRecoveryFailoverRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disasterRecoveryFailoverRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/integrationInstances/{integrationInstanceId}/actions/failover",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisasterRecoveryFailoverResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Enable Process Automation for given Integration Instance
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

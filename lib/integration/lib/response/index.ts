@@ -23,6 +23,8 @@ import * as CreateIntegrationInstanceResponse from "./create-integration-instanc
 export import CreateIntegrationInstanceResponse = CreateIntegrationInstanceResponse.CreateIntegrationInstanceResponse;
 import * as DeleteIntegrationInstanceResponse from "./delete-integration-instance-response";
 export import DeleteIntegrationInstanceResponse = DeleteIntegrationInstanceResponse.DeleteIntegrationInstanceResponse;
+import * as DisasterRecoveryFailoverResponse from "./disaster-recovery-failover-response";
+export import DisasterRecoveryFailoverResponse = DisasterRecoveryFailoverResponse.DisasterRecoveryFailoverResponse;
 import * as EnableProcessAutomationResponse from "./enable-process-automation-response";
 export import EnableProcessAutomationResponse = EnableProcessAutomationResponse.EnableProcessAutomationResponse;
 import * as ExtendDataRetentionResponse from "./extend-data-retention-response";

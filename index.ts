@@ -229,3 +229,5 @@ export import fleetappsmanagement = require("oci-fleetappsmanagement");
 export import delegateaccesscontrol = require("oci-delegateaccesscontrol");
 export import generativeaiagent = require("oci-generativeaiagent");
 export import generativeaiagentruntime = require("oci-generativeaiagentruntime");
+export import securityattribute = require("oci-securityattribute");
+export import zpr = require("oci-zpr");
