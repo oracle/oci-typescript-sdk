@@ -39,9 +39,24 @@ Example: {@code 1}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "backendTcpProxyProtocolVersion"?: number;
+  /**
+   * An array that represents the PPV2 Options that can be enabled on TCP Listeners.
+   * Example: [\"PP2_TYPE_AUTHORITY\"]
+   *
+   */
+  "backendTcpProxyProtocolOptions"?: Array<ConnectionConfiguration.BackendTcpProxyProtocolOptions>;
 }
 
 export namespace ConnectionConfiguration {
+  export enum BackendTcpProxyProtocolOptions {
+    Pp2TypeAuthority = "PP2_TYPE_AUTHORITY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ConnectionConfiguration): object {
     const jsonObj = { ...obj, ...{} };
 

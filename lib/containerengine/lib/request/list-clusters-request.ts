@@ -23,7 +23,7 @@ export interface ListClustersRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * A cluster lifecycle state to filter on. Can have multiple parameters of this name.
+   * A cluster lifecycle state to filter on. Can have multiple parameters of this name. For more information, see [Monitoring Clusters](https://docs.cloud.oracle.com/Content/ContEng/Tasks/contengmonitoringclusters.htm)
    */
   "lifecycleState"?: Array<model.ClusterLifecycleState>;
   /**

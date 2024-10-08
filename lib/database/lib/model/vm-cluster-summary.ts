@@ -147,6 +147,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Details of the file system configuration of the VM cluster.
    */
   "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
+  "cloudAutomationUpdateDetails"?: model.CloudAutomationUpdateDetails;
 }
 
 export namespace VmClusterSummary {
@@ -187,6 +188,9 @@ export namespace VmClusterSummary {
           ? obj.fileSystemConfigurationDetails.map(item => {
               return model.FileSystemConfigurationDetail.getJsonObj(item);
             })
+          : undefined,
+        "cloudAutomationUpdateDetails": obj.cloudAutomationUpdateDetails
+          ? model.CloudAutomationUpdateDetails.getJsonObj(obj.cloudAutomationUpdateDetails)
           : undefined
       }
     };
@@ -205,6 +209,11 @@ export namespace VmClusterSummary {
           ? obj.fileSystemConfigurationDetails.map(item => {
               return model.FileSystemConfigurationDetail.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "cloudAutomationUpdateDetails": obj.cloudAutomationUpdateDetails
+          ? model.CloudAutomationUpdateDetails.getDeserializedJsonObj(
+              obj.cloudAutomationUpdateDetails
+            )
           : undefined
       }
     };

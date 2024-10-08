@@ -70,6 +70,11 @@ export namespace LaunchAttachVolumeDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "paravirtualized":
+          return model.LaunchAttachParavirtualizedVolumeDetails.getJsonObj(
+            <model.LaunchAttachParavirtualizedVolumeDetails>(<object>jsonObj),
+            true
+          );
         case "iscsi":
           return model.LaunchAttachIScsiVolumeDetails.getJsonObj(
             <model.LaunchAttachIScsiVolumeDetails>(<object>jsonObj),
@@ -93,6 +98,11 @@ export namespace LaunchAttachVolumeDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "paravirtualized":
+          return model.LaunchAttachParavirtualizedVolumeDetails.getDeserializedJsonObj(
+            <model.LaunchAttachParavirtualizedVolumeDetails>(<object>jsonObj),
+            true
+          );
         case "iscsi":
           return model.LaunchAttachIScsiVolumeDetails.getDeserializedJsonObj(
             <model.LaunchAttachIScsiVolumeDetails>(<object>jsonObj),

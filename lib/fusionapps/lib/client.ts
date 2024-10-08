@@ -3069,7 +3069,7 @@ export class FusionApplicationsClient {
   }
 
   /**
-   * Resets the password of the Fusion Environment Administrator.
+   * Reset FusionEnvironment admin password. This API will be deprecated on Mon, 15 Jan 2024 01:00:00 GMT. Users can reset password themselves, FAaaS will no longer provide an API for this.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResetFusionEnvironmentPasswordRequest
    * @return ResetFusionEnvironmentPasswordResponse

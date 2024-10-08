@@ -26,7 +26,10 @@ export interface MacsManagedCloudDatabaseInsight extends model.DatabaseInsight {
    */
   "managementAgentId"?: string;
   "connectionDetails"?: model.ConnectionDetails;
-  "connectionCredentialDetails"?: model.CredentialsBySource | model.CredentialByVault;
+  "connectionCredentialDetails"?:
+    | model.CredentialsBySource
+    | model.CredentialByVault
+    | model.CredentialByIam;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
    */

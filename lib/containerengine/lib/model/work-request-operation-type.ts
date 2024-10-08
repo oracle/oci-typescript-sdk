@@ -1,8 +1,8 @@
 /**
- * Container Engine for Kubernetes API
- * API for the Container Engine for Kubernetes service. Use this API to build, deploy,
+ * Kubernetes Engine API
+ * API for the Kubernetes Engine service (also known as the Container Engine for Kubernetes service). Use this API to build, deploy,
 and manage cloud-native applications. For more information, see
-[Overview of Container Engine for Kubernetes](/iaas/Content/ContEng/Concepts/contengoverview.htm).
+[Overview of Kubernetes Engine](/iaas/Content/ContEng/Concepts/contengoverview.htm).
 
  * OpenAPI spec version: 20180222
  * 
@@ -24,6 +24,7 @@ export enum WorkRequestOperationType {
   ClusterCreate = "CLUSTER_CREATE",
   ClusterUpdate = "CLUSTER_UPDATE",
   ClusterDelete = "CLUSTER_DELETE",
+  CreateNamespace = "CREATE_NAMESPACE",
   NodepoolCreate = "NODEPOOL_CREATE",
   NodepoolUpdate = "NODEPOOL_UPDATE",
   NodepoolDelete = "NODEPOOL_DELETE",

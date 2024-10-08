@@ -1,8 +1,8 @@
 /**
- * Container Engine for Kubernetes API
- * API for the Container Engine for Kubernetes service. Use this API to build, deploy,
+ * Kubernetes Engine API
+ * API for the Kubernetes Engine service (also known as the Container Engine for Kubernetes service). Use this API to build, deploy,
 and manage cloud-native applications. For more information, see
-[Overview of Container Engine for Kubernetes](/iaas/Content/ContEng/Concepts/contengoverview.htm).
+[Overview of Kubernetes Engine](/iaas/Content/ContEng/Concepts/contengoverview.htm).
 
  * OpenAPI spec version: 20180222
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface StartCredentialRotationDetails {
   /**
-   * The duration in days(in ISO 8601 notation eg. P5D) after which the old credentials should be retired. Maximum delay duration is 14 days.
+   * The duration in days(in ISO 8601 notation eg. P5D) after which the old credentials should be retired. Maximum delay duration is 90 days.
    */
   "autoCompletionDelayDuration": string;
 }

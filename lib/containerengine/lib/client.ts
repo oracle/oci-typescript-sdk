@@ -1,8 +1,8 @@
 /**
- * Container Engine for Kubernetes API
- * API for the Container Engine for Kubernetes service. Use this API to build, deploy,
+ * Kubernetes Engine API
+ * API for the Kubernetes Engine service (also known as the Container Engine for Kubernetes service). Use this API to build, deploy,
 and manage cloud-native applications. For more information, see
-[Overview of Container Engine for Kubernetes](/iaas/Content/ContEng/Concepts/contengoverview.htm).
+[Overview of Kubernetes Engine](/iaas/Content/ContEng/Concepts/contengoverview.htm).
 
  * OpenAPI spec version: 20180222
  * 
@@ -240,8 +240,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#clusterMigrateToNativeVcn.");
     const operationName = "clusterMigrateToNativeVcn";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/ClusterMigrateToNativeVcn";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": clusterMigrateToNativeVcnRequest.clusterId
     };
@@ -319,8 +318,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#completeCredentialRotation.");
     const operationName = "completeCredentialRotation";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/CompleteCredentialRotation";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": completeCredentialRotationRequest.clusterId
     };
@@ -393,8 +391,7 @@ export class ContainerEngineClient {
   ): Promise<responses.CreateClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createCluster.");
     const operationName = "createCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/CreateCluster";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -469,8 +466,7 @@ export class ContainerEngineClient {
   ): Promise<responses.CreateKubeconfigResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createKubeconfig.");
     const operationName = "createKubeconfig";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/CreateKubeconfig";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": createKubeconfigRequest.clusterId
     };
@@ -545,8 +541,7 @@ export class ContainerEngineClient {
   ): Promise<responses.CreateNodePoolResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createNodePool.");
     const operationName = "createNodePool";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/CreateNodePool";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -622,8 +617,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#createVirtualNodePool.");
     const operationName = "createVirtualNodePool";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/CreateVirtualNodePool";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -699,8 +693,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#createWorkloadMapping.");
     const operationName = "createWorkloadMapping";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/CreateWorkloadMapping";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": createWorkloadMappingRequest.clusterId
     };
@@ -781,8 +774,7 @@ export class ContainerEngineClient {
   ): Promise<responses.DeleteClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteCluster.");
     const operationName = "deleteCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/DeleteCluster";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": deleteClusterRequest.clusterId
     };
@@ -854,8 +846,7 @@ export class ContainerEngineClient {
   ): Promise<responses.DeleteNodeResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteNode.");
     const operationName = "deleteNode";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/DeleteNode";
+    const apiReferenceLink = "";
     const pathParams = {
       "{nodePoolId}": deleteNodeRequest.nodePoolId,
       "{nodeId}": deleteNodeRequest.nodeId
@@ -933,8 +924,7 @@ export class ContainerEngineClient {
   ): Promise<responses.DeleteNodePoolResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteNodePool.");
     const operationName = "deleteNodePool";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/DeleteNodePool";
+    const apiReferenceLink = "";
     const pathParams = {
       "{nodePoolId}": deleteNodePoolRequest.nodePoolId
     };
@@ -1011,8 +1001,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#deleteVirtualNodePool.");
     const operationName = "deleteVirtualNodePool";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/DeleteVirtualNodePool";
+    const apiReferenceLink = "";
     const pathParams = {
       "{virtualNodePoolId}": deleteVirtualNodePoolRequest.virtualNodePoolId
     };
@@ -1090,8 +1079,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#deleteWorkRequest.");
     const operationName = "deleteWorkRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequest/DeleteWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": deleteWorkRequestRequest.workRequestId
     };
@@ -1159,8 +1147,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#deleteWorkloadMapping.");
     const operationName = "deleteWorkloadMapping";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/DeleteWorkloadMapping";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": deleteWorkloadMappingRequest.clusterId,
       "{workloadMappingId}": deleteWorkloadMappingRequest.workloadMappingId
@@ -1228,8 +1215,7 @@ export class ContainerEngineClient {
   ): Promise<responses.DisableAddonResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#disableAddon.");
     const operationName = "disableAddon";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/DisableAddon";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": disableAddonRequest.clusterId,
       "{addonName}": disableAddonRequest.addonName
@@ -1304,8 +1290,7 @@ export class ContainerEngineClient {
   ): Promise<responses.GetAddonResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getAddon.");
     const operationName = "getAddon";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/GetAddon";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": getAddonRequest.clusterId,
       "{addonName}": getAddonRequest.addonName
@@ -1381,8 +1366,7 @@ export class ContainerEngineClient {
   ): Promise<responses.GetClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getCluster.");
     const operationName = "getCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/GetCluster";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": getClusterRequest.clusterId
     };
@@ -1460,8 +1444,7 @@ export class ContainerEngineClient {
         "Calling operation ContainerEngineClient#getClusterMigrateToNativeVcnStatus."
       );
     const operationName = "getClusterMigrateToNativeVcnStatus";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/ClusterMigrateToNativeVcnStatus/GetClusterMigrateToNativeVcnStatus";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": getClusterMigrateToNativeVcnStatusRequest.clusterId
     };
@@ -1537,8 +1520,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#getClusterOptions.");
     const operationName = "getClusterOptions";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/ClusterOptions/GetClusterOptions";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterOptionId}": getClusterOptionsRequest.clusterOptionId
     };
@@ -1611,8 +1593,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#getCredentialRotationStatus.");
     const operationName = "getCredentialRotationStatus";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/CredentialRotationStatus/GetCredentialRotationStatus";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": getCredentialRotationStatusRequest.clusterId
     };
@@ -1687,8 +1668,7 @@ export class ContainerEngineClient {
   ): Promise<responses.GetNodePoolResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getNodePool.");
     const operationName = "getNodePool";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/GetNodePool";
+    const apiReferenceLink = "";
     const pathParams = {
       "{nodePoolId}": getNodePoolRequest.nodePoolId
     };
@@ -1764,8 +1744,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#getNodePoolOptions.");
     const operationName = "getNodePoolOptions";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePoolOptions/GetNodePoolOptions";
+    const apiReferenceLink = "";
     const pathParams = {
       "{nodePoolOptionId}": getNodePoolOptionsRequest.nodePoolOptionId
     };
@@ -1837,8 +1816,7 @@ export class ContainerEngineClient {
   ): Promise<responses.GetVirtualNodeResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getVirtualNode.");
     const operationName = "getVirtualNode";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/GetVirtualNode";
+    const apiReferenceLink = "";
     const pathParams = {
       "{virtualNodePoolId}": getVirtualNodeRequest.virtualNodePoolId,
       "{virtualNodeId}": getVirtualNodeRequest.virtualNodeId
@@ -1915,8 +1893,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#getVirtualNodePool.");
     const operationName = "getVirtualNodePool";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/GetVirtualNodePool";
+    const apiReferenceLink = "";
     const pathParams = {
       "{virtualNodePoolId}": getVirtualNodePoolRequest.virtualNodePoolId
     };
@@ -1991,8 +1968,7 @@ export class ContainerEngineClient {
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getWorkRequest.");
     const operationName = "getWorkRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequest/GetWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2073,8 +2049,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#getWorkloadMapping.");
     const operationName = "getWorkloadMapping";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/GetWorkloadMapping";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": getWorkloadMappingRequest.clusterId,
       "{workloadMappingId}": getWorkloadMappingRequest.workloadMappingId
@@ -2150,8 +2125,7 @@ export class ContainerEngineClient {
   ): Promise<responses.InstallAddonResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#installAddon.");
     const operationName = "installAddon";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/InstallAddon";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": installAddonRequest.clusterId
     };
@@ -2229,8 +2203,7 @@ export class ContainerEngineClient {
   ): Promise<responses.ListAddonOptionsResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listAddonOptions.");
     const operationName = "listAddonOptions";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/AddonOptionSummary/ListAddonOptions";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2362,8 +2335,7 @@ export class ContainerEngineClient {
   ): Promise<responses.ListAddonsResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listAddons.");
     const operationName = "listAddons";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/ListAddons";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": listAddonsRequest.clusterId
     };
@@ -2495,8 +2467,7 @@ export class ContainerEngineClient {
   ): Promise<responses.ListClustersResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listClusters.");
     const operationName = "listClusters";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/ClusterSummary/ListClusters";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2629,8 +2600,7 @@ export class ContainerEngineClient {
   ): Promise<responses.ListNodePoolsResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listNodePools.");
     const operationName = "listNodePools";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePoolSummary/ListNodePools";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2764,8 +2734,7 @@ export class ContainerEngineClient {
   ): Promise<responses.ListPodShapesResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listPodShapes.");
     const operationName = "listPodShapes";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/PodShapeSummary/ListPodShapes";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2899,8 +2868,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#listVirtualNodePools.");
     const operationName = "listVirtualNodePools";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePoolSummary/ListVirtualNodePools";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3034,8 +3002,7 @@ export class ContainerEngineClient {
   ): Promise<responses.ListVirtualNodesResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listVirtualNodes.");
     const operationName = "listVirtualNodes";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/ListVirtualNodes";
+    const apiReferenceLink = "";
     const pathParams = {
       "{virtualNodePoolId}": listVirtualNodesRequest.virtualNodePoolId
     };
@@ -3169,8 +3136,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequestError/ListWorkRequestErrors";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -3243,8 +3209,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequestLogEntry/ListWorkRequestLogs";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -3316,8 +3281,7 @@ export class ContainerEngineClient {
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listWorkRequests.");
     const operationName = "listWorkRequests";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequestSummary/ListWorkRequests";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3453,8 +3417,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#listWorkloadMappings.");
     const operationName = "listWorkloadMappings";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMappingSummary/ListWorkloadMappings";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": listWorkloadMappingsRequest.clusterId
     };
@@ -3587,8 +3550,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#startCredentialRotation.");
     const operationName = "startCredentialRotation";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/StartCredentialRotation";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": startCredentialRotationRequest.clusterId
     };
@@ -3666,8 +3628,7 @@ export class ContainerEngineClient {
   ): Promise<responses.UpdateAddonResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateAddon.");
     const operationName = "updateAddon";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/UpdateAddon";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": updateAddonRequest.clusterId,
       "{addonName}": updateAddonRequest.addonName
@@ -3745,8 +3706,7 @@ export class ContainerEngineClient {
   ): Promise<responses.UpdateClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateCluster.");
     const operationName = "updateCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/UpdateCluster";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": updateClusterRequest.clusterId
     };
@@ -3824,8 +3784,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#updateClusterEndpointConfig.");
     const operationName = "updateClusterEndpointConfig";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/UpdateClusterEndpointConfig";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": updateClusterEndpointConfigRequest.clusterId
     };
@@ -3902,8 +3861,7 @@ export class ContainerEngineClient {
   ): Promise<responses.UpdateNodePoolResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateNodePool.");
     const operationName = "updateNodePool";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/UpdateNodePool";
+    const apiReferenceLink = "";
     const pathParams = {
       "{nodePoolId}": updateNodePoolRequest.nodePoolId
     };
@@ -3985,8 +3943,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#updateVirtualNodePool.");
     const operationName = "updateVirtualNodePool";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/UpdateVirtualNodePool";
+    const apiReferenceLink = "";
     const pathParams = {
       "{virtualNodePoolId}": updateVirtualNodePoolRequest.virtualNodePoolId
     };
@@ -4064,8 +4021,7 @@ export class ContainerEngineClient {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#updateWorkloadMapping.");
     const operationName = "updateWorkloadMapping";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/UpdateWorkloadMapping";
+    const apiReferenceLink = "";
     const pathParams = {
       "{clusterId}": updateWorkloadMappingRequest.clusterId,
       "{workloadMappingId}": updateWorkloadMappingRequest.workloadMappingId

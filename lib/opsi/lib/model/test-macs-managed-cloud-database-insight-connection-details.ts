@@ -26,7 +26,10 @@ export interface TestMacsManagedCloudDatabaseInsightConnectionDetails {
    */
   "managementAgentId": string;
   "connectionDetails": model.ConnectionDetails;
-  "connectionCredentialDetails": model.CredentialsBySource | model.CredentialByVault;
+  "connectionCredentialDetails":
+    | model.CredentialsBySource
+    | model.CredentialByVault
+    | model.CredentialByIam;
 }
 
 export namespace TestMacsManagedCloudDatabaseInsightConnectionDetails {

@@ -1,8 +1,8 @@
 /**
- * Container Engine for Kubernetes API
- * API for the Container Engine for Kubernetes service. Use this API to build, deploy,
+ * Kubernetes Engine API
+ * API for the Kubernetes Engine service (also known as the Container Engine for Kubernetes service). Use this API to build, deploy,
 and manage cloud-native applications. For more information, see
-[Overview of Container Engine for Kubernetes](/iaas/Content/ContEng/Concepts/contengoverview.htm).
+[Overview of Kubernetes Engine](/iaas/Content/ContEng/Concepts/contengoverview.htm).
 
  * OpenAPI spec version: 20180222
  * 
@@ -82,7 +82,7 @@ export interface Node {
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The state of the node.
+   * The state of the node. For more information, see [Monitoring Clusters](https://docs.cloud.oracle.com/Content/ContEng/Tasks/contengmonitoringclusters.htm)
    */
   "lifecycleState"?: Node.LifecycleState;
   /**

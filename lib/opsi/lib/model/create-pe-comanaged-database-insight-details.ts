@@ -42,7 +42,7 @@ export interface CreatePeComanagedDatabaseInsightDetails
    * Database service name used for connection requests.
    */
   "serviceName": string;
-  "credentialDetails": model.CredentialsBySource | model.CredentialByVault;
+  "credentialDetails": model.CredentialsBySource | model.CredentialByVault | model.CredentialByIam;
   "connectionDetails"?: model.PeComanagedDatabaseConnectionDetails;
   /**
    * Database Deployment Type

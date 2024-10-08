@@ -773,6 +773,8 @@ import * as ConfigurationItemLimitAllowedValueDetails from "./configuration-item
 export import ConfigurationItemLimitAllowedValueDetails = ConfigurationItemLimitAllowedValueDetails.ConfigurationItemLimitAllowedValueDetails;
 import * as ConfigurationItemPickAllowedValueDetails from "./configuration-item-pick-allowed-value-details";
 export import ConfigurationItemPickAllowedValueDetails = ConfigurationItemPickAllowedValueDetails.ConfigurationItemPickAllowedValueDetails;
+import * as CreateAutonomousDatabaseInsightDetails from "./create-autonomous-database-insight-details";
+export import CreateAutonomousDatabaseInsightDetails = CreateAutonomousDatabaseInsightDetails.CreateAutonomousDatabaseInsightDetails;
 import * as CreateBasicConfigurationItemDetails from "./create-basic-configuration-item-details";
 export import CreateBasicConfigurationItemDetails = CreateBasicConfigurationItemDetails.CreateBasicConfigurationItemDetails;
 import * as CreateEmManagedExternalDatabaseInsightDetails from "./create-em-managed-external-database-insight-details";
@@ -799,6 +801,8 @@ import * as CreatePeComanagedDatabaseInsightDetails from "./create-pe-comanaged-
 export import CreatePeComanagedDatabaseInsightDetails = CreatePeComanagedDatabaseInsightDetails.CreatePeComanagedDatabaseInsightDetails;
 import * as CreatePeComanagedExadataInsightDetails from "./create-pe-comanaged-exadata-insight-details";
 export import CreatePeComanagedExadataInsightDetails = CreatePeComanagedExadataInsightDetails.CreatePeComanagedExadataInsightDetails;
+import * as CredentialByIam from "./credential-by-iam";
+export import CredentialByIam = CredentialByIam.CredentialByIam;
 import * as CredentialByVault from "./credential-by-vault";
 export import CredentialByVault = CredentialByVault.CredentialByVault;
 import * as CredentialsBySource from "./credentials-by-source";
@@ -857,6 +861,8 @@ import * as EmManagedExternalHostInsight from "./em-managed-external-host-insigh
 export import EmManagedExternalHostInsight = EmManagedExternalHostInsight.EmManagedExternalHostInsight;
 import * as EmManagedExternalHostInsightSummary from "./em-managed-external-host-insight-summary";
 export import EmManagedExternalHostInsightSummary = EmManagedExternalHostInsightSummary.EmManagedExternalHostInsightSummary;
+import * as EnableAutonomousDatabaseInsightDetails from "./enable-autonomous-database-insight-details";
+export import EnableAutonomousDatabaseInsightDetails = EnableAutonomousDatabaseInsightDetails.EnableAutonomousDatabaseInsightDetails;
 import * as EnableEmManagedExternalDatabaseInsightDetails from "./enable-em-managed-external-database-insight-details";
 export import EnableEmManagedExternalDatabaseInsightDetails = EnableEmManagedExternalDatabaseInsightDetails.EnableEmManagedExternalDatabaseInsightDetails;
 import * as EnableEmManagedExternalExadataInsightDetails from "./enable-em-managed-external-exadata-insight-details";

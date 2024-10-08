@@ -26,7 +26,7 @@ export interface PeComanagedDatabaseInsight extends model.DatabaseInsight {
    */
   "opsiPrivateEndpointId"?: string;
   "connectionDetails"?: model.PeComanagedDatabaseConnectionDetails;
-  "credentialDetails"?: model.CredentialsBySource | model.CredentialByVault;
+  "credentialDetails"?: model.CredentialsBySource | model.CredentialByVault | model.CredentialByIam;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
    */

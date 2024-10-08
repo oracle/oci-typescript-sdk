@@ -46,6 +46,8 @@ export namespace CredentialDetails {
             <model.CredentialByVault>(<object>jsonObj),
             true
           );
+        case "CREDENTIALS_BY_IAM":
+          return model.CredentialByIam.getJsonObj(<model.CredentialByIam>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.credentialType}`);
       }
@@ -65,6 +67,11 @@ export namespace CredentialDetails {
         case "CREDENTIALS_BY_VAULT":
           return model.CredentialByVault.getDeserializedJsonObj(
             <model.CredentialByVault>(<object>jsonObj),
+            true
+          );
+        case "CREDENTIALS_BY_IAM":
+          return model.CredentialByIam.getDeserializedJsonObj(
+            <model.CredentialByIam>(<object>jsonObj),
             true
           );
         default:

@@ -25,7 +25,7 @@ export interface CreateFusionEnvironmentAdminUserDetails {
   /**
    * The password for the administrator.
    */
-  "password": string;
+  "password"?: string;
   /**
    * The email address for the administrator.
    */

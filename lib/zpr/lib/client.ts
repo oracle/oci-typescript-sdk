@@ -33,8 +33,8 @@ export enum ZprApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class ZprClient {
-  protected static serviceEndpointTemplate = "https://{service}.{region}.oci.{secondLevelDomain}";
-  protected static endpointServiceName = "${endpoint-template-prefix}";
+  protected static serviceEndpointTemplate = "https://zpr.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -248,13 +248,6 @@ export class ZprClient {
       "opc-dry-run": createConfigurationRequest.opcDryRun
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -263,7 +256,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/configuration",
       method: "POST",
@@ -332,13 +325,6 @@ export class ZprClient {
       "opc-dry-run": createZprPolicyRequest.opcDryRun
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -347,7 +333,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprPolicies",
       method: "POST",
@@ -431,13 +417,6 @@ export class ZprClient {
       "opc-dry-run": deleteZprPolicyRequest.opcDryRun
     };
 
-    const requiredParams = new Set<string>(["zprPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -446,7 +425,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprPolicies/{zprPolicyId}",
       method: "DELETE",
@@ -511,13 +490,6 @@ export class ZprClient {
       "opc-request-id": getConfigurationRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -526,7 +498,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/configuration",
       method: "GET",
@@ -594,13 +566,6 @@ export class ZprClient {
       "opc-request-id": getZprConfigurationWorkRequestRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["workRequestId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -609,7 +574,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprConfigurationWorkRequests/{workRequestId}",
       method: "GET",
@@ -681,13 +646,6 @@ export class ZprClient {
       "opc-request-id": getZprPolicyRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["zprPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -696,7 +654,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprPolicies/{zprPolicyId}",
       method: "GET",
@@ -763,13 +721,6 @@ export class ZprClient {
       "opc-request-id": getZprPolicyWorkRequestRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["workRequestId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -778,7 +729,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprPolicyWorkRequests/{workRequestId}",
       method: "GET",
@@ -857,13 +808,6 @@ export class ZprClient {
       "opc-request-id": listZprConfigurationWorkRequestErrorsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["workRequestId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -872,7 +816,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprConfigurationWorkRequests/{workRequestId}/errors",
       method: "GET",
@@ -946,13 +890,6 @@ export class ZprClient {
       "opc-request-id": listZprConfigurationWorkRequestLogsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["workRequestId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -961,7 +898,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprConfigurationWorkRequests/{workRequestId}/logs",
       method: "GET",
@@ -1037,13 +974,6 @@ export class ZprClient {
       "opc-request-id": listZprConfigurationWorkRequestsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1052,7 +982,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprConfigurationWorkRequests",
       method: "GET",
@@ -1127,13 +1057,6 @@ export class ZprClient {
       "opc-request-id": listZprPoliciesRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1142,7 +1065,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprPolicies",
       method: "GET",
@@ -1216,13 +1139,6 @@ export class ZprClient {
       "opc-request-id": listZprPolicyWorkRequestErrorsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["workRequestId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1231,7 +1147,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprPolicyWorkRequests/{workRequestId}/errors",
       method: "GET",
@@ -1304,13 +1220,6 @@ export class ZprClient {
       "opc-request-id": listZprPolicyWorkRequestLogsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["workRequestId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1319,7 +1228,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprPolicyWorkRequests/{workRequestId}/logs",
       method: "GET",
@@ -1394,13 +1303,6 @@ export class ZprClient {
       "opc-request-id": listZprPolicyWorkRequestsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1409,7 +1311,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprPolicyWorkRequests",
       method: "GET",
@@ -1479,13 +1381,6 @@ export class ZprClient {
       "opc-dry-run": updateZprPolicyRequest.opcDryRun
     };
 
-    const requiredParams = new Set<string>(["zprPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1494,7 +1389,7 @@ export class ZprClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/zprPolicies/{zprPolicyId}",
       method: "PUT",

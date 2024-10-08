@@ -1,6 +1,6 @@
 {
   "name": "oci-ocvp",
-  "version": "2.95.1",
+  "version": "2.95.2",
   "description": "OCI NodeJS client for Ocvp Service",
   "repository": {
     "type": "git",

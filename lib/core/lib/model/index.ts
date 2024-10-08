@@ -1177,6 +1177,8 @@ import * as IpsecTunnelDrgAttachmentNetworkDetails from "./ipsec-tunnel-drg-atta
 export import IpsecTunnelDrgAttachmentNetworkDetails = IpsecTunnelDrgAttachmentNetworkDetails.IpsecTunnelDrgAttachmentNetworkDetails;
 import * as LaunchAttachIScsiVolumeDetails from "./launch-attach-iscsi-volume-details";
 export import LaunchAttachIScsiVolumeDetails = LaunchAttachIScsiVolumeDetails.LaunchAttachIScsiVolumeDetails;
+import * as LaunchAttachParavirtualizedVolumeDetails from "./launch-attach-paravirtualized-volume-details";
+export import LaunchAttachParavirtualizedVolumeDetails = LaunchAttachParavirtualizedVolumeDetails.LaunchAttachParavirtualizedVolumeDetails;
 import * as LaunchCreateVolumeFromAttributes from "./launch-create-volume-from-attributes";
 export import LaunchCreateVolumeFromAttributes = LaunchCreateVolumeFromAttributes.LaunchCreateVolumeFromAttributes;
 import * as LoopBackDrgAttachmentNetworkDetails from "./loop-back-drg-attachment-network-details";

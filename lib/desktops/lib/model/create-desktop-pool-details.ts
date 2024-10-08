@@ -45,6 +45,11 @@ export interface CreateDesktopPoolDetails {
    * The shape of the desktop pool.
    */
   "shapeName": string;
+  "shapeConfig"?: model.CreateDesktopPoolShapeConfigDetails;
+  /**
+   * Indicates whether the desktop pool uses dedicated virtual machine hosts.
+   */
+  "useDedicatedVmHost"?: CreateDesktopPoolDetails.UseDedicatedVmHost;
   /**
    * Indicates whether storage is enabled for the desktop pool.
    */
@@ -61,6 +66,7 @@ export interface CreateDesktopPoolDetails {
   "availabilityPolicy": model.DesktopAvailabilityPolicy;
   "image": model.DesktopImage;
   "networkConfiguration": model.DesktopNetworkConfiguration;
+  "sessionLifecycleActions"?: model.CreateDesktopPoolDesktopSessionLifecycleActions;
   /**
    * The start time of the desktop pool.
    */
@@ -97,16 +103,27 @@ export interface CreateDesktopPoolDetails {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A list of network security groups for the desktop pool.
+   * A list of network security groups for the private access.
    */
   "nsgIds"?: Array<string>;
+  "privateAccessDetails"?: model.CreateDesktopPoolPrivateAccessDetails;
 }
 
 export namespace CreateDesktopPoolDetails {
+  export enum UseDedicatedVmHost {
+    True = "TRUE",
+    False = "FALSE",
+    Auto = "AUTO"
+  }
+
   export function getJsonObj(obj: CreateDesktopPoolDetails): object {
     const jsonObj = {
       ...obj,
       ...{
+        "shapeConfig": obj.shapeConfig
+          ? model.CreateDesktopPoolShapeConfigDetails.getJsonObj(obj.shapeConfig)
+          : undefined,
+
         "devicePolicy": obj.devicePolicy
           ? model.DesktopDevicePolicy.getJsonObj(obj.devicePolicy)
           : undefined,
@@ -116,6 +133,15 @@ export namespace CreateDesktopPoolDetails {
         "image": obj.image ? model.DesktopImage.getJsonObj(obj.image) : undefined,
         "networkConfiguration": obj.networkConfiguration
           ? model.DesktopNetworkConfiguration.getJsonObj(obj.networkConfiguration)
+          : undefined,
+        "sessionLifecycleActions": obj.sessionLifecycleActions
+          ? model.CreateDesktopPoolDesktopSessionLifecycleActions.getJsonObj(
+              obj.sessionLifecycleActions
+            )
+          : undefined,
+
+        "privateAccessDetails": obj.privateAccessDetails
+          ? model.CreateDesktopPoolPrivateAccessDetails.getJsonObj(obj.privateAccessDetails)
           : undefined
       }
     };
@@ -126,6 +152,10 @@ export namespace CreateDesktopPoolDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "shapeConfig": obj.shapeConfig
+          ? model.CreateDesktopPoolShapeConfigDetails.getDeserializedJsonObj(obj.shapeConfig)
+          : undefined,
+
         "devicePolicy": obj.devicePolicy
           ? model.DesktopDevicePolicy.getDeserializedJsonObj(obj.devicePolicy)
           : undefined,
@@ -135,6 +165,17 @@ export namespace CreateDesktopPoolDetails {
         "image": obj.image ? model.DesktopImage.getDeserializedJsonObj(obj.image) : undefined,
         "networkConfiguration": obj.networkConfiguration
           ? model.DesktopNetworkConfiguration.getDeserializedJsonObj(obj.networkConfiguration)
+          : undefined,
+        "sessionLifecycleActions": obj.sessionLifecycleActions
+          ? model.CreateDesktopPoolDesktopSessionLifecycleActions.getDeserializedJsonObj(
+              obj.sessionLifecycleActions
+            )
+          : undefined,
+
+        "privateAccessDetails": obj.privateAccessDetails
+          ? model.CreateDesktopPoolPrivateAccessDetails.getDeserializedJsonObj(
+              obj.privateAccessDetails
+            )
           : undefined
       }
     };

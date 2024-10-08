@@ -66,6 +66,7 @@ export interface UpdateDesktopPoolDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "sessionLifecycleActions"?: model.UpdateDesktopPoolDesktopSessionLifecycleActions;
 }
 
 export namespace UpdateDesktopPoolDetails {
@@ -78,6 +79,12 @@ export namespace UpdateDesktopPoolDetails {
           : undefined,
         "availabilityPolicy": obj.availabilityPolicy
           ? model.DesktopAvailabilityPolicy.getJsonObj(obj.availabilityPolicy)
+          : undefined,
+
+        "sessionLifecycleActions": obj.sessionLifecycleActions
+          ? model.UpdateDesktopPoolDesktopSessionLifecycleActions.getJsonObj(
+              obj.sessionLifecycleActions
+            )
           : undefined
       }
     };
@@ -93,6 +100,12 @@ export namespace UpdateDesktopPoolDetails {
           : undefined,
         "availabilityPolicy": obj.availabilityPolicy
           ? model.DesktopAvailabilityPolicy.getDeserializedJsonObj(obj.availabilityPolicy)
+          : undefined,
+
+        "sessionLifecycleActions": obj.sessionLifecycleActions
+          ? model.UpdateDesktopPoolDesktopSessionLifecycleActions.getDeserializedJsonObj(
+              obj.sessionLifecycleActions
+            )
           : undefined
       }
     };

@@ -25,7 +25,7 @@ export interface ChangePeComanagedDatabaseInsightDetails {
    * Database service name used for connection requests.
    */
   "serviceName": string;
-  "credentialDetails": model.CredentialsBySource | model.CredentialByVault;
+  "credentialDetails": model.CredentialsBySource | model.CredentialByVault | model.CredentialByIam;
   "connectionDetails"?: model.PeComanagedDatabaseConnectionDetails;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OPSI private endpoint
