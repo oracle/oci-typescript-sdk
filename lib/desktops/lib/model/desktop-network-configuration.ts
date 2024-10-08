@@ -20,11 +20,14 @@ import common = require("oci-common");
  */
 export interface DesktopNetworkConfiguration {
   /**
-   * The OCID of the VCN used by the desktop pool.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer VCN.
+   *
    */
   "vcnId": string;
   /**
-   * The OCID of the subnet to use for the desktop pool.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet in the customer VCN where the
+   * connectivity will be established.
+   *
    */
   "subnetId": string;
 }

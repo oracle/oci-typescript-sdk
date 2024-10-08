@@ -30,7 +30,10 @@ export interface MacsManagedExternalDatabaseInsight extends model.DatabaseInsigh
    */
   "connectorId"?: string;
   "connectionDetails"?: model.ConnectionDetails;
-  "connectionCredentialDetails"?: model.CredentialsBySource | model.CredentialByVault;
+  "connectionCredentialDetails"?:
+    | model.CredentialsBySource
+    | model.CredentialByVault
+    | model.CredentialByIam;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
    */

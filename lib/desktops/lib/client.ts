@@ -1592,7 +1592,9 @@ export class DesktopServiceClient {
       "{desktopId}": stopDesktopRequest.desktopId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isSoftStop": stopDesktopRequest.isSoftStop
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

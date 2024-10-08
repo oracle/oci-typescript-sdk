@@ -34,4 +34,8 @@ export interface StopDesktopRequest extends common.BaseRequest {
    * A token that uniquely identifies a request.
    */
   "opcRetryToken"?: string;
+  /**
+   * Force a STOP(power off) of the desktop if set to false
+   */
+  "isSoftStop"?: boolean;
 }

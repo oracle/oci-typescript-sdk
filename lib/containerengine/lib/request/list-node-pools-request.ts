@@ -58,7 +58,7 @@ export interface ListNodePoolsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A list of nodepool lifecycle states on which to filter on, matching any of the list items (OR logic). eg. [ACTIVE, DELETING]
+   * A list of nodepool lifecycle states on which to filter on, matching any of the list items (OR logic). eg. [ACTIVE, DELETING]. For more information, see [Monitoring Clusters](https://docs.cloud.oracle.com/Content/ContEng/Tasks/contengmonitoringclusters.htm)
    */
   "lifecycleState"?: Array<model.NodePoolLifecycleState>;
 }

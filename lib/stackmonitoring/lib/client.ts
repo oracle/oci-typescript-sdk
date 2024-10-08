@@ -967,6 +967,94 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Creates a new Maintenance Window for the given resources. It will create also the
+   * Alarms Suppression for each alarm that the resource migth trigger.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateMaintenanceWindowRequest
+   * @return CreateMaintenanceWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMaintenanceWindow.ts.html |here} to see how to use CreateMaintenanceWindow API.
+   */
+  public async createMaintenanceWindow(
+    createMaintenanceWindowRequest: requests.CreateMaintenanceWindowRequest
+  ): Promise<responses.CreateMaintenanceWindowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createMaintenanceWindow.");
+    const operationName = "createMaintenanceWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MaintenanceWindow/CreateMaintenanceWindow";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createMaintenanceWindowRequest.opcRetryToken,
+      "opc-request-id": createMaintenanceWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMaintenanceWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maintenanceWindows",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMaintenanceWindowRequest.createMaintenanceWindowDetails,
+        "CreateMaintenanceWindowDetails",
+        model.CreateMaintenanceWindowDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMaintenanceWindowResponse>{},
+        body: await response.json(),
+        bodyKey: "maintenanceWindow",
+        bodyModel: model.MaintenanceWindow,
+        type: "model.MaintenanceWindow",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new metric extension resource for a given compartment
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1602,6 +1690,81 @@ For example, when a new Management Agent gets registered in a certain compartmen
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDiscoveryJobResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a maintenance window by identifier
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteMaintenanceWindowRequest
+   * @return DeleteMaintenanceWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMaintenanceWindow.ts.html |here} to see how to use DeleteMaintenanceWindow API.
+   */
+  public async deleteMaintenanceWindow(
+    deleteMaintenanceWindowRequest: requests.DeleteMaintenanceWindowRequest
+  ): Promise<responses.DeleteMaintenanceWindowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteMaintenanceWindow.");
+    const operationName = "deleteMaintenanceWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MaintenanceWindow/DeleteMaintenanceWindow";
+    const pathParams = {
+      "{maintenanceWindowId}": deleteMaintenanceWindowRequest.maintenanceWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMaintenanceWindowRequest.ifMatch,
+      "opc-request-id": deleteMaintenanceWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMaintenanceWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maintenanceWindows/{maintenanceWindowId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMaintenanceWindowResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -2615,6 +2778,84 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Get maintenance window for the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMaintenanceWindowRequest
+   * @return GetMaintenanceWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMaintenanceWindow.ts.html |here} to see how to use GetMaintenanceWindow API.
+   */
+  public async getMaintenanceWindow(
+    getMaintenanceWindowRequest: requests.GetMaintenanceWindowRequest
+  ): Promise<responses.GetMaintenanceWindowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getMaintenanceWindow.");
+    const operationName = "getMaintenanceWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MaintenanceWindow/GetMaintenanceWindow";
+    const pathParams = {
+      "{maintenanceWindowId}": getMaintenanceWindowRequest.maintenanceWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMaintenanceWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMaintenanceWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maintenanceWindows/{maintenanceWindowId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMaintenanceWindowResponse>{},
+        body: await response.json(),
+        bodyKey: "maintenanceWindow",
+        bodyModel: model.MaintenanceWindow,
+        type: "model.MaintenanceWindow",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a Metric Extension by identifier
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMetricExtensionRequest
@@ -3408,6 +3649,95 @@ For example, when a new Management Agent gets registered in a certain compartmen
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of maintenance windows.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMaintenanceWindowsRequest
+   * @return ListMaintenanceWindowsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMaintenanceWindows.ts.html |here} to see how to use ListMaintenanceWindows API.
+   */
+  public async listMaintenanceWindows(
+    listMaintenanceWindowsRequest: requests.ListMaintenanceWindowsRequest
+  ): Promise<responses.ListMaintenanceWindowsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listMaintenanceWindows.");
+    const operationName = "listMaintenanceWindows";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MaintenanceWindow/ListMaintenanceWindows";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMaintenanceWindowsRequest.compartmentId,
+      "name": listMaintenanceWindowsRequest.name,
+      "lifecycleDetails": listMaintenanceWindowsRequest.lifecycleDetails,
+      "status": listMaintenanceWindowsRequest.status,
+      "sortBy": listMaintenanceWindowsRequest.sortBy,
+      "sortOrder": listMaintenanceWindowsRequest.sortOrder,
+      "limit": listMaintenanceWindowsRequest.limit,
+      "page": listMaintenanceWindowsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaintenanceWindowsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaintenanceWindowsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maintenanceWindows",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaintenanceWindowsResponse>{},
+        body: await response.json(),
+        bodyKey: "maintenanceWindowCollection",
+        bodyModel: model.MaintenanceWindowCollection,
+        type: "model.MaintenanceWindowCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
           }
         ]
       });
@@ -4366,6 +4696,83 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Retry the last failed operation. The operation failed will be the most recent one. It won't apply for previous failed operations.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RetryFailedMaintenanceWindowOperationRequest
+   * @return RetryFailedMaintenanceWindowOperationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RetryFailedMaintenanceWindowOperation.ts.html |here} to see how to use RetryFailedMaintenanceWindowOperation API.
+   */
+  public async retryFailedMaintenanceWindowOperation(
+    retryFailedMaintenanceWindowOperationRequest: requests.RetryFailedMaintenanceWindowOperationRequest
+  ): Promise<responses.RetryFailedMaintenanceWindowOperationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#retryFailedMaintenanceWindowOperation."
+      );
+    const operationName = "retryFailedMaintenanceWindowOperation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MaintenanceWindow/RetryFailedMaintenanceWindowOperation";
+    const pathParams = {
+      "{maintenanceWindowId}": retryFailedMaintenanceWindowOperationRequest.maintenanceWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": retryFailedMaintenanceWindowOperationRequest.ifMatch,
+      "opc-request-id": retryFailedMaintenanceWindowOperationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      retryFailedMaintenanceWindowOperationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maintenanceWindows/{maintenanceWindowId}/actions/retryFailedOperation",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RetryFailedMaintenanceWindowOperationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List all associated resources recursively up-to a specified level,
    * for the monitored resources of type specified.
    *
@@ -4741,6 +5148,81 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Stop a maintenance window before the end time is reached.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param StopMaintenanceWindowRequest
+   * @return StopMaintenanceWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/StopMaintenanceWindow.ts.html |here} to see how to use StopMaintenanceWindow API.
+   */
+  public async stopMaintenanceWindow(
+    stopMaintenanceWindowRequest: requests.StopMaintenanceWindowRequest
+  ): Promise<responses.StopMaintenanceWindowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#stopMaintenanceWindow.");
+    const operationName = "stopMaintenanceWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MaintenanceWindow/StopMaintenanceWindow";
+    const pathParams = {
+      "{maintenanceWindowId}": stopMaintenanceWindowRequest.maintenanceWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopMaintenanceWindowRequest.ifMatch,
+      "opc-request-id": stopMaintenanceWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopMaintenanceWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maintenanceWindows/{maintenanceWindowId}/actions/stop",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopMaintenanceWindowResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Performs test of Metric Extension on a specific resource Id
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param TestMetricExtensionRequest
@@ -5067,6 +5549,86 @@ For example, when a new Management Agent gets registered in a certain compartmen
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update maintenance window by the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateMaintenanceWindowRequest
+   * @return UpdateMaintenanceWindowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMaintenanceWindow.ts.html |here} to see how to use UpdateMaintenanceWindow API.
+   */
+  public async updateMaintenanceWindow(
+    updateMaintenanceWindowRequest: requests.UpdateMaintenanceWindowRequest
+  ): Promise<responses.UpdateMaintenanceWindowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateMaintenanceWindow.");
+    const operationName = "updateMaintenanceWindow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MaintenanceWindow/UpdateMaintenanceWindow";
+    const pathParams = {
+      "{maintenanceWindowId}": updateMaintenanceWindowRequest.maintenanceWindowId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMaintenanceWindowRequest.ifMatch,
+      "opc-request-id": updateMaintenanceWindowRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMaintenanceWindowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maintenanceWindows/{maintenanceWindowId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMaintenanceWindowRequest.updateMaintenanceWindowDetails,
+        "UpdateMaintenanceWindowDetails",
+        model.UpdateMaintenanceWindowDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMaintenanceWindowResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

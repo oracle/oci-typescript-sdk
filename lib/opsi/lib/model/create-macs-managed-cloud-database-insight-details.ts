@@ -31,7 +31,10 @@ export interface CreateMacsManagedCloudDatabaseInsightDetails
    */
   "managementAgentId": string;
   "connectionDetails": model.ConnectionDetails;
-  "connectionCredentialDetails": model.CredentialsBySource | model.CredentialByVault;
+  "connectionCredentialDetails":
+    | model.CredentialsBySource
+    | model.CredentialByVault
+    | model.CredentialByIam;
   /**
    * OCI database resource type
    */

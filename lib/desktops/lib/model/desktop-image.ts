@@ -27,6 +27,10 @@ export interface DesktopImage {
    * The name of the desktop image.
    */
   "imageName": string;
+  /**
+   * The operating system of the desktop image, e.g. \"Oracle Linux\", \"Windows\".
+   */
+  "operatingSystem"?: string;
 }
 
 export namespace DesktopImage {

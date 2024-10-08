@@ -1,8 +1,8 @@
 /**
- * Container Engine for Kubernetes API
- * API for the Container Engine for Kubernetes service. Use this API to build, deploy,
+ * Kubernetes Engine API
+ * API for the Kubernetes Engine service (also known as the Container Engine for Kubernetes service). Use this API to build, deploy,
 and manage cloud-native applications. For more information, see
-[Overview of Container Engine for Kubernetes](/iaas/Content/ContEng/Concepts/contengoverview.htm).
+[Overview of Kubernetes Engine](/iaas/Content/ContEng/Concepts/contengoverview.htm).
 
  * OpenAPI spec version: 20180222
  * 
@@ -63,6 +63,12 @@ export interface WorkloadMapping {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace WorkloadMapping {

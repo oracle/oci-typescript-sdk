@@ -81,6 +81,25 @@ export class StackMonitoringWaiter {
   }
 
   /**
+   * Waits forMaintenanceWindow till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMaintenanceWindowResponse | null (null in case of 404 response)
+   */
+  public async forMaintenanceWindow(
+    request: serviceRequests.GetMaintenanceWindowRequest,
+    ...targetStates: models.MaintenanceWindowLifecycleState[]
+  ): Promise<serviceResponses.GetMaintenanceWindowResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getMaintenanceWindow(request),
+      response => targetStates.includes(response.maintenanceWindow.lifecycleState!),
+      targetStates.includes(models.MaintenanceWindowLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forMetricExtension till it reaches any of the provided states
    *
    * @param request the request to send
