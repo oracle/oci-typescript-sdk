@@ -96,6 +96,11 @@ export interface ListZonesRequest extends common.BaseRequest {
    *
    */
   "tsigKeyId"?: string;
+  /**
+   * Search for zones that have the given {@code DnssecState}.
+   *
+   */
+  "dnssecState"?: model.ZoneDnssecState;
 }
 
 export namespace ListZonesRequest {

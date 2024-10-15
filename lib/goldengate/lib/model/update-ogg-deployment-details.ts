@@ -58,16 +58,31 @@ export interface UpdateOggDeploymentDetails {
    *
    */
   "key"?: string;
+  "groupToRolesMapping"?: model.UpdateGroupToRolesMappingDetails;
 }
 
 export namespace UpdateOggDeploymentDetails {
   export function getJsonObj(obj: UpdateOggDeploymentDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "groupToRolesMapping": obj.groupToRolesMapping
+          ? model.UpdateGroupToRolesMappingDetails.getJsonObj(obj.groupToRolesMapping)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateOggDeploymentDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "groupToRolesMapping": obj.groupToRolesMapping
+          ? model.UpdateGroupToRolesMappingDetails.getDeserializedJsonObj(obj.groupToRolesMapping)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

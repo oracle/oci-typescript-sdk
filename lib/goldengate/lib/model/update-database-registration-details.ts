@@ -77,8 +77,8 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    */
   "sessionMode"?: UpdateDatabaseRegistrationDetails.SessionMode;
   /**
-   * The wallet contents Oracle GoldenGate uses to make connections to a database.  This
-   * attribute is expected to be base64 encoded.
+   * The wallet contents Oracle GoldenGate uses to make connections to a database.
+   * This attribute is expected to be base64 encoded.
    *
    */
   "wallet"?: string;

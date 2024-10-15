@@ -17,6 +17,7 @@ import common = require("oci-common");
 
 /**
  * The result of the connectivity test performed between the GoldenGate deployment and the associated database / service.
+ * The 'error' property is deprecated and will not contain values in the future. So, the error(s) will be returned in just the 'errors' property.
  *
  */
 export interface TestConnectionAssignmentResult {
@@ -26,6 +27,11 @@ export interface TestConnectionAssignmentResult {
    */
   "resultType": TestConnectionAssignmentResult.ResultType;
   "error"?: model.TestConnectionAssignmentError;
+  /**
+   * List of test connection assignment error objects.
+   *
+   */
+  "errors"?: Array<model.TestConnectionAssignmentError>;
 }
 
 export namespace TestConnectionAssignmentResult {
@@ -44,7 +50,12 @@ export namespace TestConnectionAssignmentResult {
     const jsonObj = {
       ...obj,
       ...{
-        "error": obj.error ? model.TestConnectionAssignmentError.getJsonObj(obj.error) : undefined
+        "error": obj.error ? model.TestConnectionAssignmentError.getJsonObj(obj.error) : undefined,
+        "errors": obj.errors
+          ? obj.errors.map(item => {
+              return model.TestConnectionAssignmentError.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -56,6 +67,11 @@ export namespace TestConnectionAssignmentResult {
       ...{
         "error": obj.error
           ? model.TestConnectionAssignmentError.getDeserializedJsonObj(obj.error)
+          : undefined,
+        "errors": obj.errors
+          ? obj.errors.map(item => {
+              return model.TestConnectionAssignmentError.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

@@ -1071,6 +1071,8 @@ import * as AttachServiceDeterminedVolumeDetails from "./attach-service-determin
 export import AttachServiceDeterminedVolumeDetails = AttachServiceDeterminedVolumeDetails.AttachServiceDeterminedVolumeDetails;
 import * as BooleanImageCapabilitySchemaDescriptor from "./boolean-image-capability-schema-descriptor";
 export import BooleanImageCapabilitySchemaDescriptor = BooleanImageCapabilitySchemaDescriptor.BooleanImageCapabilitySchemaDescriptor;
+import * as BootVolumeSourceFromBootVolumeBackupDeltaDetails from "./boot-volume-source-from-boot-volume-backup-delta-details";
+export import BootVolumeSourceFromBootVolumeBackupDeltaDetails = BootVolumeSourceFromBootVolumeBackupDeltaDetails.BootVolumeSourceFromBootVolumeBackupDeltaDetails;
 import * as BootVolumeSourceFromBootVolumeBackupDetails from "./boot-volume-source-from-boot-volume-backup-details";
 export import BootVolumeSourceFromBootVolumeBackupDetails = BootVolumeSourceFromBootVolumeBackupDetails.BootVolumeSourceFromBootVolumeBackupDetails;
 import * as BootVolumeSourceFromBootVolumeDetails from "./boot-volume-source-from-boot-volume-details";
@@ -1233,6 +1235,8 @@ import * as VolumeGroupSourceFromVolumesDetails from "./volume-group-source-from
 export import VolumeGroupSourceFromVolumesDetails = VolumeGroupSourceFromVolumesDetails.VolumeGroupSourceFromVolumesDetails;
 import * as VolumeSourceFromBlockVolumeReplicaDetails from "./volume-source-from-block-volume-replica-details";
 export import VolumeSourceFromBlockVolumeReplicaDetails = VolumeSourceFromBlockVolumeReplicaDetails.VolumeSourceFromBlockVolumeReplicaDetails;
+import * as VolumeSourceFromVolumeBackupDeltaDetails from "./volume-source-from-volume-backup-delta-details";
+export import VolumeSourceFromVolumeBackupDeltaDetails = VolumeSourceFromVolumeBackupDeltaDetails.VolumeSourceFromVolumeBackupDeltaDetails;
 import * as VolumeSourceFromVolumeBackupDetails from "./volume-source-from-volume-backup-details";
 export import VolumeSourceFromVolumeBackupDetails = VolumeSourceFromVolumeBackupDetails.VolumeSourceFromVolumeBackupDetails;
 import * as VolumeSourceFromVolumeDetails from "./volume-source-from-volume-details";

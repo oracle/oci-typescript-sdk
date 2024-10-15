@@ -73,6 +73,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The clusterPlacementGroup Id of the volume group for volume group placement.
    */
   "clusterPlacementGroupId"?: string;
+  /**
+   * The OCID of the Vault service key which is the master encryption key for the volume's cross region backups, which will be used in the destination region to encrypt the backup's encryption keys.
+   * For more information about the Vault service and encryption keys, see
+   * [Overview of Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) and
+   * [Using Keys](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Tasks/usingkeys.htm).
+   *
+   */
+  "xrcKmsKeyId"?: string;
 }
 
 export namespace CreateVolumeGroupDetails {

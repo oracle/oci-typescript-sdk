@@ -16,16 +16,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The meta-data specific on particular deployment type represented by deploymentType field.
- *
- */
+* The meta-data specific on particular deployment type represented by deploymentType field.
+* <p>
+Deprecated properties: {@code sourceTechnologies} and {@code targetTechnologies} are not populated. They will be removed after September 15 2025.
+* The list of supported source and target technologies can be accessed using the url provided in {@code supportedTechnologiesUrl} property.
+* 
+*/
 export interface DeploymentTypeSummary {
   /**
    * The deployment category defines the broad separation of the deployment type into three categories.
    * Currently the separation is 'DATA_REPLICATION', 'STREAM_ANALYTICS' and 'DATA_TRANSFORMS'.
    *
    */
-  "category": DeploymentTypeSummary.Category;
+  "category": model.DeploymentCategory;
   /**
    * An object's Display Name.
    *
@@ -75,17 +78,6 @@ export interface DeploymentTypeSummary {
 }
 
 export namespace DeploymentTypeSummary {
-  export enum Category {
-    DataReplication = "DATA_REPLICATION",
-    StreamAnalytics = "STREAM_ANALYTICS",
-    DataTransforms = "DATA_TRANSFORMS",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export enum ConnectionTypes {
     Goldengate = "GOLDENGATE",
     Kafka = "KAFKA",

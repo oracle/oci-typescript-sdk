@@ -42,6 +42,13 @@ Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;
+  /**
+   * The OCID of the Vault service key to assign as the master encryption key for the block volume replica, see
+   * [Overview of Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) and
+   * [Using Keys](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Tasks/usingkeys.htm).
+   *
+   */
+  "kmsKeyId"?: string;
 }
 
 export namespace VolumeGroupReplicaInfo {

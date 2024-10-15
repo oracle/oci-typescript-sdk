@@ -21,4 +21,10 @@ export interface DeleteSteeringPolicyAttachmentResponse {
    *
    */
   "opcRequestId": string;
+  /**
+   * Unique Oracle-assigned identifier for the asynchronous request.
+   * You can use this to query status of the asynchronous operation.
+   *
+   */
+  "opcWorkRequestId": string;
 }

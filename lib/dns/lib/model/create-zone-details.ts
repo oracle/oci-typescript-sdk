@@ -50,6 +50,35 @@ export interface CreateZoneDetails extends model.CreateZoneBaseDetails {
    *
    */
   "externalDownstreams"?: Array<model.ExternalDownstream>;
+  /**
+    * The state of DNSSEC on the zone.
+* <p>
+For DNSSEC to function, every parent zone in the DNS tree up to the top-level domain (or an independent
+* trust anchor) must also have DNSSEC correctly set up.
+* After enabling DNSSEC, you must add a DS record to the zone's parent zone containing the
+* {@code KskDnssecKeyVersion} data. You can find the DS data in the {@code dsData} attribute of the {@code KskDnssecKeyVersion}.
+* Then, use the {@code PromoteZoneDnssecKeyVersion} operation to promote the {@code KskDnssecKeyVersion}.
+* <p>
+New {@code KskDnssecKeyVersion}s are generated annually, a week before the existing {@code KskDnssecKeyVersion}'s expiration.
+* To rollover a {@code KskDnssecKeyVersion}, you must replace the parent zone's DS record containing the old
+* {@code KskDnssecKeyVersion} data with the data from the new {@code KskDnssecKeyVersion}.
+* <p>
+To remove the old DS record without causing service disruption, wait until the old DS record's TTL has
+* expired, and the new DS record has propagated. After the DS replacement has been completed, then the
+* {@code PromoteZoneDnssecKeyVersion} operation must be called.
+* <p>
+Metrics are emitted in the {@code oci_dns} namespace daily for each {@code KskDnssecKeyVersion} indicating how many
+* days are left until expiration.
+* We recommend that you set up alarms and notifications for KskDnssecKeyVersion expiration so that the
+* necessary parent zone updates can be made and the {@code PromoteZoneDnssecKeyVersion} operation can be called.
+* <p>
+Enabling DNSSEC results in additional records in DNS responses which increases their size and can
+* cause higher response latency.
+* <p>
+For more information, see [DNSSEC](https://docs.cloud.oracle.com/iaas/Content/DNS/Concepts/dnssec.htm).
+* 
+    */
+  "dnssecState"?: model.ZoneDnssecState;
 
   "migrationSource": string;
 }

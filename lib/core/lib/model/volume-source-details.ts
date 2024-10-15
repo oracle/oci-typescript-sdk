@@ -52,6 +52,11 @@ export namespace VolumeSourceDetails {
             <model.VolumeSourceFromVolumeBackupDetails>(<object>jsonObj),
             true
           );
+        case "volumeBackupDelta":
+          return model.VolumeSourceFromVolumeBackupDeltaDetails.getJsonObj(
+            <model.VolumeSourceFromVolumeBackupDeltaDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -76,6 +81,11 @@ export namespace VolumeSourceDetails {
         case "volumeBackup":
           return model.VolumeSourceFromVolumeBackupDetails.getDeserializedJsonObj(
             <model.VolumeSourceFromVolumeBackupDetails>(<object>jsonObj),
+            true
+          );
+        case "volumeBackupDelta":
+          return model.VolumeSourceFromVolumeBackupDeltaDetails.getDeserializedJsonObj(
+            <model.VolumeSourceFromVolumeBackupDeltaDetails>(<object>jsonObj),
             true
           );
         default:

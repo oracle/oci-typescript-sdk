@@ -128,6 +128,17 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    */
   "licenseModel": model.LicenseModel;
   /**
+   * Specifies whether the deployment is used in a production or development/testing environment.
+   *
+   */
+  "environmentType"?: model.EnvironmentType;
+  /**
+   * The deployment category defines the broad separation of the deployment type into three categories.
+   * Currently the separation is 'DATA_REPLICATION', 'STREAM_ANALYTICS' and 'DATA_TRANSFORMS'.
+   *
+   */
+  "category": model.DeploymentCategory;
+  /**
    * The Minimum number of OCPUs to be made available for this Deployment.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -194,6 +205,7 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    */
   "storageUtilizationInBytes"?: number;
   /**
+   * Deprecated: This field is not updated and will be removed in future versions. If storage utilization exceeds the limit, the respective warning message will appear in deployment messages, which can be accessed through /messages?deploymentId=.
    * Indicator will be true if the amount of storage being utilized exceeds the allowable storage utilization limit.  Exceeding the limit may be an indication of a misconfiguration of the deployment's GoldenGate service.
    *
    */

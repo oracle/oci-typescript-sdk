@@ -69,16 +69,31 @@ export interface CreateOggDeploymentDetails {
    *
    */
   "oggVersion"?: string;
+  "groupToRolesMapping"?: model.GroupToRolesMappingDetails;
 }
 
 export namespace CreateOggDeploymentDetails {
   export function getJsonObj(obj: CreateOggDeploymentDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "groupToRolesMapping": obj.groupToRolesMapping
+          ? model.GroupToRolesMappingDetails.getJsonObj(obj.groupToRolesMapping)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateOggDeploymentDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "groupToRolesMapping": obj.groupToRolesMapping
+          ? model.GroupToRolesMappingDetails.getDeserializedJsonObj(obj.groupToRolesMapping)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

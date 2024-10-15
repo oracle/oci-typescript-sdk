@@ -95,7 +95,8 @@ For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/
   "sourceDetails":
     | model.BootVolumeSourceFromBootVolumeBackupDetails
     | model.BootVolumeSourceFromBootVolumeDetails
-    | model.BootVolumeSourceFromBootVolumeReplicaDetails;
+    | model.BootVolumeSourceFromBootVolumeReplicaDetails
+    | model.BootVolumeSourceFromBootVolumeBackupDeltaDetails;
   /**
    * Specifies whether the auto-tune performance is enabled for this boot volume. This field is deprecated.
    * Use the {@code DetachedVolumeAutotunePolicy} instead to enable the volume for detached autotune.
@@ -112,6 +113,14 @@ For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/
    * The list of autotune policies to be enabled for this volume.
    */
   "autotunePolicies"?: Array<model.AutotunePolicy>;
+  /**
+   * The OCID of the Vault service key which is the master encryption key for the boot volume cross region backups, which will be used in the destination region to encrypt the backup's encryption keys.
+   * For more information about the Vault service and encryption keys, see
+   * [Overview of Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) and
+   * [Using Keys](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Tasks/usingkeys.htm).
+   *
+   */
+  "xrcKmsKeyId"?: string;
 }
 
 export namespace CreateBootVolumeDetails {

@@ -1198,6 +1198,10 @@ export class GoldenGateClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.CopyDeploymentBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentBackup",
+        bodyModel: model.DeploymentBackup,
+        type: "model.DeploymentBackup",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1207,6 +1211,11 @@ export class GoldenGateClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -1709,6 +1718,10 @@ export class GoldenGateClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeploymentBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentBackup",
+        bodyModel: model.DeploymentBackup,
+        type: "model.DeploymentBackup",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1718,6 +1731,11 @@ export class GoldenGateClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -3559,6 +3577,88 @@ export class GoldenGateClient {
         bodyKey: "deploymentBackupCollection",
         bodyModel: model.DeploymentBackupCollection,
         type: "model.DeploymentBackupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns an array of DeploymentEnvironmentDescriptor
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDeploymentEnvironmentsRequest
+   * @return ListDeploymentEnvironmentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentEnvironments.ts.html |here} to see how to use ListDeploymentEnvironments API.
+   */
+  public async listDeploymentEnvironments(
+    listDeploymentEnvironmentsRequest: requests.ListDeploymentEnvironmentsRequest
+  ): Promise<responses.ListDeploymentEnvironmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listDeploymentEnvironments.");
+    const operationName = "listDeploymentEnvironments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentEnvironmentCollection/ListDeploymentEnvironments";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDeploymentEnvironmentsRequest.compartmentId,
+      "limit": listDeploymentEnvironmentsRequest.limit,
+      "page": listDeploymentEnvironmentsRequest.page,
+      "sortOrder": listDeploymentEnvironmentsRequest.sortOrder,
+      "sortBy": listDeploymentEnvironmentsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDeploymentEnvironmentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeploymentEnvironmentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentEnvironments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDeploymentEnvironmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentEnvironmentCollection",
+        bodyModel: model.DeploymentEnvironmentCollection,
+        type: "model.DeploymentEnvironmentCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

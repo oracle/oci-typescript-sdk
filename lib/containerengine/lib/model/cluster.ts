@@ -107,6 +107,11 @@ export interface Cluster {
    * Type of cluster
    */
   "type"?: model.ClusterType;
+  /**
+   * The cluster-specific OpenID Connect Discovery endpoint
+   *
+   */
+  "openIdConnectDiscoveryEndpoint"?: string;
 }
 
 export namespace Cluster {

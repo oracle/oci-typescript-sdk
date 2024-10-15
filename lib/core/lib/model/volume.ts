@@ -128,7 +128,8 @@ For performance autotune enabled volumes, It would be the Default(Minimum) VPUs/
   "sourceDetails"?:
     | model.VolumeSourceFromBlockVolumeReplicaDetails
     | model.VolumeSourceFromVolumeDetails
-    | model.VolumeSourceFromVolumeBackupDetails;
+    | model.VolumeSourceFromVolumeBackupDetails
+    | model.VolumeSourceFromVolumeBackupDeltaDetails;
   /**
    * The date and time the volume was created. Format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
