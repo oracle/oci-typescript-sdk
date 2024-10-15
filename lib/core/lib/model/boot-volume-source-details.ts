@@ -46,6 +46,11 @@ export namespace BootVolumeSourceDetails {
             <model.BootVolumeSourceFromBootVolumeReplicaDetails>(<object>jsonObj),
             true
           );
+        case "bootVolumeBackupDelta":
+          return model.BootVolumeSourceFromBootVolumeBackupDeltaDetails.getJsonObj(
+            <model.BootVolumeSourceFromBootVolumeBackupDeltaDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -70,6 +75,11 @@ export namespace BootVolumeSourceDetails {
         case "bootVolumeReplica":
           return model.BootVolumeSourceFromBootVolumeReplicaDetails.getDeserializedJsonObj(
             <model.BootVolumeSourceFromBootVolumeReplicaDetails>(<object>jsonObj),
+            true
+          );
+        case "bootVolumeBackupDelta":
+          return model.BootVolumeSourceFromBootVolumeBackupDeltaDetails.getDeserializedJsonObj(
+            <model.BootVolumeSourceFromBootVolumeBackupDeltaDetails>(<object>jsonObj),
             true
           );
         default:

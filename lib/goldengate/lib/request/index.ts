@@ -94,6 +94,8 @@ import * as ListDatabaseRegistrationsRequest from "./list-database-registrations
 export import ListDatabaseRegistrationsRequest = ListDatabaseRegistrationsRequest.ListDatabaseRegistrationsRequest;
 import * as ListDeploymentBackupsRequest from "./list-deployment-backups-request";
 export import ListDeploymentBackupsRequest = ListDeploymentBackupsRequest.ListDeploymentBackupsRequest;
+import * as ListDeploymentEnvironmentsRequest from "./list-deployment-environments-request";
+export import ListDeploymentEnvironmentsRequest = ListDeploymentEnvironmentsRequest.ListDeploymentEnvironmentsRequest;
 import * as ListDeploymentTypesRequest from "./list-deployment-types-request";
 export import ListDeploymentTypesRequest = ListDeploymentTypesRequest.ListDeploymentTypesRequest;
 import * as ListDeploymentUpgradesRequest from "./list-deployment-upgrades-request";

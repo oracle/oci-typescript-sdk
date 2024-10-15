@@ -54,6 +54,37 @@ export class DnsWaiter {
   }
 
   /**
+   * Waits forChangeSteeringPolicyCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeSteeringPolicyCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeSteeringPolicyCompartment(
+    request: serviceRequests.ChangeSteeringPolicyCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeSteeringPolicyCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeSteeringPolicyCompartmentResponse = await this.client.changeSteeringPolicyCompartment(
+      request
+    );
+    if (changeSteeringPolicyCompartmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeSteeringPolicyCompartmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeSteeringPolicyCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeSteeringPolicyCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeViewCompartment
    *
    * @param request the request to send
@@ -121,6 +152,60 @@ export class DnsWaiter {
     );
     return {
       response: createResolverEndpointResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateSteeringPolicy
+   *
+   * @param request the request to send
+   * @return response returns CreateSteeringPolicyResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateSteeringPolicy(
+    request: serviceRequests.CreateSteeringPolicyRequest
+  ): Promise<{
+    response: serviceResponses.CreateSteeringPolicyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createSteeringPolicyResponse = await this.client.createSteeringPolicy(request);
+    if (createSteeringPolicyResponse.opcWorkRequestId === undefined)
+      return { response: createSteeringPolicyResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createSteeringPolicyResponse.opcWorkRequestId
+    );
+    return { response: createSteeringPolicyResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateSteeringPolicyAttachment
+   *
+   * @param request the request to send
+   * @return response returns CreateSteeringPolicyAttachmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateSteeringPolicyAttachment(
+    request: serviceRequests.CreateSteeringPolicyAttachmentRequest
+  ): Promise<{
+    response: serviceResponses.CreateSteeringPolicyAttachmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createSteeringPolicyAttachmentResponse = await this.client.createSteeringPolicyAttachment(
+      request
+    );
+    if (createSteeringPolicyAttachmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: createSteeringPolicyAttachmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createSteeringPolicyAttachmentResponse.opcWorkRequestId
+    );
+    return {
+      response: createSteeringPolicyAttachmentResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -242,6 +327,60 @@ export class DnsWaiter {
     );
     return {
       response: deleteResolverEndpointResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteSteeringPolicy
+   *
+   * @param request the request to send
+   * @return response returns DeleteSteeringPolicyResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteSteeringPolicy(
+    request: serviceRequests.DeleteSteeringPolicyRequest
+  ): Promise<{
+    response: serviceResponses.DeleteSteeringPolicyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteSteeringPolicyResponse = await this.client.deleteSteeringPolicy(request);
+    if (deleteSteeringPolicyResponse.opcWorkRequestId === undefined)
+      return { response: deleteSteeringPolicyResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteSteeringPolicyResponse.opcWorkRequestId
+    );
+    return { response: deleteSteeringPolicyResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteSteeringPolicyAttachment
+   *
+   * @param request the request to send
+   * @return response returns DeleteSteeringPolicyAttachmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteSteeringPolicyAttachment(
+    request: serviceRequests.DeleteSteeringPolicyAttachmentRequest
+  ): Promise<{
+    response: serviceResponses.DeleteSteeringPolicyAttachmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteSteeringPolicyAttachmentResponse = await this.client.deleteSteeringPolicyAttachment(
+      request
+    );
+    if (deleteSteeringPolicyAttachmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: deleteSteeringPolicyAttachmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteSteeringPolicyAttachmentResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteSteeringPolicyAttachmentResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -448,6 +587,63 @@ export class DnsWaiter {
   }
 
   /**
+   * Waits forPromoteZoneDnssecKeyVersion
+   *
+   * @param request the request to send
+   * @return response returns PromoteZoneDnssecKeyVersionResponse, GetWorkRequestResponse tuple
+   */
+  public async forPromoteZoneDnssecKeyVersion(
+    request: serviceRequests.PromoteZoneDnssecKeyVersionRequest
+  ): Promise<{
+    response: serviceResponses.PromoteZoneDnssecKeyVersionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const promoteZoneDnssecKeyVersionResponse = await this.client.promoteZoneDnssecKeyVersion(
+      request
+    );
+    if (promoteZoneDnssecKeyVersionResponse.opcWorkRequestId === undefined)
+      return {
+        response: promoteZoneDnssecKeyVersionResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      promoteZoneDnssecKeyVersionResponse.opcWorkRequestId
+    );
+    return {
+      response: promoteZoneDnssecKeyVersionResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forStageZoneDnssecKeyVersion
+   *
+   * @param request the request to send
+   * @return response returns StageZoneDnssecKeyVersionResponse, GetWorkRequestResponse tuple
+   */
+  public async forStageZoneDnssecKeyVersion(
+    request: serviceRequests.StageZoneDnssecKeyVersionRequest
+  ): Promise<{
+    response: serviceResponses.StageZoneDnssecKeyVersionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const stageZoneDnssecKeyVersionResponse = await this.client.stageZoneDnssecKeyVersion(request);
+    if (stageZoneDnssecKeyVersionResponse.opcWorkRequestId === undefined)
+      return { response: stageZoneDnssecKeyVersionResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      stageZoneDnssecKeyVersionResponse.opcWorkRequestId
+    );
+    return {
+      response: stageZoneDnssecKeyVersionResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forUpdateResolver
    *
    * @param request the request to send
@@ -492,6 +688,60 @@ export class DnsWaiter {
     );
     return {
       response: updateResolverEndpointResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateSteeringPolicy
+   *
+   * @param request the request to send
+   * @return response returns UpdateSteeringPolicyResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateSteeringPolicy(
+    request: serviceRequests.UpdateSteeringPolicyRequest
+  ): Promise<{
+    response: serviceResponses.UpdateSteeringPolicyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateSteeringPolicyResponse = await this.client.updateSteeringPolicy(request);
+    if (updateSteeringPolicyResponse.opcWorkRequestId === undefined)
+      return { response: updateSteeringPolicyResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateSteeringPolicyResponse.opcWorkRequestId
+    );
+    return { response: updateSteeringPolicyResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateSteeringPolicyAttachment
+   *
+   * @param request the request to send
+   * @return response returns UpdateSteeringPolicyAttachmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateSteeringPolicyAttachment(
+    request: serviceRequests.UpdateSteeringPolicyAttachmentRequest
+  ): Promise<{
+    response: serviceResponses.UpdateSteeringPolicyAttachmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateSteeringPolicyAttachmentResponse = await this.client.updateSteeringPolicyAttachment(
+      request
+    );
+    if (updateSteeringPolicyAttachmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: updateSteeringPolicyAttachmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateSteeringPolicyAttachmentResponse.opcWorkRequestId
+    );
+    return {
+      response: updateSteeringPolicyAttachmentResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

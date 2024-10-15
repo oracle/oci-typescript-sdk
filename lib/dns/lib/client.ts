@@ -387,6 +387,11 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -819,6 +824,11 @@ Protected zones cannot have their compartment changed. When the zone name is pro
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -911,6 +921,11 @@ For the purposes of access control, the attachment is automatically placed
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -1595,6 +1610,11 @@ A `204` response indicates that the delete has been successful.
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -1668,6 +1688,11 @@ A `204` response indicates that the delete has been successful.
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -4136,7 +4161,8 @@ The collection can be filtered by name, time created, scope, associated view, an
       "sortOrder": listZonesRequest.sortOrder,
       "scope": listZonesRequest.scope,
       "viewId": listZonesRequest.viewId,
-      "tsigKeyId": listZonesRequest.tsigKeyId
+      "tsigKeyId": listZonesRequest.tsigKeyId,
+      "dnssecState": listZonesRequest.dnssecState
     };
 
     let headerParams = {
@@ -4549,6 +4575,185 @@ You can update one record or all records for the specified zone depending on the
           {
             value: response.headers.get("ETag"),
             key: "eTag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Promotes a specified `DnssecKeyVersion` on the zone.
+* <p>
+If the `DnssecKeyVersion` identified in the request body is a key signing key (KSK) that is replacing
+* another `DnssecKeyVersion`, then the old `DnssecKeyVersion` is scheduled for removal from the zone.
+* <p>
+For key signing keys (KSKs), you must create the DS record with the new key information **before** promoting
+* the new key to establish a chain of trust. To avoid a service disruption, remove the old DS record as soon
+* as its TTL (time to live) expires.
+* <p>
+For more information, see [DNSSEC](https://docs.cloud.oracle.com/iaas/Content/DNS/Concepts/dnssec.htm).
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param PromoteZoneDnssecKeyVersionRequest
+     * @return PromoteZoneDnssecKeyVersionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PromoteZoneDnssecKeyVersion.ts.html |here} to see how to use PromoteZoneDnssecKeyVersion API.
+     */
+  public async promoteZoneDnssecKeyVersion(
+    promoteZoneDnssecKeyVersionRequest: requests.PromoteZoneDnssecKeyVersionRequest
+  ): Promise<responses.PromoteZoneDnssecKeyVersionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#promoteZoneDnssecKeyVersion.");
+    const operationName = "promoteZoneDnssecKeyVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/PromoteZoneDnssecKeyVersion";
+    const pathParams = {
+      "{zoneId}": promoteZoneDnssecKeyVersionRequest.zoneId
+    };
+
+    const queryParams = {
+      "scope": promoteZoneDnssecKeyVersionRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Match": promoteZoneDnssecKeyVersionRequest.ifMatch,
+      "If-Unmodified-Since": promoteZoneDnssecKeyVersionRequest.ifUnmodifiedSince,
+      "opc-retry-token": promoteZoneDnssecKeyVersionRequest.opcRetryToken,
+      "opc-request-id": promoteZoneDnssecKeyVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      promoteZoneDnssecKeyVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/zones/{zoneId}/actions/promoteDnssecKeyVersion",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        promoteZoneDnssecKeyVersionRequest.promoteZoneDnssecKeyVersionDetails,
+        "PromoteZoneDnssecKeyVersionDetails",
+        model.PromoteZoneDnssecKeyVersionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PromoteZoneDnssecKeyVersionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Stages a new `DnssecKeyVersion` on the zone. Staging is a process that generates a new \"successor\" key version
+* that replaces an existing \"predecessor\" key version.
+* **Note:** A new key-signing key (KSK) version is inert until you update the parent zone DS records.
+* <p>
+For more information, see the [DNSSEC](https://docs.cloud.oracle.com/iaas/Content/DNS/Concepts/dnssec.htm) documentation.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param StageZoneDnssecKeyVersionRequest
+     * @return StageZoneDnssecKeyVersionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/StageZoneDnssecKeyVersion.ts.html |here} to see how to use StageZoneDnssecKeyVersion API.
+     */
+  public async stageZoneDnssecKeyVersion(
+    stageZoneDnssecKeyVersionRequest: requests.StageZoneDnssecKeyVersionRequest
+  ): Promise<responses.StageZoneDnssecKeyVersionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#stageZoneDnssecKeyVersion.");
+    const operationName = "stageZoneDnssecKeyVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/StageZoneDnssecKeyVersion";
+    const pathParams = {
+      "{zoneId}": stageZoneDnssecKeyVersionRequest.zoneId
+    };
+
+    const queryParams = {
+      "scope": stageZoneDnssecKeyVersionRequest.scope
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "If-Match": stageZoneDnssecKeyVersionRequest.ifMatch,
+      "If-Unmodified-Since": stageZoneDnssecKeyVersionRequest.ifUnmodifiedSince,
+      "opc-retry-token": stageZoneDnssecKeyVersionRequest.opcRetryToken,
+      "opc-request-id": stageZoneDnssecKeyVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stageZoneDnssecKeyVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/zones/{zoneId}/actions/stageDnssecKeyVersion",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        stageZoneDnssecKeyVersionRequest.stageZoneDnssecKeyVersionDetails,
+        "StageZoneDnssecKeyVersionDetails",
+        model.StageZoneDnssecKeyVersionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StageZoneDnssecKeyVersionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -5022,6 +5227,11 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
             dataType: "string"
           },
           {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("ETag"),
             key: "eTag",
             dataType: "string"
@@ -5107,6 +5317,11 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

@@ -31,6 +31,11 @@ export interface CreateDeploymentDetails {
    */
   "licenseModel": model.LicenseModel;
   /**
+   * Specifies whether the deployment is used in a production or development/testing environment.
+   *
+   */
+  "environmentType"?: model.EnvironmentType;
+  /**
    * Metadata about this specific object.
    *
    */

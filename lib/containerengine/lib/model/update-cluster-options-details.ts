@@ -27,6 +27,8 @@ export interface UpdateClusterOptionsDetails {
   "admissionControllerOptions"?: model.AdmissionControllerOptions;
   "persistentVolumeConfig"?: model.PersistentVolumeConfigDetails;
   "serviceLbConfig"?: model.ServiceLbConfigDetails;
+  "openIdConnectTokenAuthenticationConfig"?: model.OpenIdConnectTokenAuthenticationConfig;
+  "openIdConnectDiscovery"?: model.OpenIdConnectDiscovery;
 }
 
 export namespace UpdateClusterOptionsDetails {
@@ -42,6 +44,14 @@ export namespace UpdateClusterOptionsDetails {
           : undefined,
         "serviceLbConfig": obj.serviceLbConfig
           ? model.ServiceLbConfigDetails.getJsonObj(obj.serviceLbConfig)
+          : undefined,
+        "openIdConnectTokenAuthenticationConfig": obj.openIdConnectTokenAuthenticationConfig
+          ? model.OpenIdConnectTokenAuthenticationConfig.getJsonObj(
+              obj.openIdConnectTokenAuthenticationConfig
+            )
+          : undefined,
+        "openIdConnectDiscovery": obj.openIdConnectDiscovery
+          ? model.OpenIdConnectDiscovery.getJsonObj(obj.openIdConnectDiscovery)
           : undefined
       }
     };
@@ -60,6 +70,14 @@ export namespace UpdateClusterOptionsDetails {
           : undefined,
         "serviceLbConfig": obj.serviceLbConfig
           ? model.ServiceLbConfigDetails.getDeserializedJsonObj(obj.serviceLbConfig)
+          : undefined,
+        "openIdConnectTokenAuthenticationConfig": obj.openIdConnectTokenAuthenticationConfig
+          ? model.OpenIdConnectTokenAuthenticationConfig.getDeserializedJsonObj(
+              obj.openIdConnectTokenAuthenticationConfig
+            )
+          : undefined,
+        "openIdConnectDiscovery": obj.openIdConnectDiscovery
+          ? model.OpenIdConnectDiscovery.getDeserializedJsonObj(obj.openIdConnectDiscovery)
           : undefined
       }
     };

@@ -125,7 +125,8 @@ For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/
   "sourceDetails"?:
     | model.BootVolumeSourceFromBootVolumeBackupDetails
     | model.BootVolumeSourceFromBootVolumeDetails
-    | model.BootVolumeSourceFromBootVolumeReplicaDetails;
+    | model.BootVolumeSourceFromBootVolumeReplicaDetails
+    | model.BootVolumeSourceFromBootVolumeBackupDeltaDetails;
   /**
    * The date and time the boot volume was created. Format defined
    * by [RFC3339](https://tools.ietf.org/html/rfc3339).

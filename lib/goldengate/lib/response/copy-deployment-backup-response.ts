@@ -27,4 +27,13 @@ export interface CopyDeploymentBackupResponse {
    *
    */
   "opcRequestId": string;
+  /**
+   * For optimistic concurrency control. See {@code if-match}.
+   *
+   */
+  "etag": string;
+  /**
+   * The returned model.DeploymentBackup instance.
+   */
+  "deploymentBackup": model.DeploymentBackup;
 }
