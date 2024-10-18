@@ -243,7 +243,7 @@ export class GenericRetrier {
           requestEndpoint: endpoint,
           troubleshootingPage: `See ${TROUBLESHOOT_URL} for help troubleshooting this error, or contact support and provide this full error message.`
         };
-        shouldBeRetried = true;
+        shouldBeRetried = this.retryConfiguration.retryCondition(errorObject);
       }
       let currentTime = new Date().getTime();
       let timeElapsed = currentTime - timestamp.getTime();
@@ -268,7 +268,7 @@ export class GenericRetrier {
       const delayTime = this.retryConfiguration.delayStrategy.delay(waitContext);
       waitContext.attemptCount++;
       console.warn(
-        `Request failed with Exception : ${lastKnownError}\nRetrying request -> Total Attempts : ${waitContext.attemptCount}, Retrying after ${delayTime} seconds...`
+        `Request failed with Exception : ${lastKnownError}\nRetrying request -> Total Attempts : ${waitContext.attemptCount}, Retrying after ${delayTime} seconds...`,lastKnownError
       );
       await delay(delayTime);
       GenericRetrier.refreshRequest(request);
