@@ -23,7 +23,7 @@ export interface ListSchedulerDefinitionsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only scheduleDefinitions whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
@@ -31,17 +31,21 @@ export interface ListSchedulerDefinitionsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * A filter to return only Scheduler Definitions whose assocaited product matches the given product
+   * A filter to return only dchedule definitions whose assocaited product matches the given product
    */
   "product"?: string;
   /**
-   * unique SchedulerDefinition identifier
+   * A filter to return only schedule definitions whose identifier matches the given identifier.
    */
   "id"?: string;
   /**
-   * unique MaintenanceWindow identifier
+   * A filter to return only schedule definitions whose associated maintenanceWindowId matches the given maintenanceWindowId.
    */
   "maintenanceWindowId"?: string;
+  /**
+   * A filter to return only schedule definitions whose associated runbookId matches the given runbookId.
+   */
+  "runbookId"?: string;
   /**
    * unique Fleet identifier
    */

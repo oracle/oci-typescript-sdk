@@ -50,6 +50,10 @@ export interface ModelSummary {
    */
   "lifecycleState": model.ModelLifecycleState;
   /**
+   * Details about the lifecycle state of the model.
+   */
+  "lifecycleDetails"?: string;
+  /**
    * The OCID of the model version set that the model is associated to.
    */
   "modelVersionSetId": string;

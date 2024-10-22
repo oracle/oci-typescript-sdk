@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -45,43 +44,46 @@ Example: {@code My new resource}
    */
   "timeUpdated"?: Date;
   /**
-   * Scheduled date for the Job.
+   * The scheduled date and time for the Job.
    */
   "timeScheduled"?: Date;
   /**
-   * Actual Start time for the Job
+   * Actual start date and time for the Job.
    */
   "timeStarted"?: Date;
   /**
-   * Actual End time for the Job
+   * Actual end date and time for the Job.
    */
   "timeEnded"?: Date;
   /**
-   * Count of ActionGroups affected by the Schedule. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Count of Action Groups affected by the Schedule.
+   * An action group is a group of entities grouped for a lifecycle activity.
+   * Example - A Fleet will be considered an Action Group for any lifecycle activity.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countOfAffectedActionGroups"?: number;
   /**
-   * Count of Resources affected by the Schedule Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Count of resources affected by the schedule. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countOfAffectedResources"?: number;
   /**
-   * Count of Targets affected by the Schedule Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Count of targets affected by the schedule. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countOfAffectedTargets"?: number;
   /**
-   * All ActionGroup Types part of the schedule.
+   * All Action Group types are part of the schedule.
    */
   "actionGroupTypes"?: Array<SchedulerJob.ActionGroupTypes>;
   /**
-   * All application types part of the schedule for ENVIRONMENT ActionGroup Type.
+   * All application types that are part of the schedule for an ENVIRONMENT action group Type.
    */
   "applicationTypes"?: Array<string>;
   /**
-   * All products part of the schedule for PRODUCT AcionGroup Type.
+   * All products that are part of the schedule for a PRODUCT action group type.
    */
   "products"?: Array<string>;
   /**
-   * All LifeCycle Operations part of the schedule
+   * All LifeCycle Operations that are part of the schedule.
    */
   "lifecycleOperations"?: Array<string>;
   /**

@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,15 +16,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for script based execution
+ * Details for script-based execution.
  */
 export interface ScriptBasedExecutionDetails extends model.ExecutionDetails {
   "variables"?: model.TaskVariable;
   "content"?: model.ObjectStorageBucketContentDetails;
   /**
-   * Optional Command to execute the content.
+   * Optional command to execute the content.
+   * You can provide any commands/arguments that can't be part of the script.
+   *
    */
   "command"?: string;
+  /**
+   * Credentials required for executing the task.
+   *
+   */
+  "credentials"?: Array<model.ConfigAssociationDetails>;
 
   "executionType": string;
 }
@@ -38,7 +44,13 @@ export namespace ScriptBasedExecutionDetails {
         : (model.ExecutionDetails.getJsonObj(obj) as ScriptBasedExecutionDetails)),
       ...{
         "variables": obj.variables ? model.TaskVariable.getJsonObj(obj.variables) : undefined,
-        "content": obj.content ? model.ContentDetails.getJsonObj(obj.content) : undefined
+        "content": obj.content ? model.ContentDetails.getJsonObj(obj.content) : undefined,
+
+        "credentials": obj.credentials
+          ? obj.credentials.map(item => {
+              return model.ConfigAssociationDetails.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -59,6 +71,12 @@ export namespace ScriptBasedExecutionDetails {
           : undefined,
         "content": obj.content
           ? model.ContentDetails.getDeserializedJsonObj(obj.content)
+          : undefined,
+
+        "credentials": obj.credentials
+          ? obj.credentials.map(item => {
+              return model.ConfigAssociationDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

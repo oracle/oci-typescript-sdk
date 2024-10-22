@@ -216,6 +216,18 @@ export interface SmtpCredential {
    *  - returned: default
    */
   "userName": string;
+  /**
+   * Password
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: true
+   *  - type: string
+   *  - mutability: readOnly
+   *  - required: false
+   *  - returned: default
+   *  - idcsSensitive: hash_sc
+   */
+  "password"?: string;
   "user"?: model.SmtpCredentialUser;
   "urnIetfParamsScimSchemasOracleIdcsExtensionSelfChangeUser"?: model.ExtensionSelfChangeUser;
 }

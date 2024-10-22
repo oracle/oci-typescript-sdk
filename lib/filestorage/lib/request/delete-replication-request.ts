@@ -45,6 +45,10 @@ export interface DeleteReplicationRequest extends common.BaseRequest {
    *
    */
   "deleteMode"?: DeleteReplicationRequest.DeleteMode;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }
 
 export namespace DeleteReplicationRequest {

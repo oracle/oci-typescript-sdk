@@ -23,11 +23,11 @@ export interface UpdateFleetCredentialRequest extends common.BaseRequest {
    */
   "fleetCredentialId": string;
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**
-   * The information to be updated.
+   * The credential information to be updated.
    */
   "updateFleetCredentialDetails": model.UpdateFleetCredentialDetails;
   /**

@@ -225,6 +225,583 @@ export class FileStorageClient {
   }
 
   /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddExportLockRequest
+   * @return AddExportLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddExportLock.ts.html |here} to see how to use AddExportLock API.
+   */
+  public async addExportLock(
+    addExportLockRequest: requests.AddExportLockRequest
+  ): Promise<responses.AddExportLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#addExportLock.");
+    const operationName = "addExportLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Export/AddExportLock";
+    const pathParams = {
+      "{exportId}": addExportLockRequest.exportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addExportLockRequest.ifMatch,
+      "opc-request-id": addExportLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addExportLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exports/{exportId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addExportLockRequest.addExportLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddExportLockResponse>{},
+        body: await response.json(),
+        bodyKey: "export",
+        bodyModel: model.Export,
+        type: "model.Export",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddFileSystemLockRequest
+   * @return AddFileSystemLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddFileSystemLock.ts.html |here} to see how to use AddFileSystemLock API.
+   */
+  public async addFileSystemLock(
+    addFileSystemLockRequest: requests.AddFileSystemLockRequest
+  ): Promise<responses.AddFileSystemLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#addFileSystemLock.");
+    const operationName = "addFileSystemLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/AddFileSystemLock";
+    const pathParams = {
+      "{fileSystemId}": addFileSystemLockRequest.fileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addFileSystemLockRequest.ifMatch,
+      "opc-request-id": addFileSystemLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addFileSystemLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fileSystems/{fileSystemId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addFileSystemLockRequest.addFileSystemLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddFileSystemLockResponse>{},
+        body: await response.json(),
+        bodyKey: "fileSystem",
+        bodyModel: model.FileSystem,
+        type: "model.FileSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddFilesystemSnapshotPolicyLockRequest
+   * @return AddFilesystemSnapshotPolicyLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddFilesystemSnapshotPolicyLock.ts.html |here} to see how to use AddFilesystemSnapshotPolicyLock API.
+   */
+  public async addFilesystemSnapshotPolicyLock(
+    addFilesystemSnapshotPolicyLockRequest: requests.AddFilesystemSnapshotPolicyLockRequest
+  ): Promise<responses.AddFilesystemSnapshotPolicyLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#addFilesystemSnapshotPolicyLock.");
+    const operationName = "addFilesystemSnapshotPolicyLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/AddFilesystemSnapshotPolicyLock";
+    const pathParams = {
+      "{filesystemSnapshotPolicyId}":
+        addFilesystemSnapshotPolicyLockRequest.filesystemSnapshotPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addFilesystemSnapshotPolicyLockRequest.ifMatch,
+      "opc-request-id": addFilesystemSnapshotPolicyLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addFilesystemSnapshotPolicyLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addFilesystemSnapshotPolicyLockRequest.addFilesystemSnapshotPolicyLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddFilesystemSnapshotPolicyLockResponse>{},
+        body: await response.json(),
+        bodyKey: "filesystemSnapshotPolicy",
+        bodyModel: model.FilesystemSnapshotPolicy,
+        type: "model.FilesystemSnapshotPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddMountTargetLockRequest
+   * @return AddMountTargetLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddMountTargetLock.ts.html |here} to see how to use AddMountTargetLock API.
+   */
+  public async addMountTargetLock(
+    addMountTargetLockRequest: requests.AddMountTargetLockRequest
+  ): Promise<responses.AddMountTargetLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#addMountTargetLock.");
+    const operationName = "addMountTargetLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/AddMountTargetLock";
+    const pathParams = {
+      "{mountTargetId}": addMountTargetLockRequest.mountTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addMountTargetLockRequest.ifMatch,
+      "opc-request-id": addMountTargetLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addMountTargetLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mountTargets/{mountTargetId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addMountTargetLockRequest.addMountTargetLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddMountTargetLockResponse>{},
+        body: await response.json(),
+        bodyKey: "mountTarget",
+        bodyModel: model.MountTarget,
+        type: "model.MountTarget",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddOutboundConnectorLockRequest
+   * @return AddOutboundConnectorLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddOutboundConnectorLock.ts.html |here} to see how to use AddOutboundConnectorLock API.
+   */
+  public async addOutboundConnectorLock(
+    addOutboundConnectorLockRequest: requests.AddOutboundConnectorLockRequest
+  ): Promise<responses.AddOutboundConnectorLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#addOutboundConnectorLock.");
+    const operationName = "addOutboundConnectorLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/AddOutboundConnectorLock";
+    const pathParams = {
+      "{outboundConnectorId}": addOutboundConnectorLockRequest.outboundConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addOutboundConnectorLockRequest.ifMatch,
+      "opc-request-id": addOutboundConnectorLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addOutboundConnectorLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/outboundConnectors/{outboundConnectorId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addOutboundConnectorLockRequest.addOutboundConnectorLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddOutboundConnectorLockResponse>{},
+        body: await response.json(),
+        bodyKey: "outboundConnector",
+        bodyModel: model.OutboundConnector,
+        type: "model.OutboundConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddReplicationLockRequest
+   * @return AddReplicationLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddReplicationLock.ts.html |here} to see how to use AddReplicationLock API.
+   */
+  public async addReplicationLock(
+    addReplicationLockRequest: requests.AddReplicationLockRequest
+  ): Promise<responses.AddReplicationLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#addReplicationLock.");
+    const operationName = "addReplicationLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/AddReplicationLock";
+    const pathParams = {
+      "{replicationId}": addReplicationLockRequest.replicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addReplicationLockRequest.ifMatch,
+      "opc-request-id": addReplicationLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addReplicationLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replications/{replicationId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addReplicationLockRequest.addReplicationLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddReplicationLockResponse>{},
+        body: await response.json(),
+        bodyKey: "replication",
+        bodyModel: model.Replication,
+        type: "model.Replication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddSnapshotLockRequest
+   * @return AddSnapshotLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddSnapshotLock.ts.html |here} to see how to use AddSnapshotLock API.
+   */
+  public async addSnapshotLock(
+    addSnapshotLockRequest: requests.AddSnapshotLockRequest
+  ): Promise<responses.AddSnapshotLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#addSnapshotLock.");
+    const operationName = "addSnapshotLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Snapshot/AddSnapshotLock";
+    const pathParams = {
+      "{snapshotId}": addSnapshotLockRequest.snapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addSnapshotLockRequest.ifMatch,
+      "opc-request-id": addSnapshotLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addSnapshotLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/snapshots/{snapshotId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addSnapshotLockRequest.addSnapshotLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddSnapshotLockResponse>{},
+        body: await response.json(),
+        bodyKey: "snapshot",
+        bodyModel: model.Snapshot,
+        type: "model.Snapshot",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancel scheduled downgrade shape request for mount target.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -324,7 +901,9 @@ export class FileStorageClient {
       "{fileSystemId}": changeFileSystemCompartmentRequest.fileSystemId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeFileSystemCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -402,7 +981,9 @@ export class FileStorageClient {
         changeFilesystemSnapshotPolicyCompartmentRequest.filesystemSnapshotPolicyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeFilesystemSnapshotPolicyCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -477,7 +1058,9 @@ export class FileStorageClient {
       "{mountTargetId}": changeMountTargetCompartmentRequest.mountTargetId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeMountTargetCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -554,7 +1137,9 @@ export class FileStorageClient {
       "{outboundConnectorId}": changeOutboundConnectorCompartmentRequest.outboundConnectorId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeOutboundConnectorCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -630,7 +1215,9 @@ export class FileStorageClient {
       "{replicationId}": changeReplicationCompartmentRequest.replicationId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeReplicationCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1010,7 +1597,9 @@ All Oracle Cloud Infrastructure Services resources, including
       "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/CreateMountTarget";
     const pathParams = {};
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": createMountTargetRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1383,7 +1972,9 @@ All Oracle Cloud Infrastructure Services resources, including
       "{exportId}": deleteExportRequest.exportId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteExportRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1455,6 +2046,7 @@ All Oracle Cloud Infrastructure Services resources, including
     };
 
     const queryParams = {
+      "isLockOverride": deleteFileSystemRequest.isLockOverride,
       "canDetachChildFileSystem": deleteFileSystemRequest.canDetachChildFileSystem
     };
 
@@ -1527,7 +2119,9 @@ All Oracle Cloud Infrastructure Services resources, including
         deleteFilesystemSnapshotPolicyRequest.filesystemSnapshotPolicyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteFilesystemSnapshotPolicyRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1597,7 +2191,9 @@ All Oracle Cloud Infrastructure Services resources, including
       "{mountTargetId}": deleteMountTargetRequest.mountTargetId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteMountTargetRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1667,7 +2263,9 @@ All Oracle Cloud Infrastructure Services resources, including
       "{outboundConnectorId}": deleteOutboundConnectorRequest.outboundConnectorId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteOutboundConnectorRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1737,7 +2335,8 @@ All Oracle Cloud Infrastructure Services resources, including
     };
 
     const queryParams = {
-      "deleteMode": deleteReplicationRequest.deleteMode
+      "deleteMode": deleteReplicationRequest.deleteMode,
+      "isLockOverride": deleteReplicationRequest.isLockOverride
     };
 
     let headerParams = {
@@ -1811,7 +2410,9 @@ All Oracle Cloud Infrastructure Services resources, including
       "{replicationTargetId}": deleteReplicationTargetRequest.replicationTargetId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteReplicationTargetRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1880,7 +2481,9 @@ All Oracle Cloud Infrastructure Services resources, including
       "{snapshotId}": deleteSnapshotRequest.snapshotId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteSnapshotRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4039,7 +4642,9 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
         pauseFilesystemSnapshotPolicyRequest.filesystemSnapshotPolicyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": pauseFilesystemSnapshotPolicyRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4086,6 +4691,585 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveExportLockRequest
+   * @return RemoveExportLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveExportLock.ts.html |here} to see how to use RemoveExportLock API.
+   */
+  public async removeExportLock(
+    removeExportLockRequest: requests.RemoveExportLockRequest
+  ): Promise<responses.RemoveExportLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#removeExportLock.");
+    const operationName = "removeExportLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Export/RemoveExportLock";
+    const pathParams = {
+      "{exportId}": removeExportLockRequest.exportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeExportLockRequest.ifMatch,
+      "opc-request-id": removeExportLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeExportLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exports/{exportId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeExportLockRequest.removeExportLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveExportLockResponse>{},
+        body: await response.json(),
+        bodyKey: "export",
+        bodyModel: model.Export,
+        type: "model.Export",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveFileSystemLockRequest
+   * @return RemoveFileSystemLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveFileSystemLock.ts.html |here} to see how to use RemoveFileSystemLock API.
+   */
+  public async removeFileSystemLock(
+    removeFileSystemLockRequest: requests.RemoveFileSystemLockRequest
+  ): Promise<responses.RemoveFileSystemLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#removeFileSystemLock.");
+    const operationName = "removeFileSystemLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/RemoveFileSystemLock";
+    const pathParams = {
+      "{fileSystemId}": removeFileSystemLockRequest.fileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeFileSystemLockRequest.ifMatch,
+      "opc-request-id": removeFileSystemLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeFileSystemLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fileSystems/{fileSystemId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeFileSystemLockRequest.removeFileSystemLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveFileSystemLockResponse>{},
+        body: await response.json(),
+        bodyKey: "fileSystem",
+        bodyModel: model.FileSystem,
+        type: "model.FileSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveFilesystemSnapshotPolicyLockRequest
+   * @return RemoveFilesystemSnapshotPolicyLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveFilesystemSnapshotPolicyLock.ts.html |here} to see how to use RemoveFilesystemSnapshotPolicyLock API.
+   */
+  public async removeFilesystemSnapshotPolicyLock(
+    removeFilesystemSnapshotPolicyLockRequest: requests.RemoveFilesystemSnapshotPolicyLockRequest
+  ): Promise<responses.RemoveFilesystemSnapshotPolicyLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#removeFilesystemSnapshotPolicyLock.");
+    const operationName = "removeFilesystemSnapshotPolicyLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/RemoveFilesystemSnapshotPolicyLock";
+    const pathParams = {
+      "{filesystemSnapshotPolicyId}":
+        removeFilesystemSnapshotPolicyLockRequest.filesystemSnapshotPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeFilesystemSnapshotPolicyLockRequest.ifMatch,
+      "opc-request-id": removeFilesystemSnapshotPolicyLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeFilesystemSnapshotPolicyLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeFilesystemSnapshotPolicyLockRequest.removeFilesystemSnapshotPolicyLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveFilesystemSnapshotPolicyLockResponse>{},
+        body: await response.json(),
+        bodyKey: "filesystemSnapshotPolicy",
+        bodyModel: model.FilesystemSnapshotPolicy,
+        type: "model.FilesystemSnapshotPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveMountTargetLockRequest
+   * @return RemoveMountTargetLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveMountTargetLock.ts.html |here} to see how to use RemoveMountTargetLock API.
+   */
+  public async removeMountTargetLock(
+    removeMountTargetLockRequest: requests.RemoveMountTargetLockRequest
+  ): Promise<responses.RemoveMountTargetLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#removeMountTargetLock.");
+    const operationName = "removeMountTargetLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/RemoveMountTargetLock";
+    const pathParams = {
+      "{mountTargetId}": removeMountTargetLockRequest.mountTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeMountTargetLockRequest.ifMatch,
+      "opc-request-id": removeMountTargetLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeMountTargetLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mountTargets/{mountTargetId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeMountTargetLockRequest.removeMountTargetLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveMountTargetLockResponse>{},
+        body: await response.json(),
+        bodyKey: "mountTarget",
+        bodyModel: model.MountTarget,
+        type: "model.MountTarget",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveOutboundConnectorLockRequest
+   * @return RemoveOutboundConnectorLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveOutboundConnectorLock.ts.html |here} to see how to use RemoveOutboundConnectorLock API.
+   */
+  public async removeOutboundConnectorLock(
+    removeOutboundConnectorLockRequest: requests.RemoveOutboundConnectorLockRequest
+  ): Promise<responses.RemoveOutboundConnectorLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#removeOutboundConnectorLock.");
+    const operationName = "removeOutboundConnectorLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/RemoveOutboundConnectorLock";
+    const pathParams = {
+      "{outboundConnectorId}": removeOutboundConnectorLockRequest.outboundConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeOutboundConnectorLockRequest.ifMatch,
+      "opc-request-id": removeOutboundConnectorLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeOutboundConnectorLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/outboundConnectors/{outboundConnectorId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeOutboundConnectorLockRequest.removeOutboundConnectorLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveOutboundConnectorLockResponse>{},
+        body: await response.json(),
+        bodyKey: "outboundConnector",
+        bodyModel: model.OutboundConnector,
+        type: "model.OutboundConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveReplicationLockRequest
+   * @return RemoveReplicationLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveReplicationLock.ts.html |here} to see how to use RemoveReplicationLock API.
+   */
+  public async removeReplicationLock(
+    removeReplicationLockRequest: requests.RemoveReplicationLockRequest
+  ): Promise<responses.RemoveReplicationLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#removeReplicationLock.");
+    const operationName = "removeReplicationLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/RemoveReplicationLock";
+    const pathParams = {
+      "{replicationId}": removeReplicationLockRequest.replicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeReplicationLockRequest.ifMatch,
+      "opc-request-id": removeReplicationLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeReplicationLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replications/{replicationId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeReplicationLockRequest.removeReplicationLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveReplicationLockResponse>{},
+        body: await response.json(),
+        bodyKey: "replication",
+        bodyModel: model.Replication,
+        type: "model.Replication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveSnapshotLockRequest
+   * @return RemoveSnapshotLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveSnapshotLock.ts.html |here} to see how to use RemoveSnapshotLock API.
+   */
+  public async removeSnapshotLock(
+    removeSnapshotLockRequest: requests.RemoveSnapshotLockRequest
+  ): Promise<responses.RemoveSnapshotLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#removeSnapshotLock.");
+    const operationName = "removeSnapshotLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Snapshot/RemoveSnapshotLock";
+    const pathParams = {
+      "{snapshotId}": removeSnapshotLockRequest.snapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeSnapshotLockRequest.ifMatch,
+      "opc-request-id": removeSnapshotLockRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeSnapshotLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/snapshots/{snapshotId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeSnapshotLockRequest.removeSnapshotLockDetails,
+        "ResourceLock",
+        model.ResourceLock.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveSnapshotLockResponse>{},
+        body: await response.json(),
+        bodyKey: "snapshot",
+        bodyModel: model.Snapshot,
+        type: "model.Snapshot",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -4207,7 +5391,9 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
         unpauseFilesystemSnapshotPolicyRequest.filesystemSnapshotPolicyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": unpauseFilesystemSnapshotPolicyRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4284,7 +5470,9 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "{exportId}": updateExportRequest.exportId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateExportRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4450,7 +5638,9 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "{fileSystemId}": updateFileSystemRequest.fileSystemId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateFileSystemRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4534,7 +5724,9 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
         updateFilesystemSnapshotPolicyRequest.filesystemSnapshotPolicyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateFilesystemSnapshotPolicyRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4616,7 +5808,9 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "{mountTargetId}": updateMountTargetRequest.mountTargetId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateMountTargetRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4699,7 +5893,9 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "{outboundConnectorId}": updateOutboundConnectorRequest.outboundConnectorId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateOutboundConnectorRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4782,7 +5978,9 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "{replicationId}": updateReplicationRequest.replicationId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateReplicationRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4864,7 +6062,9 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "{snapshotId}": updateSnapshotRequest.snapshotId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateSnapshotRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

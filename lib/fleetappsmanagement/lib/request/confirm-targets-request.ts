@@ -23,7 +23,7 @@ export interface ConfirmTargetsRequest extends common.BaseRequest {
    */
   "confirmTargetsDetails": model.ConfirmTargetsDetails;
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**

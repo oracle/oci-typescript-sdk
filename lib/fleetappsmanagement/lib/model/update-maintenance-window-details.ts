@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -40,26 +39,33 @@ Example: {@code My new resource}
   "maintenanceWindowType"?: model.MaintenanceWindowType;
   /**
    * Does the maintenenace window cause outage?
+   * An outage indicates whether a maintenance window can consider operations that require downtime.
+   * It means a period when the application is not accessible.
+   *
    */
   "isOutage"?: boolean;
   /**
-   * Start time of schedule
+   * Specify the date and time of the day that the maintenance window starts.
    */
   "timeScheduleStart"?: Date;
   /**
-   * Duration if schedule type is Custom
+   * Duration of the maintenance window.
+   * Specify how long the maintenance window remains open.
+   *
    */
   "duration"?: string;
   /**
-   * Is this is a recurring maintenance window
+   * Is this a recurring maintenance window?
    */
   "isRecurring"?: boolean;
   /**
-   * Recurrence rule specification if recurring
+   * Recurrence rule specification if maintenance window recurring.
+   * Specify the frequency of running the maintenance window.
+   *
    */
   "recurrences"?: string;
   /**
-   * Task initiation cutoff Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Task initiation cutoff time for the maintenance window. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "taskInitiationCutoff"?: number;
   /**

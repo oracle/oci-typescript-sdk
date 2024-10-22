@@ -176,6 +176,20 @@ export interface AuthToken {
    */
   "description"?: string;
   /**
+   * token
+   * <p>
+   **Added In:** 2010242156
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: true
+   *  - type: string
+   *  - mutability: readOnly
+   *  - required: false
+   *  - returned: default
+   *  - idcsSensitive: hash_sc
+   */
+  "token"?: string;
+  /**
    * The user's credential status.
    * <p>
    **Added In:** 2109090424

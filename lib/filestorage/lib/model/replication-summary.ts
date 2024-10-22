@@ -56,6 +56,10 @@ export interface ReplicationSummary {
    */
   "timeCreated": Date;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * Duration in minutes between replication snapshots. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "replicationInterval"?: number;
@@ -102,12 +106,30 @@ export namespace ReplicationSummary {
   }
 
   export function getJsonObj(obj: ReplicationSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ReplicationSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

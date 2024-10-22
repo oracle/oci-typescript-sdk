@@ -73,6 +73,10 @@ Example: {@code /mediafiles}
     */
   "path": string;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * Whether or not the export should use ID mapping for Unix groups rather than the group list provided within an NFS request's RPC header. When this flag is true the Unix UID from the RPC header is used to retrieve the list of secondary groups from a the ID mapping subsystem. The primary GID is always taken from the RPC header. If ID mapping is not configured, incorrectly configured, unavailable, or cannot be used to determine a list of secondary groups then an empty secondary group list is used for authorization. If the number of groups exceeds the limit of 256 groups, the list retrieved from LDAP is truncated to the first 256 groups read.
    */
   "isIdmapGroupsForSysAuth"?: boolean;
@@ -87,6 +91,12 @@ export namespace CreateExportDetails {
           ? obj.exportOptions.map(item => {
               return model.ClientOptions.getJsonObj(item);
             })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -100,6 +110,12 @@ export namespace CreateExportDetails {
         "exportOptions": obj.exportOptions
           ? obj.exportOptions.map(item => {
               return model.ClientOptions.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

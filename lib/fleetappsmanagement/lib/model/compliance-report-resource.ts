@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -45,15 +44,17 @@ export interface ComplianceReportResource {
    */
   "compartment"?: string;
   /**
-   * Region the resource belongs to.
+   * The region the resource belongs to.
    */
   "resourceRegion"?: string;
   /**
-   * Last known compliance state of fleet.
+   * The last known compliance state of the fleet.
    */
   "complianceState": model.ComplianceState;
   /**
-   * Products assocaited with the Fleet.Only products belonging to managed targets will be shown.
+   * Products associated with the Fleet.
+   * Only the products belonging to managed targets will be shown.
+   *
    */
   "products"?: Array<model.ComplianceReportProduct>;
 }

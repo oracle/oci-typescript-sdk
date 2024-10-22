@@ -50,6 +50,8 @@ export namespace HostConfigurationMetricGroup {
             <model.HostFilesystemConfiguration>(<object>jsonObj),
             true
           );
+        case "HOST_CONTAINERS":
+          return model.HostContainers.getJsonObj(<model.HostContainers>(<object>jsonObj), true);
         case "HOST_NETWORK_CONFIGURATION":
           return model.HostNetworkConfiguration.getJsonObj(
             <model.HostNetworkConfiguration>(<object>jsonObj),
@@ -101,6 +103,11 @@ export namespace HostConfigurationMetricGroup {
         case "HOST_FILESYSTEM_CONFIGURATION":
           return model.HostFilesystemConfiguration.getDeserializedJsonObj(
             <model.HostFilesystemConfiguration>(<object>jsonObj),
+            true
+          );
+        case "HOST_CONTAINERS":
+          return model.HostContainers.getDeserializedJsonObj(
+            <model.HostContainers>(<object>jsonObj),
             true
           );
         case "HOST_NETWORK_CONFIGURATION":

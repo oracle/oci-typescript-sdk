@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of FleetTarget.
+ * A confirmed target within a fleet.
  */
 export interface FleetTarget {
   /**
@@ -41,7 +40,7 @@ Example: {@code My new resource}
    */
   "timeCreated"?: Date;
   /**
-   * Current version of Target
+   * Current version of target.
    */
   "version"?: string;
   /**
@@ -50,9 +49,21 @@ Example: {@code My new resource}
   "product"?: string;
   "resource"?: model.TargetResource;
   /**
-   * Last known compliance state of Target.
+   * The last known compliance state of the target.
    */
   "complianceState"?: model.ComplianceState;
+  /**
+   * The time when the last successful discovery was made.
+   */
+  "timeOfLastSuccessfulDiscovery"?: Date;
+  /**
+   * The time when last discovery was attempted.
+   */
+  "timeOfLastDiscoveryAttempt"?: Date;
+  /**
+   * A boolean flag that represents whether the last discovery attempt was successful.
+   */
+  "isLastDiscoveryAttemptSuccessful"?: boolean;
   /**
    * The current state of the FleetTarget.
    */

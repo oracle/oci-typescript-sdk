@@ -119,6 +119,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace Export {
@@ -142,6 +146,12 @@ export namespace Export {
           ? obj.exportOptions.map(item => {
               return model.ClientOptions.getJsonObj(item);
             })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -155,6 +165,12 @@ export namespace Export {
         "exportOptions": obj.exportOptions
           ? obj.exportOptions.map(item => {
               return model.ClientOptions.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

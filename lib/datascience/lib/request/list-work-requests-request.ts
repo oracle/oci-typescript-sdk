@@ -95,7 +95,8 @@ export namespace ListWorkRequestsRequest {
     PrivateEndpointCreate = "PRIVATE_ENDPOINT_CREATE",
     PrivateEndpointDelete = "PRIVATE_ENDPOINT_DELETE",
     PrivateEndpointMove = "PRIVATE_ENDPOINT_MOVE",
-    PrivateEndpointUpdate = "PRIVATE_ENDPOINT_UPDATE"
+    PrivateEndpointUpdate = "PRIVATE_ENDPOINT_UPDATE",
+    RestoreArchivedModel = "RESTORE_ARCHIVED_MODEL"
   }
 
   export enum Status {

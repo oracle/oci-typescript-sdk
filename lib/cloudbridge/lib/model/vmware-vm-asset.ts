@@ -18,10 +18,10 @@ import common = require("oci-common");
  * VMware VM type of asset.
  */
 export interface VmwareVmAsset extends model.Asset {
-  "compute"?: model.ComputeProperties;
-  "vm"?: model.VmProperties;
-  "vmwareVm"?: model.VmwareVmProperties;
-  "vmwareVCenter"?: model.VmwareVCenterProperties;
+  "compute": model.ComputeProperties;
+  "vm": model.VmProperties;
+  "vmwareVm": model.VmwareVmProperties;
+  "vmwareVCenter": model.VmwareVCenterProperties;
 
   "assetType": string;
 }

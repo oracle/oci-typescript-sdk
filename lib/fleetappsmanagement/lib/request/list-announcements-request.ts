@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListAnnouncementsRequest extends common.BaseRequest {
   /**
-   * Filter the list with summary contains the given value.
+   * Filter the list of announcements that contains the given summary value.
    *
    */
   "summaryContains"?: string;
@@ -40,8 +40,8 @@ export interface ListAnnouncementsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort AnnouncementSummary by.  Only one sort order may be provided.
-   * If no value is specified _timeReleased_ is default.
+   * The field to sort AnnouncementSummary by. Only one sort order may be provided.
+   * If no value is specified timeReleased is default.
    *
    */
   "sortBy"?: model.AnnouncementSortBy;

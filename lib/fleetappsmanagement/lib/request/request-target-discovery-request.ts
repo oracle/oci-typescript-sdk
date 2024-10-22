@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface RequestTargetDiscoveryRequest extends common.BaseRequest {
   /**
-   * Details for requesting target discovery
+   * Details for requesting target discovery.
    */
   "requestTargetDiscoveryDetails": model.RequestTargetDiscoveryDetails;
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**

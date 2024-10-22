@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -25,7 +24,7 @@ export interface OutputVariableDetails {
    */
   "stepName": string;
   /**
-   * The name of the output variable whose value that has to be mapped.
+   * The name of the output variable whose value has to be mapped.
    */
   "outputVariableName": string;
 }

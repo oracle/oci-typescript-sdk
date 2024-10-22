@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -20,7 +19,7 @@ import common = require("oci-common");
  * The details of the task.
  */
 export interface Details {
-  "executionDetails"?: model.ScriptBasedExecutionDetails | model.ApiBasedExecutionDetails;
+  "executionDetails": model.ScriptBasedExecutionDetails | model.ApiBasedExecutionDetails;
   /**
    * The platform of the runbook.
    */
@@ -34,6 +33,16 @@ export interface Details {
    */
   "scope": model.TaskScope;
   "properties"?: model.Properties;
+  /**
+   * Is this a discovery output task?
+   */
+  "isDiscoveryOutputTask"?: boolean;
+  /**
+   * Is this an Apply Subject Task?
+   * Set this to true for a Patch Execution Task which applies patches(subjects) on a target.
+   *
+   */
+  "isApplySubjectTask"?: boolean;
 }
 
 export namespace Details {

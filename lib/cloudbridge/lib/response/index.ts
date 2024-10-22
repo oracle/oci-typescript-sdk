@@ -43,6 +43,8 @@ import * as ListAssetSourcesResponse from "./list-asset-sources-response";
 export import ListAssetSourcesResponse = ListAssetSourcesResponse.ListAssetSourcesResponse;
 import * as ListDiscoverySchedulesResponse from "./list-discovery-schedules-response";
 export import ListDiscoverySchedulesResponse = ListDiscoverySchedulesResponse.ListDiscoverySchedulesResponse;
+import * as ListSupportedCloudRegionsResponse from "./list-supported-cloud-regions-response";
+export import ListSupportedCloudRegionsResponse = ListSupportedCloudRegionsResponse.ListSupportedCloudRegionsResponse;
 import * as RefreshAssetSourceResponse from "./refresh-asset-source-response";
 export import RefreshAssetSourceResponse = RefreshAssetSourceResponse.RefreshAssetSourceResponse;
 import * as UpdateAssetSourceResponse from "./update-asset-source-response";
@@ -125,5 +127,3 @@ import * as UpdateAgentDependencyResponse from "./update-agent-dependency-respon
 export import UpdateAgentDependencyResponse = UpdateAgentDependencyResponse.UpdateAgentDependencyResponse;
 import * as UpdateEnvironmentResponse from "./update-environment-response";
 export import UpdateEnvironmentResponse = UpdateEnvironmentResponse.UpdateEnvironmentResponse;
-import * as UpdatePluginResponse from "./update-plugin-response";
-export import UpdatePluginResponse = UpdatePluginResponse.UpdatePluginResponse;

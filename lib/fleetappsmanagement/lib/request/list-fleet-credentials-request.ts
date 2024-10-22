@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListFleetCredentialsRequest extends common.BaseRequest {
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**
@@ -27,7 +27,7 @@ export interface ListFleetCredentialsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
@@ -35,11 +35,19 @@ export interface ListFleetCredentialsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * Credential Level.
+   * Resource Identifier
+   */
+  "resourceId"?: string;
+  /**
+   * A filter to return only resources whose target matches the given target name.
+   */
+  "target"?: string;
+  /**
+   * A filter to return only resources whose credentialLevel matches the given credentialLevel.
    */
   "credentialLevel"?: string;
   /**
-   * unique FleetCredential identifier
+   * A filter to return only resources whose credential identifier matches the given identifier.
    */
   "id"?: string;
   /**

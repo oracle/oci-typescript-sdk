@@ -23,7 +23,7 @@ export interface ListSchedulerJobsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
@@ -42,6 +42,10 @@ export interface ListSchedulerJobsRequest extends common.BaseRequest {
    * Fetch next remediation Job
    */
   "isRemediationJobNeeded"?: boolean;
+  /**
+   * A filter to return only resources their subState matches the given subState.
+   */
+  "subState"?: string;
   /**
    * A filter to return only resources that match the entire display name given.
    */

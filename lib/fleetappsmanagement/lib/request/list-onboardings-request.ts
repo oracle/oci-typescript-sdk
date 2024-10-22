@@ -23,7 +23,7 @@ export interface ListOnboardingsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**

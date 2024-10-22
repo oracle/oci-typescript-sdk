@@ -314,6 +314,8 @@ import * as SummarizeHostInsightDiskStatisticsResponse from "./summarize-host-in
 export import SummarizeHostInsightDiskStatisticsResponse = SummarizeHostInsightDiskStatisticsResponse.SummarizeHostInsightDiskStatisticsResponse;
 import * as SummarizeHostInsightHostRecommendationResponse from "./summarize-host-insight-host-recommendation-response";
 export import SummarizeHostInsightHostRecommendationResponse = SummarizeHostInsightHostRecommendationResponse.SummarizeHostInsightHostRecommendationResponse;
+import * as SummarizeHostInsightIoUsageTrendResponse from "./summarize-host-insight-io-usage-trend-response";
+export import SummarizeHostInsightIoUsageTrendResponse = SummarizeHostInsightIoUsageTrendResponse.SummarizeHostInsightIoUsageTrendResponse;
 import * as SummarizeHostInsightNetworkUsageTrendResponse from "./summarize-host-insight-network-usage-trend-response";
 export import SummarizeHostInsightNetworkUsageTrendResponse = SummarizeHostInsightNetworkUsageTrendResponse.SummarizeHostInsightNetworkUsageTrendResponse;
 import * as SummarizeHostInsightResourceCapacityTrendResponse from "./summarize-host-insight-resource-capacity-trend-response";

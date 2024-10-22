@@ -19,6 +19,7 @@ import common = require("oci-common");
  **/
 export enum AssetSourceType {
   Vmware = "VMWARE",
+  Aws = "AWS",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -39,37 +38,55 @@ Example: {@code My new resource}
    */
   "compartmentId": string;
   /**
-   * Type of the Fleet
+   * Type of the Fleet.
+   * PRODUCT - A fleet of product-specific resources for a product type.
+   * ENVIRONMENT - A fleet of environment-specific resources for a product stack.
+   * GROUP - A fleet of a fleet of either environment or product fleets.
+   * GENERIC - A fleet of resources selected dynamically or manually for reporting purposes
+   *
    */
   "fleetType": string;
   /**
-   * Products associated with the Fleet
+   * Products associated with the Fleet.
    */
   "products"?: Array<string>;
   /**
-   * Application Type associated with the Fleet.Applicable for Environment fleet types.
+   * Product stack associated with the Fleet.
+   * Applicable for ENVIRONMENT fleet types.
+   *
    */
   "applicationType"?: string;
   /**
-   * Environment Type associated with the Fleet.Applicable for Environment fleet types.
+   * Environment Type associated with the Fleet.
+   * Applicable for ENVIRONMENT fleet types.
+   *
    */
   "environmentType"?: string;
   /**
-   * Group Type associated with Group Fleet.Applicable for Group fleet types.
+   * Group Type associated with Group Fleet.
+   *
    */
   "groupType"?: string;
   /**
-   * Type of resource selection in a fleet
+   * Type of resource selection in a Fleet.
+   * Select resources manually or select resources based on rules.
+   *
    */
   "resourceSelectionType"?: string;
   "ruleSelectionCriteria"?: model.SelectionCriteria;
   "notificationPreferences"?: model.NotificationPreferences;
   /**
-   * Resources to be added during fleet creation when Resource selection type is Manual.
+   * Resources associated with the Fleet if resourceSelectionType is MANUAL.
    */
   "resources"?: Array<model.AssociatedFleetResourceDetails>;
   /**
-   * A value which represents if auto confirming of the targets can be enabled
+   * Credentials associated with the Fleet.
+   */
+  "credentials"?: Array<model.AssociatedFleetCredentialDetails>;
+  /**
+   * A value that represents if auto-confirming of the targets can be enabled.
+   * This will allow targets to be auto-confirmed in the fleet without manual intervention.
+   *
    */
   "isTargetAutoConfirm"?: boolean;
   /**
@@ -101,6 +118,11 @@ export namespace CreateFleetDetails {
           ? obj.resources.map(item => {
               return model.AssociatedFleetResourceDetails.getJsonObj(item);
             })
+          : undefined,
+        "credentials": obj.credentials
+          ? obj.credentials.map(item => {
+              return model.AssociatedFleetCredentialDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -120,6 +142,11 @@ export namespace CreateFleetDetails {
         "resources": obj.resources
           ? obj.resources.map(item => {
               return model.AssociatedFleetResourceDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "credentials": obj.credentials
+          ? obj.credentials.map(item => {
+              return model.AssociatedFleetCredentialDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

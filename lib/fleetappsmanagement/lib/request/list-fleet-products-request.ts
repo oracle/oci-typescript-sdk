@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListFleetProductsRequest extends common.BaseRequest {
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**
@@ -31,7 +31,7 @@ export interface ListFleetProductsRequest extends common.BaseRequest {
    */
   "resourceId"?: string;
   /**
-   * Resource Display Name
+   * Resource Display Name.
    */
   "resourceDisplayName"?: string;
   /**

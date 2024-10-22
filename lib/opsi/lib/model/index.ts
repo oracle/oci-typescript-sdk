@@ -400,6 +400,10 @@ import * as IngestSqlTextResponseDetails from "./ingest-sql-text-response-detail
 export import IngestSqlTextResponseDetails = IngestSqlTextResponseDetails.IngestSqlTextResponseDetails;
 import * as InstanceMetrics from "./instance-metrics";
 export import InstanceMetrics = InstanceMetrics.InstanceMetrics;
+import * as IoUsageTrend from "./io-usage-trend";
+export import IoUsageTrend = IoUsageTrend.IoUsageTrend;
+import * as IoUsageTrendAggregation from "./io-usage-trend-aggregation";
+export import IoUsageTrendAggregation = IoUsageTrendAggregation.IoUsageTrendAggregation;
 import * as LifecycleState from "./lifecycle-state";
 export import LifecycleState = LifecycleState.LifecycleState;
 import * as ListObjects from "./list-objects";
@@ -634,6 +638,8 @@ import * as SummarizeExadataInsightResourceUtilizationInsightAggregation from ".
 export import SummarizeExadataInsightResourceUtilizationInsightAggregation = SummarizeExadataInsightResourceUtilizationInsightAggregation.SummarizeExadataInsightResourceUtilizationInsightAggregation;
 import * as SummarizeHostInsightHostRecommendationAggregation from "./summarize-host-insight-host-recommendation-aggregation";
 export import SummarizeHostInsightHostRecommendationAggregation = SummarizeHostInsightHostRecommendationAggregation.SummarizeHostInsightHostRecommendationAggregation;
+import * as SummarizeHostInsightIoUsageTrendAggregationCollection from "./summarize-host-insight-io-usage-trend-aggregation-collection";
+export import SummarizeHostInsightIoUsageTrendAggregationCollection = SummarizeHostInsightIoUsageTrendAggregationCollection.SummarizeHostInsightIoUsageTrendAggregationCollection;
 import * as SummarizeHostInsightNetworkUsageTrendAggregationCollection from "./summarize-host-insight-network-usage-trend-aggregation-collection";
 export import SummarizeHostInsightNetworkUsageTrendAggregationCollection = SummarizeHostInsightNetworkUsageTrendAggregationCollection.SummarizeHostInsightNetworkUsageTrendAggregationCollection;
 import * as SummarizeHostInsightResourceCapacityTrendAggregationCollection from "./summarize-host-insight-resource-capacity-trend-aggregation-collection";
@@ -937,6 +943,8 @@ import * as HostInsightsDataObject from "./host-insights-data-object";
 export import HostInsightsDataObject = HostInsightsDataObject.HostInsightsDataObject;
 import * as HostInsightsDataObjectSummary from "./host-insights-data-object-summary";
 export import HostInsightsDataObjectSummary = HostInsightsDataObjectSummary.HostInsightsDataObjectSummary;
+import * as HostIoStatistics from "./host-io-statistics";
+export import HostIoStatistics = HostIoStatistics.HostIoStatistics;
 import * as HostIoUsage from "./host-io-usage";
 export import HostIoUsage = HostIoUsage.HostIoUsage;
 import * as HostMemoryConfiguration from "./host-memory-configuration";

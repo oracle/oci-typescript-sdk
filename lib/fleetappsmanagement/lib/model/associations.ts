@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,18 +16,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * JSON content with required associations
+ * Associations for the runbook.
  */
 export interface Associations {
   /**
-   * A set of tasks to execute in the runbook
+   * A set of tasks to execute in the runbook.
    */
   "tasks": Array<model.Task>;
   /**
-   * The groups of the runbook
+   * The groups of the runbook.
+   *
    */
   "groups": Array<model.Group>;
   "executionWorkflowDetails": model.ExecutionWorkflowDetails;
+  "rollbackWorkflowDetails"?: model.RollbackWorkflowDetails;
   /**
    * The version of the runbook.
    */
@@ -52,6 +53,9 @@ export namespace Associations {
           : undefined,
         "executionWorkflowDetails": obj.executionWorkflowDetails
           ? model.ExecutionWorkflowDetails.getJsonObj(obj.executionWorkflowDetails)
+          : undefined,
+        "rollbackWorkflowDetails": obj.rollbackWorkflowDetails
+          ? model.RollbackWorkflowDetails.getJsonObj(obj.rollbackWorkflowDetails)
           : undefined
       }
     };
@@ -74,6 +78,9 @@ export namespace Associations {
           : undefined,
         "executionWorkflowDetails": obj.executionWorkflowDetails
           ? model.ExecutionWorkflowDetails.getDeserializedJsonObj(obj.executionWorkflowDetails)
+          : undefined,
+        "rollbackWorkflowDetails": obj.rollbackWorkflowDetails
+          ? model.RollbackWorkflowDetails.getDeserializedJsonObj(obj.rollbackWorkflowDetails)
           : undefined
       }
     };

@@ -172,6 +172,8 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as RestoreArchivedModelArtifactRequest from "./restore-archived-model-artifact-request";
+export import RestoreArchivedModelArtifactRequest = RestoreArchivedModelArtifactRequest.RestoreArchivedModelArtifactRequest;
 import * as UpdateDataSciencePrivateEndpointRequest from "./update-data-science-private-endpoint-request";
 export import UpdateDataSciencePrivateEndpointRequest = UpdateDataSciencePrivateEndpointRequest.UpdateDataSciencePrivateEndpointRequest;
 import * as UpdateJobRequest from "./update-job-request";

@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -18,6 +17,8 @@ import common = require("oci-common");
 
 /**
  * Runbook definition.
+ * Runbooks allow you to capture procedural tasks for handling a workflow.
+ *
  */
 export interface Runbook {
   /**
@@ -43,11 +44,12 @@ Example: {@code My new resource}
    */
   "type": Runbook.Type;
   /**
-   * Type of runbook structure.
+   * Relevance of the runbook.
+   *
    */
   "runbookRelevance": Runbook.RunbookRelevance;
   /**
-   * The lifecycle operation performed by the task.
+   * The lifecycle operation performed by the runbook.
    */
   "operation": string;
   /**
@@ -60,10 +62,12 @@ Example: {@code My new resource}
   "platform": string;
   /**
    * Is the runbook default?
+   * Sets this runbook as the default for the chosen product/product stack for the specified lifecycle operation.
+   *
    */
   "isDefault": boolean;
   /**
-   * Estimated time to successfully complete the runbook execution
+   * Estimated time to successfully complete the runbook execution.
    */
   "estimatedTime"?: string;
   /**
@@ -137,6 +141,10 @@ export namespace Runbook {
     Active = "ACTIVE",
     Deleted = "DELETED",
     Failed = "FAILED",
+    Inactive = "INACTIVE",
+    Creating = "CREATING",
+    Deleting = "DELETING",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

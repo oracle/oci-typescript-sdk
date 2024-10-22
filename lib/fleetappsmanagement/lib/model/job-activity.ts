@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,35 +16,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of JobActivity.
+ * Activity details including status corresponding to an Action Group.
  */
 export interface JobActivity {
   /**
-   * Unique activity id at action group level
+   * Unique activity id at the action group level.
+   * In most cases, this would be a generated ActionGroupId.
+   *
    */
   "id": string;
   /**
-   * Status of the Job at Action Group Level
+   * Status of the Job at Action Group Level.
    */
   "status": model.JobStatus;
   /**
-   * The time the the Scheduler Job started. An RFC3339 formatted datetime string
+   * The time the execution for the Action Group started. An RFC3339 formatted datetime string.
    */
   "timeStarted"?: Date;
   /**
-   * The time the Scheduler Job ended. An RFC3339 formatted datetime string
+   * The time the execution for the Action Group ended. An RFC3339 formatted datetime string
    */
   "timeEnded"?: Date;
   /**
-   * ID of the runbook
+   * OCID of the runbook associated with the Action Group.
    */
   "runbookId"?: string;
   /**
-   * Name of the runbook
+   * Name of the runbook associated with the Action Group.
    */
   "runbookName"?: string;
   /**
-   * Resources execution details and outcomes associated with the Task.
+   * A description of the Job Activity status.
+   * If there are any errors, this can also include a short error message.
+   *
+   */
+  "description"?: string;
+  /**
+   * List of Resource executions associated with the Action Group.
    */
   "resourceLevelExecutions"?: Array<model.EntityExecutionDetails>;
 }

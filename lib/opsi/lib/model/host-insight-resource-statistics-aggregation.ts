@@ -27,6 +27,7 @@ export interface HostInsightResourceStatisticsAggregation {
     | model.HostNetworkStatistics
     | model.HostStorageStatistics
     | model.HostMemoryStatistics
+    | model.HostIoStatistics
     | model.HostCpuStatistics;
 }
 

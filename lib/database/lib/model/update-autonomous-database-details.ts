@@ -401,6 +401,12 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    * The version of the vault secret. If no version is specified, the latest version will be used. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "secretVersionNumber"?: number;
+  "encryptionKey"?:
+    | model.OkvKeyDetails
+    | model.AzureKeyDetails
+    | model.AwsKeyDetails
+    | model.OciKeyDetails
+    | model.OracleManagedKeyDetails;
 }
 
 export namespace UpdateAutonomousDatabaseDetails {
@@ -463,6 +469,10 @@ export namespace UpdateAutonomousDatabaseDetails {
           ? obj.dbToolsDetails.map(item => {
               return model.DatabaseTool.getJsonObj(item);
             })
+          : undefined,
+
+        "encryptionKey": obj.encryptionKey
+          ? model.AutonomousDatabaseEncryptionKeyDetails.getJsonObj(obj.encryptionKey)
           : undefined
       }
     };
@@ -496,6 +506,10 @@ export namespace UpdateAutonomousDatabaseDetails {
           ? obj.dbToolsDetails.map(item => {
               return model.DatabaseTool.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "encryptionKey": obj.encryptionKey
+          ? model.AutonomousDatabaseEncryptionKeyDetails.getDeserializedJsonObj(obj.encryptionKey)
           : undefined
       }
     };

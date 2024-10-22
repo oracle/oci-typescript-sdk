@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateOnboardingRequest extends common.BaseRequest {
   /**
-   * Details for onboarding FAMS.
+   * Details for onboarding Fleet Application Management.
    */
   "createOnboardingDetails": model.CreateOnboardingDetails;
   /**

@@ -21,7 +21,9 @@ export interface CreateAssetSourceRequest extends common.BaseRequest {
   /**
    * Details for the new asset source.
    */
-  "createAssetSourceDetails": model.CreateVmWareAssetSourceDetails;
+  "createAssetSourceDetails":
+    | model.CreateVmWareAssetSourceDetails
+    | model.CreateAwsAssetSourceDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing the same action again. Retry tokens expire after 24

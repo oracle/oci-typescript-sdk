@@ -21,7 +21,10 @@ export interface CreateAssetRequest extends common.BaseRequest {
   /**
    * The information to be updated.
    */
-  "createAssetDetails": model.CreateVmwareVmAssetDetails;
+  "createAssetDetails":
+    | model.CreateAwsEbsAssetDetails
+    | model.CreateVmwareVmAssetDetails
+    | model.CreateAwsEc2AssetDetails;
   /**
    * The client request ID for tracing.
    */

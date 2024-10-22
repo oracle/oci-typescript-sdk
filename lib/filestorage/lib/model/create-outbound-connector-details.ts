@@ -55,13 +55,26 @@ Example: {@code My outbound connector}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 
   "connectorType": string;
 }
 
 export namespace CreateOutboundConnectorDetails {
   export function getJsonObj(obj: CreateOutboundConnectorDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "connectorType" in obj && obj.connectorType) {
       switch (obj.connectorType) {
@@ -77,7 +90,16 @@ export namespace CreateOutboundConnectorDetails {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateOutboundConnectorDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "connectorType" in obj && obj.connectorType) {
       switch (obj.connectorType) {

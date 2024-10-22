@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,21 +16,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The properties of the task.
+ * The properties of the component.
  */
 export interface ComponentProperties {
   /**
-   * The hosts to execute on.
+   * The runOn condition for the task/group/container.
+   * Build task execution conditions if applicable to product and product-specific components.
+   * This condition is relevant when handling product stack workflows.
+   * Example: target.product.name = Oracle WebLogic Server OR target.product.name = Oracle HTTP Server
+   *
    */
   "runOn"?: string;
   /**
-   * The condition in which the task is to be executed.
+   * Build control flow conditions that determine the relevance of the task execution.
+   *
    */
   "condition"?: string;
   /**
-   * The action to be taken in case of task failure.
+   * The action to be taken in case of a failure.
    */
   "actionOnFailure": ComponentProperties.ActionOnFailure;
+  "pauseDetails"?: model.UserActionBasedPauseDetails | model.TimeBasedPauseDetails;
+  "notificationPreferences"?: model.TaskNotificationPreferences;
 }
 
 export namespace ComponentProperties {
@@ -47,12 +53,32 @@ export namespace ComponentProperties {
   }
 
   export function getJsonObj(obj: ComponentProperties): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pauseDetails": obj.pauseDetails
+          ? model.PauseDetails.getJsonObj(obj.pauseDetails)
+          : undefined,
+        "notificationPreferences": obj.notificationPreferences
+          ? model.TaskNotificationPreferences.getJsonObj(obj.notificationPreferences)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ComponentProperties): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pauseDetails": obj.pauseDetails
+          ? model.PauseDetails.getDeserializedJsonObj(obj.pauseDetails)
+          : undefined,
+        "notificationPreferences": obj.notificationPreferences
+          ? model.TaskNotificationPreferences.getDeserializedJsonObj(obj.notificationPreferences)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

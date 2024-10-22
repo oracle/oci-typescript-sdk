@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CheckResourceTaggingRequest extends common.BaseRequest {
   /**
-   * Details for Checking if FAMS tags can be added for the resources
+   * Details for checking if Fleet Application Management tags can be added to the resources.
    */
   "checkResourceTaggingDetails": model.CheckResourceTaggingDetails;
   /**

@@ -172,6 +172,8 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RestoreArchivedModelArtifactResponse from "./restore-archived-model-artifact-response";
+export import RestoreArchivedModelArtifactResponse = RestoreArchivedModelArtifactResponse.RestoreArchivedModelArtifactResponse;
 import * as UpdateDataSciencePrivateEndpointResponse from "./update-data-science-private-endpoint-response";
 export import UpdateDataSciencePrivateEndpointResponse = UpdateDataSciencePrivateEndpointResponse.UpdateDataSciencePrivateEndpointResponse;
 import * as UpdateJobResponse from "./update-job-response";

@@ -21,7 +21,7 @@ import common = require("oci-common");
  * Host Containers details
  *
  */
-export interface HostContainers extends model.HostPerformanceMetricGroup {
+export interface HostContainers extends model.HostConfigurationMetricGroup {
   /**
    * Container Id (full)
    */
@@ -35,6 +35,14 @@ export interface HostContainers extends model.HostPerformanceMetricGroup {
    */
   "containerImage"?: string;
   /**
+   * Container Image Tag (version)
+   */
+  "containerImageTag"?: string;
+  /**
+   * Container Image Digest
+   */
+  "containerImageDigest"?: string;
+  /**
    * Container open ports
    */
   "containerPorts"?: string;
@@ -47,7 +55,7 @@ export namespace HostContainers {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.HostPerformanceMetricGroup.getJsonObj(obj) as HostContainers)),
+        : (model.HostConfigurationMetricGroup.getJsonObj(obj) as HostContainers)),
       ...{}
     };
 
@@ -58,7 +66,7 @@ export namespace HostContainers {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.HostPerformanceMetricGroup.getDeserializedJsonObj(obj) as HostContainers)),
+        : (model.HostConfigurationMetricGroup.getDeserializedJsonObj(obj) as HostContainers)),
       ...{}
     };
 

@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Taxonomy metadata aka Property .
+ * Global metadata element details.
  */
 export interface Property {
   /**
@@ -57,19 +56,19 @@ Example: {@code My new resource}
    */
   "lifecycleDetails"?: string;
   /**
-   * Text selection of the category
+   * Text selection of the property.
    */
   "selection"?: model.Selection;
   /**
-   * Format of the value
+   * Format of the value.
    */
   "valueType"?: model.ValueType;
   /**
-   * Values of the property (must be a single value if selection = 'single choice')
+   * Values of the property (must be a single value if selection = 'SINGLE_CHOICE').
    */
   "values"?: Array<string>;
   /**
-   * The scope of the property
+   * The scope of the property.
    */
   "scope"?: model.Scope;
   /**

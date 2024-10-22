@@ -23,7 +23,7 @@ export interface DeleteFleetResourceRequest extends common.BaseRequest {
    */
   "fleetResourceId": string;
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**

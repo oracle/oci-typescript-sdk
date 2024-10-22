@@ -23,7 +23,7 @@ export interface ListRunbooksRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
@@ -31,23 +31,23 @@ export interface ListRunbooksRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * unique Runbook identifier
+   * A filter to return runbooks whose identifier matches the given identifier.
    */
   "id"?: string;
   /**
-   * The ID of the runbook type.
+   * A filter to return runbooks whose type matches the given type.
    */
   "type"?: string;
   /**
-   * The runbook relevance of product or full-stack.
+   * A filter to return runbooks whose runbookRelevance matches the given runbookRelevance.
    */
   "runbookRelevance"?: string;
   /**
-   * The ID of the runbook platform.
+   * A filter to return runbooks whose platform matches the given platform.
    */
   "platform"?: string;
   /**
-   * The runbook lifecycle.
+   * A filter to return runbooks whose operation matches the given lifecycle operation.
    */
   "operation"?: string;
   /**

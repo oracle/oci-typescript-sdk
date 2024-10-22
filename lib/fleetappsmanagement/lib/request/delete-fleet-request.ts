@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteFleetRequest extends common.BaseRequest {
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**

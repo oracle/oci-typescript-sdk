@@ -13,6 +13,20 @@ For more information, see [Overview of File Storage](/iaas/Content/File/Concepts
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddExportLockRequest from "./add-export-lock-request";
+export import AddExportLockRequest = AddExportLockRequest.AddExportLockRequest;
+import * as AddFileSystemLockRequest from "./add-file-system-lock-request";
+export import AddFileSystemLockRequest = AddFileSystemLockRequest.AddFileSystemLockRequest;
+import * as AddFilesystemSnapshotPolicyLockRequest from "./add-filesystem-snapshot-policy-lock-request";
+export import AddFilesystemSnapshotPolicyLockRequest = AddFilesystemSnapshotPolicyLockRequest.AddFilesystemSnapshotPolicyLockRequest;
+import * as AddMountTargetLockRequest from "./add-mount-target-lock-request";
+export import AddMountTargetLockRequest = AddMountTargetLockRequest.AddMountTargetLockRequest;
+import * as AddOutboundConnectorLockRequest from "./add-outbound-connector-lock-request";
+export import AddOutboundConnectorLockRequest = AddOutboundConnectorLockRequest.AddOutboundConnectorLockRequest;
+import * as AddReplicationLockRequest from "./add-replication-lock-request";
+export import AddReplicationLockRequest = AddReplicationLockRequest.AddReplicationLockRequest;
+import * as AddSnapshotLockRequest from "./add-snapshot-lock-request";
+export import AddSnapshotLockRequest = AddSnapshotLockRequest.AddSnapshotLockRequest;
 import * as CancelDowngradeShapeMountTargetRequest from "./cancel-downgrade-shape-mount-target-request";
 export import CancelDowngradeShapeMountTargetRequest = CancelDowngradeShapeMountTargetRequest.CancelDowngradeShapeMountTargetRequest;
 import * as ChangeFileSystemCompartmentRequest from "./change-file-system-compartment-request";
@@ -97,6 +111,20 @@ import * as ListSnapshotsRequest from "./list-snapshots-request";
 export import ListSnapshotsRequest = ListSnapshotsRequest.ListSnapshotsRequest;
 import * as PauseFilesystemSnapshotPolicyRequest from "./pause-filesystem-snapshot-policy-request";
 export import PauseFilesystemSnapshotPolicyRequest = PauseFilesystemSnapshotPolicyRequest.PauseFilesystemSnapshotPolicyRequest;
+import * as RemoveExportLockRequest from "./remove-export-lock-request";
+export import RemoveExportLockRequest = RemoveExportLockRequest.RemoveExportLockRequest;
+import * as RemoveFileSystemLockRequest from "./remove-file-system-lock-request";
+export import RemoveFileSystemLockRequest = RemoveFileSystemLockRequest.RemoveFileSystemLockRequest;
+import * as RemoveFilesystemSnapshotPolicyLockRequest from "./remove-filesystem-snapshot-policy-lock-request";
+export import RemoveFilesystemSnapshotPolicyLockRequest = RemoveFilesystemSnapshotPolicyLockRequest.RemoveFilesystemSnapshotPolicyLockRequest;
+import * as RemoveMountTargetLockRequest from "./remove-mount-target-lock-request";
+export import RemoveMountTargetLockRequest = RemoveMountTargetLockRequest.RemoveMountTargetLockRequest;
+import * as RemoveOutboundConnectorLockRequest from "./remove-outbound-connector-lock-request";
+export import RemoveOutboundConnectorLockRequest = RemoveOutboundConnectorLockRequest.RemoveOutboundConnectorLockRequest;
+import * as RemoveReplicationLockRequest from "./remove-replication-lock-request";
+export import RemoveReplicationLockRequest = RemoveReplicationLockRequest.RemoveReplicationLockRequest;
+import * as RemoveSnapshotLockRequest from "./remove-snapshot-lock-request";
+export import RemoveSnapshotLockRequest = RemoveSnapshotLockRequest.RemoveSnapshotLockRequest;
 import * as ScheduleDowngradeShapeMountTargetRequest from "./schedule-downgrade-shape-mount-target-request";
 export import ScheduleDowngradeShapeMountTargetRequest = ScheduleDowngradeShapeMountTargetRequest.ScheduleDowngradeShapeMountTargetRequest;
 import * as UnpauseFilesystemSnapshotPolicyRequest from "./unpause-filesystem-snapshot-policy-request";

@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,7 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of Fleet.
+ * A fleet is a collection or grouping of resources based on criteria.
+ *
  */
 export interface Fleet {
   /**
@@ -56,44 +56,59 @@ Example: {@code My new resource}
   "timeUpdated"?: Date;
   /**
    * Type of the Fleet.
+   * PRODUCT - A fleet of product-specific resources for a product type.
+   * ENVIRONMENT - A fleet of environment-specific resources for a product stack.
+   * GROUP - A fleet of a fleet of either environment or product fleets.
+   * GENERIC - A fleet of resources selected dynamically or manually for reporting purposes
+   *
    */
   "fleetType": Fleet.FleetType;
   /**
-   * Products associated with the Fleet
+   * Products associated with the Fleet.
    */
   "products"?: Array<string>;
   /**
-   * Application Type associated with the Fleet.Applicable for ENVIRONMENT fleet types.
+   * Product stack associated with the Fleet.
+   * Applicable for ENVIRONMENT fleet types.
+   *
    */
   "applicationType"?: string;
   /**
-   * Environment Type associated with the Fleet.Applicable for ENVIRONMENT fleet types.
+   * Environment Type associated with the Fleet.
+   * Applicable for ENVIRONMENT fleet types.
+   *
    */
   "environmentType"?: string;
   /**
-   * Group Type associated with Group Fleet.Applicable for GROUP fleet types.
+   * Group Type associated with Group Fleet.
+   * Applicable for GROUP fleet types.
+   *
    */
   "groupType"?: Fleet.GroupType;
   /**
-   * Type of resource selection in a fleet.
+   * Type of resource selection in a Fleet.
+   * Select resources manually or select resources based on rules.
+   *
    */
   "resourceSelectionType"?: Fleet.ResourceSelectionType;
   "ruleSelectionCriteria"?: model.SelectionCriteria;
   "notificationPreferences"?: model.NotificationPreferences;
   /**
-   * Resources to be added during fleet creation when Resource selection type is Manual.
+   * Resources associated with the Fleet if resourceSelectionType is MANUAL.
    */
   "resources"?: Array<model.AssociatedFleetResourceDetails>;
   /**
-   * Properties to be added during fleet creation.
+   * Properties associated with the Fleet.
    */
   "properties"?: Array<model.AssociatedFleetPropertyDetails>;
   /**
-   * Credentials to be added during fleet creation.
+   * Credentials associated with the Fleet.
    */
   "credentials"?: Array<model.AssociatedFleetCredentialDetails>;
   /**
-   * A value which represents if auto confirming of the targets can be enabled
+   * A value that represents if auto-confirming of the targets can be enabled.
+   * This will allow targets to be auto-confirmed in the fleet without manual intervention.
+   *
    */
   "isTargetAutoConfirm"?: boolean;
   /**

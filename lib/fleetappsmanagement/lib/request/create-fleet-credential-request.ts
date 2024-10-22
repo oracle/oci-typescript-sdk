@@ -23,7 +23,7 @@ export interface CreateFleetCredentialRequest extends common.BaseRequest {
    */
   "createFleetCredentialDetails": model.CreateFleetCredentialDetails;
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**

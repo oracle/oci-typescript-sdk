@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about the new asset source.
+ * Asset source update request.
  */
 export interface UpdateAssetSourceDetails {
   /**
@@ -28,6 +28,10 @@ export interface UpdateAssetSourceDetails {
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that is going to be used to create assets.
    */
   "assetsCompartmentId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the discovery schedule that is going to be assigned to an asset source.
+   */
+  "discoveryScheduleId"?: string;
   /**
    * The freeform tags associated with this resource, if any. Each tag is a simple key-value pair with no
    * predefined name, type, or namespace/scope. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -64,6 +68,11 @@ export namespace UpdateAssetSourceDetails {
             <model.UpdateVmWareAssetSourceDetails>(<object>jsonObj),
             true
           );
+        case "AWS":
+          return model.UpdateAwsAssetSourceDetails.getJsonObj(
+            <model.UpdateAwsAssetSourceDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -78,6 +87,11 @@ export namespace UpdateAssetSourceDetails {
         case "VMWARE":
           return model.UpdateVmWareAssetSourceDetails.getDeserializedJsonObj(
             <model.UpdateVmWareAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.UpdateAwsAssetSourceDetails.getDeserializedJsonObj(
+            <model.UpdateAwsAssetSourceDetails>(<object>jsonObj),
             true
           );
         default:

@@ -23,7 +23,7 @@ export interface CreateFleetResourceRequest extends common.BaseRequest {
    */
   "createFleetResourceDetails": model.CreateFleetResourceDetails;
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**

@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,15 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Conditions when met to send notifications on the fleet activities
+ * Notification information to get notified when the fleet status changes.
  */
 export interface NotificationPreferences {
   /**
-   * Topic Id where the notifications will be directed
+   * Topic Id where the notifications will be directed.
+   * A topic is a communication channel for sending messages on chosen events to subscriptions.
+   *
    */
   "topicId": string;
   /**
-   * Copartment Id of the topic where the notifications will be directed
+   * Compartment ID the topic belongs to.
    */
   "compartmentId": string;
   "preferences"?: model.Preferences;

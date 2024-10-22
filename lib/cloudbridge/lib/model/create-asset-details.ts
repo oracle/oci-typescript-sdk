@@ -66,9 +66,19 @@ export namespace CreateAssetDetails {
 
     if (obj && "assetType" in obj && obj.assetType) {
       switch (obj.assetType) {
+        case "AWS_EBS":
+          return model.CreateAwsEbsAssetDetails.getJsonObj(
+            <model.CreateAwsEbsAssetDetails>(<object>jsonObj),
+            true
+          );
         case "VMWARE_VM":
           return model.CreateVmwareVmAssetDetails.getJsonObj(
             <model.CreateVmwareVmAssetDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS_EC2":
+          return model.CreateAwsEc2AssetDetails.getJsonObj(
+            <model.CreateAwsEc2AssetDetails>(<object>jsonObj),
             true
           );
         default:
@@ -82,9 +92,19 @@ export namespace CreateAssetDetails {
 
     if (obj && "assetType" in obj && obj.assetType) {
       switch (obj.assetType) {
+        case "AWS_EBS":
+          return model.CreateAwsEbsAssetDetails.getDeserializedJsonObj(
+            <model.CreateAwsEbsAssetDetails>(<object>jsonObj),
+            true
+          );
         case "VMWARE_VM":
           return model.CreateVmwareVmAssetDetails.getDeserializedJsonObj(
             <model.CreateVmwareVmAssetDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS_EC2":
+          return model.CreateAwsEc2AssetDetails.getDeserializedJsonObj(
+            <model.CreateAwsEc2AssetDetails>(<object>jsonObj),
             true
           );
         default:

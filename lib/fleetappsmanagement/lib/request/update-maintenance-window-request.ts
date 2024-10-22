@@ -23,7 +23,7 @@ export interface UpdateMaintenanceWindowRequest extends common.BaseRequest {
    */
   "maintenanceWindowId": string;
   /**
-   * The information to be updated.
+   * The information to be updated for the maintenance window.
    */
   "updateMaintenanceWindowDetails": model.UpdateMaintenanceWindowDetails;
   /**
