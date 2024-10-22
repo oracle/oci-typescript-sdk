@@ -75,6 +75,10 @@ Example: {@code acme}
    */
   "schedules"?: Array<model.SnapshotSchedule>;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -114,6 +118,11 @@ export namespace FilesystemSnapshotPolicy {
           ? obj.schedules.map(item => {
               return model.SnapshotSchedule.getJsonObj(item);
             })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -127,6 +136,11 @@ export namespace FilesystemSnapshotPolicy {
         "schedules": obj.schedules
           ? obj.schedules.map(item => {
               return model.SnapshotSchedule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -56,6 +56,10 @@ Example: {@code My Filesystem Snapshot Policy}
    */
   "timeCreated": Date;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
     * The prefix to apply to all snapshots created by this policy.
 * <p>
 Example: {@code acme}
@@ -95,12 +99,30 @@ export namespace FilesystemSnapshotPolicySummary {
   }
 
   export function getJsonObj(obj: FilesystemSnapshotPolicySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: FilesystemSnapshotPolicySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

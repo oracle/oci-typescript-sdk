@@ -59,6 +59,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeCreated": Date;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -91,7 +95,16 @@ export namespace OutboundConnector {
   }
 
   export function getJsonObj(obj: OutboundConnector): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "connectorType" in obj && obj.connectorType) {
       switch (obj.connectorType) {
@@ -104,7 +117,16 @@ export namespace OutboundConnector {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: OutboundConnector): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "connectorType" in obj && obj.connectorType) {
       switch (obj.connectorType) {

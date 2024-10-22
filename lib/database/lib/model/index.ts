@@ -74,6 +74,10 @@ import * as AutonomousDatabaseConsoleTokenDetails from "./autonomous-database-co
 export import AutonomousDatabaseConsoleTokenDetails = AutonomousDatabaseConsoleTokenDetails.AutonomousDatabaseConsoleTokenDetails;
 import * as AutonomousDatabaseDataguardAssociation from "./autonomous-database-dataguard-association";
 export import AutonomousDatabaseDataguardAssociation = AutonomousDatabaseDataguardAssociation.AutonomousDatabaseDataguardAssociation;
+import * as AutonomousDatabaseEncryptionKeyDetails from "./autonomous-database-encryption-key-details";
+export import AutonomousDatabaseEncryptionKeyDetails = AutonomousDatabaseEncryptionKeyDetails.AutonomousDatabaseEncryptionKeyDetails;
+import * as AutonomousDatabaseEncryptionKeyHistoryEntry from "./autonomous-database-encryption-key-history-entry";
+export import AutonomousDatabaseEncryptionKeyHistoryEntry = AutonomousDatabaseEncryptionKeyHistoryEntry.AutonomousDatabaseEncryptionKeyHistoryEntry;
 import * as AutonomousDatabaseKeyHistoryEntry from "./autonomous-database-key-history-entry";
 export import AutonomousDatabaseKeyHistoryEntry = AutonomousDatabaseKeyHistoryEntry.AutonomousDatabaseKeyHistoryEntry;
 import * as AutonomousDatabaseManualRefreshDetails from "./autonomous-database-manual-refresh-details";
@@ -823,6 +827,10 @@ export import WorkloadType = WorkloadType.WorkloadType;
 
 import * as AutomatedMountDetails from "./automated-mount-details";
 export import AutomatedMountDetails = AutomatedMountDetails.AutomatedMountDetails;
+import * as AwsKeyDetails from "./aws-key-details";
+export import AwsKeyDetails = AwsKeyDetails.AwsKeyDetails;
+import * as AzureKeyDetails from "./azure-key-details";
+export import AzureKeyDetails = AzureKeyDetails.AzureKeyDetails;
 import * as CreateAutonomousDatabaseCloneDetails from "./create-autonomous-database-clone-details";
 export import CreateAutonomousDatabaseCloneDetails = CreateAutonomousDatabaseCloneDetails.CreateAutonomousDatabaseCloneDetails;
 import * as CreateAutonomousDatabaseDetails from "./create-autonomous-database-details";
@@ -897,8 +905,14 @@ import * as LaunchDbSystemFromDatabaseDetails from "./launch-db-system-from-data
 export import LaunchDbSystemFromDatabaseDetails = LaunchDbSystemFromDatabaseDetails.LaunchDbSystemFromDatabaseDetails;
 import * as LaunchDbSystemFromDbSystemDetails from "./launch-db-system-from-db-system-details";
 export import LaunchDbSystemFromDbSystemDetails = LaunchDbSystemFromDbSystemDetails.LaunchDbSystemFromDbSystemDetails;
+import * as OciKeyDetails from "./oci-key-details";
+export import OciKeyDetails = OciKeyDetails.OciKeyDetails;
 import * as OciProviderSetKeyVersionDetails from "./oci-provider-set-key-version-details";
 export import OciProviderSetKeyVersionDetails = OciProviderSetKeyVersionDetails.OciProviderSetKeyVersionDetails;
+import * as OkvKeyDetails from "./okv-key-details";
+export import OkvKeyDetails = OkvKeyDetails.OkvKeyDetails;
+import * as OracleManagedKeyDetails from "./oracle-managed-key-details";
+export import OracleManagedKeyDetails = OracleManagedKeyDetails.OracleManagedKeyDetails;
 import * as PdbConversionToNewDatabaseDetails from "./pdb-conversion-to-new-database-details";
 export import PdbConversionToNewDatabaseDetails = PdbConversionToNewDatabaseDetails.PdbConversionToNewDatabaseDetails;
 import * as SelfMountDetails from "./self-mount-details";

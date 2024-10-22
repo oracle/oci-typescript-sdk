@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -24,6 +23,25 @@ export class FleetAppsManagementOperationsWaiter {
     private client: FleetAppsManagementOperationsClient,
     private readonly config?: WaiterConfiguration
   ) {}
+
+  /**
+   * Waits forPatch till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPatchResponse | null (null in case of 404 response)
+   */
+  public async forPatch(
+    request: serviceRequests.GetPatchRequest,
+    ...targetStates: models.Patch.LifecycleState[]
+  ): Promise<serviceResponses.GetPatchResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPatch(request),
+      response => targetStates.includes(response.patch.lifecycleState!),
+      targetStates.includes(models.Patch.LifecycleState.Deleted)
+    );
+  }
 
   /**
    * Waits forSchedulerDefinition till it reaches any of the provided states

@@ -1000,6 +1000,8 @@ import * as VirtualCircuitIpMtu from "./virtual-circuit-ip-mtu";
 export import VirtualCircuitIpMtu = VirtualCircuitIpMtu.VirtualCircuitIpMtu;
 import * as VirtualCircuitPublicPrefix from "./virtual-circuit-public-prefix";
 export import VirtualCircuitPublicPrefix = VirtualCircuitPublicPrefix.VirtualCircuitPublicPrefix;
+import * as VirtualCircuitRedundancyMetadata from "./virtual-circuit-redundancy-metadata";
+export import VirtualCircuitRedundancyMetadata = VirtualCircuitRedundancyMetadata.VirtualCircuitRedundancyMetadata;
 import * as Vlan from "./vlan";
 export import Vlan = Vlan.Vlan;
 import * as Vnic from "./vnic";

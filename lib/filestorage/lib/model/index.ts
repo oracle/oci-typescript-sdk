@@ -87,6 +87,8 @@ import * as ReplicationTarget from "./replication-target";
 export import ReplicationTarget = ReplicationTarget.ReplicationTarget;
 import * as ReplicationTargetSummary from "./replication-target-summary";
 export import ReplicationTargetSummary = ReplicationTargetSummary.ReplicationTargetSummary;
+import * as ResourceLock from "./resource-lock";
+export import ResourceLock = ResourceLock.ResourceLock;
 import * as ScheduleDowngradeShapeMountTargetDetails from "./schedule-downgrade-shape-mount-target-details";
 export import ScheduleDowngradeShapeMountTargetDetails = ScheduleDowngradeShapeMountTargetDetails.ScheduleDowngradeShapeMountTargetDetails;
 import * as Snapshot from "./snapshot";

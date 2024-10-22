@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,19 +16,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Rule Selection Criteria
+ * Rule for DYNAMIC selection.
+ *
  */
 export interface Rule {
   /**
-   * Rule to be be applied on.
+   * Based on what the rule is created.
+   * It can be based on a resourceProperty or a tag.
+   * If based on a tag, basis will be 'definedTagEquals'
+   * If based on a resource property, basis will be 'inventoryProperties'
+   *
    */
   "basis"?: string;
   /**
-   * Please provide the root compartmentId (TenancyId).
+   * Tenancy Id (Root Compartment Id)for which the rule is created.
+   *
    */
   "compartmentId": string;
   /**
-   * Resource Compartment Id.Provide the compartmentId the resource belongs to.
+   * The Compartment ID to dynamically search resources.
+   * Provide the compartment ID to which the rule is applicable.
+   *
    */
   "resourceCompartmentId": string;
   /**

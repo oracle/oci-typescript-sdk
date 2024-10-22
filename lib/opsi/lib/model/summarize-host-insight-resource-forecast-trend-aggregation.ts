@@ -74,6 +74,7 @@ export namespace SummarizeHostInsightResourceForecastTrendAggregation {
     Network = "NETWORK",
     GpuUtilization = "GPU_UTILIZATION",
     GpuMemoryUsage = "GPU_MEMORY_USAGE",
+    Io = "IO",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

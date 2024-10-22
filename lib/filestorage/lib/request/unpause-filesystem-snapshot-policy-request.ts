@@ -37,4 +37,8 @@ export interface UnpauseFilesystemSnapshotPolicyRequest extends common.BaseReque
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

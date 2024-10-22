@@ -235,6 +235,19 @@ export interface OAuth2ClientCredential {
    */
   "isResetSecret"?: boolean;
   /**
+   * Secret
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - type: string
+   *  - mutability: readOnly
+   *  - required: false
+   *  - returned: default
+   *  - idcsScimCompliant: false
+   *  - idcsSensitive: hash_sc
+   */
+  "secret"?: string;
+  /**
    * Scopes
    * <p>
    **SCIM++ Properties:**

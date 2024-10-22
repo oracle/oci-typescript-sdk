@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface RequestResourceValidationRequest extends common.BaseRequest {
   /**
-   * Details for requesting resource validation
+   * Details for requesting resource validation.
    */
   "requestResourceValidationDetails": model.RequestResourceValidationDetails;
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**

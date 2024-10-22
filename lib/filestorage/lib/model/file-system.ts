@@ -119,6 +119,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "cloneAttachStatus"?: FileSystem.CloneAttachStatus;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * Additional information about the current 'lifecycleState'.
    */
   "lifecycleDetails"?: string;
@@ -174,6 +178,12 @@ export namespace FileSystem {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.SourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -186,6 +196,12 @@ export namespace FileSystem {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.SourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

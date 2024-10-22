@@ -38,6 +38,10 @@ export interface DeleteFileSystemRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
+  /**
    * If the value is set to true, then the file system will be deleted by detaching its child file system, turning
    * the child file system into an independent File System.
    *

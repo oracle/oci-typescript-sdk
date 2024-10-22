@@ -37,4 +37,8 @@ export interface DeleteFilesystemSnapshotPolicyRequest extends common.BaseReques
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

@@ -73,6 +73,8 @@ export interface CreateModelDetails {
    * The version label can add an additional description of the lifecycle state of the model or the application using/training the model.
    */
   "versionLabel"?: string;
+  "retentionSetting"?: model.RetentionSetting;
+  "backupSetting"?: model.BackupSetting;
 }
 
 export namespace CreateModelDetails {
@@ -89,6 +91,13 @@ export namespace CreateModelDetails {
           ? obj.definedMetadataList.map(item => {
               return model.Metadata.getJsonObj(item);
             })
+          : undefined,
+
+        "retentionSetting": obj.retentionSetting
+          ? model.RetentionSetting.getJsonObj(obj.retentionSetting)
+          : undefined,
+        "backupSetting": obj.backupSetting
+          ? model.BackupSetting.getJsonObj(obj.backupSetting)
           : undefined
       }
     };
@@ -108,6 +117,13 @@ export namespace CreateModelDetails {
           ? obj.definedMetadataList.map(item => {
               return model.Metadata.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "retentionSetting": obj.retentionSetting
+          ? model.RetentionSetting.getDeserializedJsonObj(obj.retentionSetting)
+          : undefined,
+        "backupSetting": obj.backupSetting
+          ? model.BackupSetting.getDeserializedJsonObj(obj.backupSetting)
           : undefined
       }
     };

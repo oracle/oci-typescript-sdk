@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListFleetPropertiesRequest extends common.BaseRequest {
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**
@@ -27,7 +27,7 @@ export interface ListFleetPropertiesRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
@@ -35,7 +35,7 @@ export interface ListFleetPropertiesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * unique FleetProperty identifier
+   * A filter to return only resources whose fleetProperty identifier matches the given identifier.
    */
   "id"?: string;
   /**

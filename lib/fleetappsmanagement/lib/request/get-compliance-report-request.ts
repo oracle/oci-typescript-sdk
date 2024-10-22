@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetComplianceReportRequest extends common.BaseRequest {
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**
-   * compliance report identifier
+   * compliance report identifier.
    */
   "complianceReportId": string;
   /**

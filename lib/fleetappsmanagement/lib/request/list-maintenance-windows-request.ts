@@ -23,7 +23,7 @@ export interface ListMaintenanceWindowsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
@@ -31,7 +31,11 @@ export interface ListMaintenanceWindowsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * unique MaintenanceWindow identifier
+   * A filter to return only resources whose timeScheduleStart is greater than or equal to the provided date and time.
+   */
+  "timeScheduleStartGreaterThanOrEqualTo"?: Date;
+  /**
+   * A filter to return only the Maintenance Windows whose identifier matches the given identifier.
    */
   "id"?: string;
   /**

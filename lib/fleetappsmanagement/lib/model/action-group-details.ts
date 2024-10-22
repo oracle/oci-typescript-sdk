@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Action Group.
+ * Action Group details.
  */
 export interface ActionGroupDetails {
   /**
-   * The ID of the ActionGroup resource .
+   * The ID of the ActionGroup resource.
    * Ex:fleetId.
    *
    */
@@ -47,7 +46,7 @@ export interface ActionGroupDetails {
    */
   "product"?: string;
   /**
-   * LifeCycle Operation
+   * LifeCycle Operation.
    */
   "lifecycleOperation"?: string;
   /**
@@ -55,19 +54,19 @@ export interface ActionGroupDetails {
    */
   "activityId"?: string;
   /**
-   * Status of the Job at Action Group Level
+   * Status of the Job at Action Group Level.
    */
   "status"?: model.JobStatus;
   /**
-   * The time the the Scheduler Job started. An RFC3339 formatted datetime string
+   * The time the Scheduler Job started. An RFC3339 formatted datetime string.
    */
   "timeStarted"?: Date;
   /**
-   * The time the Scheduler Job ended. An RFC3339 formatted datetime string
+   * The time the Scheduler Job ended. An RFC3339 formatted datetime string.
    */
   "timeEnded"?: Date;
   /**
-   * ID of the runbook
+   * OCID of the runbook.
    */
   "runbookId": string;
 }

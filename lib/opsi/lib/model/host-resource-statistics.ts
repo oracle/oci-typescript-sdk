@@ -66,6 +66,8 @@ export namespace HostResourceStatistics {
             <model.HostMemoryStatistics>(<object>jsonObj),
             true
           );
+        case "HOST_IO_STATISTICS":
+          return model.HostIoStatistics.getJsonObj(<model.HostIoStatistics>(<object>jsonObj), true);
         case "HOST_CPU_STATISTICS":
           return model.HostCpuStatistics.getJsonObj(
             <model.HostCpuStatistics>(<object>jsonObj),
@@ -95,6 +97,11 @@ export namespace HostResourceStatistics {
         case "HOST_MEMORY_STATISTICS":
           return model.HostMemoryStatistics.getDeserializedJsonObj(
             <model.HostMemoryStatistics>(<object>jsonObj),
+            true
+          );
+        case "HOST_IO_STATISTICS":
+          return model.HostIoStatistics.getDeserializedJsonObj(
+            <model.HostIoStatistics>(<object>jsonObj),
             true
           );
         case "HOST_CPU_STATISTICS":

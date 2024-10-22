@@ -7550,6 +7550,79 @@ export class DataScienceClient {
   }
 
   /**
+   * Restore archived model artifact
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RestoreArchivedModelArtifactRequest
+   * @return RestoreArchivedModelArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/RestoreArchivedModelArtifact.ts.html |here} to see how to use RestoreArchivedModelArtifact API.
+   */
+  public async restoreArchivedModelArtifact(
+    restoreArchivedModelArtifactRequest: requests.RestoreArchivedModelArtifactRequest
+  ): Promise<responses.RestoreArchivedModelArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#restoreArchivedModelArtifact.");
+    const operationName = "restoreArchivedModelArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/RestoreArchivedModelArtifact";
+    const pathParams = {
+      "{modelId}": restoreArchivedModelArtifactRequest.modelId
+    };
+
+    const queryParams = {
+      "restoreModelForHoursSpecified":
+        restoreArchivedModelArtifactRequest.restoreModelForHoursSpecified
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": restoreArchivedModelArtifactRequest.opcRequestId,
+      "opc-retry-token": restoreArchivedModelArtifactRequest.opcRetryToken,
+      "if-match": restoreArchivedModelArtifactRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restoreArchivedModelArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/actions/restore",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RestoreArchivedModelArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates a private endpoint using a `privateEndpointId`.  If changes to a private endpoint match
    * a previously defined private endpoint, then a 409 status code is returned.  This indicates
    * that a conflict has been detected.

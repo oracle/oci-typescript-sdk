@@ -23,7 +23,7 @@ export interface ListPropertiesRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;
   /**
@@ -31,11 +31,11 @@ export interface ListPropertiesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * unique Property identifier
+   * A filter to return only resources whose Property identifier matches the given identifier.
    */
   "id"?: string;
   /**
-   * A filter to return only resources their scope matches the given lifecycleState.
+   * A filter to return only resources their scope matches the given scope.
    */
   "scope"?: model.Scope;
   /**

@@ -55,9 +55,19 @@ export namespace UpdateAssetDetails {
             <model.UpdateVmAssetDetails>(<object>jsonObj),
             true
           );
+        case "AWS_EBS":
+          return model.UpdateAwsEbsAssetDetails.getJsonObj(
+            <model.UpdateAwsEbsAssetDetails>(<object>jsonObj),
+            true
+          );
         case "VMWARE_VM":
           return model.UpdateVmwareVmAssetDetails.getJsonObj(
             <model.UpdateVmwareVmAssetDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS_EC2":
+          return model.UpdateAwsEc2AssetDetails.getJsonObj(
+            <model.UpdateAwsEc2AssetDetails>(<object>jsonObj),
             true
           );
         default:
@@ -76,9 +86,19 @@ export namespace UpdateAssetDetails {
             <model.UpdateVmAssetDetails>(<object>jsonObj),
             true
           );
+        case "AWS_EBS":
+          return model.UpdateAwsEbsAssetDetails.getDeserializedJsonObj(
+            <model.UpdateAwsEbsAssetDetails>(<object>jsonObj),
+            true
+          );
         case "VMWARE_VM":
           return model.UpdateVmwareVmAssetDetails.getDeserializedJsonObj(
             <model.UpdateVmwareVmAssetDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS_EC2":
+          return model.UpdateAwsEc2AssetDetails.getDeserializedJsonObj(
+            <model.UpdateAwsEc2AssetDetails>(<object>jsonObj),
             true
           );
         default:

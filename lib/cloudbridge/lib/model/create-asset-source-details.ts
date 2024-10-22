@@ -81,6 +81,11 @@ export namespace CreateAssetSourceDetails {
             <model.CreateVmWareAssetSourceDetails>(<object>jsonObj),
             true
           );
+        case "AWS":
+          return model.CreateAwsAssetSourceDetails.getJsonObj(
+            <model.CreateAwsAssetSourceDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -95,6 +100,11 @@ export namespace CreateAssetSourceDetails {
         case "VMWARE":
           return model.CreateVmWareAssetSourceDetails.getDeserializedJsonObj(
             <model.CreateVmWareAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.CreateAwsAssetSourceDetails.getDeserializedJsonObj(
+            <model.CreateAwsAssetSourceDetails>(<object>jsonObj),
             true
           );
         default:

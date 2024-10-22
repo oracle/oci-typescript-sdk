@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,45 +16,61 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Task associated with the Job.
+ * A task associated with the Job.
  */
 export interface ExecutionSummary {
   /**
-   * Unique Id assocaited with the Task Execution
+   * Unique Id associated with the task execution.
    */
   "id": string;
   /**
-   * The OCID of taskRecord
+   * The OCID of taskRecord.
    */
   "taskRecordId"?: string;
   /**
-   * Name of the Step
+   * Name of the Step.
    */
   "stepName"?: string;
   /**
-   * Unique process reference identifier returned by the execution client
+   * Unique process-reference identifier returned by the execution client.
+   * In some cases, this can be a runcommand OCID.
+   *
    */
   "processReferenceId"?: string;
   /**
-   * The sequence of the task
+   * The sequence of the task.
    */
   "sequence"?: string;
   /**
-   * Status of the Task
+   * Status of the Task.
    */
   "status": model.JobStatus;
   /**
-   * Target associated with the execution
+   * Target associated with the execution.
    */
   "targetId"?: string;
   /**
-   * The time the task started. An RFC3339 formatted datetime string
+   * The time the task started. An RFC3339 formatted datetime string.
    */
   "timeStarted"?: Date;
   /**
-   * The time the task ended. An RFC3339 formatted datetime string
+   * The time the task ended. An RFC3339 formatted datetime string.
    */
   "timeEnded"?: Date;
+  /**
+   * Is this a rollback task?
+   */
+  "isRollbackTask"?: boolean;
+  /**
+   * Description of the Execution status.
+   * If there are any errors, this can also include a short error message.
+   *
+   */
+  "description"?: string;
+  /**
+   * Resource Identifier associated with the Work Request.
+   */
+  "resourceId"?: string;
   /**
    * System tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}

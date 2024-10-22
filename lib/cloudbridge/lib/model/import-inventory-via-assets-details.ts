@@ -21,11 +21,11 @@ export interface ImportInventoryViaAssetsDetails extends model.ImportInventoryDe
   /**
    * The file body to be sent in the request.
    */
-  "data"?: string;
+  "data": string;
   /**
    * The type of asset.
    */
-  "assetType"?: model.AssetType;
+  "assetType": model.AssetType;
 
   "resourceType": string;
 }

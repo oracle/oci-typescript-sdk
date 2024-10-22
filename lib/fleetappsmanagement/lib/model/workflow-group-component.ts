@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -21,12 +20,12 @@ import common = require("oci-common");
  */
 export interface WorkflowGroupComponent extends model.WorkflowComponent {
   /**
-   * Provide the name of the group.
+   * Name of the group.
    */
   "groupName": string;
   /**
    * Tasks within the Group.
-   * Provide the stepName for all tasks that are applicable
+   * Provide the stepName for all applicable tasks.
    *
    */
   "steps"?: Array<string>;

@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,15 +16,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The group of the runbook
+ * The group of the runbook.
+ *
  */
 export interface Group {
   /**
-   * The type of the group
+   * The type of the group.
+   * PARALLEL_TASK_GROUP : Helps to execute tasks parallelly inside a resource.
+   * PARALLEL_RESOURCE_GROUP : Executes tasks across resources parallelly.
+   * ROLLING_RESOURCE_GROUP : Executes tasks across resources in a rolling order.
+   *
    */
   "type": Group.Type;
   /**
-   * The name of the group
+   * The name of the group.
    */
   "name": string;
   "properties"?: model.ComponentProperties;

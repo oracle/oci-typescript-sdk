@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateFleetPropertyRequest extends common.BaseRequest {
   /**
-   * unique FleetProperty identifier
+   * unique FleetProperty identifier.
    */
   "fleetPropertyId": string;
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**

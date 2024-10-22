@@ -230,6 +230,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * The layer 3 IP MTU to use on this virtual circuit.
    */
   "ipMtu"?: model.VirtualCircuitIpMtu;
+  "virtualCircuitRedundancyMetadata"?: model.VirtualCircuitRedundancyMetadata;
 }
 
 export namespace VirtualCircuit {
@@ -341,6 +342,10 @@ export namespace VirtualCircuit {
           ? obj.crossConnectMappings.map(item => {
               return model.CrossConnectMapping.getJsonObj(item);
             })
+          : undefined,
+
+        "virtualCircuitRedundancyMetadata": obj.virtualCircuitRedundancyMetadata
+          ? model.VirtualCircuitRedundancyMetadata.getJsonObj(obj.virtualCircuitRedundancyMetadata)
           : undefined
       }
     };
@@ -355,6 +360,12 @@ export namespace VirtualCircuit {
           ? obj.crossConnectMappings.map(item => {
               return model.CrossConnectMapping.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "virtualCircuitRedundancyMetadata": obj.virtualCircuitRedundancyMetadata
+          ? model.VirtualCircuitRedundancyMetadata.getDeserializedJsonObj(
+              obj.virtualCircuitRedundancyMetadata
+            )
           : undefined
       }
     };

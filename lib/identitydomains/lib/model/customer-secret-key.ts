@@ -227,6 +227,17 @@ export interface CustomerSecretKey {
    *  - returned: default
    */
   "accessKey"?: string;
+  /**
+   * The secret key.
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: true
+   *  - type: string
+   *  - mutability: readOnly
+   *  - required: false
+   *  - returned: default
+   */
+  "secretKey"?: string;
   "user"?: model.CustomerSecretKeyUser;
   "urnIetfParamsScimSchemasOracleIdcsExtensionSelfChangeUser"?: model.ExtensionSelfChangeUser;
 }

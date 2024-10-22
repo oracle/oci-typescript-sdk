@@ -13,6 +13,20 @@ For more information, see [Overview of File Storage](/iaas/Content/File/Concepts
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddExportLockResponse from "./add-export-lock-response";
+export import AddExportLockResponse = AddExportLockResponse.AddExportLockResponse;
+import * as AddFileSystemLockResponse from "./add-file-system-lock-response";
+export import AddFileSystemLockResponse = AddFileSystemLockResponse.AddFileSystemLockResponse;
+import * as AddFilesystemSnapshotPolicyLockResponse from "./add-filesystem-snapshot-policy-lock-response";
+export import AddFilesystemSnapshotPolicyLockResponse = AddFilesystemSnapshotPolicyLockResponse.AddFilesystemSnapshotPolicyLockResponse;
+import * as AddMountTargetLockResponse from "./add-mount-target-lock-response";
+export import AddMountTargetLockResponse = AddMountTargetLockResponse.AddMountTargetLockResponse;
+import * as AddOutboundConnectorLockResponse from "./add-outbound-connector-lock-response";
+export import AddOutboundConnectorLockResponse = AddOutboundConnectorLockResponse.AddOutboundConnectorLockResponse;
+import * as AddReplicationLockResponse from "./add-replication-lock-response";
+export import AddReplicationLockResponse = AddReplicationLockResponse.AddReplicationLockResponse;
+import * as AddSnapshotLockResponse from "./add-snapshot-lock-response";
+export import AddSnapshotLockResponse = AddSnapshotLockResponse.AddSnapshotLockResponse;
 import * as CancelDowngradeShapeMountTargetResponse from "./cancel-downgrade-shape-mount-target-response";
 export import CancelDowngradeShapeMountTargetResponse = CancelDowngradeShapeMountTargetResponse.CancelDowngradeShapeMountTargetResponse;
 import * as ChangeFileSystemCompartmentResponse from "./change-file-system-compartment-response";
@@ -97,6 +111,20 @@ import * as ListSnapshotsResponse from "./list-snapshots-response";
 export import ListSnapshotsResponse = ListSnapshotsResponse.ListSnapshotsResponse;
 import * as PauseFilesystemSnapshotPolicyResponse from "./pause-filesystem-snapshot-policy-response";
 export import PauseFilesystemSnapshotPolicyResponse = PauseFilesystemSnapshotPolicyResponse.PauseFilesystemSnapshotPolicyResponse;
+import * as RemoveExportLockResponse from "./remove-export-lock-response";
+export import RemoveExportLockResponse = RemoveExportLockResponse.RemoveExportLockResponse;
+import * as RemoveFileSystemLockResponse from "./remove-file-system-lock-response";
+export import RemoveFileSystemLockResponse = RemoveFileSystemLockResponse.RemoveFileSystemLockResponse;
+import * as RemoveFilesystemSnapshotPolicyLockResponse from "./remove-filesystem-snapshot-policy-lock-response";
+export import RemoveFilesystemSnapshotPolicyLockResponse = RemoveFilesystemSnapshotPolicyLockResponse.RemoveFilesystemSnapshotPolicyLockResponse;
+import * as RemoveMountTargetLockResponse from "./remove-mount-target-lock-response";
+export import RemoveMountTargetLockResponse = RemoveMountTargetLockResponse.RemoveMountTargetLockResponse;
+import * as RemoveOutboundConnectorLockResponse from "./remove-outbound-connector-lock-response";
+export import RemoveOutboundConnectorLockResponse = RemoveOutboundConnectorLockResponse.RemoveOutboundConnectorLockResponse;
+import * as RemoveReplicationLockResponse from "./remove-replication-lock-response";
+export import RemoveReplicationLockResponse = RemoveReplicationLockResponse.RemoveReplicationLockResponse;
+import * as RemoveSnapshotLockResponse from "./remove-snapshot-lock-response";
+export import RemoveSnapshotLockResponse = RemoveSnapshotLockResponse.RemoveSnapshotLockResponse;
 import * as ScheduleDowngradeShapeMountTargetResponse from "./schedule-downgrade-shape-mount-target-response";
 export import ScheduleDowngradeShapeMountTargetResponse = ScheduleDowngradeShapeMountTargetResponse.ScheduleDowngradeShapeMountTargetResponse;
 import * as UnpauseFilesystemSnapshotPolicyResponse from "./unpause-filesystem-snapshot-policy-response";

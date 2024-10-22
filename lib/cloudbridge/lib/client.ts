@@ -1662,6 +1662,88 @@ export class DiscoveryClient {
   }
 
   /**
+   * Returns a list of supported cloud regions related to AssetSourceTypeParam.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSupportedCloudRegionsRequest
+   * @return ListSupportedCloudRegionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListSupportedCloudRegions.ts.html |here} to see how to use ListSupportedCloudRegions API.
+   */
+  public async listSupportedCloudRegions(
+    listSupportedCloudRegionsRequest: requests.ListSupportedCloudRegionsRequest
+  ): Promise<responses.ListSupportedCloudRegionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DiscoveryClient#listSupportedCloudRegions.");
+    const operationName = "listSupportedCloudRegions";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "assetSourceType": listSupportedCloudRegionsRequest.assetSourceType,
+      "nameContains": listSupportedCloudRegionsRequest.nameContains,
+      "sortBy": listSupportedCloudRegionsRequest.sortBy,
+      "sortOrder": listSupportedCloudRegionsRequest.sortOrder,
+      "limit": listSupportedCloudRegionsRequest.limit,
+      "page": listSupportedCloudRegionsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSupportedCloudRegionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSupportedCloudRegionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/supportedCloudRegions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSupportedCloudRegionsResponse>{},
+        body: await response.json(),
+        bodyKey: "supportedCloudRegionCollection",
+        bodyModel: model.SupportedCloudRegionCollection,
+        type: "model.SupportedCloudRegionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Initiates the process of asset metadata synchronization with the related asset source.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RefreshAssetSourceRequest
@@ -5240,88 +5322,6 @@ export class OcbAgentSvcClient {
         bodyKey: "environment",
         bodyModel: model.Environment,
         type: "model.Environment",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Updates the plugin.
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param UpdatePluginRequest
-   * @return UpdatePluginResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdatePlugin.ts.html |here} to see how to use UpdatePlugin API.
-   */
-  public async updatePlugin(
-    updatePluginRequest: requests.UpdatePluginRequest
-  ): Promise<responses.UpdatePluginResponse> {
-    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#updatePlugin.");
-    const operationName = "updatePlugin";
-    const apiReferenceLink = "";
-    const pathParams = {
-      "{agentId}": updatePluginRequest.agentId,
-      "{pluginName}": updatePluginRequest.pluginName
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": updatePluginRequest.ifMatch,
-      "opc-request-id": updatePluginRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      updatePluginRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/agents/{agentId}/plugins/{pluginName}",
-      method: "PUT",
-      bodyContent: common.ObjectSerializer.serialize(
-        updatePluginRequest.updatePluginDetails,
-        "UpdatePluginDetails",
-        model.UpdatePluginDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.UpdatePluginResponse>{},
-        body: await response.json(),
-        bodyKey: "plugin",
-        bodyModel: model.Plugin,
-        type: "model.Plugin",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

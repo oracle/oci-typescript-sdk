@@ -44,6 +44,10 @@ export interface Model {
    */
   "lifecycleState": model.ModelLifecycleState;
   /**
+   * Details about the lifecycle state of the model.
+   */
+  "lifecycleDetails": string;
+  /**
    * The date and time the resource was created in the timestamp format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    * Example: 2019-08-25T21:10:29.41Z
    *
@@ -97,6 +101,10 @@ export interface Model {
    * The version label can add an additional description of the lifecycle state of the model or the application using and training the model.
    */
   "versionLabel": string;
+  "retentionSetting": model.RetentionSetting;
+  "backupSetting": model.BackupSetting;
+  "retentionOperationDetails": model.RetentionOperationDetails;
+  "backupOperationDetails": model.BackupOperationDetails;
 }
 
 export namespace Model {
@@ -113,6 +121,19 @@ export namespace Model {
           ? obj.definedMetadataList.map(item => {
               return model.Metadata.getJsonObj(item);
             })
+          : undefined,
+
+        "retentionSetting": obj.retentionSetting
+          ? model.RetentionSetting.getJsonObj(obj.retentionSetting)
+          : undefined,
+        "backupSetting": obj.backupSetting
+          ? model.BackupSetting.getJsonObj(obj.backupSetting)
+          : undefined,
+        "retentionOperationDetails": obj.retentionOperationDetails
+          ? model.RetentionOperationDetails.getJsonObj(obj.retentionOperationDetails)
+          : undefined,
+        "backupOperationDetails": obj.backupOperationDetails
+          ? model.BackupOperationDetails.getJsonObj(obj.backupOperationDetails)
           : undefined
       }
     };
@@ -132,6 +153,19 @@ export namespace Model {
           ? obj.definedMetadataList.map(item => {
               return model.Metadata.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "retentionSetting": obj.retentionSetting
+          ? model.RetentionSetting.getDeserializedJsonObj(obj.retentionSetting)
+          : undefined,
+        "backupSetting": obj.backupSetting
+          ? model.BackupSetting.getDeserializedJsonObj(obj.backupSetting)
+          : undefined,
+        "retentionOperationDetails": obj.retentionOperationDetails
+          ? model.RetentionOperationDetails.getDeserializedJsonObj(obj.retentionOperationDetails)
+          : undefined,
+        "backupOperationDetails": obj.backupOperationDetails
+          ? model.BackupOperationDetails.getDeserializedJsonObj(obj.backupOperationDetails)
           : undefined
       }
     };

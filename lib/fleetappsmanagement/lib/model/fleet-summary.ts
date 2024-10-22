@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,7 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the Fleet.
+ * Summary of a Fleet.A fleet is a collection or grouping of resources based on criteria.
+ *
  */
 export interface FleetSummary {
   /**
@@ -50,14 +50,21 @@ Example: {@code My new resource}
   "timeUpdated"?: Date;
   /**
    * Type of the Fleet.
+   * PRODUCT - A fleet of product-specific resources for a product type.
+   * ENVIRONMENT - A fleet of environment-specific resources for a product stack.
+   * GROUP - A fleet of a fleet of either environment or product fleets.
+   * GENERIC - A fleet of resources selected dynamically or manually for reporting purposes
+   *
    */
   "fleetType": string;
   /**
-   * Environment Type associated with the Fleet.Applicable for ENVIRONMENT fleet types.
+   * Environment Type associated with the Fleet.
+   * Applicable for ENVIRONMENT fleet types.
+   *
    */
   "environmentType"?: string;
   /**
-   * The current state of the Fleet.
+   * The lifecycle state of the Fleet.
    */
   "lifecycleState": string;
   /**

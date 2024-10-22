@@ -72,6 +72,10 @@ If using the CLI, provide the schedule as a list of JSON strings, with the list 
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
 }
 
 export namespace CreateFilesystemSnapshotPolicyDetails {
@@ -82,6 +86,12 @@ export namespace CreateFilesystemSnapshotPolicyDetails {
         "schedules": obj.schedules
           ? obj.schedules.map(item => {
               return model.SnapshotSchedule.getJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
             })
           : undefined
       }
@@ -96,6 +106,12 @@ export namespace CreateFilesystemSnapshotPolicyDetails {
         "schedules": obj.schedules
           ? obj.schedules.map(item => {
               return model.SnapshotSchedule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
             })
           : undefined
       }

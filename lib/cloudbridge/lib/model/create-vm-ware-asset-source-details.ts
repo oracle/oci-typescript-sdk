@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of an asset source.
+ * VMware asset source creation request.
  */
 export interface CreateVmWareAssetSourceDetails extends model.CreateAssetSourceDetails {
   /**

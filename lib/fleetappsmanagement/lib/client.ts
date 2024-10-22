@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -229,7 +228,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Check if FAMS tags can be added for the resources
+   * Check if Fleet Application Management tags can be added to the resources.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CheckResourceTaggingRequest
@@ -310,7 +309,8 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Confirm targets to be managed for a Fleet.Only targets that are confirmed will be managed by FAMS
+   * Confirm targets to be managed for a Fleet.
+   * Only targets that are confirmed will be managed by Fleet Application Management
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ConfirmTargetsRequest
@@ -389,8 +389,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Creates a new fleet instance that includes fleet resources and properties.
-   * For more information, please see the documentation.
+   * Create a product, environment, group, or generic type of fleet in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFleetRequest
@@ -485,7 +484,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Creates a new FleetCredential.
+   * Add credentials to a fleet in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFleetCredentialRequest
@@ -583,7 +582,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Creates a new FleetProperty.
+   * Add an existing global property to a fleet in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFleetPropertyRequest
@@ -666,7 +665,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Creates a new FleetResource.
+   * Add resource to a fleet in\u00A0Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFleetResourceRequest
@@ -764,7 +763,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Deletes a Fleet resource by identifier
+   * Delete a fleet in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFleetRequest
    * @return DeleteFleetResponse
@@ -836,7 +835,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Deletes a FleetCredential resource by identifier
+   * Delete a credential associated with a fleet product or application in\u00A0Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFleetCredentialRequest
    * @return DeleteFleetCredentialResponse
@@ -910,7 +909,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Deletes a FleetProperty resource by identifier
+   * Delete a property associated with a fleet in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFleetPropertyRequest
    * @return DeleteFleetPropertyResponse
@@ -979,7 +978,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Deletes a FleetResource resource by identifier
+   * Removes a resource from the fleet in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFleetResourceRequest
    * @return DeleteFleetResourceResponse
@@ -1053,7 +1052,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Request to generate compliance report for a Fleet
+   * Generate compliance reports for a Fleet.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GenerateComplianceReportRequest
@@ -1132,7 +1131,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Retrieve compiane report for a Fleet
+   * Retrieve compliance report for a fleet.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetComplianceReportRequest
    * @return GetComplianceReportResponse
@@ -1209,7 +1208,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Gets a Fleet by identifier
+   * Get the details of a fleet in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFleetRequest
    * @return GetFleetResponse
@@ -1284,7 +1283,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Gets a FleetCredential by identifier
+   * Gets a FleetCredential by identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFleetCredentialRequest
    * @return GetFleetCredentialResponse
@@ -1361,7 +1360,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Gets a FleetProperty by identifier
+   * Gets a Fleet Property by identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFleetPropertyRequest
    * @return GetFleetPropertyResponse
@@ -1438,7 +1437,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Gets a FleetResource by identifier
+   * Gets a Fleet Resource by identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFleetResourceRequest
    * @return GetFleetResourceResponse
@@ -1596,7 +1595,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Return a list of AnnouncementSummary items
+   * Return a list of AnnouncementSummary items.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAnnouncementsRequest
    * @return ListAnnouncementsResponse
@@ -1677,7 +1676,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Returns a list of FleetCredentials.
+   * List credentials in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFleetCredentialsRequest
@@ -1700,6 +1699,8 @@ export class FleetAppsManagementClient {
       "compartmentId": listFleetCredentialsRequest.compartmentId,
       "lifecycleState": listFleetCredentialsRequest.lifecycleState,
       "displayName": listFleetCredentialsRequest.displayName,
+      "resourceId": listFleetCredentialsRequest.resourceId,
+      "target": listFleetCredentialsRequest.target,
       "credentialLevel": listFleetCredentialsRequest.credentialLevel,
       "id": listFleetCredentialsRequest.id,
       "limit": listFleetCredentialsRequest.limit,
@@ -1764,7 +1765,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Returns a list of FleetProducts.
+   * Returns a list of products associated with the confirmed targets.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFleetProductsRequest
@@ -1850,7 +1851,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Returns a list of FleetProperties.
+   * List fleet properties in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFleetPropertiesRequest
@@ -1936,7 +1937,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Returns a list of FleetResources.
+   * List resources for a fleet in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFleetResourcesRequest
@@ -2023,7 +2024,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Returns a list of FleetTargets.
+   * Returns the list of all confirmed targets within a fleet.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFleetTargetsRequest
@@ -2290,7 +2291,8 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Returns a list of FleetTargets.
+   * Return all targets belonging to the resources within a fleet.
+   * It will include both confirmed and unconfirmed targets.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTargetsRequest
@@ -2620,7 +2622,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Request validation for resources with in a fleet
+   * Request validation for resources within a fleet.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RequestResourceValidationRequest
@@ -2699,7 +2701,8 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Confirm targets to be managed for a Fleet.Only targets that are confirmed will be managed by FAMS
+   * Confirm targets to be managed for a Fleet.
+   * Only targets that are confirmed will be managed by Fleet Application Management
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RequestTargetDiscoveryRequest
@@ -2778,7 +2781,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Updates the Fleet
+   * Update fleet information in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateFleetRequest
    * @return UpdateFleetResponse
@@ -2859,7 +2862,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Updates the FleetCredential
+   * Edit credentials associated with a product or application in\u00A0Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateFleetCredentialRequest
    * @return UpdateFleetCredentialResponse
@@ -2938,7 +2941,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Updates the FleetProperty
+   * Edit a property associated with a fleet in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateFleetPropertyRequest
    * @return UpdateFleetPropertyResponse
@@ -3021,7 +3024,7 @@ export class FleetAppsManagementClient {
   }
 
   /**
-   * Updates the FleetResource
+   * Updates the FleetResource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateFleetResourceRequest
    * @return UpdateFleetResourceResponse
@@ -3294,7 +3297,106 @@ export class FleetAppsManagementAdminClient {
   }
 
   /**
-   * Onboard a tenant to Fleet Application Management Service
+   * Creates a CompliancePolicyRule.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateCompliancePolicyRuleRequest
+   * @return CreateCompliancePolicyRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateCompliancePolicyRule.ts.html |here} to see how to use CreateCompliancePolicyRule API.
+   */
+  public async createCompliancePolicyRule(
+    createCompliancePolicyRuleRequest: requests.CreateCompliancePolicyRuleRequest
+  ): Promise<responses.CreateCompliancePolicyRuleResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementAdminClient#createCompliancePolicyRule."
+      );
+    const operationName = "createCompliancePolicyRule";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createCompliancePolicyRuleRequest.opcRetryToken,
+      "opc-request-id": createCompliancePolicyRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCompliancePolicyRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compliancePolicyRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCompliancePolicyRuleRequest.createCompliancePolicyRuleDetails,
+        "CreateCompliancePolicyRuleDetails",
+        model.CreateCompliancePolicyRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCompliancePolicyRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "compliancePolicyRule",
+        bodyModel: model.CompliancePolicyRule,
+        type: "model.CompliancePolicyRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Onboard a tenant to Fleet Application Management.
+   * The onboarding process lets Fleet Application Management create a few required policies that you need to start using it and its features.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateOnboardingRequest
@@ -3390,7 +3492,90 @@ export class FleetAppsManagementAdminClient {
   }
 
   /**
-   * Creates a new Property.
+   * Creates a new PlatformConfiguration.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreatePlatformConfigurationRequest
+   * @return CreatePlatformConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreatePlatformConfiguration.ts.html |here} to see how to use CreatePlatformConfiguration API.
+   */
+  public async createPlatformConfiguration(
+    createPlatformConfigurationRequest: requests.CreatePlatformConfigurationRequest
+  ): Promise<responses.CreatePlatformConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementAdminClient#createPlatformConfiguration."
+      );
+    const operationName = "createPlatformConfiguration";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPlatformConfigurationRequest.opcRetryToken,
+      "opc-request-id": createPlatformConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPlatformConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/platformConfigurations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPlatformConfigurationRequest.createPlatformConfigurationDetails,
+        "CreatePlatformConfigurationDetails",
+        model.CreatePlatformConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePlatformConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "platformConfiguration",
+        bodyModel: model.PlatformConfiguration,
+        type: "model.PlatformConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a business-specific metadata property in Fleet Application Management and capture the business metadata classifications.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreatePropertyRequest
@@ -3471,7 +3656,230 @@ export class FleetAppsManagementAdminClient {
   }
 
   /**
-   * Deletes a Property resource by identifier
+   * Deletes a CompliancePolicyRule.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteCompliancePolicyRuleRequest
+   * @return DeleteCompliancePolicyRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteCompliancePolicyRule.ts.html |here} to see how to use DeleteCompliancePolicyRule API.
+   */
+  public async deleteCompliancePolicyRule(
+    deleteCompliancePolicyRuleRequest: requests.DeleteCompliancePolicyRuleRequest
+  ): Promise<responses.DeleteCompliancePolicyRuleResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementAdminClient#deleteCompliancePolicyRule."
+      );
+    const operationName = "deleteCompliancePolicyRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{compliancePolicyRuleId}": deleteCompliancePolicyRuleRequest.compliancePolicyRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteCompliancePolicyRuleRequest.ifMatch,
+      "opc-request-id": deleteCompliancePolicyRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCompliancePolicyRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compliancePolicyRules/{compliancePolicyRuleId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCompliancePolicyRuleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes Fleet Application Management onboarding resource by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOnboardingRequest
+   * @return DeleteOnboardingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteOnboarding.ts.html |here} to see how to use DeleteOnboarding API.
+   */
+  public async deleteOnboarding(
+    deleteOnboardingRequest: requests.DeleteOnboardingRequest
+  ): Promise<responses.DeleteOnboardingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementAdminClient#deleteOnboarding.");
+    const operationName = "deleteOnboarding";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{onboardingId}": deleteOnboardingRequest.onboardingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOnboardingRequest.ifMatch,
+      "opc-request-id": deleteOnboardingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOnboardingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/Onboardings/{onboardingId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOnboardingResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a PlatformConfiguration resource by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeletePlatformConfigurationRequest
+   * @return DeletePlatformConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeletePlatformConfiguration.ts.html |here} to see how to use DeletePlatformConfiguration API.
+   */
+  public async deletePlatformConfiguration(
+    deletePlatformConfigurationRequest: requests.DeletePlatformConfigurationRequest
+  ): Promise<responses.DeletePlatformConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementAdminClient#deletePlatformConfiguration."
+      );
+    const operationName = "deletePlatformConfiguration";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{platformConfigurationId}": deletePlatformConfigurationRequest.platformConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePlatformConfigurationRequest.ifMatch,
+      "opc-request-id": deletePlatformConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePlatformConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/platformConfigurations/{platformConfigurationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePlatformConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a property in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeletePropertyRequest
    * @return DeletePropertyResponse
@@ -3524,6 +3932,388 @@ export class FleetAppsManagementAdminClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePropertyResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enable Policies for a newer version of Fleet Application Management
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableLatestPolicyRequest
+   * @return EnableLatestPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/EnableLatestPolicy.ts.html |here} to see how to use EnableLatestPolicy API.
+   */
+  public async enableLatestPolicy(
+    enableLatestPolicyRequest: requests.EnableLatestPolicyRequest
+  ): Promise<responses.EnableLatestPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementAdminClient#enableLatestPolicy.");
+    const operationName = "enableLatestPolicy";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{onboardingId}": enableLatestPolicyRequest.onboardingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableLatestPolicyRequest.ifMatch,
+      "opc-request-id": enableLatestPolicyRequest.opcRequestId,
+      "opc-retry-token": enableLatestPolicyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableLatestPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/Onboardings/{onboardingId}/actions/enableLatestPolicy",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableLatestPolicyRequest.enableLatestPolicyDetails,
+        "EnableLatestPolicyDetails",
+        model.EnableLatestPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableLatestPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a CompliancePolicy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCompliancePolicyRequest
+   * @return GetCompliancePolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetCompliancePolicy.ts.html |here} to see how to use GetCompliancePolicy API.
+   */
+  public async getCompliancePolicy(
+    getCompliancePolicyRequest: requests.GetCompliancePolicyRequest
+  ): Promise<responses.GetCompliancePolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementAdminClient#getCompliancePolicy.");
+    const operationName = "getCompliancePolicy";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{compliancePolicyId}": getCompliancePolicyRequest.compliancePolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCompliancePolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCompliancePolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compliancePolicies/{compliancePolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCompliancePolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "compliancePolicy",
+        bodyModel: model.CompliancePolicy,
+        type: "model.CompliancePolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a CompliancePolicyRule.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCompliancePolicyRuleRequest
+   * @return GetCompliancePolicyRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetCompliancePolicyRule.ts.html |here} to see how to use GetCompliancePolicyRule API.
+   */
+  public async getCompliancePolicyRule(
+    getCompliancePolicyRuleRequest: requests.GetCompliancePolicyRuleRequest
+  ): Promise<responses.GetCompliancePolicyRuleResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementAdminClient#getCompliancePolicyRule."
+      );
+    const operationName = "getCompliancePolicyRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{compliancePolicyRuleId}": getCompliancePolicyRuleRequest.compliancePolicyRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCompliancePolicyRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCompliancePolicyRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compliancePolicyRules/{compliancePolicyRuleId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCompliancePolicyRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "compliancePolicyRule",
+        bodyModel: model.CompliancePolicyRule,
+        type: "model.CompliancePolicyRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Fleet Application Management Onboarding by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOnboardingRequest
+   * @return GetOnboardingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetOnboarding.ts.html |here} to see how to use GetOnboarding API.
+   */
+  public async getOnboarding(
+    getOnboardingRequest: requests.GetOnboardingRequest
+  ): Promise<responses.GetOnboardingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementAdminClient#getOnboarding.");
+    const operationName = "getOnboarding";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{onboardingId}": getOnboardingRequest.onboardingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOnboardingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOnboardingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/Onboardings/{onboardingId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOnboardingResponse>{},
+        body: await response.json(),
+        bodyKey: "onboarding",
+        bodyModel: model.Onboarding,
+        type: "model.Onboarding",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a PlatformConfiguration by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPlatformConfigurationRequest
+   * @return GetPlatformConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetPlatformConfiguration.ts.html |here} to see how to use GetPlatformConfiguration API.
+   */
+  public async getPlatformConfiguration(
+    getPlatformConfigurationRequest: requests.GetPlatformConfigurationRequest
+  ): Promise<responses.GetPlatformConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementAdminClient#getPlatformConfiguration."
+      );
+    const operationName = "getPlatformConfiguration";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{platformConfigurationId}": getPlatformConfigurationRequest.platformConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPlatformConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPlatformConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/platformConfigurations/{platformConfigurationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPlatformConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "platformConfiguration",
+        bodyModel: model.PlatformConfiguration,
+        type: "model.PlatformConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -3615,7 +4405,179 @@ export class FleetAppsManagementAdminClient {
   }
 
   /**
-   * Returns a list of onboarding policy information for FAMS.
+   * Gets a list of compliancePolicies.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCompliancePoliciesRequest
+   * @return ListCompliancePoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListCompliancePolicies.ts.html |here} to see how to use ListCompliancePolicies API.
+   */
+  public async listCompliancePolicies(
+    listCompliancePoliciesRequest: requests.ListCompliancePoliciesRequest
+  ): Promise<responses.ListCompliancePoliciesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementAdminClient#listCompliancePolicies.");
+    const operationName = "listCompliancePolicies";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCompliancePoliciesRequest.compartmentId,
+      "lifecycleState": listCompliancePoliciesRequest.lifecycleState,
+      "displayName": listCompliancePoliciesRequest.displayName,
+      "id": listCompliancePoliciesRequest.id,
+      "limit": listCompliancePoliciesRequest.limit,
+      "page": listCompliancePoliciesRequest.page,
+      "sortOrder": listCompliancePoliciesRequest.sortOrder,
+      "sortBy": listCompliancePoliciesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCompliancePoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCompliancePoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compliancePolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCompliancePoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "compliancePolicyCollection",
+        bodyModel: model.CompliancePolicyCollection,
+        type: "model.CompliancePolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of CompliancePolicyRules.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCompliancePolicyRulesRequest
+   * @return ListCompliancePolicyRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListCompliancePolicyRules.ts.html |here} to see how to use ListCompliancePolicyRules API.
+   */
+  public async listCompliancePolicyRules(
+    listCompliancePolicyRulesRequest: requests.ListCompliancePolicyRulesRequest
+  ): Promise<responses.ListCompliancePolicyRulesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementAdminClient#listCompliancePolicyRules."
+      );
+    const operationName = "listCompliancePolicyRules";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCompliancePolicyRulesRequest.compartmentId,
+      "displayName": listCompliancePolicyRulesRequest.displayName,
+      "lifecycleState": listCompliancePolicyRulesRequest.lifecycleState,
+      "patchName": listCompliancePolicyRulesRequest.patchName,
+      "compliancePolicyId": listCompliancePolicyRulesRequest.compliancePolicyId,
+      "id": listCompliancePolicyRulesRequest.id,
+      "limit": listCompliancePolicyRulesRequest.limit,
+      "page": listCompliancePolicyRulesRequest.page,
+      "sortOrder": listCompliancePolicyRulesRequest.sortOrder,
+      "sortBy": listCompliancePolicyRulesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCompliancePolicyRulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCompliancePolicyRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compliancePolicyRules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCompliancePolicyRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "compliancePolicyRuleCollection",
+        bodyModel: model.CompliancePolicyRuleCollection,
+        type: "model.CompliancePolicyRuleCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of onboarding policy information for Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOnboardingPoliciesRequest
@@ -3778,7 +4740,94 @@ export class FleetAppsManagementAdminClient {
   }
 
   /**
-   * Returns a list of Properties for Tenancy.
+   * Returns a list of PlatformConfiguration for Tenancy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPlatformConfigurationsRequest
+   * @return ListPlatformConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListPlatformConfigurations.ts.html |here} to see how to use ListPlatformConfigurations API.
+   */
+  public async listPlatformConfigurations(
+    listPlatformConfigurationsRequest: requests.ListPlatformConfigurationsRequest
+  ): Promise<responses.ListPlatformConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementAdminClient#listPlatformConfigurations."
+      );
+    const operationName = "listPlatformConfigurations";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPlatformConfigurationsRequest.compartmentId,
+      "lifecycleState": listPlatformConfigurationsRequest.lifecycleState,
+      "displayName": listPlatformConfigurationsRequest.displayName,
+      "id": listPlatformConfigurationsRequest.id,
+      "configCategory": listPlatformConfigurationsRequest.configCategory,
+      "limit": listPlatformConfigurationsRequest.limit,
+      "page": listPlatformConfigurationsRequest.page,
+      "sortOrder": listPlatformConfigurationsRequest.sortOrder,
+      "sortBy": listPlatformConfigurationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPlatformConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPlatformConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/platformConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPlatformConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "platformConfigurationCollection",
+        bodyModel: model.PlatformConfigurationCollection,
+        type: "model.PlatformConfigurationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List properties and their values for a tenancy in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListPropertiesRequest
@@ -3863,7 +4912,319 @@ export class FleetAppsManagementAdminClient {
   }
 
   /**
-   * Updates the Property
+   * Updates the Onboarding setting
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ManageSettingsRequest
+   * @return ManageSettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ManageSettings.ts.html |here} to see how to use ManageSettings API.
+   */
+  public async manageSettings(
+    manageSettingsRequest: requests.ManageSettingsRequest
+  ): Promise<responses.ManageSettingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementAdminClient#manageSettings.");
+    const operationName = "manageSettings";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{onboardingId}": manageSettingsRequest.onboardingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": manageSettingsRequest.ifMatch,
+      "opc-request-id": manageSettingsRequest.opcRequestId,
+      "opc-retry-token": manageSettingsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      manageSettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/Onboardings/{onboardingId}/actions/manageSettings",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        manageSettingsRequest.manageSettingsDetails,
+        "ManageSettingsDetails",
+        model.ManageSettingsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ManageSettingsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a CompliancePolicyRule.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateCompliancePolicyRuleRequest
+   * @return UpdateCompliancePolicyRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateCompliancePolicyRule.ts.html |here} to see how to use UpdateCompliancePolicyRule API.
+   */
+  public async updateCompliancePolicyRule(
+    updateCompliancePolicyRuleRequest: requests.UpdateCompliancePolicyRuleRequest
+  ): Promise<responses.UpdateCompliancePolicyRuleResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementAdminClient#updateCompliancePolicyRule."
+      );
+    const operationName = "updateCompliancePolicyRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{compliancePolicyRuleId}": updateCompliancePolicyRuleRequest.compliancePolicyRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateCompliancePolicyRuleRequest.ifMatch,
+      "opc-request-id": updateCompliancePolicyRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCompliancePolicyRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/compliancePolicyRules/{compliancePolicyRuleId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCompliancePolicyRuleRequest.updateCompliancePolicyRuleDetails,
+        "UpdateCompliancePolicyRuleDetails",
+        model.UpdateCompliancePolicyRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCompliancePolicyRuleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Onboarding
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateOnboardingRequest
+   * @return UpdateOnboardingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateOnboarding.ts.html |here} to see how to use UpdateOnboarding API.
+   */
+  public async updateOnboarding(
+    updateOnboardingRequest: requests.UpdateOnboardingRequest
+  ): Promise<responses.UpdateOnboardingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementAdminClient#updateOnboarding.");
+    const operationName = "updateOnboarding";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{onboardingId}": updateOnboardingRequest.onboardingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOnboardingRequest.ifMatch,
+      "opc-request-id": updateOnboardingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOnboardingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/Onboardings/{onboardingId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOnboardingRequest.updateOnboardingDetails,
+        "UpdateOnboardingDetails",
+        model.UpdateOnboardingDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOnboardingResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the PlatformConfiguration
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdatePlatformConfigurationRequest
+   * @return UpdatePlatformConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdatePlatformConfiguration.ts.html |here} to see how to use UpdatePlatformConfiguration API.
+   */
+  public async updatePlatformConfiguration(
+    updatePlatformConfigurationRequest: requests.UpdatePlatformConfigurationRequest
+  ): Promise<responses.UpdatePlatformConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementAdminClient#updatePlatformConfiguration."
+      );
+    const operationName = "updatePlatformConfiguration";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{platformConfigurationId}": updatePlatformConfigurationRequest.platformConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePlatformConfigurationRequest.ifMatch,
+      "opc-request-id": updatePlatformConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePlatformConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/platformConfigurations/{platformConfigurationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePlatformConfigurationRequest.updatePlatformConfigurationDetails,
+        "UpdatePlatformConfigurationDetails",
+        model.UpdatePlatformConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePlatformConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a property in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdatePropertyRequest
    * @return UpdatePropertyResponse
@@ -4143,7 +5504,7 @@ export class FleetAppsManagementMaintenanceWindowClient {
   }
 
   /**
-   * Creates a new MaintenanceWindow.
+   * Create a maintenance window in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateMaintenanceWindowRequest
@@ -4226,7 +5587,7 @@ export class FleetAppsManagementMaintenanceWindowClient {
   }
 
   /**
-   * Deletes a MaintenanceWindow resource by identifier
+   * Delete a maintenance window in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteMaintenanceWindowRequest
    * @return DeleteMaintenanceWindowResponse
@@ -4301,7 +5662,7 @@ export class FleetAppsManagementMaintenanceWindowClient {
   }
 
   /**
-   * Gets a MaintenanceWindow by identifier
+   * Get the details for a maintenance window in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMaintenanceWindowRequest
    * @return GetMaintenanceWindowResponse
@@ -4379,7 +5740,7 @@ export class FleetAppsManagementMaintenanceWindowClient {
   }
 
   /**
-   * Returns a list of MaintenanceWindows in the specified Tenancy.
+   * List maintenance windows for a specified tenancy in\u00A0Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMaintenanceWindowsRequest
@@ -4402,6 +5763,8 @@ export class FleetAppsManagementMaintenanceWindowClient {
       "compartmentId": listMaintenanceWindowsRequest.compartmentId,
       "lifecycleState": listMaintenanceWindowsRequest.lifecycleState,
       "displayName": listMaintenanceWindowsRequest.displayName,
+      "timeScheduleStartGreaterThanOrEqualTo":
+        listMaintenanceWindowsRequest.timeScheduleStartGreaterThanOrEqualTo,
       "id": listMaintenanceWindowsRequest.id,
       "limit": listMaintenanceWindowsRequest.limit,
       "page": listMaintenanceWindowsRequest.page,
@@ -4470,7 +5833,7 @@ export class FleetAppsManagementMaintenanceWindowClient {
   }
 
   /**
-   * Updates the MaintenanceWindow
+   * Update a maintenance window in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateMaintenanceWindowRequest
    * @return UpdateMaintenanceWindowResponse
@@ -4744,7 +6107,88 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Creates a new SchedulerDefinition.
+   * Creates a new Patch.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreatePatchRequest
+   * @return CreatePatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreatePatch.ts.html |here} to see how to use CreatePatch API.
+   */
+  public async createPatch(
+    createPatchRequest: requests.CreatePatchRequest
+  ): Promise<responses.CreatePatchResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementOperationsClient#createPatch.");
+    const operationName = "createPatch";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPatchRequest.opcRetryToken,
+      "opc-request-id": createPatchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/patches",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPatchRequest.createPatchDetails,
+        "CreatePatchDetails",
+        model.CreatePatchDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePatchResponse>{},
+        body: await response.json(),
+        bodyKey: "patch",
+        bodyModel: model.Patch,
+        type: "model.Patch",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a SchedulerDefinition to perform lifecycle operations.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSchedulerDefinitionRequest
@@ -4842,6 +6286,79 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
+   * Deletes a Patch resource by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeletePatchRequest
+   * @return DeletePatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeletePatch.ts.html |here} to see how to use DeletePatch API.
+   */
+  public async deletePatch(
+    deletePatchRequest: requests.DeletePatchRequest
+  ): Promise<responses.DeletePatchResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementOperationsClient#deletePatch.");
+    const operationName = "deletePatch";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{patchId}": deletePatchRequest.patchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePatchRequest.ifMatch,
+      "opc-request-id": deletePatchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/patches/{patchId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePatchResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a SchedulerDefinition resource by identifier
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSchedulerDefinitionRequest
@@ -4912,7 +6429,7 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Deletes a SchedulerJob resource by identifier
+   * Delete a lifecycle operation schedule in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSchedulerJobRequest
    * @return DeleteSchedulerJobResponse
@@ -4982,7 +6499,101 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Gets a JobActivity by identifier
+   * Generate Compliance Report
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExportComplianceReportRequest
+   * @return ExportComplianceReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ExportComplianceReport.ts.html |here} to see how to use ExportComplianceReport API.
+   */
+  public async exportComplianceReport(
+    exportComplianceReportRequest: requests.ExportComplianceReportRequest
+  ): Promise<responses.ExportComplianceReportResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#exportComplianceReport."
+      );
+    const operationName = "exportComplianceReport";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": exportComplianceReportRequest.opcRetryToken,
+      "if-match": exportComplianceReportRequest.ifMatch,
+      "opc-request-id": exportComplianceReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportComplianceReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/complianceRecords/actions/exportComplianceReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        exportComplianceReportRequest.exportComplianceReportDetails,
+        "ExportComplianceReportDetails",
+        model.ExportComplianceReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportComplianceReportResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-type"),
+            key: "contentType",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get Task Execution by Identifier for a Resource within an action group.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetExecutionRequest
    * @return GetExecutionResponse
@@ -5062,7 +6673,7 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Gets a JobActivity by identifier
+   * Gets activity details by identifier for a job.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobActivityRequest
    * @return GetJobActivityResponse
@@ -5139,7 +6750,83 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Gets a SchedulerDefinition by identifier
+   * Gets a Patch by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPatchRequest
+   * @return GetPatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetPatch.ts.html |here} to see how to use GetPatch API.
+   */
+  public async getPatch(
+    getPatchRequest: requests.GetPatchRequest
+  ): Promise<responses.GetPatchResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementOperationsClient#getPatch.");
+    const operationName = "getPatch";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{patchId}": getPatchRequest.patchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPatchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/patches/{patchId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPatchResponse>{},
+        body: await response.json(),
+        bodyKey: "patch",
+        bodyModel: model.Patch,
+        type: "model.Patch",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the details of a SchedulerDefinition that performs lifecycle management operations.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSchedulerDefinitionRequest
    * @return GetSchedulerDefinitionResponse
@@ -5217,7 +6904,7 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Gets a SchedulerJob by identifier
+   * Get the details of a lifecycle management operations job in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSchedulerJobRequest
    * @return GetSchedulerJobResponse
@@ -5281,6 +6968,95 @@ export class FleetAppsManagementOperationsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of complianceDetails.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComplianceRecordsRequest
+   * @return ListComplianceRecordsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListComplianceRecords.ts.html |here} to see how to use ListComplianceRecords API.
+   */
+  public async listComplianceRecords(
+    listComplianceRecordsRequest: requests.ListComplianceRecordsRequest
+  ): Promise<responses.ListComplianceRecordsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#listComplianceRecords."
+      );
+    const operationName = "listComplianceRecords";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listComplianceRecordsRequest.compartmentId,
+      "resourceId": listComplianceRecordsRequest.resourceId,
+      "entityId": listComplianceRecordsRequest.entityId,
+      "productName": listComplianceRecordsRequest.productName,
+      "productStack": listComplianceRecordsRequest.productStack,
+      "targetName": listComplianceRecordsRequest.targetName,
+      "complianceState": listComplianceRecordsRequest.complianceState,
+      "limit": listComplianceRecordsRequest.limit,
+      "page": listComplianceRecordsRequest.page,
+      "sortOrder": listComplianceRecordsRequest.sortOrder,
+      "sortBy": listComplianceRecordsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComplianceRecordsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComplianceRecordsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/complianceRecords",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComplianceRecordsResponse>{},
+        body: await response.json(),
+        bodyKey: "complianceRecordCollection",
+        bodyModel: model.ComplianceRecordCollection,
+        type: "model.ComplianceRecordCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -5381,7 +7157,185 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Returns a list of ScheduledFleets
+   * Returns a list of Patches.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPatchesRequest
+   * @return ListPatchesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListPatches.ts.html |here} to see how to use ListPatches API.
+   */
+  public async listPatches(
+    listPatchesRequest: requests.ListPatchesRequest
+  ): Promise<responses.ListPatchesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementOperationsClient#listPatches.");
+    const operationName = "listPatches";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPatchesRequest.compartmentId,
+      "productId": listPatchesRequest.productId,
+      "version": listPatchesRequest.version,
+      "type": listPatchesRequest.type,
+      "patchTypeId": listPatchesRequest.patchTypeId,
+      "name": listPatchesRequest.name,
+      "id": listPatchesRequest.id,
+      "timeReleasedGreaterThanOrEqualTo": listPatchesRequest.timeReleasedGreaterThanOrEqualTo,
+      "timeReleasedLessThan": listPatchesRequest.timeReleasedLessThan,
+      "shouldCompliancePolicyRulesBeApplied":
+        listPatchesRequest.shouldCompliancePolicyRulesBeApplied,
+      "limit": listPatchesRequest.limit,
+      "page": listPatchesRequest.page,
+      "lifecycleState": listPatchesRequest.lifecycleState,
+      "sortBy": listPatchesRequest.sortBy,
+      "sortOrder": listPatchesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPatchesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPatchesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/patches",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPatchesResponse>{},
+        body: await response.json(),
+        bodyKey: "patchCollection",
+        bodyModel: model.PatchCollection,
+        type: "model.PatchCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of resources for an Activity Execution.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListResourcesRequest
+   * @return ListResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListResources.ts.html |here} to see how to use ListResources API.
+   */
+  public async listResources(
+    listResourcesRequest: requests.ListResourcesRequest
+  ): Promise<responses.ListResourcesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementOperationsClient#listResources.");
+    const operationName = "listResources";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{schedulerJobId}": listResourcesRequest.schedulerJobId,
+      "{jobActivityId}": listResourcesRequest.jobActivityId
+    };
+
+    const queryParams = {
+      "resourceTaskId": listResourcesRequest.resourceTaskId,
+      "stepName": listResourcesRequest.stepName,
+      "targetName": listResourcesRequest.targetName,
+      "sequence": listResourcesRequest.sequence,
+      "limit": listResourcesRequest.limit,
+      "page": listResourcesRequest.page,
+      "sortOrder": listResourcesRequest.sortOrder,
+      "sortBy": listResourcesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulerJobs/{schedulerJobId}/jobActivities/{jobActivityId}/resources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "resourceCollection",
+        bodyModel: model.ResourceCollection,
+        type: "model.ResourceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of ScheduledFleets.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListScheduledFleetsRequest
@@ -5467,7 +7421,7 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Returns a list of SchedulerDefinitions.
+   * List all lifecycle management schedules in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSchedulerDefinitionsRequest
@@ -5493,6 +7447,7 @@ export class FleetAppsManagementOperationsClient {
       "product": listSchedulerDefinitionsRequest.product,
       "id": listSchedulerDefinitionsRequest.id,
       "maintenanceWindowId": listSchedulerDefinitionsRequest.maintenanceWindowId,
+      "runbookId": listSchedulerDefinitionsRequest.runbookId,
       "fleetId": listSchedulerDefinitionsRequest.fleetId,
       "limit": listSchedulerDefinitionsRequest.limit,
       "page": listSchedulerDefinitionsRequest.page,
@@ -5561,7 +7516,7 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Returns a list of SchedulerJobs.
+   * List scheduled lifecycle operation jobs in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSchedulerJobsRequest
@@ -5586,6 +7541,7 @@ export class FleetAppsManagementOperationsClient {
         listSchedulerJobsRequest.timeScheduledGreaterThanOrEqualTo,
       "timeScheduledLessThan": listSchedulerJobsRequest.timeScheduledLessThan,
       "isRemediationJobNeeded": listSchedulerJobsRequest.isRemediationJobNeeded,
+      "subState": listSchedulerJobsRequest.subState,
       "displayName": listSchedulerJobsRequest.displayName,
       "id": listSchedulerJobsRequest.id,
       "defintionId": listSchedulerJobsRequest.defintionId,
@@ -5651,7 +7607,499 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Updates the SchedulerDefinition
+   * Returns a list of Steps for an Activity Execution.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListStepsRequest
+   * @return ListStepsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListSteps.ts.html |here} to see how to use ListSteps API.
+   */
+  public async listSteps(
+    listStepsRequest: requests.ListStepsRequest
+  ): Promise<responses.ListStepsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementOperationsClient#listSteps.");
+    const operationName = "listSteps";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{schedulerJobId}": listStepsRequest.schedulerJobId,
+      "{jobActivityId}": listStepsRequest.jobActivityId
+    };
+
+    const queryParams = {
+      "resourceTaskId": listStepsRequest.resourceTaskId,
+      "stepName": listStepsRequest.stepName,
+      "targetName": listStepsRequest.targetName,
+      "sequence": listStepsRequest.sequence,
+      "limit": listStepsRequest.limit,
+      "page": listStepsRequest.page,
+      "sortOrder": listStepsRequest.sortOrder,
+      "sortBy": listStepsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listStepsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listStepsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulerJobs/{schedulerJobId}/jobActivities/{jobActivityId}/steps",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListStepsResponse>{},
+        body: await response.json(),
+        bodyKey: "stepCollection",
+        bodyModel: model.StepCollection,
+        type: "model.StepCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Manage execution actions for a Job like retrying or pausing a task.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ManageJobExecutionRequest
+   * @return ManageJobExecutionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ManageJobExecution.ts.html |here} to see how to use ManageJobExecution API.
+   */
+  public async manageJobExecution(
+    manageJobExecutionRequest: requests.ManageJobExecutionRequest
+  ): Promise<responses.ManageJobExecutionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#manageJobExecution."
+      );
+    const operationName = "manageJobExecution";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{schedulerJobId}": manageJobExecutionRequest.schedulerJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": manageJobExecutionRequest.opcRetryToken,
+      "if-match": manageJobExecutionRequest.ifMatch,
+      "opc-request-id": manageJobExecutionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      manageJobExecutionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulerJobs/{schedulerJobId}/actions/manageJobExecution",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        manageJobExecutionRequest.manageJobExecutionDetails,
+        "ManageJobExecutionDetails",
+        model.ManageJobExecutionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ManageJobExecutionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve  aggregated summary information of ComplianceRecords within a Tenancy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeComplianceRecordCountsRequest
+   * @return SummarizeComplianceRecordCountsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SummarizeComplianceRecordCounts.ts.html |here} to see how to use SummarizeComplianceRecordCounts API.
+   */
+  public async summarizeComplianceRecordCounts(
+    summarizeComplianceRecordCountsRequest: requests.SummarizeComplianceRecordCountsRequest
+  ): Promise<responses.SummarizeComplianceRecordCountsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#summarizeComplianceRecordCounts."
+      );
+    const operationName = "summarizeComplianceRecordCounts";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeComplianceRecordCountsRequest.compartmentId,
+      "limit": summarizeComplianceRecordCountsRequest.limit,
+      "page": summarizeComplianceRecordCountsRequest.page,
+      "sortOrder": summarizeComplianceRecordCountsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeComplianceRecordCountsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeComplianceRecordCountsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/complianceRecordCounts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeComplianceRecordCountsResponse>{},
+        body: await response.json(),
+        bodyKey: "complianceRecordAggregationCollection",
+        bodyModel: model.ComplianceRecordAggregationCollection,
+        type: "model.ComplianceRecordAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve  aggregated summary information of Managed Entities within a Tenancy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeManagedEntityCountsRequest
+   * @return SummarizeManagedEntityCountsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SummarizeManagedEntityCounts.ts.html |here} to see how to use SummarizeManagedEntityCounts API.
+   */
+  public async summarizeManagedEntityCounts(
+    summarizeManagedEntityCountsRequest: requests.SummarizeManagedEntityCountsRequest
+  ): Promise<responses.SummarizeManagedEntityCountsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#summarizeManagedEntityCounts."
+      );
+    const operationName = "summarizeManagedEntityCounts";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeManagedEntityCountsRequest.compartmentId,
+      "limit": summarizeManagedEntityCountsRequest.limit,
+      "page": summarizeManagedEntityCountsRequest.page,
+      "sortOrder": summarizeManagedEntityCountsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeManagedEntityCountsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeManagedEntityCountsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedEntityCounts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeManagedEntityCountsResponse>{},
+        body: await response.json(),
+        bodyKey: "managedEntityAggregationCollection",
+        bodyModel: model.ManagedEntityAggregationCollection,
+        type: "model.ManagedEntityAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve aggregated summary information of Scheduler Jobs within a Tenancy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeSchedulerJobCountsRequest
+   * @return SummarizeSchedulerJobCountsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SummarizeSchedulerJobCounts.ts.html |here} to see how to use SummarizeSchedulerJobCounts API.
+   */
+  public async summarizeSchedulerJobCounts(
+    summarizeSchedulerJobCountsRequest: requests.SummarizeSchedulerJobCountsRequest
+  ): Promise<responses.SummarizeSchedulerJobCountsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#summarizeSchedulerJobCounts."
+      );
+    const operationName = "summarizeSchedulerJobCounts";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeSchedulerJobCountsRequest.compartmentId,
+      "limit": summarizeSchedulerJobCountsRequest.limit,
+      "page": summarizeSchedulerJobCountsRequest.page,
+      "sortOrder": summarizeSchedulerJobCountsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeSchedulerJobCountsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeSchedulerJobCountsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedulerJobCounts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeSchedulerJobCountsResponse>{},
+        body: await response.json(),
+        bodyKey: "schedulerJobAggregationCollection",
+        bodyModel: model.SchedulerJobAggregationCollection,
+        type: "model.SchedulerJobAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Patch
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdatePatchRequest
+   * @return UpdatePatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdatePatch.ts.html |here} to see how to use UpdatePatch API.
+   */
+  public async updatePatch(
+    updatePatchRequest: requests.UpdatePatchRequest
+  ): Promise<responses.UpdatePatchResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementOperationsClient#updatePatch.");
+    const operationName = "updatePatch";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{patchId}": updatePatchRequest.patchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePatchRequest.ifMatch,
+      "opc-request-id": updatePatchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/patches/{patchId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePatchRequest.updatePatchDetails,
+        "UpdatePatchDetails",
+        model.UpdatePatchDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePatchResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the details of a SchedulerDefinition that performs lifecycle management operations.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSchedulerDefinitionRequest
    * @return UpdateSchedulerDefinitionResponse
@@ -5731,7 +8179,7 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Updates the SchedulerJob
+   * Update a lifecycle operation job schedule in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSchedulerJobRequest
    * @return UpdateSchedulerJobResponse
@@ -6009,7 +8457,330 @@ export class FleetAppsManagementRunbooksClient {
   }
 
   /**
-   * Gets a Runbook by identifier
+   * Creates a new Runbook.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateRunbookRequest
+   * @return CreateRunbookResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateRunbook.ts.html |here} to see how to use CreateRunbook API.
+   */
+  public async createRunbook(
+    createRunbookRequest: requests.CreateRunbookRequest
+  ): Promise<responses.CreateRunbookResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#createRunbook.");
+    const operationName = "createRunbook";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createRunbookRequest.opcRetryToken,
+      "opc-request-id": createRunbookRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRunbookRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRunbookRequest.createRunbookDetails,
+        "CreateRunbookDetails",
+        model.CreateRunbookDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRunbookResponse>{},
+        body: await response.json(),
+        bodyKey: "runbook",
+        bodyModel: model.Runbook,
+        type: "model.Runbook",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Task.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateTaskRecordRequest
+   * @return CreateTaskRecordResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateTaskRecord.ts.html |here} to see how to use CreateTaskRecord API.
+   */
+  public async createTaskRecord(
+    createTaskRecordRequest: requests.CreateTaskRecordRequest
+  ): Promise<responses.CreateTaskRecordResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#createTaskRecord.");
+    const operationName = "createTaskRecord";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createTaskRecordRequest.opcRetryToken,
+      "opc-request-id": createTaskRecordRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTaskRecordRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/taskRecords",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createTaskRecordRequest.createTaskRecordDetails,
+        "CreateTaskRecordDetails",
+        model.CreateTaskRecordDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateTaskRecordResponse>{},
+        body: await response.json(),
+        bodyKey: "taskRecord",
+        bodyModel: model.TaskRecord,
+        type: "model.TaskRecord",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Runbook resource by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteRunbookRequest
+   * @return DeleteRunbookResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteRunbook.ts.html |here} to see how to use DeleteRunbook API.
+   */
+  public async deleteRunbook(
+    deleteRunbookRequest: requests.DeleteRunbookRequest
+  ): Promise<responses.DeleteRunbookResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#deleteRunbook.");
+    const operationName = "deleteRunbook";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{runbookId}": deleteRunbookRequest.runbookId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteRunbookRequest.ifMatch,
+      "opc-request-id": deleteRunbookRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRunbookRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/{runbookId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRunbookResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Task Record resource by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteTaskRecordRequest
+   * @return DeleteTaskRecordResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteTaskRecord.ts.html |here} to see how to use DeleteTaskRecord API.
+   */
+  public async deleteTaskRecord(
+    deleteTaskRecordRequest: requests.DeleteTaskRecordRequest
+  ): Promise<responses.DeleteTaskRecordResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#deleteTaskRecord.");
+    const operationName = "deleteTaskRecord";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{taskRecordId}": deleteTaskRecordRequest.taskRecordId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteTaskRecordRequest.ifMatch,
+      "opc-request-id": deleteTaskRecordRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTaskRecordRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/taskRecords/{taskRecordId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteTaskRecordResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the details of a runbook in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRunbookRequest
    * @return GetRunbookResponse
@@ -6085,7 +8856,7 @@ export class FleetAppsManagementRunbooksClient {
   }
 
   /**
-   * Gets a TaskRecord by identifier
+   * Gets a Task by identifier
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTaskRecordRequest
    * @return GetTaskRecordResponse
@@ -6161,7 +8932,7 @@ export class FleetAppsManagementRunbooksClient {
   }
 
   /**
-   * Returns a list of Runbooks.
+   * List runbooks in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRunbooksRequest
@@ -6323,6 +9094,322 @@ export class FleetAppsManagementRunbooksClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Publish a Runbook.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PublishRunbookRequest
+   * @return PublishRunbookResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/PublishRunbook.ts.html |here} to see how to use PublishRunbook API.
+   */
+  public async publishRunbook(
+    publishRunbookRequest: requests.PublishRunbookRequest
+  ): Promise<responses.PublishRunbookResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#publishRunbook.");
+    const operationName = "publishRunbook";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": publishRunbookRequest.opcRetryToken,
+      "if-match": publishRunbookRequest.ifMatch,
+      "opc-request-id": publishRunbookRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      publishRunbookRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/actions/publishRunbook",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        publishRunbookRequest.publishRunbookDetails,
+        "PublishRunbookDetails",
+        model.PublishRunbookDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PublishRunbookResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Publish a Runbook.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SetDefaultRunbookRequest
+   * @return SetDefaultRunbookResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SetDefaultRunbook.ts.html |here} to see how to use SetDefaultRunbook API.
+   */
+  public async setDefaultRunbook(
+    setDefaultRunbookRequest: requests.SetDefaultRunbookRequest
+  ): Promise<responses.SetDefaultRunbookResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#setDefaultRunbook.");
+    const operationName = "setDefaultRunbook";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": setDefaultRunbookRequest.opcRetryToken,
+      "if-match": setDefaultRunbookRequest.ifMatch,
+      "opc-request-id": setDefaultRunbookRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setDefaultRunbookRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/actions/setDefaultRunbook",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        setDefaultRunbookRequest.setDefaultRunbookDetails,
+        "SetDefaultRunbookDetails",
+        model.SetDefaultRunbookDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetDefaultRunbookResponse>{},
+        body: await response.json(),
+        bodyKey: "runbook",
+        bodyModel: model.Runbook,
+        type: "model.Runbook",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Ronbook
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateRunbookRequest
+   * @return UpdateRunbookResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateRunbook.ts.html |here} to see how to use UpdateRunbook API.
+   */
+  public async updateRunbook(
+    updateRunbookRequest: requests.UpdateRunbookRequest
+  ): Promise<responses.UpdateRunbookResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#updateRunbook.");
+    const operationName = "updateRunbook";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{runbookId}": updateRunbookRequest.runbookId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateRunbookRequest.ifMatch,
+      "opc-request-id": updateRunbookRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRunbookRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/{runbookId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRunbookRequest.updateRunbookDetails,
+        "UpdateRunbookDetails",
+        model.UpdateRunbookDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRunbookResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Task
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateTaskRecordRequest
+   * @return UpdateTaskRecordResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateTaskRecord.ts.html |here} to see how to use UpdateTaskRecord API.
+   */
+  public async updateTaskRecord(
+    updateTaskRecordRequest: requests.UpdateTaskRecordRequest
+  ): Promise<responses.UpdateTaskRecordResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#updateTaskRecord.");
+    const operationName = "updateTaskRecord";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{taskRecordId}": updateTaskRecordRequest.taskRecordId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateTaskRecordRequest.ifMatch,
+      "opc-request-id": updateTaskRecordRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTaskRecordRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/taskRecords/{taskRecordId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateTaskRecordRequest.updateTaskRecordDetails,
+        "UpdateTaskRecordDetails",
+        model.UpdateTaskRecordDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateTaskRecordResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

@@ -19,6 +19,7 @@ import common = require("oci-common");
  **/
 export enum AssetSourceCredentialsType {
   Basic = "BASIC",
+  ApiKey = "API_KEY",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

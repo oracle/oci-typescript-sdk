@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the FleetAppManagementService Onboarding.
+ * Summary of the Fleet Application Management Onboarding.
  */
 export interface OnboardingSummary {
   /**
@@ -41,17 +40,26 @@ export interface OnboardingSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * A value determining FAMS tag is enabled or not
+   * A value determining if the Fleet Application Management tagging is enabled or not.
+   * Allow Fleet Application Management to tag resources with fleet name using \"Oracle$FAMS-Tags.FleetName\" tag.
+   *
    */
   "isFamsTagEnabled"?: boolean;
   /**
-   * Version of FAMS the tenant is onboarded to.
+   * The version of Fleet Application Management that the tenant is onboarded to.
    */
   "version"?: string;
   /**
-   * A value determining if cost tracking tag is enabled or not
+   * A value determining if the cost tracking tag is enabled or not.
+   * Allow Fleet Application Management to tag resources with cost tracking tag using \"Oracle$FAMS-Tags.FAMSManaged\" tag.
+   *
    */
   "isCostTrackingTagEnabled"?: boolean;
+  "appliedPolicies"?: model.OnboardingPolicySummary;
+  /**
+   * Provide discovery frequency.
+   */
+  "discoveryFrequency"?: string;
   /**
    * The current state of the Onboarding.
    */
@@ -66,12 +74,26 @@ export interface OnboardingSummary {
 
 export namespace OnboardingSummary {
   export function getJsonObj(obj: OnboardingSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "appliedPolicies": obj.appliedPolicies
+          ? model.OnboardingPolicySummary.getJsonObj(obj.appliedPolicies)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: OnboardingSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "appliedPolicies": obj.appliedPolicies
+          ? model.OnboardingPolicySummary.getDeserializedJsonObj(obj.appliedPolicies)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

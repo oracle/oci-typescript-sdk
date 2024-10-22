@@ -23,7 +23,7 @@ export interface CreateFleetPropertyRequest extends common.BaseRequest {
    */
   "createFleetPropertyDetails": model.CreateFleetPropertyDetails;
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**

@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -24,6 +23,82 @@ export class FleetAppsManagementAdminWaiter {
     private client: FleetAppsManagementAdminClient,
     private readonly config?: WaiterConfiguration
   ) {}
+
+  /**
+   * Waits forCompliancePolicy till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCompliancePolicyResponse | null (null in case of 404 response)
+   */
+  public async forCompliancePolicy(
+    request: serviceRequests.GetCompliancePolicyRequest,
+    ...targetStates: models.CompliancePolicy.LifecycleState[]
+  ): Promise<serviceResponses.GetCompliancePolicyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCompliancePolicy(request),
+      response => targetStates.includes(response.compliancePolicy.lifecycleState!),
+      targetStates.includes(models.CompliancePolicy.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCompliancePolicyRule till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCompliancePolicyRuleResponse | null (null in case of 404 response)
+   */
+  public async forCompliancePolicyRule(
+    request: serviceRequests.GetCompliancePolicyRuleRequest,
+    ...targetStates: models.CompliancePolicyRule.LifecycleState[]
+  ): Promise<serviceResponses.GetCompliancePolicyRuleResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCompliancePolicyRule(request),
+      response => targetStates.includes(response.compliancePolicyRule.lifecycleState!),
+      targetStates.includes(models.CompliancePolicyRule.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forOnboarding till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetOnboardingResponse | null (null in case of 404 response)
+   */
+  public async forOnboarding(
+    request: serviceRequests.GetOnboardingRequest,
+    ...targetStates: models.Onboarding.LifecycleState[]
+  ): Promise<serviceResponses.GetOnboardingResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getOnboarding(request),
+      response => targetStates.includes(response.onboarding.lifecycleState!),
+      targetStates.includes(models.Onboarding.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forPlatformConfiguration till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPlatformConfigurationResponse | null (null in case of 404 response)
+   */
+  public async forPlatformConfiguration(
+    request: serviceRequests.GetPlatformConfigurationRequest,
+    ...targetStates: models.PlatformConfiguration.LifecycleState[]
+  ): Promise<serviceResponses.GetPlatformConfigurationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPlatformConfiguration(request),
+      response => targetStates.includes(response.platformConfiguration.lifecycleState!),
+      targetStates.includes(models.PlatformConfiguration.LifecycleState.Deleted)
+    );
+  }
 
   /**
    * Waits forProperty till it reaches any of the provided states

@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -55,11 +54,11 @@ Example: {@code My new resource}
    */
   "timeUpdated"?: Date;
   /**
-   * Scheduled date for the next run of the Job.
+   * The scheduled date for the next run of the Job.
    */
   "timeOfNextRun"?: Date;
   /**
-   * Activity Initiation Cut Off Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Activity Initiation Cut Off. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "activityInitiationCutOff"?: number;
   "schedule"?: model.Schedule;
@@ -68,28 +67,28 @@ Example: {@code My new resource}
    */
   "countOfAffectedActionGroups"?: number;
   /**
-   * Count of Resources affected by the Schedule Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Count of Resources affected by the Schedule. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countOfAffectedResources"?: number;
   /**
-   * Count of Targets affected by the Schedule Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Count of Targets affected by the Schedule. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countOfAffectedTargets"?: number;
   /**
-   * All ActionGroup Types part of the schedule.
+   * All ActionGroup Types that are part of the schedule.
    */
   "actionGroupTypes"?: Array<SchedulerDefinition.ActionGroupTypes>;
   /**
-   * All application types part of the schedule for ENVIRONMENT ActionGroup Type.
+   * All application types that are part of the schedule for ENVIRONMENT ActionGroup Type.
    *
    */
   "applicationTypes"?: Array<string>;
   /**
-   * All products part of the schedule for PRODUCT ActionGroup Type.
+   * All products that are part of the schedule for PRODUCT ActionGroup Type.
    */
   "products"?: Array<string>;
   /**
-   * All LifeCycle Operations part of the schedule
+   * All LifeCycle Operations that are part of the schedule.
    */
   "lifecycleOperations"?: Array<string>;
   /**

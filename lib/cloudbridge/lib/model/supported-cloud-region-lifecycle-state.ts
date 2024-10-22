@@ -15,24 +15,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated.
- */
-export interface UpdatePluginDetails {
+ * Lifecycle state of the supported cloud region.
+ **/
+export enum SupportedCloudRegionLifecycleState {
+  Active = "ACTIVE",
+  Inactive = "INACTIVE",
+
   /**
-   * State to which the customer wants the plugin to move to.
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
    */
-  "desiredState"?: string;
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
-export namespace UpdatePluginDetails {
-  export function getJsonObj(obj: UpdatePluginDetails): object {
-    const jsonObj = { ...obj, ...{} };
-
-    return jsonObj;
+export namespace SupportedCloudRegionLifecycleState {
+  export function getJsonObj(
+    obj: SupportedCloudRegionLifecycleState
+  ): SupportedCloudRegionLifecycleState {
+    return obj;
   }
-  export function getDeserializedJsonObj(obj: UpdatePluginDetails): object {
-    const jsonObj = { ...obj, ...{} };
-
-    return jsonObj;
+  export function getDeserializedJsonObj(
+    obj: SupportedCloudRegionLifecycleState
+  ): SupportedCloudRegionLifecycleState {
+    return obj;
   }
 }

@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -18,7 +17,7 @@ import common = require("oci-common");
 
 /**
  * Details about Object Storage Bucket source.
- * Restricted to the region this is called
+ * Restricted to the region this is called.
  *
  */
 export interface ObjectStorageBucketContentDetails extends model.ContentDetails {
@@ -35,7 +34,7 @@ export interface ObjectStorageBucketContentDetails extends model.ContentDetails 
    */
   "objectName": string;
   /**
-   * SHA256 checksum of the artifact.
+   * md5 checksum of the artifact.
    */
   "checksum": string;
 

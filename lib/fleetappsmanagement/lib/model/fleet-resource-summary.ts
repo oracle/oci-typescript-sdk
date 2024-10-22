@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -57,15 +56,15 @@ Example: {@code My new resource}
    */
   "resourceId": string;
   /**
-   * Compliance State of the Resource
+   * Compliance State of the Resource.
    */
   "complianceState"?: model.ComplianceState;
   /**
-   * Resource Tenancy Name
+   * Resource Tenancy Name.
    */
   "tenancyName"?: string;
   /**
-   * Resource Compartment
+   * Resource Compartment name.
    */
   "compartment"?: string;
   /**
@@ -77,20 +76,24 @@ Example: {@code My new resource}
    */
   "productCount"?: number;
   /**
-   * Count of targets  within the resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Count of targets within the resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "targetCount"?: number;
   /**
-   * Product associated with the resource when resource type is fleet.Will only be returned for PRODUCT fleets that are part of a GROUP Fleet
+   * Product associated with the resource when the resource type is fleet.
+   * Will only be returned for PRODUCT fleets that are part of a GROUP Fleet.
+   *
    */
   "product"?: string;
   /**
-   * Application Type associated with the resource when resource type is fleet.Will only be returned for ENVIRONMENT fleets that are part of a GROUP Fleet.
+   * Application Type associated with the resource when the resource type is fleet.
+   * Will only be returned for ENVIRONMENT fleets that are part of a GROUP Fleet.
    *
    */
   "applicationType"?: string;
   /**
-   * Environment Type associated with the Fleet when resource type is fleet.Will only be returned for ENVIRONMENT fleets that are part of a GROUP Fleet.
+   * Environment Type associated with the Fleet when the resource type is fleet.
+   * Will only be returned for ENVIRONMENT fleets that are part of a GROUP Fleet.
    *
    */
   "environmentType"?: string;

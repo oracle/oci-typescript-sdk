@@ -96,6 +96,11 @@ export namespace AssetSourceSummary {
             <model.VmWareAssetSourceSummary>(<object>jsonObj),
             true
           );
+        case "AWS":
+          return model.AwsAssetSourceSummary.getJsonObj(
+            <model.AwsAssetSourceSummary>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -110,6 +115,11 @@ export namespace AssetSourceSummary {
         case "VMWARE":
           return model.VmWareAssetSourceSummary.getDeserializedJsonObj(
             <model.VmWareAssetSourceSummary>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.AwsAssetSourceSummary.getDeserializedJsonObj(
+            <model.AwsAssetSourceSummary>(<object>jsonObj),
             true
           );
         default:

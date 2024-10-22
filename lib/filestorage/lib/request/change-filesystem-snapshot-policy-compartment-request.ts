@@ -41,4 +41,8 @@ export interface ChangeFilesystemSnapshotPolicyCompartmentRequest extends common
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

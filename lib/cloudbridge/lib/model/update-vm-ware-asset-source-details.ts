@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Asset source update details.
+ * VMware asset source update request.
  */
 export interface UpdateVmWareAssetSourceDetails extends model.UpdateAssetSourceDetails {
   /**
@@ -32,10 +32,6 @@ export interface UpdateVmWareAssetSourceDetails extends model.UpdateAssetSourceD
    * Flag indicating whether real-time metrics are collected for assets, originating from this asset source.
    */
   "areRealtimeMetricsCollected"?: boolean;
-  /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the discovery schedule that is going to be assigned to an asset source.
-   */
-  "discoveryScheduleId"?: string;
 
   "type": string;
 }

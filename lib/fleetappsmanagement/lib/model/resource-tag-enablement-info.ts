@@ -1,7 +1,6 @@
 /**
  * Fleet Application Management Service API
- * Fleet Application Management Service API. Use this API to for all FAMS related activities.
-To manage fleets,view complaince report for the Fleet,scedule patches and other lifecycle activities
+ * Fleet Application Management provides a centralized platform to help you automate resource management tasks, validate patch compliance, and enhance operational efficiency across an enterprise.
 
  * OpenAPI spec version: 20230831
  * 
@@ -17,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Resource tag enablement Information
+ * Resource tag enablement Information.
  */
 export interface ResourceTagEnablementInfo {
   /**
@@ -25,7 +24,7 @@ export interface ResourceTagEnablementInfo {
    */
   "resourceId": string;
   /**
-   * A value which represents if resource can be tagged with Fleet name
+   * A value that represents if the resource can be tagged with a Fleet name.
    */
   "isTaggingPossible": boolean;
 }

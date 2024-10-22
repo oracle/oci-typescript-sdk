@@ -107,6 +107,10 @@ Example: {@code 10.0.3.3}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * Throughput for mount target in Gbps. Currently only 1 Gbps of requestedThroughput is supported during create MountTarget.
    * Available shapes and corresponding throughput are listed at [Mount Target Performance](https://docs.oracle.com/iaas/Content/File/Tasks/managingmounttargets.htm#performance).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -123,7 +127,13 @@ export namespace CreateMountTargetDetails {
           ? model.CreateLdapIdmapDetails.getJsonObj(obj.ldapIdmap)
           : undefined,
 
-        "kerberos": obj.kerberos ? model.CreateKerberosDetails.getJsonObj(obj.kerberos) : undefined
+        "kerberos": obj.kerberos ? model.CreateKerberosDetails.getJsonObj(obj.kerberos) : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -139,6 +149,12 @@ export namespace CreateMountTargetDetails {
 
         "kerberos": obj.kerberos
           ? model.CreateKerberosDetails.getDeserializedJsonObj(obj.kerberos)
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

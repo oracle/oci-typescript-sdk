@@ -23,7 +23,7 @@ export interface DeleteFleetCredentialRequest extends common.BaseRequest {
    */
   "fleetCredentialId": string;
   /**
-   * unique Fleet identifier
+   * Unique Fleet identifier.
    */
   "fleetId": string;
   /**
