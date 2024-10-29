@@ -67,10 +67,6 @@ Example: {@code FIVE_TUPLE}
    *
    */
   "backends"?: Array<model.Backend>;
-  /**
-   * The health check policy configuration.
-   *
-   */
   "healthChecker": model.HealthChecker;
 }
 

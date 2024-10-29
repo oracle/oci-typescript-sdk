@@ -14,6 +14,14 @@
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * The configuration of a network load balancer backend set.
+ * For more information about backend set configuration, see
+ * [Managing Backend Sets](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingbackendsets.htm).
+ * <p>
+ **Caution:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
+ *
+ */
 export interface BackendSetSummary {
   /**
     * A user-friendly name for the backend set that must be unique and cannot be changed.
@@ -59,10 +67,6 @@ Example: {@code FIVE_TUPLE}
    *
    */
   "backends": Array<model.Backend>;
-  /**
-   * The health check policy configuration.
-   *
-   */
   "healthChecker": model.HealthChecker;
 }
 
