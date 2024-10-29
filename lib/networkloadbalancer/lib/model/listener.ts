@@ -72,6 +72,12 @@ Example: {@code TCP}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "udpIdleTimeout"?: number;
+  /**
+   * The duration for L3IP idle timeout in seconds.
+   * Example: {@code 200}
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "l3IpIdleTimeout"?: number;
 }
 
 export namespace Listener {

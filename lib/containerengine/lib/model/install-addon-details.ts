@@ -33,6 +33,10 @@ export interface InstallAddonDetails {
    * Addon configuration details.
    */
   "configurations"?: Array<model.AddonConfiguration>;
+  /**
+   * Whether or not to override an existing addon installation. Defaults to false. If set to true, any existing addon installation would be overridden as per new installation details.
+   */
+  "isOverrideExisting"?: boolean;
 }
 
 export namespace InstallAddonDetails {
