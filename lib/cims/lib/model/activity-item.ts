@@ -29,11 +29,11 @@ export interface ActivityItem extends model.Item {
    */
   "comments": string;
   /**
-   * The time when the activity was created, in milliseconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The time when the activity was created, in seconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeCreated": number;
   /**
-   * The time when the activity was updated, in milliseconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The time when the activity was updated, in seconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeUpdated": number;
   /**
@@ -46,6 +46,10 @@ export interface ActivityItem extends model.Item {
    * Who updates the activity on the support ticket.
    */
   "itemStatus"?: ActivityItem.ItemStatus;
+  /**
+   * attachmentID for the ItemType Attachments only for Alloy realm.
+   */
+  "attachmentID"?: string;
 
   "type": string;
 }

@@ -34,6 +34,7 @@ export enum SqlEndpointLifecycleState {
   Failed = "FAILED",
   Updating = "UPDATING",
   NeedsAttention = "NEEDS_ATTENTION",
+  Inactive = "INACTIVE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

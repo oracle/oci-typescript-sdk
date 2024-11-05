@@ -30,7 +30,7 @@ import common = require("oci-common");
  */
 export interface PolicyPolicyType {
   /**
-   * PolicyType identifier
+   * PolicyType identifier.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true

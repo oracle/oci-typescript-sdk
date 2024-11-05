@@ -45,6 +45,10 @@ export interface ServiceCategory {
    */
   "issueTypeList"?: Array<model.IssueType>;
   /**
+   * List of supported subscriptions
+   */
+  "supportedSubscriptions"?: Array<string>;
+  /**
    * The scope of the incident.
    */
   "scope"?: model.Scope;

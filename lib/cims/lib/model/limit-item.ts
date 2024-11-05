@@ -40,6 +40,10 @@ export interface LimitItem extends model.Item {
    * The status of the request.
    */
   "limitStatus"?: LimitItem.LimitStatus;
+  /**
+   * Message to customer for partial approval and rejected limit requests
+   */
+  "customerMessage"?: string;
 
   "type": string;
 }
@@ -49,6 +53,7 @@ export namespace LimitItem {
     Approved = "APPROVED",
     PartiallyApproved = "PARTIALLY_APPROVED",
     NotApproved = "NOT_APPROVED",
+    Rejected = "REJECTED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
