@@ -83,6 +83,7 @@ export interface Condition {
    * <p>
    **SCIM++ Properties:**
    *  - idcsCompositeKey: [key, value]
+   *  - idcsCsvAttributeNameMappings: [[columnHeaderName:Tag Key, mapsTo:tags.key], [columnHeaderName:Tag Value, mapsTo:tags.value]]
    *  - idcsSearchable: true
    *  - multiValued: true
    *  - mutability: readWrite
@@ -260,6 +261,7 @@ export interface Condition {
    *  - uniqueness: none
    */
   "evaluateConditionIf"?: string;
+  "urnIetfParamsScimSchemasOracleIdcsExtensionOciconsolesignonpolicyconsentPolicy"?: model.ConditionExtensionOciconsolesignonpolicyconsentPolicy;
 }
 
 export namespace Condition {
@@ -310,9 +312,18 @@ export namespace Condition {
           ? obj.tags.map(item => {
               return model.Tags.getJsonObj(item);
             })
+          : undefined,
+
+        "urn:ietf:params:scim:schemas:oracle:idcs:extension:ociconsolesignonpolicyconsent:Policy": obj.urnIetfParamsScimSchemasOracleIdcsExtensionOciconsolesignonpolicyconsentPolicy
+          ? model.ConditionExtensionOciconsolesignonpolicyconsentPolicy.getJsonObj(
+              obj.urnIetfParamsScimSchemasOracleIdcsExtensionOciconsolesignonpolicyconsentPolicy
+            )
           : undefined
       }
     };
+
+    delete (jsonObj as Partial<Condition>)
+      .urnIetfParamsScimSchemasOracleIdcsExtensionOciconsolesignonpolicyconsentPolicy;
 
     return jsonObj;
   }
@@ -332,9 +343,23 @@ export namespace Condition {
           ? obj.tags.map(item => {
               return model.Tags.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "urnIetfParamsScimSchemasOracleIdcsExtensionOciconsolesignonpolicyconsentPolicy": (obj as any)[
+          "urn:ietf:params:scim:schemas:oracle:idcs:extension:ociconsolesignonpolicyconsent:Policy"
+        ]
+          ? model.ConditionExtensionOciconsolesignonpolicyconsentPolicy.getDeserializedJsonObj(
+              (obj as any)[
+                "urn:ietf:params:scim:schemas:oracle:idcs:extension:ociconsolesignonpolicyconsent:Policy"
+              ]
+            )
           : undefined
       }
     };
+
+    delete (jsonObj as any)[
+      "urn:ietf:params:scim:schemas:oracle:idcs:extension:ociconsolesignonpolicyconsent:Policy"
+    ];
 
     return jsonObj;
   }

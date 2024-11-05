@@ -27,7 +27,7 @@ export interface Item {
   /**
    * Unique identifier for the item.
    */
-  "itemKey": string;
+  "itemKey"?: string;
   /**
    * The display name of the item. Avoid entering confidential information.
    */

@@ -205,7 +205,9 @@ export class IncidentClient {
   }
 
   /**
-   * Operation to create a support ticket.
+   * Creates a support ticket in the specified tenancy.
+   * For more information, see [Creating Support Requests](https://docs.cloud.oracle.com/iaas/Content/GSG/support/create-incident.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateIncidentRequest
    * @return CreateIncidentResponse
@@ -285,84 +287,9 @@ export class IncidentClient {
   }
 
   /**
-   * Fetches csi number of the user.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetCsiNumberRequest
-   * @return GetCsiNumberResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/GetCsiNumber.ts.html |here} to see how to use GetCsiNumber API.
-   */
-  public async getCsiNumber(
-    getCsiNumberRequest: requests.GetCsiNumberRequest
-  ): Promise<responses.GetCsiNumberResponse> {
-    if (this.logger) this.logger.debug("Calling operation IncidentClient#getCsiNumber.");
-    const operationName = "getCsiNumber";
-    const apiReferenceLink = "";
-    const pathParams = {};
-
-    const queryParams = {
-      "tenantId": getCsiNumberRequest.tenantId,
-      "region": getCsiNumberRequest.region
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getCsiNumberRequest.opcRequestId,
-      "ocid": getCsiNumberRequest.ocid,
-      "homeregion": getCsiNumberRequest.homeregion,
-      "bearertokentype": getCsiNumberRequest.bearertokentype,
-      "bearertoken": getCsiNumberRequest.bearertoken,
-      "idtoken": getCsiNumberRequest.idtoken,
-      "domainid": getCsiNumberRequest.domainid
-    };
-
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      getCsiNumberRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/v2/incidents/getCsiNumber",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GetCsiNumberResponse>{},
-        body: await response.json(),
-        bodyKey: "value",
-        bodyModel: "string",
-        type: "string",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Gets details about the specified support ticket.
+   * Gets the specified support ticket.
+   * For more information, see [Getting Details for a Support Request](https://docs.cloud.oracle.com/iaas/Content/GSG/support/get-incident.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIncidentRequest
    * @return GetIncidentResponse
@@ -443,78 +370,15 @@ export class IncidentClient {
   }
 
   /**
-   * Gets the status of the service.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetStatusRequest
-   * @return GetStatusResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/GetStatus.ts.html |here} to see how to use GetStatus API.
-   */
-  public async getStatus(
-    getStatusRequest: requests.GetStatusRequest
-  ): Promise<responses.GetStatusResponse> {
-    if (this.logger) this.logger.debug("Calling operation IncidentClient#getStatus.");
-    const operationName = "getStatus";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Status/GetStatus";
-    const pathParams = {};
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getStatusRequest.opcRequestId,
-      "ocid": getStatusRequest.ocid,
-      "homeregion": getStatusRequest.homeregion
-    };
-
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      getStatusRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/v2/incidents/status",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GetStatusResponse>{},
-        body: await response.json(),
-        bodyKey: "status",
-        bodyModel: model.Status,
-        type: "model.Status",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * During support ticket creation, returns the list of all possible products that Oracle Cloud Infrastructure supports.
+   * Depending on the selected `productType`, either
+   * lists available products (service groups, services, service categories, and subcategories) for technical support tickets or
+   * lists limits and current usage for limit increase tickets.
+   * This operation is called during creation of technical support and limit increase tickets.
+   * For more information about listing products, see
+   * [Listing Products for Support Requests](https://docs.cloud.oracle.com/iaas/Content/GSG/support/list-incident-resource-types-taxonomy.htm).
+   * For more information about listing limits, see
+   * [Listing Limits for Service Limit Increase Requests](https://docs.cloud.oracle.com/iaas/Content/GSG/support/list-incident-resource-types-limit.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIncidentResourceTypesRequest
    * @return ListIncidentResourceTypesResponse
@@ -653,7 +517,9 @@ export class IncidentClient {
   }
 
   /**
-   * Returns the list of support tickets raised by the tenancy.
+   * Lists support tickets for the specified tenancy.
+   * For more information, see [Listing Support Requests](https://docs.cloud.oracle.com/iaas/Content/GSG/support/list-incidents.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIncidentsRequest
    * @return ListIncidentsResponse
@@ -804,7 +670,9 @@ export class IncidentClient {
   }
 
   /**
-   * Updates the specified support ticket's information.
+   * Updates the specified support ticket.
+   * For more information, see [Updating Support Requests](https://docs.cloud.oracle.com/iaas/Content/GSG/support/update-incident.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateIncidentRequest
    * @return UpdateIncidentResponse
@@ -891,6 +759,8 @@ export class IncidentClient {
 
   /**
    * Checks whether the requested user is valid.
+   * For more information, see [Validating a User](https://docs.cloud.oracle.com/iaas/Content/GSG/support/validate-user.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ValidateUserRequest
    * @return ValidateUserResponse

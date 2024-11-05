@@ -19,12 +19,8 @@ and you need to register your Customer Support Identifier (CSI) with My Oracle S
 
 import * as CreateIncidentResponse from "./create-incident-response";
 export import CreateIncidentResponse = CreateIncidentResponse.CreateIncidentResponse;
-import * as GetCsiNumberResponse from "./get-csi-number-response";
-export import GetCsiNumberResponse = GetCsiNumberResponse.GetCsiNumberResponse;
 import * as GetIncidentResponse from "./get-incident-response";
 export import GetIncidentResponse = GetIncidentResponse.GetIncidentResponse;
-import * as GetStatusResponse from "./get-status-response";
-export import GetStatusResponse = GetStatusResponse.GetStatusResponse;
 import * as ListIncidentResourceTypesResponse from "./list-incident-resource-types-response";
 export import ListIncidentResourceTypesResponse = ListIncidentResourceTypesResponse.ListIncidentResourceTypesResponse;
 import * as ListIncidentsResponse from "./list-incidents-response";

@@ -22,6 +22,8 @@ import common = require("oci-common");
 
 /**
  * Details about the service limit increase request. Avoid entering confidential information.
+ * For information about {@code LIMIT} support tickets, see [Creating a Service Limit Increase Request](https://docs.cloud.oracle.com/iaas/Content/GSG/support/create-incident-limit.htm).
+ *
  */
 export interface CreateLimitItemDetails extends model.CreateItemDetails {
   /**
@@ -48,7 +50,8 @@ export namespace CreateLimitItemDetails {
   export enum LimitStatus {
     Approved = "APPROVED",
     PartiallyApproved = "PARTIALLY_APPROVED",
-    NotApproved = "NOT_APPROVED"
+    NotApproved = "NOT_APPROVED",
+    Rejected = "REJECTED"
   }
 
   export function getJsonObj(obj: CreateLimitItemDetails, isParentJsonObj?: boolean): object {

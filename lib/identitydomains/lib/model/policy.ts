@@ -83,6 +83,7 @@ export interface Policy {
    * <p>
    **SCIM++ Properties:**
    *  - idcsCompositeKey: [key, value]
+   *  - idcsCsvAttributeNameMappings: [[columnHeaderName:Tag Key, mapsTo:tags.key], [columnHeaderName:Tag Value, mapsTo:tags.value]]
    *  - idcsSearchable: true
    *  - multiValued: true
    *  - mutability: readWrite
@@ -245,6 +246,7 @@ export interface Policy {
    */
   "rules"?: Array<model.PolicyRules>;
   "policyType": model.PolicyPolicyType;
+  "urnIetfParamsScimSchemasOracleIdcsExtensionOciconsolesignonpolicyconsentPolicy"?: model.PolicyExtensionOciconsolesignonpolicyconsentPolicy;
 }
 
 export namespace Policy {
@@ -282,9 +284,19 @@ export namespace Policy {
               return model.PolicyRules.getJsonObj(item);
             })
           : undefined,
-        "policyType": obj.policyType ? model.PolicyPolicyType.getJsonObj(obj.policyType) : undefined
+        "policyType": obj.policyType
+          ? model.PolicyPolicyType.getJsonObj(obj.policyType)
+          : undefined,
+        "urn:ietf:params:scim:schemas:oracle:idcs:extension:ociconsolesignonpolicyconsent:Policy": obj.urnIetfParamsScimSchemasOracleIdcsExtensionOciconsolesignonpolicyconsentPolicy
+          ? model.PolicyExtensionOciconsolesignonpolicyconsentPolicy.getJsonObj(
+              obj.urnIetfParamsScimSchemasOracleIdcsExtensionOciconsolesignonpolicyconsentPolicy
+            )
+          : undefined
       }
     };
+
+    delete (jsonObj as Partial<Policy>)
+      .urnIetfParamsScimSchemasOracleIdcsExtensionOciconsolesignonpolicyconsentPolicy;
 
     return jsonObj;
   }
@@ -313,9 +325,22 @@ export namespace Policy {
           : undefined,
         "policyType": obj.policyType
           ? model.PolicyPolicyType.getDeserializedJsonObj(obj.policyType)
+          : undefined,
+        "urnIetfParamsScimSchemasOracleIdcsExtensionOciconsolesignonpolicyconsentPolicy": (obj as any)[
+          "urn:ietf:params:scim:schemas:oracle:idcs:extension:ociconsolesignonpolicyconsent:Policy"
+        ]
+          ? model.PolicyExtensionOciconsolesignonpolicyconsentPolicy.getDeserializedJsonObj(
+              (obj as any)[
+                "urn:ietf:params:scim:schemas:oracle:idcs:extension:ociconsolesignonpolicyconsent:Policy"
+              ]
+            )
           : undefined
       }
     };
+
+    delete (jsonObj as any)[
+      "urn:ietf:params:scim:schemas:oracle:idcs:extension:ociconsolesignonpolicyconsent:Policy"
+    ];
 
     return jsonObj;
   }

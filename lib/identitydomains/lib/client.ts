@@ -1062,7 +1062,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Create a Condition
+   * Create a condition
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateConditionRequest
    * @return CreateConditionResponse
@@ -3044,7 +3044,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Create a Policy
+   * Create a Policy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePolicyRequest
    * @return CreatePolicyResponse
@@ -3127,7 +3127,89 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Create a Rule
+   * Create a RestoreOciConsolePolicy entry to restore Policy to factory default.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateRestoreOciConsolePolicyRequest
+   * @return CreateRestoreOciConsolePolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateRestoreOciConsolePolicy.ts.html |here} to see how to use CreateRestoreOciConsolePolicy API.
+   */
+  public async createRestoreOciConsolePolicy(
+    createRestoreOciConsolePolicyRequest: requests.CreateRestoreOciConsolePolicyRequest
+  ): Promise<responses.CreateRestoreOciConsolePolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createRestoreOciConsolePolicy.");
+    const operationName = "createRestoreOciConsolePolicy";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createRestoreOciConsolePolicyRequest.authorization,
+      "resource_type_schema_version":
+        createRestoreOciConsolePolicyRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createRestoreOciConsolePolicyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRestoreOciConsolePolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/RestoreOciConsolePolicy",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRestoreOciConsolePolicyRequest.restoreOciConsolePolicy,
+        "RestoreOciConsolePolicy",
+        model.RestoreOciConsolePolicy.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRestoreOciConsolePolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "restoreOciConsolePolicy",
+        bodyModel: model.RestoreOciConsolePolicy,
+        type: "model.RestoreOciConsolePolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a Rule.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRuleRequest
    * @return CreateRuleResponse
@@ -4430,7 +4512,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Delete a Condition
+   * Delete a condition.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteConditionRequest
    * @return DeleteConditionResponse
@@ -5942,7 +6024,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Delete a Policy
+   * Delete a Policy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePolicyRequest
    * @return DeletePolicyResponse
@@ -6013,7 +6095,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Delete a Rule
+   * Delete a Rule.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRuleRequest
    * @return DeleteRuleResponse
@@ -7577,7 +7659,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Get a Condition
+   * Get a condition.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConditionRequest
    * @return GetConditionResponse
@@ -9583,6 +9665,86 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Get a OciConsoleSignOnPolicyConsent Entry.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOciConsoleSignOnPolicyConsentRequest
+   * @return GetOciConsoleSignOnPolicyConsentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOciConsoleSignOnPolicyConsent.ts.html |here} to see how to use GetOciConsoleSignOnPolicyConsent API.
+   */
+  public async getOciConsoleSignOnPolicyConsent(
+    getOciConsoleSignOnPolicyConsentRequest: requests.GetOciConsoleSignOnPolicyConsentRequest
+  ): Promise<responses.GetOciConsoleSignOnPolicyConsentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#getOciConsoleSignOnPolicyConsent."
+      );
+    const operationName = "getOciConsoleSignOnPolicyConsent";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{ociConsoleSignOnPolicyConsentId}":
+        getOciConsoleSignOnPolicyConsentRequest.ociConsoleSignOnPolicyConsentId
+    };
+
+    const queryParams = {
+      "attributes": getOciConsoleSignOnPolicyConsentRequest.attributes,
+      "attributeSets": getOciConsoleSignOnPolicyConsentRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getOciConsoleSignOnPolicyConsentRequest.authorization,
+      "resource_type_schema_version":
+        getOciConsoleSignOnPolicyConsentRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getOciConsoleSignOnPolicyConsentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOciConsoleSignOnPolicyConsentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OciConsoleSignOnPolicyConsents/{ociConsoleSignOnPolicyConsentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOciConsoleSignOnPolicyConsentResponse>{},
+        body: await response.json(),
+        bodyKey: "ociConsoleSignOnPolicyConsent",
+        bodyModel: model.OciConsoleSignOnPolicyConsent,
+        type: "model.OciConsoleSignOnPolicyConsent",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get a password policy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPasswordPolicyRequest
@@ -9659,7 +9821,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Get a Policy
+   * Get a Policy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPolicyRequest
    * @return GetPolicyResponse
@@ -9734,7 +9896,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Get a Rule
+   * Get a Rule.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetRuleRequest
    * @return GetRuleResponse
@@ -11748,7 +11910,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Search Conditions
+   * Search conditions.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListConditionsRequest
    * @return ListConditionsResponse
@@ -14193,6 +14355,95 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Search OciConsoleSignOnPolicyConsent entries
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOciConsoleSignOnPolicyConsentsRequest
+   * @return ListOciConsoleSignOnPolicyConsentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOciConsoleSignOnPolicyConsents.ts.html |here} to see how to use ListOciConsoleSignOnPolicyConsents API.
+   */
+  public async listOciConsoleSignOnPolicyConsents(
+    listOciConsoleSignOnPolicyConsentsRequest: requests.ListOciConsoleSignOnPolicyConsentsRequest
+  ): Promise<responses.ListOciConsoleSignOnPolicyConsentsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#listOciConsoleSignOnPolicyConsents."
+      );
+    const operationName = "listOciConsoleSignOnPolicyConsents";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listOciConsoleSignOnPolicyConsentsRequest.filter,
+      "sortBy": listOciConsoleSignOnPolicyConsentsRequest.sortBy,
+      "sortOrder": listOciConsoleSignOnPolicyConsentsRequest.sortOrder,
+      "startIndex": listOciConsoleSignOnPolicyConsentsRequest.startIndex,
+      "count": listOciConsoleSignOnPolicyConsentsRequest.count,
+      "attributes": listOciConsoleSignOnPolicyConsentsRequest.attributes,
+      "attributeSets": listOciConsoleSignOnPolicyConsentsRequest.attributeSets,
+      "page": listOciConsoleSignOnPolicyConsentsRequest.page,
+      "limit": listOciConsoleSignOnPolicyConsentsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listOciConsoleSignOnPolicyConsentsRequest.authorization,
+      "resource_type_schema_version":
+        listOciConsoleSignOnPolicyConsentsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listOciConsoleSignOnPolicyConsentsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOciConsoleSignOnPolicyConsentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OciConsoleSignOnPolicyConsents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOciConsoleSignOnPolicyConsentsResponse>{},
+        body: await response.json(),
+        bodyKey: "ociConsoleSignOnPolicyConsents",
+        bodyModel: model.OciConsoleSignOnPolicyConsents,
+        type: "model.OciConsoleSignOnPolicyConsents",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Search for password policies.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPasswordPoliciesRequest
@@ -14279,7 +14530,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Search Policies
+   * Search Policies.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListPoliciesRequest
    * @return ListPoliciesResponse
@@ -14453,7 +14704,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Search Rules
+   * Search Rules.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRulesRequest
    * @return ListRulesResponse
@@ -16240,7 +16491,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Update a Condition
+   * Update a condition.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchConditionRequest
    * @return PatchConditionResponse
@@ -18042,7 +18293,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Update a Policy
+   * Update a Policy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchPolicyRequest
    * @return PatchPolicyResponse
@@ -18128,7 +18379,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Update a Rule
+   * Update a Rule.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchRuleRequest
    * @return PatchRuleResponse
@@ -19682,7 +19933,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Replace a Condition
+   * Replace a condition.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutConditionRequest
    * @return PutConditionResponse
@@ -20709,7 +20960,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Replace a Policy
+   * Replace a Policy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutPolicyRequest
    * @return PutPolicyResponse
@@ -20795,7 +21046,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Replace a Rule
+   * Replace a Rule.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutRuleRequest
    * @return PutRuleResponse
@@ -22487,7 +22738,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Search Conditions Using POST
+   * Search Conditions Using POST.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchConditionsRequest
    * @return SearchConditionsResponse
@@ -23912,6 +24163,93 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Search OciConsoleSignOnPolicyConsents Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchOciConsoleSignOnPolicyConsentsRequest
+   * @return SearchOciConsoleSignOnPolicyConsentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOciConsoleSignOnPolicyConsents.ts.html |here} to see how to use SearchOciConsoleSignOnPolicyConsents API.
+   */
+  public async searchOciConsoleSignOnPolicyConsents(
+    searchOciConsoleSignOnPolicyConsentsRequest: requests.SearchOciConsoleSignOnPolicyConsentsRequest
+  ): Promise<responses.SearchOciConsoleSignOnPolicyConsentsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#searchOciConsoleSignOnPolicyConsents."
+      );
+    const operationName = "searchOciConsoleSignOnPolicyConsents";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchOciConsoleSignOnPolicyConsentsRequest.page,
+      "limit": searchOciConsoleSignOnPolicyConsentsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchOciConsoleSignOnPolicyConsentsRequest.authorization,
+      "resource_type_schema_version":
+        searchOciConsoleSignOnPolicyConsentsRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchOciConsoleSignOnPolicyConsentsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchOciConsoleSignOnPolicyConsentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/OciConsoleSignOnPolicyConsents/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchOciConsoleSignOnPolicyConsentsRequest.ociConsoleSignOnPolicyConsentSearchRequest,
+        "OciConsoleSignOnPolicyConsentSearchRequest",
+        model.OciConsoleSignOnPolicyConsentSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchOciConsoleSignOnPolicyConsentsResponse>{},
+        body: await response.json(),
+        bodyKey: "ociConsoleSignOnPolicyConsents",
+        bodyModel: model.OciConsoleSignOnPolicyConsents,
+        type: "model.OciConsoleSignOnPolicyConsents",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Search for password policies using POST.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchPasswordPoliciesRequest
@@ -24166,7 +24504,7 @@ export class IdentityDomainsClient {
   }
 
   /**
-   * Search Rules Using POST
+   * Search Rules Using POST.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SearchRulesRequest
    * @return SearchRulesResponse

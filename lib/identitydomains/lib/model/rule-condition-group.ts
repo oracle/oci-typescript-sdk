@@ -30,7 +30,7 @@ import common = require("oci-common");
  */
 export interface RuleConditionGroup {
   /**
-   * Condition or ConditionGroup identifier
+   * Condition or ConditionGroup identifier.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true

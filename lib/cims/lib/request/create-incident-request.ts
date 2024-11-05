@@ -28,6 +28,8 @@ export interface CreateIncidentRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
+   * User OCID is mandatory for OCI Users and optional for Multicloud users.
+   *
    */
   "ocid"?: string;
   /**
@@ -48,6 +50,8 @@ export interface CreateIncidentRequest extends common.BaseRequest {
   "idtoken"?: string;
   /**
    * The OCID of identity domain.
+   * DomainID is mandatory if the user is part of Non Default Identity domain.
+   *
    */
   "domainid"?: string;
 }

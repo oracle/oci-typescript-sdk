@@ -27,25 +27,43 @@ export interface ServiceCategories {
   /**
    * Service Category list.
    */
-  "serviceCategory"?: { [key: string]: string };
+  "service"?: { [key: string]: string };
   /**
    * Schema of a Service Category.
    */
   "schema"?: string;
   /**
-   * Issue type list.
+   * The service categories list for MOS Taxonomy.
    */
-  "issueType"?: { [key: string]: string };
+  "subCategories"?: Array<model.SubCategories>;
 }
 
 export namespace ServiceCategories {
   export function getJsonObj(obj: ServiceCategories): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "subCategories": obj.subCategories
+          ? obj.subCategories.map(item => {
+              return model.SubCategories.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ServiceCategories): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "subCategories": obj.subCategories
+          ? obj.subCategories.map(item => {
+              return model.SubCategories.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -41,6 +41,10 @@ export interface IncidentResourceType {
    */
   "description"?: string;
   /**
+   * Indicates whether multi-subscription is supported
+   */
+  "isSubscriptionsSupported"?: boolean;
+  /**
    * The service category list.
    */
   "serviceCategoryList"?: Array<model.ServiceCategory>;
@@ -51,7 +55,7 @@ export interface IncidentResourceType {
   /**
    * The service categories list for MOS Taxonomy.
    */
-  "serviceCategories"?: Array<model.ServiceCategories>;
+  "services"?: Array<model.ServiceCategories>;
 }
 
 export namespace IncidentResourceType {
@@ -65,8 +69,8 @@ export namespace IncidentResourceType {
             })
           : undefined,
 
-        "serviceCategories": obj.serviceCategories
-          ? obj.serviceCategories.map(item => {
+        "services": obj.services
+          ? obj.services.map(item => {
               return model.ServiceCategories.getJsonObj(item);
             })
           : undefined
@@ -85,8 +89,8 @@ export namespace IncidentResourceType {
             })
           : undefined,
 
-        "serviceCategories": obj.serviceCategories
-          ? obj.serviceCategories.map(item => {
+        "services": obj.services
+          ? obj.services.map(item => {
               return model.ServiceCategories.getDeserializedJsonObj(item);
             })
           : undefined

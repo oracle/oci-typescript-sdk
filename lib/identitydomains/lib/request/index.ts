@@ -85,6 +85,8 @@ import * as CreatePasswordPolicyRequest from "./create-password-policy-request";
 export import CreatePasswordPolicyRequest = CreatePasswordPolicyRequest.CreatePasswordPolicyRequest;
 import * as CreatePolicyRequest from "./create-policy-request";
 export import CreatePolicyRequest = CreatePolicyRequest.CreatePolicyRequest;
+import * as CreateRestoreOciConsolePolicyRequest from "./create-restore-oci-console-policy-request";
+export import CreateRestoreOciConsolePolicyRequest = CreateRestoreOciConsolePolicyRequest.CreateRestoreOciConsolePolicyRequest;
 import * as CreateRuleRequest from "./create-rule-request";
 export import CreateRuleRequest = CreateRuleRequest.CreateRuleRequest;
 import * as CreateSecurityQuestionRequest from "./create-security-question-request";
@@ -259,6 +261,8 @@ import * as GetOAuthClientCertificateRequest from "./get-oauth-client-certificat
 export import GetOAuthClientCertificateRequest = GetOAuthClientCertificateRequest.GetOAuthClientCertificateRequest;
 import * as GetOAuthPartnerCertificateRequest from "./get-oauth-partner-certificate-request";
 export import GetOAuthPartnerCertificateRequest = GetOAuthPartnerCertificateRequest.GetOAuthPartnerCertificateRequest;
+import * as GetOciConsoleSignOnPolicyConsentRequest from "./get-oci-console-sign-on-policy-consent-request";
+export import GetOciConsoleSignOnPolicyConsentRequest = GetOciConsoleSignOnPolicyConsentRequest.GetOciConsoleSignOnPolicyConsentRequest;
 import * as GetPasswordPolicyRequest from "./get-password-policy-request";
 export import GetPasswordPolicyRequest = GetPasswordPolicyRequest.GetPasswordPolicyRequest;
 import * as GetPolicyRequest from "./get-policy-request";
@@ -371,6 +375,8 @@ import * as ListOAuthClientCertificatesRequest from "./list-oauth-client-certifi
 export import ListOAuthClientCertificatesRequest = ListOAuthClientCertificatesRequest.ListOAuthClientCertificatesRequest;
 import * as ListOAuthPartnerCertificatesRequest from "./list-oauth-partner-certificates-request";
 export import ListOAuthPartnerCertificatesRequest = ListOAuthPartnerCertificatesRequest.ListOAuthPartnerCertificatesRequest;
+import * as ListOciConsoleSignOnPolicyConsentsRequest from "./list-oci-console-sign-on-policy-consents-request";
+export import ListOciConsoleSignOnPolicyConsentsRequest = ListOciConsoleSignOnPolicyConsentsRequest.ListOciConsoleSignOnPolicyConsentsRequest;
 import * as ListPasswordPoliciesRequest from "./list-password-policies-request";
 export import ListPasswordPoliciesRequest = ListPasswordPoliciesRequest.ListPasswordPoliciesRequest;
 import * as ListPoliciesRequest from "./list-policies-request";
@@ -599,6 +605,8 @@ import * as SearchOAuthClientCertificatesRequest from "./search-oauth-client-cer
 export import SearchOAuthClientCertificatesRequest = SearchOAuthClientCertificatesRequest.SearchOAuthClientCertificatesRequest;
 import * as SearchOAuthPartnerCertificatesRequest from "./search-oauth-partner-certificates-request";
 export import SearchOAuthPartnerCertificatesRequest = SearchOAuthPartnerCertificatesRequest.SearchOAuthPartnerCertificatesRequest;
+import * as SearchOciConsoleSignOnPolicyConsentsRequest from "./search-oci-console-sign-on-policy-consents-request";
+export import SearchOciConsoleSignOnPolicyConsentsRequest = SearchOciConsoleSignOnPolicyConsentsRequest.SearchOciConsoleSignOnPolicyConsentsRequest;
 import * as SearchPasswordPoliciesRequest from "./search-password-policies-request";
 export import SearchPasswordPoliciesRequest = SearchPasswordPoliciesRequest.SearchPasswordPoliciesRequest;
 import * as SearchPoliciesRequest from "./search-policies-request";

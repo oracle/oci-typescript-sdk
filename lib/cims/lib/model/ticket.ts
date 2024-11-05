@@ -45,11 +45,11 @@ export interface Ticket {
    */
   "description": string;
   /**
-   * The time when the ticket was created, in milliseconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The time when the ticket was created, in seconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeCreated"?: number;
   /**
-   * The time when the ticket was updated, in milliseconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The time when the ticket was updated, in seconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "timeUpdated"?: number;
   /**

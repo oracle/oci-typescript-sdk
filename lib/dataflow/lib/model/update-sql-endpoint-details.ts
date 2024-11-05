@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Currently only the tags of a SQL Endpoint can be updated.
+ * The information about all updatable parameters of a SQL Endpoint.
  */
 export interface UpdateSqlEndpointDetails {
   /**
@@ -32,16 +32,81 @@ export interface UpdateSqlEndpointDetails {
    *
    */
   "freeformTags"?: { [key: string]: string };
+  /**
+   * The SQL Endpoint name, which can be changed.
+   */
+  "displayName"?: string;
+  /**
+   * The description of CreateSQLEndpointDetails.
+   */
+  "description"?: string;
+  /**
+   * The shape of the SQL Endpoint driver instance.
+   */
+  "driverShape"?: string;
+  "driverShapeConfig"?: model.ShapeConfig;
+  /**
+   * The shape of the SQL Endpoint worker instance.
+   */
+  "executorShape"?: string;
+  "executorShapeConfig"?: model.ShapeConfig;
+  /**
+   * The minimum number of executors. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "minExecutorCount"?: number;
+  /**
+   * The maximum number of executors. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxExecutorCount"?: number;
+  /**
+   * Metastore OCID
+   */
+  "metastoreId"?: string;
+  /**
+   * OCI lake OCID
+   */
+  "lakeId"?: string;
+  /**
+   * The Spark configuration passed to the running process.
+   * See https://spark.apache.org/docs/latest/configuration.html#available-properties.
+   * Example: { \"spark.app.name\" : \"My App Name\", \"spark.shuffle.io.maxRetries\" : \"4\" }
+   * Note: Not all Spark properties are permitted to be set.  Attempting to set a property that is
+   * not allowed to be overwritten will cause a 400 status to be returned.
+   *
+   */
+  "sparkAdvancedConfigurations"?: { [key: string]: string };
 }
 
 export namespace UpdateSqlEndpointDetails {
   export function getJsonObj(obj: UpdateSqlEndpointDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "driverShapeConfig": obj.driverShapeConfig
+          ? model.ShapeConfig.getJsonObj(obj.driverShapeConfig)
+          : undefined,
+
+        "executorShapeConfig": obj.executorShapeConfig
+          ? model.ShapeConfig.getJsonObj(obj.executorShapeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateSqlEndpointDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "driverShapeConfig": obj.driverShapeConfig
+          ? model.ShapeConfig.getDeserializedJsonObj(obj.driverShapeConfig)
+          : undefined,
+
+        "executorShapeConfig": obj.executorShapeConfig
+          ? model.ShapeConfig.getDeserializedJsonObj(obj.executorShapeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

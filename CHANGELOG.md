@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.98.0 - 2024-11-05
+### Added 
+- Support for calling Oracle Cloud Infrastructure services in the `ap-seoul-2` region 
+- Support for calling Oracle Cloud Infrastructure services in the `ap-suwon-1` region 
+- Support for calling Oracle Cloud Infrastructure services in the `ap-chuncheon-2` region 
+- Support for MFA Enablement v2 in the Identity Domains service 
+- Support for starting, stopping and updating min/max executor count for SQL Endpoints in the Data Flow service 
+- Support for customer message in the Customer Incident Management Service 
+- Support for REJECTED limitStatus in the Customer Incident Management Service   
+
+### Breaking Changes 
+- The operations `getCsiNumber` and `getStatus` were removed from the `IncidentClient` in the Customer Incident Management Service 
+- The property `serviceCategories` was removed from the model `incidentResourceType` in the Customer Incident Management Service 
+- The properties `serviceCategory` and `issueType` were removed from the model `ServiceCategories` in the Customer Incident Management Service
+
 ## 2.97.1 - 2024-10-29
 ### Added 
 - Support for L3IP (Layer 3 IP) listeners in the Network Load Balancing service 

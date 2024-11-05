@@ -85,6 +85,8 @@ import * as CreatePasswordPolicyResponse from "./create-password-policy-response
 export import CreatePasswordPolicyResponse = CreatePasswordPolicyResponse.CreatePasswordPolicyResponse;
 import * as CreatePolicyResponse from "./create-policy-response";
 export import CreatePolicyResponse = CreatePolicyResponse.CreatePolicyResponse;
+import * as CreateRestoreOciConsolePolicyResponse from "./create-restore-oci-console-policy-response";
+export import CreateRestoreOciConsolePolicyResponse = CreateRestoreOciConsolePolicyResponse.CreateRestoreOciConsolePolicyResponse;
 import * as CreateRuleResponse from "./create-rule-response";
 export import CreateRuleResponse = CreateRuleResponse.CreateRuleResponse;
 import * as CreateSecurityQuestionResponse from "./create-security-question-response";
@@ -259,6 +261,8 @@ import * as GetOAuthClientCertificateResponse from "./get-oauth-client-certifica
 export import GetOAuthClientCertificateResponse = GetOAuthClientCertificateResponse.GetOAuthClientCertificateResponse;
 import * as GetOAuthPartnerCertificateResponse from "./get-oauth-partner-certificate-response";
 export import GetOAuthPartnerCertificateResponse = GetOAuthPartnerCertificateResponse.GetOAuthPartnerCertificateResponse;
+import * as GetOciConsoleSignOnPolicyConsentResponse from "./get-oci-console-sign-on-policy-consent-response";
+export import GetOciConsoleSignOnPolicyConsentResponse = GetOciConsoleSignOnPolicyConsentResponse.GetOciConsoleSignOnPolicyConsentResponse;
 import * as GetPasswordPolicyResponse from "./get-password-policy-response";
 export import GetPasswordPolicyResponse = GetPasswordPolicyResponse.GetPasswordPolicyResponse;
 import * as GetPolicyResponse from "./get-policy-response";
@@ -371,6 +375,8 @@ import * as ListOAuthClientCertificatesResponse from "./list-oauth-client-certif
 export import ListOAuthClientCertificatesResponse = ListOAuthClientCertificatesResponse.ListOAuthClientCertificatesResponse;
 import * as ListOAuthPartnerCertificatesResponse from "./list-oauth-partner-certificates-response";
 export import ListOAuthPartnerCertificatesResponse = ListOAuthPartnerCertificatesResponse.ListOAuthPartnerCertificatesResponse;
+import * as ListOciConsoleSignOnPolicyConsentsResponse from "./list-oci-console-sign-on-policy-consents-response";
+export import ListOciConsoleSignOnPolicyConsentsResponse = ListOciConsoleSignOnPolicyConsentsResponse.ListOciConsoleSignOnPolicyConsentsResponse;
 import * as ListPasswordPoliciesResponse from "./list-password-policies-response";
 export import ListPasswordPoliciesResponse = ListPasswordPoliciesResponse.ListPasswordPoliciesResponse;
 import * as ListPoliciesResponse from "./list-policies-response";
@@ -599,6 +605,8 @@ import * as SearchOAuthClientCertificatesResponse from "./search-oauth-client-ce
 export import SearchOAuthClientCertificatesResponse = SearchOAuthClientCertificatesResponse.SearchOAuthClientCertificatesResponse;
 import * as SearchOAuthPartnerCertificatesResponse from "./search-oauth-partner-certificates-response";
 export import SearchOAuthPartnerCertificatesResponse = SearchOAuthPartnerCertificatesResponse.SearchOAuthPartnerCertificatesResponse;
+import * as SearchOciConsoleSignOnPolicyConsentsResponse from "./search-oci-console-sign-on-policy-consents-response";
+export import SearchOciConsoleSignOnPolicyConsentsResponse = SearchOciConsoleSignOnPolicyConsentsResponse.SearchOciConsoleSignOnPolicyConsentsResponse;
 import * as SearchPasswordPoliciesResponse from "./search-password-policies-response";
 export import SearchPasswordPoliciesResponse = SearchPasswordPoliciesResponse.SearchPasswordPoliciesResponse;
 import * as SearchPoliciesResponse from "./search-policies-response";
