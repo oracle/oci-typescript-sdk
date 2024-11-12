@@ -24,6 +24,13 @@ export interface GoogleBigQueryConnectionSummary extends model.ConnectionSummary
    * The Google BigQuery technology type.
    */
   "technologyType": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the content of the service account key file is stored,
+   * which containing the credentials required to use Google BigQuery.
+   * Note: When provided, 'serviceAccountKeyFile' field must not be provided.
+   *
+   */
+  "serviceAccountKeyFileSecretId"?: string;
 
   "connectionType": string;
 }

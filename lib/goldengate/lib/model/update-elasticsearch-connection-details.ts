@@ -50,6 +50,15 @@ export interface UpdateElasticsearchConnectionDetails extends model.UpdateConnec
    */
   "password"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
+   * The password Oracle GoldenGate uses to connect the associated system of the given technology.
+   * It must conform to the specific security requirements including length, case sensitivity, and so on.
+   * If secretId is used plaintext field must not be provided.
+   * Note: When provided, 'password' field must not be provided.
+   *
+   */
+  "passwordSecretId"?: string;
+  /**
    * Fingerprint required by TLS security protocol.
    * Eg.: '6152b2dfbff200f973c5074a5b91d06ab3b472c07c09a1ea57bb7fd406cdce9c'
    *

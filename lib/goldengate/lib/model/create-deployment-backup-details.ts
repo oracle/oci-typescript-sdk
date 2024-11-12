@@ -63,6 +63,10 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Parameter to allow users to create backup without trails
+   */
+  "isMetadataOnly"?: boolean;
+  /**
    * Locks associated with this resource.
    */
   "locks"?: Array<model.AddResourceLockDetails>;

@@ -1,6 +1,6 @@
 {
   "name": "oci-osubusage",
-  "version": "2.98.0",
+  "version": "2.98.1",
   "description": "OCI NodeJS client for Osub Usage Service",
   "repository": {
     "type": "git",

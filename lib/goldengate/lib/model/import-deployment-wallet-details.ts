@@ -39,6 +39,11 @@ export interface ImportDeploymentWalletDetails {
    */
   "walletBackupSecretName"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment, where the secret will be created in.
+   *
+   */
+  "walletBackupSecretCompartmentId"?: string;
+  /**
    * Refers to the customer's master key OCID.
    * If provided, it references a key to manage secrets. Customers must add policies to permit GoldenGate to use this key.
    *

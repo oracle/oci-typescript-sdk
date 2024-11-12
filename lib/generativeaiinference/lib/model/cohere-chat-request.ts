@@ -2,9 +2,9 @@
  * Generative AI Service Inference API
  * OCI Generative AI is a fully managed service that provides a set of state-of-the-art, customizable large language models (LLMs) that cover a wide range of use cases for text generation, summarization, and text embeddings. 
 
-Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [chat](#/en/generative-ai-inference/latest/ChatResult/Chat), [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
+Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [chat](#/EN/generative-ai-inference/latest/ChatResult/Chat), [generate text](#/EN/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/EN/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/EN/generative-ai-inference/latest/EmbedTextResult/EmbedText).
 
-To use a Generative AI custom model for inference, you must first create an endpoint for that model. Use the [Generative AI service management API](/#/en/generative-ai/latest/) to [create a custom model](#/en/generative-ai/latest/Model/) by fine-tuning an out-of-the-box model, or a previous version of a custom model, using your own data. Fine-tune the custom model on a  [fine-tuning dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/). Then, create a [hosting dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/) with an [endpoint](#/en/generative-ai/latest/Endpoint/) to host your custom model. For resource management in the Generative AI service, use the [Generative AI service management API](/#/en/generative-ai/latest/).
+To use a Generative AI custom model for inference, you must first create an endpoint for that model. Use the [Generative AI service management API](#/EN/generative-ai/latest/) to [create a custom model](#/EN/generative-ai/latest/Model/) by fine-tuning an out-of-the-box model, or a previous version of a custom model, using your own data. Fine-tune the custom model on a [fine-tuning dedicated AI cluster](#/EN/generative-ai/latest/DedicatedAiCluster/). Then, create a [hosting dedicated AI cluster](#/EN/generative-ai/latest/DedicatedAiCluster/) with an [endpoint](#/en/generative-ai/latest/Endpoint/) to host your custom model. For resource management in the Generative AI service, use the [Generative AI service management API](#/EN/generative-ai/latest/).
 
 To learn more about the service, see the [Generative AI documentation](/iaas/Content/generative-ai/home.htm).
 
@@ -45,6 +45,7 @@ Example:
 * 
     */
   "documents"?: Array<any>;
+  "responseFormat"?: model.CohereResponseTextFormat | model.CohereResponseJsonFormat;
   /**
    * When set to true, the response contains only a list of generated search queries without the search results and the model will not respond to the user's message.
    *
@@ -66,6 +67,10 @@ Example: {@code You are a travel advisor. Answer with a pirate tone.}
    */
   "maxTokens"?: number;
   /**
+   * The maximum number of input tokens to send to the model. If not specified, max_input_tokens is the model's context length limit minus a small buffer. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxInputTokens"?: number;
+  /**
    * A number that sets the randomness of the generated output. A lower temperature means less random generations.
    * Use lower numbers for tasks such as question answering or summarizing. High temperatures can generate hallucinations or factually incorrect information. Start with temperatures lower than 1.0 and increase the temperature for more creative outputs, as you regenerate the prompts to refine the outputs.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -86,7 +91,7 @@ To eliminate tokens with low likelihood, assign p a minimum percentage for the n
     */
   "topP"?: number;
   /**
-   * Defaults to OFF. Dictates how the prompt will be constructed. With {@code prompt_truncation} set to AUTO_PRESERVE_ORDER, some elements from {@code chat_history} and {@code documents} will be dropped to construct a prompt that fits within the model's context length limit. During this process the order of the documents and chat history will be preserved. With {@code prompt_truncation} set to OFF, no elements will be dropped.
+   * Defaults to OFF. Dictates how the prompt will be constructed. With {@code promptTruncation} set to AUTO_PRESERVE_ORDER, some elements from {@code chatHistory} and {@code documents} will be dropped to construct a prompt that fits within the model's context length limit. During this process the order of the documents and chat history will be preserved. With {@code prompt_truncation} set to OFF, no elements will be dropped.
    *
    */
   "promptTruncation"?: CohereChatRequest.PromptTruncation;
@@ -162,6 +167,10 @@ export namespace CohereChatRequest {
             })
           : undefined,
 
+        "responseFormat": obj.responseFormat
+          ? model.CohereResponseFormat.getJsonObj(obj.responseFormat)
+          : undefined,
+
         "tools": obj.tools
           ? obj.tools.map(item => {
               return model.CohereTool.getJsonObj(item);
@@ -191,6 +200,10 @@ export namespace CohereChatRequest {
           ? obj.chatHistory.map(item => {
               return model.CohereMessage.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "responseFormat": obj.responseFormat
+          ? model.CohereResponseFormat.getDeserializedJsonObj(obj.responseFormat)
           : undefined,
 
         "tools": obj.tools

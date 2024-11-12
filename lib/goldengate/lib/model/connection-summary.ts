@@ -129,6 +129,11 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    * Locks associated with this resource.
    */
   "locks"?: Array<model.ResourceLock>;
+  /**
+   * Indicates that sensitive attributes are provided via Secrets.
+   *
+   */
+  "doesUseSecretIds"?: boolean;
 
   "connectionType": string;
 }

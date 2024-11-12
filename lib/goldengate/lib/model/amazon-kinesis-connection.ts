@@ -29,6 +29,12 @@ export interface AmazonKinesisConnection extends model.Connection {
    *
    */
   "accessKeyId": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the secret access key is stored.
+   * Note: When provided, 'secretAccessKey' field must not be provided.
+   *
+   */
+  "secretAccessKeySecretId"?: string;
 
   "connectionType": string;
 }

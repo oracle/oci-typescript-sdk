@@ -129,6 +129,11 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    *
    */
   "routingMethod"?: model.RoutingMethod;
+  /**
+   * Indicates that sensitive attributes are provided via Secrets.
+   *
+   */
+  "doesUseSecretIds"?: boolean;
 
   "connectionType": string;
 }

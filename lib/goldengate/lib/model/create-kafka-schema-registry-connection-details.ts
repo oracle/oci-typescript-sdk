@@ -37,43 +37,82 @@ export interface CreateKafkaSchemaRegistryConnectionDetails extends model.Create
    */
   "authenticationType": string;
   /**
-   * The username to access Schema Registry using basic authentation.
+   * The username to access Schema Registry using basic authentication.
    * This value is injected into 'schema.registry.basic.auth.user.info=user:password' configuration property.
    *
    */
   "username"?: string;
   /**
-   * The password to access Schema Registry using basic authentation.
+   * The password to access Schema Registry using basic authentication.
    * This value is injected into 'schema.registry.basic.auth.user.info=user:password' configuration property.
    *
    */
   "password"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the Kafka Schema Registry password is stored,
+   * The password to access Schema Registry using basic authentication.
+   * This value is injected into 'schema.registry.basic.auth.user.info=user:password' configuration property.
+   * Note: When provided, 'password' field must not be provided.
+   *
+   */
+  "passwordSecretId"?: string;
   /**
    * The base64 encoded content of the TrustStore file.
    *
    */
   "trustStore"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the TrustStore file.
+   * Note: When provided, 'trustStore' field must not be provided.
+   *
+   */
+  "trustStoreSecretId"?: string;
+  /**
    * The TrustStore password.
    *
    */
   "trustStorePassword"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the kafka Ssl TrustStore password is stored.
+   * Note: When provided, 'trustStorePassword' field must not be provided.
+   *
+   */
+  "trustStorePasswordSecretId"?: string;
   /**
    * The base64 encoded content of the KeyStore file.
    *
    */
   "keyStore"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the KeyStore file.
+   * Note: When provided, 'keyStore' field must not be provided.
+   *
+   */
+  "keyStoreSecretId"?: string;
+  /**
    * The KeyStore password.
    *
    */
   "keyStorePassword"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the kafka Ssl KeyStore password is stored.
+   * Note: When provided, 'keyStorePassword' field must not be provided.
+   *
+   */
+  "keyStorePasswordSecretId"?: string;
   /**
    * The password for the cert inside the KeyStore.
    * In case it differs from the KeyStore password, it should be provided.
    *
    */
   "sslKeyPassword"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the password for the cert inside the KeyStore.
+   * In case it differs from the KeyStore password, it should be provided.
+   * Note: When provided, 'sslKeyPassword' field must not be provided.
+   *
+   */
+  "sslKeyPasswordSecretId"?: string;
   /**
     * Deprecated: this field will be removed in future versions. Either specify the private IP in the connectionString or host 
 * field, or make sure the host name is resolvable in the target VCN.

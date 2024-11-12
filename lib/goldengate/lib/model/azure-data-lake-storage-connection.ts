@@ -52,6 +52,24 @@ export interface AzureDataLakeStorageConnection extends model.Connection {
    *
    */
   "endpoint"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the account key is stored.
+   * Note: When provided, 'accountKey' field must not be provided.
+   *
+   */
+  "accountKeySecretId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the sas token is stored.
+   * Note: When provided, 'sasToken' field must not be provided.
+   *
+   */
+  "sasTokenSecretId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the client secret is stored.
+   * Note: When provided, 'clientSecret' field must not be provided.
+   *
+   */
+  "clientSecretSecretId"?: string;
 
   "connectionType": string;
 }

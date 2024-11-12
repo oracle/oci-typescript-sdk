@@ -55,6 +55,27 @@ export interface Db2Connection extends model.Connection {
    * Security Protocol for the DB2 database.
    */
   "securityProtocol": Db2Connection.SecurityProtocol;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored,
+   * that Oracle GoldenGate uses to connect the associated DB2 database.
+   * Note: When provided, 'password' field must not be provided.
+   *
+   */
+  "passwordSecretId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the keystore file stored,
+   * which created at the client containing the server certificate / CA root certificate.
+   * Note: When provided, 'sslClientKeystoredb' field must not be provided.
+   *
+   */
+  "sslClientKeystoredbSecretId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the keystash file is stored,
+   * which contains the encrypted password to the key database file.
+   * Note: When provided, 'sslClientKeystash' field must not be provided.
+   *
+   */
+  "sslClientKeystashSecretId"?: string;
 
   "connectionType": string;
 }

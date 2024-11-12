@@ -50,6 +50,13 @@ export interface CreateGoldenGateConnectionDetails extends model.CreateConnectio
    */
   "password"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored,
+   * which is used to connect to the Oracle GoldenGate accessed trough this connection.
+   * Note: When provided, 'password' field must not be provided.
+   *
+   */
+  "passwordSecretId"?: string;
+  /**
     * Deprecated: this field will be removed in future versions. Either specify the private IP in the connectionString or host 
 * field, or make sure the host name is resolvable in the target VCN.
 * <p>
