@@ -38,6 +38,11 @@ export interface ExportDeploymentWalletDetails {
    */
   "secretName": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment, where the secret will be created in.
+   *
+   */
+  "secretCompartmentId"?: string;
+  /**
    * Metadata about this specific object.
    *
    */

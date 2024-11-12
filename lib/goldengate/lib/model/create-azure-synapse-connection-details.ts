@@ -42,7 +42,16 @@ export interface CreateAzureSynapseConnectionDetails extends model.CreateConnect
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
    *
    */
-  "password": string;
+  "password"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
+   * The password Oracle GoldenGate uses to connect the associated system of the given technology.
+   * It must conform to the specific security requirements including length, case sensitivity, and so on.
+   * If secretId is used plaintext field must not be provided.
+   * Note: When provided, 'password' field must not be provided.
+   *
+   */
+  "passwordSecretId"?: string;
 
   "connectionType": string;
 }

@@ -85,6 +85,11 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "routingMethod"?: model.RoutingMethod;
+  /**
+   * Indicates that sensitive attributes are provided via Secrets.
+   *
+   */
+  "doesUseSecretIds"?: boolean;
 
   "connectionType": string;
 }

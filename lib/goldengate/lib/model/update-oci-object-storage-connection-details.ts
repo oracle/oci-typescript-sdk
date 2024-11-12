@@ -43,10 +43,23 @@ export interface UpdateOciObjectStorageConnectionDetails extends model.UpdateCon
    */
   "privateKeyFile"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the private key file (PEM file) corresponding to the API key of the fingerprint.
+   * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm
+   * Note: When provided, 'privateKeyFile' field must not be provided.
+   *
+   */
+  "privateKeyFileSecretId"?: string;
+  /**
    * The passphrase of the private key.
    *
    */
   "privateKeyPassphrase"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the passphrase of the private key.
+   * Note: When provided, 'privateKeyPassphrase' field must not be provided.
+   *
+   */
+  "privateKeyPassphraseSecretId"?: string;
   /**
    * The fingerprint of the API Key of the user specified by the userId.
    * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm

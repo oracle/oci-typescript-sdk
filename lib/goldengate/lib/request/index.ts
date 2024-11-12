@@ -118,6 +118,8 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as RefreshConnectionRequest from "./refresh-connection-request";
+export import RefreshConnectionRequest = RefreshConnectionRequest.RefreshConnectionRequest;
 import * as RemoveConnectionLockRequest from "./remove-connection-lock-request";
 export import RemoveConnectionLockRequest = RemoveConnectionLockRequest.RemoveConnectionLockRequest;
 import * as RemoveDeploymentBackupLockRequest from "./remove-deployment-backup-lock-request";

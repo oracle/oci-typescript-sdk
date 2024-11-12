@@ -2,9 +2,9 @@
  * Generative AI Service Inference API
  * OCI Generative AI is a fully managed service that provides a set of state-of-the-art, customizable large language models (LLMs) that cover a wide range of use cases for text generation, summarization, and text embeddings. 
 
-Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [chat](#/en/generative-ai-inference/latest/ChatResult/Chat), [generate text](#/en/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/en/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/en/generative-ai-inference/latest/EmbedTextResult/EmbedText).
+Use the Generative AI service inference API to access your custom model endpoints, or to try the out-of-the-box models to [chat](#/EN/generative-ai-inference/latest/ChatResult/Chat), [generate text](#/EN/generative-ai-inference/latest/GenerateTextResult/GenerateText), [summarize](#/EN/generative-ai-inference/latest/SummarizeTextResult/SummarizeText), and [create text embeddings](#/EN/generative-ai-inference/latest/EmbedTextResult/EmbedText).
 
-To use a Generative AI custom model for inference, you must first create an endpoint for that model. Use the [Generative AI service management API](/#/en/generative-ai/latest/) to [create a custom model](#/en/generative-ai/latest/Model/) by fine-tuning an out-of-the-box model, or a previous version of a custom model, using your own data. Fine-tune the custom model on a  [fine-tuning dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/). Then, create a [hosting dedicated AI cluster](#/en/generative-ai/latest/DedicatedAiCluster/) with an [endpoint](#/en/generative-ai/latest/Endpoint/) to host your custom model. For resource management in the Generative AI service, use the [Generative AI service management API](/#/en/generative-ai/latest/).
+To use a Generative AI custom model for inference, you must first create an endpoint for that model. Use the [Generative AI service management API](#/EN/generative-ai/latest/) to [create a custom model](#/EN/generative-ai/latest/Model/) by fine-tuning an out-of-the-box model, or a previous version of a custom model, using your own data. Fine-tune the custom model on a [fine-tuning dedicated AI cluster](#/EN/generative-ai/latest/DedicatedAiCluster/). Then, create a [hosting dedicated AI cluster](#/EN/generative-ai/latest/DedicatedAiCluster/) with an [endpoint](#/en/generative-ai/latest/Endpoint/) to host your custom model. For resource management in the Generative AI service, use the [Generative AI service management API](#/EN/generative-ai/latest/).
 
 To learn more about the service, see the [Generative AI documentation](/iaas/Content/generative-ai/home.htm).
 
@@ -38,6 +38,8 @@ import * as CohereMessage from "./cohere-message";
 export import CohereMessage = CohereMessage.CohereMessage;
 import * as CohereParameterDefinition from "./cohere-parameter-definition";
 export import CohereParameterDefinition = CohereParameterDefinition.CohereParameterDefinition;
+import * as CohereResponseFormat from "./cohere-response-format";
+export import CohereResponseFormat = CohereResponseFormat.CohereResponseFormat;
 import * as CohereTool from "./cohere-tool";
 export import CohereTool = CohereTool.CohereTool;
 import * as CohereToolCall from "./cohere-tool-call";
@@ -54,6 +56,8 @@ import * as GenerateTextResult from "./generate-text-result";
 export import GenerateTextResult = GenerateTextResult.GenerateTextResult;
 import * as GeneratedText from "./generated-text";
 export import GeneratedText = GeneratedText.GeneratedText;
+import * as ImageUrl from "./image-url";
+export import ImageUrl = ImageUrl.ImageUrl;
 import * as LlmInferenceRequest from "./llm-inference-request";
 export import LlmInferenceRequest = LlmInferenceRequest.LlmInferenceRequest;
 import * as LlmInferenceResponse from "./llm-inference-response";
@@ -85,6 +89,10 @@ import * as CohereLlmInferenceRequest from "./cohere-llm-inference-request";
 export import CohereLlmInferenceRequest = CohereLlmInferenceRequest.CohereLlmInferenceRequest;
 import * as CohereLlmInferenceResponse from "./cohere-llm-inference-response";
 export import CohereLlmInferenceResponse = CohereLlmInferenceResponse.CohereLlmInferenceResponse;
+import * as CohereResponseJsonFormat from "./cohere-response-json-format";
+export import CohereResponseJsonFormat = CohereResponseJsonFormat.CohereResponseJsonFormat;
+import * as CohereResponseTextFormat from "./cohere-response-text-format";
+export import CohereResponseTextFormat = CohereResponseTextFormat.CohereResponseTextFormat;
 import * as CohereSystemMessage from "./cohere-system-message";
 export import CohereSystemMessage = CohereSystemMessage.CohereSystemMessage;
 import * as CohereToolMessage from "./cohere-tool-message";
@@ -97,6 +105,8 @@ import * as GenericChatRequest from "./generic-chat-request";
 export import GenericChatRequest = GenericChatRequest.GenericChatRequest;
 import * as GenericChatResponse from "./generic-chat-response";
 export import GenericChatResponse = GenericChatResponse.GenericChatResponse;
+import * as ImageContent from "./image-content";
+export import ImageContent = ImageContent.ImageContent;
 import * as LlamaLlmInferenceRequest from "./llama-llm-inference-request";
 export import LlamaLlmInferenceRequest = LlamaLlmInferenceRequest.LlamaLlmInferenceRequest;
 import * as LlamaLlmInferenceResponse from "./llama-llm-inference-response";

@@ -36,7 +36,16 @@ export interface CreateMysqlConnectionDetails extends model.CreateConnectionDeta
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
    *
    */
-  "password": string;
+  "password"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
+   * The password Oracle GoldenGate uses to connect the associated system of the given technology.
+   * It must conform to the specific security requirements including length, case sensitivity, and so on.
+   * If secretId is used plaintext field must not be provided.
+   * Note: When provided, 'password' field must not be provided.
+   *
+   */
+  "passwordSecretId"?: string;
   /**
    * The name or address of a host.
    *
@@ -83,6 +92,13 @@ export interface CreateMysqlConnectionDetails extends model.CreateConnectionDeta
    *
    */
   "sslKey"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the Client Key
+   * - The content of a .pem or .crt file containing the client private key (for 2-way SSL).
+   * Note: When provided, 'sslKey' field must not be provided.
+   *
+   */
+  "sslKeySecretId"?: string;
   /**
     * Deprecated: this field will be removed in future versions. Either specify the private IP in the connectionString or host 
 * field, or make sure the host name is resolvable in the target VCN.

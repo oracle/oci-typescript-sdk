@@ -61,6 +61,12 @@ export interface CreateJavaMessageServiceConnectionDetails extends model.CreateC
    */
   "jndiSecurityCredentials"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the security credentials are stored associated to the principal.
+   * Note: When provided, 'jndiSecurityCredentials' field must not be provided.
+   *
+   */
+  "jndiSecurityCredentialsSecretId"?: string;
+  /**
    * Connectin URL of the Java Message Service, specifying the protocol, host, and port.
    * e.g.: 'mq://myjms.host.domain:7676'
    *
@@ -85,6 +91,13 @@ export interface CreateJavaMessageServiceConnectionDetails extends model.CreateC
    */
   "password"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored,
+   * that Oracle GoldenGate uses to connect the associated Java Message Service.
+   * Note: When provided, 'password' field must not be provided.
+   *
+   */
+  "passwordSecretId"?: string;
+  /**
    * Security protocol for Java Message Service. If not provided, default is PLAIN.
    * Optional until 2024-06-27, in the release after it will be made required.
    *
@@ -102,26 +115,57 @@ export interface CreateJavaMessageServiceConnectionDetails extends model.CreateC
    */
   "trustStore"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the content of the TrustStore file is stored.
+   * Note: When provided, 'trustStore' field must not be provided.
+   *
+   */
+  "trustStoreSecretId"?: string;
+  /**
    * The TrustStore password.
    *
    */
   "trustStorePassword"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the TrustStore password is stored.
+   * Note: When provided, 'trustStorePassword' field must not be provided.
+   *
+   */
+  "trustStorePasswordSecretId"?: string;
   /**
    * The base64 encoded content of the KeyStore file.
    *
    */
   "keyStore"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the content of the KeyStore file is stored.
+   * Note: When provided, 'keyStore' field must not be provided.
+   *
+   */
+  "keyStoreSecretId"?: string;
+  /**
    * The KeyStore password.
    *
    */
   "keyStorePassword"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the KeyStore password is stored.
+   * Note: When provided, 'keyStorePassword' field must not be provided.
+   *
+   */
+  "keyStorePasswordSecretId"?: string;
   /**
    * The password for the cert inside of the KeyStore.
    * In case it differs from the KeyStore password, it should be provided.
    *
    */
   "sslKeyPassword"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored for the cert inside of the Keystore.
+   * In case it differs from the KeyStore password, it should be provided.
+   * Note: When provided, 'sslKeyPassword' field must not be provided.
+   *
+   */
+  "sslKeyPasswordSecretId"?: string;
   /**
     * Deprecated: this field will be removed in future versions. Either specify the private IP in the connectionString or host 
 * field, or make sure the host name is resolvable in the target VCN.

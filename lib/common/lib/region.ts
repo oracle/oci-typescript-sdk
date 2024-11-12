@@ -162,6 +162,7 @@ export class Region {
 
     // OC26
     public static ME_ABUDHABI_3: Region = Region.register("me-abudhabi-3", Realm.OC26, "ahu");
+    public static ME_ALAIN_1: Region = Region.register("me-alain-1", Realm.OC26, "rba");
 
     // OC15
     public static AP_DCC_GAZIPUR_1: Region = Region.register("ap-dcc-gazipur-1", Realm.OC15, "dac");

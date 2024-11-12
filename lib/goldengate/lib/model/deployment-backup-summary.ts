@@ -139,6 +139,10 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Parameter to allow users to create backup without trails
+   */
+  "isMetadataOnly"?: boolean;
+  /**
    * Locks associated with this resource.
    */
   "locks"?: Array<model.ResourceLock>;

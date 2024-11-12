@@ -38,6 +38,12 @@ export interface UpdateMongoDbConnectionDetails extends model.UpdateConnectionDe
    */
   "password"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the password Oracle GoldenGate uses to connect the associated database.
+   * Note: When provided, 'password' field must not be provided.
+   *
+   */
+  "passwordSecretId"?: string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Oracle Autonomous Json Database.
    *
    */
