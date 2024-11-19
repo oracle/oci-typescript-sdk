@@ -61,6 +61,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure.
+   */
+  "exadataInfrastructureId"?: string;
 }
 
 export namespace CreateExascaleDbStorageVaultDetails {

@@ -148,6 +148,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
   "cloudAutomationUpdateDetails"?: model.CloudAutomationUpdateDetails;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata Database Storage Vault.
+   */
+  "exascaleDbStorageVaultId"?: string;
+  /**
+   * Specifies whether the type of storage management for the VM cluster is ASM or Exascale.
+   */
+  "storageManagementType"?: VmClusterSummary.StorageManagementType;
 }
 
 export namespace VmClusterSummary {
@@ -169,6 +177,16 @@ export namespace VmClusterSummary {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum StorageManagementType {
+    Asm = "ASM",
+    Exascale = "EXASCALE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

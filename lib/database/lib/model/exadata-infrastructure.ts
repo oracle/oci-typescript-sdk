@@ -227,6 +227,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    * If true, the infrastructure is using granular maintenance scheduling preference.
    */
   "isSchedulingPolicyAssociated"?: boolean;
+  "exascaleConfig"?: model.ExascaleConfigDetails;
 }
 
 export namespace ExadataInfrastructure {
@@ -295,6 +296,10 @@ export namespace ExadataInfrastructure {
           ? obj.definedFileSystemConfigurations.map(item => {
               return model.DefinedFileSystemConfiguration.getJsonObj(item);
             })
+          : undefined,
+
+        "exascaleConfig": obj.exascaleConfig
+          ? model.ExascaleConfigDetails.getJsonObj(obj.exascaleConfig)
           : undefined
       }
     };
@@ -323,6 +328,10 @@ export namespace ExadataInfrastructure {
           ? obj.definedFileSystemConfigurations.map(item => {
               return model.DefinedFileSystemConfiguration.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "exascaleConfig": obj.exascaleConfig
+          ? model.ExascaleConfigDetails.getDeserializedJsonObj(obj.exascaleConfig)
           : undefined
       }
     };

@@ -27,6 +27,11 @@ export interface CreateDbHomeFromBackupDetails {
    */
   "displayName"?: string;
   /**
+   * Indicates whether unified auditing is enabled or not
+   *
+   */
+  "isUnifiedAuditingEnabled"?: boolean;
+  /**
    * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the image to be used to restore a database.
    */
   "databaseSoftwareImageId"?: string;

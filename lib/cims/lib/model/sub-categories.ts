@@ -2,10 +2,9 @@
  * Support Management API
  * Use the Support Management API to manage support requests.
 For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
-
-**Note**: Before you can create service requests with this API, 
-you need to have an Oracle Single Sign On (SSO) account, 
-and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+**Note**: Before you can create service requests with this API,
+complete user registration at My Oracle Cloud Support 
+and then ask your tenancy administrator to provide you authorization for the related user groups.
 
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
@@ -39,7 +38,7 @@ export interface SubCategories {
   /**
    * The sub component list for MOS Taxonomy.
    */
-  "subComponents"?: Array<model.SubComponents>;
+  "subCategories"?: Array<model.SubComponents>;
 }
 
 export namespace SubCategories {
@@ -47,8 +46,8 @@ export namespace SubCategories {
     const jsonObj = {
       ...obj,
       ...{
-        "subComponents": obj.subComponents
-          ? obj.subComponents.map(item => {
+        "subCategories": obj.subCategories
+          ? obj.subCategories.map(item => {
               return model.SubComponents.getJsonObj(item);
             })
           : undefined
@@ -61,8 +60,8 @@ export namespace SubCategories {
     const jsonObj = {
       ...obj,
       ...{
-        "subComponents": obj.subComponents
-          ? obj.subComponents.map(item => {
+        "subCategories": obj.subCategories
+          ? obj.subCategories.map(item => {
               return model.SubComponents.getDeserializedJsonObj(item);
             })
           : undefined

@@ -2,10 +2,9 @@
  * Support Management API
  * Use the Support Management API to manage support requests.
 For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
-
-**Note**: Before you can create service requests with this API, 
-you need to have an Oracle Single Sign On (SSO) account, 
-and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+**Note**: Before you can create service requests with this API,
+complete user registration at My Oracle Cloud Support 
+and then ask your tenancy administrator to provide you authorization for the related user groups.
 
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
@@ -36,6 +35,37 @@ export interface IncidentSummary {
   "tenancyInformation"?: model.TenancyInformation;
   "ticket"?: model.Ticket;
   "incidentType"?: model.IncidentResourceType;
+  /**
+   * Technical support type ({@code TECH}) only: The identifier of the support request's user group in My Oracle Cloud Support portal.
+   *
+   */
+  "userGroupId"?: string;
+  /**
+   * Technical support type ({@code TECH}) only: Name of the support request's user group in My Oracle Cloud Support portal.
+   *
+   */
+  "userGroupName"?: string;
+  /**
+   * Technical support type ({@code TECH}) only: The identifier of the support request's primary contact ({@code primaryContactPartyName}) in My Oracle Cloud Support portal.
+   *
+   */
+  "primaryContactPartyId"?: string;
+  /**
+   * Technical support type ({@code TECH}) only: The name of the support request's primary contact in My Oracle Cloud Support portal.
+   *
+   */
+  "primaryContactPartyName"?: string;
+  /**
+   * Technical support type ({@code TECH}) only: Allows update of the support request in My Oracle Cloud Support portal,
+   * when the user has write permission to the support request's user group.
+   *
+   */
+  "isWritePermitted"?: boolean;
+  /**
+   * Technical support type ({@code TECH}) only: Message indicating the user group ({@code userGroupId}) that was auto-selected for a new support request. This message appears when no user group was specified in the create request for a new technical support request.
+   *
+   */
+  "warnMessage"?: string;
   /**
    * The kind of support ticket (type of support request).
    * For information about {@code ACCOUNT} support tickets, see

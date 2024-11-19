@@ -28,6 +28,11 @@ export interface CreateDbHomeFromDatabaseDetails {
   "displayName"?: string;
   "database": model.CreateDatabaseFromAnotherDatabaseDetails;
   /**
+   * Indicates whether unified auditing is enabled or not
+   *
+   */
+  "isUnifiedAuditingEnabled"?: boolean;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

@@ -1,6 +1,6 @@
 {
   "name": "oci-zpr",
-  "version": "2.98.1",
+  "version": "2.99.0",
   "description": "OCI NodeJS client for Zpr Service",
   "repository": {
     "type": "git",

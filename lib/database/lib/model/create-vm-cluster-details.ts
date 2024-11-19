@@ -116,6 +116,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
   "cloudAutomationUpdateDetails"?: model.CloudAutomationUpdateDetails;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata Database Storage Vault.
+   */
+  "exascaleDbStorageVaultId"?: string;
 }
 
 export namespace CreateVmClusterDetails {

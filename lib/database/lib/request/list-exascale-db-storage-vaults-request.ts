@@ -52,6 +52,10 @@ export interface ListExascaleDbStorageVaultsRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only list of Vaults that are linked to the exadata infrastructure Id.
+   */
+  "exadataInfrastructureId"?: string;
 }
 
 export namespace ListExascaleDbStorageVaultsRequest {

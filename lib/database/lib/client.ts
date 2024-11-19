@@ -3659,6 +3659,97 @@ export class DatabaseClient {
   }
 
   /**
+   * Configures Exascale on Exadata infrastructure resource. Applies to Exadata Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ConfigureExascaleExadataInfrastructureRequest
+   * @return ConfigureExascaleExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureExascaleExadataInfrastructure.ts.html |here} to see how to use ConfigureExascaleExadataInfrastructure API.
+   */
+  public async configureExascaleExadataInfrastructure(
+    configureExascaleExadataInfrastructureRequest: requests.ConfigureExascaleExadataInfrastructureRequest
+  ): Promise<responses.ConfigureExascaleExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#configureExascaleExadataInfrastructure.");
+    const operationName = "configureExascaleExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/ConfigureExascaleExadataInfrastructure";
+    const pathParams = {
+      "{exadataInfrastructureId}":
+        configureExascaleExadataInfrastructureRequest.exadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": configureExascaleExadataInfrastructureRequest.ifMatch,
+      "opc-request-id": configureExascaleExadataInfrastructureRequest.opcRequestId,
+      "opc-retry-token": configureExascaleExadataInfrastructureRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      configureExascaleExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInfrastructures/{exadataInfrastructureId}/actions/configureExascale",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        configureExascaleExadataInfrastructureRequest.configureExascaleExadataInfrastructureDetails,
+        "ConfigureExascaleExadataInfrastructureDetails",
+        model.ConfigureExascaleExadataInfrastructureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConfigureExascaleExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataInfrastructure",
+        bodyModel: model.ExadataInfrastructure,
+        type: "model.ExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * This operation updates SaaS administrative user configuration of the Autonomous Database.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ConfigureSaasAdminUserRequest
@@ -25110,7 +25201,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "sortBy": listExascaleDbStorageVaultsRequest.sortBy,
       "sortOrder": listExascaleDbStorageVaultsRequest.sortOrder,
       "lifecycleState": listExascaleDbStorageVaultsRequest.lifecycleState,
-      "displayName": listExascaleDbStorageVaultsRequest.displayName
+      "displayName": listExascaleDbStorageVaultsRequest.displayName,
+      "exadataInfrastructureId": listExascaleDbStorageVaultsRequest.exadataInfrastructureId
     };
 
     let headerParams = {
