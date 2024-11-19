@@ -27,7 +27,7 @@ export interface Endpoint {
   /**
    * The IP address of the endpoint.
    */
-  "ipAddress": string;
+  "ipAddress"?: string;
   /**
    * The port address of the endpoint. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

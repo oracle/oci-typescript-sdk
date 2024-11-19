@@ -22,6 +22,8 @@ import * as Bucket from "./bucket";
 export import Bucket = Bucket.Bucket;
 import * as BucketSummary from "./bucket-summary";
 export import BucketSummary = BucketSummary.BucketSummary;
+import * as ChecksumAlgorithm from "./checksum-algorithm";
+export import ChecksumAlgorithm = ChecksumAlgorithm.ChecksumAlgorithm;
 import * as CommitMultipartUploadDetails from "./commit-multipart-upload-details";
 export import CommitMultipartUploadDetails = CommitMultipartUploadDetails.CommitMultipartUploadDetails;
 import * as CommitMultipartUploadPartDetails from "./commit-multipart-upload-part-details";

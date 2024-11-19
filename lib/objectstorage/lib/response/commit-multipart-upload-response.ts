@@ -35,6 +35,31 @@ export interface CommitMultipartUploadResponse {
    */
   "opcMultipartMd5": string;
   /**
+   * The base64-encoded, 32-bit CRC32C (Castagnoli) checksum of the object.
+   * Even for objects uploaded using multipart upload, this header returns the CRC32C (Castagnoli) checksum
+   * of the complete reconstructed object.
+   *
+   */
+  "opcContentCrc32c": string;
+  /**
+   * Base-64 representation of the multipart object SHA256 hash.
+   * The multipart object hash is calculated by taking the SHA256 hashes of the parts passed to this call,
+   * concatenating the binary representation of those hashes in order of their part numbers,
+   * and then calculating the SHA256 hash of the concatenated values. The multipart object hash is followed
+   * by a hyphen and the total number of parts (for example, '-6').
+   *
+   */
+  "opcMultipartSha256": string;
+  /**
+   * Base-64 representation of the multipart object SHA384 hash.
+   * The multipart object hash is calculated by taking the SHA384 hashes of the parts passed to this call,
+   * concatenating the binary representation of those hashes in order of their part numbers,
+   * and then calculating the SHA384 hash of the concatenated values. The multipart object hash is followed
+   * by a hyphen and the total number of parts (for example, '-6').
+   *
+   */
+  "opcMultipartSha384": string;
+  /**
    * The entity tag (ETag) for the object.
    */
   "eTag": string;

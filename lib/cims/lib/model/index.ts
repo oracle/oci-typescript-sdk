@@ -2,10 +2,9 @@
  * Support Management API
  * Use the Support Management API to manage support requests.
 For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
-
-**Note**: Before you can create service requests with this API, 
-you need to have an Oracle Single Sign On (SSO) account, 
-and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+**Note**: Before you can create service requests with this API,
+complete user registration at My Oracle Cloud Support 
+and then ask your tenancy administrator to provide you authorization for the related user groups.
 
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
@@ -21,6 +20,8 @@ import * as Category from "./category";
 export import Category = Category.Category;
 import * as Classifier from "./classifier";
 export import Classifier = Classifier.Classifier;
+import * as CmosUserGroupInfo from "./cmos-user-group-info";
+export import CmosUserGroupInfo = CmosUserGroupInfo.CmosUserGroupInfo;
 import * as Contact from "./contact";
 export import Contact = Contact.Contact;
 import * as ContactList from "./contact-list";
@@ -67,10 +68,10 @@ import * as Resource from "./resource";
 export import Resource = Resource.Resource;
 import * as Scope from "./scope";
 export import Scope = Scope.Scope;
-import * as ServiceCategories from "./service-categories";
-export import ServiceCategories = ServiceCategories.ServiceCategories;
 import * as ServiceCategory from "./service-category";
 export import ServiceCategory = ServiceCategory.ServiceCategory;
+import * as Services from "./services";
+export import Services = Services.Services;
 import * as SortBy from "./sort-by";
 export import SortBy = SortBy.SortBy;
 import * as SortOrder from "./sort-order";

@@ -34,6 +34,10 @@ export interface NetworkDetails {
    * List of customer Network Security Group [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) associated with the database system.
    */
   "nsgIds"?: Array<string>;
+  /**
+   * Specifies if the reader endpoint is enabled on the dbSystem.
+   */
+  "isReaderEndpointEnabled"?: boolean;
 }
 
 export namespace NetworkDetails {

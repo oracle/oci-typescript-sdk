@@ -504,6 +504,21 @@ export class ObjectStorageClient {
             dataType: "string"
           },
           {
+            value: response.headers.get("opc-content-crc32c"),
+            key: "opcContentCrc32c",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-multipart-sha256"),
+            key: "opcMultipartSha256",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-multipart-sha384"),
+            key: "opcMultipartSha384",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("ETag"),
             key: "eTag",
             dataType: "string"
@@ -763,7 +778,8 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-sse-customer-algorithm": createMultipartUploadRequest.opcSseCustomerAlgorithm,
       "opc-sse-customer-key": createMultipartUploadRequest.opcSseCustomerKey,
       "opc-sse-customer-key-sha256": createMultipartUploadRequest.opcSseCustomerKeySha256,
-      "opc-sse-kms-key-id": createMultipartUploadRequest.opcSseKmsKeyId
+      "opc-sse-kms-key-id": createMultipartUploadRequest.opcSseKmsKeyId,
+      "opc-checksum-algorithm": createMultipartUploadRequest.opcChecksumAlgorithm
     };
 
     const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
@@ -2188,6 +2204,31 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
             dataType: "string"
           },
           {
+            value: response.headers.get("opc-content-crc32c"),
+            key: "opcContentCrc32c",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-sha256"),
+            key: "opcContentSha256",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-multipart-sha256"),
+            key: "opcMultipartSha256",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-sha384"),
+            key: "opcContentSha384",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-multipart-sha384"),
+            key: "opcMultipartSha384",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("content-type"),
             key: "contentType",
             dataType: "string"
@@ -2984,6 +3025,31 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
           {
             value: response.headers.get("opc-multipart-md5"),
             key: "opcMultipartMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-crc32c"),
+            key: "opcContentCrc32c",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-sha256"),
+            key: "opcContentSha256",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-multipart-sha256"),
+            key: "opcMultipartSha256",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-sha384"),
+            key: "opcContentSha384",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-multipart-sha384"),
+            key: "opcMultipartSha384",
             dataType: "string"
           },
           {
@@ -5024,6 +5090,10 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
       "Expect": putObjectRequest.expect,
       "Content-Length": putObjectRequest.contentLength,
       "Content-MD5": putObjectRequest.contentMD5,
+      "opc-checksum-algorithm": putObjectRequest.opcChecksumAlgorithm,
+      "opc-content-crc32c": putObjectRequest.opcContentCrc32c,
+      "opc-content-sha256": putObjectRequest.opcContentSha256,
+      "opc-content-sha384": putObjectRequest.opcContentSha384,
       "Content-Type": putObjectRequest.contentType,
       "Content-Language": putObjectRequest.contentLanguage,
       "Content-Encoding": putObjectRequest.contentEncoding,
@@ -5091,6 +5161,21 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
           {
             value: response.headers.get("opc-content-md5"),
             key: "opcContentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-crc32c"),
+            key: "opcContentCrc32c",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-sha256"),
+            key: "opcContentSha256",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-sha384"),
+            key: "opcContentSha384",
             dataType: "string"
           },
           {
@@ -6118,6 +6203,10 @@ This API follows replace semantics (rather than merge semantics). That means if 
       "Expect": uploadPartRequest.expect,
       "Content-Length": uploadPartRequest.contentLength,
       "Content-MD5": uploadPartRequest.contentMD5,
+      "opc-checksum-algorithm": uploadPartRequest.opcChecksumAlgorithm,
+      "opc-content-crc32c": uploadPartRequest.opcContentCrc32c,
+      "opc-content-sha256": uploadPartRequest.opcContentSha256,
+      "opc-content-sha384": uploadPartRequest.opcContentSha384,
       "opc-sse-customer-algorithm": uploadPartRequest.opcSseCustomerAlgorithm,
       "opc-sse-customer-key": uploadPartRequest.opcSseCustomerKey,
       "opc-sse-customer-key-sha256": uploadPartRequest.opcSseCustomerKeySha256,
@@ -6180,6 +6269,21 @@ This API follows replace semantics (rather than merge semantics). That means if 
           {
             value: response.headers.get("opc-content-md5"),
             key: "opcContentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-crc32c"),
+            key: "opcContentCrc32c",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-sha256"),
+            key: "opcContentSha256",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-content-sha384"),
+            key: "opcContentSha384",
             dataType: "string"
           },
           {

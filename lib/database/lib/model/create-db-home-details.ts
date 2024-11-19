@@ -52,6 +52,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Indicates whether unified auditing is enabled or not
+   *
+   */
+  "isUnifiedAuditingEnabled"?: boolean;
 }
 
 export namespace CreateDbHomeDetails {

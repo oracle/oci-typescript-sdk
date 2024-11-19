@@ -32,6 +32,7 @@ export interface ConnectionDetails {
    * The list of database instance node endpoints in the database system.
    */
   "instanceEndpoints": Array<model.DbInstanceEndpoint>;
+  "readerEndpoint"?: model.Endpoint;
 }
 
 export namespace ConnectionDetails {
@@ -46,6 +47,9 @@ export namespace ConnectionDetails {
           ? obj.instanceEndpoints.map(item => {
               return model.DbInstanceEndpoint.getJsonObj(item);
             })
+          : undefined,
+        "readerEndpoint": obj.readerEndpoint
+          ? model.Endpoint.getJsonObj(obj.readerEndpoint)
           : undefined
       }
     };
@@ -63,6 +67,9 @@ export namespace ConnectionDetails {
           ? obj.instanceEndpoints.map(item => {
               return model.DbInstanceEndpoint.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "readerEndpoint": obj.readerEndpoint
+          ? model.Endpoint.getDeserializedJsonObj(obj.readerEndpoint)
           : undefined
       }
     };

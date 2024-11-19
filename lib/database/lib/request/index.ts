@@ -92,6 +92,8 @@ import * as CompleteExternalBackupJobRequest from "./complete-external-backup-jo
 export import CompleteExternalBackupJobRequest = CompleteExternalBackupJobRequest.CompleteExternalBackupJobRequest;
 import * as ConfigureAutonomousDatabaseVaultKeyRequest from "./configure-autonomous-database-vault-key-request";
 export import ConfigureAutonomousDatabaseVaultKeyRequest = ConfigureAutonomousDatabaseVaultKeyRequest.ConfigureAutonomousDatabaseVaultKeyRequest;
+import * as ConfigureExascaleExadataInfrastructureRequest from "./configure-exascale-exadata-infrastructure-request";
+export import ConfigureExascaleExadataInfrastructureRequest = ConfigureExascaleExadataInfrastructureRequest.ConfigureExascaleExadataInfrastructureRequest;
 import * as ConfigureSaasAdminUserRequest from "./configure-saas-admin-user-request";
 export import ConfigureSaasAdminUserRequest = ConfigureSaasAdminUserRequest.ConfigureSaasAdminUserRequest;
 import * as ConfirmKeyStoreDetailsAreCorrectRequest from "./confirm-key-store-details-are-correct-request";

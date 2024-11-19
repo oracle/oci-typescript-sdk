@@ -1220,6 +1220,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forConfigureExascaleExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns ConfigureExascaleExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forConfigureExascaleExadataInfrastructure(
+    request: serviceRequests.ConfigureExascaleExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.ConfigureExascaleExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const configureExascaleExadataInfrastructureResponse = await this.client.configureExascaleExadataInfrastructure(
+      request
+    );
+    if (configureExascaleExadataInfrastructureResponse.opcWorkRequestId === undefined)
+      return {
+        response: configureExascaleExadataInfrastructureResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      configureExascaleExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: configureExascaleExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forConfigureSaasAdminUser
    *
    * @param request the request to send

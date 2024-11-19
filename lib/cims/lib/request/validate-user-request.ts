@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface ValidateUserRequest extends common.BaseRequest {
   /**
    * The Customer Support Identifier (CSI) number associated with the support account.
-   * The CSI is required for technical support tickets and optional for limits and billing tickets.
+   * The CSI is optional for all support request types.
    *
    */
   "csi"?: string;

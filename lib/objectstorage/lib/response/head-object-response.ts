@@ -53,6 +53,47 @@ export interface HeadObjectResponse {
    */
   "opcMultipartMd5": string;
   /**
+   * The base64-encoded, 32-bit CRC32C (Castagnoli) checksum of the object.
+   * Even for objects uploaded using multipart upload, this header returns the CRC32C (Castagnoli) checksum
+   * of the complete reconstructed object.
+   *
+   */
+  "opcContentCrc32c": string;
+  /**
+   * Applicable only if SHA256 was specified in the opc-checksum-algorithm request header during upload.
+   * The base64-encoded SHA256 hash of the object as computed during upload.
+   * Unavailable for objects uploaded using multipart upload.
+   *
+   */
+  "opcContentSha256": string;
+  /**
+   * Only applicable to objects uploaded using multipart upload.
+   * Applicable only if SHA256 was specified in the opc-checksum-algorithm request header during upload.
+   * Base-64 representation of the multipart object SHA256 hash.
+   * The multipart object hash is calculated by taking the SHA256 hashes of the parts,
+   * concatenating the binary representation of those hashes in order of their part numbers,
+   * and then calculating the SHA256 hash of the concatenated values.
+   *
+   */
+  "opcMultipartSha256": string;
+  /**
+   * Applicable only if SHA384 was specified in the opc-checksum-algorithm request header during upload.
+   * The base64-encoded SHA384 hash of the object as computed during upload.
+   * Unavailable for objects uploaded using multipart upload.
+   *
+   */
+  "opcContentSha384": string;
+  /**
+   * Only applicable to objects uploaded using multipart upload.
+   * Applicable only if SHA384 was specified in the opc-checksum-algorithm request header during upload.
+   * Base-64 representation of the multipart object SHA384 hash.
+   * The multipart object hash is calculated by taking the SHA384 hashes of the parts,
+   * concatenating the binary representation of those hashes in order of their part numbers,
+   * and then calculating the SHA384 hash of the concatenated values.
+   *
+   */
+  "opcMultipartSha384": string;
+  /**
    * Content-Type header, as described in [RFC 2616](https://tools.ietf.org/html/rfc2616#section-14.17).
    */
   "contentType": string;

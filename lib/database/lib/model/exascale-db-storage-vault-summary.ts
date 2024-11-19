@@ -88,6 +88,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "vmClusterCount"?: number;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure.
+   */
+  "exadataInfrastructureId"?: string;
 }
 
 export namespace ExascaleDbStorageVaultSummary {

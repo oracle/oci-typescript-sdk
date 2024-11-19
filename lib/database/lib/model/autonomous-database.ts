@@ -142,7 +142,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
   "computeModel"?: AutonomousDatabase.ComputeModel;
   /**
    * The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.
-   * For an Autonomous Database Serverless instance, the 'ECPU' compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the {@code computeModel} parameter. When using {@code cpuCoreCount} parameter, it is an error to specify computeCount to a non-null value. Providing {@code computeModel} and {@code computeCount} is the preferred method for both OCPU and ECPU.
+   * The 'ECPU' compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the {@code computeModel} parameter. When using {@code cpuCoreCount} parameter, it is an error to specify computeCount to a non-null value. Providing {@code computeModel} and {@code computeCount} is the preferred method for both OCPU and ECPU.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "computeCount"?: number;
@@ -199,6 +199,7 @@ For Autonomous Transaction Processing databases using ECPUs on Serverless Infras
   "usedDataStorageSizeInGBs"?: number;
   /**
    * The infrastructure type this resource belongs to.
+   *
    */
   "infrastructureType"?: AutonomousDatabase.InfrastructureType;
   /**
@@ -648,6 +649,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
   "remoteDisasterRecoveryConfiguration"?: model.DisasterRecoveryConfiguration;
   /**
    * Enabling SHARED server architecture enables a database server to allow many client processes to share very few server processes, thereby increasing the number of supported users.
+   *
    */
   "netServicesArchitecture"?: AutonomousDatabase.NetServicesArchitecture;
   /**

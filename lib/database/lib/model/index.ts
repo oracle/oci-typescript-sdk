@@ -214,6 +214,8 @@ import * as ComputePerformanceSummary from "./compute-performance-summary";
 export import ComputePerformanceSummary = ComputePerformanceSummary.ComputePerformanceSummary;
 import * as ConfigureAutonomousDatabaseVaultKeyDetails from "./configure-autonomous-database-vault-key-details";
 export import ConfigureAutonomousDatabaseVaultKeyDetails = ConfigureAutonomousDatabaseVaultKeyDetails.ConfigureAutonomousDatabaseVaultKeyDetails;
+import * as ConfigureExascaleExadataInfrastructureDetails from "./configure-exascale-exadata-infrastructure-details";
+export import ConfigureExascaleExadataInfrastructureDetails = ConfigureExascaleExadataInfrastructureDetails.ConfigureExascaleExadataInfrastructureDetails;
 import * as ConfigureSaasAdminUserDetails from "./configure-saas-admin-user-details";
 export import ConfigureSaasAdminUserDetails = ConfigureSaasAdminUserDetails.ConfigureSaasAdminUserDetails;
 import * as ConsoleConnection from "./console-connection";
@@ -482,6 +484,8 @@ import * as ExadbVmClusterUpdateHistoryEntrySummary from "./exadb-vm-cluster-upd
 export import ExadbVmClusterUpdateHistoryEntrySummary = ExadbVmClusterUpdateHistoryEntrySummary.ExadbVmClusterUpdateHistoryEntrySummary;
 import * as ExadbVmClusterUpdateSummary from "./exadb-vm-cluster-update-summary";
 export import ExadbVmClusterUpdateSummary = ExadbVmClusterUpdateSummary.ExadbVmClusterUpdateSummary;
+import * as ExascaleConfigDetails from "./exascale-config-details";
+export import ExascaleConfigDetails = ExascaleConfigDetails.ExascaleConfigDetails;
 import * as ExascaleDbStorageDetails from "./exascale-db-storage-details";
 export import ExascaleDbStorageDetails = ExascaleDbStorageDetails.ExascaleDbStorageDetails;
 import * as ExascaleDbStorageInputDetails from "./exascale-db-storage-input-details";

@@ -75,4 +75,10 @@ export interface CreateMultipartUploadRequest extends common.BaseRequest {
    *
    */
   "opcSseKmsKeyId"?: string;
+  /**
+   * The optional checksum algorithm to use to compute and store the checksum of the body of the HTTP request (or the parts in case of multipart uploads),
+   * in addition to the default MD5 checksum.
+   *
+   */
+  "opcChecksumAlgorithm"?: model.ChecksumAlgorithm;
 }
