@@ -31,6 +31,8 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as ReconfigurePrivateEndpointVbInstanceRequest from "./reconfigure-private-endpoint-vb-instance-request";
+export import ReconfigurePrivateEndpointVbInstanceRequest = ReconfigurePrivateEndpointVbInstanceRequest.ReconfigurePrivateEndpointVbInstanceRequest;
 import * as RequestSummarizedApplicationsRequest from "./request-summarized-applications-request";
 export import RequestSummarizedApplicationsRequest = RequestSummarizedApplicationsRequest.RequestSummarizedApplicationsRequest;
 import * as StartVbInstanceRequest from "./start-vb-instance-request";

@@ -120,6 +120,11 @@ export namespace FsuJobSummary {
             <model.ApplyFsuJobSummary>(<object>jsonObj),
             true
           );
+        case "ROLLBACK_MAINTENANCE_CYCLE":
+          return model.RollbackCycleFsuJobSummary.getJsonObj(
+            <model.RollbackCycleFsuJobSummary>(<object>jsonObj),
+            true
+          );
         case "CLEANUP":
           return model.CleanupFsuJobSummary.getJsonObj(
             <model.CleanupFsuJobSummary>(<object>jsonObj),
@@ -161,6 +166,11 @@ export namespace FsuJobSummary {
         case "APPLY":
           return model.ApplyFsuJobSummary.getDeserializedJsonObj(
             <model.ApplyFsuJobSummary>(<object>jsonObj),
+            true
+          );
+        case "ROLLBACK_MAINTENANCE_CYCLE":
+          return model.RollbackCycleFsuJobSummary.getDeserializedJsonObj(
+            <model.RollbackCycleFsuJobSummary>(<object>jsonObj),
             true
           );
         case "CLEANUP":

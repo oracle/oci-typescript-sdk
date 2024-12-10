@@ -52,11 +52,13 @@ export class VbInstanceClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -218,10 +220,23 @@ export class VbInstanceClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -944,6 +959,84 @@ export class VbInstanceClient {
           {
             value: response.headers.get("opc-previous-page"),
             key: "opcPreviousPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Reconfigures the Private Endpoint associated with the private visual builder instance. Use this action in case the Private Endpoint is not working and needs to be reset.
+   * The VB instance has to be in ACTIVE state and should be a private instance to perform this operation.
+   * If the previous state is not ACTIVE, then the state of the vbInstance will not be changed and a 409 response returned.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ReconfigurePrivateEndpointVbInstanceRequest
+   * @return ReconfigurePrivateEndpointVbInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ReconfigurePrivateEndpointVbInstance.ts.html |here} to see how to use ReconfigurePrivateEndpointVbInstance API.
+   */
+  public async reconfigurePrivateEndpointVbInstance(
+    reconfigurePrivateEndpointVbInstanceRequest: requests.ReconfigurePrivateEndpointVbInstanceRequest
+  ): Promise<responses.ReconfigurePrivateEndpointVbInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VbInstanceClient#reconfigurePrivateEndpointVbInstance.");
+    const operationName = "reconfigurePrivateEndpointVbInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/ReconfigurePrivateEndpointVbInstance";
+    const pathParams = {
+      "{vbInstanceId}": reconfigurePrivateEndpointVbInstanceRequest.vbInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": reconfigurePrivateEndpointVbInstanceRequest.ifMatch,
+      "opc-request-id": reconfigurePrivateEndpointVbInstanceRequest.opcRequestId,
+      "opc-retry-token": reconfigurePrivateEndpointVbInstanceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reconfigurePrivateEndpointVbInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vbInstances/{vbInstanceId}/actions/reconfigurePrivateEndpoint",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReconfigurePrivateEndpointVbInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

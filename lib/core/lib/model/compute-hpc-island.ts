@@ -61,7 +61,12 @@ Example: {@code 2016-08-25T21:10:29.600Z}
 export namespace ComputeHpcIsland {
   export enum LifecycleState {
     Active = "ACTIVE",
-    Inactive = "INACTIVE"
+    Inactive = "INACTIVE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ComputeHpcIsland): object {

@@ -39,16 +39,18 @@ export interface ModelSummary {
   "description"?: string;
   "modelDetails":
     | model.PreTrainedKeyPhraseExtractionModelDetails
+    | model.PreTrainedTranslationModelDetails
     | model.PreTrainedHealthNluModelDetails
     | model.PreTrainedUniversalModel
+    | model.PreTrainedLanguageDetectionModelDetails
+    | model.PreTrainedSentimentAnalysisModelDetails
+    | model.TextClassificationModelDetails
+    | model.HealthNluModelDetails
+    | model.PreTrainedSummarization
     | model.NamedEntityRecognitionModelDetails
     | model.PiiModelDetails
-    | model.PreTrainedLanguageDetectionModelDetails
     | model.PreTrainedNamedEntityRecognitionModelDetails
-    | model.PreTrainedSentimentAnalysisModelDetails
     | model.PreTrainedTextClassificationModelDetails
-    | model.TextClassificationModelDetails
-    | model.PreTrainedSummarization
     | model.PreTrainedPiiModelDetails;
   /**
    * The time the the Model was created. An RFC3339 formatted datetime string.

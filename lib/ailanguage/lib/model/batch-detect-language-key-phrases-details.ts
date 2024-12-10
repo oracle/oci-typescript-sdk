@@ -22,6 +22,10 @@ import common = require("oci-common");
  */
 export interface BatchDetectLanguageKeyPhrasesDetails {
   /**
+   * Unique name across user tenancy in a region to identify an endpoint to be used for inferencing.
+   */
+  "alias"?: string;
+  /**
    * The endpoint which have to be used for inferencing. If endpointId and compartmentId is provided, then inference will be served from custom model which is mapped to this Endpoint.
    */
   "endpointId"?: string;

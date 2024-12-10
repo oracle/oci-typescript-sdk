@@ -43,4 +43,8 @@ export interface RotateAutonomousDatabaseEncryptionKeyRequest extends common.Bas
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Key details provided by the user for rotate key operation for Autonomous Database.
+   */
+  "rotateAutonomousDatabaseEncryptionKeyDetails"?: model.RotateAutonomousDatabaseEncryptionKeyDetails;
 }

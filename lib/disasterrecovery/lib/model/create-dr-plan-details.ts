@@ -42,6 +42,13 @@ Example: {@code ocid1.drprotectiongroup.oc1..uniqueID}
     */
   "drProtectionGroupId": string;
   /**
+    * The OCID of the source DR plan that should be cloned.
+* <p>
+Example: {@code ocid1.drplan.oc1..uniqueID}
+* 
+    */
+  "sourcePlanId"?: string;
+  /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}

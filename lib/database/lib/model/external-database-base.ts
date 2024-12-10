@@ -112,19 +112,34 @@ export namespace ExternalDatabaseBase {
     Updating = "UPDATING",
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
-    Failed = "FAILED"
+    Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DatabaseEdition {
     StandardEdition = "STANDARD_EDITION",
     EnterpriseEdition = "ENTERPRISE_EDITION",
     EnterpriseEditionHighPerformance = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
-    EnterpriseEditionExtremePerformance = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE"
+    EnterpriseEditionExtremePerformance = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum DatabaseConfiguration {
     Rac = "RAC",
-    SingleInstance = "SINGLE_INSTANCE"
+    SingleInstance = "SINGLE_INSTANCE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ExternalDatabaseBase): object {

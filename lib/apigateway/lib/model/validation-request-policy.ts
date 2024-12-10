@@ -40,7 +40,12 @@ export namespace ValidationRequestPolicy {
   export enum ValidationMode {
     Enforcing = "ENFORCING",
     Permissive = "PERMISSIVE",
-    Disabled = "DISABLED"
+    Disabled = "DISABLED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ValidationRequestPolicy): object {

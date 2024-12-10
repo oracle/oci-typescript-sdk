@@ -22,6 +22,10 @@ import common = require("oci-common");
  */
 export interface BatchDetectHealthEntityDetails {
   /**
+   * Unique name across user tenancy in a region to identify an endpoint to be used for inferencing.
+   */
+  "alias"?: string;
+  /**
    * The endpoint which have to be used for inferencing.
    */
   "endpointId": string;

@@ -22,6 +22,10 @@ import common = require("oci-common");
  */
 export interface BatchDetectLanguageEntitiesDetails {
   /**
+   * Unique name across user tenancy in a region to identify an endpoint to be used for inferencing.
+   */
+  "alias"?: string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that calls the API, inference will be served from pre trained model
    */
   "compartmentId"?: string;

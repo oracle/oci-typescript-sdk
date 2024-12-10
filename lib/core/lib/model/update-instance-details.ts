@@ -178,6 +178,10 @@ Example: {@code 2018-05-25T21:10:29.600Z}
   "platformConfig"?:
     | model.AmdVmUpdateInstancePlatformConfig
     | model.IntelVmUpdateInstancePlatformConfig;
+  /**
+   * The list of liscensing configurations with target update values.
+   */
+  "licensingConfigs"?: Array<model.UpdateInstanceLicensingConfig>;
 }
 
 export namespace UpdateInstanceDetails {
@@ -214,6 +218,11 @@ export namespace UpdateInstanceDetails {
 
         "platformConfig": obj.platformConfig
           ? model.UpdateInstancePlatformConfig.getJsonObj(obj.platformConfig)
+          : undefined,
+        "licensingConfigs": obj.licensingConfigs
+          ? obj.licensingConfigs.map(item => {
+              return model.UpdateInstanceLicensingConfig.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -250,6 +259,11 @@ export namespace UpdateInstanceDetails {
 
         "platformConfig": obj.platformConfig
           ? model.UpdateInstancePlatformConfig.getDeserializedJsonObj(obj.platformConfig)
+          : undefined,
+        "licensingConfigs": obj.licensingConfigs
+          ? obj.licensingConfigs.map(item => {
+              return model.UpdateInstanceLicensingConfig.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

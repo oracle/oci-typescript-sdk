@@ -21,6 +21,15 @@ import common = require("oci-common");
  * Mask recognized PII entities with different modes.
  */
 export interface PiiEntityMasking {
+  /**
+   * List of offsets/entities to be removed from anonymization.
+   */
+  "exclude"?: Array<string>;
+  /**
+   * To include excluded entities from masking in detected entities or not.
+   */
+  "shouldDetect"?: boolean;
+
   "mode": string;
 }
 

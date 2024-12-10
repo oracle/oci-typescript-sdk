@@ -108,6 +108,11 @@ export namespace FsuJob {
       switch (obj.type) {
         case "APPLY":
           return model.ApplyFsuJob.getJsonObj(<model.ApplyFsuJob>(<object>jsonObj), true);
+        case "ROLLBACK_MAINTENANCE_CYCLE":
+          return model.RollbackCycleFsuJob.getJsonObj(
+            <model.RollbackCycleFsuJob>(<object>jsonObj),
+            true
+          );
         case "STAGE":
           return model.StageFsuJob.getJsonObj(<model.StageFsuJob>(<object>jsonObj), true);
         case "PRECHECK":
@@ -137,6 +142,11 @@ export namespace FsuJob {
         case "APPLY":
           return model.ApplyFsuJob.getDeserializedJsonObj(
             <model.ApplyFsuJob>(<object>jsonObj),
+            true
+          );
+        case "ROLLBACK_MAINTENANCE_CYCLE":
+          return model.RollbackCycleFsuJob.getDeserializedJsonObj(
+            <model.RollbackCycleFsuJob>(<object>jsonObj),
             true
           );
         case "STAGE":

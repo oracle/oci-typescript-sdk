@@ -246,6 +246,10 @@ Dedicated VM hosts can be used when launching individual instances from an insta
   "instanceOptions"?: model.InstanceConfigurationInstanceOptions;
   "availabilityConfig"?: model.InstanceConfigurationAvailabilityConfig;
   "preemptibleInstanceConfig"?: model.PreemptibleInstanceConfigDetails;
+  /**
+   * List of licensing configurations associated with target launch values.
+   */
+  "licensingConfigs"?: Array<model.LaunchInstanceLicensingConfig>;
 }
 
 export namespace InstanceConfigurationLaunchInstanceDetails {
@@ -304,6 +308,11 @@ export namespace InstanceConfigurationLaunchInstanceDetails {
           : undefined,
         "preemptibleInstanceConfig": obj.preemptibleInstanceConfig
           ? model.PreemptibleInstanceConfigDetails.getJsonObj(obj.preemptibleInstanceConfig)
+          : undefined,
+        "licensingConfigs": obj.licensingConfigs
+          ? obj.licensingConfigs.map(item => {
+              return model.LaunchInstanceLicensingConfig.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -357,6 +366,11 @@ export namespace InstanceConfigurationLaunchInstanceDetails {
           ? model.PreemptibleInstanceConfigDetails.getDeserializedJsonObj(
               obj.preemptibleInstanceConfig
             )
+          : undefined,
+        "licensingConfigs": obj.licensingConfigs
+          ? obj.licensingConfigs.map(item => {
+              return model.LaunchInstanceLicensingConfig.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

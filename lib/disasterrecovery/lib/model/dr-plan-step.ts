@@ -49,6 +49,13 @@ Example: {@code ocid1.database.oc1..uniqueID}
    */
   "type": model.DrPlanStepType;
   /**
+    * The DR plan step refresh status.
+* <p>
+Example: {@code STEP_ADDED}
+* 
+    */
+  "refreshStatus"?: model.DrPlanStepRefreshStatus;
+  /**
     * The display name of the group.
 * <p>
 Example: {@code DATABASE_SWITCHOVER}

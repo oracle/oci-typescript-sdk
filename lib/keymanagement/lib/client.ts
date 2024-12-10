@@ -54,11 +54,13 @@ export class EkmClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -219,10 +221,23 @@ export class EkmClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -691,11 +706,13 @@ export class KmsCryptoClient {
   public targetService = "KmsCrypto";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -777,10 +794,23 @@ export class KmsCryptoClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -1259,11 +1289,13 @@ export class KmsHsmClusterClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -1424,10 +1456,23 @@ export class KmsHsmClusterClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -2433,11 +2478,13 @@ export class KmsManagementClient {
   public targetService = "KmsManagement";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -2542,10 +2589,23 @@ export class KmsManagementClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -4489,11 +4549,13 @@ export class KmsVaultClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -4654,10 +4716,23 @@ export class KmsVaultClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**

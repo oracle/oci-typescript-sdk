@@ -263,6 +263,10 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
    * The OCID of the Instance Configuration containing instance launch details. Any other fields supplied in this instance launch request will override the details stored in the Instance Configuration for this instance launch.
    */
   "instanceConfigurationId"?: string;
+  /**
+   * List of licensing configurations associated with target launch values.
+   */
+  "licensingConfigs"?: Array<model.LaunchInstanceLicensingConfig>;
 }
 
 export namespace LaunchInstanceDetails {
@@ -306,6 +310,12 @@ export namespace LaunchInstanceDetails {
 
         "platformConfig": obj.platformConfig
           ? model.LaunchInstancePlatformConfig.getJsonObj(obj.platformConfig)
+          : undefined,
+
+        "licensingConfigs": obj.licensingConfigs
+          ? obj.licensingConfigs.map(item => {
+              return model.LaunchInstanceLicensingConfig.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -356,6 +366,12 @@ export namespace LaunchInstanceDetails {
 
         "platformConfig": obj.platformConfig
           ? model.LaunchInstancePlatformConfig.getDeserializedJsonObj(obj.platformConfig)
+          : undefined,
+
+        "licensingConfigs": obj.licensingConfigs
+          ? obj.licensingConfigs.map(item => {
+              return model.LaunchInstanceLicensingConfig.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

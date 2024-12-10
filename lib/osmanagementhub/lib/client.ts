@@ -58,11 +58,13 @@ export class EventClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -224,10 +226,23 @@ export class EventClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -863,11 +878,13 @@ export class LifecycleEnvironmentClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -1030,10 +1047,23 @@ export class LifecycleEnvironmentClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -2038,11 +2068,13 @@ export class ManagedInstanceClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -2181,10 +2213,23 @@ export class ManagedInstanceClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -4801,11 +4846,13 @@ export class ManagedInstanceGroupClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -4968,10 +5015,23 @@ export class ManagedInstanceGroupClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -7099,11 +7159,13 @@ export class ManagementStationClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -7265,10 +7327,23 @@ export class ManagementStationClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -8086,11 +8161,13 @@ export class OnboardingClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -8252,10 +8329,23 @@ export class OnboardingClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -8747,11 +8837,13 @@ export class ReportingManagedInstanceClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -8891,10 +8983,23 @@ export class ReportingManagedInstanceClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -9200,11 +9305,13 @@ export class ScheduledJobClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -9366,10 +9473,23 @@ export class ScheduledJobClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -9950,11 +10070,13 @@ export class SoftwareSourceClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -10116,10 +10238,23 @@ export class SoftwareSourceClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -12336,11 +12471,13 @@ export class WorkRequestClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -12502,10 +12639,23 @@ export class WorkRequestClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**

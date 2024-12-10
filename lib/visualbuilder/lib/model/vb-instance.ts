@@ -88,12 +88,6 @@ export interface VbInstance {
    * The entitlement used for billing purposes.
    */
   "consumptionModel"?: VbInstance.ConsumptionModel;
-  "idcsInfo"?: model.IdcsInfoDetails;
-  /**
-   * A list of associated attachments to other services
-   *
-   */
-  "attachments"?: Array<model.AttachmentDetails>;
   /**
    * The NAT gateway IP address for the VB service VCN
    */
@@ -110,6 +104,7 @@ export interface VbInstance {
    * The Oracle Cloud ID (OCID) of the Visual Builder management VCN
    */
   "managementVcnId"?: string;
+  "networkEndpointDetails"?: model.PrivateEndpointDetails;
 }
 
 export namespace VbInstance {
@@ -152,11 +147,8 @@ export namespace VbInstance {
             })
           : undefined,
 
-        "idcsInfo": obj.idcsInfo ? model.IdcsInfoDetails.getJsonObj(obj.idcsInfo) : undefined,
-        "attachments": obj.attachments
-          ? obj.attachments.map(item => {
-              return model.AttachmentDetails.getJsonObj(item);
-            })
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
           : undefined
       }
     };
@@ -176,13 +168,8 @@ export namespace VbInstance {
             })
           : undefined,
 
-        "idcsInfo": obj.idcsInfo
-          ? model.IdcsInfoDetails.getDeserializedJsonObj(obj.idcsInfo)
-          : undefined,
-        "attachments": obj.attachments
-          ? obj.attachments.map(item => {
-              return model.AttachmentDetails.getDeserializedJsonObj(item);
-            })
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
           : undefined
       }
     };

@@ -82,12 +82,22 @@ export namespace ComputeBareMetalHost {
   export enum LifecycleDetails {
     Available = "AVAILABLE",
     Degraded = "DEGRADED",
-    Unavailable = "UNAVAILABLE"
+    Unavailable = "UNAVAILABLE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
     Active = "ACTIVE",
-    Inactive = "INACTIVE"
+    Inactive = "INACTIVE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ComputeBareMetalHost): object {

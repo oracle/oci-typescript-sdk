@@ -28,7 +28,12 @@ export namespace AvailabilityDomain {
   export enum Ads {
     Ad1 = "AD1",
     Ad2 = "AD2",
-    Ad3 = "AD3"
+    Ad3 = "AD3",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AvailabilityDomain): object {

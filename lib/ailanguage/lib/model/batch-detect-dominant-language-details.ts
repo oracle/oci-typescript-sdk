@@ -22,6 +22,10 @@ import common = require("oci-common");
  */
 export interface BatchDetectDominantLanguageDetails {
   /**
+   * Unique name across user tenancy in a region to identify an endpoint to be used for inferencing.
+   */
+  "alias"?: string;
+  /**
    * Specifies whether to consider or ignore transliteration. For example \"hi, aap kaise ho? sab kuch teek hai? I will call you tomorrow.\" would be detected as English when ignore transliteration=true, Hindi when ignoreTransliteration=false.
    */
   "shouldIgnoreTransliteration"?: boolean;

@@ -34,7 +34,12 @@ export namespace ExternalExadataInfrastructureDiscoverySummary {
     Full = "FULL",
     Half = "HALF",
     Quarter = "QUARTER",
-    Eighth = "EIGHTH"
+    Eighth = "EIGHTH",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(

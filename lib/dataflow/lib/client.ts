@@ -51,11 +51,13 @@ export class DataFlowClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -217,10 +219,98 @@ export class DataFlowClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * Deletes an application using an `applicationId` and terminates related runs. This operation will timeout in approximate 30 minutes if any related Runs are not terminated successfully.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CascadingDeleteApplicationRequest
+   * @return CascadingDeleteApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CascadingDeleteApplication.ts.html |here} to see how to use CascadingDeleteApplication API.
+   */
+  public async cascadingDeleteApplication(
+    cascadingDeleteApplicationRequest: requests.CascadingDeleteApplicationRequest
+  ): Promise<responses.CascadingDeleteApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataFlowClient#cascadingDeleteApplication.");
+    const operationName = "cascadingDeleteApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/CascadingDeleteApplication";
+    const pathParams = {
+      "{applicationId}": cascadingDeleteApplicationRequest.applicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": cascadingDeleteApplicationRequest.opcRequestId,
+      "if-match": cascadingDeleteApplicationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cascadingDeleteApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/applications/{applicationId}/actions/cascadingDeleteApplication",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CascadingDeleteApplicationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

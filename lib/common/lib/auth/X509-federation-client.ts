@@ -18,6 +18,14 @@ import { FetchHttpClient } from "../http";
 import { PrivateKey } from "sshpk";
 import { getStringFromRequestBody } from "../helper";
 import CircuitBreaker from "../circuit-breaker";
+import {
+  MaxAttemptsTerminationStrategy,
+  ExponentialBackoffDelayStrategyWithJitter,
+  WaiterConfigurationDetails,
+  WaitContextImpl,
+  delay
+} from "../waiter";
+const Breaker = require("opossum");
 
 /**
  * This class gets a security token from the auth service by signing the request with a PKI issued leaf certificate,
@@ -27,9 +35,23 @@ import CircuitBreaker from "../circuit-breaker";
 const INSTANCE_PRINCIPAL_GENERIC_ERROR =
   "Instance principals authentication can only be used on OCI compute instances. Please confirm this code is running on an OCI compute instance. See https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/callingservicesfrominstances.htm for more info.";
 
+const AUTH_TOKEN_GENERIC_ERROR = "Failed to fetch the token from auth server";
+
 export default class X509FederationClient implements FederationClient {
   securityTokenAdapter: SecurityTokenAdapter;
-  private retry = 0;
+
+  private _circuitBreaker: typeof Breaker | null = null;
+  private static DEFAULT_AUTH_MAX_RETRY_COUNT = 3;
+  private static DEFAULT_AUTH_MAX_DELAY_IN_SECONDS = 1;
+  private static defaultAuthRetryConfiguration: WaiterConfigurationDetails = {
+    terminationStrategy: new MaxAttemptsTerminationStrategy(
+      X509FederationClient.DEFAULT_AUTH_MAX_RETRY_COUNT
+    ),
+    delayStrategy: new ExponentialBackoffDelayStrategyWithJitter(
+      X509FederationClient.DEFAULT_AUTH_MAX_DELAY_IN_SECONDS
+    )
+  };
+  httpClient: FetchHttpClient;
 
   constructor(
     private federationEndpoint: string,
@@ -40,7 +62,14 @@ export default class X509FederationClient implements FederationClient {
     private purpose: string,
     private circuitBreaker: CircuitBreaker
   ) {
+    if (this.circuitBreaker) {
+      this._circuitBreaker = this.circuitBreaker.circuit;
+    } else {
+      this._circuitBreaker = new CircuitBreaker(CircuitBreaker.defaultAuthConfiguration).circuit;
+    }
     this.securityTokenAdapter = new SecurityTokenAdapter("", this.sessionKeySupplier);
+    const signer = new AuthTokenRequestSigner(this);
+    this.httpClient = new FetchHttpClient(signer, this._circuitBreaker);
   }
 
   // Getter for tenancyId
@@ -51,6 +80,13 @@ export default class X509FederationClient implements FederationClient {
   // Getter for leafCerificateSupplier
   get leafCertificateSupplier(): X509CertificateSupplier {
     return this._leafCertificateSupplier;
+  }
+
+  close() {
+    if (this._circuitBreaker) {
+      console.log("Shutting down the circuit breaker for the X509FederationClient");
+      this._circuitBreaker.shutdown();
+    }
   }
 
   /**
@@ -138,6 +174,51 @@ export default class X509FederationClient implements FederationClient {
    * @return the security token, which is basically a JWT token string
    */
   private async getSecurityTokenFromServer(): Promise<SecurityTokenAdapter> {
+    let response;
+    let lastKnownError;
+    const waitContext = new WaitContextImpl();
+    const { terminationStrategy, delayStrategy } = {
+      ...X509FederationClient.defaultAuthRetryConfiguration
+    };
+    while (true) {
+      try {
+        response = await this.getTokenAsync();
+        // Do not retry if the response is successful, or response status is 4XX
+        if (response.status == 200) break;
+        lastKnownError = `${AUTH_TOKEN_GENERIC_ERROR}. Response received but failed with status: ${response.status}`;
+        console.log(lastKnownError);
+        if (response.status >= 400 && response.status < 500) break;
+        if (terminationStrategy.shouldTerminate(waitContext)) {
+          console.log("Retry attempts exhausted! Not retrying");
+          break;
+        }
+      } catch (e) {
+        lastKnownError = `${AUTH_TOKEN_GENERIC_ERROR}. Failed with error: ${e}`;
+        console.log(lastKnownError);
+        if (waitContext.attemptCount < X509FederationClient.DEFAULT_AUTH_MAX_RETRY_COUNT - 1) {
+          console.log(`Retrying the request...`);
+        } else {
+          console.log("Retry attempts exhausted! Not retrying");
+          break;
+        }
+      }
+      await delay(delayStrategy.delay(waitContext));
+      waitContext.attemptCount++;
+    }
+    if (response !== undefined && response.status === 200) {
+      const securityToken = await response.json();
+      return new SecurityTokenAdapter(securityToken.token, this.sessionKeySupplier);
+    }
+    let error = {
+      // to prevent retries on top of retries from service call
+      shouldBeRetried: false,
+      code: -1,
+      message: lastKnownError
+    };
+    throw error;
+  }
+
+  private async getTokenAsync(): Promise<Response> {
     const keyPair = this.sessionKeySupplier.getKeyPair();
     if (!keyPair) {
       throw Error("keyPair for session was not provided");
@@ -160,84 +241,65 @@ export default class X509FederationClient implements FederationClient {
     if (!certificateAndKeyPair.getPrivateKey()) {
       throw Error("Leaf certificate's private key is not present");
     }
-
-    try {
-      let intermediateStrings: string[] = [];
-      if (
-        this.intermediateCertificateSuppliers &&
-        this.intermediateCertificateSuppliers.length > 0
-      ) {
-        this.intermediateCertificateSuppliers.forEach((supplier: X509CertificateSupplier) => {
-          const supplierCertificateAndKeyPair = supplier.getCertificateAndKeyPair();
-          if (supplierCertificateAndKeyPair && supplierCertificateAndKeyPair.getCertificate()) {
-            intermediateStrings.push(
-              AuthUtils.sanitizeCertificateString(
-                supplierCertificateAndKeyPair.getCertificate().toString("pem")
-              )
-            );
-          }
-        });
-      }
-
-      // Create request body and call auth service.
-      const url = this.federationEndpoint + "/v1/x509";
-      const requestPayload = {
-        certificate: AuthUtils.sanitizeCertificateString(leafCertificate.toString("pem")),
-        purpose: this.purpose,
-        publicKey: AuthUtils.sanitizeCertificateString(publicKey),
-        intermediateCertificates: intermediateStrings
-      };
-
-      let jsonPayload = JSON.stringify(requestPayload);
-      jsonPayload = jsonPayload.replace(/\\n/g, "");
-
-      const requestObj: HttpRequest = {
-        uri: url,
-        body: jsonPayload,
-        method: "POST",
-        headers: new Headers()
-      };
-      const fingerprint = leafCertificate.fingerprint("sha1").toString("hex");
-      const privateKey = certificateAndKeyPair.getPrivateKey() as PrivateKey;
-      // Instantiate AuthTokenRequestSigner to sign the request
-      const signer = new AuthTokenRequestSigner(this.tenancyId, fingerprint, privateKey);
-      const httpClient = new FetchHttpClient(signer, this.circuitBreaker);
-
-      // Call Auth Service to get a JSON object which contains the auth token
-      const response = await httpClient.send(requestObj);
-      //TODO: Implement retry here
-      // retry here
-      if (response.status !== 200) {
-        if (this.retry < 3) {
-          this.retry += 1;
-          return await this.getSecurityTokenFromServer();
-        } else {
-          throw Error(
-            `Failed to call auth service for token, error: ${response}. ${INSTANCE_PRINCIPAL_GENERIC_ERROR}`
+    let intermediateStrings: string[] = [];
+    if (this.intermediateCertificateSuppliers && this.intermediateCertificateSuppliers.length > 0) {
+      this.intermediateCertificateSuppliers.forEach((supplier: X509CertificateSupplier) => {
+        const supplierCertificateAndKeyPair = supplier.getCertificateAndKeyPair();
+        if (supplierCertificateAndKeyPair && supplierCertificateAndKeyPair.getCertificate()) {
+          intermediateStrings.push(
+            AuthUtils.sanitizeCertificateString(
+              supplierCertificateAndKeyPair.getCertificate().toString("pem")
+            )
           );
         }
-      }
-      this.retry = 0;
-      const securityToken = await response.json();
-      return new SecurityTokenAdapter(securityToken.token, this.sessionKeySupplier);
-    } catch (e) {
-      throw Error(
-        `Failed to call call Auth service, error: ${e}. ${INSTANCE_PRINCIPAL_GENERIC_ERROR}`
-      );
+      });
     }
+
+    // Create request body and call auth service.
+    const url = this.federationEndpoint + "/v1/x509";
+    const requestPayload = {
+      certificate: AuthUtils.sanitizeCertificateString(leafCertificate.toString("pem")),
+      purpose: this.purpose,
+      publicKey: AuthUtils.sanitizeCertificateString(publicKey),
+      intermediateCertificates: intermediateStrings
+    };
+
+    let jsonPayload = JSON.stringify(requestPayload);
+    jsonPayload = jsonPayload.replace(/\\n/g, "");
+
+    const requestObj: HttpRequest = {
+      uri: url,
+      body: jsonPayload,
+      method: "POST",
+      headers: new Headers()
+    };
+    const fingerprint = leafCertificate.fingerprint("sha1").toString("hex");
+    const privateKey = certificateAndKeyPair.getPrivateKey() as PrivateKey;
+    // Instantiate AuthTokenRequestSigner to sign the request
+
+    // Call Auth Service to get a JSON object which contains the auth token
+    const response = this.httpClient.send(requestObj);
+    return response;
   }
 }
 
 // A Signer class for FederationClient
 class AuthTokenRequestSigner implements RequestSigner {
-  constructor(
-    public tenancyId: String,
-    public fingerprint: String,
-    public privateKey: PrivateKey
-  ) {}
+  federationClient: X509FederationClient;
+  constructor(federationClient: X509FederationClient) {
+    this.federationClient = federationClient;
+  }
 
   async signHttpRequest(request: HttpRequest, forceExcludeBody: boolean = false): Promise<void> {
-    const apiKey = `${this.tenancyId}/fed-x509/${this.fingerprint}`;
+    const tenancyId = this.federationClient.tenancyId;
+    const certificateAndKeyPair = this.federationClient.leafCertificateSupplier.getCertificateAndKeyPair();
+    if (!certificateAndKeyPair) {
+      throw Error("Certificate and key pair are not present");
+    }
+    const leafCertificate = certificateAndKeyPair.getCertificate();
+    const fingerprint = leafCertificate.fingerprint("sha1").toString("hex");
+    const privateKey = certificateAndKeyPair.getPrivateKey() as PrivateKey;
+    const apiKey = `${tenancyId}/fed-x509/${fingerprint}`;
     const headersToSign = [
       "date",
       "(request-target)",
@@ -284,7 +346,7 @@ class AuthTokenRequestSigner implements RequestSigner {
     }
 
     httpSignature.sign(new SignerRequest(request.method, request.uri, request.headers), {
-      key: this.privateKey.toBuffer("pem", {}),
+      key: privateKey.toBuffer("pem", {}),
       keyId: apiKey,
       headers: headersToSign
     });

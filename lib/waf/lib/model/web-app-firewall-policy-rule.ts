@@ -46,7 +46,12 @@ export interface WebAppFirewallPolicyRule {
 
 export namespace WebAppFirewallPolicyRule {
   export enum ConditionLanguage {
-    Jmespath = "JMESPATH"
+    Jmespath = "JMESPATH",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: WebAppFirewallPolicyRule): object {

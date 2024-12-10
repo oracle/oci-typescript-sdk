@@ -678,6 +678,8 @@ import * as LaunchInstanceAvailabilityConfigDetails from "./launch-instance-avai
 export import LaunchInstanceAvailabilityConfigDetails = LaunchInstanceAvailabilityConfigDetails.LaunchInstanceAvailabilityConfigDetails;
 import * as LaunchInstanceDetails from "./launch-instance-details";
 export import LaunchInstanceDetails = LaunchInstanceDetails.LaunchInstanceDetails;
+import * as LaunchInstanceLicensingConfig from "./launch-instance-licensing-config";
+export import LaunchInstanceLicensingConfig = LaunchInstanceLicensingConfig.LaunchInstanceLicensingConfig;
 import * as LaunchInstancePlatformConfig from "./launch-instance-platform-config";
 export import LaunchInstancePlatformConfig = LaunchInstancePlatformConfig.LaunchInstancePlatformConfig;
 import * as LaunchInstanceShapeConfigDetails from "./launch-instance-shape-config-details";
@@ -686,6 +688,8 @@ import * as LaunchOptions from "./launch-options";
 export import LaunchOptions = LaunchOptions.LaunchOptions;
 import * as LetterOfAuthority from "./letter-of-authority";
 export import LetterOfAuthority = LetterOfAuthority.LetterOfAuthority;
+import * as LicensingConfig from "./licensing-config";
+export import LicensingConfig = LicensingConfig.LicensingConfig;
 import * as ListIpInventoryDetails from "./list-ip-inventory-details";
 export import ListIpInventoryDetails = ListIpInventoryDetails.ListIpInventoryDetails;
 import * as LocalPeeringGateway from "./local-peering-gateway";
@@ -908,6 +912,8 @@ import * as UpdateInstanceConsoleConnectionDetails from "./update-instance-conso
 export import UpdateInstanceConsoleConnectionDetails = UpdateInstanceConsoleConnectionDetails.UpdateInstanceConsoleConnectionDetails;
 import * as UpdateInstanceDetails from "./update-instance-details";
 export import UpdateInstanceDetails = UpdateInstanceDetails.UpdateInstanceDetails;
+import * as UpdateInstanceLicensingConfig from "./update-instance-licensing-config";
+export import UpdateInstanceLicensingConfig = UpdateInstanceLicensingConfig.UpdateInstanceLicensingConfig;
 import * as UpdateInstanceMaintenanceEventDetails from "./update-instance-maintenance-event-details";
 export import UpdateInstanceMaintenanceEventDetails = UpdateInstanceMaintenanceEventDetails.UpdateInstanceMaintenanceEventDetails;
 import * as UpdateInstancePlatformConfig from "./update-instance-platform-config";
@@ -1185,6 +1191,8 @@ import * as LaunchAttachParavirtualizedVolumeDetails from "./launch-attach-parav
 export import LaunchAttachParavirtualizedVolumeDetails = LaunchAttachParavirtualizedVolumeDetails.LaunchAttachParavirtualizedVolumeDetails;
 import * as LaunchCreateVolumeFromAttributes from "./launch-create-volume-from-attributes";
 export import LaunchCreateVolumeFromAttributes = LaunchCreateVolumeFromAttributes.LaunchCreateVolumeFromAttributes;
+import * as LaunchInstanceWindowsLicensingConfig from "./launch-instance-windows-licensing-config";
+export import LaunchInstanceWindowsLicensingConfig = LaunchInstanceWindowsLicensingConfig.LaunchInstanceWindowsLicensingConfig;
 import * as LoopBackDrgAttachmentNetworkDetails from "./loop-back-drg-attachment-network-details";
 export import LoopBackDrgAttachmentNetworkDetails = LoopBackDrgAttachmentNetworkDetails.LoopBackDrgAttachmentNetworkDetails;
 import * as NetworkingTopology from "./networking-topology";
@@ -1217,6 +1225,8 @@ import * as UpdateInstanceSourceViaBootVolumeDetails from "./update-instance-sou
 export import UpdateInstanceSourceViaBootVolumeDetails = UpdateInstanceSourceViaBootVolumeDetails.UpdateInstanceSourceViaBootVolumeDetails;
 import * as UpdateInstanceSourceViaImageDetails from "./update-instance-source-via-image-details";
 export import UpdateInstanceSourceViaImageDetails = UpdateInstanceSourceViaImageDetails.UpdateInstanceSourceViaImageDetails;
+import * as UpdateInstanceWindowsLicensingConfig from "./update-instance-windows-licensing-config";
+export import UpdateInstanceWindowsLicensingConfig = UpdateInstanceWindowsLicensingConfig.UpdateInstanceWindowsLicensingConfig;
 import * as VcnDrgAttachmentNetworkCreateDetails from "./vcn-drg-attachment-network-create-details";
 export import VcnDrgAttachmentNetworkCreateDetails = VcnDrgAttachmentNetworkCreateDetails.VcnDrgAttachmentNetworkCreateDetails;
 import * as VcnDrgAttachmentNetworkDetails from "./vcn-drg-attachment-network-details";

@@ -21,6 +21,7 @@ import common = require("oci-common");
  **/
 export enum ApplicationLifecycleState {
   Active = "ACTIVE",
+  Deleting = "DELETING",
   Deleted = "DELETED",
   Inactive = "INACTIVE",
 

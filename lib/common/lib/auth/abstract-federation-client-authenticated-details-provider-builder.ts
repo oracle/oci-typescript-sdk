@@ -77,6 +77,8 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
     resetTimeout: 30000 // After 30 seconds, try again.
   }).circuit;
 
+  protected _authCircuitBreaker = new CircuitBreaker(CircuitBreaker.defaultAuthConfiguration);
+
   // metadataBaseUrl getter
   get metadataBaseUrl(): string {
     return this._metadataBaseUrl;
@@ -99,6 +101,10 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
 
   get circuitBreaker(): CircuitBreaker {
     return this._circuitBreaker;
+  }
+
+  get authCircuitBreaker(): CircuitBreaker {
+    return this._authCircuitBreaker;
   }
 
   // region getter
@@ -178,7 +184,7 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
       sessionKeySupplier,
       this._intermediateCertificateSuppliers,
       this._purpose,
-      this.circuitBreaker
+      this.authCircuitBreaker
     );
   }
 

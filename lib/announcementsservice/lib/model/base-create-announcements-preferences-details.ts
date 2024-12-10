@@ -46,7 +46,12 @@ export namespace BaseCreateAnnouncementsPreferencesDetails {
   export enum PreferenceType {
     OptInTenantAnnouncements = "OPT_IN_TENANT_ANNOUNCEMENTS",
     OptInTenantAndInformationalAnnouncements = "OPT_IN_TENANT_AND_INFORMATIONAL_ANNOUNCEMENTS",
-    OptOutAllAnnouncements = "OPT_OUT_ALL_ANNOUNCEMENTS"
+    OptOutAllAnnouncements = "OPT_OUT_ALL_ANNOUNCEMENTS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: BaseCreateAnnouncementsPreferencesDetails): object {

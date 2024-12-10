@@ -69,7 +69,12 @@ export interface BaseService {
 export namespace BaseService {
   export enum LifecycleState {
     Active = "ACTIVE",
-    Deleted = "DELETED"
+    Deleted = "DELETED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: BaseService): object {

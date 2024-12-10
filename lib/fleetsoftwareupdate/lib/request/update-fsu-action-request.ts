@@ -28,6 +28,7 @@ export interface UpdateFsuActionRequest extends common.BaseRequest {
    *
    */
   "updateFsuActionDetails":
+    | model.UpdateRollbackCycleActionDetails
     | model.UpdateStageActionDetails
     | model.UpdateApplyActionDetails
     | model.UpdateRollbackActionDetails
