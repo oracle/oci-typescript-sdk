@@ -231,4 +231,61 @@ describe("Test Circuit Breaker ", () => {
       expect(isNotRetriable({ errorObject: wrongCode })).true;
     }
   });
+  it("Test Auth Circuit Breaker", async function() {
+    var mockClient = new MockClient(
+      5,
+      new Error("Failed to make http call to get the token from auth server"),
+      common.CircuitBreaker.DefaultAuthConfiguration
+    );
+
+    // Try 1. Should fail from mock service error response
+    try {
+      await mockClient.do_call_with_circuit();
+      expect(false).true; // Should fail before this point
+    } catch (e) {
+      expect(e instanceof Error).true;
+    }
+    // Circuit breaker has failed once and is still in closed state
+    var breakerStats = mockClient.circuitBreaker.circuit.stats;
+    var isOpen = mockClient.circuitBreaker.circuit.opened;
+    console.log(breakerStats);
+    expect(breakerStats.failures).equals(1);
+    expect(isOpen).false;
+
+    // Try 2. Should fail from mock service error response
+    try {
+      await mockClient.do_call_with_circuit();
+      expect(false).true; // Should fail before this point
+    } catch (e) {
+      expect(e instanceof Error).true; // Circuit breaker threw an error
+    }
+
+    // Circuit breaker has failed twice and is still in closed state
+    var breakerStats = mockClient.circuitBreaker.circuit.stats;
+    var isOpen = mockClient.circuitBreaker.circuit.opened;
+    expect(breakerStats.failures).equals(2);
+    expect(isOpen).false;
+
+    // try 3. Should fail from mock service error response
+    try {
+      await mockClient.do_call_with_circuit();
+      expect(false).true; // Should fail before this point
+    } catch (e) {
+      expect(e instanceof Error).true;
+    }
+
+    // Circuit breaker has failed thrice and is in open state now
+    var breakerStats = mockClient.circuitBreaker.circuit.stats;
+    var isOpen = mockClient.circuitBreaker.circuit.opened;
+    expect(breakerStats.failures).equals(3);
+    expect(isOpen).true;
+
+    // Try 4. Should fail with Circuit breaker open exception
+    try {
+      await mockClient.do_call_with_circuit();
+      expect(false).true; // Should fail before this point
+    } catch (e) {
+      expect(e.code).equals("EOPENBREAKER");
+    }
+  });
 });

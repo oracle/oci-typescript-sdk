@@ -46,7 +46,12 @@ export namespace InfrastructureTargetVersionSummary {
   export enum TargetResourceType {
     ExadataDbSystem = "EXADATA_DB_SYSTEM",
     CloudExadataInfrastructure = "CLOUD_EXADATA_INFRASTRUCTURE",
-    ExaccInfrastructure = "EXACC_INFRASTRUCTURE"
+    ExaccInfrastructure = "EXACC_INFRASTRUCTURE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: InfrastructureTargetVersionSummary): object {

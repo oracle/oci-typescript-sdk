@@ -662,6 +662,10 @@ import * as RestoreAutonomousDatabaseDetails from "./restore-autonomous-database
 export import RestoreAutonomousDatabaseDetails = RestoreAutonomousDatabaseDetails.RestoreAutonomousDatabaseDetails;
 import * as RestoreDatabaseDetails from "./restore-database-details";
 export import RestoreDatabaseDetails = RestoreDatabaseDetails.RestoreDatabaseDetails;
+import * as RotateAutonomousContainerDatabaseEncryptionKeyDetails from "./rotate-autonomous-container-database-encryption-key-details";
+export import RotateAutonomousContainerDatabaseEncryptionKeyDetails = RotateAutonomousContainerDatabaseEncryptionKeyDetails.RotateAutonomousContainerDatabaseEncryptionKeyDetails;
+import * as RotateAutonomousDatabaseEncryptionKeyDetails from "./rotate-autonomous-database-encryption-key-details";
+export import RotateAutonomousDatabaseEncryptionKeyDetails = RotateAutonomousDatabaseEncryptionKeyDetails.RotateAutonomousDatabaseEncryptionKeyDetails;
 import * as RotateAutonomousVmClusterOrdsCertsDetails from "./rotate-autonomous-vm-cluster-ords-certs-details";
 export import RotateAutonomousVmClusterOrdsCertsDetails = RotateAutonomousVmClusterOrdsCertsDetails.RotateAutonomousVmClusterOrdsCertsDetails;
 import * as RotateAutonomousVmClusterSslCertsDetails from "./rotate-autonomous-vm-cluster-ssl-certs-details";

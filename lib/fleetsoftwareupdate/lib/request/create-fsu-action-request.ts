@@ -23,6 +23,7 @@ export interface CreateFsuActionRequest extends common.BaseRequest {
    *
    */
   "createFsuActionDetails":
+    | model.CreateRollbackCycleApplyActionDetails
     | model.CreateApplyActionDetails
     | model.CreateStageActionDetails
     | model.CreateRollbackActionDetails

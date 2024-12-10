@@ -32,13 +32,23 @@ export namespace MaintenancePolicy {
   export enum MonthlyPatchingOverride {
     Enabled = "ENABLED",
     Disabled = "DISABLED",
-    None = "NONE"
+    None = "NONE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum EnvironmentMaintenanceOverride {
     Prod = "PROD",
     NonProd = "NON_PROD",
-    None = "NONE"
+    None = "NONE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: MaintenancePolicy): object {

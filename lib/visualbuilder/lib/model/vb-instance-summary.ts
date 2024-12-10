@@ -88,6 +88,7 @@ export interface VbInstanceSummary {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  "networkEndpointDetails"?: model.PrivateEndpointDetails;
 }
 
 export namespace VbInstanceSummary {
@@ -128,6 +129,10 @@ export namespace VbInstanceSummary {
           ? obj.alternateCustomEndpoints.map(item => {
               return model.CustomEndpointDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
           : undefined
       }
     };
@@ -145,6 +150,10 @@ export namespace VbInstanceSummary {
           ? obj.alternateCustomEndpoints.map(item => {
               return model.CustomEndpointDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
           : undefined
       }
     };

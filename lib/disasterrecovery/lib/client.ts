@@ -54,11 +54,13 @@ export class DisasterRecoveryClient {
   protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
 
   constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
     const requestSigner = params.authenticationDetailsProvider
       ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
       : null;
+    this._authProvider = params.authenticationDetailsProvider;
     if (clientConfiguration) {
       this._clientConfiguration = clientConfiguration;
       this._circuitBreaker = clientConfiguration.circuitBreaker
@@ -220,10 +222,23 @@ export class DisasterRecoveryClient {
   }
 
   /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
    * Close the client once it is no longer needed
    */
   public close() {
     this.shutdownCircuitBreaker();
+    this.closeProvider();
   }
 
   /**
@@ -1592,7 +1607,8 @@ export class DisasterRecoveryClient {
       "limit": listDrPlansRequest.limit,
       "page": listDrPlansRequest.page,
       "sortOrder": listDrPlansRequest.sortOrder,
-      "sortBy": listDrPlansRequest.sortBy
+      "sortBy": listDrPlansRequest.sortBy,
+      "lifecycleSubState": listDrPlansRequest.lifecycleSubState
     };
 
     let headerParams = {
@@ -2063,6 +2079,84 @@ export class DisasterRecoveryClient {
   }
 
   /**
+   * Refresh DR Plan identified by *drPlanId*.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RefreshDrPlanRequest
+   * @return RefreshDrPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/RefreshDrPlan.ts.html |here} to see how to use RefreshDrPlan API.
+   */
+  public async refreshDrPlan(
+    refreshDrPlanRequest: requests.RefreshDrPlanRequest
+  ): Promise<responses.RefreshDrPlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation DisasterRecoveryClient#refreshDrPlan.");
+    const operationName = "refreshDrPlan";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{drPlanId}": refreshDrPlanRequest.drPlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": refreshDrPlanRequest.ifMatch,
+      "opc-retry-token": refreshDrPlanRequest.opcRetryToken,
+      "opc-request-id": refreshDrPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshDrPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drPlans/{drPlanId}/actions/refresh",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        refreshDrPlanRequest.refreshDrPlanDetails,
+        "RefreshDrPlanDetails",
+        model.RefreshDrPlanDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshDrPlanResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Resume the DR plan execution identified by *drPlanExecutionId*.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResumeDrPlanExecutionRequest
@@ -2512,6 +2606,84 @@ export class DisasterRecoveryClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDrProtectionGroupRoleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Verify DR Plan identified by *drPlanId*.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param VerifyDrPlanRequest
+   * @return VerifyDrPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/VerifyDrPlan.ts.html |here} to see how to use VerifyDrPlan API.
+   */
+  public async verifyDrPlan(
+    verifyDrPlanRequest: requests.VerifyDrPlanRequest
+  ): Promise<responses.VerifyDrPlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation DisasterRecoveryClient#verifyDrPlan.");
+    const operationName = "verifyDrPlan";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{drPlanId}": verifyDrPlanRequest.drPlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": verifyDrPlanRequest.ifMatch,
+      "opc-retry-token": verifyDrPlanRequest.opcRetryToken,
+      "opc-request-id": verifyDrPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      verifyDrPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drPlans/{drPlanId}/actions/verify",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        verifyDrPlanRequest.verifyDrPlanDetails,
+        "VerifyDrPlanDetails",
+        model.VerifyDrPlanDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.VerifyDrPlanResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

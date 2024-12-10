@@ -237,13 +237,14 @@ export class GenericRetrier {
         }
       } catch (err) {
         // These are non-service errors
+        shouldBeRetried =
+          err !== undefined && err.shouldBeRetried !== undefined ? err.shouldBeRetried : true;
         lastKnownError = {
           code: err.code,
           message: err.message,
           requestEndpoint: endpoint,
           troubleshootingPage: `See ${TROUBLESHOOT_URL} for help troubleshooting this error, or contact support and provide this full error message.`
         };
-        shouldBeRetried = true;
       }
       let currentTime = new Date().getTime();
       let timeElapsed = currentTime - timestamp.getTime();

@@ -40,6 +40,11 @@ export namespace ModelDetails {
             <model.PreTrainedKeyPhraseExtractionModelDetails>(<object>jsonObj),
             true
           );
+        case "PRE_TRAINED_TRANSLATION":
+          return model.PreTrainedTranslationModelDetails.getJsonObj(
+            <model.PreTrainedTranslationModelDetails>(<object>jsonObj),
+            true
+          );
         case "PRE_TRAINED_HEALTH_NLU":
           return model.PreTrainedHealthNluModelDetails.getJsonObj(
             <model.PreTrainedHealthNluModelDetails>(<object>jsonObj),
@@ -50,21 +55,9 @@ export namespace ModelDetails {
             <model.PreTrainedUniversalModel>(<object>jsonObj),
             true
           );
-        case "NAMED_ENTITY_RECOGNITION":
-          return model.NamedEntityRecognitionModelDetails.getJsonObj(
-            <model.NamedEntityRecognitionModelDetails>(<object>jsonObj),
-            true
-          );
-        case "PII":
-          return model.PiiModelDetails.getJsonObj(<model.PiiModelDetails>(<object>jsonObj), true);
         case "PRE_TRAINED_LANGUAGE_DETECTION":
           return model.PreTrainedLanguageDetectionModelDetails.getJsonObj(
             <model.PreTrainedLanguageDetectionModelDetails>(<object>jsonObj),
-            true
-          );
-        case "PRE_TRAINED_NAMED_ENTITY_RECOGNITION":
-          return model.PreTrainedNamedEntityRecognitionModelDetails.getJsonObj(
-            <model.PreTrainedNamedEntityRecognitionModelDetails>(<object>jsonObj),
             true
           );
         case "PRE_TRAINED_SENTIMENT_ANALYSIS":
@@ -72,19 +65,36 @@ export namespace ModelDetails {
             <model.PreTrainedSentimentAnalysisModelDetails>(<object>jsonObj),
             true
           );
-        case "PRE_TRAINED_TEXT_CLASSIFICATION":
-          return model.PreTrainedTextClassificationModelDetails.getJsonObj(
-            <model.PreTrainedTextClassificationModelDetails>(<object>jsonObj),
-            true
-          );
         case "TEXT_CLASSIFICATION":
           return model.TextClassificationModelDetails.getJsonObj(
             <model.TextClassificationModelDetails>(<object>jsonObj),
             true
           );
+        case "HEALTH_NLU":
+          return model.HealthNluModelDetails.getJsonObj(
+            <model.HealthNluModelDetails>(<object>jsonObj),
+            true
+          );
         case "PRE_TRAINED_SUMMARIZATION":
           return model.PreTrainedSummarization.getJsonObj(
             <model.PreTrainedSummarization>(<object>jsonObj),
+            true
+          );
+        case "NAMED_ENTITY_RECOGNITION":
+          return model.NamedEntityRecognitionModelDetails.getJsonObj(
+            <model.NamedEntityRecognitionModelDetails>(<object>jsonObj),
+            true
+          );
+        case "PII":
+          return model.PiiModelDetails.getJsonObj(<model.PiiModelDetails>(<object>jsonObj), true);
+        case "PRE_TRAINED_NAMED_ENTITY_RECOGNITION":
+          return model.PreTrainedNamedEntityRecognitionModelDetails.getJsonObj(
+            <model.PreTrainedNamedEntityRecognitionModelDetails>(<object>jsonObj),
+            true
+          );
+        case "PRE_TRAINED_TEXT_CLASSIFICATION":
+          return model.PreTrainedTextClassificationModelDetails.getJsonObj(
+            <model.PreTrainedTextClassificationModelDetails>(<object>jsonObj),
             true
           );
         case "PRE_TRAINED_PII":
@@ -108,6 +118,11 @@ export namespace ModelDetails {
             <model.PreTrainedKeyPhraseExtractionModelDetails>(<object>jsonObj),
             true
           );
+        case "PRE_TRAINED_TRANSLATION":
+          return model.PreTrainedTranslationModelDetails.getDeserializedJsonObj(
+            <model.PreTrainedTranslationModelDetails>(<object>jsonObj),
+            true
+          );
         case "PRE_TRAINED_HEALTH_NLU":
           return model.PreTrainedHealthNluModelDetails.getDeserializedJsonObj(
             <model.PreTrainedHealthNluModelDetails>(<object>jsonObj),
@@ -116,6 +131,31 @@ export namespace ModelDetails {
         case "PRE_TRAINED_UNIVERSAL":
           return model.PreTrainedUniversalModel.getDeserializedJsonObj(
             <model.PreTrainedUniversalModel>(<object>jsonObj),
+            true
+          );
+        case "PRE_TRAINED_LANGUAGE_DETECTION":
+          return model.PreTrainedLanguageDetectionModelDetails.getDeserializedJsonObj(
+            <model.PreTrainedLanguageDetectionModelDetails>(<object>jsonObj),
+            true
+          );
+        case "PRE_TRAINED_SENTIMENT_ANALYSIS":
+          return model.PreTrainedSentimentAnalysisModelDetails.getDeserializedJsonObj(
+            <model.PreTrainedSentimentAnalysisModelDetails>(<object>jsonObj),
+            true
+          );
+        case "TEXT_CLASSIFICATION":
+          return model.TextClassificationModelDetails.getDeserializedJsonObj(
+            <model.TextClassificationModelDetails>(<object>jsonObj),
+            true
+          );
+        case "HEALTH_NLU":
+          return model.HealthNluModelDetails.getDeserializedJsonObj(
+            <model.HealthNluModelDetails>(<object>jsonObj),
+            true
+          );
+        case "PRE_TRAINED_SUMMARIZATION":
+          return model.PreTrainedSummarization.getDeserializedJsonObj(
+            <model.PreTrainedSummarization>(<object>jsonObj),
             true
           );
         case "NAMED_ENTITY_RECOGNITION":
@@ -128,34 +168,14 @@ export namespace ModelDetails {
             <model.PiiModelDetails>(<object>jsonObj),
             true
           );
-        case "PRE_TRAINED_LANGUAGE_DETECTION":
-          return model.PreTrainedLanguageDetectionModelDetails.getDeserializedJsonObj(
-            <model.PreTrainedLanguageDetectionModelDetails>(<object>jsonObj),
-            true
-          );
         case "PRE_TRAINED_NAMED_ENTITY_RECOGNITION":
           return model.PreTrainedNamedEntityRecognitionModelDetails.getDeserializedJsonObj(
             <model.PreTrainedNamedEntityRecognitionModelDetails>(<object>jsonObj),
             true
           );
-        case "PRE_TRAINED_SENTIMENT_ANALYSIS":
-          return model.PreTrainedSentimentAnalysisModelDetails.getDeserializedJsonObj(
-            <model.PreTrainedSentimentAnalysisModelDetails>(<object>jsonObj),
-            true
-          );
         case "PRE_TRAINED_TEXT_CLASSIFICATION":
           return model.PreTrainedTextClassificationModelDetails.getDeserializedJsonObj(
             <model.PreTrainedTextClassificationModelDetails>(<object>jsonObj),
-            true
-          );
-        case "TEXT_CLASSIFICATION":
-          return model.TextClassificationModelDetails.getDeserializedJsonObj(
-            <model.TextClassificationModelDetails>(<object>jsonObj),
-            true
-          );
-        case "PRE_TRAINED_SUMMARIZATION":
-          return model.PreTrainedSummarization.getDeserializedJsonObj(
-            <model.PreTrainedSummarization>(<object>jsonObj),
             true
           );
         case "PRE_TRAINED_PII":

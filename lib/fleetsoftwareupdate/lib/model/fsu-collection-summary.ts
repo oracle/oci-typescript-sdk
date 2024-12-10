@@ -69,6 +69,11 @@ export interface FsuCollectionSummary {
    */
   "lifecycleDetails"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of last completed FSU Cycle.
+   *
+   */
+  "lastCompletedFsuCycleId"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *

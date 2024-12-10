@@ -22,6 +22,18 @@ import common = require("oci-common");
  */
 export interface BatchLanguageTranslationDetails {
   /**
+   * Unique name to identify an endpoint to be used for inferencing
+   */
+  "alias"?: string;
+  /**
+   * The endpoint that has to be used for inferencing.
+   */
+  "endpointId"?: string;
+  /**
+   * List of words not to be translated
+   */
+  "noTranslate"?: Array<string>;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that calls the API, inference will be served from pre trained model
    */
   "compartmentId"?: string;

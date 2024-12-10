@@ -86,6 +86,14 @@ Example: {@code us-ashburn-1}
     */
   "peerRegion": string;
   /**
+    * If this is a cloned DR plan, the OCID of the source DR plan that was used to clone this DR plan.
+* If this DR plan was not cloned, then the value for this will be {@code null}.
+* <p>
+Example: {@code ocid1.drplan.oc1..uniqueID}
+* 
+    */
+  "sourcePlanId"?: string;
+  /**
    * The list of groups in this DR plan.
    *
    */
@@ -95,6 +103,11 @@ Example: {@code us-ashburn-1}
    *
    */
   "lifecycleState": model.DrPlanLifecycleState;
+  /**
+   * The current state of the DR plan.
+   *
+   */
+  "lifecycleSubState"?: model.DrPlanLifecycleSubState;
   /**
    * A message describing the DR plan's current state in more detail.
    *

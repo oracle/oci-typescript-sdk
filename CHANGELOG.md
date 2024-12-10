@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.100.0 - 2024-12-10
+### Added 
+- Support for Bring Your Own Key (BYOK) in the Database service 
+- Support for refreshing disaster recovery plans in the Disaster Recovery service 
+- Support for private access to service instances in the Visual Builder service 
+- Support for exadata fleet update and rollback maintenance cycle in the Fleet Application Management service 
+- Support for Bring Your Own License (BYOL) for windows virtual machines in the Compute service 
+- Support for cascading deletion of applications and runs in the Data Flow service 
+- Support for on-demand translation and auto language detection during file translation in the AI Language service 
+- Support for alias for endpoints in custom model flow and custom anonymization in the AI Language service    
+
+### Breaking Changes 
+- The properties `idcsInfo` and `attachments` were removed from the model `VbInstance` in the Visual Builder service 
+- The models `AttachmentDetails` and `IdcsInfoDetails` were deleted from the Visual Builder service 
+- Change in default circuit breaker and retry configuration for `X509FederationClient` 
+- The method `makeServiceCall` in `GenericRetrier` does not retry if the errorObject's `shouldBeRetried` field is set to `false`
+
 ## 2.99.0 - 2024-11-19
 ### Added 
 - Support for optional parameters for unified auditing in the Database service 

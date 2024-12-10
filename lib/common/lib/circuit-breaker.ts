@@ -99,6 +99,31 @@ export default class CircuitBreaker {
     errorFilter: defaultErrorFilterFunction
   };
 
+  private static MIN_WAIT_DURATION_IN_OPEN_STATE_FOR_AUTH_CLIENT_CB = 30;
+  private static MAX_WAIT_DURATION_IN_OPEN_STATE_FOR_AUTH_CLIENT_CB = 49;
+  public static DefaultAuthConfiguration: CircuitBreakerOptions = {
+    timeout: 60000, // If our function takes longer than 60 seconds, trigger a failure
+    errorThresholdPercentage: 65,
+    resetTimeout:
+      Math.floor(
+        Math.random() *
+          (CircuitBreaker.MAX_WAIT_DURATION_IN_OPEN_STATE_FOR_AUTH_CLIENT_CB -
+            CircuitBreaker.MIN_WAIT_DURATION_IN_OPEN_STATE_FOR_AUTH_CLIENT_CB +
+            1) +
+          CircuitBreaker.MIN_WAIT_DURATION_IN_OPEN_STATE_FOR_AUTH_CLIENT_CB
+      ) * 1000,
+    rollingCountTimeout: 120000,
+    rollingCountBuckets: 120,
+    volumeThreshold: 3,
+    errorFilter: (e: any) => {
+      return false;
+    } // Treat all exceptions as failure
+  };
+
+  static get defaultAuthConfiguration(): CircuitBreakerOptions {
+    return CircuitBreaker.DefaultAuthConfiguration;
+  }
+
   static get defaultConfiguration(): CircuitBreakerOptions {
     return CircuitBreaker.DefaultConfiguration;
   }

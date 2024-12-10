@@ -48,6 +48,11 @@ export namespace UpdateFsuActionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "ROLLBACK_MAINTENANCE_CYCLE":
+          return model.UpdateRollbackCycleActionDetails.getJsonObj(
+            <model.UpdateRollbackCycleActionDetails>(<object>jsonObj),
+            true
+          );
         case "STAGE":
           return model.UpdateStageActionDetails.getJsonObj(
             <model.UpdateStageActionDetails>(<object>jsonObj),
@@ -84,6 +89,11 @@ export namespace UpdateFsuActionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "ROLLBACK_MAINTENANCE_CYCLE":
+          return model.UpdateRollbackCycleActionDetails.getDeserializedJsonObj(
+            <model.UpdateRollbackCycleActionDetails>(<object>jsonObj),
+            true
+          );
         case "STAGE":
           return model.UpdateStageActionDetails.getDeserializedJsonObj(
             <model.UpdateStageActionDetails>(<object>jsonObj),

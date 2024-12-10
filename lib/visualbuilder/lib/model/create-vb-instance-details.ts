@@ -65,6 +65,7 @@ export interface CreateVbInstanceDetails {
    * Optional parameter specifying which entitlement to use for billing purposes. Only required if the account possesses more than one entitlement.
    */
   "consumptionModel"?: CreateVbInstanceDetails.ConsumptionModel;
+  "networkEndpointDetails"?: model.PrivateEndpointDetails;
 }
 
 export namespace CreateVbInstanceDetails {
@@ -85,6 +86,10 @@ export namespace CreateVbInstanceDetails {
           ? obj.alternateCustomEndpoints.map(item => {
               return model.CreateCustomEndpointDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
           : undefined
       }
     };
@@ -102,6 +107,10 @@ export namespace CreateVbInstanceDetails {
           ? obj.alternateCustomEndpoints.map(item => {
               return model.CreateCustomEndpointDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
           : undefined
       }
     };

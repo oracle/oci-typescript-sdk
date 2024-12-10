@@ -57,6 +57,7 @@ export interface UpdateVbInstanceDetails {
    *
    */
   "alternateCustomEndpoints"?: Array<model.UpdateCustomEndpointDetails>;
+  "networkEndpointDetails"?: model.UpdatePrivateEndpointDetails;
 }
 
 export namespace UpdateVbInstanceDetails {
@@ -71,6 +72,9 @@ export namespace UpdateVbInstanceDetails {
           ? obj.alternateCustomEndpoints.map(item => {
               return model.UpdateCustomEndpointDetails.getJsonObj(item);
             })
+          : undefined,
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.UpdateNetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
           : undefined
       }
     };
@@ -88,6 +92,9 @@ export namespace UpdateVbInstanceDetails {
           ? obj.alternateCustomEndpoints.map(item => {
               return model.UpdateCustomEndpointDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "networkEndpointDetails": obj.networkEndpointDetails
+          ? model.UpdateNetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
           : undefined
       }
     };

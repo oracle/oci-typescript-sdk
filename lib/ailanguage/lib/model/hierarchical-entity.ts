@@ -21,6 +21,7 @@ import common = require("oci-common");
  * Hierarchical entity object
  */
 export interface HierarchicalEntity {
+  "metaInfo"?: model.MetaInfo;
   /**
    * The number of Unicode code points preceding this entity in the submitted text. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -49,12 +50,22 @@ export interface HierarchicalEntity {
 
 export namespace HierarchicalEntity {
   export function getJsonObj(obj: HierarchicalEntity): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metaInfo": obj.metaInfo ? model.MetaInfo.getJsonObj(obj.metaInfo) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: HierarchicalEntity): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metaInfo": obj.metaInfo ? model.MetaInfo.getDeserializedJsonObj(obj.metaInfo) : undefined
+      }
+    };
 
     return jsonObj;
   }

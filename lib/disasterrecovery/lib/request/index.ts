@@ -61,6 +61,8 @@ import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
 import * as PauseDrPlanExecutionRequest from "./pause-dr-plan-execution-request";
 export import PauseDrPlanExecutionRequest = PauseDrPlanExecutionRequest.PauseDrPlanExecutionRequest;
+import * as RefreshDrPlanRequest from "./refresh-dr-plan-request";
+export import RefreshDrPlanRequest = RefreshDrPlanRequest.RefreshDrPlanRequest;
 import * as ResumeDrPlanExecutionRequest from "./resume-dr-plan-execution-request";
 export import ResumeDrPlanExecutionRequest = ResumeDrPlanExecutionRequest.ResumeDrPlanExecutionRequest;
 import * as RetryDrPlanExecutionRequest from "./retry-dr-plan-execution-request";
@@ -73,3 +75,5 @@ import * as UpdateDrProtectionGroupRequest from "./update-dr-protection-group-re
 export import UpdateDrProtectionGroupRequest = UpdateDrProtectionGroupRequest.UpdateDrProtectionGroupRequest;
 import * as UpdateDrProtectionGroupRoleRequest from "./update-dr-protection-group-role-request";
 export import UpdateDrProtectionGroupRoleRequest = UpdateDrProtectionGroupRoleRequest.UpdateDrProtectionGroupRoleRequest;
+import * as VerifyDrPlanRequest from "./verify-dr-plan-request";
+export import VerifyDrPlanRequest = VerifyDrPlanRequest.VerifyDrPlanRequest;

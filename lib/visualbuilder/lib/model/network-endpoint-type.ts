@@ -17,42 +17,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information for IDCS access
- */
-export interface IdcsInfoDetails {
+ * Public/Private endpoint access type.
+ *
+ **/
+export enum NetworkEndpointType {
+  Private = "PRIVATE",
+
   /**
-   * URL for the location of the IDCS Application (used by IDCS APIs)
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
    */
-  "idcsAppLocationUrl": string;
-  /**
-   * The IDCS application display name associated with the instance
-   */
-  "idcsAppDisplayName": string;
-  /**
-   * The IDCS application ID associated with the instance
-   */
-  "idcsAppId": string;
-  /**
-   * The IDCS application name associated with the instance
-   */
-  "idcsAppName": string;
-  /**
-   * The URL used as the primary audience for visual builder flows in this instance
-   * type: string
-   *
-   */
-  "instancePrimaryAudienceUrl": string;
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
-export namespace IdcsInfoDetails {
-  export function getJsonObj(obj: IdcsInfoDetails): object {
-    const jsonObj = { ...obj, ...{} };
-
-    return jsonObj;
+export namespace NetworkEndpointType {
+  export function getJsonObj(obj: NetworkEndpointType): NetworkEndpointType {
+    return obj;
   }
-  export function getDeserializedJsonObj(obj: IdcsInfoDetails): object {
-    const jsonObj = { ...obj, ...{} };
-
-    return jsonObj;
+  export function getDeserializedJsonObj(obj: NetworkEndpointType): NetworkEndpointType {
+    return obj;
   }
 }

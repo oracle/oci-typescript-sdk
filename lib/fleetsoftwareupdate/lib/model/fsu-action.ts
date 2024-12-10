@@ -103,6 +103,11 @@ export namespace FsuAction {
           return model.CleanupAction.getJsonObj(<model.CleanupAction>(<object>jsonObj), true);
         case "PRECHECK":
           return model.PrecheckAction.getJsonObj(<model.PrecheckAction>(<object>jsonObj), true);
+        case "ROLLBACK_MAINTENANCE_CYCLE":
+          return model.RollbackCycleAction.getJsonObj(
+            <model.RollbackCycleAction>(<object>jsonObj),
+            true
+          );
         case "STAGE":
           return model.StageAction.getJsonObj(<model.StageAction>(<object>jsonObj), true);
         case "APPLY":
@@ -128,6 +133,11 @@ export namespace FsuAction {
         case "PRECHECK":
           return model.PrecheckAction.getDeserializedJsonObj(
             <model.PrecheckAction>(<object>jsonObj),
+            true
+          );
+        case "ROLLBACK_MAINTENANCE_CYCLE":
+          return model.RollbackCycleAction.getDeserializedJsonObj(
+            <model.RollbackCycleAction>(<object>jsonObj),
             true
           );
         case "STAGE":

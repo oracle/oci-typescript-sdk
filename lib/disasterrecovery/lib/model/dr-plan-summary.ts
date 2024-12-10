@@ -95,6 +95,13 @@ Example: {@code ACTIVE}
     */
   "lifecycleState": model.DrPlanLifecycleState;
   /**
+    * The current sub state of the DR plan.
+* <p>
+Example: {@code NEEDS_REFRESH}
+* 
+    */
+  "lifecycleSubState"?: model.DrPlanLifecycleSubState;
+  /**
    * A message describing the DR plan's current state in more detail.
    *
    */

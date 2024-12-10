@@ -41,7 +41,12 @@ export interface ConnectionFromOAuth2Details extends model.ConnectionDetails {
 
 export namespace ConnectionFromOAuth2Details {
   export enum GrantType {
-    ClientCredentials = "CLIENT_CREDENTIALS"
+    ClientCredentials = "CLIENT_CREDENTIALS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ConnectionFromOAuth2Details, isParentJsonObj?: boolean): object {

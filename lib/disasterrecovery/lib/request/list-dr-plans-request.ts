@@ -87,6 +87,11 @@ Example: {@code MyResourceDisplayName}
    *
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only DR plans that match the given lifecycle sub-state.
+   *
+   */
+  "lifecycleSubState"?: model.DrPlanLifecycleSubState;
 }
 
 export namespace ListDrPlansRequest {

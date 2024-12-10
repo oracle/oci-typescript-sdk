@@ -57,6 +57,18 @@ export interface FsuCycle {
    */
   "nextActionToExecute"?: Array<model.NextActionToExecuteDetails>;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the latest Action
+   * in the Exadata Fleet Update Cycle.
+   *
+   */
+  "lastCompletedActionId"?: string;
+  /**
+   * Current rollback cycle state if rollback maintenance cycle action has been attempted.
+   * No value would indicate that the Cycle has not run a rollback maintenance cycle action before.
+   *
+   */
+  "rollbackCycleState"?: model.RollbackCycleStates;
+  /**
    * The latest Action type that was completed in the Exadata Fleet Update Cycle.
    * No value would indicate that the Cycle has not completed any Action yet.
    *

@@ -26,6 +26,10 @@ export interface UpdateEndpointDetails {
    */
   "displayName"?: string;
   /**
+   * Unique name across user tenancy in a region to identify an endpoint to be used for inferencing.
+   */
+  "alias"?: string;
+  /**
    * A short description of the endpoint.
    */
   "description"?: string;

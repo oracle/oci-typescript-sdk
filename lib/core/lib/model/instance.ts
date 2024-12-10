@@ -253,6 +253,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * The OCID of the Instance Configuration used to source launch details for this instance. Any other fields supplied in the instance launch request override the details stored in the Instance Configuration for this instance launch.
    */
   "instanceConfigurationId"?: string;
+  /**
+   * List of licensing configurations associated with the instance.
+   */
+  "licensingConfigs"?: Array<model.LicensingConfig>;
 }
 
 export namespace Instance {
@@ -326,6 +330,12 @@ export namespace Instance {
 
         "platformConfig": obj.platformConfig
           ? model.PlatformConfig.getJsonObj(obj.platformConfig)
+          : undefined,
+
+        "licensingConfigs": obj.licensingConfigs
+          ? obj.licensingConfigs.map(item => {
+              return model.LicensingConfig.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -365,6 +375,12 @@ export namespace Instance {
 
         "platformConfig": obj.platformConfig
           ? model.PlatformConfig.getDeserializedJsonObj(obj.platformConfig)
+          : undefined,
+
+        "licensingConfigs": obj.licensingConfigs
+          ? obj.licensingConfigs.map(item => {
+              return model.LicensingConfig.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

@@ -12,6 +12,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CascadingDeleteApplicationResponse from "./cascading-delete-application-response";
+export import CascadingDeleteApplicationResponse = CascadingDeleteApplicationResponse.CascadingDeleteApplicationResponse;
 import * as ChangeApplicationCompartmentResponse from "./change-application-compartment-response";
 export import ChangeApplicationCompartmentResponse = ChangeApplicationCompartmentResponse.ChangeApplicationCompartmentResponse;
 import * as ChangePoolCompartmentResponse from "./change-pool-compartment-response";

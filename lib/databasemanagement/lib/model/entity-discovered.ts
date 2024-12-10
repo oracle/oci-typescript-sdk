@@ -70,7 +70,12 @@ export namespace EntityDiscovered {
     PrevDiscovered = "PREV_DISCOVERED",
     NewDiscovered = "NEW_DISCOVERED",
     NotFound = "NOT_FOUND",
-    Discovering = "DISCOVERING"
+    Discovering = "DISCOVERING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: EntityDiscovered): object {

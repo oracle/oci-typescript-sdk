@@ -71,7 +71,12 @@ export namespace TaskRunLineageDetails {
   export enum TaskExecutionStatus {
     Success = "SUCCESS",
     Error = "ERROR",
-    Terminated = "TERMINATED"
+    Terminated = "TERMINATED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: TaskRunLineageDetails): object {

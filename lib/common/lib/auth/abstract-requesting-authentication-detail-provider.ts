@@ -6,6 +6,7 @@
 import { AuthenticationDetailsProvider } from "./auth";
 import FederationClient from "./models/federation-client";
 import SessionKeySupplier from "./models/session-key-supplier";
+import X509FederationClient from "./X509-federation-client";
 
 /**
  * Base class for authentication details providers that make remote requests.
@@ -27,5 +28,11 @@ export default abstract class AbstractRequestingAuthenticationDetailsProvider
 
   getPassphrase(): null {
     return null;
+  }
+
+  closeProvider() {
+    if (this.federationClient instanceof X509FederationClient) {
+      (<X509FederationClient>this.federationClient).close();
+    }
   }
 }

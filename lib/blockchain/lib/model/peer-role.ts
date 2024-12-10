@@ -27,7 +27,12 @@ export interface PeerRole {
 export namespace PeerRole {
   export enum Role {
     Member = "MEMBER",
-    Admin = "ADMIN"
+    Admin = "ADMIN",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: PeerRole): object {

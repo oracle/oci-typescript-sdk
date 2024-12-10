@@ -37,6 +37,13 @@ Example: {@code BUILT_IN}
     */
   "type": model.DrPlanGroupType;
   /**
+    * The DR plan group refresh status.
+* <p>
+Example: {@code GROUP_MODIFIED}
+* 
+    */
+  "refreshStatus"?: model.DrPlanGroupRefreshStatus;
+  /**
     * The display name of the group.
 * <p>
 Example: {@code DATABASE_SWITCHOVER}

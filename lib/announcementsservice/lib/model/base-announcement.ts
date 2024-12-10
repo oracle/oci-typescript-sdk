@@ -125,13 +125,23 @@ export namespace BaseAnnouncement {
     OriginalEndTime = "ORIGINAL_END_TIME",
     ReportDate = "REPORT_DATE",
     StartTime = "START_TIME",
-    TimeDetected = "TIME_DETECTED"
+    TimeDetected = "TIME_DETECTED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum TimeTwoType {
     EndTime = "END_TIME",
     NewEndTime = "NEW_END_TIME",
-    EstimatedEndTime = "ESTIMATED_END_TIME"
+    EstimatedEndTime = "ESTIMATED_END_TIME",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum AnnouncementType {
@@ -148,18 +158,33 @@ export namespace BaseAnnouncement {
     PlannedChangeExtended = "PLANNED_CHANGE_EXTENDED",
     PlannedChangeRescheduled = "PLANNED_CHANGE_RESCHEDULED",
     ProductionEventNotification = "PRODUCTION_EVENT_NOTIFICATION",
-    ScheduledMaintenance = "SCHEDULED_MAINTENANCE"
+    ScheduledMaintenance = "SCHEDULED_MAINTENANCE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
     Active = "ACTIVE",
-    Inactive = "INACTIVE"
+    Inactive = "INACTIVE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum PlatformType {
     Iaas = "IAAS",
     Saas = "SAAS",
-    Paas = "PAAS"
+    Paas = "PAAS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: BaseAnnouncement): object {
