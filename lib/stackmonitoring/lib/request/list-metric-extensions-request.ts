@@ -19,10 +19,6 @@ import common = require("oci-common");
  */
 export interface ListMetricExtensionsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which data is listed.
-   */
-  "compartmentId": string;
-  /**
    * For list pagination. The maximum number of results per page, or items to return in a
    * paginated \"List\" call. For important details about how pagination works, see
    * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
@@ -48,6 +44,10 @@ export interface ListMetricExtensionsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
+   * The ID of the compartment in which data is listed.
+   */
+  "compartmentId"?: string;
+  /**
    * A filter to return resources based on resource type.
    */
   "resourceType"?: string;
@@ -67,6 +67,10 @@ export interface ListMetricExtensionsRequest extends common.BaseRequest {
    * A filter to return metric extensions based on input resource Id on which metric extension is enabled
    */
   "enabledOnResourceId"?: string;
+  /**
+   * Identifier for the metric extension
+   */
+  "metricExtensionId"?: string;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a
    * particular request, please provide the request ID.

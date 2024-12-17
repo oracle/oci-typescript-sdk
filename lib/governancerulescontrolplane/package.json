@@ -1,6 +1,6 @@
 {
   "name": "oci-governancerulescontrolplane",
-  "version": "2.100.0",
+  "version": "2.100.1",
   "description": "OCI NodeJS client for Governance Rules Control Plane Service",
   "repository": {
     "type": "git",

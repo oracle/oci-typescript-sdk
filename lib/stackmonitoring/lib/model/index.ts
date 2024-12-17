@@ -107,6 +107,12 @@ import * as EvaluateBaselineableMetricDetails from "./evaluate-baselineable-metr
 export import EvaluateBaselineableMetricDetails = EvaluateBaselineableMetricDetails.EvaluateBaselineableMetricDetails;
 import * as EvaluateBaselineableMetricResult from "./evaluate-baselineable-metric-result";
 export import EvaluateBaselineableMetricResult = EvaluateBaselineableMetricResult.EvaluateBaselineableMetricResult;
+import * as HttpProtocolTypes from "./http-protocol-types";
+export import HttpProtocolTypes = HttpProtocolTypes.HttpProtocolTypes;
+import * as HttpResponseContentTypes from "./http-response-content-types";
+export import HttpResponseContentTypes = HttpResponseContentTypes.HttpResponseContentTypes;
+import * as HttpScriptFileDetails from "./http-script-file-details";
+export import HttpScriptFileDetails = HttpScriptFileDetails.HttpScriptFileDetails;
 import * as LicenseType from "./license-type";
 export import LicenseType = LicenseType.LicenseType;
 import * as LifecycleState from "./lifecycle-state";
@@ -261,6 +267,8 @@ import * as UpdateBaselineableMetricDetails from "./update-baselineable-metric-d
 export import UpdateBaselineableMetricDetails = UpdateBaselineableMetricDetails.UpdateBaselineableMetricDetails;
 import * as UpdateConfigDetails from "./update-config-details";
 export import UpdateConfigDetails = UpdateConfigDetails.UpdateConfigDetails;
+import * as UpdateHttpScriptFileDetails from "./update-http-script-file-details";
+export import UpdateHttpScriptFileDetails = UpdateHttpScriptFileDetails.UpdateHttpScriptFileDetails;
 import * as UpdateMaintenanceWindowDetails from "./update-maintenance-window-details";
 export import UpdateMaintenanceWindowDetails = UpdateMaintenanceWindowDetails.UpdateMaintenanceWindowDetails;
 import * as UpdateMetricExtensionDetails from "./update-metric-extension-details";
@@ -302,6 +310,10 @@ import * as CreateLicenseEnterpriseExtensibilityConfigDetails from "./create-lic
 export import CreateLicenseEnterpriseExtensibilityConfigDetails = CreateLicenseEnterpriseExtensibilityConfigDetails.CreateLicenseEnterpriseExtensibilityConfigDetails;
 import * as EncryptedCredentials from "./encrypted-credentials";
 export import EncryptedCredentials = EncryptedCredentials.EncryptedCredentials;
+import * as HttpQueryProperties from "./http-query-properties";
+export import HttpQueryProperties = HttpQueryProperties.HttpQueryProperties;
+import * as HttpUpdateQueryProperties from "./http-update-query-properties";
+export import HttpUpdateQueryProperties = HttpUpdateQueryProperties.HttpUpdateQueryProperties;
 import * as ImportOciTelemetryResourcesTaskDetails from "./import-oci-telemetry-resources-task-details";
 export import ImportOciTelemetryResourcesTaskDetails = ImportOciTelemetryResourcesTaskDetails.ImportOciTelemetryResourcesTaskDetails;
 import * as JmxQueryProperties from "./jmx-query-properties";

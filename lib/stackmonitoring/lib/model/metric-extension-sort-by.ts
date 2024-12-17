@@ -19,7 +19,8 @@ import common = require("oci-common");
  **/
 export enum MetricExtensionSortBy {
   Name = "NAME",
-  TimeCreated = "TIME_CREATED"
+  TimeCreated = "TIME_CREATED",
+  EnabledOnResourceCount = "ENABLED_ON_RESOURCE_COUNT"
 }
 
 export namespace MetricExtensionSortBy {

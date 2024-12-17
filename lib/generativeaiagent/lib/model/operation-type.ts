@@ -1,9 +1,6 @@
 /**
  * Generative AI Agents Management API
- * **Generative AI Agents API**
-
-
-OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
+ * OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
 
 OCI Generative AI Agents supports several ways to onboard your data and then allows you and your customers to interact with your data using a chat interface or API.
 
@@ -47,6 +44,9 @@ export enum OperationType {
   MoveKnowledgeBase = "MOVE_KNOWLEDGE_BASE",
   CreateDataIngestionJob = "CREATE_DATA_INGESTION_JOB",
   DeleteDataIngestionJob = "DELETE_DATA_INGESTION_JOB",
+  CreateTool = "CREATE_TOOL",
+  UpdateTool = "UPDATE_TOOL",
+  DeleteTool = "DELETE_TOOL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

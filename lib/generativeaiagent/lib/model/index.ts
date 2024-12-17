@@ -1,9 +1,6 @@
 /**
  * Generative AI Agents Management API
- * **Generative AI Agents API**
-
-
-OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
+ * OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
 
 OCI Generative AI Agents supports several ways to onboard your data and then allows you and your customers to interact with your data using a chat interface or API.
 
@@ -85,6 +82,8 @@ import * as KnowledgeBase from "./knowledge-base";
 export import KnowledgeBase = KnowledgeBase.KnowledgeBase;
 import * as KnowledgeBaseCollection from "./knowledge-base-collection";
 export import KnowledgeBaseCollection = KnowledgeBaseCollection.KnowledgeBaseCollection;
+import * as KnowledgeBaseStatistics from "./knowledge-base-statistics";
+export import KnowledgeBaseStatistics = KnowledgeBaseStatistics.KnowledgeBaseStatistics;
 import * as KnowledgeBaseSummary from "./knowledge-base-summary";
 export import KnowledgeBaseSummary = KnowledgeBaseSummary.KnowledgeBaseSummary;
 import * as ObjectStoragePrefix from "./object-storage-prefix";

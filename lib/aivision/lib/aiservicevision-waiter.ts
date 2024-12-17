@@ -98,6 +98,24 @@ export class AIServiceVisionWaiter {
   }
 
   /**
+   * Waits forVideoJob till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVideoJobResponse
+   */
+  public async forVideoJob(
+    request: serviceRequests.GetVideoJobRequest,
+    ...targetStates: models.VideoJob.LifecycleState[]
+  ): Promise<serviceResponses.GetVideoJobResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getVideoJob(request),
+      response => targetStates.includes(response.videoJob.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

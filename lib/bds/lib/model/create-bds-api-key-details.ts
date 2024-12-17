@@ -39,6 +39,10 @@ export interface CreateBdsApiKeyDetails {
    *
    */
   "keyAlias": string;
+  /**
+   * Identity domain OCID , where user is present. For default domain , this field will be optional.
+   */
+  "domainOcid"?: string;
 }
 
 export namespace CreateBdsApiKeyDetails {

@@ -23,6 +23,10 @@ export interface DomainBasedOdhPatchingConfig extends model.OdhPatchingConfig {
    * The wait time between AD/FD in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "waitTimeBetweenDomainInSeconds": number;
+  /**
+   * Acceptable number of failed-to-be-patched nodes in each domain. The maximum number of failed-to-patch nodes cannot exceed 20% of the number of non-utility and non-master nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "toleranceThresholdPerDomain"?: number;
 
   "patchingConfigStrategy": string;
 }

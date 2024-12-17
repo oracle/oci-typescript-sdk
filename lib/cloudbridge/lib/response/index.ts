@@ -127,3 +127,5 @@ import * as UpdateAgentDependencyResponse from "./update-agent-dependency-respon
 export import UpdateAgentDependencyResponse = UpdateAgentDependencyResponse.UpdateAgentDependencyResponse;
 import * as UpdateEnvironmentResponse from "./update-environment-response";
 export import UpdateEnvironmentResponse = UpdateEnvironmentResponse.UpdateEnvironmentResponse;
+import * as UpdatePluginResponse from "./update-plugin-response";
+export import UpdatePluginResponse = UpdatePluginResponse.UpdatePluginResponse;

@@ -106,6 +106,7 @@ export interface BdsInstance {
    * Profile of the Big Data Service cluster.
    */
   "clusterProfile"?: BdsInstance.ClusterProfile;
+  "bdsClusterVersionSummary"?: model.BdsClusterVersionSummary;
 }
 
 export namespace BdsInstance {
@@ -172,6 +173,10 @@ export namespace BdsInstance {
           : undefined,
         "cloudSqlDetails": obj.cloudSqlDetails
           ? model.CloudSqlDetails.getJsonObj(obj.cloudSqlDetails)
+          : undefined,
+
+        "bdsClusterVersionSummary": obj.bdsClusterVersionSummary
+          ? model.BdsClusterVersionSummary.getJsonObj(obj.bdsClusterVersionSummary)
           : undefined
       }
     };
@@ -195,6 +200,10 @@ export namespace BdsInstance {
           : undefined,
         "cloudSqlDetails": obj.cloudSqlDetails
           ? model.CloudSqlDetails.getDeserializedJsonObj(obj.cloudSqlDetails)
+          : undefined,
+
+        "bdsClusterVersionSummary": obj.bdsClusterVersionSummary
+          ? model.BdsClusterVersionSummary.getDeserializedJsonObj(obj.bdsClusterVersionSummary)
           : undefined
       }
     };

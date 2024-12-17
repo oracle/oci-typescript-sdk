@@ -369,6 +369,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     */
   "dbToolsDetails"?: Array<model.DatabaseTool>;
   /**
+   * True if the Autonomous Database is backup retention locked.
+   */
+  "isBackupRetentionLocked"?: boolean;
+  /**
     * The OCI vault secret [/Content/General/Concepts/identifiers.htm]OCID.
 * <p>
 This cannot be used in conjunction with adminPassword.

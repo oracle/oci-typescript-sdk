@@ -1,9 +1,6 @@
 /**
  * Generative AI Agents Management API
- * **Generative AI Agents API**
-
-
-OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
+ * OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
 
 OCI Generative AI Agents supports several ways to onboard your data and then allows you and your customers to interact with your data using a chat interface or API.
 
@@ -250,16 +247,14 @@ export class GenerativeAiAgentClient {
   }
 
   /**
-     * **CancelWorkRequest**
-* <p>
-Cancels a work request.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CancelWorkRequestRequest
-     * @return CancelWorkRequestResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
-     */
+   * Cancels a work request.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelWorkRequestRequest
+   * @return CancelWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
@@ -321,17 +316,15 @@ Cancels a work request.
   }
 
   /**
-     * **ChangeAgentCompartment**
-* <p>
-Moves an agent into a different compartment within the same tenancy. For information about moving resources between
-* compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ChangeAgentCompartmentRequest
-     * @return ChangeAgentCompartmentResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeAgentCompartment.ts.html |here} to see how to use ChangeAgentCompartment API.
-     */
+   * Moves an agent into a different compartment within the same tenancy. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeAgentCompartmentRequest
+   * @return ChangeAgentCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeAgentCompartment.ts.html |here} to see how to use ChangeAgentCompartment API.
+   */
   public async changeAgentCompartment(
     changeAgentCompartmentRequest: requests.ChangeAgentCompartmentRequest
   ): Promise<responses.ChangeAgentCompartmentResponse> {
@@ -404,17 +397,15 @@ Moves an agent into a different compartment within the same tenancy. For informa
   }
 
   /**
-     * **ChangeAgentEndpointCompartment**
-* <p>
-Moves an endpoint into a different compartment within the same tenancy. For information about moving resources between
-* compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ChangeAgentEndpointCompartmentRequest
-     * @return ChangeAgentEndpointCompartmentResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeAgentEndpointCompartment.ts.html |here} to see how to use ChangeAgentEndpointCompartment API.
-     */
+   * Moves an endpoint into a different compartment within the same tenancy. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeAgentEndpointCompartmentRequest
+   * @return ChangeAgentEndpointCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeAgentEndpointCompartment.ts.html |here} to see how to use ChangeAgentEndpointCompartment API.
+   */
   public async changeAgentEndpointCompartment(
     changeAgentEndpointCompartmentRequest: requests.ChangeAgentEndpointCompartmentRequest
   ): Promise<responses.ChangeAgentEndpointCompartmentResponse> {
@@ -489,17 +480,15 @@ Moves an endpoint into a different compartment within the same tenancy. For info
   }
 
   /**
-     * **ChangeKnowledgeBaseCompartment**
-* <p>
-Moves a knowledge base into a different compartment within the same tenancy. For information about moving resources between
-* compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ChangeKnowledgeBaseCompartmentRequest
-     * @return ChangeKnowledgeBaseCompartmentResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeKnowledgeBaseCompartment.ts.html |here} to see how to use ChangeKnowledgeBaseCompartment API.
-     */
+   * Moves a knowledge base into a different compartment within the same tenancy. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeKnowledgeBaseCompartmentRequest
+   * @return ChangeKnowledgeBaseCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeKnowledgeBaseCompartment.ts.html |here} to see how to use ChangeKnowledgeBaseCompartment API.
+   */
   public async changeKnowledgeBaseCompartment(
     changeKnowledgeBaseCompartmentRequest: requests.ChangeKnowledgeBaseCompartmentRequest
   ): Promise<responses.ChangeKnowledgeBaseCompartmentResponse> {
@@ -574,16 +563,14 @@ Moves a knowledge base into a different compartment within the same tenancy. For
   }
 
   /**
-     * **CreateAgent**
-* <p>
-Creates an agent.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAgentRequest
-     * @return CreateAgentResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateAgent.ts.html |here} to see how to use CreateAgent API.
-     */
+   * Creates an agent.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateAgentRequest
+   * @return CreateAgentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateAgent.ts.html |here} to see how to use CreateAgent API.
+   */
   public async createAgent(
     createAgentRequest: requests.CreateAgentRequest
   ): Promise<responses.CreateAgentResponse> {
@@ -671,16 +658,14 @@ Creates an agent.
   }
 
   /**
-     * **CreateAgentEndpoint**
-* <p>
-Creates an endpoint.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateAgentEndpointRequest
-     * @return CreateAgentEndpointResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateAgentEndpoint.ts.html |here} to see how to use CreateAgentEndpoint API.
-     */
+   * Creates an endpoint.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateAgentEndpointRequest
+   * @return CreateAgentEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateAgentEndpoint.ts.html |here} to see how to use CreateAgentEndpoint API.
+   */
   public async createAgentEndpoint(
     createAgentEndpointRequest: requests.CreateAgentEndpointRequest
   ): Promise<responses.CreateAgentEndpointResponse> {
@@ -769,16 +754,14 @@ Creates an endpoint.
   }
 
   /**
-     * **CreateDataIngestionJob**
-* <p>
-Creates a data ingestion job.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateDataIngestionJobRequest
-     * @return CreateDataIngestionJobResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateDataIngestionJob.ts.html |here} to see how to use CreateDataIngestionJob API.
-     */
+   * Creates a data ingestion job.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDataIngestionJobRequest
+   * @return CreateDataIngestionJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateDataIngestionJob.ts.html |here} to see how to use CreateDataIngestionJob API.
+   */
   public async createDataIngestionJob(
     createDataIngestionJobRequest: requests.CreateDataIngestionJobRequest
   ): Promise<responses.CreateDataIngestionJobResponse> {
@@ -867,16 +850,14 @@ Creates a data ingestion job.
   }
 
   /**
-     * **CreateDataSource**
-* <p>
-Creates a data source.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateDataSourceRequest
-     * @return CreateDataSourceResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateDataSource.ts.html |here} to see how to use CreateDataSource API.
-     */
+   * Creates a data source.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDataSourceRequest
+   * @return CreateDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateDataSource.ts.html |here} to see how to use CreateDataSource API.
+   */
   public async createDataSource(
     createDataSourceRequest: requests.CreateDataSourceRequest
   ): Promise<responses.CreateDataSourceResponse> {
@@ -965,16 +946,14 @@ Creates a data source.
   }
 
   /**
-     * **CreateKnowledgeBase**
-* <p>
-Creates a knowledge base.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param CreateKnowledgeBaseRequest
-     * @return CreateKnowledgeBaseResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateKnowledgeBase.ts.html |here} to see how to use CreateKnowledgeBase API.
-     */
+   * Creates a knowledge base.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateKnowledgeBaseRequest
+   * @return CreateKnowledgeBaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateKnowledgeBase.ts.html |here} to see how to use CreateKnowledgeBase API.
+   */
   public async createKnowledgeBase(
     createKnowledgeBaseRequest: requests.CreateKnowledgeBaseRequest
   ): Promise<responses.CreateKnowledgeBaseResponse> {
@@ -1063,16 +1042,14 @@ Creates a knowledge base.
   }
 
   /**
-     * **DeleteAgent**
-* <p>
-Deletes an agent.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAgentRequest
-     * @return DeleteAgentResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteAgent.ts.html |here} to see how to use DeleteAgent API.
-     */
+   * Deletes an agent.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteAgentRequest
+   * @return DeleteAgentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteAgent.ts.html |here} to see how to use DeleteAgent API.
+   */
   public async deleteAgent(
     deleteAgentRequest: requests.DeleteAgentRequest
   ): Promise<responses.DeleteAgentResponse> {
@@ -1138,16 +1115,14 @@ Deletes an agent.
   }
 
   /**
-     * **DeleteAgentEndpoint**
-* <p>
-Deletes an endpoint.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteAgentEndpointRequest
-     * @return DeleteAgentEndpointResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteAgentEndpoint.ts.html |here} to see how to use DeleteAgentEndpoint API.
-     */
+   * Deletes an endpoint.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteAgentEndpointRequest
+   * @return DeleteAgentEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteAgentEndpoint.ts.html |here} to see how to use DeleteAgentEndpoint API.
+   */
   public async deleteAgentEndpoint(
     deleteAgentEndpointRequest: requests.DeleteAgentEndpointRequest
   ): Promise<responses.DeleteAgentEndpointResponse> {
@@ -1214,16 +1189,14 @@ Deletes an endpoint.
   }
 
   /**
-     * **DeleteDataIngestionJob**
-* <p>
-Deletes a data ingestion job.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteDataIngestionJobRequest
-     * @return DeleteDataIngestionJobResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteDataIngestionJob.ts.html |here} to see how to use DeleteDataIngestionJob API.
-     */
+   * Deletes a data ingestion job.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteDataIngestionJobRequest
+   * @return DeleteDataIngestionJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteDataIngestionJob.ts.html |here} to see how to use DeleteDataIngestionJob API.
+   */
   public async deleteDataIngestionJob(
     deleteDataIngestionJobRequest: requests.DeleteDataIngestionJobRequest
   ): Promise<responses.DeleteDataIngestionJobResponse> {
@@ -1290,16 +1263,14 @@ Deletes a data ingestion job.
   }
 
   /**
-     * **DeleteDataSource**
-* <p>
-Deletes a data source.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteDataSourceRequest
-     * @return DeleteDataSourceResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteDataSource.ts.html |here} to see how to use DeleteDataSource API.
-     */
+   * Deletes a data source.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteDataSourceRequest
+   * @return DeleteDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteDataSource.ts.html |here} to see how to use DeleteDataSource API.
+   */
   public async deleteDataSource(
     deleteDataSourceRequest: requests.DeleteDataSourceRequest
   ): Promise<responses.DeleteDataSourceResponse> {
@@ -1366,16 +1337,14 @@ Deletes a data source.
   }
 
   /**
-     * **DeleteKnowledgeBase**
-* <p>
-Deletes a knowledge base.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param DeleteKnowledgeBaseRequest
-     * @return DeleteKnowledgeBaseResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteKnowledgeBase.ts.html |here} to see how to use DeleteKnowledgeBase API.
-     */
+   * Deletes a knowledge base.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteKnowledgeBaseRequest
+   * @return DeleteKnowledgeBaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteKnowledgeBase.ts.html |here} to see how to use DeleteKnowledgeBase API.
+   */
   public async deleteKnowledgeBase(
     deleteKnowledgeBaseRequest: requests.DeleteKnowledgeBaseRequest
   ): Promise<responses.DeleteKnowledgeBaseResponse> {
@@ -1442,16 +1411,14 @@ Deletes a knowledge base.
   }
 
   /**
-     * **GetAgent**
-* <p>
-Gets information about an agent.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAgentRequest
-     * @return GetAgentResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetAgent.ts.html |here} to see how to use GetAgent API.
-     */
+   * Gets information about an agent.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAgentRequest
+   * @return GetAgentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetAgent.ts.html |here} to see how to use GetAgent API.
+   */
   public async getAgent(
     getAgentRequest: requests.GetAgentRequest
   ): Promise<responses.GetAgentResponse> {
@@ -1520,16 +1487,14 @@ Gets information about an agent.
   }
 
   /**
-     * **GetAgentEndpoint**
-* <p>
-Gets information about an endpoint.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetAgentEndpointRequest
-     * @return GetAgentEndpointResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetAgentEndpoint.ts.html |here} to see how to use GetAgentEndpoint API.
-     */
+   * Gets information about an endpoint.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAgentEndpointRequest
+   * @return GetAgentEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetAgentEndpoint.ts.html |here} to see how to use GetAgentEndpoint API.
+   */
   public async getAgentEndpoint(
     getAgentEndpointRequest: requests.GetAgentEndpointRequest
   ): Promise<responses.GetAgentEndpointResponse> {
@@ -1599,16 +1564,14 @@ Gets information about an endpoint.
   }
 
   /**
-     * **GetDataIngestionJob**
-* <p>
-Gets information about a data ingestion job.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetDataIngestionJobRequest
-     * @return GetDataIngestionJobResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataIngestionJob.ts.html |here} to see how to use GetDataIngestionJob API.
-     */
+   * Gets information about a data ingestion job.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDataIngestionJobRequest
+   * @return GetDataIngestionJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataIngestionJob.ts.html |here} to see how to use GetDataIngestionJob API.
+   */
   public async getDataIngestionJob(
     getDataIngestionJobRequest: requests.GetDataIngestionJobRequest
   ): Promise<responses.GetDataIngestionJobResponse> {
@@ -1678,16 +1641,14 @@ Gets information about a data ingestion job.
   }
 
   /**
-     * **GetDataIngestionJobLogContent**
-* <p>
-Returns the raw log file for the specified data ingestion job in text format.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetDataIngestionJobLogContentRequest
-     * @return GetDataIngestionJobLogContentResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataIngestionJobLogContent.ts.html |here} to see how to use GetDataIngestionJobLogContent API.
-     */
+   * Returns the raw log file for the specified data ingestion job in text format.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDataIngestionJobLogContentRequest
+   * @return GetDataIngestionJobLogContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataIngestionJobLogContent.ts.html |here} to see how to use GetDataIngestionJobLogContent API.
+   */
   public async getDataIngestionJobLogContent(
     getDataIngestionJobLogContentRequest: requests.GetDataIngestionJobLogContentRequest
   ): Promise<responses.GetDataIngestionJobLogContentResponse> {
@@ -1752,16 +1713,14 @@ Returns the raw log file for the specified data ingestion job in text format.
   }
 
   /**
-     * **GetDataSource**
-* <p>
-Gets information about a data source.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetDataSourceRequest
-     * @return GetDataSourceResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataSource.ts.html |here} to see how to use GetDataSource API.
-     */
+   * Gets information about a data source.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDataSourceRequest
+   * @return GetDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataSource.ts.html |here} to see how to use GetDataSource API.
+   */
   public async getDataSource(
     getDataSourceRequest: requests.GetDataSourceRequest
   ): Promise<responses.GetDataSourceResponse> {
@@ -1830,16 +1789,14 @@ Gets information about a data source.
   }
 
   /**
-     * **GetKnowledgeBase**
-* <p>
-Gets information about a knowledge base.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetKnowledgeBaseRequest
-     * @return GetKnowledgeBaseResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetKnowledgeBase.ts.html |here} to see how to use GetKnowledgeBase API.
-     */
+   * Gets information about a knowledge base.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetKnowledgeBaseRequest
+   * @return GetKnowledgeBaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetKnowledgeBase.ts.html |here} to see how to use GetKnowledgeBase API.
+   */
   public async getKnowledgeBase(
     getKnowledgeBaseRequest: requests.GetKnowledgeBaseRequest
   ): Promise<responses.GetKnowledgeBaseResponse> {
@@ -1909,16 +1866,14 @@ Gets information about a knowledge base.
   }
 
   /**
-     * **GetWorkRequest**
-* <p>
-Gets the details of a work request.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param GetWorkRequestRequest
-     * @return GetWorkRequestResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
-     */
+   * Gets the details of a work request.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetWorkRequestRequest
+   * @return GetWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
@@ -1992,16 +1947,14 @@ Gets the details of a work request.
   }
 
   /**
-     * **ListAgentEndpoints**
-* <p>
-Gets a list of endpoints.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAgentEndpointsRequest
-     * @return ListAgentEndpointsResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListAgentEndpoints.ts.html |here} to see how to use ListAgentEndpoints API.
-     */
+   * Gets a list of endpoints.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAgentEndpointsRequest
+   * @return ListAgentEndpointsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListAgentEndpoints.ts.html |here} to see how to use ListAgentEndpoints API.
+   */
   public async listAgentEndpoints(
     listAgentEndpointsRequest: requests.ListAgentEndpointsRequest
   ): Promise<responses.ListAgentEndpointsResponse> {
@@ -2078,16 +2031,14 @@ Gets a list of endpoints.
   }
 
   /**
-     * **ListAgents** 
-* <p>
-Gets a list of agents.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListAgentsRequest
-     * @return ListAgentsResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListAgents.ts.html |here} to see how to use ListAgents API.
-     */
+   * Gets a list of agents.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAgentsRequest
+   * @return ListAgentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListAgents.ts.html |here} to see how to use ListAgents API.
+   */
   public async listAgents(
     listAgentsRequest: requests.ListAgentsRequest
   ): Promise<responses.ListAgentsResponse> {
@@ -2162,16 +2113,14 @@ Gets a list of agents.
   }
 
   /**
-     * **ListDataIngestionJobs**
-* <p>
-Gets a list of data ingestion jobs.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListDataIngestionJobsRequest
-     * @return ListDataIngestionJobsResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListDataIngestionJobs.ts.html |here} to see how to use ListDataIngestionJobs API.
-     */
+   * Gets a list of data ingestion jobs.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDataIngestionJobsRequest
+   * @return ListDataIngestionJobsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListDataIngestionJobs.ts.html |here} to see how to use ListDataIngestionJobs API.
+   */
   public async listDataIngestionJobs(
     listDataIngestionJobsRequest: requests.ListDataIngestionJobsRequest
   ): Promise<responses.ListDataIngestionJobsResponse> {
@@ -2248,16 +2197,14 @@ Gets a list of data ingestion jobs.
   }
 
   /**
-     * **ListDataSources**
-* <p>
-Gets a list of data sources.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListDataSourcesRequest
-     * @return ListDataSourcesResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListDataSources.ts.html |here} to see how to use ListDataSources API.
-     */
+   * Gets a list of data sources.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDataSourcesRequest
+   * @return ListDataSourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListDataSources.ts.html |here} to see how to use ListDataSources API.
+   */
   public async listDataSources(
     listDataSourcesRequest: requests.ListDataSourcesRequest
   ): Promise<responses.ListDataSourcesResponse> {
@@ -2334,16 +2281,14 @@ Gets a list of data sources.
   }
 
   /**
-     * **ListKnowledgeBases**
-* <p>
-Gets a list of knowledge bases.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListKnowledgeBasesRequest
-     * @return ListKnowledgeBasesResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListKnowledgeBases.ts.html |here} to see how to use ListKnowledgeBases API.
-     */
+   * Gets a list of knowledge bases.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListKnowledgeBasesRequest
+   * @return ListKnowledgeBasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListKnowledgeBases.ts.html |here} to see how to use ListKnowledgeBases API.
+   */
   public async listKnowledgeBases(
     listKnowledgeBasesRequest: requests.ListKnowledgeBasesRequest
   ): Promise<responses.ListKnowledgeBasesResponse> {
@@ -2419,16 +2364,14 @@ Gets a list of knowledge bases.
   }
 
   /**
-     * **ListWorkRequestErrors**
-* <p>
-Lists the errors for a work request.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListWorkRequestErrorsRequest
-     * @return ListWorkRequestErrorsResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
-     */
+   * Lists the errors for a work request.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkRequestErrorsRequest
+   * @return ListWorkRequestErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
@@ -2503,16 +2446,14 @@ Lists the errors for a work request.
   }
 
   /**
-     * **ListWorkRequestLogs**
-* <p>
-Lists the logs for a work request.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListWorkRequestLogsRequest
-     * @return ListWorkRequestLogsResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
-     */
+   * Lists the logs for a work request.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkRequestLogsRequest
+   * @return ListWorkRequestLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
@@ -2587,16 +2528,14 @@ Lists the logs for a work request.
   }
 
   /**
-     * **ListWorkRequests**
-* <p>
-Lists the work requests in a compartment.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param ListWorkRequestsRequest
-     * @return ListWorkRequestsResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
-     */
+   * Lists the work requests in a compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkRequestsRequest
+   * @return ListWorkRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
@@ -2673,16 +2612,14 @@ Lists the work requests in a compartment.
   }
 
   /**
-     * **UpdateAgent**
-* <p>
-Updates an agent.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAgentRequest
-     * @return UpdateAgentResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateAgent.ts.html |here} to see how to use UpdateAgent API.
-     */
+   * Updates an agent.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAgentRequest
+   * @return UpdateAgentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateAgent.ts.html |here} to see how to use UpdateAgent API.
+   */
   public async updateAgent(
     updateAgentRequest: requests.UpdateAgentRequest
   ): Promise<responses.UpdateAgentResponse> {
@@ -2753,16 +2690,14 @@ Updates an agent.
   }
 
   /**
-     * **UpdateAgentEndpoint**
-* <p>
-Updates an endpoint.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateAgentEndpointRequest
-     * @return UpdateAgentEndpointResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateAgentEndpoint.ts.html |here} to see how to use UpdateAgentEndpoint API.
-     */
+   * Updates an endpoint.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAgentEndpointRequest
+   * @return UpdateAgentEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateAgentEndpoint.ts.html |here} to see how to use UpdateAgentEndpoint API.
+   */
   public async updateAgentEndpoint(
     updateAgentEndpointRequest: requests.UpdateAgentEndpointRequest
   ): Promise<responses.UpdateAgentEndpointResponse> {
@@ -2834,16 +2769,14 @@ Updates an endpoint.
   }
 
   /**
-     * **UpdateDataSource**
-* <p>
-Updates a data source.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateDataSourceRequest
-     * @return UpdateDataSourceResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateDataSource.ts.html |here} to see how to use UpdateDataSource API.
-     */
+   * Updates a data source.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateDataSourceRequest
+   * @return UpdateDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateDataSource.ts.html |here} to see how to use UpdateDataSource API.
+   */
   public async updateDataSource(
     updateDataSourceRequest: requests.UpdateDataSourceRequest
   ): Promise<responses.UpdateDataSourceResponse> {
@@ -2915,16 +2848,14 @@ Updates a data source.
   }
 
   /**
-     * **UpdateKnowledgeBase**
-* <p>
-Updates a knowledge base.
-* 
-     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-     * @param UpdateKnowledgeBaseRequest
-     * @return UpdateKnowledgeBaseResponse
-     * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateKnowledgeBase.ts.html |here} to see how to use UpdateKnowledgeBase API.
-     */
+   * Updates a knowledge base.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateKnowledgeBaseRequest
+   * @return UpdateKnowledgeBaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateKnowledgeBase.ts.html |here} to see how to use UpdateKnowledgeBase API.
+   */
   public async updateKnowledgeBase(
     updateKnowledgeBaseRequest: requests.UpdateKnowledgeBaseRequest
   ): Promise<responses.UpdateKnowledgeBaseResponse> {

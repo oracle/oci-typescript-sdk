@@ -29,7 +29,13 @@ export enum TechnologyType {
   AmazonRdsMysql = "AMAZON_RDS_MYSQL",
   AzureMysql = "AZURE_MYSQL",
   GoogleCloudSqlMysql = "GOOGLE_CLOUD_SQL_MYSQL",
-  MysqlServer = "MYSQL_SERVER"
+  MysqlServer = "MYSQL_SERVER",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace TechnologyType {

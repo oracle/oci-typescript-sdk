@@ -537,6 +537,75 @@ export class AIServiceVisionClient {
   }
 
   /**
+   * Cancel a video analysis job.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CancelVideoJobRequest
+   * @return CancelVideoJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/CancelVideoJob.ts.html |here} to see how to use CancelVideoJob API.
+   */
+  public async cancelVideoJob(
+    cancelVideoJobRequest: requests.CancelVideoJobRequest
+  ): Promise<responses.CancelVideoJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#cancelVideoJob.");
+    const operationName = "cancelVideoJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/VideoJob/CancelVideoJob";
+    const pathParams = {
+      "{videoJobId}": cancelVideoJobRequest.videoJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelVideoJobRequest.ifMatch,
+      "opc-request-id": cancelVideoJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelVideoJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/videoJobs/{videoJobId}/actions/cancel",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelVideoJobResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancel the work request with the given ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelWorkRequestRequest
@@ -1087,6 +1156,87 @@ export class AIServiceVisionClient {
   }
 
   /**
+   * Create a video analysis job with given inputs and features.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateVideoJobRequest
+   * @return CreateVideoJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/CreateVideoJob.ts.html |here} to see how to use CreateVideoJob API.
+   */
+  public async createVideoJob(
+    createVideoJobRequest: requests.CreateVideoJobRequest
+  ): Promise<responses.CreateVideoJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#createVideoJob.");
+    const operationName = "createVideoJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/VideoJob/CreateVideoJob";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createVideoJobRequest.opcRetryToken,
+      "opc-request-id": createVideoJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVideoJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/videoJobs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVideoJobRequest.createVideoJobDetails,
+        "CreateVideoJobDetails",
+        model.CreateVideoJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVideoJobResponse>{},
+        body: await response.json(),
+        bodyKey: "videoJob",
+        bodyModel: model.VideoJob,
+        type: "model.VideoJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a model by identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteModelRequest
@@ -1517,6 +1667,83 @@ export class AIServiceVisionClient {
         bodyKey: "project",
         bodyModel: model.Project,
         type: "model.Project",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get details of a video analysis job.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetVideoJobRequest
+   * @return GetVideoJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/GetVideoJob.ts.html |here} to see how to use GetVideoJob API.
+   */
+  public async getVideoJob(
+    getVideoJobRequest: requests.GetVideoJobRequest
+  ): Promise<responses.GetVideoJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getVideoJob.");
+    const operationName = "getVideoJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/VideoJob/GetVideoJob";
+    const pathParams = {
+      "{videoJobId}": getVideoJobRequest.videoJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVideoJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVideoJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/videoJobs/{videoJobId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVideoJobResponse>{},
+        body: await response.json(),
+        bodyKey: "videoJob",
+        bodyModel: model.VideoJob,
+        type: "model.VideoJob",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

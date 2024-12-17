@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Script details applicable to any OS Command based Metric Extension which needs to run a script to collect data
+ * Script details applicable to any OS Command based Metric Extension which needs to run a script to collect data. For removing it during update, set its \"content\" property to an empty string. In that case, \"name\" property value is ignored.
  */
 export interface ScriptFileDetails {
   /**

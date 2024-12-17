@@ -25,7 +25,7 @@ export interface AssetSourceCredentials {
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the secret in a vault.
    * If the type of the credentials is {@code BASIC}, the secret must contain the username and
-   * password in JSON format, which is in the form of {@code { \"username\": \"<User>\", \"password\": \"<Password>\" }}.
+   * password in JSON format, which is in the form of {@code { \"username\": \"<User>\", \"password\": \"example-password\" }}.
    * If the type of the credentials is {@code API_KEY}, the secret must contain the accessKeyId and
    * secretAccessKey in JSON format,
    * which is in the form of {@code { \"accessKeyId\": \"<AccessKey>\", \"secretAccessKey\": \"<AccessKeyValue>\" }}.

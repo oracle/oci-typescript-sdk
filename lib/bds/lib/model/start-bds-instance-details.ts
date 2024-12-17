@@ -23,16 +23,31 @@ export interface StartBdsInstanceDetails {
    * Base-64 encoded password for the cluster admin user.
    */
   "clusterAdminPassword": string;
+  "startClusterShapeConfigs"?: model.StartClusterShapeConfigs;
 }
 
 export namespace StartBdsInstanceDetails {
   export function getJsonObj(obj: StartBdsInstanceDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "startClusterShapeConfigs": obj.startClusterShapeConfigs
+          ? model.StartClusterShapeConfigs.getJsonObj(obj.startClusterShapeConfigs)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: StartBdsInstanceDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "startClusterShapeConfigs": obj.startClusterShapeConfigs
+          ? model.StartClusterShapeConfigs.getDeserializedJsonObj(obj.startClusterShapeConfigs)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

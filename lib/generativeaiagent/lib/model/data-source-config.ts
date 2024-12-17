@@ -1,9 +1,6 @@
 /**
  * Generative AI Agents Management API
- * **Generative AI Agents API**
-
-
-OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
+ * OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
 
 OCI Generative AI Agents supports several ways to onboard your data and then allows you and your customers to interact with your data using a chat interface or API.
 
@@ -27,12 +24,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* **DataSourceConfig**
-* <p>
-The details of data source.
-* 
-*/
+ * The details of data source.
+ *
+ */
 export interface DataSourceConfig {
+  /**
+   * Flag to enable or disable multi modality such as image processing while ingestion of data. True enable the processing and false exclude the multi modality contents during ingestion.
+   */
+  "shouldEnableMultiModality"?: boolean;
+
   "dataSourceConfigType": string;
 }
 

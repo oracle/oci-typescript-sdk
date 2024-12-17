@@ -1074,6 +1074,92 @@ export class GoldenGateClient {
   }
 
   /**
+   * Moves the Pipeline into a different compartment within the same tenancy. When
+   * provided, If-Match is checked against ETag values of the resource.  For information about
+   * moving resources between compartments, see [Moving Resources Between
+   * Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangePipelineCompartmentRequest
+   * @return ChangePipelineCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangePipelineCompartment.ts.html |here} to see how to use ChangePipelineCompartment API.
+   */
+  public async changePipelineCompartment(
+    changePipelineCompartmentRequest: requests.ChangePipelineCompartmentRequest
+  ): Promise<responses.ChangePipelineCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#changePipelineCompartment.");
+    const operationName = "changePipelineCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/ChangePipelineCompartment";
+    const pathParams = {
+      "{pipelineId}": changePipelineCompartmentRequest.pipelineId
+    };
+
+    const queryParams = {
+      "isLockOverride": changePipelineCompartmentRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changePipelineCompartmentRequest.ifMatch,
+      "opc-request-id": changePipelineCompartmentRequest.opcRequestId,
+      "opc-retry-token": changePipelineCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePipelineCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changePipelineCompartmentRequest.changePipelineCompartmentDetails,
+        "ChangePipelineCompartmentDetails",
+        model.ChangePipelineCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangePipelineCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Collects the diagnostic of a Deployment. When provided, If-Match is checked against ETag values of the resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1763,6 +1849,92 @@ export class GoldenGateClient {
   }
 
   /**
+   * Creates a new Pipeline.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreatePipelineRequest
+   * @return CreatePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreatePipeline.ts.html |here} to see how to use CreatePipeline API.
+   */
+  public async createPipeline(
+    createPipelineRequest: requests.CreatePipelineRequest
+  ): Promise<responses.CreatePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#createPipeline.");
+    const operationName = "createPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/CreatePipeline";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPipelineRequest.opcRetryToken,
+      "opc-request-id": createPipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPipelineRequest.createPipelineDetails,
+        "CreatePipelineDetails",
+        model.CreatePipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "pipeline",
+        bodyModel: model.Pipeline,
+        type: "model.Pipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the certificate from truststore.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2205,6 +2377,82 @@ export class GoldenGateClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDeploymentBackupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Pipeline.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeletePipelineRequest
+   * @return DeletePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeletePipeline.ts.html |here} to see how to use DeletePipeline API.
+   */
+  public async deletePipeline(
+    deletePipelineRequest: requests.DeletePipelineRequest
+  ): Promise<responses.DeletePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#deletePipeline.");
+    const operationName = "deletePipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/DeletePipeline";
+    const pathParams = {
+      "{pipelineId}": deletePipelineRequest.pipelineId
+    };
+
+    const queryParams = {
+      "isLockOverride": deletePipelineRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePipelineRequest.ifMatch,
+      "opc-request-id": deletePipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePipelineResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3003,6 +3251,83 @@ export class GoldenGateClient {
         bodyKey: "deploymentUpgrade",
         bodyModel: model.DeploymentUpgrade,
         type: "model.DeploymentUpgrade",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a Pipeline details.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPipelineRequest
+   * @return GetPipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetPipeline.ts.html |here} to see how to use GetPipeline API.
+   */
+  public async getPipeline(
+    getPipelineRequest: requests.GetPipelineRequest
+  ): Promise<responses.GetPipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getPipeline.");
+    const operationName = "getPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/GetPipeline";
+    const pathParams = {
+      "{pipelineId}": getPipelineRequest.pipelineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "pipeline",
+        bodyModel: model.Pipeline,
+        type: "model.Pipeline",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4194,7 +4519,505 @@ export class GoldenGateClient {
   }
 
   /**
-   * Lists the TrailFiles for a deployment. Deprecated: Please access trail file management functions directly on OGG console which are available since version Oracle GoldenGate 23c.
+   * Retrieves a Pipeline recipe steps and its progress details.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPipelineInitializationStepsRequest
+   * @return ListPipelineInitializationStepsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineInitializationSteps.ts.html |here} to see how to use ListPipelineInitializationSteps API.
+   */
+  public async listPipelineInitializationSteps(
+    listPipelineInitializationStepsRequest: requests.ListPipelineInitializationStepsRequest
+  ): Promise<responses.ListPipelineInitializationStepsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listPipelineInitializationSteps.");
+    const operationName = "listPipelineInitializationSteps";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/ListPipelineInitializationSteps";
+    const pathParams = {
+      "{pipelineId}": listPipelineInitializationStepsRequest.pipelineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPipelineInitializationStepsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPipelineInitializationStepsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/initializationSteps",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPipelineInitializationStepsResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineInitializationSteps",
+        bodyModel: model.PipelineInitializationSteps,
+        type: "model.PipelineInitializationSteps",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a Pipeline's running replication process's status like extracts/replicats.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPipelineRunningProcessesRequest
+   * @return ListPipelineRunningProcessesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineRunningProcesses.ts.html |here} to see how to use ListPipelineRunningProcesses API.
+   */
+  public async listPipelineRunningProcesses(
+    listPipelineRunningProcessesRequest: requests.ListPipelineRunningProcessesRequest
+  ): Promise<responses.ListPipelineRunningProcessesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listPipelineRunningProcesses.");
+    const operationName = "listPipelineRunningProcesses";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/ListPipelineRunningProcesses";
+    const pathParams = {
+      "{pipelineId}": listPipelineRunningProcessesRequest.pipelineId
+    };
+
+    const queryParams = {
+      "limit": listPipelineRunningProcessesRequest.limit,
+      "page": listPipelineRunningProcessesRequest.page,
+      "sortOrder": listPipelineRunningProcessesRequest.sortOrder,
+      "sortBy": listPipelineRunningProcessesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPipelineRunningProcessesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPipelineRunningProcessesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/runningProcesses",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPipelineRunningProcessesResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineRunningProcessCollection",
+        bodyModel: model.PipelineRunningProcessCollection,
+        type: "model.PipelineRunningProcessCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns an array of tables under the given schemas of the pipeline for given source and target schemas passed as query params.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPipelineSchemaTablesRequest
+   * @return ListPipelineSchemaTablesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineSchemaTables.ts.html |here} to see how to use ListPipelineSchemaTables API.
+   */
+  public async listPipelineSchemaTables(
+    listPipelineSchemaTablesRequest: requests.ListPipelineSchemaTablesRequest
+  ): Promise<responses.ListPipelineSchemaTablesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listPipelineSchemaTables.");
+    const operationName = "listPipelineSchemaTables";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/ListPipelineSchemaTables";
+    const pathParams = {
+      "{pipelineId}": listPipelineSchemaTablesRequest.pipelineId
+    };
+
+    const queryParams = {
+      "sourceSchemaName": listPipelineSchemaTablesRequest.sourceSchemaName,
+      "targetSchemaName": listPipelineSchemaTablesRequest.targetSchemaName,
+      "displayName": listPipelineSchemaTablesRequest.displayName,
+      "limit": listPipelineSchemaTablesRequest.limit,
+      "page": listPipelineSchemaTablesRequest.page,
+      "sortOrder": listPipelineSchemaTablesRequest.sortOrder,
+      "sortBy": listPipelineSchemaTablesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPipelineSchemaTablesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPipelineSchemaTablesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/schemaTables",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPipelineSchemaTablesResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineSchemaTableCollection",
+        bodyModel: model.PipelineSchemaTableCollection,
+        type: "model.PipelineSchemaTableCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns an array of schemas based on mapping rules for a pipeline.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPipelineSchemasRequest
+   * @return ListPipelineSchemasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineSchemas.ts.html |here} to see how to use ListPipelineSchemas API.
+   */
+  public async listPipelineSchemas(
+    listPipelineSchemasRequest: requests.ListPipelineSchemasRequest
+  ): Promise<responses.ListPipelineSchemasResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listPipelineSchemas.");
+    const operationName = "listPipelineSchemas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/ListPipelineSchemas";
+    const pathParams = {
+      "{pipelineId}": listPipelineSchemasRequest.pipelineId
+    };
+
+    const queryParams = {
+      "displayName": listPipelineSchemasRequest.displayName,
+      "limit": listPipelineSchemasRequest.limit,
+      "page": listPipelineSchemasRequest.page,
+      "sortOrder": listPipelineSchemasRequest.sortOrder,
+      "sortBy": listPipelineSchemasRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPipelineSchemasRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPipelineSchemasRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/schemas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPipelineSchemasResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineSchemaCollection",
+        bodyModel: model.PipelineSchemaCollection,
+        type: "model.PipelineSchemaCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Pipelines in the compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPipelinesRequest
+   * @return ListPipelinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelines.ts.html |here} to see how to use ListPipelines API.
+   */
+  public async listPipelines(
+    listPipelinesRequest: requests.ListPipelinesRequest
+  ): Promise<responses.ListPipelinesResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listPipelines.");
+    const operationName = "listPipelines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/ListPipelines";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPipelinesRequest.compartmentId,
+      "lifecycleState": listPipelinesRequest.lifecycleState,
+      "lifecycleSubState": listPipelinesRequest.lifecycleSubState,
+      "displayName": listPipelinesRequest.displayName,
+      "limit": listPipelinesRequest.limit,
+      "page": listPipelinesRequest.page,
+      "sortOrder": listPipelinesRequest.sortOrder,
+      "sortBy": listPipelinesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPipelinesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPipelinesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPipelinesResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineCollection",
+        bodyModel: model.PipelineCollection,
+        type: "model.PipelineCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns an array of Recipe Summary.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRecipesRequest
+   * @return ListRecipesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListRecipes.ts.html |here} to see how to use ListRecipes API.
+   */
+  public async listRecipes(
+    listRecipesRequest: requests.ListRecipesRequest
+  ): Promise<responses.ListRecipesResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listRecipes.");
+    const operationName = "listRecipes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/RecipeSummaryCollection/ListRecipes";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listRecipesRequest.compartmentId,
+      "recipeType": listRecipesRequest.recipeType,
+      "displayName": listRecipesRequest.displayName,
+      "limit": listRecipesRequest.limit,
+      "page": listRecipesRequest.page,
+      "sortOrder": listRecipesRequest.sortOrder,
+      "sortBy": listRecipesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRecipesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRecipesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/recipes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRecipesResponse>{},
+        body: await response.json(),
+        bodyKey: "recipeSummaryCollection",
+        bodyModel: model.RecipeSummaryCollection,
+        type: "model.RecipeSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the TrailFiles for a deployment.
+   * Deprecated: Please access trail file management functions directly on OGG console which are available since version Oracle GoldenGate 23c.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTrailFilesRequest
@@ -4277,7 +5100,8 @@ export class GoldenGateClient {
   }
 
   /**
-   * Lists the Trail Sequences for a TrailFile in a given deployment. Deprecated: Please access trail file management functions directly on OGG console which are available since version Oracle GoldenGate 23c.
+   * Lists the Trail Sequences for a TrailFile in a given deployment.
+   * Deprecated: Please access trail file management functions directly on OGG console which are available since version Oracle GoldenGate 23c.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTrailSequencesRequest
@@ -5492,6 +6316,88 @@ export class GoldenGateClient {
   }
 
   /**
+   * Starts the pipeline for data replication.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StartPipelineRequest
+   * @return StartPipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/StartPipeline.ts.html |here} to see how to use StartPipeline API.
+   */
+  public async startPipeline(
+    startPipelineRequest: requests.StartPipelineRequest
+  ): Promise<responses.StartPipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#startPipeline.");
+    const operationName = "startPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/StartPipeline";
+    const pathParams = {
+      "{pipelineId}": startPipelineRequest.pipelineId
+    };
+
+    const queryParams = {
+      "isLockOverride": startPipelineRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": startPipelineRequest.ifMatch,
+      "opc-request-id": startPipelineRequest.opcRequestId,
+      "opc-retry-token": startPipelineRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startPipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/actions/start",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        startPipelineRequest.startPipelineDetails,
+        "StartPipelineDetails",
+        model.StartPipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartPipelineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Stops a Deployment. When provided, If-Match is checked against ETag values of the resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -5553,6 +6459,88 @@ export class GoldenGateClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopDeploymentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Stops the pipeline for data replication.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StopPipelineRequest
+   * @return StopPipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/StopPipeline.ts.html |here} to see how to use StopPipeline API.
+   */
+  public async stopPipeline(
+    stopPipelineRequest: requests.StopPipelineRequest
+  ): Promise<responses.StopPipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#stopPipeline.");
+    const operationName = "stopPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/StopPipeline";
+    const pathParams = {
+      "{pipelineId}": stopPipelineRequest.pipelineId
+    };
+
+    const queryParams = {
+      "isLockOverride": stopPipelineRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopPipelineRequest.ifMatch,
+      "opc-request-id": stopPipelineRequest.opcRequestId,
+      "opc-retry-token": stopPipelineRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopPipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/actions/stop",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        stopPipelineRequest.stopPipelineDetails,
+        "StopPipelineDetails",
+        model.StopPipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopPipelineResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -5639,6 +6627,92 @@ export class GoldenGateClient {
         bodyKey: "testConnectionAssignmentResult",
         bodyModel: model.TestConnectionAssignmentResult,
         type: "model.TestConnectionAssignmentResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Tests pipeline connections against pipeline to verify the connectivity.
+   * When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param TestPipelineConnectionRequest
+   * @return TestPipelineConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/TestPipelineConnection.ts.html |here} to see how to use TestPipelineConnection API.
+   */
+  public async testPipelineConnection(
+    testPipelineConnectionRequest: requests.TestPipelineConnectionRequest
+  ): Promise<responses.TestPipelineConnectionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#testPipelineConnection.");
+    const operationName = "testPipelineConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/TestPipelineConnection";
+    const pathParams = {
+      "{pipelineId}": testPipelineConnectionRequest.pipelineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": testPipelineConnectionRequest.opcRequestId,
+      "if-match": testPipelineConnectionRequest.ifMatch,
+      "opc-retry-token": testPipelineConnectionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testPipelineConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/actions/testConnection",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        testPipelineConnectionRequest.testPipelineConnectionDetails,
+        "TestPipelineConnectionDetails",
+        model.TestPipelineConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TestPipelineConnectionResponse>{},
+        body: await response.json(),
+        bodyKey: "testPipelineConnectionResult",
+        bodyModel: model.TestPipelineConnectionResult,
+        type: "model.TestPipelineConnectionResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5977,6 +7051,87 @@ export class GoldenGateClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Pipeline.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdatePipelineRequest
+   * @return UpdatePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdatePipeline.ts.html |here} to see how to use UpdatePipeline API.
+   */
+  public async updatePipeline(
+    updatePipelineRequest: requests.UpdatePipelineRequest
+  ): Promise<responses.UpdatePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#updatePipeline.");
+    const operationName = "updatePipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/UpdatePipeline";
+    const pathParams = {
+      "{pipelineId}": updatePipelineRequest.pipelineId
+    };
+
+    const queryParams = {
+      "isLockOverride": updatePipelineRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePipelineRequest.ifMatch,
+      "opc-request-id": updatePipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePipelineRequest.updatePipelineDetails,
+        "UpdatePipelineDetails",
+        model.UpdatePipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePipelineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

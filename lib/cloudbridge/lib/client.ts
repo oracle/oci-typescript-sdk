@@ -5401,4 +5401,82 @@ export class OcbAgentSvcClient {
       throw err;
     }
   }
+
+  /**
+   * Updates the plugin.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdatePluginRequest
+   * @return UpdatePluginResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdatePlugin.ts.html |here} to see how to use UpdatePlugin API.
+   */
+  public async updatePlugin(
+    updatePluginRequest: requests.UpdatePluginRequest
+  ): Promise<responses.UpdatePluginResponse> {
+    if (this.logger) this.logger.debug("Calling operation OcbAgentSvcClient#updatePlugin.");
+    const operationName = "updatePlugin";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{agentId}": updatePluginRequest.agentId,
+      "{pluginName}": updatePluginRequest.pluginName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePluginRequest.ifMatch,
+      "opc-request-id": updatePluginRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePluginRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/agents/{agentId}/plugins/{pluginName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePluginRequest.updatePluginDetails,
+        "UpdatePluginDetails",
+        model.UpdatePluginDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePluginResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
 }

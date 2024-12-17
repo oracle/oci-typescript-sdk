@@ -3791,7 +3791,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
       "name": listMetricExtensionsRequest.name,
       "status": listMetricExtensionsRequest.status,
       "lifecycleState": listMetricExtensionsRequest.lifecycleState,
-      "enabledOnResourceId": listMetricExtensionsRequest.enabledOnResourceId
+      "enabledOnResourceId": listMetricExtensionsRequest.enabledOnResourceId,
+      "metricExtensionId": listMetricExtensionsRequest.metricExtensionId
     };
 
     let headerParams = {

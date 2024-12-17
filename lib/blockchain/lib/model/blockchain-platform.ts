@@ -59,7 +59,7 @@ export interface BlockchainPlatform {
    */
   "platformRole": BlockchainPlatform.PlatformRole;
   /**
-   * Compute shape - STANDARD or ENTERPRISE_SMALL or ENTERPRISE_MEDIUM or ENTERPRISE_LARGE or ENTERPRISE_EXTRA_LARGE or ENTERPRISE_CUSTOM
+   * Compute shape - STANDARD or ENTERPRISE_SMALL or ENTERPRISE_MEDIUM or ENTERPRISE_LARGE or ENTERPRISE_EXTRA_LARGE or ENTERPRISE_CUSTOM or DIGITAL_ASSETS_MEDIUM or DIGITAL_ASSETS_LARGE or DIGITAL_ASSETS_EXTRA_LARGE
    */
   "computeShape": BlockchainPlatform.ComputeShape;
   /**
@@ -136,6 +136,9 @@ export namespace BlockchainPlatform {
     EnterpriseLarge = "ENTERPRISE_LARGE",
     EnterpriseExtraLarge = "ENTERPRISE_EXTRA_LARGE",
     EnterpriseCustom = "ENTERPRISE_CUSTOM",
+    DigitalAssetsMedium = "DIGITAL_ASSETS_MEDIUM",
+    DigitalAssetsLarge = "DIGITAL_ASSETS_LARGE",
+    DigitalAssetsExtraLarge = "DIGITAL_ASSETS_EXTRA_LARGE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

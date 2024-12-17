@@ -43,16 +43,31 @@ export interface UpdateBdsInstanceDetails {
    * The OCID of the Key Management master encryption key.
    */
   "kmsKeyId"?: string;
+  "networkConfig"?: model.NetworkConfig;
 }
 
 export namespace UpdateBdsInstanceDetails {
   export function getJsonObj(obj: UpdateBdsInstanceDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networkConfig": obj.networkConfig
+          ? model.NetworkConfig.getJsonObj(obj.networkConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateBdsInstanceDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "networkConfig": obj.networkConfig
+          ? model.NetworkConfig.getDeserializedJsonObj(obj.networkConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

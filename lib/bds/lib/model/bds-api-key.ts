@@ -59,6 +59,10 @@ export interface BdsApiKey {
    * The state of the key.
    */
   "lifecycleState": BdsApiKey.LifecycleState;
+  /**
+   * Identity domain OCID ,where user is present. For default domain ,this field will be optional.
+   */
+  "domainOcid"?: string;
 }
 
 export namespace BdsApiKey {
