@@ -49,7 +49,8 @@ export interface CreateMetricExtensionDetails {
   "queryProperties":
     | model.OsCommandQueryProperties
     | model.SqlQueryProperties
-    | model.JmxQueryProperties;
+    | model.JmxQueryProperties
+    | model.HttpQueryProperties;
 }
 
 export namespace CreateMetricExtensionDetails {

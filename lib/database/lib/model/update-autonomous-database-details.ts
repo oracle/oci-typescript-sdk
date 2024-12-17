@@ -368,6 +368,10 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
   "resourcePoolLeaderId"?: string;
   "resourcePoolSummary"?: model.ResourcePoolSummary;
   /**
+   * True if the Autonomous Database is backup retention locked.
+   */
+  "isBackupRetentionLocked"?: boolean;
+  /**
     * The list of scheduled operations. Consists of values such as dayOfWeek, scheduledStartTime, scheduledStopTime.
 * <p>
 This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
@@ -459,6 +463,7 @@ export namespace UpdateAutonomousDatabaseDetails {
         "resourcePoolSummary": obj.resourcePoolSummary
           ? model.ResourcePoolSummary.getJsonObj(obj.resourcePoolSummary)
           : undefined,
+
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getJsonObj(item);
@@ -496,6 +501,7 @@ export namespace UpdateAutonomousDatabaseDetails {
         "resourcePoolSummary": obj.resourcePoolSummary
           ? model.ResourcePoolSummary.getDeserializedJsonObj(obj.resourcePoolSummary)
           : undefined,
+
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getDeserializedJsonObj(item);

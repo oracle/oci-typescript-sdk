@@ -42,6 +42,11 @@ export namespace MetricExtensionQueryProperties {
             <model.JmxQueryProperties>(<object>jsonObj),
             true
           );
+        case "HTTP":
+          return model.HttpQueryProperties.getJsonObj(
+            <model.HttpQueryProperties>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger)
             common.LOG.logger.info(`Unknown value for: ${obj.collectionMethod}`);
@@ -67,6 +72,11 @@ export namespace MetricExtensionQueryProperties {
         case "JMX":
           return model.JmxQueryProperties.getDeserializedJsonObj(
             <model.JmxQueryProperties>(<object>jsonObj),
+            true
+          );
+        case "HTTP":
+          return model.HttpQueryProperties.getDeserializedJsonObj(
+            <model.HttpQueryProperties>(<object>jsonObj),
             true
           );
         default:

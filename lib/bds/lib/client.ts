@@ -322,6 +322,169 @@ export class BdsClient {
   }
 
   /**
+   * Activate IAM user sync configuration for the given identity configuration
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ActivateIamUserSyncConfigurationRequest
+   * @return ActivateIamUserSyncConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ActivateIamUserSyncConfiguration.ts.html |here} to see how to use ActivateIamUserSyncConfiguration API.
+   */
+  public async activateIamUserSyncConfiguration(
+    activateIamUserSyncConfigurationRequest: requests.ActivateIamUserSyncConfigurationRequest
+  ): Promise<responses.ActivateIamUserSyncConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#activateIamUserSyncConfiguration.");
+    const operationName = "activateIamUserSyncConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/ActivateIamUserSyncConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": activateIamUserSyncConfigurationRequest.bdsInstanceId,
+      "{identityConfigurationId}": activateIamUserSyncConfigurationRequest.identityConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": activateIamUserSyncConfigurationRequest.opcRetryToken,
+      "if-match": activateIamUserSyncConfigurationRequest.ifMatch,
+      "opc-request-id": activateIamUserSyncConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateIamUserSyncConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/identityConfigurations/{identityConfigurationId}/actions/activateIamUserSyncConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        activateIamUserSyncConfigurationRequest.activateIamUserSyncConfigurationDetails,
+        "ActivateIamUserSyncConfigurationDetails",
+        model.ActivateIamUserSyncConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateIamUserSyncConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Activate UPST configuration for the given identity configuration
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ActivateUpstConfigurationRequest
+   * @return ActivateUpstConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ActivateUpstConfiguration.ts.html |here} to see how to use ActivateUpstConfiguration API.
+   */
+  public async activateUpstConfiguration(
+    activateUpstConfigurationRequest: requests.ActivateUpstConfigurationRequest
+  ): Promise<responses.ActivateUpstConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#activateUpstConfiguration.");
+    const operationName = "activateUpstConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/ActivateUpstConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": activateUpstConfigurationRequest.bdsInstanceId,
+      "{identityConfigurationId}": activateUpstConfigurationRequest.identityConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": activateUpstConfigurationRequest.opcRetryToken,
+      "if-match": activateUpstConfigurationRequest.ifMatch,
+      "opc-request-id": activateUpstConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateUpstConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/identityConfigurations/{identityConfigurationId}/actions/activateUpstConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        activateUpstConfigurationRequest.activateUpstConfigurationDetails,
+        "ActivateUpstConfigurationDetails",
+        model.ActivateUpstConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateUpstConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Add an autoscale configuration to the cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1442,6 +1605,84 @@ export class BdsClient {
   }
 
   /**
+   * Create an identity configuration for the cluster
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateIdentityConfigurationRequest
+   * @return CreateIdentityConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateIdentityConfiguration.ts.html |here} to see how to use CreateIdentityConfiguration API.
+   */
+  public async createIdentityConfiguration(
+    createIdentityConfigurationRequest: requests.CreateIdentityConfigurationRequest
+  ): Promise<responses.CreateIdentityConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#createIdentityConfiguration.");
+    const operationName = "createIdentityConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/CreateIdentityConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": createIdentityConfigurationRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createIdentityConfigurationRequest.opcRetryToken,
+      "opc-request-id": createIdentityConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createIdentityConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/identityConfigurations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createIdentityConfigurationRequest.createIdentityConfigurationDetails,
+        "CreateIdentityConfigurationDetails",
+        model.CreateIdentityConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateIdentityConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Add a node volume backup configuration to the cluster for an indicated node type or node.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1682,6 +1923,169 @@ export class BdsClient {
   }
 
   /**
+   * Deactivate the IAM user sync configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeactivateIamUserSyncConfigurationRequest
+   * @return DeactivateIamUserSyncConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeactivateIamUserSyncConfiguration.ts.html |here} to see how to use DeactivateIamUserSyncConfiguration API.
+   */
+  public async deactivateIamUserSyncConfiguration(
+    deactivateIamUserSyncConfigurationRequest: requests.DeactivateIamUserSyncConfigurationRequest
+  ): Promise<responses.DeactivateIamUserSyncConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#deactivateIamUserSyncConfiguration.");
+    const operationName = "deactivateIamUserSyncConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/DeactivateIamUserSyncConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": deactivateIamUserSyncConfigurationRequest.bdsInstanceId,
+      "{identityConfigurationId}": deactivateIamUserSyncConfigurationRequest.identityConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deactivateIamUserSyncConfigurationRequest.opcRequestId,
+      "if-match": deactivateIamUserSyncConfigurationRequest.ifMatch,
+      "opc-retry-token": deactivateIamUserSyncConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateIamUserSyncConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/identityConfigurations/{identityConfigurationId}/actions/deactivateIamUserSyncConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        deactivateIamUserSyncConfigurationRequest.deactivateIamUserSyncConfigurationDetails,
+        "DeactivateIamUserSyncConfigurationDetails",
+        model.DeactivateIamUserSyncConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeactivateIamUserSyncConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deactivate the UPST configuration represented by the provided ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeactivateUpstConfigurationRequest
+   * @return DeactivateUpstConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeactivateUpstConfiguration.ts.html |here} to see how to use DeactivateUpstConfiguration API.
+   */
+  public async deactivateUpstConfiguration(
+    deactivateUpstConfigurationRequest: requests.DeactivateUpstConfigurationRequest
+  ): Promise<responses.DeactivateUpstConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#deactivateUpstConfiguration.");
+    const operationName = "deactivateUpstConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/DeactivateUpstConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": deactivateUpstConfigurationRequest.bdsInstanceId,
+      "{identityConfigurationId}": deactivateUpstConfigurationRequest.identityConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deactivateUpstConfigurationRequest.opcRequestId,
+      "opc-retry-token": deactivateUpstConfigurationRequest.opcRetryToken,
+      "if-match": deactivateUpstConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateUpstConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/identityConfigurations/{identityConfigurationId}/actions/deactivateUpstConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        deactivateUpstConfigurationRequest.deactivateUpstConfigurationDetails,
+        "DeactivateUpstConfigurationDetails",
+        model.DeactivateUpstConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeactivateUpstConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the user's API key represented by the provided ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBdsApiKeyRequest
@@ -1883,6 +2287,80 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBdsMetastoreConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the identity configuration represented by the provided ID. Deletion is only allowed if this identity configuration is not associated with any active IAM user sync configuration or UPST configuration.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteIdentityConfigurationRequest
+   * @return DeleteIdentityConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteIdentityConfiguration.ts.html |here} to see how to use DeleteIdentityConfiguration API.
+   */
+  public async deleteIdentityConfiguration(
+    deleteIdentityConfigurationRequest: requests.DeleteIdentityConfigurationRequest
+  ): Promise<responses.DeleteIdentityConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#deleteIdentityConfiguration.");
+    const operationName = "deleteIdentityConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/DeleteIdentityConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": deleteIdentityConfigurationRequest.bdsInstanceId,
+      "{identityConfigurationId}": deleteIdentityConfigurationRequest.identityConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteIdentityConfigurationRequest.opcRequestId,
+      "if-match": deleteIdentityConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteIdentityConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/identityConfigurations/{identityConfigurationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteIdentityConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2664,6 +3142,88 @@ export class BdsClient {
         bodyKey: "bdsMetastoreConfiguration",
         bodyModel: model.BdsMetastoreConfiguration,
         type: "model.BdsMetastoreConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get details of one identity config on the cluster
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetIdentityConfigurationRequest
+   * @return GetIdentityConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetIdentityConfiguration.ts.html |here} to see how to use GetIdentityConfiguration API.
+   */
+  public async getIdentityConfiguration(
+    getIdentityConfigurationRequest: requests.GetIdentityConfigurationRequest
+  ): Promise<responses.GetIdentityConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getIdentityConfiguration.");
+    const operationName = "getIdentityConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/GetIdentityConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": getIdentityConfigurationRequest.bdsInstanceId,
+      "{identityConfigurationId}": getIdentityConfigurationRequest.identityConfigurationId
+    };
+
+    const queryParams = {
+      "page": getIdentityConfigurationRequest.page,
+      "limit": getIdentityConfigurationRequest.limit,
+      "sortBy": getIdentityConfigurationRequest.sortBy,
+      "sortOrder": getIdentityConfigurationRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getIdentityConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIdentityConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/identityConfigurations/{identityConfigurationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetIdentityConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "identityConfiguration",
+        bodyModel: model.IdentityConfiguration,
+        type: "model.IdentityConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3591,6 +4151,138 @@ export class BdsClient {
   }
 
   /**
+   * Returns a list of cluster versions with associated odh and bds versions.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBdsClusterVersionsRequest
+   * @return ListBdsClusterVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsClusterVersions.ts.html |here} to see how to use ListBdsClusterVersions API.
+   */
+  public async listBdsClusterVersions(
+    listBdsClusterVersionsRequest: requests.ListBdsClusterVersionsRequest
+  ): Promise<responses.ListBdsClusterVersionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listBdsClusterVersions.");
+    const operationName = "listBdsClusterVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsClusterVersionSummary/ListBdsClusterVersions";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": listBdsClusterVersionsRequest.page,
+      "limit": listBdsClusterVersionsRequest.limit,
+      "sortBy": listBdsClusterVersionsRequest.sortBy,
+      "sortOrder": listBdsClusterVersionsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBdsClusterVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBdsClusterVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsClusterVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBdsClusterVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.BdsClusterVersionSummary,
+        type: "Array<model.BdsClusterVersionSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBdsClusterVersionsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.BdsClusterVersionSummary objects
+   * contained in responses from the listBdsClusterVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBdsClusterVersions(
+    request: requests.ListBdsClusterVersionsRequest
+  ): AsyncIterableIterator<model.BdsClusterVersionSummary> {
+    return paginateRecords(request, req => this.listBdsClusterVersions(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBdsClusterVersionsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listBdsClusterVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBdsClusterVersionsResponses(
+    request: requests.ListBdsClusterVersionsRequest
+  ): AsyncIterableIterator<responses.ListBdsClusterVersionsResponse> {
+    return paginateResponses(request, req => this.listBdsClusterVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BdsClusterVersionSummary objects
+   * contained in responses from the listBdsClusterVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBdsClusterVersionsRecordIterator(
+    request: requests.ListBdsClusterVersionsRequest
+  ): AsyncIterableIterator<model.BdsClusterVersionSummary> {
+    return paginateRecords(request, req => this.listBdsClusterVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBdsClusterVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBdsClusterVersionsResponseIterator(
+    request: requests.ListBdsClusterVersionsRequest
+  ): AsyncIterableIterator<responses.ListBdsClusterVersionsResponse> {
+    return paginateResponses(request, req => this.listBdsClusterVersions(req));
+  }
+
+  /**
    * Returns a list of all Big Data Service clusters in a compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3863,6 +4555,143 @@ export class BdsClient {
     request: requests.ListBdsMetastoreConfigurationsRequest
   ): AsyncIterableIterator<responses.ListBdsMetastoreConfigurationsResponse> {
     return paginateResponses(request, req => this.listBdsMetastoreConfigurations(req));
+  }
+
+  /**
+   * Returns a list of all identity configurations associated with this Big Data Service cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListIdentityConfigurationsRequest
+   * @return ListIdentityConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListIdentityConfigurations.ts.html |here} to see how to use ListIdentityConfigurations API.
+   */
+  public async listIdentityConfigurations(
+    listIdentityConfigurationsRequest: requests.ListIdentityConfigurationsRequest
+  ): Promise<responses.ListIdentityConfigurationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listIdentityConfigurations.");
+    const operationName = "listIdentityConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/ListIdentityConfigurations";
+    const pathParams = {
+      "{bdsInstanceId}": listIdentityConfigurationsRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "page": listIdentityConfigurationsRequest.page,
+      "limit": listIdentityConfigurationsRequest.limit,
+      "compartmentId": listIdentityConfigurationsRequest.compartmentId,
+      "sortBy": listIdentityConfigurationsRequest.sortBy,
+      "sortOrder": listIdentityConfigurationsRequest.sortOrder,
+      "lifecycleState": listIdentityConfigurationsRequest.lifecycleState,
+      "displayName": listIdentityConfigurationsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listIdentityConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIdentityConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/identityConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIdentityConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.IdentityConfigurationSummary,
+        type: "Array<model.IdentityConfigurationSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIdentityConfigurationsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.IdentityConfigurationSummary objects
+   * contained in responses from the listIdentityConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIdentityConfigurations(
+    request: requests.ListIdentityConfigurationsRequest
+  ): AsyncIterableIterator<model.IdentityConfigurationSummary> {
+    return paginateRecords(request, req => this.listIdentityConfigurations(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listIdentityConfigurationsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listIdentityConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllIdentityConfigurationsResponses(
+    request: requests.ListIdentityConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListIdentityConfigurationsResponse> {
+    return paginateResponses(request, req => this.listIdentityConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.IdentityConfigurationSummary objects
+   * contained in responses from the listIdentityConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIdentityConfigurationsRecordIterator(
+    request: requests.ListIdentityConfigurationsRequest
+  ): AsyncIterableIterator<model.IdentityConfigurationSummary> {
+    return paginateRecords(request, req => this.listIdentityConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listIdentityConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listIdentityConfigurationsResponseIterator(
+    request: requests.ListIdentityConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListIdentityConfigurationsResponse> {
+    return paginateResponses(request, req => this.listIdentityConfigurations(req));
   }
 
   /**
@@ -5224,6 +6053,170 @@ export class BdsClient {
   }
 
   /**
+   * Refresh confidential application for the given identity configuration in case of any update to the confidential application (e.g. regenerated client secret)
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RefreshConfidentialApplicationRequest
+   * @return RefreshConfidentialApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RefreshConfidentialApplication.ts.html |here} to see how to use RefreshConfidentialApplication API.
+   */
+  public async refreshConfidentialApplication(
+    refreshConfidentialApplicationRequest: requests.RefreshConfidentialApplicationRequest
+  ): Promise<responses.RefreshConfidentialApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#refreshConfidentialApplication.");
+    const operationName = "refreshConfidentialApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/RefreshConfidentialApplication";
+    const pathParams = {
+      "{bdsInstanceId}": refreshConfidentialApplicationRequest.bdsInstanceId,
+      "{identityConfigurationId}": refreshConfidentialApplicationRequest.identityConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": refreshConfidentialApplicationRequest.opcRetryToken,
+      "if-match": refreshConfidentialApplicationRequest.ifMatch,
+      "opc-request-id": refreshConfidentialApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshConfidentialApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/identityConfigurations/{identityConfigurationId}/actions/refreshConfidentialApplication",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        refreshConfidentialApplicationRequest.refreshConfidentialApplicationDetails,
+        "RefreshConfidentialApplicationDetails",
+        model.RefreshConfidentialApplicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshConfidentialApplicationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Refresh token exchange kerberos principal keytab for the UPST enabled identity configuration
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RefreshUpstTokenExchangeKeytabRequest
+   * @return RefreshUpstTokenExchangeKeytabResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RefreshUpstTokenExchangeKeytab.ts.html |here} to see how to use RefreshUpstTokenExchangeKeytab API.
+   */
+  public async refreshUpstTokenExchangeKeytab(
+    refreshUpstTokenExchangeKeytabRequest: requests.RefreshUpstTokenExchangeKeytabRequest
+  ): Promise<responses.RefreshUpstTokenExchangeKeytabResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#refreshUpstTokenExchangeKeytab.");
+    const operationName = "refreshUpstTokenExchangeKeytab";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/RefreshUpstTokenExchangeKeytab";
+    const pathParams = {
+      "{bdsInstanceId}": refreshUpstTokenExchangeKeytabRequest.bdsInstanceId,
+      "{identityConfigurationId}": refreshUpstTokenExchangeKeytabRequest.identityConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": refreshUpstTokenExchangeKeytabRequest.opcRetryToken,
+      "opc-request-id": refreshUpstTokenExchangeKeytabRequest.opcRequestId,
+      "if-match": refreshUpstTokenExchangeKeytabRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshUpstTokenExchangeKeytabRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/identityConfigurations/{identityConfigurationId}/actions/refreshUpstTokenExchangeKeytab",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        refreshUpstTokenExchangeKeytabRequest.refreshUpstTokenExchangeKeytabDetails,
+        "RefreshUpstTokenExchangeKeytabDetails",
+        model.RefreshUpstTokenExchangeKeytabDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshUpstTokenExchangeKeytabResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes an autoscale configuration.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -6492,6 +7485,86 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBdsMetastoreConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the IAM user sync and UPST configuration for the specified identity configuration
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateIdentityConfigurationRequest
+   * @return UpdateIdentityConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateIdentityConfiguration.ts.html |here} to see how to use UpdateIdentityConfiguration API.
+   */
+  public async updateIdentityConfiguration(
+    updateIdentityConfigurationRequest: requests.UpdateIdentityConfigurationRequest
+  ): Promise<responses.UpdateIdentityConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#updateIdentityConfiguration.");
+    const operationName = "updateIdentityConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/IdentityConfiguration/UpdateIdentityConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": updateIdentityConfigurationRequest.bdsInstanceId,
+      "{identityConfigurationId}": updateIdentityConfigurationRequest.identityConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateIdentityConfigurationRequest.opcRetryToken,
+      "if-match": updateIdentityConfigurationRequest.ifMatch,
+      "opc-request-id": updateIdentityConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateIdentityConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/identityConfigurations/{identityConfigurationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateIdentityConfigurationRequest.updateIdentityConfigurationDetails,
+        "UpdateIdentityConfigurationDetails",
+        model.UpdateIdentityConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateIdentityConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

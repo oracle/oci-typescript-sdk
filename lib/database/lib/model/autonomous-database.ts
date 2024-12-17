@@ -212,6 +212,10 @@ For Autonomous Transaction Processing databases using ECPUs on Serverless Infras
    */
   "autonomousContainerDatabaseId"?: string;
   /**
+   * Indicates if the Autonomous Database is backup retention locked.
+   */
+  "isBackupRetentionLocked"?: boolean;
+  /**
    * The date and time the Autonomous Database was most recently undeleted.
    *
    */

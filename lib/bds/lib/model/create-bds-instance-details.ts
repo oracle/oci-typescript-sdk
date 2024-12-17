@@ -80,6 +80,7 @@ export interface CreateBdsInstanceDetails {
    * Profile of the Big Data Service cluster.
    */
   "clusterProfile"?: string;
+  "bdsClusterVersionSummary"?: model.BdsClusterVersionSummary;
 }
 
 export namespace CreateBdsInstanceDetails {
@@ -95,6 +96,10 @@ export namespace CreateBdsInstanceDetails {
           ? obj.nodes.map(item => {
               return model.CreateNodeDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "bdsClusterVersionSummary": obj.bdsClusterVersionSummary
+          ? model.BdsClusterVersionSummary.getJsonObj(obj.bdsClusterVersionSummary)
           : undefined
       }
     };
@@ -113,6 +118,10 @@ export namespace CreateBdsInstanceDetails {
           ? obj.nodes.map(item => {
               return model.CreateNodeDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "bdsClusterVersionSummary": obj.bdsClusterVersionSummary
+          ? model.BdsClusterVersionSummary.getDeserializedJsonObj(obj.bdsClusterVersionSummary)
           : undefined
       }
     };

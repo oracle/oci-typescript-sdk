@@ -42,6 +42,11 @@ export namespace MetricExtensionUpdateQueryProperties {
             <model.OsCommandUpdateQueryProperties>(<object>jsonObj),
             true
           );
+        case "HTTP":
+          return model.HttpUpdateQueryProperties.getJsonObj(
+            <model.HttpUpdateQueryProperties>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger)
             common.LOG.logger.info(`Unknown value for: ${obj.collectionMethod}`);
@@ -67,6 +72,11 @@ export namespace MetricExtensionUpdateQueryProperties {
         case "OS_COMMAND":
           return model.OsCommandUpdateQueryProperties.getDeserializedJsonObj(
             <model.OsCommandUpdateQueryProperties>(<object>jsonObj),
+            true
+          );
+        case "HTTP":
+          return model.HttpUpdateQueryProperties.getDeserializedJsonObj(
+            <model.HttpUpdateQueryProperties>(<object>jsonObj),
             true
           );
         default:

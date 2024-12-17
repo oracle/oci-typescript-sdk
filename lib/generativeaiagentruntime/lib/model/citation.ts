@@ -36,6 +36,18 @@ export interface Citation {
     | model.OciObjectStorageSourceLocation
     | model.OciOpenSearchSourceLocation
     | model.OciDatabaseSourceLocation;
+  /**
+   * The title of the source text, if available.
+   */
+  "title"?: string;
+  /**
+   * The id of the retrieved document, if available.
+   */
+  "docId"?: string;
+  /**
+   * The page numbers on the retrieved document, if available.
+   */
+  "pageNumbers"?: Array<number>;
 }
 
 export namespace Citation {

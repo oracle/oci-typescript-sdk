@@ -24,7 +24,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Chat details.
+ * Chat details for managing user interactions and tool executions.
  *
  */
 export interface ChatDetails {

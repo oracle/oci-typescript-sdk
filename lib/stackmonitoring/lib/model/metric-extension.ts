@@ -85,7 +85,8 @@ export interface MetricExtension {
   "queryProperties":
     | model.OsCommandQueryProperties
     | model.SqlQueryProperties
-    | model.JmxQueryProperties;
+    | model.JmxQueryProperties
+    | model.HttpQueryProperties;
   /**
    * List of resource objects on which this metric extension is enabled.
    */

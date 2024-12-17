@@ -27,6 +27,10 @@ export interface BatchingBasedOdhPatchingConfig extends model.OdhPatchingConfig 
    * The wait time between batches in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "waitTimeBetweenBatchInSeconds": number;
+  /**
+   * Acceptable number of failed-to-be-patched nodes in each batch. The maximum number of failed-to-patch nodes cannot exceed 20% of the number of non-utility and non-master nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "toleranceThresholdPerBatch"?: number;
 
   "patchingConfigStrategy": string;
 }

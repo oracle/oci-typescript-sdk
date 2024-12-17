@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for a Job.
+ * Summary information for a job.
  */
 export interface JobSummary {
   /**

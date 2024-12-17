@@ -1,6 +1,6 @@
 {
   "name": "oci-loggingingestion",
-  "version": "2.100.0",
+  "version": "2.100.1",
   "description": "OCI NodeJS client for Loggingingestion Service",
   "repository": {
     "type": "git",

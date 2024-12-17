@@ -37,7 +37,8 @@ export interface UpdateMetricExtensionDetails {
   "queryProperties"?:
     | model.SqlUpdateQueryProperties
     | model.JmxUpdateQueryProperties
-    | model.OsCommandUpdateQueryProperties;
+    | model.OsCommandUpdateQueryProperties
+    | model.HttpUpdateQueryProperties;
 }
 
 export namespace UpdateMetricExtensionDetails {

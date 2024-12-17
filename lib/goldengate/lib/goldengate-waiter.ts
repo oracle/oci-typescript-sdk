@@ -157,6 +157,25 @@ export class GoldenGateWaiter {
   }
 
   /**
+   * Waits forPipeline till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPipelineResponse | null (null in case of 404 response)
+   */
+  public async forPipeline(
+    request: serviceRequests.GetPipelineRequest,
+    ...targetStates: models.Pipeline.LifecycleState[]
+  ): Promise<serviceResponses.GetPipelineResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPipeline(request),
+      response => targetStates.includes(response.pipeline.lifecycleState!),
+      targetStates.includes(models.Pipeline.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

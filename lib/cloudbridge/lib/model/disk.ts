@@ -46,6 +46,10 @@ export interface Disk {
    * The disk persistent mode.
    */
   "persistentMode"?: string;
+  /**
+   * Indicates that CBT (change disk tracking) is enabled for this virtual disk.
+   */
+  "isCbtEnabled"?: boolean;
 }
 
 export namespace Disk {

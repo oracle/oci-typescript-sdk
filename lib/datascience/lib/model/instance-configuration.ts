@@ -29,6 +29,11 @@ export interface InstanceConfiguration {
    *
    */
   "subnetId"?: string;
+  /**
+   * The OCID of a Data Science private endpoint.
+   *
+   */
+  "privateEndpointId"?: string;
 }
 
 export namespace InstanceConfiguration {

@@ -1,9 +1,6 @@
 /**
  * Generative AI Agents Management API
- * **Generative AI Agents API**
-
-
-OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
+ * OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
 
 OCI Generative AI Agents supports several ways to onboard your data and then allows you and your customers to interact with your data using a chat interface or API.
 
@@ -27,16 +24,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* **OciObjectStorageDataSourceConfig**
-* <p>
-The details of OCI Search with OpenSearch data source information.
-* 
-*/
+ * The details of OCI Search with OpenSearch data source information.
+ *
+ */
 export interface OciObjectStorageDataSourceConfig extends model.DataSourceConfig {
   /**
    * The locations of data items in Object Storage, can either be an object (File) or a prefix (folder).
    */
-  "objectStoragePrefixes": Array<model.ObjectStoragePrefix>;
+  "objectStoragePrefixes"?: Array<model.ObjectStoragePrefix>;
 
   "dataSourceConfigType": string;
 }

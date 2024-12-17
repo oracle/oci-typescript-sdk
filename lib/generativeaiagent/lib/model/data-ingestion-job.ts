@@ -1,9 +1,6 @@
 /**
  * Generative AI Agents Management API
- * **Generative AI Agents API**
-
-
-OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
+ * OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
 
 OCI Generative AI Agents supports several ways to onboard your data and then allows you and your customers to interact with your data using a chat interface or API.
 
@@ -27,9 +24,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* **DataIngestionJob**
-* <p>
-When you create a data source, you specify the location of the data files. To make those files usable by an agent, you must download them into the agent's associated knowledge base, a process known as data ingestion. Data ingestion is a process that extracts data from data source documents, converts it into a structured format suitable for analysis, and then stores it in a knowledge base.
+* When you create a data source, you specify the location of the data files. To make those files usable by an agent, you must download them into the agent's associated knowledge base, a process known as data ingestion. Data ingestion is a process that extracts data from data source documents, converts it into a structured format suitable for analysis, and then stores it in a knowledge base.
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized, talk to an administrator. If you're an administrator who needs to write policies to give users access, see [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm).
 * 
@@ -55,6 +50,10 @@ export interface DataIngestionJob {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the parent DataSource.
    */
   "dataSourceId": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the parent KnowledgeBase.
+   */
+  "knowledgeBaseId"?: string;
   "dataIngestionJobStatistics": model.DataIngestionJobStatistics;
   /**
     * The date and time the data ingestion job was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).

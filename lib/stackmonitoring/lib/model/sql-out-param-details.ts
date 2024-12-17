@@ -19,13 +19,17 @@ import common = require("oci-common");
  */
 export interface SqlOutParamDetails {
   /**
-   * Position of PL/SQL procedure OUT parameter Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Position of PL/SQL procedure OUT parameter. The value of this property is ignored during update, if \"outParamType\" is set to NO_OUT_PARAM value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "outParamPosition": number;
   /**
-   * SQL Type of PL/SQL procedure OUT parameter
+   * SQL Type of PL/SQL procedure OUT parameter. During the update, to completely remove the out parameter, use the value NO_OUT_PARAM. In that case, the value of \"outParamPosition\" will be ignored.
    */
   "outParamType": model.SqlOutParamTypes;
+  /**
+   * Name of the Out Parameter
+   */
+  "outParamName"?: string;
 }
 
 export namespace SqlOutParamDetails {

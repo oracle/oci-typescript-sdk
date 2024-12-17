@@ -1,9 +1,6 @@
 /**
  * Generative AI Agents Management API
- * **Generative AI Agents API**
-
-
-OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
+ * OCI Generative AI Agents is a fully managed service that combines the power of large language models (LLMs) with an intelligent retrieval system to create contextually relevant answers by searching your knowledge base, making your AI applications smart and efficient.
 
 OCI Generative AI Agents supports several ways to onboard your data and then allows you and your customers to interact with your data using a chat interface or API.
 
@@ -27,11 +24,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* **DatabaseFunction**
-* <p>
-The details of Database function.
-* 
-*/
+ * The details of Database function.
+ *
+ */
 export interface DatabaseFunction {
   /**
    * The name of the Database function.

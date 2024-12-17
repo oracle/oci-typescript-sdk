@@ -15,11 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible out parameter types of SQL collection method
+ * Possible out parameter types of SQL collection method. During the update, to completely remove the out parameter, use the value NO_OUT_PARAM
  **/
 export enum SqlOutParamTypes {
   SqlCursor = "SQL_CURSOR",
   Array = "ARRAY",
+  NoOutParam = "NO_OUT_PARAM",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

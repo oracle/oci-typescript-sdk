@@ -23,7 +23,7 @@ export interface MonthlyCostSummary {
    */
   "amount": number;
   /**
-   * Currency code as defined by ISO-4217.
+   * Currency code
    */
   "currencyCode": string;
 }

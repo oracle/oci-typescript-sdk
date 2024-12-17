@@ -84,7 +84,7 @@ export interface UpdateMysqlConnectionDetails extends model.UpdateConnectionDeta
    */
   "sslCert"?: string;
   /**
-   * Client Key \u2013 The base64 encoded content of a .pem or .crt file containing the client private key (for 2-way SSL).
+   * Client Key - The base64 encoded content of a .pem or .crt file containing the client private key (for 2-way SSL).
    *
    */
   "sslKey"?: string;
