@@ -1,6 +1,6 @@
 {
   "name": "oci-vbsinst",
-  "version": "2.100.1",
+  "version": "2.100.2",
   "description": "OCI NodeJS client for Vbs Inst Service",
   "repository": {
     "type": "git",
