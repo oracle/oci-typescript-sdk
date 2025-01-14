@@ -1,6 +1,6 @@
 {
   "name": "oci-apmsynthetics",
-  "version": "2.100.1",
+  "version": "2.100.2",
   "description": "OCI NodeJS client for Apm Synthetics Service",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "oci-artifacts",
-  "version": "2.100.1",
+  "version": "2.100.2",
   "description": "OCI NodeJS client for Artifacts Service",
   "repository": {
     "type": "git",
