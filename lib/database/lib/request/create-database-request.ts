@@ -21,7 +21,10 @@ export interface CreateDatabaseRequest extends common.BaseRequest {
   /**
    * Request to create a new database.
    */
-  "createNewDatabaseDetails": model.CreateNewDatabaseDetails | model.CreateDatabaseFromBackup;
+  "createNewDatabaseDetails":
+    | model.CreateNewDatabaseDetails
+    | model.CreateStandByDatabaseDetails
+    | model.CreateDatabaseFromBackup;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24

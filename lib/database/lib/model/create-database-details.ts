@@ -104,6 +104,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the key store of Oracle Vault.
    */
   "keyStoreId"?: string;
+  "encryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
 }
 
 export namespace CreateDatabaseDetails {
@@ -118,6 +119,10 @@ export namespace CreateDatabaseDetails {
       ...{
         "dbBackupConfig": obj.dbBackupConfig
           ? model.DbBackupConfig.getJsonObj(obj.dbBackupConfig)
+          : undefined,
+
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getJsonObj(obj.encryptionKeyLocationDetails)
           : undefined
       }
     };
@@ -130,6 +135,12 @@ export namespace CreateDatabaseDetails {
       ...{
         "dbBackupConfig": obj.dbBackupConfig
           ? model.DbBackupConfig.getDeserializedJsonObj(obj.dbBackupConfig)
+          : undefined,
+
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getDeserializedJsonObj(
+              obj.encryptionKeyLocationDetails
+            )
           : undefined
       }
     };

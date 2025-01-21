@@ -2404,6 +2404,86 @@ export class DatabaseClient {
   }
 
   /**
+   * Update the encryption key management location for the database
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeEncryptionKeyLocationRequest
+   * @return ChangeEncryptionKeyLocationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeEncryptionKeyLocation.ts.html |here} to see how to use ChangeEncryptionKeyLocation API.
+   */
+  public async changeEncryptionKeyLocation(
+    changeEncryptionKeyLocationRequest: requests.ChangeEncryptionKeyLocationRequest
+  ): Promise<responses.ChangeEncryptionKeyLocationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeEncryptionKeyLocation.");
+    const operationName = "changeEncryptionKeyLocation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ChangeEncryptionKeyLocation";
+    const pathParams = {
+      "{databaseId}": changeEncryptionKeyLocationRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeEncryptionKeyLocationRequest.ifMatch,
+      "opc-retry-token": changeEncryptionKeyLocationRequest.opcRetryToken,
+      "opc-request-id": changeEncryptionKeyLocationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeEncryptionKeyLocationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/changeEncryptionKeyLocation",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeEncryptionKeyLocationRequest.encryptionKeyLocationDetails,
+        "EncryptionKeyLocationDetails",
+        model.EncryptionKeyLocationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeEncryptionKeyLocationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves an Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud@Customer instances only.
    * To move an Exadata Cloud Service infrastructure resource to another compartment, use the  {@link #changeCloudExadataInfrastructureCompartment(ChangeCloudExadataInfrastructureCompartmentRequest) changeCloudExadataInfrastructureCompartment} operation.
    *
@@ -4082,6 +4162,99 @@ export class DatabaseClient {
         bodyKey: "pluggableDatabase",
         bodyModel: model.PluggableDatabase,
         type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Disassociate the standby database identified by the `databaseId` parameter from existing Data Guard group. 
+* <p>
+Convert the standby to a standalone database.        
+* <p>
+This operation should be performed on respective standby database.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ConvertToStandaloneRequest
+     * @return ConvertToStandaloneResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToStandalone.ts.html |here} to see how to use ConvertToStandalone API.
+     */
+  public async convertToStandalone(
+    convertToStandaloneRequest: requests.ConvertToStandaloneRequest
+  ): Promise<responses.ConvertToStandaloneResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#convertToStandalone.");
+    const operationName = "convertToStandalone";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ConvertToStandalone";
+    const pathParams = {
+      "{databaseId}": convertToStandaloneRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": convertToStandaloneRequest.opcRetryToken,
+      "opc-request-id": convertToStandaloneRequest.opcRequestId,
+      "if-match": convertToStandaloneRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      convertToStandaloneRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/dataGuard/actions/convertToStandalone",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        convertToStandaloneRequest.convertToStandaloneDetails,
+        "ConvertToStandaloneDetails",
+        model.ConvertToStandaloneDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConvertToStandaloneResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -12589,6 +12762,101 @@ A failover can result in data loss, depending on the protection mode in effect a
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Performs a failover to transition the standby database identified by the `databaseId` path parameter into the
+* primary role after the existing primary database fails or becomes unreachable.
+* <p>
+A failover might result in data loss depending on the protection mode in effect at the time of the primary
+* database failure.
+* <p>
+This operation should be performed on respective standby database.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param FailoverDataGuardRequest
+     * @return FailoverDataGuardResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailoverDataGuard.ts.html |here} to see how to use FailoverDataGuard API.
+     */
+  public async failoverDataGuard(
+    failoverDataGuardRequest: requests.FailoverDataGuardRequest
+  ): Promise<responses.FailoverDataGuardResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#failoverDataGuard.");
+    const operationName = "failoverDataGuard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/FailoverDataGuard";
+    const pathParams = {
+      "{databaseId}": failoverDataGuardRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": failoverDataGuardRequest.opcRetryToken,
+      "opc-request-id": failoverDataGuardRequest.opcRequestId,
+      "if-match": failoverDataGuardRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      failoverDataGuardRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/dataGuard/actions/failover",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        failoverDataGuardRequest.failoverDataGuardDetails,
+        "FailoverDataGuardDetails",
+        model.FailoverDataGuardDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.FailoverDataGuardResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -28899,6 +29167,98 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+     * Migrates the existing Data Guard association to new Data Guard model to support multiple standby databases functionality.        
+* <p>
+This operation should always be performed on primary.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param MigrateDataGuardAssociationToMultiDataGuardsRequest
+     * @return MigrateDataGuardAssociationToMultiDataGuardsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MigrateDataGuardAssociationToMultiDataGuards.ts.html |here} to see how to use MigrateDataGuardAssociationToMultiDataGuards API.
+     */
+  public async migrateDataGuardAssociationToMultiDataGuards(
+    migrateDataGuardAssociationToMultiDataGuardsRequest: requests.MigrateDataGuardAssociationToMultiDataGuardsRequest
+  ): Promise<responses.MigrateDataGuardAssociationToMultiDataGuardsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#migrateDataGuardAssociationToMultiDataGuards."
+      );
+    const operationName = "migrateDataGuardAssociationToMultiDataGuards";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/MigrateDataGuardAssociationToMultiDataGuards";
+    const pathParams = {
+      "{databaseId}": migrateDataGuardAssociationToMultiDataGuardsRequest.databaseId,
+      "{dataGuardAssociationId}":
+        migrateDataGuardAssociationToMultiDataGuardsRequest.dataGuardAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": migrateDataGuardAssociationToMultiDataGuardsRequest.opcRetryToken,
+      "opc-request-id": migrateDataGuardAssociationToMultiDataGuardsRequest.opcRequestId,
+      "if-match": migrateDataGuardAssociationToMultiDataGuardsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      migrateDataGuardAssociationToMultiDataGuardsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/databases/{databaseId}/dataGuardAssociations/{dataGuardAssociationId}/actions/migrate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MigrateDataGuardAssociationToMultiDataGuardsResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Migrates the Exadata DB system to the new [Exadata resource model](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model).
    * All related resources will be migrated.
    *
@@ -29584,6 +29944,97 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Reinstates the database identified by the `databaseId` parameter into the standby role in a Data Guard association.        
+* <p>
+This operation should be performed on disabled standby database.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ReinstateDataGuardRequest
+     * @return ReinstateDataGuardResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateDataGuard.ts.html |here} to see how to use ReinstateDataGuard API.
+     */
+  public async reinstateDataGuard(
+    reinstateDataGuardRequest: requests.ReinstateDataGuardRequest
+  ): Promise<responses.ReinstateDataGuardResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#reinstateDataGuard.");
+    const operationName = "reinstateDataGuard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ReinstateDataGuard";
+    const pathParams = {
+      "{databaseId}": reinstateDataGuardRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": reinstateDataGuardRequest.opcRetryToken,
+      "opc-request-id": reinstateDataGuardRequest.opcRequestId,
+      "if-match": reinstateDataGuardRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reinstateDataGuardRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/dataGuard/actions/reinstate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        reinstateDataGuardRequest.reinstateDataGuardDetails,
+        "ReinstateDataGuardDetails",
+        model.ReinstateDataGuardDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReinstateDataGuardResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -32319,6 +32770,100 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+     * Performs a switchover to transition primary database of this Data Guard association into a standby role. The
+* standby database associated with the `dataGuardAssociationId` assumes the primary database role.
+* <p>
+A switchover guarantees no data loss.
+* <p>
+This operation should be performed on respective standby database.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param SwitchOverDataGuardRequest
+     * @return SwitchOverDataGuardResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchOverDataGuard.ts.html |here} to see how to use SwitchOverDataGuard API.
+     */
+  public async switchOverDataGuard(
+    switchOverDataGuardRequest: requests.SwitchOverDataGuardRequest
+  ): Promise<responses.SwitchOverDataGuardResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#switchOverDataGuard.");
+    const operationName = "switchOverDataGuard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/SwitchOverDataGuard";
+    const pathParams = {
+      "{databaseId}": switchOverDataGuardRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": switchOverDataGuardRequest.opcRetryToken,
+      "opc-request-id": switchOverDataGuardRequest.opcRequestId,
+      "if-match": switchOverDataGuardRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      switchOverDataGuardRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/dataGuard/actions/switchover",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        switchOverDataGuardRequest.switchOverDataGuardDetails,
+        "SwitchOverDataGuardDetails",
+        model.SwitchOverDataGuardDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SwitchOverDataGuardResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Switches over the primary Autonomous Container Database of an Autonomous Data Guard peer association to standby role. The standby Autonomous Container Database associated with autonomousContainerDatabaseDataguardAssociationId assumes the primary Autonomous Container Database role.
 * <p>
 A switchover incurs no data loss.
@@ -34207,6 +34752,96 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update an existing Data Guard member. A Data Guard member represents the replication relationship between the
+   * specified database and a standby database. For more information, see [Using Oracle Data Guard](https://docs.cloud.oracle.com/Content/Database/Tasks/usingdataguard.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDataGuardRequest
+   * @return UpdateDataGuardResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDataGuard.ts.html |here} to see how to use UpdateDataGuard API.
+   */
+  public async updateDataGuard(
+    updateDataGuardRequest: requests.UpdateDataGuardRequest
+  ): Promise<responses.UpdateDataGuardResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDataGuard.");
+    const operationName = "updateDataGuard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/UpdateDataGuard";
+    const pathParams = {
+      "{databaseId}": updateDataGuardRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateDataGuardRequest.opcRetryToken,
+      "opc-request-id": updateDataGuardRequest.opcRequestId,
+      "if-match": updateDataGuardRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataGuardRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/dataGuard/actions/updateDataGuard",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDataGuardRequest.updateDataGuardDetails,
+        "UpdateDataGuardDetails",
+        model.UpdateDataGuardDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDataGuardResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

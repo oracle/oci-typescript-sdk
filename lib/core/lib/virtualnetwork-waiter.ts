@@ -297,6 +297,25 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forByoasn till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetByoasnResponse | null (null in case of 404 response)
+   */
+  public async forByoasn(
+    request: serviceRequests.GetByoasnRequest,
+    ...targetStates: models.Byoasn.LifecycleState[]
+  ): Promise<serviceResponses.GetByoasnResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getByoasn(request),
+      response => targetStates.includes(response.byoasn.lifecycleState!),
+      targetStates.includes(models.Byoasn.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forByoipRange till it reaches any of the provided states
    *
    * @param request the request to send
@@ -1023,6 +1042,29 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forSetOriginAsn
+   *
+   * @param request the request to send
+   * @return response returns SetOriginAsnResponse, GetWorkRequestResponse tuple
+   */
+  public async forSetOriginAsn(
+    request: serviceRequests.SetOriginAsnRequest
+  ): Promise<{
+    response: serviceResponses.SetOriginAsnResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const setOriginAsnResponse = await this.client.setOriginAsn(request);
+    if (setOriginAsnResponse.opcWorkRequestId === undefined)
+      return { response: setOriginAsnResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      setOriginAsnResponse.opcWorkRequestId
+    );
+    return { response: setOriginAsnResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forUpdateVtap
    *
    * @param request the request to send
@@ -1066,6 +1108,29 @@ export class VirtualNetworkWaiter {
       upgradeDrgResponse.opcWorkRequestId
     );
     return { response: upgradeDrgResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forValidateByoasn
+   *
+   * @param request the request to send
+   * @return response returns ValidateByoasnResponse, GetWorkRequestResponse tuple
+   */
+  public async forValidateByoasn(
+    request: serviceRequests.ValidateByoasnRequest
+  ): Promise<{
+    response: serviceResponses.ValidateByoasnResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const validateByoasnResponse = await this.client.validateByoasn(request);
+    if (validateByoasnResponse.opcWorkRequestId === undefined)
+      return { response: validateByoasnResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      validateByoasnResponse.opcWorkRequestId
+    );
+    return { response: validateByoasnResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

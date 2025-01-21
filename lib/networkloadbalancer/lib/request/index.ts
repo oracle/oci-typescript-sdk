@@ -33,6 +33,8 @@ import * as GetBackendRequest from "./get-backend-request";
 export import GetBackendRequest = GetBackendRequest.GetBackendRequest;
 import * as GetBackendHealthRequest from "./get-backend-health-request";
 export import GetBackendHealthRequest = GetBackendHealthRequest.GetBackendHealthRequest;
+import * as GetBackendOperationalStatusRequest from "./get-backend-operational-status-request";
+export import GetBackendOperationalStatusRequest = GetBackendOperationalStatusRequest.GetBackendOperationalStatusRequest;
 import * as GetBackendSetRequest from "./get-backend-set-request";
 export import GetBackendSetRequest = GetBackendSetRequest.GetBackendSetRequest;
 import * as GetBackendSetHealthRequest from "./get-backend-set-health-request";

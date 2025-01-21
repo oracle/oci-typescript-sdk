@@ -21,6 +21,8 @@ import * as BackendDetails from "./backend-details";
 export import BackendDetails = BackendDetails.BackendDetails;
 import * as BackendHealth from "./backend-health";
 export import BackendHealth = BackendHealth.BackendHealth;
+import * as BackendOperationalStatus from "./backend-operational-status";
+export import BackendOperationalStatus = BackendOperationalStatus.BackendOperationalStatus;
 import * as BackendSet from "./backend-set";
 export import BackendSet = BackendSet.BackendSet;
 import * as BackendSetCollection from "./backend-set-collection";

@@ -62,6 +62,7 @@ Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  "originAsn"?: model.ByoipRangeOriginAsn;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code ByoipRange} resource.
    */
@@ -154,7 +155,9 @@ export namespace ByoipRange {
           ? obj.byoipRangeVcnIpv6Allocations.map(item => {
               return model.ByoipRangeVcnIpv6AllocationSummary.getJsonObj(item);
             })
-          : undefined
+          : undefined,
+
+        "originAsn": obj.originAsn ? model.ByoipRangeOriginAsn.getJsonObj(obj.originAsn) : undefined
       }
     };
 
@@ -168,6 +171,10 @@ export namespace ByoipRange {
           ? obj.byoipRangeVcnIpv6Allocations.map(item => {
               return model.ByoipRangeVcnIpv6AllocationSummary.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "originAsn": obj.originAsn
+          ? model.ByoipRangeOriginAsn.getDeserializedJsonObj(obj.originAsn)
           : undefined
       }
     };

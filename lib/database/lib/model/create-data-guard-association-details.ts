@@ -43,6 +43,7 @@ The password must contain no fewer than nine characters and include:
 * 
     */
   "databaseAdminPassword": string;
+  "sourceEncryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
   /**
    * The protection mode to set up between the primary and standby databases. For more information, see
    * [Oracle Data Guard Protection Modes](http://docs.oracle.com/database/122/SBYDB/oracle-data-guard-protection-modes.htm#SBYDB02000)
@@ -99,7 +100,14 @@ export namespace CreateDataGuardAssociationDetails {
   }
 
   export function getJsonObj(obj: CreateDataGuardAssociationDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceEncryptionKeyLocationDetails": obj.sourceEncryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getJsonObj(obj.sourceEncryptionKeyLocationDetails)
+          : undefined
+      }
+    };
 
     if (obj && "creationType" in obj && obj.creationType) {
       switch (obj.creationType) {
@@ -125,7 +133,16 @@ export namespace CreateDataGuardAssociationDetails {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateDataGuardAssociationDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceEncryptionKeyLocationDetails": obj.sourceEncryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getDeserializedJsonObj(
+              obj.sourceEncryptionKeyLocationDetails
+            )
+          : undefined
+      }
+    };
 
     if (obj && "creationType" in obj && obj.creationType) {
       switch (obj.creationType) {

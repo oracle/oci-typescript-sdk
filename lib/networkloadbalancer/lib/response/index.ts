@@ -33,6 +33,8 @@ import * as GetBackendResponse from "./get-backend-response";
 export import GetBackendResponse = GetBackendResponse.GetBackendResponse;
 import * as GetBackendHealthResponse from "./get-backend-health-response";
 export import GetBackendHealthResponse = GetBackendHealthResponse.GetBackendHealthResponse;
+import * as GetBackendOperationalStatusResponse from "./get-backend-operational-status-response";
+export import GetBackendOperationalStatusResponse = GetBackendOperationalStatusResponse.GetBackendOperationalStatusResponse;
 import * as GetBackendSetResponse from "./get-backend-set-response";
 export import GetBackendSetResponse = GetBackendSetResponse.GetBackendSetResponse;
 import * as GetBackendSetHealthResponse from "./get-backend-set-health-response";

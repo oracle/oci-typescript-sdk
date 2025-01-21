@@ -1120,6 +1120,81 @@ Before you can delete a backend set, you must remove it from any active listener
   }
 
   /**
+   * Retrieves the current operational status of the specified backend server.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetBackendOperationalStatusRequest
+   * @return GetBackendOperationalStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackendOperationalStatus.ts.html |here} to see how to use GetBackendOperationalStatus API.
+   */
+  public async getBackendOperationalStatus(
+    getBackendOperationalStatusRequest: requests.GetBackendOperationalStatusRequest
+  ): Promise<responses.GetBackendOperationalStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkLoadBalancerClient#getBackendOperationalStatus.");
+    const operationName = "getBackendOperationalStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendOperationalStatus/GetBackendOperationalStatus";
+    const pathParams = {
+      "{networkLoadBalancerId}": getBackendOperationalStatusRequest.networkLoadBalancerId,
+      "{backendSetName}": getBackendOperationalStatusRequest.backendSetName,
+      "{backendName}": getBackendOperationalStatusRequest.backendName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBackendOperationalStatusRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBackendOperationalStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/networkLoadBalancers/{networkLoadBalancerId}/backendSets/{backendSetName}/backends/{backendName}/operationalStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBackendOperationalStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "backendOperationalStatus",
+        bodyModel: model.BackendOperationalStatus,
+        type: "model.BackendOperationalStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves the configuration information for the specified backend set.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBackendSetRequest

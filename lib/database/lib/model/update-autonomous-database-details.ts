@@ -417,6 +417,13 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     | model.AwsKeyDetails
     | model.OciKeyDetails
     | model.OracleManagedKeyDetails;
+  /**
+    * If true, this will disconnect the Autonomous Database from its peer and the Autonomous Database can work permanently as a standalone database.
+* <p>
+To disconnect a cross region standby, please also provide the OCID of the standby database in the {@code peerDbId} parameter.
+* 
+    */
+  "isDisconnectPeer"?: boolean;
 }
 
 export namespace UpdateAutonomousDatabaseDetails {

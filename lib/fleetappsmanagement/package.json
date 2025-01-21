@@ -1,6 +1,6 @@
 {
   "name": "oci-fleetappsmanagement",
-  "version": "2.100.2",
+  "version": "2.100.3",
   "description": "OCI NodeJS client for Fleet Apps Management Service",
   "repository": {
     "type": "git",
