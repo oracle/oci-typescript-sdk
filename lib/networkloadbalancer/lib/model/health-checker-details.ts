@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * The health check policy configuration.
- * For more information, see [Editing Health Check Policies](https://docs.cloud.oracle.com/Content/Balance/Tasks/editinghealthcheck.htm).
+ * For more information, see [Editing Network Load Balancer Health Check Policies](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/HealthCheckPolicies/update-health-check-policy.htm).
  *
  */
 export interface HealthCheckerDetails {

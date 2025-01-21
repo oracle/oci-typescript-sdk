@@ -102,6 +102,7 @@ export interface BackupSummary {
    * The wallet name for Oracle Key Vault.
    */
   "keyStoreWalletName"?: string;
+  "encryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
 }
 
 export namespace BackupSummary {
@@ -145,12 +146,28 @@ export namespace BackupSummary {
   }
 
   export function getJsonObj(obj: BackupSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getJsonObj(obj.encryptionKeyLocationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: BackupSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getDeserializedJsonObj(
+              obj.encryptionKeyLocationDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

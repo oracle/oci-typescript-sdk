@@ -773,6 +773,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeEncryptionKeyLocation
+   *
+   * @param request the request to send
+   * @return response returns ChangeEncryptionKeyLocationResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeEncryptionKeyLocation(
+    request: serviceRequests.ChangeEncryptionKeyLocationRequest
+  ): Promise<{
+    response: serviceResponses.ChangeEncryptionKeyLocationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeEncryptionKeyLocationResponse = await this.client.changeEncryptionKeyLocation(
+      request
+    );
+    if (changeEncryptionKeyLocationResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeEncryptionKeyLocationResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeEncryptionKeyLocationResponse.opcWorkRequestId
+    );
+    return {
+      response: changeEncryptionKeyLocationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeExadataInfrastructureCompartment
    *
    * @param request the request to send
@@ -1359,6 +1390,29 @@ export class DatabaseWaiter {
       response: convertToRegularPluggableDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forConvertToStandalone
+   *
+   * @param request the request to send
+   * @return response returns ConvertToStandaloneResponse, GetWorkRequestResponse tuple
+   */
+  public async forConvertToStandalone(
+    request: serviceRequests.ConvertToStandaloneRequest
+  ): Promise<{
+    response: serviceResponses.ConvertToStandaloneResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const convertToStandaloneResponse = await this.client.convertToStandalone(request);
+    if (convertToStandaloneResponse.opcWorkRequestId === undefined)
+      return { response: convertToStandaloneResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      convertToStandaloneResponse.opcWorkRequestId
+    );
+    return { response: convertToStandaloneResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -3908,6 +3962,29 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forFailoverDataGuard
+   *
+   * @param request the request to send
+   * @return response returns FailoverDataGuardResponse, GetWorkRequestResponse tuple
+   */
+  public async forFailoverDataGuard(
+    request: serviceRequests.FailoverDataGuardRequest
+  ): Promise<{
+    response: serviceResponses.FailoverDataGuardResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const failoverDataGuardResponse = await this.client.failoverDataGuard(request);
+    if (failoverDataGuardResponse.opcWorkRequestId === undefined)
+      return { response: failoverDataGuardResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      failoverDataGuardResponse.opcWorkRequestId
+    );
+    return { response: failoverDataGuardResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forFailoverDataGuardAssociation
    *
    * @param request the request to send
@@ -5027,6 +5104,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forMigrateDataGuardAssociationToMultiDataGuards
+   *
+   * @param request the request to send
+   * @return response returns MigrateDataGuardAssociationToMultiDataGuardsResponse, GetWorkRequestResponse tuple
+   */
+  public async forMigrateDataGuardAssociationToMultiDataGuards(
+    request: serviceRequests.MigrateDataGuardAssociationToMultiDataGuardsRequest
+  ): Promise<{
+    response: serviceResponses.MigrateDataGuardAssociationToMultiDataGuardsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const migrateDataGuardAssociationToMultiDataGuardsResponse = await this.client.migrateDataGuardAssociationToMultiDataGuards(
+      request
+    );
+    if (migrateDataGuardAssociationToMultiDataGuardsResponse.opcWorkRequestId === undefined)
+      return {
+        response: migrateDataGuardAssociationToMultiDataGuardsResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      migrateDataGuardAssociationToMultiDataGuardsResponse.opcWorkRequestId
+    );
+    return {
+      response: migrateDataGuardAssociationToMultiDataGuardsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forMigrateExadataDbSystemResourceModel
    *
    * @param request the request to send
@@ -5252,6 +5360,29 @@ export class DatabaseWaiter {
       response: reinstateAutonomousContainerDatabaseDataguardAssociationResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forReinstateDataGuard
+   *
+   * @param request the request to send
+   * @return response returns ReinstateDataGuardResponse, GetWorkRequestResponse tuple
+   */
+  public async forReinstateDataGuard(
+    request: serviceRequests.ReinstateDataGuardRequest
+  ): Promise<{
+    response: serviceResponses.ReinstateDataGuardResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const reinstateDataGuardResponse = await this.client.reinstateDataGuard(request);
+    if (reinstateDataGuardResponse.opcWorkRequestId === undefined)
+      return { response: reinstateDataGuardResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      reinstateDataGuardResponse.opcWorkRequestId
+    );
+    return { response: reinstateDataGuardResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -6084,6 +6215,29 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forSwitchOverDataGuard
+   *
+   * @param request the request to send
+   * @return response returns SwitchOverDataGuardResponse, GetWorkRequestResponse tuple
+   */
+  public async forSwitchOverDataGuard(
+    request: serviceRequests.SwitchOverDataGuardRequest
+  ): Promise<{
+    response: serviceResponses.SwitchOverDataGuardResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const switchOverDataGuardResponse = await this.client.switchOverDataGuard(request);
+    if (switchOverDataGuardResponse.opcWorkRequestId === undefined)
+      return { response: switchOverDataGuardResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      switchOverDataGuardResponse.opcWorkRequestId
+    );
+    return { response: switchOverDataGuardResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forSwitchoverAutonomousContainerDatabaseDataguardAssociation
    *
    * @param request the request to send
@@ -6667,6 +6821,29 @@ export class DatabaseWaiter {
       updateConsoleHistoryResponse.opcWorkRequestId
     );
     return { response: updateConsoleHistoryResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateDataGuard
+   *
+   * @param request the request to send
+   * @return response returns UpdateDataGuardResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateDataGuard(
+    request: serviceRequests.UpdateDataGuardRequest
+  ): Promise<{
+    response: serviceResponses.UpdateDataGuardResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateDataGuardResponse = await this.client.updateDataGuard(request);
+    if (updateDataGuardResponse.opcWorkRequestId === undefined)
+      return { response: updateDataGuardResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateDataGuardResponse.opcWorkRequestId
+    );
+    return { response: updateDataGuardResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
  * The configuration of a network load balancer backend set.
  * For more information about backend set configuration, see
- * [Managing Backend Sets](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingbackendsets.htm).
+ * [Backend Sets for Network Load Balancers](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/BackendSets/backend-set-management.htm).
  * <p>
  **Caution:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
@@ -52,6 +52,16 @@ Example: {@code FIVE_TUPLE}
    *
    */
   "isInstantFailoverEnabled"?: boolean;
+  /**
+   * If enabled along with instant failover, the network load balancer will send TCP RST to the clients for the existing connections instead of failing over to a healthy backend. This only applies when using the instant failover. By default, TCP RST is enabled.
+   *
+   */
+  "isInstantFailoverTcpResetEnabled"?: boolean;
+  /**
+   * If enabled, NLB supports active-standby backends. The standby backend takes over the traffic when the active node fails, and continues to serve the traffic even when the old active node is back healthy.
+   *
+   */
+  "areOperationallyActiveBackendsPreferred"?: boolean;
   /**
    * An array of backends.
    *

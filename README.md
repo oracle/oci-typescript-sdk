@@ -46,7 +46,7 @@ Full documentation can be found [on the sdk for typescript and javascript docume
 
 ## Versions Supported
 
-The SDK for TypeScript and JavaScript currently supports NodeJS version 14, 16, 20 and TypeScript version 4.1.3.
+The SDK for TypeScript and JavaScript currently supports NodeJS version 14, 16, 18, 20 and TypeScript version 4.1.3.
 
 ## Node & Browser Support
 

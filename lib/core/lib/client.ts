@@ -19685,6 +19685,84 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   }
 
   /**
+   * Moves a BYOASN Resource to a different compartment. For information
+   * about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeByoasnCompartmentRequest
+   * @return ChangeByoasnCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeByoasnCompartment.ts.html |here} to see how to use ChangeByoasnCompartment API.
+   */
+  public async changeByoasnCompartment(
+    changeByoasnCompartmentRequest: requests.ChangeByoasnCompartmentRequest
+  ): Promise<responses.ChangeByoasnCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeByoasnCompartment.");
+    const operationName = "changeByoasnCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Byoasn/ChangeByoasnCompartment";
+    const pathParams = {
+      "{byoasnId}": changeByoasnCompartmentRequest.byoasnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeByoasnCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeByoasnCompartmentRequest.opcRetryToken,
+      "if-match": changeByoasnCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeByoasnCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoasns/{byoasnId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeByoasnCompartmentRequest.changeByoasnCompartmentDetails,
+        "ChangeByoasnCompartmentDetails",
+        model.ChangeByoasnCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeByoasnCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a BYOIP CIDR block to a different compartment. For information
    * about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -21747,6 +21825,87 @@ This operation must be called by the VCN administrator who is designated as
       const sdkResponse = composeResponse({
         responseObject: <responses.ConnectRemotePeeringConnectionsResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a BYOASN Resource
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateByoasnRequest
+   * @return CreateByoasnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateByoasn.ts.html |here} to see how to use CreateByoasn API.
+   */
+  public async createByoasn(
+    createByoasnRequest: requests.CreateByoasnRequest
+  ): Promise<responses.CreateByoasnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createByoasn.");
+    const operationName = "createByoasn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Byoasn/CreateByoasn";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createByoasnRequest.opcRequestId,
+      "opc-retry-token": createByoasnRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createByoasnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoasns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createByoasnRequest.createByoasnDetails,
+        "CreateByoasnDetails",
+        model.CreateByoasnDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateByoasnResponse>{},
+        body: await response.json(),
+        bodyKey: "byoasn",
+        bodyModel: model.Byoasn,
+        type: "model.Byoasn",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -24299,6 +24458,78 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   }
 
   /**
+   * Deletes the specified `Byoasn` resource.
+   * The resource must be in one of the following states: CREATING, ACTIVE or FAILED.
+   * It must not be in use by any of the byoipRanges or deletion will fail.
+   * You must specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteByoasnRequest
+   * @return DeleteByoasnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteByoasn.ts.html |here} to see how to use DeleteByoasn API.
+   */
+  public async deleteByoasn(
+    deleteByoasnRequest: requests.DeleteByoasnRequest
+  ): Promise<responses.DeleteByoasnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteByoasn.");
+    const operationName = "deleteByoasn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Byoasn/DeleteByoasn";
+    const pathParams = {
+      "{byoasnId}": deleteByoasnRequest.byoasnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteByoasnRequest.opcRequestId,
+      "if-match": deleteByoasnRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteByoasnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoasns/{byoasnId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteByoasnResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified `ByoipRange` resource.
    * The resource must be in one of the following states: CREATING, PROVISIONED, ACTIVE, or FAILED.
    * It must not have any subranges currently allocated to a PublicIpPool object or the deletion will fail.
@@ -26587,6 +26818,82 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
         bodyModel: model.AllowedIkeIPSecParameters,
         type: "model.AllowedIkeIPSecParameters",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the `Byoasn` resource. You must specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetByoasnRequest
+   * @return GetByoasnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetByoasn.ts.html |here} to see how to use GetByoasn API.
+   */
+  public async getByoasn(
+    getByoasnRequest: requests.GetByoasnRequest
+  ): Promise<responses.GetByoasnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getByoasn.");
+    const operationName = "getByoasn";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Byoasn/GetByoasn";
+    const pathParams = {
+      "{byoasnId}": getByoasnRequest.byoasnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getByoasnRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getByoasnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoasns/{byoasnId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetByoasnResponse>{},
+        body: await response.json(),
+        bodyKey: "byoasn",
+        bodyModel: model.Byoasn,
+        type: "model.Byoasn",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -31056,6 +31363,90 @@ The operation returns configuration information for only the specified IPSec tun
         bodyModel: model.PeerRegionForRemotePeering,
         type: "Array<model.PeerRegionForRemotePeering>",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the `Byoasn` resources in the specified compartment.
+   * You can filter the list using query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListByoasnsRequest
+   * @return ListByoasnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListByoasns.ts.html |here} to see how to use ListByoasns API.
+   */
+  public async listByoasns(
+    listByoasnsRequest: requests.ListByoasnsRequest
+  ): Promise<responses.ListByoasnsResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listByoasns.");
+    const operationName = "listByoasns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Byoasn/ListByoasns";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listByoasnsRequest.limit,
+      "page": listByoasnsRequest.page,
+      "displayName": listByoasnsRequest.displayName,
+      "lifecycleState": listByoasnsRequest.lifecycleState,
+      "sortBy": listByoasnsRequest.sortBy,
+      "sortOrder": listByoasnsRequest.sortOrder,
+      "compartmentId": listByoasnsRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listByoasnsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listByoasnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoasns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListByoasnsResponse>{},
+        body: await response.json(),
+        bodyKey: "byoasnCollection",
+        bodyModel: model.ByoasnCollection,
+        type: "model.ByoasnCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -37981,6 +38372,239 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * Update BYOIP's origin ASN to byoasn.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SetOriginAsnRequest
+   * @return SetOriginAsnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SetOriginAsn.ts.html |here} to see how to use SetOriginAsn API.
+   */
+  public async setOriginAsn(
+    setOriginAsnRequest: requests.SetOriginAsnRequest
+  ): Promise<responses.SetOriginAsnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#setOriginAsn.");
+    const operationName = "setOriginAsn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/SetOriginAsn";
+    const pathParams = {
+      "{byoipRangeId}": setOriginAsnRequest.byoipRangeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": setOriginAsnRequest.opcRequestId,
+      "opc-retry-token": setOriginAsnRequest.opcRetryToken,
+      "if-match": setOriginAsnRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setOriginAsnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges/{byoipRangeId}/actions/setOrigin/byoasn",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        setOriginAsnRequest.setOriginAsnDetails,
+        "SetOriginAsnDetails",
+        model.SetOriginAsnDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetOriginAsnResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update prefix's origin ASN to OCI
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SetOriginAsnToOracleRequest
+   * @return SetOriginAsnToOracleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SetOriginAsnToOracle.ts.html |here} to see how to use SetOriginAsnToOracle API.
+   */
+  public async setOriginAsnToOracle(
+    setOriginAsnToOracleRequest: requests.SetOriginAsnToOracleRequest
+  ): Promise<responses.SetOriginAsnToOracleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#setOriginAsnToOracle.");
+    const operationName = "setOriginAsnToOracle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/SetOriginAsnToOracle";
+    const pathParams = {
+      "{byoipRangeId}": setOriginAsnToOracleRequest.byoipRangeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": setOriginAsnToOracleRequest.opcRequestId,
+      "if-match": setOriginAsnToOracleRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setOriginAsnToOracleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoipRanges/{byoipRangeId}/actions/setOrigin/oracleAsn",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetOriginAsnToOracleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the tags or display name associated with the specified BYOASN Resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateByoasnRequest
+   * @return UpdateByoasnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateByoasn.ts.html |here} to see how to use UpdateByoasn API.
+   */
+  public async updateByoasn(
+    updateByoasnRequest: requests.UpdateByoasnRequest
+  ): Promise<responses.UpdateByoasnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateByoasn.");
+    const operationName = "updateByoasn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Byoasn/UpdateByoasn";
+    const pathParams = {
+      "{byoasnId}": updateByoasnRequest.byoasnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateByoasnRequest.opcRequestId,
+      "if-match": updateByoasnRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateByoasnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoasns/{byoasnId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateByoasnRequest.updateByoasnDetails,
+        "UpdateByoasnDetails",
+        model.UpdateByoasnDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateByoasnResponse>{},
+        body: await response.json(),
+        bodyKey: "byoasn",
+        bodyModel: model.Byoasn,
+        type: "model.Byoasn",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the tags or display name associated to the specified BYOIP CIDR block.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -41051,6 +41675,82 @@ To change the list of public IP prefixes for a public virtual circuit,
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpgradeDrgResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Submits the BYOASN for validation. Please do not submit to Oracle for validation if the information for the BYOASN is not already modified in the Regional Internet Registry.
+   * See [To import a BYOASN](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/BYOASN.htm) for details.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateByoasnRequest
+   * @return ValidateByoasnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ValidateByoasn.ts.html |here} to see how to use ValidateByoasn API.
+   */
+  public async validateByoasn(
+    validateByoasnRequest: requests.ValidateByoasnRequest
+  ): Promise<responses.ValidateByoasnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#validateByoasn.");
+    const operationName = "validateByoasn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Byoasn/ValidateByoasn";
+    const pathParams = {
+      "{byoasnId}": validateByoasnRequest.byoasnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": validateByoasnRequest.opcRequestId,
+      "if-match": validateByoasnRequest.ifMatch,
+      "opc-retry-token": validateByoasnRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateByoasnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/byoasns/{byoasnId}/actions/validate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateByoasnResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

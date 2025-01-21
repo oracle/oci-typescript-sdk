@@ -155,6 +155,8 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The wallet name for Oracle Key Vault.
    */
   "keyStoreWalletName"?: string;
+  "dataGuardGroup"?: model.DataGuardGroup;
+  "encryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
 }
 
 export namespace DatabaseSummary {
@@ -190,6 +192,13 @@ export namespace DatabaseSummary {
 
         "databaseManagementConfig": obj.databaseManagementConfig
           ? model.CloudDatabaseManagementConfig.getJsonObj(obj.databaseManagementConfig)
+          : undefined,
+
+        "dataGuardGroup": obj.dataGuardGroup
+          ? model.DataGuardGroup.getJsonObj(obj.dataGuardGroup)
+          : undefined,
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getJsonObj(obj.encryptionKeyLocationDetails)
           : undefined
       }
     };
@@ -210,6 +219,15 @@ export namespace DatabaseSummary {
 
         "databaseManagementConfig": obj.databaseManagementConfig
           ? model.CloudDatabaseManagementConfig.getDeserializedJsonObj(obj.databaseManagementConfig)
+          : undefined,
+
+        "dataGuardGroup": obj.dataGuardGroup
+          ? model.DataGuardGroup.getDeserializedJsonObj(obj.dataGuardGroup)
+          : undefined,
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getDeserializedJsonObj(
+              obj.encryptionKeyLocationDetails
+            )
           : undefined
       }
     };

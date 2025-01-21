@@ -57,6 +57,11 @@ export namespace CreateDatabaseBase {
             <model.CreateNewDatabaseDetails>(<object>jsonObj),
             true
           );
+        case "DATAGUARD":
+          return model.CreateStandByDatabaseDetails.getJsonObj(
+            <model.CreateStandByDatabaseDetails>(<object>jsonObj),
+            true
+          );
         case "DB_BACKUP":
           return model.CreateDatabaseFromBackup.getJsonObj(
             <model.CreateDatabaseFromBackup>(<object>jsonObj),
@@ -76,6 +81,11 @@ export namespace CreateDatabaseBase {
         case "NONE":
           return model.CreateNewDatabaseDetails.getDeserializedJsonObj(
             <model.CreateNewDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "DATAGUARD":
+          return model.CreateStandByDatabaseDetails.getDeserializedJsonObj(
+            <model.CreateStandByDatabaseDetails>(<object>jsonObj),
             true
           );
         case "DB_BACKUP":

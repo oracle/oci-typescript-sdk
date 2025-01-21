@@ -24,6 +24,7 @@ export interface CreateDatabaseFromBackupDetails {
    * The password to open the TDE wallet.
    */
   "backupTDEPassword"?: string;
+  "sourceEncryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
   /**
    * A strong password for SYS, SYSTEM, PDB Admin and TDE Wallet. The password must be at least nine characters and contain at least two uppercase, two lowercase, two numbers, and two special characters. The special characters must be _, \\#, or -.
    */
@@ -49,12 +50,28 @@ export interface CreateDatabaseFromBackupDetails {
 
 export namespace CreateDatabaseFromBackupDetails {
   export function getJsonObj(obj: CreateDatabaseFromBackupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceEncryptionKeyLocationDetails": obj.sourceEncryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getJsonObj(obj.sourceEncryptionKeyLocationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateDatabaseFromBackupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sourceEncryptionKeyLocationDetails": obj.sourceEncryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getDeserializedJsonObj(
+              obj.sourceEncryptionKeyLocationDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
