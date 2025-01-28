@@ -101,6 +101,18 @@ export interface DbSystemShapeSummary {
    */
   "minDataStorageInTBs"?: number;
   /**
+   * The display name of the shape used for the DB system.
+   */
+  "displayName"?: string;
+  /**
+   * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+   */
+  "computeModel"?: DbSystemShapeSummary.ComputeModel;
+  /**
+   * If true, the shape supports configurable DB and Storage Server types.
+   */
+  "areServerTypesSupported"?: boolean;
+  /**
    * The minimum number of compute servers available for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minimumNodeCount"?: number;
@@ -120,6 +132,16 @@ export namespace DbSystemShapeSummary {
     Intel = "INTEL",
     IntelFlexX9 = "INTEL_FLEX_X9",
     AmpereFlexA1 = "AMPERE_FLEX_A1",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

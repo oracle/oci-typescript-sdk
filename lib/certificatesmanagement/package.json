@@ -1,6 +1,6 @@
 {
   "name": "oci-certificatesmanagement",
-  "version": "2.100.3",
+  "version": "2.101.0",
   "description": "OCI NodeJS client for Certificates Management Service",
   "repository": {
     "type": "git",

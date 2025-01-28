@@ -1,6 +1,6 @@
 {
   "name": "oci-datacatalog",
-  "version": "2.100.3",
+  "version": "2.101.0",
   "description": "OCI NodeJS client for Data catalogue Service",
   "repository": {
     "type": "git",

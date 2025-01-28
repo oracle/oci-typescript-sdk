@@ -33,6 +33,18 @@ export interface AwrDbSnapshotRangeSummary {
    */
   "dbName": string;
   /**
+   * The unique name of the database.
+   */
+  "dbUniqueName"?: string;
+  /**
+   * The internal ID of the database where the AWR snapshot data was collected.
+   */
+  "srcDbId"?: string;
+  /**
+   * The name of the database where the AWR snapshot data was collected.
+   */
+  "srcDbName"?: string;
+  /**
    * The database instance numbers.
    */
   "instanceList"?: Array<number>;

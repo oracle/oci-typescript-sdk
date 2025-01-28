@@ -54,6 +54,18 @@ export interface MySqlDataSummary {
    */
   "maxTimerWait": number;
   /**
+   * The maximum amount of controlled memory used by a statement during execution. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxControlledMemory"?: number;
+  /**
+   * The maximum amount of memory used by a statement during execution. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxTotalMemory"?: number;
+  /**
+   * The total amount of time spent on CPU for this statement. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sumCpuTime"?: number;
+  /**
    * The total amount of time that has been spent waiting for table locks. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sumLockTime": number;

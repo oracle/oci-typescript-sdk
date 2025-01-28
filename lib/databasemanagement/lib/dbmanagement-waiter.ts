@@ -236,6 +236,25 @@ export class DbManagementWaiter {
   }
 
   /**
+   * Waits forExternalMySqlDatabaseConnector till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetExternalMySqlDatabaseConnectorResponse | null (null in case of 404 response)
+   */
+  public async forExternalMySqlDatabaseConnector(
+    request: serviceRequests.GetExternalMySqlDatabaseConnectorRequest,
+    ...targetStates: models.LifecycleStates[]
+  ): Promise<serviceResponses.GetExternalMySqlDatabaseConnectorResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getExternalMySqlDatabaseConnector(request),
+      response => targetStates.includes(response.externalMySqlDatabaseConnector.lifecycleState!),
+      targetStates.includes(models.LifecycleStates.Deleted)
+    );
+  }
+
+  /**
    * Waits forJob till it reaches any of the provided states
    *
    * @param request the request to send

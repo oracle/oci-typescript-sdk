@@ -54,6 +54,7 @@ export namespace AlertLogSummary {
     Severe = "SEVERE",
     Important = "IMPORTANT",
     Normal = "NORMAL",
+    Other = "OTHER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -68,6 +69,7 @@ export namespace AlertLogSummary {
     Warning = "WARNING",
     Notification = "NOTIFICATION",
     Trace = "TRACE",
+    Other = "OTHER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

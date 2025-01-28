@@ -20,10 +20,14 @@ import common = require("oci-common");
 /**
  * Frequency in which the news report will be sent.
  * WEEKLY: Receive an OPSI news report every week.
+ * DAILY: Receive an OPSI news report every day.
+ * HOURLY: Receive an actionable insights report every hour if there are significant changes to the customer's resources.
  *
  **/
 export enum NewsFrequency {
   Weekly = "WEEKLY",
+  Daily = "DAILY",
+  Hourly = "HOURLY",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

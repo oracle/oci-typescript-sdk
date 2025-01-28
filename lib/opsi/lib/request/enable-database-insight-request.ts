@@ -24,6 +24,7 @@ export interface EnableDatabaseInsightRequest extends common.BaseRequest {
   "enableDatabaseInsightDetails":
     | model.EnableEmManagedExternalDatabaseInsightDetails
     | model.EnableMdsMySqlDatabaseInsightDetails
+    | model.EnableExternalMysqlDatabaseInsightDetails
     | model.EnableAutonomousDatabaseInsightDetails
     | model.EnableMacsManagedCloudDatabaseInsightDetails
     | model.EnablePeComanagedDatabaseInsightDetails;

@@ -49,6 +49,10 @@ export interface NewsContentTypes {
    * Supported resources for SQL insights - performance degradation content type.
    */
   "sqlInsightsPerformanceDegradationResources"?: Array<model.NewsSqlInsightsContentTypesResource>;
+  /**
+   * Supported resources for actionable insights content type.
+   */
+  "actionableInsightsResources"?: Array<model.ActionableInsightsContentTypesResource>;
 }
 
 export namespace NewsContentTypes {
@@ -89,6 +93,11 @@ export namespace NewsContentTypes {
         "sqlInsightsPerformanceDegradationResources": obj.sqlInsightsPerformanceDegradationResources
           ? obj.sqlInsightsPerformanceDegradationResources.map(item => {
               return model.NewsSqlInsightsContentTypesResource.getJsonObj(item);
+            })
+          : undefined,
+        "actionableInsightsResources": obj.actionableInsightsResources
+          ? obj.actionableInsightsResources.map(item => {
+              return model.ActionableInsightsContentTypesResource.getJsonObj(item);
             })
           : undefined
       }
@@ -133,6 +142,11 @@ export namespace NewsContentTypes {
         "sqlInsightsPerformanceDegradationResources": obj.sqlInsightsPerformanceDegradationResources
           ? obj.sqlInsightsPerformanceDegradationResources.map(item => {
               return model.NewsSqlInsightsContentTypesResource.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "actionableInsightsResources": obj.actionableInsightsResources
+          ? obj.actionableInsightsResources.map(item => {
+              return model.ActionableInsightsContentTypesResource.getDeserializedJsonObj(item);
             })
           : undefined
       }

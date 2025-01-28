@@ -26,6 +26,8 @@ import * as ChangeEnterpriseManagerBridgeCompartmentRequest from "./change-enter
 export import ChangeEnterpriseManagerBridgeCompartmentRequest = ChangeEnterpriseManagerBridgeCompartmentRequest.ChangeEnterpriseManagerBridgeCompartmentRequest;
 import * as ChangeExadataInsightCompartmentRequest from "./change-exadata-insight-compartment-request";
 export import ChangeExadataInsightCompartmentRequest = ChangeExadataInsightCompartmentRequest.ChangeExadataInsightCompartmentRequest;
+import * as ChangeExternalMysqlDatabaseInsightConnectionRequest from "./change-external-mysql-database-insight-connection-request";
+export import ChangeExternalMysqlDatabaseInsightConnectionRequest = ChangeExternalMysqlDatabaseInsightConnectionRequest.ChangeExternalMysqlDatabaseInsightConnectionRequest;
 import * as ChangeHostInsightCompartmentRequest from "./change-host-insight-compartment-request";
 export import ChangeHostInsightCompartmentRequest = ChangeHostInsightCompartmentRequest.ChangeHostInsightCompartmentRequest;
 import * as ChangeMacsManagedCloudDatabaseInsightConnectionRequest from "./change-macs-managed-cloud-database-insight-connection-request";

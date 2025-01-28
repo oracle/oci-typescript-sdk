@@ -31,7 +31,8 @@ export interface UpdateDatabaseInsightRequest extends common.BaseRequest {
     | model.UpdatePeComanagedDatabaseInsightDetails
     | model.UpdateAutonomousDatabaseInsightDetails
     | model.UpdateMdsMySqlDatabaseInsight
-    | model.UpdateMacsManagedCloudDatabaseInsightDetails;
+    | model.UpdateMacsManagedCloudDatabaseInsightDetails
+    | model.UpdateExternalMysqlDatabaseInsightDetails;
   /**
    * Used for optimistic concurrency control. In the update or delete call for a resource, set the {@code if-match}
    * parameter to the value of the etag from a previous get, create, or update response for that resource.  The resource

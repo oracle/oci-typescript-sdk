@@ -186,6 +186,18 @@ Example: {@code {\"Department\": \"Finance\"}}
    * If true, the infrastructure is using granular maintenance scheduling preference.
    */
   "isSchedulingPolicyAssociated"?: boolean;
+  /**
+   * The database server type of the Exadata infrastructure.
+   */
+  "databaseServerType"?: string;
+  /**
+   * The storage server type of the Exadata infrastructure.
+   */
+  "storageServerType"?: string;
+  /**
+   * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+   */
+  "computeModel"?: CloudExadataInfrastructureSummary.ComputeModel;
 }
 
 export namespace CloudExadataInfrastructureSummary {
@@ -197,6 +209,16 @@ export namespace CloudExadataInfrastructureSummary {
     Terminated = "TERMINATED",
     Failed = "FAILED",
     MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

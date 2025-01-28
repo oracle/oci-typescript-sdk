@@ -109,6 +109,14 @@ export interface CreateExadataInfrastructureDetails {
   "isCpsOfflineReportEnabled"?: boolean;
   "networkBondingModeDetails"?: model.NetworkBondingModeDetails;
   /**
+   * The database server type of the Exadata infrastructure.
+   */
+  "databaseServerType"?: string;
+  /**
+   * The storage server type of the Exadata infrastructure.
+   */
+  "storageServerType"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

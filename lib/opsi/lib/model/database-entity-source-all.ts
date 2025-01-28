@@ -26,6 +26,7 @@ export enum DatabaseEntitySourceAll {
   MacsManagedExternalDatabase = "MACS_MANAGED_EXTERNAL_DATABASE",
   PeComanagedDatabase = "PE_COMANAGED_DATABASE",
   MdsMysqlDatabaseSystem = "MDS_MYSQL_DATABASE_SYSTEM",
+  ExternalMysqlDatabaseSystem = "EXTERNAL_MYSQL_DATABASE_SYSTEM",
   MacsManagedCloudDatabase = "MACS_MANAGED_CLOUD_DATABASE",
 
   /**

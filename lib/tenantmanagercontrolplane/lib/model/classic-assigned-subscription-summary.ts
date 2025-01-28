@@ -46,6 +46,10 @@ export interface ClassicAssignedSubscriptionSummary extends model.AssignedSubscr
    * Customer service identifier for the customer associated with the subscription.
    */
   "csiNumber"?: string;
+  /**
+   * Service or component which is used to provision and manage the subscription.
+   */
+  "managedBy"?: model.ClassicSubscriptionManagedBy;
 
   "entityVersion": string;
 }

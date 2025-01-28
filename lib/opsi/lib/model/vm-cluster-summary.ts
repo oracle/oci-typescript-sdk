@@ -22,19 +22,19 @@ import common = require("oci-common");
  */
 export interface VmClusterSummary {
   /**
-   * The name of the vm cluster.
+   * The name of the VM Cluster.
    */
   "vmclusterName": string;
   /**
-   * The memory allocated on a vm cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The memory allocated on a VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryAllocatedInGBs"?: number;
   /**
-   * The cpu allocated on a vm cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The CPU allocated on a VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuAllocated"?: number;
   /**
-   * The number of DB nodes on a vm cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of DB nodes on a VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbNodesCount"?: number;
 }

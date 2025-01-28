@@ -230,6 +230,18 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "isSchedulingPolicyAssociated"?: boolean;
   "exascaleConfig"?: model.ExascaleConfigDetails;
+  /**
+   * The database server type of the Exadata infrastructure.
+   */
+  "databaseServerType"?: string;
+  /**
+   * The storage server type of the Exadata infrastructure.
+   */
+  "storageServerType"?: string;
+  /**
+   * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+   */
+  "computeModel"?: ExadataInfrastructureSummary.ComputeModel;
 }
 
 export namespace ExadataInfrastructureSummary {
@@ -259,6 +271,7 @@ export namespace ExadataInfrastructureSummary {
     X8M = "X8M",
     X9M = "X9M",
     X10M = "X10M",
+    X11M = "X11M",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -269,6 +282,16 @@ export namespace ExadataInfrastructureSummary {
   export enum MaintenanceSLOStatus {
     Ok = "OK",
     Degraded = "DEGRADED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

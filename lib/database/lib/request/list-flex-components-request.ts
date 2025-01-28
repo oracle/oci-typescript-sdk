@@ -27,6 +27,10 @@ export interface ListFlexComponentsRequest extends common.BaseRequest {
    */
   "name"?: string;
   /**
+   * A filter to return only resources that belong to the entire shape name given. The match is not case sensitive.
+   */
+  "shape"?: string;
+  /**
    * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */
   "sortOrder"?: ListFlexComponentsRequest.SortOrder;

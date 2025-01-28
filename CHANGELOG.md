@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.101.0 - 2025-01-28
+### Added 
+- Support for external MySQL database management in the Database Management service 
+- Support for fetching highly available metrics for managed databases in the Database Management service 
+- Support for Exadata Infrastructure on Exadata Cloud@Customer in the Database service 
+- Support for disaster recovery for cloud native applications running on OKE clusters in the Disaster Recovery service 
+- Support for subscription assignment at creation of the child tenancies in the Organizations service 
+- Support for additional actionable insights content-types for news reports in the Operations Insights service 
+- Support for MySQL Heatwave database systems in the Operations Insights service   
+
+### Breaking Changes 
+- The enum ClassicSubscriptionEnvironmentName was removed from the Organizations service
+
 ## 2.100.3 - 2025-01-21
 ### Added 
 - Support for Bring Your Own ASN (BYOASN) in the Networking service 

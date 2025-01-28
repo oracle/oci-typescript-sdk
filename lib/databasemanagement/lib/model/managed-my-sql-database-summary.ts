@@ -45,6 +45,20 @@ export interface ManagedMySqlDatabaseSummary {
    * The name of the Managed MySQL Database.
    */
   "name": string;
+  /**
+   * The type of the MySQL Database. Indicates whether the database
+   * is external or MDS.
+   *
+   */
+  "databaseType"?: model.MySqlType;
+  /**
+   * Indicates database management status.
+   */
+  "managementState"?: model.ManagementState;
+  /**
+   * Indicates lifecycle  state of the resource.
+   */
+  "lifecycleState"?: model.LifecycleStates;
 }
 
 export namespace ManagedMySqlDatabaseSummary {

@@ -82,6 +82,10 @@ export interface ClassicAssignedSubscription extends model.AssignedSubscription 
    * Subscription end time.
    */
   "endDate"?: Date;
+  /**
+   * Service or component which is used to provision and manage the subscription.
+   */
+  "managedBy"?: model.ClassicSubscriptionManagedBy;
 
   "entityVersion": string;
 }

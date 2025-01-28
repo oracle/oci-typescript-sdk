@@ -269,6 +269,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
   "cloudAutomationUpdateDetails"?: model.CloudAutomationUpdateDetails;
+  /**
+   * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+   */
+  "computeModel"?: CloudVmCluster.ComputeModel;
 }
 
 export namespace CloudVmCluster {
@@ -300,6 +304,16 @@ export namespace CloudVmCluster {
   export enum DiskRedundancy {
     High = "HIGH",
     Normal = "NORMAL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

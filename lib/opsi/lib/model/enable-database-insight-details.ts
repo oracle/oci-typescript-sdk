@@ -40,6 +40,11 @@ export namespace EnableDatabaseInsightDetails {
             <model.EnableMdsMySqlDatabaseInsightDetails>(<object>jsonObj),
             true
           );
+        case "EXTERNAL_MYSQL_DATABASE_SYSTEM":
+          return model.EnableExternalMysqlDatabaseInsightDetails.getJsonObj(
+            <model.EnableExternalMysqlDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         case "AUTONOMOUS_DATABASE":
           return model.EnableAutonomousDatabaseInsightDetails.getJsonObj(
             <model.EnableAutonomousDatabaseInsightDetails>(<object>jsonObj),
@@ -74,6 +79,11 @@ export namespace EnableDatabaseInsightDetails {
         case "MDS_MYSQL_DATABASE_SYSTEM":
           return model.EnableMdsMySqlDatabaseInsightDetails.getDeserializedJsonObj(
             <model.EnableMdsMySqlDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
+        case "EXTERNAL_MYSQL_DATABASE_SYSTEM":
+          return model.EnableExternalMysqlDatabaseInsightDetails.getDeserializedJsonObj(
+            <model.EnableExternalMysqlDatabaseInsightDetails>(<object>jsonObj),
             true
           );
         case "AUTONOMOUS_DATABASE":

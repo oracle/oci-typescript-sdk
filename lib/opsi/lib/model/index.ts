@@ -16,6 +16,8 @@ see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.c
 
 import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
+import * as ActionableInsightsContentTypesResource from "./actionable-insights-content-types-resource";
+export import ActionableInsightsContentTypesResource = ActionableInsightsContentTypesResource.ActionableInsightsContentTypesResource;
 import * as AddExadataInsightMembersDetails from "./add-exadata-insight-members-details";
 export import AddExadataInsightMembersDetails = AddExadataInsightMembersDetails.AddExadataInsightMembersDetails;
 import * as AddmDbCollection from "./addm-db-collection";
@@ -140,6 +142,8 @@ import * as ChangeEnterpriseManagerBridgeCompartmentDetails from "./change-enter
 export import ChangeEnterpriseManagerBridgeCompartmentDetails = ChangeEnterpriseManagerBridgeCompartmentDetails.ChangeEnterpriseManagerBridgeCompartmentDetails;
 import * as ChangeExadataInsightCompartmentDetails from "./change-exadata-insight-compartment-details";
 export import ChangeExadataInsightCompartmentDetails = ChangeExadataInsightCompartmentDetails.ChangeExadataInsightCompartmentDetails;
+import * as ChangeExternalMysqlDatabaseInsightConnectionDetails from "./change-external-mysql-database-insight-connection-details";
+export import ChangeExternalMysqlDatabaseInsightConnectionDetails = ChangeExternalMysqlDatabaseInsightConnectionDetails.ChangeExternalMysqlDatabaseInsightConnectionDetails;
 import * as ChangeHostInsightCompartmentDetails from "./change-host-insight-compartment-details";
 export import ChangeHostInsightCompartmentDetails = ChangeHostInsightCompartmentDetails.ChangeHostInsightCompartmentDetails;
 import * as ChangeMacsManagedCloudDatabaseInsightConnectionDetails from "./change-macs-managed-cloud-database-insight-connection-details";
@@ -408,6 +412,8 @@ import * as LifecycleState from "./lifecycle-state";
 export import LifecycleState = LifecycleState.LifecycleState;
 import * as ListObjects from "./list-objects";
 export import ListObjects = ListObjects.ListObjects;
+import * as MatchRule from "./match-rule";
+export import MatchRule = MatchRule.MatchRule;
 import * as MySqlSqlStats from "./my-sql-sql-stats";
 export import MySqlSqlStats = MySqlSqlStats.MySqlSqlStats;
 import * as MySqlSqlText from "./my-sql-sql-text";
@@ -789,6 +795,8 @@ import * as CreateEmManagedExternalExadataInsightDetails from "./create-em-manag
 export import CreateEmManagedExternalExadataInsightDetails = CreateEmManagedExternalExadataInsightDetails.CreateEmManagedExternalExadataInsightDetails;
 import * as CreateEmManagedExternalHostInsightDetails from "./create-em-managed-external-host-insight-details";
 export import CreateEmManagedExternalHostInsightDetails = CreateEmManagedExternalHostInsightDetails.CreateEmManagedExternalHostInsightDetails;
+import * as CreateExternalMysqlDatabaseInsightDetails from "./create-external-mysql-database-insight-details";
+export import CreateExternalMysqlDatabaseInsightDetails = CreateExternalMysqlDatabaseInsightDetails.CreateExternalMysqlDatabaseInsightDetails;
 import * as CreateMacsManagedCloudDatabaseInsightDetails from "./create-macs-managed-cloud-database-insight-details";
 export import CreateMacsManagedCloudDatabaseInsightDetails = CreateMacsManagedCloudDatabaseInsightDetails.CreateMacsManagedCloudDatabaseInsightDetails;
 import * as CreateMacsManagedCloudExadataInsightDetails from "./create-macs-managed-cloud-exadata-insight-details";
@@ -875,6 +883,8 @@ import * as EnableEmManagedExternalExadataInsightDetails from "./enable-em-manag
 export import EnableEmManagedExternalExadataInsightDetails = EnableEmManagedExternalExadataInsightDetails.EnableEmManagedExternalExadataInsightDetails;
 import * as EnableEmManagedExternalHostInsightDetails from "./enable-em-managed-external-host-insight-details";
 export import EnableEmManagedExternalHostInsightDetails = EnableEmManagedExternalHostInsightDetails.EnableEmManagedExternalHostInsightDetails;
+import * as EnableExternalMysqlDatabaseInsightDetails from "./enable-external-mysql-database-insight-details";
+export import EnableExternalMysqlDatabaseInsightDetails = EnableExternalMysqlDatabaseInsightDetails.EnableExternalMysqlDatabaseInsightDetails;
 import * as EnableMacsManagedCloudDatabaseInsightDetails from "./enable-macs-managed-cloud-database-insight-details";
 export import EnableMacsManagedCloudDatabaseInsightDetails = EnableMacsManagedCloudDatabaseInsightDetails.EnableMacsManagedCloudDatabaseInsightDetails;
 import * as EnableMacsManagedCloudExadataInsightDetails from "./enable-macs-managed-cloud-exadata-insight-details";
@@ -911,6 +921,12 @@ import * as ExadataInsightsDataObjectSummary from "./exadata-insights-data-objec
 export import ExadataInsightsDataObjectSummary = ExadataInsightsDataObjectSummary.ExadataInsightsDataObjectSummary;
 import * as ExadataStorageServerStatisticsSummary from "./exadata-storage-server-statistics-summary";
 export import ExadataStorageServerStatisticsSummary = ExadataStorageServerStatisticsSummary.ExadataStorageServerStatisticsSummary;
+import * as ExternalMysqlDatabaseConfigurationSummary from "./external-mysql-database-configuration-summary";
+export import ExternalMysqlDatabaseConfigurationSummary = ExternalMysqlDatabaseConfigurationSummary.ExternalMysqlDatabaseConfigurationSummary;
+import * as ExternalMysqlDatabaseInsight from "./external-mysql-database-insight";
+export import ExternalMysqlDatabaseInsight = ExternalMysqlDatabaseInsight.ExternalMysqlDatabaseInsight;
+import * as ExternalMysqlDatabaseInsightSummary from "./external-mysql-database-insight-summary";
+export import ExternalMysqlDatabaseInsightSummary = ExternalMysqlDatabaseInsightSummary.ExternalMysqlDatabaseInsightSummary;
 import * as HostAllocation from "./host-allocation";
 export import HostAllocation = HostAllocation.HostAllocation;
 import * as HostContainers from "./host-containers";
@@ -1055,6 +1071,8 @@ import * as UpdateEmManagedExternalExadataInsightDetails from "./update-em-manag
 export import UpdateEmManagedExternalExadataInsightDetails = UpdateEmManagedExternalExadataInsightDetails.UpdateEmManagedExternalExadataInsightDetails;
 import * as UpdateEmManagedExternalHostInsightDetails from "./update-em-managed-external-host-insight-details";
 export import UpdateEmManagedExternalHostInsightDetails = UpdateEmManagedExternalHostInsightDetails.UpdateEmManagedExternalHostInsightDetails;
+import * as UpdateExternalMysqlDatabaseInsightDetails from "./update-external-mysql-database-insight-details";
+export import UpdateExternalMysqlDatabaseInsightDetails = UpdateExternalMysqlDatabaseInsightDetails.UpdateExternalMysqlDatabaseInsightDetails;
 import * as UpdateMacsManagedCloudDatabaseHostInsightDetails from "./update-macs-managed-cloud-database-host-insight-details";
 export import UpdateMacsManagedCloudDatabaseHostInsightDetails = UpdateMacsManagedCloudDatabaseHostInsightDetails.UpdateMacsManagedCloudDatabaseHostInsightDetails;
 import * as UpdateMacsManagedCloudDatabaseInsightDetails from "./update-macs-managed-cloud-database-insight-details";

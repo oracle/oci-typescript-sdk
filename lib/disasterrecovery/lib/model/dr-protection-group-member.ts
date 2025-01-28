@@ -94,6 +94,11 @@ export namespace DrProtectionGroupMember {
             <model.DrProtectionGroupMemberDatabase>(<object>jsonObj),
             true
           );
+        case "OKE_CLUSTER":
+          return model.DrProtectionGroupMemberOkeCluster.getJsonObj(
+            <model.DrProtectionGroupMemberOkeCluster>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.memberType}`);
       }
@@ -158,6 +163,11 @@ export namespace DrProtectionGroupMember {
         case "DATABASE":
           return model.DrProtectionGroupMemberDatabase.getDeserializedJsonObj(
             <model.DrProtectionGroupMemberDatabase>(<object>jsonObj),
+            true
+          );
+        case "OKE_CLUSTER":
+          return model.DrProtectionGroupMemberOkeCluster.getDeserializedJsonObj(
+            <model.DrProtectionGroupMemberOkeCluster>(<object>jsonObj),
             true
           );
         default:
