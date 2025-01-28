@@ -151,4 +151,12 @@ export interface SummarizeExadataInsightResourceUtilizationInsightRequest
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Percent value in which a resource metric is considered highly utilized.
+   */
+  "highUtilizationThreshold"?: number;
+  /**
+   * Percent value in which a resource metric is considered low utilized.
+   */
+  "lowUtilizationThreshold"?: number;
 }

@@ -26435,6 +26435,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     const queryParams = {
       "compartmentId": listFlexComponentsRequest.compartmentId,
       "name": listFlexComponentsRequest.name,
+      "shape": listFlexComponentsRequest.shape,
       "sortOrder": listFlexComponentsRequest.sortOrder,
       "sortBy": listFlexComponentsRequest.sortBy,
       "limit": listFlexComponentsRequest.limit,

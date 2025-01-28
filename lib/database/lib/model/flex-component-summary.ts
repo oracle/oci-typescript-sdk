@@ -40,9 +40,47 @@ export interface FlexComponentSummary {
    * The maximum  storage that can be enabled on the Storage Server for this Flex Component. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableDbStorageInGBs"?: number;
+  /**
+   * The runtime minimum number of CPU cores that can be enabled for this Flex Component. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "runtimeMinimumCoreCount"?: number;
+  /**
+   * The name of the DB system shape for this Flex Component.
+   */
+  "shape"?: string;
+  /**
+   * The maximum memory size that can be enabled on the DB Server for this Flex Component. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableMemoryInGBs"?: number;
+  /**
+   * The maximum local storage that can be enabled on the DB Server for this Flex Component. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableLocalStorageInGBs"?: number;
+  /**
+   * The compute model of the DB Server for this Flex Component.
+   */
+  "computeModel"?: string;
+  /**
+   * The hardware type of the DB (Compute) or Storage (Cell) Server for this Flex Component.
+   */
+  "hardwareType"?: FlexComponentSummary.HardwareType;
+  /**
+   * The description summary for this Flex Component.
+   */
+  "descriptionSummary"?: string;
 }
 
 export namespace FlexComponentSummary {
+  export enum HardwareType {
+    Compute = "COMPUTE",
+    Cell = "CELL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: FlexComponentSummary): object {
     const jsonObj = { ...obj, ...{} };
 

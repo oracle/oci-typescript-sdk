@@ -1,6 +1,6 @@
 {
   "name": "oci-marketplacepublisher",
-  "version": "2.100.3",
+  "version": "2.101.0",
   "description": "OCI NodeJS client for Marketplace Publisher Service",
   "repository": {
     "type": "git",

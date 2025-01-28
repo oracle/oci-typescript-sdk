@@ -727,6 +727,88 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Change the connection details of an External MySQL database insight. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeExternalMysqlDatabaseInsightConnectionRequest
+   * @return ChangeExternalMysqlDatabaseInsightConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeExternalMysqlDatabaseInsightConnection.ts.html |here} to see how to use ChangeExternalMysqlDatabaseInsightConnection API.
+   */
+  public async changeExternalMysqlDatabaseInsightConnection(
+    changeExternalMysqlDatabaseInsightConnectionRequest: requests.ChangeExternalMysqlDatabaseInsightConnectionRequest
+  ): Promise<responses.ChangeExternalMysqlDatabaseInsightConnectionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeExternalMysqlDatabaseInsightConnection."
+      );
+    const operationName = "changeExternalMysqlDatabaseInsightConnection";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseInsightId}": changeExternalMysqlDatabaseInsightConnectionRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeExternalMysqlDatabaseInsightConnectionRequest.ifMatch,
+      "opc-request-id": changeExternalMysqlDatabaseInsightConnectionRequest.opcRequestId,
+      "opc-retry-token": changeExternalMysqlDatabaseInsightConnectionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExternalMysqlDatabaseInsightConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/databaseInsights/{databaseInsightId}/actions/changeExternalMysqlDatabaseInsightConnectionDetails",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeExternalMysqlDatabaseInsightConnectionRequest.changeExternalMysqlDatabaseInsightConnectionDetails,
+        "ChangeExternalMysqlDatabaseInsightConnectionDetails",
+        model.ChangeExternalMysqlDatabaseInsightConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeExternalMysqlDatabaseInsightConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a HostInsight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeHostInsightCompartmentRequest
@@ -13208,7 +13290,11 @@ Note that this API does not return information on the number of times each datab
       "freeformTagExists":
         summarizeExadataInsightResourceUtilizationInsightRequest.freeformTagExists,
       "compartmentIdInSubtree":
-        summarizeExadataInsightResourceUtilizationInsightRequest.compartmentIdInSubtree
+        summarizeExadataInsightResourceUtilizationInsightRequest.compartmentIdInSubtree,
+      "highUtilizationThreshold":
+        summarizeExadataInsightResourceUtilizationInsightRequest.highUtilizationThreshold,
+      "lowUtilizationThreshold":
+        summarizeExadataInsightResourceUtilizationInsightRequest.lowUtilizationThreshold
     };
 
     let headerParams = {

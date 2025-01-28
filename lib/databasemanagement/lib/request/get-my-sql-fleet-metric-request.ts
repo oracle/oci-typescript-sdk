@@ -51,6 +51,10 @@ export interface GetMySqlFleetMetricRequest extends common.BaseRequest {
    */
   "filterByMdsDeploymentType"?: model.MdsType;
   /**
+   * The parameter to filter by MySQL database type. Allowed values are EXTERNAL or MDS.
+   */
+  "filterByMySqlDatabaseTypeParam"?: model.MySqlType;
+  /**
    * The parameter to filter by MySQL Database status.
    */
   "filterByMySqlStatus"?: model.DatabaseStatus;

@@ -15,33 +15,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * TAS (Tenant Automation System) legacy environment this order orginated from.
+ * Service or component which is used to provision and manage the subscription.
  **/
-export enum ClassicSubscriptionEnvironmentName {
-  Prod = "PROD",
-  Preprod = "PREPROD",
-  Preprod1 = "PREPROD1",
-  Pintlab = "PINTLAB",
-  Miglab = "MIGLAB",
-  Pool2 = "POOL2",
-  Pintlab2 = "PINTLAB2",
-  Mylab0 = "MYLAB0",
-  Mylab1 = "MYLAB1",
-  Mylab2 = "MYLAB2",
-  Mylab3 = "MYLAB3",
-  Mylab4 = "MYLAB4",
-  Mylab5 = "MYLAB5"
+export enum ClassicSubscriptionManagedBy {
+  Appsmanager = "APPSMANAGER",
+  Servicemanagerproxy = "SERVICEMANAGERPROXY",
+  Fusionapps = "FUSIONAPPS",
+  Myservices = "MYSERVICES",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
-export namespace ClassicSubscriptionEnvironmentName {
-  export function getJsonObj(
-    obj: ClassicSubscriptionEnvironmentName
-  ): ClassicSubscriptionEnvironmentName {
+export namespace ClassicSubscriptionManagedBy {
+  export function getJsonObj(obj: ClassicSubscriptionManagedBy): ClassicSubscriptionManagedBy {
     return obj;
   }
   export function getDeserializedJsonObj(
-    obj: ClassicSubscriptionEnvironmentName
-  ): ClassicSubscriptionEnvironmentName {
+    obj: ClassicSubscriptionManagedBy
+  ): ClassicSubscriptionManagedBy {
     return obj;
   }
 }

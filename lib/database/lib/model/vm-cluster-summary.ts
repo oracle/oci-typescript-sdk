@@ -156,6 +156,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Specifies whether the type of storage management for the VM cluster is ASM or Exascale.
    */
   "storageManagementType"?: VmClusterSummary.StorageManagementType;
+  /**
+   * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+   */
+  "computeModel"?: VmClusterSummary.ComputeModel;
 }
 
 export namespace VmClusterSummary {
@@ -187,6 +191,16 @@ export namespace VmClusterSummary {
   export enum StorageManagementType {
     Asm = "ASM",
     Exascale = "EXASCALE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

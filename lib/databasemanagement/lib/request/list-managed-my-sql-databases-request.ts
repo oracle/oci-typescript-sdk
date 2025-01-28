@@ -37,6 +37,10 @@ export interface ListManagedMySqlDatabasesRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
+   * The parameter to filter by MySQL database type. Allowed values are EXTERNAL or MDS.
+   */
+  "filterByMySqlDatabaseTypeParam"?: model.MySqlType;
+  /**
    * The field to sort information by. Only one sortOrder can be used. The default sort order
    * for \u2018TIMECREATED\u2019 is descending and the default sort order for \u2018NAME\u2019 is ascending.
    * The \u2018NAME\u2019 sort order is case-sensitive.

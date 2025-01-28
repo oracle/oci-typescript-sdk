@@ -49,6 +49,11 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
             true
           );
+        case "OKE_CLUSTER":
+          return model.UpdateDrProtectionGroupMemberOkeClusterDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
+            true
+          );
         case "AUTONOMOUS_DATABASE":
           return model.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
@@ -115,6 +120,11 @@ export namespace UpdateDrProtectionGroupMemberDetails {
         case "NETWORK_LOAD_BALANCER":
           return model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
+        case "OKE_CLUSTER":
+          return model.UpdateDrProtectionGroupMemberOkeClusterDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
             true
           );
         case "AUTONOMOUS_DATABASE":

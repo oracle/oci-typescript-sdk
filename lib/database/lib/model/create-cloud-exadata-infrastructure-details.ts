@@ -73,6 +73,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Customer contacts.
    */
   "customerContacts"?: Array<model.CustomerContact>;
+  /**
+   * The database server type of the Exadata infrastructure.
+   */
+  "databaseServerType"?: string;
+  /**
+   * The storage server type of the Exadata infrastructure.
+   */
+  "storageServerType"?: string;
 }
 
 export namespace CreateCloudExadataInfrastructureDetails {

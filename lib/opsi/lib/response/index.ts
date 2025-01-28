@@ -26,6 +26,8 @@ import * as ChangeEnterpriseManagerBridgeCompartmentResponse from "./change-ente
 export import ChangeEnterpriseManagerBridgeCompartmentResponse = ChangeEnterpriseManagerBridgeCompartmentResponse.ChangeEnterpriseManagerBridgeCompartmentResponse;
 import * as ChangeExadataInsightCompartmentResponse from "./change-exadata-insight-compartment-response";
 export import ChangeExadataInsightCompartmentResponse = ChangeExadataInsightCompartmentResponse.ChangeExadataInsightCompartmentResponse;
+import * as ChangeExternalMysqlDatabaseInsightConnectionResponse from "./change-external-mysql-database-insight-connection-response";
+export import ChangeExternalMysqlDatabaseInsightConnectionResponse = ChangeExternalMysqlDatabaseInsightConnectionResponse.ChangeExternalMysqlDatabaseInsightConnectionResponse;
 import * as ChangeHostInsightCompartmentResponse from "./change-host-insight-compartment-response";
 export import ChangeHostInsightCompartmentResponse = ChangeHostInsightCompartmentResponse.ChangeHostInsightCompartmentResponse;
 import * as ChangeMacsManagedCloudDatabaseInsightConnectionResponse from "./change-macs-managed-cloud-database-insight-connection-response";

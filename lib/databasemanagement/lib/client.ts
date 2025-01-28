@@ -19,6 +19,7 @@ import * as requests from "./request";
 import * as model from "./model";
 import * as responses from "./response";
 import { DbManagementWaiter } from "./dbmanagement-waiter";
+import { ManagedMySqlDatabasesWaiter } from "./managedmysqldatabases-waiter";
 import {
   composeResponse,
   composeRequest,
@@ -1452,6 +1453,87 @@ The database purges plans that have not been used for longer than
   }
 
   /**
+   * Check the status of the external database connection specified in this connector.
+   * This operation will refresh the connectionStatus and timeConnectionStatusLastUpdated fields.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CheckExternalMySqlDatabaseConnectorConnectionStatusRequest
+   * @return CheckExternalMySqlDatabaseConnectorConnectionStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CheckExternalMySqlDatabaseConnectorConnectionStatus.ts.html |here} to see how to use CheckExternalMySqlDatabaseConnectorConnectionStatus API.
+   */
+  public async checkExternalMySqlDatabaseConnectorConnectionStatus(
+    checkExternalMySqlDatabaseConnectorConnectionStatusRequest: requests.CheckExternalMySqlDatabaseConnectorConnectionStatusRequest
+  ): Promise<responses.CheckExternalMySqlDatabaseConnectorConnectionStatusResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#checkExternalMySqlDatabaseConnectorConnectionStatus."
+      );
+    const operationName = "checkExternalMySqlDatabaseConnectorConnectionStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabaseConnector/CheckExternalMySqlDatabaseConnectorConnectionStatus";
+    const pathParams = {
+      "{externalMySqlDatabaseConnectorId}":
+        checkExternalMySqlDatabaseConnectorConnectionStatusRequest.externalMySqlDatabaseConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": checkExternalMySqlDatabaseConnectorConnectionStatusRequest.opcRetryToken,
+      "if-match": checkExternalMySqlDatabaseConnectorConnectionStatusRequest.ifMatch,
+      "opc-request-id": checkExternalMySqlDatabaseConnectorConnectionStatusRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      checkExternalMySqlDatabaseConnectorConnectionStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalMySqlDatabaseConnectors/{externalMySqlDatabaseConnectorId}/actions/checkConnectionStatus",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CheckExternalMySqlDatabaseConnectorConnectionStatusResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Configures automatic capture filters to capture only those statements
    * that match the filter criteria.
    *
@@ -2130,6 +2212,194 @@ The database purges plans that have not been used for longer than
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates an external MySQL database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateExternalMySqlDatabaseRequest
+   * @return CreateExternalMySqlDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalMySqlDatabase.ts.html |here} to see how to use CreateExternalMySqlDatabase API.
+   */
+  public async createExternalMySqlDatabase(
+    createExternalMySqlDatabaseRequest: requests.CreateExternalMySqlDatabaseRequest
+  ): Promise<responses.CreateExternalMySqlDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createExternalMySqlDatabase.");
+    const operationName = "createExternalMySqlDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/CreateExternalMySqlDatabase";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createExternalMySqlDatabaseRequest.opcRequestId,
+      "opc-retry-token": createExternalMySqlDatabaseRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalMySqlDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabases",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalMySqlDatabaseRequest.createExternalMySqlDatabaseDetails,
+        "CreateExternalMySqlDatabaseDetails",
+        model.CreateExternalMySqlDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalMySqlDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalMySqlDatabase",
+        bodyModel: model.ExternalMySqlDatabase,
+        type: "model.ExternalMySqlDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates an external MySQL connector resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateExternalMySqlDatabaseConnectorRequest
+   * @return CreateExternalMySqlDatabaseConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalMySqlDatabaseConnector.ts.html |here} to see how to use CreateExternalMySqlDatabaseConnector API.
+   */
+  public async createExternalMySqlDatabaseConnector(
+    createExternalMySqlDatabaseConnectorRequest: requests.CreateExternalMySqlDatabaseConnectorRequest
+  ): Promise<responses.CreateExternalMySqlDatabaseConnectorResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#createExternalMySqlDatabaseConnector."
+      );
+    const operationName = "createExternalMySqlDatabaseConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabaseConnector/CreateExternalMySqlDatabaseConnector";
+    const pathParams = {};
+
+    const queryParams = {
+      "isTestConnectionParam": createExternalMySqlDatabaseConnectorRequest.isTestConnectionParam
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createExternalMySqlDatabaseConnectorRequest.opcRequestId,
+      "opc-retry-token": createExternalMySqlDatabaseConnectorRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalMySqlDatabaseConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabaseConnectors",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalMySqlDatabaseConnectorRequest.createExternalMySqlDatabaseConnectorDetails,
+        "CreateExternalMySqlDatabaseConnectorDetails",
+        model.CreateExternalMySqlDatabaseConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalMySqlDatabaseConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "externalMySqlDatabaseConnector",
+        bodyModel: model.ExternalMySqlDatabaseConnector,
+        type: "model.ExternalMySqlDatabaseConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
             dataType: "string"
           },
           {
@@ -2916,6 +3186,159 @@ The database purges plans that have not been used for longer than
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExternalExadataStorageConnectorResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the Oracle Cloud Infrastructure resource representing an external MySQL database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExternalMySqlDatabaseRequest
+   * @return DeleteExternalMySqlDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalMySqlDatabase.ts.html |here} to see how to use DeleteExternalMySqlDatabase API.
+   */
+  public async deleteExternalMySqlDatabase(
+    deleteExternalMySqlDatabaseRequest: requests.DeleteExternalMySqlDatabaseRequest
+  ): Promise<responses.DeleteExternalMySqlDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteExternalMySqlDatabase.");
+    const operationName = "deleteExternalMySqlDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/DeleteExternalMySqlDatabase";
+    const pathParams = {
+      "{externalMySqlDatabaseId}": deleteExternalMySqlDatabaseRequest.externalMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExternalMySqlDatabaseRequest.ifMatch,
+      "opc-request-id": deleteExternalMySqlDatabaseRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalMySqlDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabases/{externalMySqlDatabaseId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalMySqlDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the Oracle Cloud Infrastructure resource representing an external MySQL database connector.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExternalMySqlDatabaseConnectorRequest
+   * @return DeleteExternalMySqlDatabaseConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalMySqlDatabaseConnector.ts.html |here} to see how to use DeleteExternalMySqlDatabaseConnector API.
+   */
+  public async deleteExternalMySqlDatabaseConnector(
+    deleteExternalMySqlDatabaseConnectorRequest: requests.DeleteExternalMySqlDatabaseConnectorRequest
+  ): Promise<responses.DeleteExternalMySqlDatabaseConnectorResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#deleteExternalMySqlDatabaseConnector."
+      );
+    const operationName = "deleteExternalMySqlDatabaseConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabaseConnector/DeleteExternalMySqlDatabaseConnector";
+    const pathParams = {
+      "{externalMySqlDatabaseConnectorId}":
+        deleteExternalMySqlDatabaseConnectorRequest.externalMySqlDatabaseConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteExternalMySqlDatabaseConnectorRequest.ifMatch,
+      "opc-request-id": deleteExternalMySqlDatabaseConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalMySqlDatabaseConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabaseConnectors/{externalMySqlDatabaseConnectorId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalMySqlDatabaseConnectorResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -3848,6 +4271,85 @@ Note that Database Management will not be disabled for the DB systems within the
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disables Database Management for an external MySQL Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableExternalMySqlDatabaseManagementRequest
+   * @return DisableExternalMySqlDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalMySqlDatabaseManagement.ts.html |here} to see how to use DisableExternalMySqlDatabaseManagement API.
+   */
+  public async disableExternalMySqlDatabaseManagement(
+    disableExternalMySqlDatabaseManagementRequest: requests.DisableExternalMySqlDatabaseManagementRequest
+  ): Promise<responses.DisableExternalMySqlDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableExternalMySqlDatabaseManagement."
+      );
+    const operationName = "disableExternalMySqlDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/DisableExternalMySqlDatabaseManagement";
+    const pathParams = {
+      "{externalMySqlDatabaseId}":
+        disableExternalMySqlDatabaseManagementRequest.externalMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableExternalMySqlDatabaseManagementRequest.opcRetryToken,
+      "if-match": disableExternalMySqlDatabaseManagementRequest.ifMatch,
+      "opc-request-id": disableExternalMySqlDatabaseManagementRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalMySqlDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabases/{externalMySqlDatabaseId}/actions/disableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalMySqlDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -5207,6 +5709,90 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   }
 
   /**
+   * Enables Database Management for an external MySQL Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableExternalMySqlDatabaseManagementRequest
+   * @return EnableExternalMySqlDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalMySqlDatabaseManagement.ts.html |here} to see how to use EnableExternalMySqlDatabaseManagement API.
+   */
+  public async enableExternalMySqlDatabaseManagement(
+    enableExternalMySqlDatabaseManagementRequest: requests.EnableExternalMySqlDatabaseManagementRequest
+  ): Promise<responses.EnableExternalMySqlDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableExternalMySqlDatabaseManagement."
+      );
+    const operationName = "enableExternalMySqlDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/EnableExternalMySqlDatabaseManagement";
+    const pathParams = {
+      "{externalMySqlDatabaseId}":
+        enableExternalMySqlDatabaseManagementRequest.externalMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableExternalMySqlDatabaseManagementRequest.opcRetryToken,
+      "if-match": enableExternalMySqlDatabaseManagementRequest.ifMatch,
+      "opc-request-id": enableExternalMySqlDatabaseManagementRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalMySqlDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabases/{externalMySqlDatabaseId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalMySqlDatabaseManagementRequest.enableExternalDatabaseManagementDetails,
+        "EnableExternalDatabaseManagementDetails",
+        model.EnableExternalDatabaseManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalMySqlDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Enables Database Management feature for the specified external non-container database.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -5944,6 +6530,277 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
+   * Gets the fleet of container databases (CDBs) and their backup details and metrics, in a compartment or Database Group.
+   * The databaseHostedIn query parameter must be provided to list either cloud or external databases.
+   * Either the CompartmentId or the ManagedDatabaseGroupId query parameters must be provided to retrieve the HA and backup metrics.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatabaseFleetBackupMetricsRequest
+   * @return GetDatabaseFleetBackupMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetBackupMetrics.ts.html |here} to see how to use GetDatabaseFleetBackupMetrics API.
+   */
+  public async getDatabaseFleetBackupMetrics(
+    getDatabaseFleetBackupMetricsRequest: requests.GetDatabaseFleetBackupMetricsRequest
+  ): Promise<responses.GetDatabaseFleetBackupMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getDatabaseFleetBackupMetrics.");
+    const operationName = "getDatabaseFleetBackupMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DatabaseFleetBackupMetrics/GetDatabaseFleetBackupMetrics";
+    const pathParams = {};
+
+    const queryParams = {
+      "databaseHostedIn": getDatabaseFleetBackupMetricsRequest.databaseHostedIn,
+      "managedDatabaseGroupId": getDatabaseFleetBackupMetricsRequest.managedDatabaseGroupId,
+      "compartmentId": getDatabaseFleetBackupMetricsRequest.compartmentId,
+      "startTime": getDatabaseFleetBackupMetricsRequest.startTime,
+      "endTime": getDatabaseFleetBackupMetricsRequest.endTime,
+      "filterByMetricNames": getDatabaseFleetBackupMetricsRequest.filterByMetricNames,
+      "page": getDatabaseFleetBackupMetricsRequest.page,
+      "limit": getDatabaseFleetBackupMetricsRequest.limit,
+      "sortBy": getDatabaseFleetBackupMetricsRequest.sortBy,
+      "sortOrder": getDatabaseFleetBackupMetricsRequest.sortOrder,
+      "definedTagEquals": getDatabaseFleetBackupMetricsRequest.definedTagEquals,
+      "freeformTagEquals": getDatabaseFleetBackupMetricsRequest.freeformTagEquals,
+      "definedTagExists": getDatabaseFleetBackupMetricsRequest.definedTagExists,
+      "freeformTagExists": getDatabaseFleetBackupMetricsRequest.freeformTagExists
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseFleetBackupMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseFleetBackupMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseFleetBackupMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseFleetBackupMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseFleetBackupMetrics",
+        bodyModel: model.DatabaseFleetBackupMetrics,
+        type: "model.DatabaseFleetBackupMetrics",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the fleet of Oracle Data Guard-enabled container databases (CDBs) along with Data Guard metrics and standby databases, in a compartment or Database Group.
+   * Either the CompartmentId or the ManagedDatabaseGroupId query parameters must be provided to retrieve the list of databases and Data Guard metrics.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatabaseFleetDataguardMetricsRequest
+   * @return GetDatabaseFleetDataguardMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetDataguardMetrics.ts.html |here} to see how to use GetDatabaseFleetDataguardMetrics API.
+   */
+  public async getDatabaseFleetDataguardMetrics(
+    getDatabaseFleetDataguardMetricsRequest: requests.GetDatabaseFleetDataguardMetricsRequest
+  ): Promise<responses.GetDatabaseFleetDataguardMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getDatabaseFleetDataguardMetrics.");
+    const operationName = "getDatabaseFleetDataguardMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DatabaseFleetDataguardMetrics/GetDatabaseFleetDataguardMetrics";
+    const pathParams = {};
+
+    const queryParams = {
+      "managedDatabaseGroupId": getDatabaseFleetDataguardMetricsRequest.managedDatabaseGroupId,
+      "compartmentId": getDatabaseFleetDataguardMetricsRequest.compartmentId,
+      "filterByMetricNames": getDatabaseFleetDataguardMetricsRequest.filterByMetricNames,
+      "page": getDatabaseFleetDataguardMetricsRequest.page,
+      "limit": getDatabaseFleetDataguardMetricsRequest.limit,
+      "sortBy": getDatabaseFleetDataguardMetricsRequest.sortBy,
+      "sortOrder": getDatabaseFleetDataguardMetricsRequest.sortOrder,
+      "definedTagEquals": getDatabaseFleetDataguardMetricsRequest.definedTagEquals,
+      "freeformTagEquals": getDatabaseFleetDataguardMetricsRequest.freeformTagEquals,
+      "definedTagExists": getDatabaseFleetDataguardMetricsRequest.definedTagExists,
+      "freeformTagExists": getDatabaseFleetDataguardMetricsRequest.freeformTagExists
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseFleetDataguardMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseFleetDataguardMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseFleetDataguardMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseFleetDataguardMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseFleetDataguardMetrics",
+        bodyModel: model.DatabaseFleetDataguardMetrics,
+        type: "model.DatabaseFleetDataguardMetrics",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the fleet of container databases (CDBs) and their HA and backup metrics in a compartment or in a Database Group.
+   * Either the CompartmentId or the ManagedDatabaseGroupId query parameters must be provided to retrieve the HA and backup metrics.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatabaseFleetHaOverviewMetricsRequest
+   * @return GetDatabaseFleetHaOverviewMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetHaOverviewMetrics.ts.html |here} to see how to use GetDatabaseFleetHaOverviewMetrics API.
+   */
+  public async getDatabaseFleetHaOverviewMetrics(
+    getDatabaseFleetHaOverviewMetricsRequest: requests.GetDatabaseFleetHaOverviewMetricsRequest
+  ): Promise<responses.GetDatabaseFleetHaOverviewMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getDatabaseFleetHaOverviewMetrics.");
+    const operationName = "getDatabaseFleetHaOverviewMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DatabaseFleetHaOverviewMetrics/GetDatabaseFleetHaOverviewMetrics";
+    const pathParams = {};
+
+    const queryParams = {
+      "managedDatabaseGroupId": getDatabaseFleetHaOverviewMetricsRequest.managedDatabaseGroupId,
+      "compartmentId": getDatabaseFleetHaOverviewMetricsRequest.compartmentId,
+      "filterByMetricNames": getDatabaseFleetHaOverviewMetricsRequest.filterByMetricNames,
+      "page": getDatabaseFleetHaOverviewMetricsRequest.page,
+      "limit": getDatabaseFleetHaOverviewMetricsRequest.limit,
+      "sortBy": getDatabaseFleetHaOverviewMetricsRequest.sortBy,
+      "sortOrder": getDatabaseFleetHaOverviewMetricsRequest.sortOrder,
+      "definedTagEquals": getDatabaseFleetHaOverviewMetricsRequest.definedTagEquals,
+      "freeformTagEquals": getDatabaseFleetHaOverviewMetricsRequest.freeformTagEquals,
+      "definedTagExists": getDatabaseFleetHaOverviewMetricsRequest.definedTagExists,
+      "freeformTagExists": getDatabaseFleetHaOverviewMetricsRequest.freeformTagExists
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseFleetHaOverviewMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseFleetHaOverviewMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseFleetHaOverviewMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseFleetHaOverviewMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseFleetHaOverviewMetrics",
+        bodyModel: model.DatabaseFleetHaOverviewMetrics,
+        type: "model.DatabaseFleetHaOverviewMetrics",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the health metrics for a fleet of databases in a compartment or in a Managed Database Group.
    * Either the CompartmentId or the ManagedDatabaseGroupId query parameters must be provided to retrieve the health metrics.
    *
@@ -6029,6 +6886,80 @@ When enabled, the optimizer uses SQL plan baselines to select plans
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets HA and backup details with metrics and backup history for a single database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatabaseHaBackupDetailsRequest
+   * @return GetDatabaseHaBackupDetailsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseHaBackupDetails.ts.html |here} to see how to use GetDatabaseHaBackupDetails API.
+   */
+  public async getDatabaseHaBackupDetails(
+    getDatabaseHaBackupDetailsRequest: requests.GetDatabaseHaBackupDetailsRequest
+  ): Promise<responses.GetDatabaseHaBackupDetailsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getDatabaseHaBackupDetails.");
+    const operationName = "getDatabaseHaBackupDetails";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DatabaseHaBackupDetails/GetDatabaseHaBackupDetails";
+    const pathParams = {
+      "{managedDatabaseId}": getDatabaseHaBackupDetailsRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseHaBackupDetailsRequest.opcRequestId,
+      "opc-named-credential-id": getDatabaseHaBackupDetailsRequest.opcNamedCredentialId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseHaBackupDetailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/haBackupDetails",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseHaBackupDetailsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseHaBackupDetails",
+        bodyModel: model.DatabaseHaBackupDetails,
+        type: "model.DatabaseHaBackupDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -7428,6 +8359,163 @@ When enabled, the optimizer uses SQL plan baselines to select plans
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the external MySQL database information.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalMySqlDatabaseRequest
+   * @return GetExternalMySqlDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalMySqlDatabase.ts.html |here} to see how to use GetExternalMySqlDatabase API.
+   */
+  public async getExternalMySqlDatabase(
+    getExternalMySqlDatabaseRequest: requests.GetExternalMySqlDatabaseRequest
+  ): Promise<responses.GetExternalMySqlDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalMySqlDatabase.");
+    const operationName = "getExternalMySqlDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/GetExternalMySqlDatabase";
+    const pathParams = {
+      "{externalMySqlDatabaseId}": getExternalMySqlDatabaseRequest.externalMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalMySqlDatabaseRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalMySqlDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabases/{externalMySqlDatabaseId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalMySqlDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalMySqlDatabase",
+        bodyModel: model.ExternalMySqlDatabase,
+        type: "model.ExternalMySqlDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the MySQL database connector.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalMySqlDatabaseConnectorRequest
+   * @return GetExternalMySqlDatabaseConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalMySqlDatabaseConnector.ts.html |here} to see how to use GetExternalMySqlDatabaseConnector API.
+   */
+  public async getExternalMySqlDatabaseConnector(
+    getExternalMySqlDatabaseConnectorRequest: requests.GetExternalMySqlDatabaseConnectorRequest
+  ): Promise<responses.GetExternalMySqlDatabaseConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalMySqlDatabaseConnector.");
+    const operationName = "getExternalMySqlDatabaseConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/GetExternalMySqlDatabaseConnector";
+    const pathParams = {
+      "{externalMySqlDatabaseConnectorId}":
+        getExternalMySqlDatabaseConnectorRequest.externalMySqlDatabaseConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalMySqlDatabaseConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalMySqlDatabaseConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabaseConnectors/{externalMySqlDatabaseConnectorId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalMySqlDatabaseConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "externalMySqlDatabaseConnector",
+        bodyModel: model.ExternalMySqlDatabaseConnector,
+        type: "model.ExternalMySqlDatabaseConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -11234,6 +12322,89 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
+   * Gets the list of External MySQL Databases.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExternalMySqlDatabasesRequest
+   * @return ListExternalMySqlDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalMySqlDatabases.ts.html |here} to see how to use ListExternalMySqlDatabases API.
+   */
+  public async listExternalMySqlDatabases(
+    listExternalMySqlDatabasesRequest: requests.ListExternalMySqlDatabasesRequest
+  ): Promise<responses.ListExternalMySqlDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalMySqlDatabases.");
+    const operationName = "listExternalMySqlDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabaseCollection/ListExternalMySqlDatabases";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalMySqlDatabasesRequest.compartmentId,
+      "name": listExternalMySqlDatabasesRequest.name,
+      "page": listExternalMySqlDatabasesRequest.page,
+      "limit": listExternalMySqlDatabasesRequest.limit,
+      "sortBy": listExternalMySqlDatabasesRequest.sortBy,
+      "sortOrder": listExternalMySqlDatabasesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalMySqlDatabasesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalMySqlDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalMySqlDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "externalMySqlDatabaseCollection",
+        bodyModel: model.ExternalMySqlDatabaseCollection,
+        type: "model.ExternalMySqlDatabaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the job execution for a specific ID or the list of job executions for a job, job run, Managed Database or Managed Database Group
    * in a specific compartment. Only one of the parameters, ID, jobId, jobRunId, managedDatabaseId or managedDatabaseGroupId should be provided.
    * If none of these parameters is provided, all the job executions in the compartment are listed. Job executions can also be filtered
@@ -11664,6 +12835,90 @@ When enabled, the optimizer uses SQL plan baselines to select plans
         bodyKey: "managedDatabaseCollection",
         bodyModel: model.ManagedDatabaseCollection,
         type: "model.ManagedDatabaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of External MySQL Database connectors.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMySqlDatabaseConnectorsRequest
+   * @return ListMySqlDatabaseConnectorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListMySqlDatabaseConnectors.ts.html |here} to see how to use ListMySqlDatabaseConnectors API.
+   */
+  public async listMySqlDatabaseConnectors(
+    listMySqlDatabaseConnectorsRequest: requests.ListMySqlDatabaseConnectorsRequest
+  ): Promise<responses.ListMySqlDatabaseConnectorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listMySqlDatabaseConnectors.");
+    const operationName = "listMySqlDatabaseConnectors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/MySqlConnectorCollection/ListMySqlDatabaseConnectors";
+    const pathParams = {};
+
+    const queryParams = {
+      "externalDatabaseId": listMySqlDatabaseConnectorsRequest.externalDatabaseId,
+      "name": listMySqlDatabaseConnectorsRequest.name,
+      "compartmentId": listMySqlDatabaseConnectorsRequest.compartmentId,
+      "page": listMySqlDatabaseConnectorsRequest.page,
+      "limit": listMySqlDatabaseConnectorsRequest.limit,
+      "sortBy": listMySqlDatabaseConnectorsRequest.sortBy,
+      "sortOrder": listMySqlDatabaseConnectorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMySqlDatabaseConnectorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMySqlDatabaseConnectorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabaseConnectors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMySqlDatabaseConnectorsResponse>{},
+        body: await response.json(),
+        bodyKey: "mySqlConnectorCollection",
+        bodyModel: model.MySqlConnectorCollection,
+        type: "model.MySqlConnectorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -17134,6 +18389,182 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Updates the External Mysql Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalMysqlDatabaseRequest
+   * @return UpdateExternalMysqlDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalMysqlDatabase.ts.html |here} to see how to use UpdateExternalMysqlDatabase API.
+   */
+  public async updateExternalMysqlDatabase(
+    updateExternalMysqlDatabaseRequest: requests.UpdateExternalMysqlDatabaseRequest
+  ): Promise<responses.UpdateExternalMysqlDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalMysqlDatabase.");
+    const operationName = "updateExternalMysqlDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/UpdateExternalMysqlDatabase";
+    const pathParams = {
+      "{externalMySqlDatabaseId}": updateExternalMysqlDatabaseRequest.externalMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExternalMysqlDatabaseRequest.ifMatch,
+      "opc-request-id": updateExternalMysqlDatabaseRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalMysqlDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabases/{externalMySqlDatabaseId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalMysqlDatabaseRequest.updateExternalMySqlDatabaseDetails,
+        "UpdateExternalMySqlDatabaseDetails",
+        model.UpdateExternalMySqlDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalMysqlDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "externalMySqlDatabase",
+        bodyModel: model.ExternalMySqlDatabase,
+        type: "model.ExternalMySqlDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the External Mysql Database Connector.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalMysqlDatabaseConnectorRequest
+   * @return UpdateExternalMysqlDatabaseConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalMysqlDatabaseConnector.ts.html |here} to see how to use UpdateExternalMysqlDatabaseConnector API.
+   */
+  public async updateExternalMysqlDatabaseConnector(
+    updateExternalMysqlDatabaseConnectorRequest: requests.UpdateExternalMysqlDatabaseConnectorRequest
+  ): Promise<responses.UpdateExternalMysqlDatabaseConnectorResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#updateExternalMysqlDatabaseConnector."
+      );
+    const operationName = "updateExternalMysqlDatabaseConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabaseConnector/UpdateExternalMysqlDatabaseConnector";
+    const pathParams = {
+      "{externalMySqlDatabaseConnectorId}":
+        updateExternalMysqlDatabaseConnectorRequest.externalMySqlDatabaseConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExternalMysqlDatabaseConnectorRequest.ifMatch,
+      "opc-request-id": updateExternalMysqlDatabaseConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalMysqlDatabaseConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalMySqlDatabaseConnectors/{externalMySqlDatabaseConnectorId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalMysqlDatabaseConnectorRequest.updateExternalMySqlDatabaseConnectorDetails,
+        "UpdateExternalMySqlDatabaseConnectorDetails",
+        model.UpdateExternalMySqlDatabaseConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalMysqlDatabaseConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "externalMySqlDatabaseConnector",
+        bodyModel: model.ExternalMySqlDatabaseConnector,
+        type: "model.ExternalMySqlDatabaseConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the details for the recurring scheduled job specified by jobId. Note that non-recurring (one time) jobs cannot be updated.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -18181,6 +19612,7 @@ export class ManagedMySqlDatabasesClient {
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
+  protected "_waiters": ManagedMySqlDatabasesWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker: typeof Breaker | null = null;
   protected _httpOptions: any = undefined;
@@ -18328,6 +19760,29 @@ export class ManagedMySqlDatabasesClient {
   }
 
   /**
+   * Creates a new ManagedMySqlDatabasesWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): ManagedMySqlDatabasesWaiter {
+    this._waiters = new ManagedMySqlDatabasesWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): ManagedMySqlDatabasesWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
    * Shutdown the circuit breaker used by the client when it is no longer needed
    */
   public shutdownCircuitBreaker() {
@@ -18354,6 +19809,166 @@ export class ManagedMySqlDatabasesClient {
   public close() {
     this.shutdownCircuitBreaker();
     this.closeProvider();
+  }
+
+  /**
+   * Disable an Associated Service for an external MySQL database resource. An Associated Service example is OPSI.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableExternalMysqlAssociatedServiceRequest
+   * @return DisableExternalMysqlAssociatedServiceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalMysqlAssociatedService.ts.html |here} to see how to use DisableExternalMysqlAssociatedService API.
+   */
+  public async disableExternalMysqlAssociatedService(
+    disableExternalMysqlAssociatedServiceRequest: requests.DisableExternalMysqlAssociatedServiceRequest
+  ): Promise<responses.DisableExternalMysqlAssociatedServiceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#disableExternalMysqlAssociatedService."
+      );
+    const operationName = "disableExternalMysqlAssociatedService";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/DisableExternalMysqlAssociatedService";
+    const pathParams = {
+      "{externalMySqlDatabaseId}":
+        disableExternalMysqlAssociatedServiceRequest.externalMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disableExternalMysqlAssociatedServiceRequest.opcRetryToken,
+      "if-match": disableExternalMysqlAssociatedServiceRequest.ifMatch,
+      "opc-request-id": disableExternalMysqlAssociatedServiceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalMysqlAssociatedServiceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/internal/externalMySqlDatabases/{externalMySqlDatabaseId}/actions/disableAssociatedService",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableExternalMysqlAssociatedServiceRequest.disableExternalMysqlAssociatedServiceDetails,
+        "DisableExternalMysqlAssociatedServiceDetails",
+        model.DisableExternalMysqlAssociatedServiceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalMysqlAssociatedServiceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enable an Associated Service for an external MySQL database resource. An Associated Service example is OPSI.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableExternalMysqlAssociatedServiceRequest
+   * @return EnableExternalMysqlAssociatedServiceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalMysqlAssociatedService.ts.html |here} to see how to use EnableExternalMysqlAssociatedService API.
+   */
+  public async enableExternalMysqlAssociatedService(
+    enableExternalMysqlAssociatedServiceRequest: requests.EnableExternalMysqlAssociatedServiceRequest
+  ): Promise<responses.EnableExternalMysqlAssociatedServiceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#enableExternalMysqlAssociatedService."
+      );
+    const operationName = "enableExternalMysqlAssociatedService";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/EnableExternalMysqlAssociatedService";
+    const pathParams = {
+      "{externalMySqlDatabaseId}":
+        enableExternalMysqlAssociatedServiceRequest.externalMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enableExternalMysqlAssociatedServiceRequest.opcRetryToken,
+      "if-match": enableExternalMysqlAssociatedServiceRequest.ifMatch,
+      "opc-request-id": enableExternalMysqlAssociatedServiceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalMysqlAssociatedServiceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/internal/externalMySqlDatabases/{externalMySqlDatabaseId}/actions/enableAssociatedService",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalMysqlAssociatedServiceRequest.enableExternalMysqlAssociatedServiceDetails,
+        "EnableExternalMysqlAssociatedServiceDetails",
+        model.EnableExternalMysqlAssociatedServiceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalMysqlAssociatedServiceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -18535,6 +20150,7 @@ export class ManagedMySqlDatabasesClient {
       "filterByMySqlDeploymentTypeParam":
         getMySqlFleetMetricRequest.filterByMySqlDeploymentTypeParam,
       "filterByMdsDeploymentType": getMySqlFleetMetricRequest.filterByMdsDeploymentType,
+      "filterByMySqlDatabaseTypeParam": getMySqlFleetMetricRequest.filterByMySqlDatabaseTypeParam,
       "filterByMySqlStatus": getMySqlFleetMetricRequest.filterByMySqlStatus,
       "filterByMySqlDatabaseVersion": getMySqlFleetMetricRequest.filterByMySqlDatabaseVersion,
       "isHeatWaveEnabled": getMySqlFleetMetricRequest.isHeatWaveEnabled
@@ -18787,6 +20403,8 @@ export class ManagedMySqlDatabasesClient {
       "compartmentId": listManagedMySqlDatabasesRequest.compartmentId,
       "page": listManagedMySqlDatabasesRequest.page,
       "limit": listManagedMySqlDatabasesRequest.limit,
+      "filterByMySqlDatabaseTypeParam":
+        listManagedMySqlDatabasesRequest.filterByMySqlDatabaseTypeParam,
       "sortBy": listManagedMySqlDatabasesRequest.sortBy,
       "sortOrder": listManagedMySqlDatabasesRequest.sortOrder
     };

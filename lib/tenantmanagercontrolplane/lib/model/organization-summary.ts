@@ -50,6 +50,12 @@ export interface OrganizationSummary {
    * Date and time when the organization was last updated.
    */
   "timeUpdated"?: Date;
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace OrganizationSummary {

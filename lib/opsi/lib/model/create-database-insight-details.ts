@@ -52,6 +52,11 @@ export namespace CreateDatabaseInsightDetails {
             <model.CreateMacsManagedCloudDatabaseInsightDetails>(<object>jsonObj),
             true
           );
+        case "EXTERNAL_MYSQL_DATABASE_SYSTEM":
+          return model.CreateExternalMysqlDatabaseInsightDetails.getJsonObj(
+            <model.CreateExternalMysqlDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
         case "AUTONOMOUS_DATABASE":
           return model.CreateAutonomousDatabaseInsightDetails.getJsonObj(
             <model.CreateAutonomousDatabaseInsightDetails>(<object>jsonObj),
@@ -86,6 +91,11 @@ export namespace CreateDatabaseInsightDetails {
         case "MACS_MANAGED_CLOUD_DATABASE":
           return model.CreateMacsManagedCloudDatabaseInsightDetails.getDeserializedJsonObj(
             <model.CreateMacsManagedCloudDatabaseInsightDetails>(<object>jsonObj),
+            true
+          );
+        case "EXTERNAL_MYSQL_DATABASE_SYSTEM":
+          return model.CreateExternalMysqlDatabaseInsightDetails.getDeserializedJsonObj(
+            <model.CreateExternalMysqlDatabaseInsightDetails>(<object>jsonObj),
             true
           );
         case "AUTONOMOUS_DATABASE":

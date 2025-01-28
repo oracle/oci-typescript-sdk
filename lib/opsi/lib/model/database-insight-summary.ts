@@ -139,6 +139,11 @@ export namespace DatabaseInsightSummary {
             <model.EmManagedExternalDatabaseInsightSummary>(<object>jsonObj),
             true
           );
+        case "EXTERNAL_MYSQL_DATABASE_SYSTEM":
+          return model.ExternalMysqlDatabaseInsightSummary.getJsonObj(
+            <model.ExternalMysqlDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -178,6 +183,11 @@ export namespace DatabaseInsightSummary {
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.EmManagedExternalDatabaseInsightSummary.getDeserializedJsonObj(
             <model.EmManagedExternalDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
+        case "EXTERNAL_MYSQL_DATABASE_SYSTEM":
+          return model.ExternalMysqlDatabaseInsightSummary.getDeserializedJsonObj(
+            <model.ExternalMysqlDatabaseInsightSummary>(<object>jsonObj),
             true
           );
         default:

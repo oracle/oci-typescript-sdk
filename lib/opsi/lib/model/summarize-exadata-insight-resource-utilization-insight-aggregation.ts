@@ -31,6 +31,14 @@ export interface SummarizeExadataInsightResourceUtilizationInsightAggregation {
    */
   "timeIntervalEnd": Date;
   /**
+   * Percent value in which a resource metric is considered highly utilized. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "highUtilizationThreshold": number;
+  /**
+   * Percent value in which a resource metric is considered lowly utilized. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "lowUtilizationThreshold": number;
+  /**
    * Defines the type of exadata resource metric (example: CPU, STORAGE)
    *
    */

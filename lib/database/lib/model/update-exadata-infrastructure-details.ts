@@ -120,7 +120,8 @@ export namespace UpdateExadataInfrastructureDetails {
     X8 = "X8",
     X8M = "X8M",
     X9M = "X9M",
-    X10M = "X10M"
+    X10M = "X10M",
+    X11M = "X11M"
   }
 
   export function getJsonObj(obj: UpdateExadataInfrastructureDetails): object {

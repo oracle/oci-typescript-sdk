@@ -19,6 +19,7 @@ import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
 import * as dbmanagement_waiter from "./lib/dbmanagement-waiter";
+import * as managedmysqldatabases_waiter from "./lib/managedmysqldatabases-waiter";
 
 export { models };
 export { requests };
@@ -27,5 +28,6 @@ export import DbManagementClient = client.DbManagementClient;
 export import DbManagementWaiter = dbmanagement_waiter.DbManagementWaiter;
 export import DiagnosabilityClient = client.DiagnosabilityClient;
 export import ManagedMySqlDatabasesClient = client.ManagedMySqlDatabasesClient;
+export import ManagedMySqlDatabasesWaiter = managedmysqldatabases_waiter.ManagedMySqlDatabasesWaiter;
 export import PerfhubClient = client.PerfhubClient;
 export import SqlTuningClient = client.SqlTuningClient;

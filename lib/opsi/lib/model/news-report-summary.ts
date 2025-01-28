@@ -97,6 +97,17 @@ export interface NewsReportSummary {
    * A flag to consider the resources within a given compartment and all sub-compartments.
    */
   "areChildCompartmentsIncluded"?: boolean;
+  /**
+   * List of tag filters; each filter composed by a namespace, key, and value.
+   * Example for defined tags - '<TagNamespace>.<TagKey>=<TagValue>'.
+   * Example for freeform tags - '<TagKey>=<TagValue>'.
+   *
+   */
+  "tagFilters"?: Array<string>;
+  /**
+   * Match rule used for tag filters.
+   */
+  "matchRule"?: model.MatchRule;
 }
 
 export namespace NewsReportSummary {

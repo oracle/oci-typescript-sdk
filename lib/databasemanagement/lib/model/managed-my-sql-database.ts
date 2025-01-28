@@ -77,6 +77,24 @@ export interface ManagedMySqlDatabase {
    * The date and time the Managed MySQL Database was created.
    */
   "timeCreatedHeatWave"?: Date;
+  /**
+   * The type of the MySQL Database. Indicates whether the database
+   * is external or MDS.
+   *
+   */
+  "databaseType"?: model.MySqlType;
+  /**
+   * Indicates database management status.
+   */
+  "managementState"?: model.ManagementState;
+  /**
+   * Indicates lifecycle  state of the resource.
+   */
+  "lifecycleState"?: model.LifecycleStates;
+  /**
+   * The date and time the Managed MySQL Database was updated.
+   */
+  "timeUpdated"?: Date;
 }
 
 export namespace ManagedMySqlDatabase {

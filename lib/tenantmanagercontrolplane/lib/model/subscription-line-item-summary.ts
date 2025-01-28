@@ -42,6 +42,12 @@ export interface SubscriptionLineItemSummary {
    * The time the subscription item and associated products should end. An RFC 3339 formatted date and time string.
    */
   "timeEnded": Date;
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace SubscriptionLineItemSummary {

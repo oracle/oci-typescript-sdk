@@ -81,6 +81,11 @@ export namespace CreateDrProtectionGroupMemberDetails {
             <model.CreateDrProtectionGroupMemberVolumeGroupDetails>(<object>jsonObj),
             true
           );
+        case "OKE_CLUSTER":
+          return model.CreateDrProtectionGroupMemberOkeClusterDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
+            true
+          );
         case "FILE_SYSTEM":
           return model.CreateDrProtectionGroupMemberFileSystemDetails.getJsonObj(
             <model.CreateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
@@ -147,6 +152,11 @@ export namespace CreateDrProtectionGroupMemberDetails {
         case "VOLUME_GROUP":
           return model.CreateDrProtectionGroupMemberVolumeGroupDetails.getDeserializedJsonObj(
             <model.CreateDrProtectionGroupMemberVolumeGroupDetails>(<object>jsonObj),
+            true
+          );
+        case "OKE_CLUSTER":
+          return model.CreateDrProtectionGroupMemberOkeClusterDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
             true
           );
         case "FILE_SYSTEM":

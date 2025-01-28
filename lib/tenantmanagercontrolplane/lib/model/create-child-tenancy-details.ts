@@ -42,6 +42,10 @@ export interface CreateChildTenancyDetails {
    * The governance status of the child tenancy.
    */
   "governanceStatus"?: model.GovernanceStatus;
+  /**
+   * OCID of the subscription that needs to be assigned to the child tenancy.
+   */
+  "subscriptionId"?: string;
 }
 
 export namespace CreateChildTenancyDetails {
