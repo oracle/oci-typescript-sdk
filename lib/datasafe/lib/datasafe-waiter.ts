@@ -361,6 +361,24 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forReferentialRelation till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetReferentialRelationResponse
+   */
+  public async forReferentialRelation(
+    request: serviceRequests.GetReferentialRelationRequest,
+    ...targetStates: models.ReferentialRelationLifecycleState[]
+  ): Promise<serviceResponses.GetReferentialRelationResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getReferentialRelation(request),
+      response => targetStates.includes(response.referentialRelation.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forReport till it reaches any of the provided states
    *
    * @param request the request to send
@@ -563,6 +581,25 @@ export class DataSafeWaiter {
       () => this.client.getSensitiveType(request),
       response => targetStates.includes(response.sensitiveType.lifecycleState!),
       targetStates.includes(models.DiscoveryLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSensitiveTypesExport till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSensitiveTypesExportResponse | null (null in case of 404 response)
+   */
+  public async forSensitiveTypesExport(
+    request: serviceRequests.GetSensitiveTypesExportRequest,
+    ...targetStates: models.SensitiveTypesExportLifecycleState[]
+  ): Promise<serviceResponses.GetSensitiveTypesExportResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSensitiveTypesExport(request),
+      response => targetStates.includes(response.sensitiveTypesExport.lifecycleState!),
+      targetStates.includes(models.SensitiveTypesExportLifecycleState.Deleted)
     );
   }
 

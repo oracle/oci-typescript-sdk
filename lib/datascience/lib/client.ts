@@ -464,6 +464,80 @@ export class DataScienceClient {
   }
 
   /**
+   * Activate schedule.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ActivateScheduleRequest
+   * @return ActivateScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ActivateSchedule.ts.html |here} to see how to use ActivateSchedule API.
+   */
+  public async activateSchedule(
+    activateScheduleRequest: requests.ActivateScheduleRequest
+  ): Promise<responses.ActivateScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#activateSchedule.");
+    const operationName = "activateSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Schedule/ActivateSchedule";
+    const pathParams = {
+      "{scheduleId}": activateScheduleRequest.scheduleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": activateScheduleRequest.opcRequestId,
+      "if-match": activateScheduleRequest.ifMatch,
+      "opc-retry-token": activateScheduleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateScheduleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedules/{scheduleId}/actions/activate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateScheduleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancels an IN_PROGRESS job run.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelJobRunRequest
@@ -1415,6 +1489,86 @@ export class DataScienceClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeProjectCompartmentResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a Schedule resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeScheduleCompartmentRequest
+   * @return ChangeScheduleCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeScheduleCompartment.ts.html |here} to see how to use ChangeScheduleCompartment API.
+   */
+  public async changeScheduleCompartment(
+    changeScheduleCompartmentRequest: requests.ChangeScheduleCompartmentRequest
+  ): Promise<responses.ChangeScheduleCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeScheduleCompartment.");
+    const operationName = "changeScheduleCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Schedule/ChangeScheduleCompartment";
+    const pathParams = {
+      "{scheduleId}": changeScheduleCompartmentRequest.scheduleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeScheduleCompartmentRequest.opcRetryToken,
+      "if-match": changeScheduleCompartmentRequest.ifMatch,
+      "opc-request-id": changeScheduleCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeScheduleCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedules/{scheduleId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeScheduleCompartmentRequest.changeScheduleCompartmentDetails,
+        "ChangeScheduleCompartmentDetails",
+        model.ChangeScheduleCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeScheduleCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -2512,6 +2666,102 @@ export class DataScienceClient {
   }
 
   /**
+   * Creates a new Schedule.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateScheduleRequest
+   * @return CreateScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateSchedule.ts.html |here} to see how to use CreateSchedule API.
+   */
+  public async createSchedule(
+    createScheduleRequest: requests.CreateScheduleRequest
+  ): Promise<responses.CreateScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createSchedule.");
+    const operationName = "createSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Schedule/CreateSchedule";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createScheduleRequest.opcRetryToken,
+      "opc-request-id": createScheduleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createScheduleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createScheduleRequest.createScheduleDetails,
+        "CreateScheduleDetails",
+        model.CreateScheduleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "schedule",
+        bodyModel: model.Schedule,
+        type: "model.Schedule",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Upload the artifact for a step in the pipeline.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateStepArtifactRequest
@@ -2798,6 +3048,80 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deactivate schedule.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeactivateScheduleRequest
+   * @return DeactivateScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeactivateSchedule.ts.html |here} to see how to use DeactivateSchedule API.
+   */
+  public async deactivateSchedule(
+    deactivateScheduleRequest: requests.DeactivateScheduleRequest
+  ): Promise<responses.DeactivateScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deactivateSchedule.");
+    const operationName = "deactivateSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Schedule/DeactivateSchedule";
+    const pathParams = {
+      "{scheduleId}": deactivateScheduleRequest.scheduleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deactivateScheduleRequest.opcRequestId,
+      "if-match": deactivateScheduleRequest.ifMatch,
+      "opc-retry-token": deactivateScheduleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateScheduleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedules/{scheduleId}/actions/deactivate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeactivateScheduleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -3519,6 +3843,79 @@ export class DataScienceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteProjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Schedule resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteScheduleRequest
+   * @return DeleteScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteSchedule.ts.html |here} to see how to use DeleteSchedule API.
+   */
+  public async deleteSchedule(
+    deleteScheduleRequest: requests.DeleteScheduleRequest
+  ): Promise<responses.DeleteScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteSchedule.");
+    const operationName = "deleteSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Schedule/DeleteSchedule";
+    const pathParams = {
+      "{scheduleId}": deleteScheduleRequest.scheduleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteScheduleRequest.ifMatch,
+      "opc-request-id": deleteScheduleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteScheduleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedules/{scheduleId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteScheduleResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -4652,6 +5049,82 @@ export class DataScienceClient {
   }
 
   /**
+   * Gets a Schedule by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetScheduleRequest
+   * @return GetScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetSchedule.ts.html |here} to see how to use GetSchedule API.
+   */
+  public async getSchedule(
+    getScheduleRequest: requests.GetScheduleRequest
+  ): Promise<responses.GetScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getSchedule.");
+    const operationName = "getSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Schedule/GetSchedule";
+    const pathParams = {
+      "{scheduleId}": getScheduleRequest.scheduleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getScheduleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getScheduleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedules/{scheduleId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "schedule",
+        bodyModel: model.Schedule,
+        type: "model.Schedule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Download the artifact for a step in the pipeline.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetStepArtifactContentRequest
@@ -5185,6 +5658,147 @@ export class DataScienceClient {
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * List containers.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListContainersRequest
+   * @return ListContainersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListContainers.ts.html |here} to see how to use ListContainers API.
+   */
+  public async listContainers(
+    listContainersRequest: requests.ListContainersRequest
+  ): Promise<responses.ListContainersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listContainers.");
+    const operationName = "listContainers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ContainerSummary/ListContainers";
+    const pathParams = {};
+
+    const queryParams = {
+      "isLatest": listContainersRequest.isLatest,
+      "displayName": listContainersRequest.displayName,
+      "containerName": listContainersRequest.containerName,
+      "lifecycleState": listContainersRequest.lifecycleState,
+      "targetWorkload": listContainersRequest.targetWorkload,
+      "usageQueryParam": listContainersRequest.usageQueryParam,
+      "tagQueryParam": listContainersRequest.tagQueryParam,
+      "limit": listContainersRequest.limit,
+      "page": listContainersRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listContainersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listContainersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/containers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListContainersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ContainerSummary,
+        type: "Array<model.ContainerSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listContainersRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ContainerSummary objects
+   * contained in responses from the listContainers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllContainers(
+    request: requests.ListContainersRequest
+  ): AsyncIterableIterator<model.ContainerSummary> {
+    return paginateRecords(request, req => this.listContainers(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listContainersResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listContainers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllContainersResponses(
+    request: requests.ListContainersRequest
+  ): AsyncIterableIterator<responses.ListContainersResponse> {
+    return paginateResponses(request, req => this.listContainers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ContainerSummary objects
+   * contained in responses from the listContainers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listContainersRecordIterator(
+    request: requests.ListContainersRequest
+  ): AsyncIterableIterator<model.ContainerSummary> {
+    return paginateRecords(request, req => this.listContainers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listContainers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listContainersResponseIterator(
+    request: requests.ListContainersRequest
+  ): AsyncIterableIterator<responses.ListContainersResponse> {
+    return paginateResponses(request, req => this.listContainers(req));
   }
 
   /**
@@ -7152,6 +7766,143 @@ export class DataScienceClient {
   }
 
   /**
+   * Returns a list of Schedules.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSchedulesRequest
+   * @return ListSchedulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListSchedules.ts.html |here} to see how to use ListSchedules API.
+   */
+  public async listSchedules(
+    listSchedulesRequest: requests.ListSchedulesRequest
+  ): Promise<responses.ListSchedulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listSchedules.");
+    const operationName = "listSchedules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Schedule/ListSchedules";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSchedulesRequest.compartmentId,
+      "projectId": listSchedulesRequest.projectId,
+      "lifecycleState": listSchedulesRequest.lifecycleState,
+      "displayName": listSchedulesRequest.displayName,
+      "id": listSchedulesRequest.id,
+      "limit": listSchedulesRequest.limit,
+      "page": listSchedulesRequest.page,
+      "sortOrder": listSchedulesRequest.sortOrder,
+      "sortBy": listSchedulesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSchedulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSchedulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSchedulesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ScheduleSummary,
+        type: "Array<model.ScheduleSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listSchedulesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ScheduleSummary objects
+   * contained in responses from the listSchedules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllSchedules(
+    request: requests.ListSchedulesRequest
+  ): AsyncIterableIterator<model.ScheduleSummary> {
+    return paginateRecords(request, req => this.listSchedules(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listSchedulesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listSchedules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllSchedulesResponses(
+    request: requests.ListSchedulesRequest
+  ): AsyncIterableIterator<responses.ListSchedulesResponse> {
+    return paginateResponses(request, req => this.listSchedules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ScheduleSummary objects
+   * contained in responses from the listSchedules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSchedulesRecordIterator(
+    request: requests.ListSchedulesRequest
+  ): AsyncIterableIterator<model.ScheduleSummary> {
+    return paginateRecords(request, req => this.listSchedules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listSchedules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listSchedulesResponseIterator(
+    request: requests.ListSchedulesRequest
+  ): AsyncIterableIterator<responses.ListSchedulesResponse> {
+    return paginateResponses(request, req => this.listSchedules(req));
+  }
+
+  /**
    * Lists work request errors for the specified work request.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
@@ -8545,6 +9296,84 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Schedule
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateScheduleRequest
+   * @return UpdateScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateSchedule.ts.html |here} to see how to use UpdateSchedule API.
+   */
+  public async updateSchedule(
+    updateScheduleRequest: requests.UpdateScheduleRequest
+  ): Promise<responses.UpdateScheduleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateSchedule.");
+    const operationName = "updateSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Schedule/UpdateSchedule";
+    const pathParams = {
+      "{scheduleId}": updateScheduleRequest.scheduleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateScheduleRequest.ifMatch,
+      "opc-request-id": updateScheduleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateScheduleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedules/{scheduleId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateScheduleRequest.updateScheduleDetails,
+        "UpdateScheduleDetails",
+        model.UpdateScheduleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateScheduleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

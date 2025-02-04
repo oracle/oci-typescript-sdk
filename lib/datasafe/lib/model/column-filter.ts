@@ -44,6 +44,7 @@ export namespace ColumnFilter {
   export enum Operator {
     In = "IN",
     Eq = "EQ",
+    EqCs = "EQ_CS",
     Gt = "GT",
     Ge = "GE",
     Lt = "LT",
@@ -52,6 +53,7 @@ export namespace ColumnFilter {
     Or = "OR",
     Ne = "NE",
     Co = "CO",
+    CoCs = "CO_CS",
     Not = "NOT",
     NotIn = "NOT_IN",
     /**

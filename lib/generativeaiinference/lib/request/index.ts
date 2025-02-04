@@ -24,5 +24,7 @@ import * as EmbedTextRequest from "./embed-text-request";
 export import EmbedTextRequest = EmbedTextRequest.EmbedTextRequest;
 import * as GenerateTextRequest from "./generate-text-request";
 export import GenerateTextRequest = GenerateTextRequest.GenerateTextRequest;
+import * as RerankTextRequest from "./rerank-text-request";
+export import RerankTextRequest = RerankTextRequest.RerankTextRequest;
 import * as SummarizeTextRequest from "./summarize-text-request";
 export import SummarizeTextRequest = SummarizeTextRequest.SummarizeTextRequest;

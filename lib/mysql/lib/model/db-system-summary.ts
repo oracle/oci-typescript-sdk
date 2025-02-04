@@ -124,6 +124,26 @@ For a standalone DB System, this defines the fault domain in which the DB System
    *
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
+  /**
+   * The database mode indicating the types of statements that are allowed to run in the DB system.
+   * This mode applies only to statements run by user connections. Replicated write statements continue
+   * to be allowed regardless of the DatabaseMode.
+   *   - READ_WRITE: allow running read and write statements on the DB system;
+   *   - READ_ONLY: only allow running read statements on the DB system.
+   *
+   */
+  "databaseMode": string;
+  /**
+   * The access mode indicating if the database access is unrestricted (to all MySQL user accounts),
+   * or restricted (to only certain users with specific privileges):
+   *  - UNRESTRICTED: the access to the database is not restricted;
+   *  - RESTRICTED: the access is allowed only to users with specific privileges;
+   *    RESTRICTED will correspond to setting the MySQL system variable
+   *    [offline_mode](https://dev.mysql.com/doc/en/server-system-variables.html#sysvar_offline_mode) to ON.
+   *
+   */
+  "accessMode": string;
+  "readEndpoint"?: model.ReadEndpointDetails;
 }
 
 export namespace DbSystemSummary {
@@ -151,6 +171,10 @@ export namespace DbSystemSummary {
 
         "backupPolicy": obj.backupPolicy
           ? model.BackupPolicy.getJsonObj(obj.backupPolicy)
+          : undefined,
+
+        "readEndpoint": obj.readEndpoint
+          ? model.ReadEndpointDetails.getJsonObj(obj.readEndpoint)
           : undefined
       }
     };
@@ -181,6 +205,10 @@ export namespace DbSystemSummary {
 
         "backupPolicy": obj.backupPolicy
           ? model.BackupPolicy.getDeserializedJsonObj(obj.backupPolicy)
+          : undefined,
+
+        "readEndpoint": obj.readEndpoint
+          ? model.ReadEndpointDetails.getDeserializedJsonObj(obj.readEndpoint)
           : undefined
       }
     };

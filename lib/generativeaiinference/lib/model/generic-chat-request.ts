@@ -38,6 +38,11 @@ export interface GenericChatRequest extends model.BaseChatRequest {
    */
   "numGenerations"?: number;
   /**
+   * If specified, the backend will make a best effort to sample tokens deterministically, so that repeated requests with the same seed and parameters yield the same result. However, determinism cannot be fully guaranteed.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "seed"?: number;
+  /**
    * Whether to include the user prompt in the response. Applies only to non-stream results.
    */
   "isEcho"?: boolean;
@@ -97,6 +102,15 @@ Example: '{\"6395\": 2, \"8134\": 1, \"21943\": 0.5, \"5923\": -100}'
 * 
     */
   "logitBias"?: any;
+  "toolChoice"?:
+    | model.ToolChoiceFunction
+    | model.ToolChoiceNone
+    | model.ToolChoiceAuto
+    | model.ToolChoiceRequired;
+  /**
+   * A list of tools the model may call. Use this to provide a list of functions the model may generate JSON inputs for. A max of 128 functions are supported.
+   */
+  "tools"?: Array<model.ToolDefinition>;
 
   "apiFormat": string;
 }
@@ -109,6 +123,13 @@ export namespace GenericChatRequest {
         "messages": obj.messages
           ? obj.messages.map(item => {
               return model.Message.getJsonObj(item);
+            })
+          : undefined,
+
+        "toolChoice": obj.toolChoice ? model.ToolChoice.getJsonObj(obj.toolChoice) : undefined,
+        "tools": obj.tools
+          ? obj.tools.map(item => {
+              return model.ToolDefinition.getJsonObj(item);
             })
           : undefined
       }
@@ -129,6 +150,15 @@ export namespace GenericChatRequest {
         "messages": obj.messages
           ? obj.messages.map(item => {
               return model.Message.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "toolChoice": obj.toolChoice
+          ? model.ToolChoice.getDeserializedJsonObj(obj.toolChoice)
+          : undefined,
+        "tools": obj.tools
+          ? obj.tools.map(item => {
+              return model.ToolDefinition.getDeserializedJsonObj(item);
             })
           : undefined
       }

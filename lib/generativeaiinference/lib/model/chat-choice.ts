@@ -29,7 +29,7 @@ export interface ChatChoice {
    * The index of the chat. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "index": number;
-  "message": model.SystemMessage | model.AssistantMessage | model.UserMessage;
+  "message": model.SystemMessage | model.AssistantMessage | model.UserMessage | model.ToolMessage;
   /**
     * The reason why the model stopped generating tokens.
 * <p>

@@ -22,7 +22,9 @@ import common = require("oci-common");
  */
 export interface ProfileAggregation {
   /**
-   * The array of profile aggregation data.
+   * List containing maps as values.
+   * Example: {@code {\"Operations\": [ {\"CostCenter\": \"42\"} ] }}
+   *
    */
   "items": Array<{ [key: string]: any }>;
   /**
@@ -33,11 +35,10 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
-    * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
-* <p>
-Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
-* 
-    */
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
+   *
+   */
   "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 

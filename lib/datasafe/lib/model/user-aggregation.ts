@@ -21,7 +21,9 @@ import common = require("oci-common");
  */
 export interface UserAggregation {
   /**
-   * The array of user aggregation data.
+   * List containing maps as values.
+   * Example: {@code {\"Operations\": [ {\"CostCenter\": \"42\"} ] }}
+   *
    */
   "items": Array<{ [key: string]: any }>;
 }

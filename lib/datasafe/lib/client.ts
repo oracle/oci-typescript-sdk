@@ -647,6 +647,80 @@ export class DataSafeClient {
   }
 
   /**
+   * Uploads a sensitive types xml file (also called template) to create new sensitive types.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkCreateSensitiveTypesRequest
+   * @return BulkCreateSensitiveTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/BulkCreateSensitiveTypes.ts.html |here} to see how to use BulkCreateSensitiveTypes API.
+   */
+  public async bulkCreateSensitiveTypes(
+    bulkCreateSensitiveTypesRequest: requests.BulkCreateSensitiveTypesRequest
+  ): Promise<responses.BulkCreateSensitiveTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#bulkCreateSensitiveTypes.");
+    const operationName = "bulkCreateSensitiveTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/BulkCreateSensitiveTypes";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-compartment-id": bulkCreateSensitiveTypesRequest.opcCompartmentId,
+      "opc-request-id": bulkCreateSensitiveTypesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkCreateSensitiveTypesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypes/actions/bulkCreateSensitiveTypes",
+      method: "POST",
+      bodyContent: bulkCreateSensitiveTypesRequest.bulkCreateSensitiveTypesDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkCreateSensitiveTypesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Appends the allowedSqls with entries from the logs.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkCreateSqlFirewallAllowedSqlsRequest
@@ -2684,6 +2758,82 @@ The existing saved security assessments created due to the schedule are not move
   }
 
   /**
+   * Moves the specified sensitive types export into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeSensitiveTypesExportCompartmentRequest
+   * @return ChangeSensitiveTypesExportCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSensitiveTypesExportCompartment.ts.html |here} to see how to use ChangeSensitiveTypesExportCompartment API.
+   */
+  public async changeSensitiveTypesExportCompartment(
+    changeSensitiveTypesExportCompartmentRequest: requests.ChangeSensitiveTypesExportCompartmentRequest
+  ): Promise<responses.ChangeSensitiveTypesExportCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSensitiveTypesExportCompartment.");
+    const operationName = "changeSensitiveTypesExportCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveTypesExport/ChangeSensitiveTypesExportCompartment";
+    const pathParams = {
+      "{sensitiveTypesExportId}":
+        changeSensitiveTypesExportCompartmentRequest.sensitiveTypesExportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSensitiveTypesExportCompartmentRequest.ifMatch,
+      "opc-request-id": changeSensitiveTypesExportCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSensitiveTypesExportCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSensitiveTypesExportCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypesExports/{sensitiveTypesExportId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSensitiveTypesExportCompartmentRequest.changeSensitiveTypesExportCompartmentDetails,
+        "ChangeSensitiveTypesExportCompartmentDetails",
+        model.ChangeSensitiveTypesExportCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSensitiveTypesExportCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the specified SQL collection and its dependent resources into a different compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeSqlCollectionCompartmentRequest
@@ -4185,6 +4335,86 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+   * Creates a new referential relation in the specified sensitive data model.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateReferentialRelationRequest
+   * @return CreateReferentialRelationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateReferentialRelation.ts.html |here} to see how to use CreateReferentialRelation API.
+   */
+  public async createReferentialRelation(
+    createReferentialRelationRequest: requests.CreateReferentialRelationRequest
+  ): Promise<responses.CreateReferentialRelationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createReferentialRelation.");
+    const operationName = "createReferentialRelation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReferentialRelation/CreateReferentialRelation";
+    const pathParams = {
+      "{sensitiveDataModelId}": createReferentialRelationRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createReferentialRelationRequest.opcRetryToken,
+      "opc-request-id": createReferentialRelationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createReferentialRelationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/referentialRelations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createReferentialRelationRequest.createReferentialRelationDetails,
+        "CreateReferentialRelationDetails",
+        model.CreateReferentialRelationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateReferentialRelationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new report definition with parameters specified in the body. The report definition is stored in the specified compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4694,6 +4924,100 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
         bodyKey: "sensitiveType",
         bodyModel: model.SensitiveType,
         type: "model.SensitiveType",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates a downloadable file corresponding to the specified list of sensitive types. It's a prerequisite for the
+   * DownloadSensitiveTypesExport operation. Use this endpoint to generate a sensitive Types Export file and then use
+   * DownloadSensitiveTypesExport to download the generated file.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateSensitiveTypesExportRequest
+   * @return CreateSensitiveTypesExportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveTypesExport.ts.html |here} to see how to use CreateSensitiveTypesExport API.
+   */
+  public async createSensitiveTypesExport(
+    createSensitiveTypesExportRequest: requests.CreateSensitiveTypesExportRequest
+  ): Promise<responses.CreateSensitiveTypesExportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createSensitiveTypesExport.");
+    const operationName = "createSensitiveTypesExport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveTypesExport/CreateSensitiveTypesExport";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSensitiveTypesExportRequest.opcRetryToken,
+      "opc-request-id": createSensitiveTypesExportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSensitiveTypesExportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypesExports",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSensitiveTypesExportRequest.createSensitiveTypesExportDetails,
+        "CreateSensitiveTypesExportDetails",
+        model.CreateSensitiveTypesExportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSensitiveTypesExportResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveTypesExport",
+        bodyModel: model.SensitiveTypesExport,
+        type: "model.SensitiveTypesExport",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6115,6 +6439,77 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+   * Deletes the specified referential relation.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteReferentialRelationRequest
+   * @return DeleteReferentialRelationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteReferentialRelation.ts.html |here} to see how to use DeleteReferentialRelation API.
+   */
+  public async deleteReferentialRelation(
+    deleteReferentialRelationRequest: requests.DeleteReferentialRelationRequest
+  ): Promise<responses.DeleteReferentialRelationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteReferentialRelation.");
+    const operationName = "deleteReferentialRelation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReferentialRelation/DeleteReferentialRelation";
+    const pathParams = {
+      "{sensitiveDataModelId}": deleteReferentialRelationRequest.sensitiveDataModelId,
+      "{referentialRelationKey}": deleteReferentialRelationRequest.referentialRelationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteReferentialRelationRequest.ifMatch,
+      "opc-request-id": deleteReferentialRelationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteReferentialRelationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/sensitiveDataModels/{sensitiveDataModelId}/referentialRelations/{referentialRelationKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteReferentialRelationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified report definition. Only the user created report definition can be deleted. The seeded report definitions cannot be deleted.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteReportDefinitionRequest
@@ -6536,6 +6931,75 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSensitiveTypeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified sensitive types export.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSensitiveTypesExportRequest
+   * @return DeleteSensitiveTypesExportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveTypesExport.ts.html |here} to see how to use DeleteSensitiveTypesExport API.
+   */
+  public async deleteSensitiveTypesExport(
+    deleteSensitiveTypesExportRequest: requests.DeleteSensitiveTypesExportRequest
+  ): Promise<responses.DeleteSensitiveTypesExportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteSensitiveTypesExport.");
+    const operationName = "deleteSensitiveTypesExport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveTypesExport/DeleteSensitiveTypesExport";
+    const pathParams = {
+      "{sensitiveTypesExportId}": deleteSensitiveTypesExportRequest.sensitiveTypesExportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSensitiveTypesExportRequest.ifMatch,
+      "opc-request-id": deleteSensitiveTypesExportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSensitiveTypesExportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypesExports/{sensitiveTypesExportId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSensitiveTypesExportResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7665,6 +8129,96 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadSensitiveDataModelResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads an already-generated file corresponding to the specified sensitive types export.
+   * Use CreateSensitiveTypesExport to generate an XML file and then use DownloadSensitiveTypesExport
+   * to download the generated file.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DownloadSensitiveTypesExportRequest
+   * @return DownloadSensitiveTypesExportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSensitiveTypesExport.ts.html |here} to see how to use DownloadSensitiveTypesExport API.
+   */
+  public async downloadSensitiveTypesExport(
+    downloadSensitiveTypesExportRequest: requests.DownloadSensitiveTypesExportRequest
+  ): Promise<responses.DownloadSensitiveTypesExportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#downloadSensitiveTypesExport.");
+    const operationName = "downloadSensitiveTypesExport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveTypesExport/DownloadSensitiveTypesExport";
+    const pathParams = {
+      "{sensitiveTypesExportId}": downloadSensitiveTypesExportRequest.sensitiveTypesExportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadSensitiveTypesExportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadSensitiveTypesExportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypesExports/{sensitiveTypesExportId}/actions/download",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadSensitiveTypesExportRequest.downloadSensitiveTypesExportDetails,
+        "DownloadSensitiveTypesExportDetails",
+        model.DownloadSensitiveTypesExportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadSensitiveTypesExportResponse>{},
 
         body: response.body!,
         bodyKey: "value",
@@ -10642,6 +11196,84 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   }
 
   /**
+   * Gets the details of the specified referential relation.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetReferentialRelationRequest
+   * @return GetReferentialRelationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReferentialRelation.ts.html |here} to see how to use GetReferentialRelation API.
+   */
+  public async getReferentialRelation(
+    getReferentialRelationRequest: requests.GetReferentialRelationRequest
+  ): Promise<responses.GetReferentialRelationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getReferentialRelation.");
+    const operationName = "getReferentialRelation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReferentialRelation/GetReferentialRelation";
+    const pathParams = {
+      "{sensitiveDataModelId}": getReferentialRelationRequest.sensitiveDataModelId,
+      "{referentialRelationKey}": getReferentialRelationRequest.referentialRelationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getReferentialRelationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getReferentialRelationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/sensitiveDataModels/{sensitiveDataModelId}/referentialRelations/{referentialRelationKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetReferentialRelationResponse>{},
+        body: await response.json(),
+        bodyKey: "referentialRelation",
+        bodyModel: model.ReferentialRelation,
+        type: "model.ReferentialRelation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a report by identifier
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetReportRequest
@@ -11630,6 +12262,82 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
         bodyKey: "sensitiveType",
         bodyModel: model.SensitiveType,
         type: "model.SensitiveType",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified sensitive types export by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSensitiveTypesExportRequest
+   * @return GetSensitiveTypesExportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveTypesExport.ts.html |here} to see how to use GetSensitiveTypesExport API.
+   */
+  public async getSensitiveTypesExport(
+    getSensitiveTypesExportRequest: requests.GetSensitiveTypesExportRequest
+  ): Promise<responses.GetSensitiveTypesExportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSensitiveTypesExport.");
+    const operationName = "getSensitiveTypesExport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveTypesExport/GetSensitiveTypesExport";
+    const pathParams = {
+      "{sensitiveTypesExportId}": getSensitiveTypesExportRequest.sensitiveTypesExportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSensitiveTypesExportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSensitiveTypesExportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypesExports/{sensitiveTypesExportId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSensitiveTypesExportResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveTypesExport",
+        bodyModel: model.SensitiveTypesExport,
+        type: "model.SensitiveTypesExport",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -12736,14 +13444,14 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
 * it in the `summaryField` query parameter.
 * <p>
 **Example:**
-* /ListAuditEventAnalytics?summaryField=targetName&summaryField=userName&summaryField=clientHostname
+* /auditEventAnalytics?summaryField=targetName&summaryField=userName&summaryField=clientHostname
 * &summaryField=dmls&summaryField=privilegeChanges&summaryField=ddls&summaryField=loginFailure&summaryField=loginSuccess
-* &summaryField=allRecord&q=(auditEventTime ge \"2021-06-13T23:49:14\")
+* &summaryField=allRecord&scimQuery=(auditEventTime ge \"2021-06-13T23:49:14\")
 * <p>
-/ListAuditEventAnalytics?timeStarted=2022-08-18T11:02:26.000Z&timeEnded=2022-08-24T11:02:26.000Z
+/auditEventAnalytics?timeStarted=2022-08-18T11:02:26.000Z&timeEnded=2022-08-24T11:02:26.000Z
 * This will give number of events grouped by periods. Period can be 1 day, 1 week, etc.
 * <p>
-/ListAuditEventAnalytics?summaryField=targetName&groupBy=targetName
+/auditEventAnalytics?summaryField=targetName&groupBy=targetName
 * This will give the number of events group by targetName. Only targetName summary column would be returned.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -15940,6 +16648,98 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
   }
 
   /**
+   * Gets a list of referential relations present in the specified masking policy based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMaskingPolicyReferentialRelationsRequest
+   * @return ListMaskingPolicyReferentialRelationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicyReferentialRelations.ts.html |here} to see how to use ListMaskingPolicyReferentialRelations API.
+   */
+  public async listMaskingPolicyReferentialRelations(
+    listMaskingPolicyReferentialRelationsRequest: requests.ListMaskingPolicyReferentialRelationsRequest
+  ): Promise<responses.ListMaskingPolicyReferentialRelationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listMaskingPolicyReferentialRelations.");
+    const operationName = "listMaskingPolicyReferentialRelations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicyReferentialRelationSummary/ListMaskingPolicyReferentialRelations";
+    const pathParams = {
+      "{maskingPolicyId}": listMaskingPolicyReferentialRelationsRequest.maskingPolicyId
+    };
+
+    const queryParams = {
+      "schemaName": listMaskingPolicyReferentialRelationsRequest.schemaName,
+      "objectName": listMaskingPolicyReferentialRelationsRequest.objectName,
+      "columnName": listMaskingPolicyReferentialRelationsRequest.columnName,
+      "relationType": listMaskingPolicyReferentialRelationsRequest.relationType,
+      "limit": listMaskingPolicyReferentialRelationsRequest.limit,
+      "page": listMaskingPolicyReferentialRelationsRequest.page,
+      "sortOrder": listMaskingPolicyReferentialRelationsRequest.sortOrder,
+      "sortBy": listMaskingPolicyReferentialRelationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaskingPolicyReferentialRelationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaskingPolicyReferentialRelationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/referentialRelations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaskingPolicyReferentialRelationsResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingPolicyReferentialRelationCollection",
+        bodyModel: model.MaskingPolicyReferentialRelationCollection,
+        type: "model.MaskingPolicyReferentialRelationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of masking reports based on the specified query parameters.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMaskingReportsRequest
@@ -16252,6 +17052,100 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
     request: requests.ListOnPremConnectorsRequest
   ): AsyncIterableIterator<responses.ListOnPremConnectorsResponse> {
     return paginateResponses(request, req => this.listOnPremConnectors(req));
+  }
+
+  /**
+     * Gets a list of count of the users with password expiry dates in next 30 days, between next 30-90 days, and beyond 90 days based on specified user assessment.
+* It internally uses the aforementioned userAnalytics api.
+* <p>
+When you perform the ListPasswordExpiryDateAnalytics operation, if the parameter compartmentIdInSubtree is set to \"true,\" and if the
+* parameter accessLevel is set to ACCESSIBLE, then the operation returns compartments in which the requestor has READ
+* permissions on at least one resource, directly or indirectly (in subcompartments). If the operation is performed at the
+* root compartment and the requestor does not have access to at least one subcompartment of the compartment specified by
+* compartmentId, then \"Not Authorized\" is returned.
+* <p>
+To use ListPasswordExpiryDateAnalytics to get a full list of all compartments and subcompartments in the tenancy from the root compartment,
+* set the parameter compartmentIdInSubtree to true and accessLevel to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListPasswordExpiryDateAnalyticsRequest
+     * @return ListPasswordExpiryDateAnalyticsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListPasswordExpiryDateAnalytics.ts.html |here} to see how to use ListPasswordExpiryDateAnalytics API.
+     */
+  public async listPasswordExpiryDateAnalytics(
+    listPasswordExpiryDateAnalyticsRequest: requests.ListPasswordExpiryDateAnalyticsRequest
+  ): Promise<responses.ListPasswordExpiryDateAnalyticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listPasswordExpiryDateAnalytics.");
+    const operationName = "listPasswordExpiryDateAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ListPasswordExpiryDateAnalytics";
+    const pathParams = {
+      "{userAssessmentId}": listPasswordExpiryDateAnalyticsRequest.userAssessmentId
+    };
+
+    const queryParams = {
+      "compartmentIdInSubtree": listPasswordExpiryDateAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listPasswordExpiryDateAnalyticsRequest.accessLevel,
+      "userCategory": listPasswordExpiryDateAnalyticsRequest.userCategory,
+      "timePasswordExpiryLessThan":
+        listPasswordExpiryDateAnalyticsRequest.timePasswordExpiryLessThan
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPasswordExpiryDateAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPasswordExpiryDateAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/passwordExpiryDateAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPasswordExpiryDateAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.UserAggregation,
+        type: "Array<model.UserAggregation>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -16675,6 +17569,99 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
     request: requests.ListProfileSummariesRequest
   ): AsyncIterableIterator<responses.ListProfileSummariesResponse> {
     return paginateResponses(request, req => this.listProfileSummaries(req));
+  }
+
+  /**
+   * Gets a list of referential relations present in the specified sensitive data model based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListReferentialRelationsRequest
+   * @return ListReferentialRelationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListReferentialRelations.ts.html |here} to see how to use ListReferentialRelations API.
+   */
+  public async listReferentialRelations(
+    listReferentialRelationsRequest: requests.ListReferentialRelationsRequest
+  ): Promise<responses.ListReferentialRelationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listReferentialRelations.");
+    const operationName = "listReferentialRelations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReferentialRelation/ListReferentialRelations";
+    const pathParams = {
+      "{sensitiveDataModelId}": listReferentialRelationsRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {
+      "schemaName": listReferentialRelationsRequest.schemaName,
+      "objectName": listReferentialRelationsRequest.objectName,
+      "columnName": listReferentialRelationsRequest.columnName,
+      "isSensitive": listReferentialRelationsRequest.isSensitive,
+      "relationType": listReferentialRelationsRequest.relationType,
+      "limit": listReferentialRelationsRequest.limit,
+      "page": listReferentialRelationsRequest.page,
+      "sortOrder": listReferentialRelationsRequest.sortOrder,
+      "sortBy": listReferentialRelationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listReferentialRelationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listReferentialRelationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/referentialRelations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListReferentialRelationsResponse>{},
+        body: await response.json(),
+        bodyKey: "referentialRelationCollection",
+        bodyModel: model.ReferentialRelationCollection,
+        type: "model.ReferentialRelationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -18646,6 +19633,102 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
   }
 
   /**
+   * Retrieves a list of all sensitive types export in Data Safe based on the specified query parameters.
+   * The ListSensitiveTypesExports operation returns only the sensitive types export in the specified `compartmentId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSensitiveTypesExportsRequest
+   * @return ListSensitiveTypesExportsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveTypesExports.ts.html |here} to see how to use ListSensitiveTypesExports API.
+   */
+  public async listSensitiveTypesExports(
+    listSensitiveTypesExportsRequest: requests.ListSensitiveTypesExportsRequest
+  ): Promise<responses.ListSensitiveTypesExportsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSensitiveTypesExports.");
+    const operationName = "listSensitiveTypesExports";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveTypesExportCollection/ListSensitiveTypesExports";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSensitiveTypesExportsRequest.compartmentId,
+      "compartmentIdInSubtree": listSensitiveTypesExportsRequest.compartmentIdInSubtree,
+      "accessLevel": listSensitiveTypesExportsRequest.accessLevel,
+      "displayName": listSensitiveTypesExportsRequest.displayName,
+      "limit": listSensitiveTypesExportsRequest.limit,
+      "page": listSensitiveTypesExportsRequest.page,
+      "lifecycleState": listSensitiveTypesExportsRequest.lifecycleState,
+      "sensitiveTypesExportId": listSensitiveTypesExportsRequest.sensitiveTypesExportId,
+      "timeCreatedGreaterThanOrEqualTo":
+        listSensitiveTypesExportsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listSensitiveTypesExportsRequest.timeCreatedLessThan,
+      "sortOrder": listSensitiveTypesExportsRequest.sortOrder,
+      "sortBy": listSensitiveTypesExportsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSensitiveTypesExportsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSensitiveTypesExportsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypesExports",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSensitiveTypesExportsResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveTypesExportCollection",
+        bodyModel: model.SensitiveTypesExportCollection,
+        type: "model.SensitiveTypesExportCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Retrieves a list of all SQL collection analytics in Data Safe.
 * <p>
 The ListSqlCollectionAnalytics operation returns only the analytics for the SQL collections in the specified `compartmentId`.
@@ -20035,7 +21118,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
 * the critical category. This data is especially useful content for dashboards or to support analytics.
 * <p>
 When you perform the ListUserAnalytics operation, if the parameter compartmentIdInSubtree is set to \"true,\" and if the
-* parameter accessLevel is set to ACCESSIBLE, then the operation returns compartments in which the requestor has INSPECT
+* parameter accessLevel is set to ACCESSIBLE, then the operation returns compartments in which the requestor has READ
 * permissions on at least one resource, directly or indirectly (in subcompartments). If the operation is performed at the
 * root compartment and the requestor does not have access to at least one subcompartment of the compartment specified by
 * compartmentId, then \"Not Authorized\" is returned.
@@ -20082,6 +21165,9 @@ To use ListUserAnalytics to get a full list of all compartments and subcompartme
       "timePasswordLastChangedGreaterThanOrEqualTo":
         listUserAnalyticsRequest.timePasswordLastChangedGreaterThanOrEqualTo,
       "timePasswordLastChangedLessThan": listUserAnalyticsRequest.timePasswordLastChangedLessThan,
+      "timePasswordExpiryGreaterThanOrEqualTo":
+        listUserAnalyticsRequest.timePasswordExpiryGreaterThanOrEqualTo,
+      "timePasswordExpiryLessThan": listUserAnalyticsRequest.timePasswordExpiryLessThan,
       "page": listUserAnalyticsRequest.page,
       "sortOrder": listUserAnalyticsRequest.sortOrder,
       "sortBy": listUserAnalyticsRequest.sortBy
@@ -20401,6 +21487,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "timePasswordLastChangedGreaterThanOrEqualTo":
         listUsersRequest.timePasswordLastChangedGreaterThanOrEqualTo,
       "timePasswordLastChangedLessThan": listUsersRequest.timePasswordLastChangedLessThan,
+      "timePasswordExpiryGreaterThanOrEqualTo":
+        listUsersRequest.timePasswordExpiryGreaterThanOrEqualTo,
+      "timePasswordExpiryLessThan": listUsersRequest.timePasswordExpiryLessThan,
       "page": listUsersRequest.page,
       "sortOrder": listUsersRequest.sortOrder,
       "sortBy": listUsersRequest.sortBy,
@@ -25221,6 +26310,85 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSensitiveTypeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified sensitive types export.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSensitiveTypesExportRequest
+   * @return UpdateSensitiveTypesExportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveTypesExport.ts.html |here} to see how to use UpdateSensitiveTypesExport API.
+   */
+  public async updateSensitiveTypesExport(
+    updateSensitiveTypesExportRequest: requests.UpdateSensitiveTypesExportRequest
+  ): Promise<responses.UpdateSensitiveTypesExportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateSensitiveTypesExport.");
+    const operationName = "updateSensitiveTypesExport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveTypesExport/UpdateSensitiveTypesExport";
+    const pathParams = {
+      "{sensitiveTypesExportId}": updateSensitiveTypesExportRequest.sensitiveTypesExportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSensitiveTypesExportRequest.ifMatch,
+      "opc-request-id": updateSensitiveTypesExportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSensitiveTypesExportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveTypesExports/{sensitiveTypesExportId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSensitiveTypesExportRequest.updateSensitiveTypesExportDetails,
+        "UpdateSensitiveTypesExportDetails",
+        model.UpdateSensitiveTypesExportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSensitiveTypesExportResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

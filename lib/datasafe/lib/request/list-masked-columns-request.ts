@@ -77,7 +77,9 @@ export namespace ListMaskedColumnsRequest {
 
   export enum SortBy {
     SchemaName = "schemaName",
-    ObjectName = "objectName"
+    ObjectName = "objectName",
+    SensitiveTypeId = "sensitiveTypeId",
+    MaskingColumnGroupId = "maskingColumnGroupId"
   }
 
   export enum ObjectType {

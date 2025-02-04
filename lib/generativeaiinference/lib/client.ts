@@ -478,6 +478,88 @@ An embedding is numeric representation of a piece of text. This text can be a ph
   }
 
   /**
+     * Reranks the text responses based on the input documents and a prompt.
+* <p>
+Rerank assigns an index and a relevance score to each document, indicating which document is most related to the prompt.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param RerankTextRequest
+     * @return RerankTextResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiinference/RerankText.ts.html |here} to see how to use RerankText API.
+     */
+  public async rerankText(
+    rerankTextRequest: requests.RerankTextRequest
+  ): Promise<responses.RerankTextResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiInferenceClient#rerankText.");
+    const operationName = "rerankText";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": rerankTextRequest.opcRetryToken,
+      "opc-request-id": rerankTextRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rerankTextRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/rerankText",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rerankTextRequest.rerankTextDetails,
+        "RerankTextDetails",
+        model.RerankTextDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RerankTextResponse>{},
+        body: await response.json(),
+        bodyKey: "rerankTextResult",
+        bodyModel: model.RerankTextResult,
+        type: "model.RerankTextResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Summarizes the input text.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
