@@ -109,6 +109,8 @@ export namespace ListLibraryMaskingFormatsRequest {
 
   export enum SortBy {
     DisplayName = "displayName",
-    TimeCreated = "timeCreated"
+    TimeCreated = "timeCreated",
+    TimeUpdated = "timeUpdated",
+    LifecycleState = "lifecycleState"
   }
 }

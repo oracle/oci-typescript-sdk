@@ -215,6 +215,25 @@ export class DataScienceWaiter {
   }
 
   /**
+   * Waits forSchedule till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetScheduleResponse | null (null in case of 404 response)
+   */
+  public async forSchedule(
+    request: serviceRequests.GetScheduleRequest,
+    ...targetStates: models.ScheduleLifecycleState[]
+  ): Promise<serviceResponses.GetScheduleResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSchedule(request),
+      response => targetStates.includes(response.schedule.lifecycleState!),
+      targetStates.includes(models.ScheduleLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

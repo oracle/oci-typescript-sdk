@@ -23,7 +23,7 @@ export interface MaskingAnalyticsDimensions {
    */
   "targetId"?: string;
   /**
-   * The OCID of the masking policy..
+   * The OCID of the masking policy.
    */
   "policyId"?: string;
 }

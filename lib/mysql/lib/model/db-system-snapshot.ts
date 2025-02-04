@@ -146,6 +146,7 @@ export interface DbSystemSnapshot {
    *
    */
   "region"?: string;
+  "readEndpoint"?: model.ReadEndpointDetails;
 }
 
 export namespace DbSystemSnapshot {
@@ -173,6 +174,10 @@ export namespace DbSystemSnapshot {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
+          : undefined,
+
+        "readEndpoint": obj.readEndpoint
+          ? model.ReadEndpointDetails.getJsonObj(obj.readEndpoint)
           : undefined
       }
     };
@@ -205,6 +210,10 @@ export namespace DbSystemSnapshot {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
+          : undefined,
+
+        "readEndpoint": obj.readEndpoint
+          ? model.ReadEndpointDetails.getDeserializedJsonObj(obj.readEndpoint)
           : undefined
       }
     };

@@ -1,6 +1,6 @@
 {
   "name": "oci-redis",
-  "version": "2.101.0",
+  "version": "2.102.0",
   "description": "OCI NodeJS client for Redis Service",
   "repository": {
     "type": "git",

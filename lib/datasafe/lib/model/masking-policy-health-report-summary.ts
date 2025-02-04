@@ -52,6 +52,14 @@ export interface MaskingPolicyHealthReportSummary {
    */
   "description"?: string;
   /**
+   * The count of errors in the masking health report. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "errorCount"?: number;
+  /**
+   * The count of warnings in the masking health report. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "warningCount"?: number;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
@@ -59,11 +67,10 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags": { [key: string]: string };
   /**
-    * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
-* <p>
-Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
-* 
-    */
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
+   *
+   */
   "definedTags": { [key: string]: { [key: string]: any } };
 }
 

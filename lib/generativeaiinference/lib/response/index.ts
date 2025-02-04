@@ -24,5 +24,7 @@ import * as EmbedTextResponse from "./embed-text-response";
 export import EmbedTextResponse = EmbedTextResponse.EmbedTextResponse;
 import * as GenerateTextResponse from "./generate-text-response";
 export import GenerateTextResponse = GenerateTextResponse.GenerateTextResponse;
+import * as RerankTextResponse from "./rerank-text-response";
+export import RerankTextResponse = RerankTextResponse.RerankTextResponse;
 import * as SummarizeTextResponse from "./summarize-text-response";
 export import SummarizeTextResponse = SummarizeTextResponse.SummarizeTextResponse;

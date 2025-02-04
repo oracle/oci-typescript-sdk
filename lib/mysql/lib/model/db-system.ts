@@ -182,12 +182,32 @@ For a standalone DB System, this defines the fault domain in which the DB System
   "databaseManagement"?: model.DatabaseManagementStatus;
   "secureConnections"?: model.SecureConnectionDetails;
   /**
+   * The database mode indicating the types of statements that are allowed to run in the the DB system.
+   * This mode applies only to statements run by user connections. Replicated write statements continue
+   * to be allowed regardless of the DatabaseMode.
+   *   - READ_WRITE: allow running read and write statements on the DB system;
+   *   - READ_ONLY: only allow running read statements on the DB system.
+   *
+   */
+  "databaseMode": DbSystem.DatabaseMode;
+  /**
+   * The access mode indicating if the database access is unrestricted (to all MySQL user accounts),
+   * or restricted (to only certain users with specific privileges):
+   *  - UNRESTRICTED: the access to the database is not restricted;
+   *  - RESTRICTED: access allowed only to users with specific privileges;
+   *    RESTRICTED will correspond to setting the MySQL system variable
+   *    [offline_mode](https://dev.mysql.com/doc/en/server-system-variables.html#sysvar_offline_mode) to ON.
+   *
+   */
+  "accessMode": DbSystem.AccessMode;
+  /**
    * The list of customer email addresses that receive information from Oracle about the specified OCI DB System resource.
    * Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators.
    * Up to 10 email addresses can be added to the customer contacts for a DB System.
    *
    */
   "customerContacts"?: Array<model.CustomerContact>;
+  "readEndpoint"?: model.ReadEndpointDetails;
 }
 
 export namespace DbSystem {
@@ -199,6 +219,26 @@ export namespace DbSystem {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DatabaseMode {
+    ReadWrite = "READ_WRITE",
+    ReadOnly = "READ_ONLY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AccessMode {
+    Unrestricted = "UNRESTRICTED",
+    Restricted = "RESTRICTED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -250,10 +290,14 @@ export namespace DbSystem {
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
           : undefined,
+
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getJsonObj(item);
             })
+          : undefined,
+        "readEndpoint": obj.readEndpoint
+          ? model.ReadEndpointDetails.getJsonObj(obj.readEndpoint)
           : undefined
       }
     };
@@ -306,10 +350,14 @@ export namespace DbSystem {
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
           : undefined,
+
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "readEndpoint": obj.readEndpoint
+          ? model.ReadEndpointDetails.getDeserializedJsonObj(obj.readEndpoint)
           : undefined
       }
     };

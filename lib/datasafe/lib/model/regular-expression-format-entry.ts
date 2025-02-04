@@ -30,8 +30,7 @@ export interface RegularExpressionFormatEntry extends model.FormatEntry {
   "regularExpression": string;
   /**
    * The value that should be used to replace the data matching the regular
-   * expression. It can be a fixed string, fixed number, null value, or
-   * SQL expression.
+   * expression. It can be a fixed string, fixed number or null value.
    *
    */
   "replaceWith": string;

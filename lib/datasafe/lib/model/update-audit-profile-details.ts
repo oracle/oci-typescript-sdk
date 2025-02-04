@@ -23,7 +23,7 @@ export interface UpdateAuditProfileDetails {
    */
   "description"?: string;
   /**
-   * The display name of the audit profile. The name does not have to be unique, and it's changeable.
+   * The display name of the audit profile. The name does not have to be unique, and it's updatable.
    */
   "displayName"?: string;
   /**
@@ -41,11 +41,10 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
-    * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
-* <p>
-Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
-* 
-    */
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
+   *
+   */
   "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 

@@ -63,7 +63,7 @@ export interface AuditProfileSummary {
   "isPaidUsageEnabled": boolean;
   /**
    * Indicates the number of months the audit records will be stored online in Oracle Data Safe audit repository for immediate reporting and analysis.
-   * Minimum: 1; Maximum:12 months
+   * Minimum: 1; Maximum: 12 months
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "onlineMonths": number;
@@ -95,11 +95,10 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
-    * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
-* <p>
-Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
-* 
-    */
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
+   *
+   */
   "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 

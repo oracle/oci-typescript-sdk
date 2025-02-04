@@ -85,6 +85,7 @@ export namespace DbSystemEndpoint {
     Dbsystem = "DBSYSTEM",
     ReadReplica = "READ_REPLICA",
     LoadBalancer = "LOAD_BALANCER",
+    ReadEndpoint = "READ_ENDPOINT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -39,6 +39,23 @@ export interface MaskingPolicyHealthReportLogSummary {
    * A human-readable description for the log entry.
    */
   "description": string;
+  /**
+   * An enum type entry for each health check in the masking policy. Each enum describes a type of health check.
+   * INVALID_OBJECT_CHECK checks if there exist any invalid objects in the masking tables.
+   * PRIVILEGE_CHECK checks if the masking user has sufficient privilege to run masking.
+   * TABLESPACE_CHECK checks if the user has sufficient default and TEMP tablespace.
+   * DATABASE_OR_SYSTEM_TRIGGERS_CHECK checks if there exist any database/system triggers available.
+   * UNDO_TABLESPACE_CHECK checks if the AUTOEXTEND feature is enabled for the undo tablespace. If it's not enabled, it further checks if the undo tablespace has any space remaining
+   * STATE_STATS_CHECK checks if all the statistics of the masking table is upto date or not.
+   * OLS_POLICY_CHECK , VPD_POLICY_CHECK and REDACTION_POLICY_CHECK checks if the masking tables has Oracle Label Security (OLS) or Virtual Private Database (VPD) or Redaction policies enabled.
+   * DV_ENABLE_CHECK checks if database has Database Vault(DV) enabled
+   * DE_COL_SIZE_CHECK checks if any masking column with DETERMINISTIC ENCRYPTION as masking format has average column size greater than 27 or not.
+   * ACTIVE_MASK_JOB_CHECK checks if there is any active masking job running on the target database.
+   * DETERMINISTIC_ENCRYPTION_FORMAT_CHECK checks if any masking column has deterministic encryption masking format.
+   * COLUMN_EXIST_CHECK checks if the masking columns are available in the target database.
+   *
+   */
+  "healthCheckType"?: MaskingPolicyHealthReportLogSummary.HealthCheckType;
 }
 
 export namespace MaskingPolicyHealthReportLogSummary {
@@ -46,6 +63,29 @@ export namespace MaskingPolicyHealthReportLogSummary {
     Pass = "PASS",
     Warning = "WARNING",
     Error = "ERROR",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum HealthCheckType {
+    InvalidObjectCheck = "INVALID_OBJECT_CHECK",
+    PrivilegeCheck = "PRIVILEGE_CHECK",
+    TablespaceCheck = "TABLESPACE_CHECK",
+    DatabaseOrSystemTriggersCheck = "DATABASE_OR_SYSTEM_TRIGGERS_CHECK",
+    UndoTablespaceCheck = "UNDO_TABLESPACE_CHECK",
+    StateStatsCheck = "STATE_STATS_CHECK",
+    OlsPolicyCheck = "OLS_POLICY_CHECK",
+    VpdPolicyCheck = "VPD_POLICY_CHECK",
+    DvEnableCheck = "DV_ENABLE_CHECK",
+    DeColSizeCheck = "DE_COL_SIZE_CHECK",
+    RedactionPolicyCheck = "REDACTION_POLICY_CHECK",
+    ActiveMaskJobCheck = "ACTIVE_MASK_JOB_CHECK",
+    TargetValidationCheck = "TARGET_VALIDATION_CHECK",
+    DeterministicEncryptionFormatCheck = "DETERMINISTIC_ENCRYPTION_FORMAT_CHECK",
+    ColumnExistCheck = "COLUMN_EXIST_CHECK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

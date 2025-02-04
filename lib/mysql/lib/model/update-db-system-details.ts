@@ -33,6 +33,24 @@ export interface UpdateDbSystemDetails {
    */
   "subnetId"?: string;
   /**
+   * The database mode indicating the types of statements that will be allowed to run in the DB system.
+   * This mode will apply only to statements run by user connections. Replicated write statements will continue
+   * to be allowed regardless of the DatabaseMode.
+   *   - READ_WRITE: allow running read and write statements on the DB system;
+   *   - READ_ONLY: only allow running read statements on the DB system.
+   *
+   */
+  "databaseMode"?: string;
+  /**
+   * The access mode indicating if the database access will be restricted only to administrators or not:
+   *  - UNRESTRICTED: the access to the database is not restricted;
+   *  - RESTRICTED: the access will be allowed only to users with specific privileges;
+   *    RESTRICTED will correspond to setting the MySQL system variable
+   *    [offline_mode](https://dev.mysql.com/doc/en/server-system-variables.html#sysvar_offline_mode) to ON.
+   *
+   */
+  "accessMode"?: string;
+  /**
     * Specifies if the DB System is highly available.
 * <p>
 Set to true to enable high availability. Two secondary MySQL instances are created and placed in the unused
@@ -170,6 +188,7 @@ It is not possible to decrease data storage size.
    *
    */
   "customerContacts"?: Array<model.CustomerContact>;
+  "readEndpoint"?: model.UpdateReadEndpointDetails;
 }
 
 export namespace UpdateDbSystemDetails {
@@ -199,6 +218,9 @@ export namespace UpdateDbSystemDetails {
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getJsonObj(item);
             })
+          : undefined,
+        "readEndpoint": obj.readEndpoint
+          ? model.UpdateReadEndpointDetails.getJsonObj(obj.readEndpoint)
           : undefined
       }
     };
@@ -231,6 +253,9 @@ export namespace UpdateDbSystemDetails {
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "readEndpoint": obj.readEndpoint
+          ? model.UpdateReadEndpointDetails.getDeserializedJsonObj(obj.readEndpoint)
           : undefined
       }
     };

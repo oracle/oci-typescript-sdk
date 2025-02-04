@@ -15,25 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for the new audit policy.
+ * Details to update a sensitive types export.
  */
-export interface CreateAuditPolicyDetails {
+export interface UpdateSensitiveTypesExportDetails {
   /**
-   * The display name of the audit policy. The name does not have to be unique, and it is changeable.
+   * The display name of the sensitive types export. The name does not have to be unique, and it's changeable.
    */
   "displayName"?: string;
   /**
-   * The description of the audit policy.
+   * The description of the sensitive types export.
    */
   "description"?: string;
-  /**
-   * The OCID of the compartment where you want to create the audit policy.
-   */
-  "compartmentId": string;
-  /**
-   * The OCID of the target for which the audit policy has to be created.
-   */
-  "targetId": string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
@@ -42,21 +34,20 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
-    * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
-* <p>
-Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
-* 
-    */
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
+   *
+   */
   "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 
-export namespace CreateAuditPolicyDetails {
-  export function getJsonObj(obj: CreateAuditPolicyDetails): object {
+export namespace UpdateSensitiveTypesExportDetails {
+  export function getJsonObj(obj: UpdateSensitiveTypesExportDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: CreateAuditPolicyDetails): object {
+  export function getDeserializedJsonObj(obj: UpdateSensitiveTypesExportDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;

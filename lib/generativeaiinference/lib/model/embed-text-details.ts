@@ -26,7 +26,7 @@ import common = require("oci-common");
  */
 export interface EmbedTextDetails {
   /**
-   * Provide a list of strings. Each string can be words, a phrase, or a paragraph. The maximum length of each string entry in the list is 512 tokens.
+   * Provide a list of strings or one base64 encoded image with {@code input_type} setting to {@code IMAGE}. If text embedding, each string can be words, a phrase, or a paragraph. The maximum length of each string entry in the list is 512 tokens.
    */
   "inputs": Array<string>;
   "servingMode": model.DedicatedServingMode | model.OnDemandServingMode;
@@ -59,7 +59,8 @@ export namespace EmbedTextDetails {
     SearchDocument = "SEARCH_DOCUMENT",
     SearchQuery = "SEARCH_QUERY",
     Classification = "CLASSIFICATION",
-    Clustering = "CLUSTERING"
+    Clustering = "CLUSTERING",
+    Image = "IMAGE"
   }
 
   export function getJsonObj(obj: EmbedTextDetails): object {

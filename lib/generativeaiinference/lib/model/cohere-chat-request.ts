@@ -108,7 +108,7 @@ Similar to frequency penalty, a penalty is applied to previously present tokens,
     */
   "presencePenalty"?: number;
   /**
-   * If specified, the backend will make a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism cannot be totally guaranteed.
+   * If specified, the backend will make a best effort to sample tokens deterministically, so that repeated requests with the same seed and parameters yield the same result. However, determinism cannot be fully guaranteed.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "seed"?: number;

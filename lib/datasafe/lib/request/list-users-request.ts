@@ -123,6 +123,18 @@ export interface ListUsersRequest extends common.BaseRequest {
    */
   "timePasswordLastChangedLessThan"?: Date;
   /**
+   * A filter to return users whose password expiry date in the database is greater than or equal to the date and time specified, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * **Example:** 2016-12-19T16:39:57.600Z
+   *
+   */
+  "timePasswordExpiryGreaterThanOrEqualTo"?: Date;
+  /**
+   * A filter to return users whose password expiry date in the database is less than the date and time specified, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   * **Example:** 2016-12-19T16:39:57.600Z
+   *
+   */
+  "timePasswordExpiryLessThan"?: Date;
+  /**
    * For list pagination. The page token representing the page at which to start retrieving results. It is usually retrieved from a previous \"List\" call. For details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "page"?: string;
