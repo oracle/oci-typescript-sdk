@@ -64,7 +64,7 @@ export interface RealtimeParameters {
   "languageCode"?: string;
   /**
    * If set to true, the service will not fail connection attempt if it encounters any issues that prevent the loading of all specified user customizations. Any invalid customizations will simply be ignored and connection will continue being established with the default base model and any remaining valid customizations.
-   * If set to false,  if the service is unable to load any of the specified customizations, an error detailing why will be returned and the session will end.
+   * If set to false, if the service is unable to load any of the specified customizations, an error detailing why will be returned and the session will end.
    *
    */
   "shouldIgnoreInvalidCustomizations"?: boolean;
@@ -72,6 +72,14 @@ export interface RealtimeParameters {
    * Array of customization objects.
    */
   "customizations"?: Array<model.CustomizationInference>;
+  /**
+   * Configure punctuations in the generated transcriptions. Disabled by default.
+   * - NONE: No punctuation in the transcription response
+   * - SPOKEN: Punctuations in response only when verbally spoken
+   * - AUTO: Automatic punctuation in the response, spoken punctuations are disabled
+   *
+   */
+  "punctuation"?: RealtimeParameters.Punctuation;
 }
 
 export namespace RealtimeParameters {
@@ -85,6 +93,12 @@ export namespace RealtimeParameters {
   export enum ModelDomain {
     Generic = "GENERIC",
     Medical = "MEDICAL"
+  }
+
+  export enum Punctuation {
+    None = "NONE",
+    Spoken = "SPOKEN",
+    Auto = "AUTO"
   }
 
   export function getJsonObj(obj: RealtimeParameters): object {

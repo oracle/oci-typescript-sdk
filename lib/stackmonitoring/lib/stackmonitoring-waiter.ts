@@ -24,6 +24,25 @@ export class StackMonitoringWaiter {
   ) {}
 
   /**
+   * Waits forAlarmCondition till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAlarmConditionResponse | null (null in case of 404 response)
+   */
+  public async forAlarmCondition(
+    request: serviceRequests.GetAlarmConditionRequest,
+    ...targetStates: models.AlarmConditionLifeCycleStates[]
+  ): Promise<serviceResponses.GetAlarmConditionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAlarmCondition(request),
+      response => targetStates.includes(response.alarmCondition.lifecycleState!),
+      targetStates.includes(models.AlarmConditionLifeCycleStates.Deleted)
+    );
+  }
+
+  /**
    * Waits forBaselineableMetric till it reaches any of the provided states
    *
    * @param request the request to send
@@ -171,6 +190,25 @@ export class StackMonitoringWaiter {
       () => this.client.getMonitoredResourceType(request),
       response => targetStates.includes(response.monitoredResourceType.lifecycleState!),
       targetStates.includes(models.ResourceTypeLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forMonitoringTemplate till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMonitoringTemplateResponse | null (null in case of 404 response)
+   */
+  public async forMonitoringTemplate(
+    request: serviceRequests.GetMonitoringTemplateRequest,
+    ...targetStates: models.MonitoringTemplateLifeCycleStates[]
+  ): Promise<serviceResponses.GetMonitoringTemplateResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getMonitoringTemplate(request),
+      response => targetStates.includes(response.monitoringTemplate.lifecycleState!),
+      targetStates.includes(models.MonitoringTemplateLifeCycleStates.Deleted)
     );
   }
 

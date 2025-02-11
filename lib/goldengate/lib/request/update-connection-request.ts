@@ -36,19 +36,22 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
     | model.UpdateRedisConnectionDetails
     | model.UpdateMongoDbConnectionDetails
     | model.UpdateGoogleCloudStorageConnectionDetails
+    | model.UpdateMicrosoftFabricConnectionDetails
+    | model.UpdatePostgresqlConnectionDetails
+    | model.UpdateMicrosoftSqlserverConnectionDetails
+    | model.UpdateSnowflakeConnectionDetails
+    | model.UpdateHdfsConnectionDetails
+    | model.UpdateDatabricksConnectionDetails
+    | model.UpdateKafkaConnectionDetails
     | model.UpdateAzureDataLakeStorageConnectionDetails
     | model.UpdateAmazonKinesisConnectionDetails
     | model.UpdateJavaMessageServiceConnectionDetails
     | model.UpdateGoldenGateConnectionDetails
-    | model.UpdatePostgresqlConnectionDetails
-    | model.UpdateMicrosoftSqlserverConnectionDetails
+    | model.UpdateGooglePubSubConnectionDetails
     | model.UpdateOracleNosqlConnectionDetails
     | model.UpdateKafkaSchemaRegistryConnectionDetails
     | model.UpdateAmazonS3ConnectionDetails
-    | model.UpdateSnowflakeConnectionDetails
-    | model.UpdateHdfsConnectionDetails
     | model.UpdateMysqlConnectionDetails
-    | model.UpdateKafkaConnectionDetails
     | model.UpdateDb2ConnectionDetails
     | model.UpdateGenericConnectionDetails
     | model.UpdateAzureSynapseConnectionDetails;

@@ -23,7 +23,7 @@ export interface RestoreAutonomousDatabaseDetails {
   /**
    * The time to restore the database to.
    */
-  "timestamp": Date;
+  "timestamp"?: Date;
   /**
    * Restores using the backup with the System Change Number (SCN) specified.
    *

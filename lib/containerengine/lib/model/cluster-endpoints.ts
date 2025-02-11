@@ -39,6 +39,10 @@ export interface ClusterEndpoints {
    *
    */
   "vcnHostnameEndpoint"?: string;
+  /**
+   * The IPv6 networking Kubernetes API server endpoint.
+   */
+  "ipv6Endpoint"?: string;
 }
 
 export namespace ClusterEndpoints {

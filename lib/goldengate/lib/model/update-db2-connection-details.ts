@@ -43,6 +43,7 @@ export interface UpdateDb2ConnectionDetails extends model.UpdateConnectionDetail
   "username"?: string;
   /**
    * The password Oracle GoldenGate uses to connect the associated DB2 database.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "password"?: string;
@@ -65,6 +66,7 @@ export interface UpdateDb2ConnectionDetails extends model.UpdateConnectionDetail
   "securityProtocol"?: string;
   /**
    * The base64 encoded keystore file created at the client containing the server certificate / CA root certificate.
+   * Deprecated: This field is deprecated and replaced by \"sslClientKeystoredbSecretId\". This field will be removed after February 15 2026.
    *
    */
   "sslClientKeystoredb"?: string;
@@ -77,6 +79,7 @@ export interface UpdateDb2ConnectionDetails extends model.UpdateConnectionDetail
   "sslClientKeystoredbSecretId"?: string;
   /**
    * The base64 encoded keystash file which contains the encrypted password to the key database file.
+   * Deprecated: This field is deprecated and replaced by \"sslClientKeystashSecretId\". This field will be removed after February 15 2026.
    *
    */
   "sslClientKeystash"?: string;

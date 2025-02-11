@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ApplyMonitoringTemplateRequest from "./apply-monitoring-template-request";
+export import ApplyMonitoringTemplateRequest = ApplyMonitoringTemplateRequest.ApplyMonitoringTemplateRequest;
 import * as AssociateMonitoredResourcesRequest from "./associate-monitored-resources-request";
 export import AssociateMonitoredResourcesRequest = AssociateMonitoredResourcesRequest.AssociateMonitoredResourcesRequest;
 import * as ChangeConfigCompartmentRequest from "./change-config-compartment-request";
@@ -23,6 +25,8 @@ import * as ChangeMonitoredResourceTaskCompartmentRequest from "./change-monitor
 export import ChangeMonitoredResourceTaskCompartmentRequest = ChangeMonitoredResourceTaskCompartmentRequest.ChangeMonitoredResourceTaskCompartmentRequest;
 import * as ChangeProcessSetCompartmentRequest from "./change-process-set-compartment-request";
 export import ChangeProcessSetCompartmentRequest = ChangeProcessSetCompartmentRequest.ChangeProcessSetCompartmentRequest;
+import * as CreateAlarmConditionRequest from "./create-alarm-condition-request";
+export import CreateAlarmConditionRequest = CreateAlarmConditionRequest.CreateAlarmConditionRequest;
 import * as CreateBaselineableMetricRequest from "./create-baselineable-metric-request";
 export import CreateBaselineableMetricRequest = CreateBaselineableMetricRequest.CreateBaselineableMetricRequest;
 import * as CreateConfigRequest from "./create-config-request";
@@ -39,8 +43,12 @@ import * as CreateMonitoredResourceTaskRequest from "./create-monitored-resource
 export import CreateMonitoredResourceTaskRequest = CreateMonitoredResourceTaskRequest.CreateMonitoredResourceTaskRequest;
 import * as CreateMonitoredResourceTypeRequest from "./create-monitored-resource-type-request";
 export import CreateMonitoredResourceTypeRequest = CreateMonitoredResourceTypeRequest.CreateMonitoredResourceTypeRequest;
+import * as CreateMonitoringTemplateRequest from "./create-monitoring-template-request";
+export import CreateMonitoringTemplateRequest = CreateMonitoringTemplateRequest.CreateMonitoringTemplateRequest;
 import * as CreateProcessSetRequest from "./create-process-set-request";
 export import CreateProcessSetRequest = CreateProcessSetRequest.CreateProcessSetRequest;
+import * as DeleteAlarmConditionRequest from "./delete-alarm-condition-request";
+export import DeleteAlarmConditionRequest = DeleteAlarmConditionRequest.DeleteAlarmConditionRequest;
 import * as DeleteBaselineableMetricRequest from "./delete-baselineable-metric-request";
 export import DeleteBaselineableMetricRequest = DeleteBaselineableMetricRequest.DeleteBaselineableMetricRequest;
 import * as DeleteConfigRequest from "./delete-config-request";
@@ -55,6 +63,8 @@ import * as DeleteMonitoredResourceRequest from "./delete-monitored-resource-req
 export import DeleteMonitoredResourceRequest = DeleteMonitoredResourceRequest.DeleteMonitoredResourceRequest;
 import * as DeleteMonitoredResourceTypeRequest from "./delete-monitored-resource-type-request";
 export import DeleteMonitoredResourceTypeRequest = DeleteMonitoredResourceTypeRequest.DeleteMonitoredResourceTypeRequest;
+import * as DeleteMonitoringTemplateRequest from "./delete-monitoring-template-request";
+export import DeleteMonitoringTemplateRequest = DeleteMonitoringTemplateRequest.DeleteMonitoringTemplateRequest;
 import * as DeleteProcessSetRequest from "./delete-process-set-request";
 export import DeleteProcessSetRequest = DeleteProcessSetRequest.DeleteProcessSetRequest;
 import * as DisableExternalDatabaseRequest from "./disable-external-database-request";
@@ -69,6 +79,10 @@ import * as EvaluateBaselineableMetricRequest from "./evaluate-baselineable-metr
 export import EvaluateBaselineableMetricRequest = EvaluateBaselineableMetricRequest.EvaluateBaselineableMetricRequest;
 import * as ExportMetricExtensionRequest from "./export-metric-extension-request";
 export import ExportMetricExtensionRequest = ExportMetricExtensionRequest.ExportMetricExtensionRequest;
+import * as ExportMonitoringTemplateRequest from "./export-monitoring-template-request";
+export import ExportMonitoringTemplateRequest = ExportMonitoringTemplateRequest.ExportMonitoringTemplateRequest;
+import * as GetAlarmConditionRequest from "./get-alarm-condition-request";
+export import GetAlarmConditionRequest = GetAlarmConditionRequest.GetAlarmConditionRequest;
 import * as GetBaselineableMetricRequest from "./get-baselineable-metric-request";
 export import GetBaselineableMetricRequest = GetBaselineableMetricRequest.GetBaselineableMetricRequest;
 import * as GetConfigRequest from "./get-config-request";
@@ -85,14 +99,20 @@ import * as GetMonitoredResourceTaskRequest from "./get-monitored-resource-task-
 export import GetMonitoredResourceTaskRequest = GetMonitoredResourceTaskRequest.GetMonitoredResourceTaskRequest;
 import * as GetMonitoredResourceTypeRequest from "./get-monitored-resource-type-request";
 export import GetMonitoredResourceTypeRequest = GetMonitoredResourceTypeRequest.GetMonitoredResourceTypeRequest;
+import * as GetMonitoringTemplateRequest from "./get-monitoring-template-request";
+export import GetMonitoringTemplateRequest = GetMonitoringTemplateRequest.GetMonitoringTemplateRequest;
 import * as GetProcessSetRequest from "./get-process-set-request";
 export import GetProcessSetRequest = GetProcessSetRequest.GetProcessSetRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as ListAlarmConditionsRequest from "./list-alarm-conditions-request";
+export import ListAlarmConditionsRequest = ListAlarmConditionsRequest.ListAlarmConditionsRequest;
 import * as ListBaselineableMetricsRequest from "./list-baselineable-metrics-request";
 export import ListBaselineableMetricsRequest = ListBaselineableMetricsRequest.ListBaselineableMetricsRequest;
 import * as ListConfigsRequest from "./list-configs-request";
 export import ListConfigsRequest = ListConfigsRequest.ListConfigsRequest;
+import * as ListDefinedMonitoringTemplatesRequest from "./list-defined-monitoring-templates-request";
+export import ListDefinedMonitoringTemplatesRequest = ListDefinedMonitoringTemplatesRequest.ListDefinedMonitoringTemplatesRequest;
 import * as ListDiscoveryJobLogsRequest from "./list-discovery-job-logs-request";
 export import ListDiscoveryJobLogsRequest = ListDiscoveryJobLogsRequest.ListDiscoveryJobLogsRequest;
 import * as ListDiscoveryJobsRequest from "./list-discovery-jobs-request";
@@ -107,6 +127,8 @@ import * as ListMonitoredResourceTypesRequest from "./list-monitored-resource-ty
 export import ListMonitoredResourceTypesRequest = ListMonitoredResourceTypesRequest.ListMonitoredResourceTypesRequest;
 import * as ListMonitoredResourcesRequest from "./list-monitored-resources-request";
 export import ListMonitoredResourcesRequest = ListMonitoredResourcesRequest.ListMonitoredResourcesRequest;
+import * as ListMonitoringTemplatesRequest from "./list-monitoring-templates-request";
+export import ListMonitoringTemplatesRequest = ListMonitoringTemplatesRequest.ListMonitoringTemplatesRequest;
 import * as ListProcessSetsRequest from "./list-process-sets-request";
 export import ListProcessSetsRequest = ListProcessSetsRequest.ListProcessSetsRequest;
 import * as ListWorkRequestErrorsRequest from "./list-work-request-errors-request";
@@ -121,6 +143,10 @@ import * as PublishMetricExtensionRequest from "./publish-metric-extension-reque
 export import PublishMetricExtensionRequest = PublishMetricExtensionRequest.PublishMetricExtensionRequest;
 import * as RequestMonitoredResourcesSummarizedCountRequest from "./request-monitored-resources-summarized-count-request";
 export import RequestMonitoredResourcesSummarizedCountRequest = RequestMonitoredResourcesSummarizedCountRequest.RequestMonitoredResourcesSummarizedCountRequest;
+import * as RequestSummarizedMetricExtensionsMetricsRequest from "./request-summarized-metric-extensions-metrics-request";
+export import RequestSummarizedMetricExtensionsMetricsRequest = RequestSummarizedMetricExtensionsMetricsRequest.RequestSummarizedMetricExtensionsMetricsRequest;
+import * as RequestSummarizedMetricExtensionsResourcesRequest from "./request-summarized-metric-extensions-resources-request";
+export import RequestSummarizedMetricExtensionsResourcesRequest = RequestSummarizedMetricExtensionsResourcesRequest.RequestSummarizedMetricExtensionsResourcesRequest;
 import * as RetryFailedMaintenanceWindowOperationRequest from "./retry-failed-maintenance-window-operation-request";
 export import RetryFailedMaintenanceWindowOperationRequest = RetryFailedMaintenanceWindowOperationRequest.RetryFailedMaintenanceWindowOperationRequest;
 import * as SearchAssociatedResourcesRequest from "./search-associated-resources-request";
@@ -135,6 +161,10 @@ import * as StopMaintenanceWindowRequest from "./stop-maintenance-window-request
 export import StopMaintenanceWindowRequest = StopMaintenanceWindowRequest.StopMaintenanceWindowRequest;
 import * as TestMetricExtensionRequest from "./test-metric-extension-request";
 export import TestMetricExtensionRequest = TestMetricExtensionRequest.TestMetricExtensionRequest;
+import * as UnapplyMonitoringTemplateRequest from "./unapply-monitoring-template-request";
+export import UnapplyMonitoringTemplateRequest = UnapplyMonitoringTemplateRequest.UnapplyMonitoringTemplateRequest;
+import * as UpdateAlarmConditionRequest from "./update-alarm-condition-request";
+export import UpdateAlarmConditionRequest = UpdateAlarmConditionRequest.UpdateAlarmConditionRequest;
 import * as UpdateAndPropagateTagsRequest from "./update-and-propagate-tags-request";
 export import UpdateAndPropagateTagsRequest = UpdateAndPropagateTagsRequest.UpdateAndPropagateTagsRequest;
 import * as UpdateBaselineableMetricRequest from "./update-baselineable-metric-request";
@@ -151,5 +181,7 @@ import * as UpdateMonitoredResourceTaskRequest from "./update-monitored-resource
 export import UpdateMonitoredResourceTaskRequest = UpdateMonitoredResourceTaskRequest.UpdateMonitoredResourceTaskRequest;
 import * as UpdateMonitoredResourceTypeRequest from "./update-monitored-resource-type-request";
 export import UpdateMonitoredResourceTypeRequest = UpdateMonitoredResourceTypeRequest.UpdateMonitoredResourceTypeRequest;
+import * as UpdateMonitoringTemplateRequest from "./update-monitoring-template-request";
+export import UpdateMonitoringTemplateRequest = UpdateMonitoringTemplateRequest.UpdateMonitoringTemplateRequest;
 import * as UpdateProcessSetRequest from "./update-process-set-request";
 export import UpdateProcessSetRequest = UpdateProcessSetRequest.UpdateProcessSetRequest;

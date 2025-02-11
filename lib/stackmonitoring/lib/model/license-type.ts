@@ -21,6 +21,7 @@ import common = require("oci-common");
 export enum LicenseType {
   StandardEdition = "STANDARD_EDITION",
   EnterpriseEdition = "ENTERPRISE_EDITION",
+  EnterpriseEditionForGpuInfrastructure = "ENTERPRISE_EDITION_FOR_GPU_INFRASTRUCTURE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

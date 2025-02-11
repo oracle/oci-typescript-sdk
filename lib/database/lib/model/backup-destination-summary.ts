@@ -92,6 +92,18 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The total storage size of the backup destination in GBs, rounded to the nearest integer. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalStorageSizeInGBs"?: number;
+  /**
+   * The total amount of space utilized on the backup destination (in GBs), rounded to the nearest integer. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "utilizedStorageSizeInGBs"?: number;
+  /**
+   * The time when the total storage size and the utilized storage size of the backup destination are updated.
+   */
+  "timeAtWhichStorageDetailsAreUpdated"?: Date;
 }
 
 export namespace BackupDestinationSummary {

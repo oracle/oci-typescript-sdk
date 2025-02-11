@@ -46,6 +46,7 @@ export interface UpdateRedisConnectionDetails extends model.UpdateConnectionDeta
   /**
    * The password Oracle GoldenGate uses to connect the associated system of the given technology.
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "password"?: string;
@@ -60,6 +61,7 @@ export interface UpdateRedisConnectionDetails extends model.UpdateConnectionDeta
   "passwordSecretId"?: string;
   /**
    * The base64 encoded content of the TrustStore file.
+   * Deprecated: This field is deprecated and replaced by \"trustStoreSecretId\". This field will be removed after February 15 2026.
    *
    */
   "trustStore"?: string;
@@ -71,6 +73,7 @@ export interface UpdateRedisConnectionDetails extends model.UpdateConnectionDeta
   "trustStoreSecretId"?: string;
   /**
    * The TrustStore password.
+   * Deprecated: This field is deprecated and replaced by \"trustStorePasswordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "trustStorePassword"?: string;
@@ -82,6 +85,7 @@ export interface UpdateRedisConnectionDetails extends model.UpdateConnectionDeta
   "trustStorePasswordSecretId"?: string;
   /**
    * The base64 encoded content of the KeyStore file.
+   * Deprecated: This field is deprecated and replaced by \"keyStoreSecretId\". This field will be removed after February 15 2026.
    *
    */
   "keyStore"?: string;
@@ -93,6 +97,7 @@ export interface UpdateRedisConnectionDetails extends model.UpdateConnectionDeta
   "keyStoreSecretId"?: string;
   /**
    * The KeyStore password.
+   * Deprecated: This field is deprecated and replaced by \"keyStorePasswordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "keyStorePassword"?: string;

@@ -60,6 +60,13 @@ export interface SystemFormatResourceTypeMetadataDetails extends model.ResourceT
    *
    */
   "validPropertyValues"?: { [key: string]: Array<string> };
+  /**
+   * List of valid sub-resource types for a composite resource type.
+   * The sub-resource types will be obtained from the valid association pairs corresponding to the composite resource types.
+   * It will be empty for non composite resource types
+   *
+   */
+  "validSubResourceTypes"?: Array<string>;
 
   "format": string;
 }

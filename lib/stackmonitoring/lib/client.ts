@@ -238,6 +238,81 @@ export class StackMonitoringClient {
   }
 
   /**
+   * Apply the Monitoring Template identified by the id
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ApplyMonitoringTemplateRequest
+   * @return ApplyMonitoringTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ApplyMonitoringTemplate.ts.html |here} to see how to use ApplyMonitoringTemplate API.
+   */
+  public async applyMonitoringTemplate(
+    applyMonitoringTemplateRequest: requests.ApplyMonitoringTemplateRequest
+  ): Promise<responses.ApplyMonitoringTemplateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#applyMonitoringTemplate.");
+    const operationName = "applyMonitoringTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoringTemplate/ApplyMonitoringTemplate";
+    const pathParams = {
+      "{monitoringTemplateId}": applyMonitoringTemplateRequest.monitoringTemplateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": applyMonitoringTemplateRequest.opcRequestId,
+      "opc-retry-token": applyMonitoringTemplateRequest.opcRetryToken,
+      "if-match": applyMonitoringTemplateRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      applyMonitoringTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}/actions/apply",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ApplyMonitoringTemplateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create an association between two monitored resources. Associations can be created
    * between resources from different compartments as long they are in same tenancy.
    * User should have required access in both the compartments.
@@ -712,6 +787,89 @@ When provided, If-Match is checked against ETag values of the resource.
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeProcessSetCompartmentResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a new alarm condition in same monitoringTemplate compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateAlarmConditionRequest
+   * @return CreateAlarmConditionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateAlarmCondition.ts.html |here} to see how to use CreateAlarmCondition API.
+   */
+  public async createAlarmCondition(
+    createAlarmConditionRequest: requests.CreateAlarmConditionRequest
+  ): Promise<responses.CreateAlarmConditionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createAlarmCondition.");
+    const operationName = "createAlarmCondition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/AlarmCondition/CreateAlarmCondition";
+    const pathParams = {
+      "{monitoringTemplateId}": createAlarmConditionRequest.monitoringTemplateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAlarmConditionRequest.opcRetryToken,
+      "opc-request-id": createAlarmConditionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAlarmConditionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}/alarmConditions",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAlarmConditionRequest.createAlarmConditionDetails,
+        "CreateAlarmConditionDetails",
+        model.CreateAlarmConditionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAlarmConditionResponse>{},
+        body: await response.json(),
+        bodyKey: "alarmCondition",
+        bodyModel: model.AlarmCondition,
+        type: "model.AlarmCondition",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1429,6 +1587,87 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Creates a new monitoring template for a given compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateMonitoringTemplateRequest
+   * @return CreateMonitoringTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoringTemplate.ts.html |here} to see how to use CreateMonitoringTemplate API.
+   */
+  public async createMonitoringTemplate(
+    createMonitoringTemplateRequest: requests.CreateMonitoringTemplateRequest
+  ): Promise<responses.CreateMonitoringTemplateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#createMonitoringTemplate.");
+    const operationName = "createMonitoringTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoringTemplate/CreateMonitoringTemplate";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createMonitoringTemplateRequest.opcRetryToken,
+      "opc-request-id": createMonitoringTemplateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMonitoringTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMonitoringTemplateRequest.createMonitoringTemplateDetails,
+        "CreateMonitoringTemplateDetails",
+        model.CreateMonitoringTemplateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMonitoringTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoringTemplate",
+        bodyModel: model.MonitoringTemplate,
+        type: "model.MonitoringTemplate",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * API to create Process Set.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateProcessSetRequest
@@ -1494,6 +1733,76 @@ For example, when a new Management Agent gets registered in a certain compartmen
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the alarm conditions by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteAlarmConditionRequest
+   * @return DeleteAlarmConditionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteAlarmCondition.ts.html |here} to see how to use DeleteAlarmCondition API.
+   */
+  public async deleteAlarmCondition(
+    deleteAlarmConditionRequest: requests.DeleteAlarmConditionRequest
+  ): Promise<responses.DeleteAlarmConditionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteAlarmCondition.");
+    const operationName = "deleteAlarmCondition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/AlarmCondition/DeleteAlarmCondition";
+    const pathParams = {
+      "{alarmConditionId}": deleteAlarmConditionRequest.alarmConditionId,
+      "{monitoringTemplateId}": deleteAlarmConditionRequest.monitoringTemplateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAlarmConditionRequest.ifMatch,
+      "opc-request-id": deleteAlarmConditionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAlarmConditionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}/alarmConditions/{alarmConditionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAlarmConditionResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1997,6 +2306,75 @@ For example, when a new Management Agent gets registered in a certain compartmen
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMonitoredResourceTypeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the monitoring template by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteMonitoringTemplateRequest
+   * @return DeleteMonitoringTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMonitoringTemplate.ts.html |here} to see how to use DeleteMonitoringTemplate API.
+   */
+  public async deleteMonitoringTemplate(
+    deleteMonitoringTemplateRequest: requests.DeleteMonitoringTemplateRequest
+  ): Promise<responses.DeleteMonitoringTemplateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#deleteMonitoringTemplate.");
+    const operationName = "deleteMonitoringTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoringTemplate/DeleteMonitoringTemplate";
+    const pathParams = {
+      "{monitoringTemplateId}": deleteMonitoringTemplateRequest.monitoringTemplateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMonitoringTemplateRequest.ifMatch,
+      "opc-request-id": deleteMonitoringTemplateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMonitoringTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMonitoringTemplateResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2546,6 +2924,163 @@ For example, when a new Management Agent gets registered in a certain compartmen
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Export the specified monitoring template
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExportMonitoringTemplateRequest
+   * @return ExportMonitoringTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ExportMonitoringTemplate.ts.html |here} to see how to use ExportMonitoringTemplate API.
+   */
+  public async exportMonitoringTemplate(
+    exportMonitoringTemplateRequest: requests.ExportMonitoringTemplateRequest
+  ): Promise<responses.ExportMonitoringTemplateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#exportMonitoringTemplate.");
+    const operationName = "exportMonitoringTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoringTemplate/ExportMonitoringTemplate";
+    const pathParams = {
+      "{monitoringTemplateId}": exportMonitoringTemplateRequest.monitoringTemplateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": exportMonitoringTemplateRequest.opcRequestId,
+      "opc-retry-token": exportMonitoringTemplateRequest.opcRetryToken,
+      "if-match": exportMonitoringTemplateRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportMonitoringTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}/actions/export",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportMonitoringTemplateResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Alarm Condition by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAlarmConditionRequest
+   * @return GetAlarmConditionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetAlarmCondition.ts.html |here} to see how to use GetAlarmCondition API.
+   */
+  public async getAlarmCondition(
+    getAlarmConditionRequest: requests.GetAlarmConditionRequest
+  ): Promise<responses.GetAlarmConditionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getAlarmCondition.");
+    const operationName = "getAlarmCondition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/AlarmCondition/GetAlarmCondition";
+    const pathParams = {
+      "{alarmConditionId}": getAlarmConditionRequest.alarmConditionId,
+      "{monitoringTemplateId}": getAlarmConditionRequest.monitoringTemplateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAlarmConditionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAlarmConditionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}/alarmConditions/{alarmConditionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAlarmConditionResponse>{},
+        body: await response.json(),
+        bodyKey: "alarmCondition",
+        bodyModel: model.AlarmCondition,
+        type: "model.AlarmCondition",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -3180,6 +3715,83 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Gets a Monitoring Template by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMonitoringTemplateRequest
+   * @return GetMonitoringTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoringTemplate.ts.html |here} to see how to use GetMonitoringTemplate API.
+   */
+  public async getMonitoringTemplate(
+    getMonitoringTemplateRequest: requests.GetMonitoringTemplateRequest
+  ): Promise<responses.GetMonitoringTemplateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#getMonitoringTemplate.");
+    const operationName = "getMonitoringTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoringTemplate/GetMonitoringTemplate";
+    const pathParams = {
+      "{monitoringTemplateId}": getMonitoringTemplateRequest.monitoringTemplateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMonitoringTemplateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMonitoringTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMonitoringTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoringTemplate",
+        bodyModel: model.MonitoringTemplate,
+        type: "model.MonitoringTemplate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * API to get the details of a Process Set by identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetProcessSetRequest
@@ -3321,6 +3933,92 @@ For example, when a new Management Agent gets registered in a certain compartmen
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Alarm Conditions.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAlarmConditionsRequest
+   * @return ListAlarmConditionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListAlarmConditions.ts.html |here} to see how to use ListAlarmConditions API.
+   */
+  public async listAlarmConditions(
+    listAlarmConditionsRequest: requests.ListAlarmConditionsRequest
+  ): Promise<responses.ListAlarmConditionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listAlarmConditions.");
+    const operationName = "listAlarmConditions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/AlarmCondition/ListAlarmConditions";
+    const pathParams = {
+      "{monitoringTemplateId}": listAlarmConditionsRequest.monitoringTemplateId
+    };
+
+    const queryParams = {
+      "limit": listAlarmConditionsRequest.limit,
+      "page": listAlarmConditionsRequest.page,
+      "sortBy": listAlarmConditionsRequest.sortBy,
+      "sortOrder": listAlarmConditionsRequest.sortOrder,
+      "status": listAlarmConditionsRequest.status,
+      "lifecycleState": listAlarmConditionsRequest.lifecycleState,
+      "resourceTypes": listAlarmConditionsRequest.resourceTypes,
+      "metricName": listAlarmConditionsRequest.metricName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAlarmConditionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAlarmConditionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}/alarmConditions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAlarmConditionsResponse>{},
+        body: await response.json(),
+        bodyKey: "alarmConditionCollection",
+        bodyModel: model.AlarmConditionCollection,
+        type: "model.AlarmConditionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });
@@ -3487,6 +4185,89 @@ For example, when a new Management Agent gets registered in a certain compartmen
         bodyKey: "configCollection",
         bodyModel: model.ConfigCollection,
         type: "model.ConfigCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List Defined Monitoring Templates.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDefinedMonitoringTemplatesRequest
+   * @return ListDefinedMonitoringTemplatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListDefinedMonitoringTemplates.ts.html |here} to see how to use ListDefinedMonitoringTemplates API.
+   */
+  public async listDefinedMonitoringTemplates(
+    listDefinedMonitoringTemplatesRequest: requests.ListDefinedMonitoringTemplatesRequest
+  ): Promise<responses.ListDefinedMonitoringTemplatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listDefinedMonitoringTemplates.");
+    const operationName = "listDefinedMonitoringTemplates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DefinedMonitoringTemplateSummary/ListDefinedMonitoringTemplates";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listDefinedMonitoringTemplatesRequest.limit,
+      "page": listDefinedMonitoringTemplatesRequest.page,
+      "sortBy": listDefinedMonitoringTemplatesRequest.sortBy,
+      "displayName": listDefinedMonitoringTemplatesRequest.displayName,
+      "sortOrder": listDefinedMonitoringTemplatesRequest.sortOrder,
+      "resourceTypes": listDefinedMonitoringTemplatesRequest.resourceTypes,
+      "compartmentId": listDefinedMonitoringTemplatesRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDefinedMonitoringTemplatesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDefinedMonitoringTemplatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/definedMonitoringTemplates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDefinedMonitoringTemplatesResponse>{},
+        body: await response.json(),
+        bodyKey: "definedMonitoringTemplateCollection",
+        bodyModel: model.DefinedMonitoringTemplateCollection,
+        type: "model.DefinedMonitoringTemplateCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4126,6 +4907,94 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
+   * Returns a list of Monitoring Templates.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMonitoringTemplatesRequest
+   * @return ListMonitoringTemplatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoringTemplates.ts.html |here} to see how to use ListMonitoringTemplates API.
+   */
+  public async listMonitoringTemplates(
+    listMonitoringTemplatesRequest: requests.ListMonitoringTemplatesRequest
+  ): Promise<responses.ListMonitoringTemplatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#listMonitoringTemplates.");
+    const operationName = "listMonitoringTemplates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoringTemplate/ListMonitoringTemplates";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMonitoringTemplatesRequest.compartmentId,
+      "monitoringTemplateId": listMonitoringTemplatesRequest.monitoringTemplateId,
+      "limit": listMonitoringTemplatesRequest.limit,
+      "page": listMonitoringTemplatesRequest.page,
+      "sortOrder": listMonitoringTemplatesRequest.sortOrder,
+      "sortBy": listMonitoringTemplatesRequest.sortBy,
+      "displayName": listMonitoringTemplatesRequest.displayName,
+      "status": listMonitoringTemplatesRequest.status,
+      "lifecycleState": listMonitoringTemplatesRequest.lifecycleState,
+      "resourceTypes": listMonitoringTemplatesRequest.resourceTypes,
+      "metricName": listMonitoringTemplatesRequest.metricName,
+      "namespace": listMonitoringTemplatesRequest.namespace
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMonitoringTemplatesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMonitoringTemplatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMonitoringTemplatesResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoringTemplateCollection",
+        bodyModel: model.MonitoringTemplateCollection,
+        type: "model.MonitoringTemplateCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * API to get the details of all Process Sets.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListProcessSetsRequest
@@ -4686,6 +5555,190 @@ For example, when a new Management Agent gets registered in a certain compartmen
         bodyKey: "monitoredResourcesCountAggregationCollection",
         bodyModel: model.MonitoredResourcesCountAggregationCollection,
         type: "model.MonitoredResourcesCountAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets metric extension metrics count based on the aggregation criteria specified using request body.
+   * Either metricExtensionId or compartmentId must be passed even when no other filter property is passed.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RequestSummarizedMetricExtensionsMetricsRequest
+   * @return RequestSummarizedMetricExtensionsMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RequestSummarizedMetricExtensionsMetrics.ts.html |here} to see how to use RequestSummarizedMetricExtensionsMetrics API.
+   */
+  public async requestSummarizedMetricExtensionsMetrics(
+    requestSummarizedMetricExtensionsMetricsRequest: requests.RequestSummarizedMetricExtensionsMetricsRequest
+  ): Promise<responses.RequestSummarizedMetricExtensionsMetricsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#requestSummarizedMetricExtensionsMetrics."
+      );
+    const operationName = "requestSummarizedMetricExtensionsMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/RequestSummarizedMetricExtensionsMetrics";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": requestSummarizedMetricExtensionsMetricsRequest.limit,
+      "page": requestSummarizedMetricExtensionsMetricsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": requestSummarizedMetricExtensionsMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedMetricExtensionsMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/actions/summarizeMetrics",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        requestSummarizedMetricExtensionsMetricsRequest.requestSummarizedMetricExtensionsMetricsDetails,
+        "RequestSummarizedMetricExtensionsMetricsDetails",
+        model.RequestSummarizedMetricExtensionsMetricsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RequestSummarizedMetricExtensionsMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricExtensionMetricAggregationCollection",
+        bodyModel: model.MetricExtensionMetricAggregationCollection,
+        type: "model.MetricExtensionMetricAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets metric extension resources count based on the aggregation criteria specified using request body.
+   * Either metricExtensionId or compartmentId should be passed, if no other property is passed.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RequestSummarizedMetricExtensionsResourcesRequest
+   * @return RequestSummarizedMetricExtensionsResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RequestSummarizedMetricExtensionsResources.ts.html |here} to see how to use RequestSummarizedMetricExtensionsResources API.
+   */
+  public async requestSummarizedMetricExtensionsResources(
+    requestSummarizedMetricExtensionsResourcesRequest: requests.RequestSummarizedMetricExtensionsResourcesRequest
+  ): Promise<responses.RequestSummarizedMetricExtensionsResourcesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation StackMonitoringClient#requestSummarizedMetricExtensionsResources."
+      );
+    const operationName = "requestSummarizedMetricExtensionsResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MetricExtension/RequestSummarizedMetricExtensionsResources";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": requestSummarizedMetricExtensionsResourcesRequest.limit,
+      "page": requestSummarizedMetricExtensionsResourcesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": requestSummarizedMetricExtensionsResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestSummarizedMetricExtensionsResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/metricExtensions/actions/summarizeResources",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        requestSummarizedMetricExtensionsResourcesRequest.requestSummarizedMetricExtensionsResourcesDetails,
+        "RequestSummarizedMetricExtensionsResourcesDetails",
+        model.RequestSummarizedMetricExtensionsResourcesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RequestSummarizedMetricExtensionsResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "metricExtensionResourceAggregationCollection",
+        bodyModel: model.MetricExtensionResourceAggregationCollection,
+        type: "model.MetricExtensionResourceAggregationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5316,6 +6369,165 @@ For example, when a new Management Agent gets registered in a certain compartmen
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Unapply the Monitoring Template identified by the id
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UnapplyMonitoringTemplateRequest
+   * @return UnapplyMonitoringTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UnapplyMonitoringTemplate.ts.html |here} to see how to use UnapplyMonitoringTemplate API.
+   */
+  public async unapplyMonitoringTemplate(
+    unapplyMonitoringTemplateRequest: requests.UnapplyMonitoringTemplateRequest
+  ): Promise<responses.UnapplyMonitoringTemplateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#unapplyMonitoringTemplate.");
+    const operationName = "unapplyMonitoringTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoringTemplate/UnapplyMonitoringTemplate";
+    const pathParams = {
+      "{monitoringTemplateId}": unapplyMonitoringTemplateRequest.monitoringTemplateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": unapplyMonitoringTemplateRequest.opcRequestId,
+      "opc-retry-token": unapplyMonitoringTemplateRequest.opcRetryToken,
+      "if-match": unapplyMonitoringTemplateRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unapplyMonitoringTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}/actions/unapply",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnapplyMonitoringTemplateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a Alarm Condition by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAlarmConditionRequest
+   * @return UpdateAlarmConditionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateAlarmCondition.ts.html |here} to see how to use UpdateAlarmCondition API.
+   */
+  public async updateAlarmCondition(
+    updateAlarmConditionRequest: requests.UpdateAlarmConditionRequest
+  ): Promise<responses.UpdateAlarmConditionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateAlarmCondition.");
+    const operationName = "updateAlarmCondition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/AlarmCondition/UpdateAlarmCondition";
+    const pathParams = {
+      "{alarmConditionId}": updateAlarmConditionRequest.alarmConditionId,
+      "{monitoringTemplateId}": updateAlarmConditionRequest.monitoringTemplateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAlarmConditionRequest.ifMatch,
+      "opc-request-id": updateAlarmConditionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAlarmConditionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}/alarmConditions/{alarmConditionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAlarmConditionRequest.updateAlarmConditionDetails,
+        "UpdateAlarmConditionDetails",
+        model.UpdateAlarmConditionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAlarmConditionResponse>{},
+        body: await response.json(),
+        bodyKey: "alarmCondition",
+        bodyModel: model.AlarmCondition,
+        type: "model.AlarmCondition",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -5988,6 +7200,89 @@ For example, when a new Management Agent gets registered in a certain compartmen
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Monitoring Template
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateMonitoringTemplateRequest
+   * @return UpdateMonitoringTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoringTemplate.ts.html |here} to see how to use UpdateMonitoringTemplate API.
+   */
+  public async updateMonitoringTemplate(
+    updateMonitoringTemplateRequest: requests.UpdateMonitoringTemplateRequest
+  ): Promise<responses.UpdateMonitoringTemplateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateMonitoringTemplate.");
+    const operationName = "updateMonitoringTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoringTemplate/UpdateMonitoringTemplate";
+    const pathParams = {
+      "{monitoringTemplateId}": updateMonitoringTemplateRequest.monitoringTemplateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMonitoringTemplateRequest.ifMatch,
+      "opc-request-id": updateMonitoringTemplateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMonitoringTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoringTemplates/{monitoringTemplateId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMonitoringTemplateRequest.updateMonitoringTemplateDetails,
+        "UpdateMonitoringTemplateDetails",
+        model.UpdateMonitoringTemplateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMonitoringTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "monitoringTemplate",
+        bodyModel: model.MonitoringTemplate,
+        type: "model.MonitoringTemplate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

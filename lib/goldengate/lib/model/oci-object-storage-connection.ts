@@ -31,12 +31,14 @@ export interface OciObjectStorageConnection extends model.Connection {
   "tenancyId"?: string;
   /**
    * The name of the region. e.g.: us-ashburn-1
+   * If the region is not provided, backend will default to the default region.
    *
    */
   "region"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the OCI user who will access the Object Storage.
    * The user must have write access to the bucket they want to connect to.
+   * If the user is not provided, backend will default to the user who is calling the API endpoint.
    *
    */
   "userId": string;
@@ -53,6 +55,11 @@ export interface OciObjectStorageConnection extends model.Connection {
    *
    */
   "privateKeyPassphraseSecretId"?: string;
+  /**
+   * Indicates that the user intents to connect to the instance through resource principal.
+   *
+   */
+  "shouldUseResourcePrincipal"?: boolean;
 
   "connectionType": string;
 }

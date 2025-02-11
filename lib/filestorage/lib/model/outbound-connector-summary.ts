@@ -75,6 +75,12 @@ Example: {@code My outbound connector}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * System tags for this resource.
+   * System tags are applied to resources by internal OCI services.
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 
   "connectorType": string;
 }

@@ -91,6 +91,12 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * System tags for this resource.
+   * System tags are applied to resources by internal OCI services.
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the KMS key which is the master encryption key for the file system.
    *
    */

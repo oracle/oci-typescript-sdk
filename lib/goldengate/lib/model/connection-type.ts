@@ -44,6 +44,9 @@ export enum ConnectionType {
   Generic = "GENERIC",
   GoogleCloudStorage = "GOOGLE_CLOUD_STORAGE",
   GoogleBigquery = "GOOGLE_BIGQUERY",
+  Databricks = "DATABRICKS",
+  GooglePubsub = "GOOGLE_PUBSUB",
+  MicrosoftFabric = "MICROSOFT_FABRIC",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

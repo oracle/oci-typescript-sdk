@@ -664,6 +664,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Autonomous Serverless Database.
    */
   "clusterPlacementGroupId"?: string;
+  /**
+   * A list of the source Autonomous Database's table space number(s) used to create this partial clone from the backup.
+   */
+  "cloneTableSpaceList"?: Array<number>;
 }
 
 export namespace AutonomousDwDatabase {

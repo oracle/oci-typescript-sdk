@@ -124,6 +124,12 @@ Example: {@code 2021-01-04T20:01:29.100Z}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * System tags for this resource.
+   * System tags are applied to resources by internal OCI services.
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace Replication {

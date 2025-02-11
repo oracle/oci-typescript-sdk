@@ -210,6 +210,12 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "privateIp"?: string;
+  /**
+   * A private IPv6 address of your choice. Must be an available IP address within the subnet's CIDR.
+   * If you don't specify a value and the subnet is dual stack, Oracle automatically assigns a private IPv6 address from the subnet.
+   *
+   */
+  "privateIpV6"?: string;
   "dataCollectionOptions"?: model.DataCollectionOptions;
 
   "source": string;

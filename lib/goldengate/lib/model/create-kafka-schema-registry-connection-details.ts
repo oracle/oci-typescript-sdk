@@ -45,6 +45,7 @@ export interface CreateKafkaSchemaRegistryConnectionDetails extends model.Create
   /**
    * The password to access Schema Registry using basic authentication.
    * This value is injected into 'schema.registry.basic.auth.user.info=user:password' configuration property.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "password"?: string;
@@ -58,6 +59,7 @@ export interface CreateKafkaSchemaRegistryConnectionDetails extends model.Create
   "passwordSecretId"?: string;
   /**
    * The base64 encoded content of the TrustStore file.
+   * Deprecated: This field is deprecated and replaced by \"trustStoreSecretId\". This field will be removed after February 15 2026.
    *
    */
   "trustStore"?: string;
@@ -69,6 +71,7 @@ export interface CreateKafkaSchemaRegistryConnectionDetails extends model.Create
   "trustStoreSecretId"?: string;
   /**
    * The TrustStore password.
+   * Deprecated: This field is deprecated and replaced by \"trustStorePasswordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "trustStorePassword"?: string;
@@ -80,6 +83,7 @@ export interface CreateKafkaSchemaRegistryConnectionDetails extends model.Create
   "trustStorePasswordSecretId"?: string;
   /**
    * The base64 encoded content of the KeyStore file.
+   * Deprecated: This field is deprecated and replaced by \"keyStoreSecretId\". This field will be removed after February 15 2026.
    *
    */
   "keyStore"?: string;
@@ -91,6 +95,7 @@ export interface CreateKafkaSchemaRegistryConnectionDetails extends model.Create
   "keyStoreSecretId"?: string;
   /**
    * The KeyStore password.
+   * Deprecated: This field is deprecated and replaced by \"keyStorePasswordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "keyStorePassword"?: string;
@@ -103,6 +108,7 @@ export interface CreateKafkaSchemaRegistryConnectionDetails extends model.Create
   /**
    * The password for the cert inside the KeyStore.
    * In case it differs from the KeyStore password, it should be provided.
+   * Deprecated: This field is deprecated and replaced by \"sslKeyPasswordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "sslKeyPassword"?: string;

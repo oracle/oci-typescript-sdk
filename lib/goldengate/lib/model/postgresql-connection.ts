@@ -105,6 +105,7 @@ export namespace PostgresqlConnection {
     AzurePostgresql = "AZURE_POSTGRESQL",
     AzureCosmosDbForPostgresql = "AZURE_COSMOS_DB_FOR_POSTGRESQL",
     GoogleCloudSqlPostgresql = "GOOGLE_CLOUD_SQL_POSTGRESQL",
+    GoogleAlloyDbForPostgresql = "GOOGLE_ALLOY_DB_FOR_POSTGRESQL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -112,6 +112,12 @@ Example: {@code Uocm:PHX-AD-1}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * System tags for this resource.
+   * System tags are applied to resources by internal OCI services.
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * Additional information about the current {@code lifecycleState}.
    */
   "lifecycleDetails"?: string;
