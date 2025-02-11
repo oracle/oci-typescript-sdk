@@ -23,6 +23,7 @@ export interface UpdateGoogleCloudStorageConnectionDetails extends model.UpdateC
   /**
    * The base64 encoded content of the service account key file containing
    * the credentials required to use Google Cloud Storage.
+   * Deprecated: This field is deprecated and replaced by \"serviceAccountKeyFileSecretId\". This field will be removed after February 15 2026.
    *
    */
   "serviceAccountKeyFile"?: string;

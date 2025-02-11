@@ -156,6 +156,15 @@ Example: {@code {\"Department\": \"Finance\"}}
   "dbVersion"?: string;
   "backupConfig"?: model.AutonomousContainerDatabaseBackupConfig;
   /**
+   * This list describes the backup destination properties associated with the Autonomous Container Database (ACD) 's preferred backup destination. The object at a given index is associated with the destination present at the same index in the backup destination details list of the ACD Backup Configuration.
+   */
+  "backupDestinationPropertiesList"?: Array<model.BackupDestinationProperties>;
+  /**
+   * A backup config object holds information about preferred backup destinations only. This object holds information about the associated backup destinations, such as secondary backup destinations created for local backups or remote replicated backups.
+   */
+  "associatedBackupConfigurationDetails"?: Array<model.BackupDestinationConfigurationSummary>;
+  "recoveryApplianceDetails"?: model.RecoveryApplianceDetails;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the key store of Oracle Vault.
    */
   "keyStoreId"?: string;
@@ -353,6 +362,19 @@ export namespace AutonomousContainerDatabase {
 
         "backupConfig": obj.backupConfig
           ? model.AutonomousContainerDatabaseBackupConfig.getJsonObj(obj.backupConfig)
+          : undefined,
+        "backupDestinationPropertiesList": obj.backupDestinationPropertiesList
+          ? obj.backupDestinationPropertiesList.map(item => {
+              return model.BackupDestinationProperties.getJsonObj(item);
+            })
+          : undefined,
+        "associatedBackupConfigurationDetails": obj.associatedBackupConfigurationDetails
+          ? obj.associatedBackupConfigurationDetails.map(item => {
+              return model.BackupDestinationConfigurationSummary.getJsonObj(item);
+            })
+          : undefined,
+        "recoveryApplianceDetails": obj.recoveryApplianceDetails
+          ? model.RecoveryApplianceDetails.getJsonObj(obj.recoveryApplianceDetails)
           : undefined
       }
     };
@@ -375,6 +397,19 @@ export namespace AutonomousContainerDatabase {
 
         "backupConfig": obj.backupConfig
           ? model.AutonomousContainerDatabaseBackupConfig.getDeserializedJsonObj(obj.backupConfig)
+          : undefined,
+        "backupDestinationPropertiesList": obj.backupDestinationPropertiesList
+          ? obj.backupDestinationPropertiesList.map(item => {
+              return model.BackupDestinationProperties.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "associatedBackupConfigurationDetails": obj.associatedBackupConfigurationDetails
+          ? obj.associatedBackupConfigurationDetails.map(item => {
+              return model.BackupDestinationConfigurationSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "recoveryApplianceDetails": obj.recoveryApplianceDetails
+          ? model.RecoveryApplianceDetails.getDeserializedJsonObj(obj.recoveryApplianceDetails)
           : undefined
       }
     };

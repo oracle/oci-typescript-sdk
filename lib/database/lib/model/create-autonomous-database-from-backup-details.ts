@@ -29,6 +29,10 @@ export interface CreateAutonomousDatabaseFromBackupDetails
    * The Autonomous Database clone type.
    */
   "cloneType": CreateAutonomousDatabaseFromBackupDetails.CloneType;
+  /**
+   * A list of the source Autonomous Database's table space number(s) used to create this partial clone from the backup.
+   */
+  "cloneTableSpaceList"?: Array<number>;
 
   "source": string;
 }
@@ -36,7 +40,8 @@ export interface CreateAutonomousDatabaseFromBackupDetails
 export namespace CreateAutonomousDatabaseFromBackupDetails {
   export enum CloneType {
     Full = "FULL",
-    Metadata = "METADATA"
+    Metadata = "METADATA",
+    Partial = "PARTIAL"
   }
 
   export function getJsonObj(

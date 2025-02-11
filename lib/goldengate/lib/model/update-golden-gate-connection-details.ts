@@ -42,6 +42,7 @@ export interface UpdateGoldenGateConnectionDetails extends model.UpdateConnectio
   "username"?: string;
   /**
    * The password used to connect to the Oracle GoldenGate accessed trough this connection.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "password"?: string;

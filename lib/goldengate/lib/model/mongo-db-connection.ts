@@ -42,11 +42,28 @@ export interface MongoDbConnection extends model.Connection {
    */
   "databaseId"?: string;
   /**
+   * Security Protocol for MongoDB.
+   */
+  "securityProtocol"?: MongoDbConnection.SecurityProtocol;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the password Oracle GoldenGate uses to connect the associated database.
    * Note: When provided, 'password' field must not be provided.
    *
    */
   "passwordSecretId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the certificate key file of the mtls connection.
+   * - The content of a .pem file containing the client private key (for 2-way SSL).
+   * Note: When provided, 'tlsCertificateKeyFile' field must not be provided.
+   *
+   */
+  "tlsCertificateKeyFileSecretId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the password of the tls certificate key file.
+   * Note: When provided, 'tlsCertificateKeyFilePassword' field must not be provided.
+   *
+   */
+  "tlsCertificateKeyFilePasswordSecretId"?: string;
 
   "connectionType": string;
 }
@@ -56,6 +73,19 @@ export namespace MongoDbConnection {
     Mongodb = "MONGODB",
     OciAutonomousJsonDatabase = "OCI_AUTONOMOUS_JSON_DATABASE",
     AzureCosmosDbForMongodb = "AZURE_COSMOS_DB_FOR_MONGODB",
+    AmazonDocumentDb = "AMAZON_DOCUMENT_DB",
+    OracleJsonCollection = "ORACLE_JSON_COLLECTION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum SecurityProtocol {
+    Plain = "PLAIN",
+    Tls = "TLS",
+    Mtls = "MTLS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

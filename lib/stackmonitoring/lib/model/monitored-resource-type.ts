@@ -73,6 +73,10 @@ export interface MonitoredResourceType {
    *
    */
   "timeUpdated"?: Date;
+  /**
+   * Key/Value pair for additional namespaces used by stack monitoring services for SYSTEM (SMB) resource types.
+   */
+  "additionalNamespaceMap"?: { [key: string]: string };
   "metadata"?: model.SystemFormatResourceTypeMetadataDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.

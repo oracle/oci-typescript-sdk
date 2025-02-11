@@ -53,6 +53,7 @@ export interface CreateKafkaConnectionDetails extends model.CreateConnectionDeta
   /**
    * The password Oracle GoldenGate uses to connect the associated system of the given technology.
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "password"?: string;
@@ -67,6 +68,7 @@ export interface CreateKafkaConnectionDetails extends model.CreateConnectionDeta
   "passwordSecretId"?: string;
   /**
    * The base64 encoded content of the TrustStore file.
+   * Deprecated: This field is deprecated and replaced by \"trustStoreSecretId\". This field will be removed after February 15 2026.
    *
    */
   "trustStore"?: string;
@@ -78,6 +80,7 @@ export interface CreateKafkaConnectionDetails extends model.CreateConnectionDeta
   "trustStoreSecretId"?: string;
   /**
    * The TrustStore password.
+   * Deprecated: This field is deprecated and replaced by \"trustStorePasswordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "trustStorePassword"?: string;
@@ -89,6 +92,7 @@ export interface CreateKafkaConnectionDetails extends model.CreateConnectionDeta
   "trustStorePasswordSecretId"?: string;
   /**
    * The base64 encoded content of the KeyStore file.
+   * Deprecated: This field is deprecated and replaced by \"keyStoreSecretId\". This field will be removed after February 15 2026.
    *
    */
   "keyStore"?: string;
@@ -100,6 +104,7 @@ export interface CreateKafkaConnectionDetails extends model.CreateConnectionDeta
   "keyStoreSecretId"?: string;
   /**
    * The KeyStore password.
+   * Deprecated: This field is deprecated and replaced by \"keyStorePasswordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "keyStorePassword"?: string;
@@ -112,6 +117,7 @@ export interface CreateKafkaConnectionDetails extends model.CreateConnectionDeta
   /**
    * The password for the cert inside of the KeyStore.
    * In case it differs from the KeyStore password, it should be provided.
+   * Deprecated: This field is deprecated and replaced by \"sslKeyPasswordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "sslKeyPassword"?: string;

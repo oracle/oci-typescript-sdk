@@ -159,19 +159,14 @@ export namespace ConnectionSummary {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
-        case "GOLDENGATE":
-          return model.GoldenGateConnectionSummary.getJsonObj(
-            <model.GoldenGateConnectionSummary>(<object>jsonObj),
+        case "MICROSOFT_FABRIC":
+          return model.MicrosoftFabricConnectionSummary.getJsonObj(
+            <model.MicrosoftFabricConnectionSummary>(<object>jsonObj),
             true
           );
         case "KAFKA_SCHEMA_REGISTRY":
           return model.KafkaSchemaRegistryConnectionSummary.getJsonObj(
             <model.KafkaSchemaRegistryConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "JAVA_MESSAGE_SERVICE":
-          return model.JavaMessageServiceConnectionSummary.getJsonObj(
-            <model.JavaMessageServiceConnectionSummary>(<object>jsonObj),
             true
           );
         case "MICROSOFT_SQLSERVER":
@@ -189,6 +184,56 @@ export namespace ConnectionSummary {
             <model.OracleConnectionSummary>(<object>jsonObj),
             true
           );
+        case "OCI_OBJECT_STORAGE":
+          return model.OciObjectStorageConnectionSummary.getJsonObj(
+            <model.OciObjectStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.AzureSynapseConnectionSummary.getJsonObj(
+            <model.AzureSynapseConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "MONGODB":
+          return model.MongoDbConnectionSummary.getJsonObj(
+            <model.MongoDbConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3":
+          return model.AmazonS3ConnectionSummary.getJsonObj(
+            <model.AmazonS3ConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "MYSQL":
+          return model.MysqlConnectionSummary.getJsonObj(
+            <model.MysqlConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "ELASTICSEARCH":
+          return model.ElasticsearchConnectionSummary.getJsonObj(
+            <model.ElasticsearchConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_PUBSUB":
+          return model.GooglePubSubConnectionSummary.getJsonObj(
+            <model.GooglePubSubConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.GoogleCloudStorageConnectionSummary.getJsonObj(
+            <model.GoogleCloudStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GOLDENGATE":
+          return model.GoldenGateConnectionSummary.getJsonObj(
+            <model.GoldenGateConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "JAVA_MESSAGE_SERVICE":
+          return model.JavaMessageServiceConnectionSummary.getJsonObj(
+            <model.JavaMessageServiceConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "SNOWFLAKE":
           return model.SnowflakeConnectionSummary.getJsonObj(
             <model.SnowflakeConnectionSummary>(<object>jsonObj),
@@ -204,24 +249,9 @@ export namespace ConnectionSummary {
             <model.RedisConnectionSummary>(<object>jsonObj),
             true
           );
-        case "OCI_OBJECT_STORAGE":
-          return model.OciObjectStorageConnectionSummary.getJsonObj(
-            <model.OciObjectStorageConnectionSummary>(<object>jsonObj),
-            true
-          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageConnectionSummary.getJsonObj(
             <model.AzureDataLakeStorageConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "AZURE_SYNAPSE_ANALYTICS":
-          return model.AzureSynapseConnectionSummary.getJsonObj(
-            <model.AzureSynapseConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "MONGODB":
-          return model.MongoDbConnectionSummary.getJsonObj(
-            <model.MongoDbConnectionSummary>(<object>jsonObj),
             true
           );
         case "GOOGLE_BIGQUERY":
@@ -229,19 +259,9 @@ export namespace ConnectionSummary {
             <model.GoogleBigQueryConnectionSummary>(<object>jsonObj),
             true
           );
-        case "AMAZON_S3":
-          return model.AmazonS3ConnectionSummary.getJsonObj(
-            <model.AmazonS3ConnectionSummary>(<object>jsonObj),
-            true
-          );
         case "POSTGRESQL":
           return model.PostgresqlConnectionSummary.getJsonObj(
             <model.PostgresqlConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "MYSQL":
-          return model.MysqlConnectionSummary.getJsonObj(
-            <model.MysqlConnectionSummary>(<object>jsonObj),
             true
           );
         case "GENERIC":
@@ -254,11 +274,6 @@ export namespace ConnectionSummary {
             <model.KafkaConnectionSummary>(<object>jsonObj),
             true
           );
-        case "ELASTICSEARCH":
-          return model.ElasticsearchConnectionSummary.getJsonObj(
-            <model.ElasticsearchConnectionSummary>(<object>jsonObj),
-            true
-          );
         case "DB2":
           return model.Db2ConnectionSummary.getJsonObj(
             <model.Db2ConnectionSummary>(<object>jsonObj),
@@ -269,14 +284,14 @@ export namespace ConnectionSummary {
             <model.AmazonRedshiftConnectionSummary>(<object>jsonObj),
             true
           );
+        case "DATABRICKS":
+          return model.DatabricksConnectionSummary.getJsonObj(
+            <model.DatabricksConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "HDFS":
           return model.HdfsConnectionSummary.getJsonObj(
             <model.HdfsConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "GOOGLE_CLOUD_STORAGE":
-          return model.GoogleCloudStorageConnectionSummary.getJsonObj(
-            <model.GoogleCloudStorageConnectionSummary>(<object>jsonObj),
             true
           );
         default:
@@ -305,19 +320,14 @@ export namespace ConnectionSummary {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
-        case "GOLDENGATE":
-          return model.GoldenGateConnectionSummary.getDeserializedJsonObj(
-            <model.GoldenGateConnectionSummary>(<object>jsonObj),
+        case "MICROSOFT_FABRIC":
+          return model.MicrosoftFabricConnectionSummary.getDeserializedJsonObj(
+            <model.MicrosoftFabricConnectionSummary>(<object>jsonObj),
             true
           );
         case "KAFKA_SCHEMA_REGISTRY":
           return model.KafkaSchemaRegistryConnectionSummary.getDeserializedJsonObj(
             <model.KafkaSchemaRegistryConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "JAVA_MESSAGE_SERVICE":
-          return model.JavaMessageServiceConnectionSummary.getDeserializedJsonObj(
-            <model.JavaMessageServiceConnectionSummary>(<object>jsonObj),
             true
           );
         case "MICROSOFT_SQLSERVER":
@@ -335,6 +345,56 @@ export namespace ConnectionSummary {
             <model.OracleConnectionSummary>(<object>jsonObj),
             true
           );
+        case "OCI_OBJECT_STORAGE":
+          return model.OciObjectStorageConnectionSummary.getDeserializedJsonObj(
+            <model.OciObjectStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.AzureSynapseConnectionSummary.getDeserializedJsonObj(
+            <model.AzureSynapseConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "MONGODB":
+          return model.MongoDbConnectionSummary.getDeserializedJsonObj(
+            <model.MongoDbConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3":
+          return model.AmazonS3ConnectionSummary.getDeserializedJsonObj(
+            <model.AmazonS3ConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "MYSQL":
+          return model.MysqlConnectionSummary.getDeserializedJsonObj(
+            <model.MysqlConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "ELASTICSEARCH":
+          return model.ElasticsearchConnectionSummary.getDeserializedJsonObj(
+            <model.ElasticsearchConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_PUBSUB":
+          return model.GooglePubSubConnectionSummary.getDeserializedJsonObj(
+            <model.GooglePubSubConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.GoogleCloudStorageConnectionSummary.getDeserializedJsonObj(
+            <model.GoogleCloudStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GOLDENGATE":
+          return model.GoldenGateConnectionSummary.getDeserializedJsonObj(
+            <model.GoldenGateConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "JAVA_MESSAGE_SERVICE":
+          return model.JavaMessageServiceConnectionSummary.getDeserializedJsonObj(
+            <model.JavaMessageServiceConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "SNOWFLAKE":
           return model.SnowflakeConnectionSummary.getDeserializedJsonObj(
             <model.SnowflakeConnectionSummary>(<object>jsonObj),
@@ -350,24 +410,9 @@ export namespace ConnectionSummary {
             <model.RedisConnectionSummary>(<object>jsonObj),
             true
           );
-        case "OCI_OBJECT_STORAGE":
-          return model.OciObjectStorageConnectionSummary.getDeserializedJsonObj(
-            <model.OciObjectStorageConnectionSummary>(<object>jsonObj),
-            true
-          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageConnectionSummary.getDeserializedJsonObj(
             <model.AzureDataLakeStorageConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "AZURE_SYNAPSE_ANALYTICS":
-          return model.AzureSynapseConnectionSummary.getDeserializedJsonObj(
-            <model.AzureSynapseConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "MONGODB":
-          return model.MongoDbConnectionSummary.getDeserializedJsonObj(
-            <model.MongoDbConnectionSummary>(<object>jsonObj),
             true
           );
         case "GOOGLE_BIGQUERY":
@@ -375,19 +420,9 @@ export namespace ConnectionSummary {
             <model.GoogleBigQueryConnectionSummary>(<object>jsonObj),
             true
           );
-        case "AMAZON_S3":
-          return model.AmazonS3ConnectionSummary.getDeserializedJsonObj(
-            <model.AmazonS3ConnectionSummary>(<object>jsonObj),
-            true
-          );
         case "POSTGRESQL":
           return model.PostgresqlConnectionSummary.getDeserializedJsonObj(
             <model.PostgresqlConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "MYSQL":
-          return model.MysqlConnectionSummary.getDeserializedJsonObj(
-            <model.MysqlConnectionSummary>(<object>jsonObj),
             true
           );
         case "GENERIC":
@@ -400,11 +435,6 @@ export namespace ConnectionSummary {
             <model.KafkaConnectionSummary>(<object>jsonObj),
             true
           );
-        case "ELASTICSEARCH":
-          return model.ElasticsearchConnectionSummary.getDeserializedJsonObj(
-            <model.ElasticsearchConnectionSummary>(<object>jsonObj),
-            true
-          );
         case "DB2":
           return model.Db2ConnectionSummary.getDeserializedJsonObj(
             <model.Db2ConnectionSummary>(<object>jsonObj),
@@ -415,14 +445,14 @@ export namespace ConnectionSummary {
             <model.AmazonRedshiftConnectionSummary>(<object>jsonObj),
             true
           );
+        case "DATABRICKS":
+          return model.DatabricksConnectionSummary.getDeserializedJsonObj(
+            <model.DatabricksConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "HDFS":
           return model.HdfsConnectionSummary.getDeserializedJsonObj(
             <model.HdfsConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "GOOGLE_CLOUD_STORAGE":
-          return model.GoogleCloudStorageConnectionSummary.getDeserializedJsonObj(
-            <model.GoogleCloudStorageConnectionSummary>(<object>jsonObj),
             true
           );
         default:

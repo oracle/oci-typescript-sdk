@@ -26,6 +26,10 @@ export interface ClusterCreateOptions {
    */
   "serviceLbSubnetIds"?: Array<string>;
   /**
+   * IP family to use for single stack or define the order of IP families for dual-stack
+   */
+  "ipFamilies"?: Array<ClusterCreateOptions.IpFamilies>;
+  /**
    * Network configuration for Kubernetes.
    */
   "kubernetesNetworkConfig"?: model.KubernetesNetworkConfig;
@@ -44,6 +48,16 @@ export interface ClusterCreateOptions {
 }
 
 export namespace ClusterCreateOptions {
+  export enum IpFamilies {
+    IPv4 = "IPv4",
+    IPv6 = "IPv6",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ClusterCreateOptions): object {
     const jsonObj = {
       ...obj,

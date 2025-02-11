@@ -38,6 +38,7 @@ export interface CreateMongoDbConnectionDetails extends model.CreateConnectionDe
   "username"?: string;
   /**
    * The password Oracle GoldenGate uses to connect the associated database.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "password"?: string;
@@ -52,6 +53,40 @@ export interface CreateMongoDbConnectionDetails extends model.CreateConnectionDe
    *
    */
   "databaseId"?: string;
+  /**
+   * Security Type for MongoDB.
+   */
+  "securityProtocol"?: string;
+  /**
+   * Database Certificate - The base64 encoded content of a .pem file, containing the server public key (for 1 and 2-way SSL).
+   *
+   */
+  "tlsCaFile"?: string;
+  /**
+   * Client Certificate - The base64 encoded content of a .pem file, containing the client public key (for 2-way SSL).
+   * Deprecated: This field is deprecated and replaced by \"tlsCertificateKeyFileSecretId\". This field will be removed after February 15 2026.
+   *
+   */
+  "tlsCertificateKeyFile"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the certificate key file of the mtls connection.
+   * - The content of a .pem file containing the client private key (for 2-way SSL).
+   * Note: When provided, 'tlsCertificateKeyFile' field must not be provided.
+   *
+   */
+  "tlsCertificateKeyFileSecretId"?: string;
+  /**
+   * Client Certificate key file password.
+   * Deprecated: This field is deprecated and replaced by \"tlsCertificateKeyFilePasswordSecretId\". This field will be removed after February 15 2026.
+   *
+   */
+  "tlsCertificateKeyFilePassword"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the password of the tls certificate key file.
+   * Note: When provided, 'tlsCertificateKeyFilePassword' field must not be provided.
+   *
+   */
+  "tlsCertificateKeyFilePasswordSecretId"?: string;
 
   "connectionType": string;
 }

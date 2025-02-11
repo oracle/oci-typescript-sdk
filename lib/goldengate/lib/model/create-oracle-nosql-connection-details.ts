@@ -31,18 +31,21 @@ export interface CreateOracleNosqlConnectionDetails extends model.CreateConnecti
   "tenancyId"?: string;
   /**
    * The name of the region. e.g.: us-ashburn-1
+   * If the region is not provided, backend will default to the default region.
    *
    */
   "region"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the OCI user who will access the Oracle NoSQL database.
    * The user must have write access to the table they want to connect to.
+   * If the user is not provided, backend will default to the user who is calling the API endpoint.
    *
    */
   "userId"?: string;
   /**
    * The base64 encoded content of the private key file (PEM file) corresponding to the API key of the fingerprint.
    * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm
+   * Deprecated: This field is deprecated and replaced by \"privateKeyFileSecretId\". This field will be removed after February 15 2026.
    *
    */
   "privateKeyFile"?: string;
@@ -55,6 +58,7 @@ export interface CreateOracleNosqlConnectionDetails extends model.CreateConnecti
   "privateKeyFileSecretId"?: string;
   /**
    * The passphrase of the private key.
+   * Deprecated: This field is deprecated and replaced by \"privateKeyPassphraseSecretId\". This field will be removed after February 15 2026.
    *
    */
   "privateKeyPassphrase"?: string;
@@ -69,7 +73,12 @@ export interface CreateOracleNosqlConnectionDetails extends model.CreateConnecti
    * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm
    *
    */
-  "publicKeyFingerprint": string;
+  "publicKeyFingerprint"?: string;
+  /**
+   * Indicates that the user intents to connect to the instance through resource principal.
+   *
+   */
+  "shouldUseResourcePrincipal"?: boolean;
 
   "connectionType": string;
 }

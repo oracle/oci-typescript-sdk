@@ -108,6 +108,12 @@ Example: {@code 2020-08-25T21:10:29.600Z}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * System tags for this resource.
+   * System tags are applied to resources by internal OCI services.
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * The time when this snapshot will be deleted.
    */
   "expirationTime"?: Date;

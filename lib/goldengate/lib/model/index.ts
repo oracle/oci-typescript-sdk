@@ -391,6 +391,8 @@ import * as CreateAzureDataLakeStorageConnectionDetails from "./create-azure-dat
 export import CreateAzureDataLakeStorageConnectionDetails = CreateAzureDataLakeStorageConnectionDetails.CreateAzureDataLakeStorageConnectionDetails;
 import * as CreateAzureSynapseConnectionDetails from "./create-azure-synapse-connection-details";
 export import CreateAzureSynapseConnectionDetails = CreateAzureSynapseConnectionDetails.CreateAzureSynapseConnectionDetails;
+import * as CreateDatabricksConnectionDetails from "./create-databricks-connection-details";
+export import CreateDatabricksConnectionDetails = CreateDatabricksConnectionDetails.CreateDatabricksConnectionDetails;
 import * as CreateDb2ConnectionDetails from "./create-db2-connection-details";
 export import CreateDb2ConnectionDetails = CreateDb2ConnectionDetails.CreateDb2ConnectionDetails;
 import * as CreateElasticsearchConnectionDetails from "./create-elasticsearch-connection-details";
@@ -403,6 +405,8 @@ import * as CreateGoogleBigQueryConnectionDetails from "./create-google-big-quer
 export import CreateGoogleBigQueryConnectionDetails = CreateGoogleBigQueryConnectionDetails.CreateGoogleBigQueryConnectionDetails;
 import * as CreateGoogleCloudStorageConnectionDetails from "./create-google-cloud-storage-connection-details";
 export import CreateGoogleCloudStorageConnectionDetails = CreateGoogleCloudStorageConnectionDetails.CreateGoogleCloudStorageConnectionDetails;
+import * as CreateGooglePubSubConnectionDetails from "./create-google-pub-sub-connection-details";
+export import CreateGooglePubSubConnectionDetails = CreateGooglePubSubConnectionDetails.CreateGooglePubSubConnectionDetails;
 import * as CreateHdfsConnectionDetails from "./create-hdfs-connection-details";
 export import CreateHdfsConnectionDetails = CreateHdfsConnectionDetails.CreateHdfsConnectionDetails;
 import * as CreateJavaMessageServiceConnectionDetails from "./create-java-message-service-connection-details";
@@ -411,6 +415,8 @@ import * as CreateKafkaConnectionDetails from "./create-kafka-connection-details
 export import CreateKafkaConnectionDetails = CreateKafkaConnectionDetails.CreateKafkaConnectionDetails;
 import * as CreateKafkaSchemaRegistryConnectionDetails from "./create-kafka-schema-registry-connection-details";
 export import CreateKafkaSchemaRegistryConnectionDetails = CreateKafkaSchemaRegistryConnectionDetails.CreateKafkaSchemaRegistryConnectionDetails;
+import * as CreateMicrosoftFabricConnectionDetails from "./create-microsoft-fabric-connection-details";
+export import CreateMicrosoftFabricConnectionDetails = CreateMicrosoftFabricConnectionDetails.CreateMicrosoftFabricConnectionDetails;
 import * as CreateMicrosoftSqlserverConnectionDetails from "./create-microsoft-sqlserver-connection-details";
 export import CreateMicrosoftSqlserverConnectionDetails = CreateMicrosoftSqlserverConnectionDetails.CreateMicrosoftSqlserverConnectionDetails;
 import * as CreateMongoDbConnectionDetails from "./create-mongo-db-connection-details";
@@ -431,6 +437,10 @@ import * as CreateSnowflakeConnectionDetails from "./create-snowflake-connection
 export import CreateSnowflakeConnectionDetails = CreateSnowflakeConnectionDetails.CreateSnowflakeConnectionDetails;
 import * as CreateZeroEtlPipelineDetails from "./create-zero-etl-pipeline-details";
 export import CreateZeroEtlPipelineDetails = CreateZeroEtlPipelineDetails.CreateZeroEtlPipelineDetails;
+import * as DatabricksConnection from "./databricks-connection";
+export import DatabricksConnection = DatabricksConnection.DatabricksConnection;
+import * as DatabricksConnectionSummary from "./databricks-connection-summary";
+export import DatabricksConnectionSummary = DatabricksConnectionSummary.DatabricksConnectionSummary;
 import * as Db2Connection from "./db2-connection";
 export import Db2Connection = Db2Connection.Db2Connection;
 import * as Db2ConnectionSummary from "./db2-connection-summary";
@@ -487,6 +497,10 @@ import * as GoogleCloudStorageConnection from "./google-cloud-storage-connection
 export import GoogleCloudStorageConnection = GoogleCloudStorageConnection.GoogleCloudStorageConnection;
 import * as GoogleCloudStorageConnectionSummary from "./google-cloud-storage-connection-summary";
 export import GoogleCloudStorageConnectionSummary = GoogleCloudStorageConnectionSummary.GoogleCloudStorageConnectionSummary;
+import * as GooglePubSubConnection from "./google-pub-sub-connection";
+export import GooglePubSubConnection = GooglePubSubConnection.GooglePubSubConnection;
+import * as GooglePubSubConnectionSummary from "./google-pub-sub-connection-summary";
+export import GooglePubSubConnectionSummary = GooglePubSubConnectionSummary.GooglePubSubConnectionSummary;
 import * as HdfsConnection from "./hdfs-connection";
 export import HdfsConnection = HdfsConnection.HdfsConnection;
 import * as HdfsConnectionSummary from "./hdfs-connection-summary";
@@ -503,6 +517,10 @@ import * as KafkaSchemaRegistryConnection from "./kafka-schema-registry-connecti
 export import KafkaSchemaRegistryConnection = KafkaSchemaRegistryConnection.KafkaSchemaRegistryConnection;
 import * as KafkaSchemaRegistryConnectionSummary from "./kafka-schema-registry-connection-summary";
 export import KafkaSchemaRegistryConnectionSummary = KafkaSchemaRegistryConnectionSummary.KafkaSchemaRegistryConnectionSummary;
+import * as MicrosoftFabricConnection from "./microsoft-fabric-connection";
+export import MicrosoftFabricConnection = MicrosoftFabricConnection.MicrosoftFabricConnection;
+import * as MicrosoftFabricConnectionSummary from "./microsoft-fabric-connection-summary";
+export import MicrosoftFabricConnectionSummary = MicrosoftFabricConnectionSummary.MicrosoftFabricConnectionSummary;
 import * as MicrosoftSqlserverConnection from "./microsoft-sqlserver-connection";
 export import MicrosoftSqlserverConnection = MicrosoftSqlserverConnection.MicrosoftSqlserverConnection;
 import * as MicrosoftSqlserverConnectionSummary from "./microsoft-sqlserver-connection-summary";
@@ -551,6 +569,8 @@ import * as UpdateAzureDataLakeStorageConnectionDetails from "./update-azure-dat
 export import UpdateAzureDataLakeStorageConnectionDetails = UpdateAzureDataLakeStorageConnectionDetails.UpdateAzureDataLakeStorageConnectionDetails;
 import * as UpdateAzureSynapseConnectionDetails from "./update-azure-synapse-connection-details";
 export import UpdateAzureSynapseConnectionDetails = UpdateAzureSynapseConnectionDetails.UpdateAzureSynapseConnectionDetails;
+import * as UpdateDatabricksConnectionDetails from "./update-databricks-connection-details";
+export import UpdateDatabricksConnectionDetails = UpdateDatabricksConnectionDetails.UpdateDatabricksConnectionDetails;
 import * as UpdateDb2ConnectionDetails from "./update-db2-connection-details";
 export import UpdateDb2ConnectionDetails = UpdateDb2ConnectionDetails.UpdateDb2ConnectionDetails;
 import * as UpdateElasticsearchConnectionDetails from "./update-elasticsearch-connection-details";
@@ -563,6 +583,8 @@ import * as UpdateGoogleBigQueryConnectionDetails from "./update-google-big-quer
 export import UpdateGoogleBigQueryConnectionDetails = UpdateGoogleBigQueryConnectionDetails.UpdateGoogleBigQueryConnectionDetails;
 import * as UpdateGoogleCloudStorageConnectionDetails from "./update-google-cloud-storage-connection-details";
 export import UpdateGoogleCloudStorageConnectionDetails = UpdateGoogleCloudStorageConnectionDetails.UpdateGoogleCloudStorageConnectionDetails;
+import * as UpdateGooglePubSubConnectionDetails from "./update-google-pub-sub-connection-details";
+export import UpdateGooglePubSubConnectionDetails = UpdateGooglePubSubConnectionDetails.UpdateGooglePubSubConnectionDetails;
 import * as UpdateHdfsConnectionDetails from "./update-hdfs-connection-details";
 export import UpdateHdfsConnectionDetails = UpdateHdfsConnectionDetails.UpdateHdfsConnectionDetails;
 import * as UpdateJavaMessageServiceConnectionDetails from "./update-java-message-service-connection-details";
@@ -571,6 +593,8 @@ import * as UpdateKafkaConnectionDetails from "./update-kafka-connection-details
 export import UpdateKafkaConnectionDetails = UpdateKafkaConnectionDetails.UpdateKafkaConnectionDetails;
 import * as UpdateKafkaSchemaRegistryConnectionDetails from "./update-kafka-schema-registry-connection-details";
 export import UpdateKafkaSchemaRegistryConnectionDetails = UpdateKafkaSchemaRegistryConnectionDetails.UpdateKafkaSchemaRegistryConnectionDetails;
+import * as UpdateMicrosoftFabricConnectionDetails from "./update-microsoft-fabric-connection-details";
+export import UpdateMicrosoftFabricConnectionDetails = UpdateMicrosoftFabricConnectionDetails.UpdateMicrosoftFabricConnectionDetails;
 import * as UpdateMicrosoftSqlserverConnectionDetails from "./update-microsoft-sqlserver-connection-details";
 export import UpdateMicrosoftSqlserverConnectionDetails = UpdateMicrosoftSqlserverConnectionDetails.UpdateMicrosoftSqlserverConnectionDetails;
 import * as UpdateMongoDbConnectionDetails from "./update-mongo-db-connection-details";

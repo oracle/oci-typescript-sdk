@@ -38,6 +38,10 @@ export interface CreateAutonomousDatabaseFromBackupTimestampDetails
    *
    */
   "useLatestAvailableBackupTimeStamp"?: boolean;
+  /**
+   * A list of the source Autonomous Database's table space number(s) used to create this partial clone from the backup.
+   */
+  "cloneTableSpaceList"?: Array<number>;
 
   "source": string;
 }
@@ -45,7 +49,8 @@ export interface CreateAutonomousDatabaseFromBackupTimestampDetails
 export namespace CreateAutonomousDatabaseFromBackupTimestampDetails {
   export enum CloneType {
     Full = "FULL",
-    Metadata = "METADATA"
+    Metadata = "METADATA",
+    Partial = "PARTIAL"
   }
 
   export function getJsonObj(

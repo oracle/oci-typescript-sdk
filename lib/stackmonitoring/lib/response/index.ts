@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ApplyMonitoringTemplateResponse from "./apply-monitoring-template-response";
+export import ApplyMonitoringTemplateResponse = ApplyMonitoringTemplateResponse.ApplyMonitoringTemplateResponse;
 import * as AssociateMonitoredResourcesResponse from "./associate-monitored-resources-response";
 export import AssociateMonitoredResourcesResponse = AssociateMonitoredResourcesResponse.AssociateMonitoredResourcesResponse;
 import * as ChangeConfigCompartmentResponse from "./change-config-compartment-response";
@@ -23,6 +25,8 @@ import * as ChangeMonitoredResourceTaskCompartmentResponse from "./change-monito
 export import ChangeMonitoredResourceTaskCompartmentResponse = ChangeMonitoredResourceTaskCompartmentResponse.ChangeMonitoredResourceTaskCompartmentResponse;
 import * as ChangeProcessSetCompartmentResponse from "./change-process-set-compartment-response";
 export import ChangeProcessSetCompartmentResponse = ChangeProcessSetCompartmentResponse.ChangeProcessSetCompartmentResponse;
+import * as CreateAlarmConditionResponse from "./create-alarm-condition-response";
+export import CreateAlarmConditionResponse = CreateAlarmConditionResponse.CreateAlarmConditionResponse;
 import * as CreateBaselineableMetricResponse from "./create-baselineable-metric-response";
 export import CreateBaselineableMetricResponse = CreateBaselineableMetricResponse.CreateBaselineableMetricResponse;
 import * as CreateConfigResponse from "./create-config-response";
@@ -39,8 +43,12 @@ import * as CreateMonitoredResourceTaskResponse from "./create-monitored-resourc
 export import CreateMonitoredResourceTaskResponse = CreateMonitoredResourceTaskResponse.CreateMonitoredResourceTaskResponse;
 import * as CreateMonitoredResourceTypeResponse from "./create-monitored-resource-type-response";
 export import CreateMonitoredResourceTypeResponse = CreateMonitoredResourceTypeResponse.CreateMonitoredResourceTypeResponse;
+import * as CreateMonitoringTemplateResponse from "./create-monitoring-template-response";
+export import CreateMonitoringTemplateResponse = CreateMonitoringTemplateResponse.CreateMonitoringTemplateResponse;
 import * as CreateProcessSetResponse from "./create-process-set-response";
 export import CreateProcessSetResponse = CreateProcessSetResponse.CreateProcessSetResponse;
+import * as DeleteAlarmConditionResponse from "./delete-alarm-condition-response";
+export import DeleteAlarmConditionResponse = DeleteAlarmConditionResponse.DeleteAlarmConditionResponse;
 import * as DeleteBaselineableMetricResponse from "./delete-baselineable-metric-response";
 export import DeleteBaselineableMetricResponse = DeleteBaselineableMetricResponse.DeleteBaselineableMetricResponse;
 import * as DeleteConfigResponse from "./delete-config-response";
@@ -55,6 +63,8 @@ import * as DeleteMonitoredResourceResponse from "./delete-monitored-resource-re
 export import DeleteMonitoredResourceResponse = DeleteMonitoredResourceResponse.DeleteMonitoredResourceResponse;
 import * as DeleteMonitoredResourceTypeResponse from "./delete-monitored-resource-type-response";
 export import DeleteMonitoredResourceTypeResponse = DeleteMonitoredResourceTypeResponse.DeleteMonitoredResourceTypeResponse;
+import * as DeleteMonitoringTemplateResponse from "./delete-monitoring-template-response";
+export import DeleteMonitoringTemplateResponse = DeleteMonitoringTemplateResponse.DeleteMonitoringTemplateResponse;
 import * as DeleteProcessSetResponse from "./delete-process-set-response";
 export import DeleteProcessSetResponse = DeleteProcessSetResponse.DeleteProcessSetResponse;
 import * as DisableExternalDatabaseResponse from "./disable-external-database-response";
@@ -69,6 +79,10 @@ import * as EvaluateBaselineableMetricResponse from "./evaluate-baselineable-met
 export import EvaluateBaselineableMetricResponse = EvaluateBaselineableMetricResponse.EvaluateBaselineableMetricResponse;
 import * as ExportMetricExtensionResponse from "./export-metric-extension-response";
 export import ExportMetricExtensionResponse = ExportMetricExtensionResponse.ExportMetricExtensionResponse;
+import * as ExportMonitoringTemplateResponse from "./export-monitoring-template-response";
+export import ExportMonitoringTemplateResponse = ExportMonitoringTemplateResponse.ExportMonitoringTemplateResponse;
+import * as GetAlarmConditionResponse from "./get-alarm-condition-response";
+export import GetAlarmConditionResponse = GetAlarmConditionResponse.GetAlarmConditionResponse;
 import * as GetBaselineableMetricResponse from "./get-baselineable-metric-response";
 export import GetBaselineableMetricResponse = GetBaselineableMetricResponse.GetBaselineableMetricResponse;
 import * as GetConfigResponse from "./get-config-response";
@@ -85,14 +99,20 @@ import * as GetMonitoredResourceTaskResponse from "./get-monitored-resource-task
 export import GetMonitoredResourceTaskResponse = GetMonitoredResourceTaskResponse.GetMonitoredResourceTaskResponse;
 import * as GetMonitoredResourceTypeResponse from "./get-monitored-resource-type-response";
 export import GetMonitoredResourceTypeResponse = GetMonitoredResourceTypeResponse.GetMonitoredResourceTypeResponse;
+import * as GetMonitoringTemplateResponse from "./get-monitoring-template-response";
+export import GetMonitoringTemplateResponse = GetMonitoringTemplateResponse.GetMonitoringTemplateResponse;
 import * as GetProcessSetResponse from "./get-process-set-response";
 export import GetProcessSetResponse = GetProcessSetResponse.GetProcessSetResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as ListAlarmConditionsResponse from "./list-alarm-conditions-response";
+export import ListAlarmConditionsResponse = ListAlarmConditionsResponse.ListAlarmConditionsResponse;
 import * as ListBaselineableMetricsResponse from "./list-baselineable-metrics-response";
 export import ListBaselineableMetricsResponse = ListBaselineableMetricsResponse.ListBaselineableMetricsResponse;
 import * as ListConfigsResponse from "./list-configs-response";
 export import ListConfigsResponse = ListConfigsResponse.ListConfigsResponse;
+import * as ListDefinedMonitoringTemplatesResponse from "./list-defined-monitoring-templates-response";
+export import ListDefinedMonitoringTemplatesResponse = ListDefinedMonitoringTemplatesResponse.ListDefinedMonitoringTemplatesResponse;
 import * as ListDiscoveryJobLogsResponse from "./list-discovery-job-logs-response";
 export import ListDiscoveryJobLogsResponse = ListDiscoveryJobLogsResponse.ListDiscoveryJobLogsResponse;
 import * as ListDiscoveryJobsResponse from "./list-discovery-jobs-response";
@@ -107,6 +127,8 @@ import * as ListMonitoredResourceTypesResponse from "./list-monitored-resource-t
 export import ListMonitoredResourceTypesResponse = ListMonitoredResourceTypesResponse.ListMonitoredResourceTypesResponse;
 import * as ListMonitoredResourcesResponse from "./list-monitored-resources-response";
 export import ListMonitoredResourcesResponse = ListMonitoredResourcesResponse.ListMonitoredResourcesResponse;
+import * as ListMonitoringTemplatesResponse from "./list-monitoring-templates-response";
+export import ListMonitoringTemplatesResponse = ListMonitoringTemplatesResponse.ListMonitoringTemplatesResponse;
 import * as ListProcessSetsResponse from "./list-process-sets-response";
 export import ListProcessSetsResponse = ListProcessSetsResponse.ListProcessSetsResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";
@@ -121,6 +143,10 @@ import * as PublishMetricExtensionResponse from "./publish-metric-extension-resp
 export import PublishMetricExtensionResponse = PublishMetricExtensionResponse.PublishMetricExtensionResponse;
 import * as RequestMonitoredResourcesSummarizedCountResponse from "./request-monitored-resources-summarized-count-response";
 export import RequestMonitoredResourcesSummarizedCountResponse = RequestMonitoredResourcesSummarizedCountResponse.RequestMonitoredResourcesSummarizedCountResponse;
+import * as RequestSummarizedMetricExtensionsMetricsResponse from "./request-summarized-metric-extensions-metrics-response";
+export import RequestSummarizedMetricExtensionsMetricsResponse = RequestSummarizedMetricExtensionsMetricsResponse.RequestSummarizedMetricExtensionsMetricsResponse;
+import * as RequestSummarizedMetricExtensionsResourcesResponse from "./request-summarized-metric-extensions-resources-response";
+export import RequestSummarizedMetricExtensionsResourcesResponse = RequestSummarizedMetricExtensionsResourcesResponse.RequestSummarizedMetricExtensionsResourcesResponse;
 import * as RetryFailedMaintenanceWindowOperationResponse from "./retry-failed-maintenance-window-operation-response";
 export import RetryFailedMaintenanceWindowOperationResponse = RetryFailedMaintenanceWindowOperationResponse.RetryFailedMaintenanceWindowOperationResponse;
 import * as SearchAssociatedResourcesResponse from "./search-associated-resources-response";
@@ -135,6 +161,10 @@ import * as StopMaintenanceWindowResponse from "./stop-maintenance-window-respon
 export import StopMaintenanceWindowResponse = StopMaintenanceWindowResponse.StopMaintenanceWindowResponse;
 import * as TestMetricExtensionResponse from "./test-metric-extension-response";
 export import TestMetricExtensionResponse = TestMetricExtensionResponse.TestMetricExtensionResponse;
+import * as UnapplyMonitoringTemplateResponse from "./unapply-monitoring-template-response";
+export import UnapplyMonitoringTemplateResponse = UnapplyMonitoringTemplateResponse.UnapplyMonitoringTemplateResponse;
+import * as UpdateAlarmConditionResponse from "./update-alarm-condition-response";
+export import UpdateAlarmConditionResponse = UpdateAlarmConditionResponse.UpdateAlarmConditionResponse;
 import * as UpdateAndPropagateTagsResponse from "./update-and-propagate-tags-response";
 export import UpdateAndPropagateTagsResponse = UpdateAndPropagateTagsResponse.UpdateAndPropagateTagsResponse;
 import * as UpdateBaselineableMetricResponse from "./update-baselineable-metric-response";
@@ -151,5 +181,7 @@ import * as UpdateMonitoredResourceTaskResponse from "./update-monitored-resourc
 export import UpdateMonitoredResourceTaskResponse = UpdateMonitoredResourceTaskResponse.UpdateMonitoredResourceTaskResponse;
 import * as UpdateMonitoredResourceTypeResponse from "./update-monitored-resource-type-response";
 export import UpdateMonitoredResourceTypeResponse = UpdateMonitoredResourceTypeResponse.UpdateMonitoredResourceTypeResponse;
+import * as UpdateMonitoringTemplateResponse from "./update-monitoring-template-response";
+export import UpdateMonitoringTemplateResponse = UpdateMonitoringTemplateResponse.UpdateMonitoringTemplateResponse;
 import * as UpdateProcessSetResponse from "./update-process-set-response";
 export import UpdateProcessSetResponse = UpdateProcessSetResponse.UpdateProcessSetResponse;

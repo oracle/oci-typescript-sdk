@@ -39,6 +39,7 @@ export interface UpdateSnowflakeConnectionDetails extends model.UpdateConnection
   "username"?: string;
   /**
    * The password Oracle GoldenGate uses to connect to Snowflake platform.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "password"?: string;
@@ -50,6 +51,7 @@ export interface UpdateSnowflakeConnectionDetails extends model.UpdateConnection
   "passwordSecretId"?: string;
   /**
    * The base64 encoded content of private key file in PEM format.
+   * Deprecated: This field is deprecated and replaced by \"privateKeyFileSecretId\". This field will be removed after February 15 2026.
    *
    */
   "privateKeyFile"?: string;
@@ -62,6 +64,7 @@ export interface UpdateSnowflakeConnectionDetails extends model.UpdateConnection
   "privateKeyFileSecretId"?: string;
   /**
    * Password if the private key file is encrypted.
+   * Deprecated: This field is deprecated and replaced by \"privateKeyPassphraseSecretId\". This field will be removed after February 15 2026.
    *
    */
   "privateKeyPassphrase"?: string;

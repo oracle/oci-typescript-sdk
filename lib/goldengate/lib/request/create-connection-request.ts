@@ -26,27 +26,30 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreatePostgresqlConnectionDetails
     | model.CreateKafkaSchemaRegistryConnectionDetails
     | model.CreateMicrosoftSqlserverConnectionDetails
-    | model.CreateJavaMessageServiceConnectionDetails
-    | model.CreateGoogleBigQueryConnectionDetails
     | model.CreateAmazonKinesisConnectionDetails
-    | model.CreateSnowflakeConnectionDetails
     | model.CreateAzureDataLakeStorageConnectionDetails
-    | model.CreateMongoDbConnectionDetails
-    | model.CreateAmazonS3ConnectionDetails
+    | model.CreateGooglePubSubConnectionDetails
     | model.CreateHdfsConnectionDetails
     | model.CreateOciObjectStorageConnectionDetails
+    | model.CreateRedisConnectionDetails
+    | model.CreateMicrosoftFabricConnectionDetails
+    | model.CreateGoogleCloudStorageConnectionDetails
+    | model.CreateKafkaConnectionDetails
+    | model.CreateOracleNosqlConnectionDetails
+    | model.CreateJavaMessageServiceConnectionDetails
+    | model.CreateGoogleBigQueryConnectionDetails
+    | model.CreateSnowflakeConnectionDetails
+    | model.CreateMongoDbConnectionDetails
+    | model.CreateAmazonS3ConnectionDetails
+    | model.CreateDatabricksConnectionDetails
     | model.CreateDb2ConnectionDetails
     | model.CreateElasticsearchConnectionDetails
     | model.CreateAzureSynapseConnectionDetails
-    | model.CreateRedisConnectionDetails
     | model.CreateMysqlConnectionDetails
     | model.CreateGenericConnectionDetails
-    | model.CreateGoogleCloudStorageConnectionDetails
-    | model.CreateKafkaConnectionDetails
     | model.CreateOracleConnectionDetails
     | model.CreateGoldenGateConnectionDetails
-    | model.CreateAmazonRedshiftConnectionDetails
-    | model.CreateOracleNosqlConnectionDetails;
+    | model.CreateAmazonRedshiftConnectionDetails;
   /**
    * A token that uniquely identifies a request so it can be retried, in case of a timeout or server error,
    * without the risk of executing that same action again. Retry tokens expire after 24 hours but can be

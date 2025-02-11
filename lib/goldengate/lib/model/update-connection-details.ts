@@ -131,6 +131,41 @@ export namespace UpdateConnectionDetails {
             <model.UpdateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
             true
           );
+        case "MICROSOFT_FABRIC":
+          return model.UpdateMicrosoftFabricConnectionDetails.getJsonObj(
+            <model.UpdateMicrosoftFabricConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.UpdatePostgresqlConnectionDetails.getJsonObj(
+            <model.UpdatePostgresqlConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "MICROSOFT_SQLSERVER":
+          return model.UpdateMicrosoftSqlserverConnectionDetails.getJsonObj(
+            <model.UpdateMicrosoftSqlserverConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "SNOWFLAKE":
+          return model.UpdateSnowflakeConnectionDetails.getJsonObj(
+            <model.UpdateSnowflakeConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "HDFS":
+          return model.UpdateHdfsConnectionDetails.getJsonObj(
+            <model.UpdateHdfsConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "DATABRICKS":
+          return model.UpdateDatabricksConnectionDetails.getJsonObj(
+            <model.UpdateDatabricksConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "KAFKA":
+          return model.UpdateKafkaConnectionDetails.getJsonObj(
+            <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.UpdateAzureDataLakeStorageConnectionDetails.getJsonObj(
             <model.UpdateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
@@ -151,14 +186,9 @@ export namespace UpdateConnectionDetails {
             <model.UpdateGoldenGateConnectionDetails>(<object>jsonObj),
             true
           );
-        case "POSTGRESQL":
-          return model.UpdatePostgresqlConnectionDetails.getJsonObj(
-            <model.UpdatePostgresqlConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "MICROSOFT_SQLSERVER":
-          return model.UpdateMicrosoftSqlserverConnectionDetails.getJsonObj(
-            <model.UpdateMicrosoftSqlserverConnectionDetails>(<object>jsonObj),
+        case "GOOGLE_PUBSUB":
+          return model.UpdateGooglePubSubConnectionDetails.getJsonObj(
+            <model.UpdateGooglePubSubConnectionDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_NOSQL":
@@ -176,24 +206,9 @@ export namespace UpdateConnectionDetails {
             <model.UpdateAmazonS3ConnectionDetails>(<object>jsonObj),
             true
           );
-        case "SNOWFLAKE":
-          return model.UpdateSnowflakeConnectionDetails.getJsonObj(
-            <model.UpdateSnowflakeConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "HDFS":
-          return model.UpdateHdfsConnectionDetails.getJsonObj(
-            <model.UpdateHdfsConnectionDetails>(<object>jsonObj),
-            true
-          );
         case "MYSQL":
           return model.UpdateMysqlConnectionDetails.getJsonObj(
             <model.UpdateMysqlConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "KAFKA":
-          return model.UpdateKafkaConnectionDetails.getJsonObj(
-            <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
             true
           );
         case "DB2":
@@ -262,6 +277,41 @@ export namespace UpdateConnectionDetails {
             <model.UpdateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
             true
           );
+        case "MICROSOFT_FABRIC":
+          return model.UpdateMicrosoftFabricConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateMicrosoftFabricConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.UpdatePostgresqlConnectionDetails.getDeserializedJsonObj(
+            <model.UpdatePostgresqlConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "MICROSOFT_SQLSERVER":
+          return model.UpdateMicrosoftSqlserverConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateMicrosoftSqlserverConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "SNOWFLAKE":
+          return model.UpdateSnowflakeConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateSnowflakeConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "HDFS":
+          return model.UpdateHdfsConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateHdfsConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "DATABRICKS":
+          return model.UpdateDatabricksConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateDatabricksConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "KAFKA":
+          return model.UpdateKafkaConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.UpdateAzureDataLakeStorageConnectionDetails.getDeserializedJsonObj(
             <model.UpdateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
@@ -282,14 +332,9 @@ export namespace UpdateConnectionDetails {
             <model.UpdateGoldenGateConnectionDetails>(<object>jsonObj),
             true
           );
-        case "POSTGRESQL":
-          return model.UpdatePostgresqlConnectionDetails.getDeserializedJsonObj(
-            <model.UpdatePostgresqlConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "MICROSOFT_SQLSERVER":
-          return model.UpdateMicrosoftSqlserverConnectionDetails.getDeserializedJsonObj(
-            <model.UpdateMicrosoftSqlserverConnectionDetails>(<object>jsonObj),
+        case "GOOGLE_PUBSUB":
+          return model.UpdateGooglePubSubConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateGooglePubSubConnectionDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_NOSQL":
@@ -307,24 +352,9 @@ export namespace UpdateConnectionDetails {
             <model.UpdateAmazonS3ConnectionDetails>(<object>jsonObj),
             true
           );
-        case "SNOWFLAKE":
-          return model.UpdateSnowflakeConnectionDetails.getDeserializedJsonObj(
-            <model.UpdateSnowflakeConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "HDFS":
-          return model.UpdateHdfsConnectionDetails.getDeserializedJsonObj(
-            <model.UpdateHdfsConnectionDetails>(<object>jsonObj),
-            true
-          );
         case "MYSQL":
           return model.UpdateMysqlConnectionDetails.getDeserializedJsonObj(
             <model.UpdateMysqlConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "KAFKA":
-          return model.UpdateKafkaConnectionDetails.getDeserializedJsonObj(
-            <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
             true
           );
         case "DB2":

@@ -46,6 +46,7 @@ export interface UpdateElasticsearchConnectionDetails extends model.UpdateConnec
   /**
    * The password Oracle GoldenGate uses to connect the associated system of the given technology.
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
    *
    */
   "password"?: string;

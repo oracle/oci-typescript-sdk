@@ -68,6 +68,12 @@ export interface ReplicationTargetSummary {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * System tags for this resource.
+   * System tags are applied to resources by internal OCI services.
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * Additional information about the current 'lifecycleState'.
    */
   "lifecycleDetails"?: string;

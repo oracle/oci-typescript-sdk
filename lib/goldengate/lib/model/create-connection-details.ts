@@ -124,6 +124,56 @@ export namespace CreateConnectionDetails {
             <model.CreateMicrosoftSqlserverConnectionDetails>(<object>jsonObj),
             true
           );
+        case "AMAZON_KINESIS":
+          return model.CreateAmazonKinesisConnectionDetails.getJsonObj(
+            <model.CreateAmazonKinesisConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.CreateAzureDataLakeStorageConnectionDetails.getJsonObj(
+            <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_PUBSUB":
+          return model.CreateGooglePubSubConnectionDetails.getJsonObj(
+            <model.CreateGooglePubSubConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "HDFS":
+          return model.CreateHdfsConnectionDetails.getJsonObj(
+            <model.CreateHdfsConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE":
+          return model.CreateOciObjectStorageConnectionDetails.getJsonObj(
+            <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "REDIS":
+          return model.CreateRedisConnectionDetails.getJsonObj(
+            <model.CreateRedisConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "MICROSOFT_FABRIC":
+          return model.CreateMicrosoftFabricConnectionDetails.getJsonObj(
+            <model.CreateMicrosoftFabricConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.CreateGoogleCloudStorageConnectionDetails.getJsonObj(
+            <model.CreateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "KAFKA":
+          return model.CreateKafkaConnectionDetails.getJsonObj(
+            <model.CreateKafkaConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_NOSQL":
+          return model.CreateOracleNosqlConnectionDetails.getJsonObj(
+            <model.CreateOracleNosqlConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "JAVA_MESSAGE_SERVICE":
           return model.CreateJavaMessageServiceConnectionDetails.getJsonObj(
             <model.CreateJavaMessageServiceConnectionDetails>(<object>jsonObj),
@@ -134,19 +184,9 @@ export namespace CreateConnectionDetails {
             <model.CreateGoogleBigQueryConnectionDetails>(<object>jsonObj),
             true
           );
-        case "AMAZON_KINESIS":
-          return model.CreateAmazonKinesisConnectionDetails.getJsonObj(
-            <model.CreateAmazonKinesisConnectionDetails>(<object>jsonObj),
-            true
-          );
         case "SNOWFLAKE":
           return model.CreateSnowflakeConnectionDetails.getJsonObj(
             <model.CreateSnowflakeConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "AZURE_DATA_LAKE_STORAGE":
-          return model.CreateAzureDataLakeStorageConnectionDetails.getJsonObj(
-            <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
             true
           );
         case "MONGODB":
@@ -159,14 +199,9 @@ export namespace CreateConnectionDetails {
             <model.CreateAmazonS3ConnectionDetails>(<object>jsonObj),
             true
           );
-        case "HDFS":
-          return model.CreateHdfsConnectionDetails.getJsonObj(
-            <model.CreateHdfsConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "OCI_OBJECT_STORAGE":
-          return model.CreateOciObjectStorageConnectionDetails.getJsonObj(
-            <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
+        case "DATABRICKS":
+          return model.CreateDatabricksConnectionDetails.getJsonObj(
+            <model.CreateDatabricksConnectionDetails>(<object>jsonObj),
             true
           );
         case "DB2":
@@ -184,11 +219,6 @@ export namespace CreateConnectionDetails {
             <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
             true
           );
-        case "REDIS":
-          return model.CreateRedisConnectionDetails.getJsonObj(
-            <model.CreateRedisConnectionDetails>(<object>jsonObj),
-            true
-          );
         case "MYSQL":
           return model.CreateMysqlConnectionDetails.getJsonObj(
             <model.CreateMysqlConnectionDetails>(<object>jsonObj),
@@ -197,16 +227,6 @@ export namespace CreateConnectionDetails {
         case "GENERIC":
           return model.CreateGenericConnectionDetails.getJsonObj(
             <model.CreateGenericConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "GOOGLE_CLOUD_STORAGE":
-          return model.CreateGoogleCloudStorageConnectionDetails.getJsonObj(
-            <model.CreateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "KAFKA":
-          return model.CreateKafkaConnectionDetails.getJsonObj(
-            <model.CreateKafkaConnectionDetails>(<object>jsonObj),
             true
           );
         case "ORACLE":
@@ -222,11 +242,6 @@ export namespace CreateConnectionDetails {
         case "AMAZON_REDSHIFT":
           return model.CreateAmazonRedshiftConnectionDetails.getJsonObj(
             <model.CreateAmazonRedshiftConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "ORACLE_NOSQL":
-          return model.CreateOracleNosqlConnectionDetails.getJsonObj(
-            <model.CreateOracleNosqlConnectionDetails>(<object>jsonObj),
             true
           );
         default:
@@ -264,6 +279,56 @@ export namespace CreateConnectionDetails {
             <model.CreateMicrosoftSqlserverConnectionDetails>(<object>jsonObj),
             true
           );
+        case "AMAZON_KINESIS":
+          return model.CreateAmazonKinesisConnectionDetails.getDeserializedJsonObj(
+            <model.CreateAmazonKinesisConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.CreateAzureDataLakeStorageConnectionDetails.getDeserializedJsonObj(
+            <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_PUBSUB":
+          return model.CreateGooglePubSubConnectionDetails.getDeserializedJsonObj(
+            <model.CreateGooglePubSubConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "HDFS":
+          return model.CreateHdfsConnectionDetails.getDeserializedJsonObj(
+            <model.CreateHdfsConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE":
+          return model.CreateOciObjectStorageConnectionDetails.getDeserializedJsonObj(
+            <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "REDIS":
+          return model.CreateRedisConnectionDetails.getDeserializedJsonObj(
+            <model.CreateRedisConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "MICROSOFT_FABRIC":
+          return model.CreateMicrosoftFabricConnectionDetails.getDeserializedJsonObj(
+            <model.CreateMicrosoftFabricConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.CreateGoogleCloudStorageConnectionDetails.getDeserializedJsonObj(
+            <model.CreateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "KAFKA":
+          return model.CreateKafkaConnectionDetails.getDeserializedJsonObj(
+            <model.CreateKafkaConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_NOSQL":
+          return model.CreateOracleNosqlConnectionDetails.getDeserializedJsonObj(
+            <model.CreateOracleNosqlConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "JAVA_MESSAGE_SERVICE":
           return model.CreateJavaMessageServiceConnectionDetails.getDeserializedJsonObj(
             <model.CreateJavaMessageServiceConnectionDetails>(<object>jsonObj),
@@ -274,19 +339,9 @@ export namespace CreateConnectionDetails {
             <model.CreateGoogleBigQueryConnectionDetails>(<object>jsonObj),
             true
           );
-        case "AMAZON_KINESIS":
-          return model.CreateAmazonKinesisConnectionDetails.getDeserializedJsonObj(
-            <model.CreateAmazonKinesisConnectionDetails>(<object>jsonObj),
-            true
-          );
         case "SNOWFLAKE":
           return model.CreateSnowflakeConnectionDetails.getDeserializedJsonObj(
             <model.CreateSnowflakeConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "AZURE_DATA_LAKE_STORAGE":
-          return model.CreateAzureDataLakeStorageConnectionDetails.getDeserializedJsonObj(
-            <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
             true
           );
         case "MONGODB":
@@ -299,14 +354,9 @@ export namespace CreateConnectionDetails {
             <model.CreateAmazonS3ConnectionDetails>(<object>jsonObj),
             true
           );
-        case "HDFS":
-          return model.CreateHdfsConnectionDetails.getDeserializedJsonObj(
-            <model.CreateHdfsConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "OCI_OBJECT_STORAGE":
-          return model.CreateOciObjectStorageConnectionDetails.getDeserializedJsonObj(
-            <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
+        case "DATABRICKS":
+          return model.CreateDatabricksConnectionDetails.getDeserializedJsonObj(
+            <model.CreateDatabricksConnectionDetails>(<object>jsonObj),
             true
           );
         case "DB2":
@@ -324,11 +374,6 @@ export namespace CreateConnectionDetails {
             <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
             true
           );
-        case "REDIS":
-          return model.CreateRedisConnectionDetails.getDeserializedJsonObj(
-            <model.CreateRedisConnectionDetails>(<object>jsonObj),
-            true
-          );
         case "MYSQL":
           return model.CreateMysqlConnectionDetails.getDeserializedJsonObj(
             <model.CreateMysqlConnectionDetails>(<object>jsonObj),
@@ -337,16 +382,6 @@ export namespace CreateConnectionDetails {
         case "GENERIC":
           return model.CreateGenericConnectionDetails.getDeserializedJsonObj(
             <model.CreateGenericConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "GOOGLE_CLOUD_STORAGE":
-          return model.CreateGoogleCloudStorageConnectionDetails.getDeserializedJsonObj(
-            <model.CreateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "KAFKA":
-          return model.CreateKafkaConnectionDetails.getDeserializedJsonObj(
-            <model.CreateKafkaConnectionDetails>(<object>jsonObj),
             true
           );
         case "ORACLE":
@@ -362,11 +397,6 @@ export namespace CreateConnectionDetails {
         case "AMAZON_REDSHIFT":
           return model.CreateAmazonRedshiftConnectionDetails.getDeserializedJsonObj(
             <model.CreateAmazonRedshiftConnectionDetails>(<object>jsonObj),
-            true
-          );
-        case "ORACLE_NOSQL":
-          return model.CreateOracleNosqlConnectionDetails.getDeserializedJsonObj(
-            <model.CreateOracleNosqlConnectionDetails>(<object>jsonObj),
             true
           );
         default:

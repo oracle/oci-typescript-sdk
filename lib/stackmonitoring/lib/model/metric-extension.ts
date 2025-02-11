@@ -88,7 +88,7 @@ export interface MetricExtension {
     | model.JmxQueryProperties
     | model.HttpQueryProperties;
   /**
-   * List of resource objects on which this metric extension is enabled.
+   * List of resource details objects having resourceIds on which this metric extension is enabled.
    */
   "enabledOnResources"?: Array<model.EnabledResourceDetails>;
   /**

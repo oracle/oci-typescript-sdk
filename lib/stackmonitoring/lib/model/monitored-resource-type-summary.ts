@@ -62,6 +62,10 @@ export interface MonitoredResourceTypeSummary {
   "resourceCategory"?: model.ResourceCategory;
   "metadata"?: model.SystemFormatResourceTypeMetadataDetails;
   /**
+   * Key/Value pair for additional namespaces used by stack monitoring services for SYSTEM (SMB) resource types.
+   */
+  "additionalNamespaceMap"?: { [key: string]: string };
+  /**
    * The date and time when the monitored resource type was created, expressed in
    * [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
    *

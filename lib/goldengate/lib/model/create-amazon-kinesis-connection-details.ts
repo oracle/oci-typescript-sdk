@@ -31,6 +31,7 @@ export interface CreateAmazonKinesisConnectionDetails extends model.CreateConnec
   "accessKeyId": string;
   /**
    * Secret access key to access the Amazon Kinesis.
+   * Deprecated: This field is deprecated and replaced by \"secretAccessKeySecretId\". This field will be removed after February 15 2026.
    *
    */
   "secretAccessKey"?: string;

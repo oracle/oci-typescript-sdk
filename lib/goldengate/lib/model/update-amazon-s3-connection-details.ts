@@ -29,6 +29,7 @@ export interface UpdateAmazonS3ConnectionDetails extends model.UpdateConnectionD
   /**
    * Secret access key to access the Amazon S3 bucket.
    * e.g.: \"this-is-not-the-secret\"
+   * Deprecated: This field is deprecated and replaced by \"secretAccessKeySecretId\". This field will be removed after February 15 2026.
    *
    */
   "secretAccessKey"?: string;
