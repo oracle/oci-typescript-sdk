@@ -24,6 +24,11 @@ export interface SummarizeResourceInventoryRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
+   * Flag to determine whether the info should be gathered only in the compartment or in the compartment and its subcompartments.
+   *
+   */
+  "compartmentIdInSubtree"?: boolean;
+  /**
    * The start of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timeStart"?: Date;

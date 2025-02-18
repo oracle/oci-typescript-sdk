@@ -31,6 +31,10 @@ export interface ListPerformanceTuningAnalysisResultsRequest extends common.Base
    */
   "applicationId"?: string;
   /**
+   * The name of the application.
+   */
+  "applicationName"?: string;
+  /**
    * The host [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the managed instance.
    */
   "hostName"?: string;

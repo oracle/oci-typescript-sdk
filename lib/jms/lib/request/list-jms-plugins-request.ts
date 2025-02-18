@@ -49,6 +49,10 @@ export interface ListJmsPluginsRequest extends common.BaseRequest {
    */
   "availabilityStatus"?: model.JmsPluginAvailabilityStatus;
   /**
+   * Filter JmsPlugin with agent type.
+   */
+  "agentType"?: model.AgentType;
+  /**
    * If present, only plugins with a registration time before this parameter are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    */
   "timeRegisteredLessThanOrEqualTo"?: Date;

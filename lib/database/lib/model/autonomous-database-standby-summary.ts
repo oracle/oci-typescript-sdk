@@ -41,6 +41,18 @@ export interface AutonomousDatabaseStandbySummary {
    */
   "timeDisasterRecoveryRoleChanged"?: Date;
   /**
+   * The date and time when maintenance will begin.
+   */
+  "timeMaintenanceBegin"?: Date;
+  /**
+   * The date and time when maintenance will end.
+   */
+  "timeMaintenanceEnd"?: Date;
+  /**
+   * The component chosen for maintenance.
+   */
+  "maintenanceTargetComponent"?: string;
+  /**
    * The availability domain of a local Autonomous Data Guard standby database of an Autonomous Database Serverless instance.
    */
   "availabilityDomain"?: string;

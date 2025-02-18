@@ -430,6 +430,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "timeMaintenanceEnd"?: Date;
   /**
+   * The component chosen for maintenance.
+   */
+  "maintenanceTargetComponent"?: string;
+  /**
     * Indicates if the Autonomous Database is a refreshable clone.
 * <p>
 This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, openMode, permissionLevel, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.

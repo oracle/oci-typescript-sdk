@@ -3242,6 +3242,92 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Returns a list of fleet errors that describe all detected errors.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListFleetErrorsRequest
+   * @return ListFleetErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListFleetErrors.ts.html |here} to see how to use ListFleetErrors API.
+   */
+  public async listFleetErrors(
+    listFleetErrorsRequest: requests.ListFleetErrorsRequest
+  ): Promise<responses.ListFleetErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listFleetErrors.");
+    const operationName = "listFleetErrors";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listFleetErrorsRequest.compartmentId,
+      "compartmentIdInSubtree": listFleetErrorsRequest.compartmentIdInSubtree,
+      "fleetId": listFleetErrorsRequest.fleetId,
+      "timeFirstSeenLessThanOrEqualTo": listFleetErrorsRequest.timeFirstSeenLessThanOrEqualTo,
+      "timeFirstSeenGreaterThanOrEqualTo": listFleetErrorsRequest.timeFirstSeenGreaterThanOrEqualTo,
+      "timeLastSeenLessThanOrEqualTo": listFleetErrorsRequest.timeLastSeenLessThanOrEqualTo,
+      "timeLastSeenGreaterThanOrEqualTo": listFleetErrorsRequest.timeLastSeenGreaterThanOrEqualTo,
+      "limit": listFleetErrorsRequest.limit,
+      "page": listFleetErrorsRequest.page,
+      "sortBy": listFleetErrorsRequest.sortBy,
+      "sortOrder": listFleetErrorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listFleetErrorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFleetErrorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleetErrors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListFleetErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "fleetErrorCollection",
+        bodyModel: model.FleetErrorCollection,
+        type: "model.FleetErrorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of all the Fleets contained by a compartment. The query parameter `compartmentId`
    * is required unless the query parameter `id` is specified.
    *
@@ -3700,6 +3786,7 @@ export class JavaManagementServiceClient {
       "agentId": listJmsPluginsRequest.agentId,
       "lifecycleState": listJmsPluginsRequest.lifecycleState,
       "availabilityStatus": listJmsPluginsRequest.availabilityStatus,
+      "agentType": listJmsPluginsRequest.agentType,
       "timeRegisteredLessThanOrEqualTo": listJmsPluginsRequest.timeRegisteredLessThanOrEqualTo,
       "timeLastSeenLessThanOrEqualTo": listJmsPluginsRequest.timeLastSeenLessThanOrEqualTo,
       "limit": listJmsPluginsRequest.limit,
@@ -3873,6 +3960,7 @@ export class JavaManagementServiceClient {
     const queryParams = {
       "managedInstanceId": listPerformanceTuningAnalysisResultsRequest.managedInstanceId,
       "applicationId": listPerformanceTuningAnalysisResultsRequest.applicationId,
+      "applicationName": listPerformanceTuningAnalysisResultsRequest.applicationName,
       "hostName": listPerformanceTuningAnalysisResultsRequest.hostName,
       "timeStart": listPerformanceTuningAnalysisResultsRequest.timeStart,
       "timeEnd": listPerformanceTuningAnalysisResultsRequest.timeEnd,
@@ -3917,6 +4005,93 @@ export class JavaManagementServiceClient {
         bodyKey: "performanceTuningAnalysisResultCollection",
         bodyModel: model.PerformanceTuningAnalysisResultCollection,
         type: "model.PerformanceTuningAnalysisResultCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of plugin errors that describe all detected errors.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPluginErrorsRequest
+   * @return ListPluginErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListPluginErrors.ts.html |here} to see how to use ListPluginErrors API.
+   */
+  public async listPluginErrors(
+    listPluginErrorsRequest: requests.ListPluginErrorsRequest
+  ): Promise<responses.ListPluginErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listPluginErrors.");
+    const operationName = "listPluginErrors";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPluginErrorsRequest.compartmentId,
+      "compartmentIdInSubtree": listPluginErrorsRequest.compartmentIdInSubtree,
+      "managedInstanceId": listPluginErrorsRequest.managedInstanceId,
+      "timeFirstSeenLessThanOrEqualTo": listPluginErrorsRequest.timeFirstSeenLessThanOrEqualTo,
+      "timeFirstSeenGreaterThanOrEqualTo":
+        listPluginErrorsRequest.timeFirstSeenGreaterThanOrEqualTo,
+      "timeLastSeenLessThanOrEqualTo": listPluginErrorsRequest.timeLastSeenLessThanOrEqualTo,
+      "timeLastSeenGreaterThanOrEqualTo": listPluginErrorsRequest.timeLastSeenGreaterThanOrEqualTo,
+      "limit": listPluginErrorsRequest.limit,
+      "page": listPluginErrorsRequest.page,
+      "sortBy": listPluginErrorsRequest.sortBy,
+      "sortOrder": listPluginErrorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPluginErrorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPluginErrorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluginErrors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPluginErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "pluginErrorCollection",
+        bodyModel: model.PluginErrorCollection,
+        type: "model.PluginErrorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5287,6 +5462,85 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Returns a high level summary of FleetErrors.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeFleetErrorsRequest
+   * @return SummarizeFleetErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeFleetErrors.ts.html |here} to see how to use SummarizeFleetErrors API.
+   */
+  public async summarizeFleetErrors(
+    summarizeFleetErrorsRequest: requests.SummarizeFleetErrorsRequest
+  ): Promise<responses.SummarizeFleetErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#summarizeFleetErrors.");
+    const operationName = "summarizeFleetErrors";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeFleetErrorsRequest.compartmentId,
+      "compartmentIdInSubtree": summarizeFleetErrorsRequest.compartmentIdInSubtree,
+      "limit": summarizeFleetErrorsRequest.limit,
+      "page": summarizeFleetErrorsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeFleetErrorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeFleetErrorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleetErrorAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeFleetErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "fleetErrorAggregationCollection",
+        bodyModel: model.FleetErrorAggregationCollection,
+        type: "model.FleetErrorAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List Java installation usage in a Fleet filtered by query parameters.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeInstallationUsageRequest
@@ -5843,6 +6097,85 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Returns a high level summary of PluginErrors.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizePluginErrorsRequest
+   * @return SummarizePluginErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizePluginErrors.ts.html |here} to see how to use SummarizePluginErrors API.
+   */
+  public async summarizePluginErrors(
+    summarizePluginErrorsRequest: requests.SummarizePluginErrorsRequest
+  ): Promise<responses.SummarizePluginErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#summarizePluginErrors.");
+    const operationName = "summarizePluginErrors";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizePluginErrorsRequest.compartmentId,
+      "compartmentIdInSubtree": summarizePluginErrorsRequest.compartmentIdInSubtree,
+      "limit": summarizePluginErrorsRequest.limit,
+      "page": summarizePluginErrorsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizePluginErrorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizePluginErrorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluginErrorAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizePluginErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "pluginErrorAggregationCollection",
+        bodyModel: model.PluginErrorAggregationCollection,
+        type: "model.PluginErrorAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieve the inventory of JMS resources in the specified compartment: a list of the number of _active_ fleets, managed instances, Java Runtimes, Java installations, and applications.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -5864,6 +6197,7 @@ export class JavaManagementServiceClient {
 
     const queryParams = {
       "compartmentId": summarizeResourceInventoryRequest.compartmentId,
+      "compartmentIdInSubtree": summarizeResourceInventoryRequest.compartmentIdInSubtree,
       "timeStart": summarizeResourceInventoryRequest.timeStart,
       "timeEnd": summarizeResourceInventoryRequest.timeEnd
     };
