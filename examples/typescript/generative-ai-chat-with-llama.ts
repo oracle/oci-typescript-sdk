@@ -9,10 +9,7 @@
  */
 
 import { GenerativeAiInferenceClient, models, requests } from "oci-generativeaiinference";
-import {
-  SessionAuthDetailProvider,
-  NoRetryConfigurationDetails
-} from "oci-common";
+import { SessionAuthDetailProvider, NoRetryConfigurationDetails } from "oci-common";
 
 // TODO: Please update config profile name and use the compartmentId that has policies grant permissions for using Generative AI Service
 const CONFIG_LOCATION = "~/.oci/config";
@@ -22,20 +19,19 @@ const COMPARTMENT_ID = ""; // Fill-in with compartment Id with access to generat
 (async () => {
   // Configuring the AuthenticationDetailsProvider. It's assuming there is a default OCI config file "~/.oci/config", and
   // a profile in that config with the name defined in CONFIG_PROFILE variable.
-  const provider = new SessionAuthDetailProvider(CONFIG_LOCATION, CONFIG_PROFILE)
+  const provider = new SessionAuthDetailProvider(CONFIG_LOCATION, CONFIG_PROFILE);
   provider.setRegion("us-chicago-1");
 
   const client = new GenerativeAiInferenceClient({
-      authenticationDetailsProvider: provider,
-    }
-  );
+    authenticationDetailsProvider: provider
+  });
 
   // On Demand Serving Mode
   // Check a list of pretrained Meta Llama Chat Models availability in different regions:
   // https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm#pretrained-models
   const servingMode: models.OnDemandServingMode = {
-      modelId: "meta.llama-3.2-90b-vision-instruct",
-      servingType: "ON_DEMAND",
+    modelId: "meta.llama-3.2-90b-vision-instruct",
+    servingType: "ON_DEMAND"
   };
 
   // Dedicated Serving Mode
@@ -57,7 +53,8 @@ const COMPARTMENT_ID = ""; // Fill-in with compartment Id with access to generat
               {
                 type: "TEXT",
                 // @ts-ignore
-                text: "As a corporate vice president, generate an email congratulating a team that has just shipped a new cloud service. Emphasize the great positive impact the new service will have on the productivity of their customers.",
+                text:
+                  "As a corporate vice president, generate an email congratulating a team that has just shipped a new cloud service. Emphasize the great positive impact the new service will have on the productivity of their customers."
               }
             ]
           }
@@ -69,7 +66,7 @@ const COMPARTMENT_ID = ""; // Fill-in with compartment Id with access to generat
         presencePenalty: 0,
         topP: 0.75,
         topK: -1,
-        seed: 0,
+        seed: 0
       }
     },
     retryConfiguration: NoRetryConfigurationDetails
@@ -80,5 +77,4 @@ const COMPARTMENT_ID = ""; // Fill-in with compartment Id with access to generat
   // Print chat response
   console.log("**************************Chat Response**************************");
   console.log(JSON.stringify(chatResponse));
-
 })();
