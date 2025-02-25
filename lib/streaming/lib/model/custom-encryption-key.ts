@@ -1,6 +1,6 @@
 /**
  * Streaming API
- * Use the Streaming API to produce and consume messages, create streams and stream pools, and manage related items. For more information, see [Streaming](/Content/Streaming/Concepts/streamingoverview.htm).
+ * Use the Streaming API to produce and consume messages, create streams and stream pools, and manage related items. For more information, see [Streaming](https://docs.oracle.com/iaas/Content/Streaming/Concepts/streamingoverview.htm).
  * OpenAPI spec version: 20180418
  *
  *

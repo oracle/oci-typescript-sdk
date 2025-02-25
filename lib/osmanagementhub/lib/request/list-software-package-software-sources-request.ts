@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwarePackageSoftwareSources.ts.html |here} to see how to use ListSoftwarePackageSoftwareSourcesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwarePackageSoftwareSources.ts.html |here} to see how to use ListSoftwarePackageSoftwareSourcesRequest.
  */
 export interface ListSoftwarePackageSoftwareSourcesRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ListSoftwarePackageSoftwareSourcesRequest extends common.BaseRe
    */
   "softwarePackageName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment. This parameter is required and returns only resources contained within the specified compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment. This parameter is required and returns only resources contained within the specified compartment.
    */
   "compartmentId": string;
   /**
@@ -39,15 +39,15 @@ export interface ListSoftwarePackageSoftwareSourcesRequest extends common.BaseRe
    */
   "archType"?: Array<model.ArchType>;
   /**
-   * The availabilities of the software source in a non-OCI environment for a tenancy.
+   * The availability of the software source in a non-OCI environment for a tenancy.
    */
   "availability"?: Array<model.Availability>;
   /**
-   * The availabilities of the software source in an OCI environment for a tenancy.
+   * The availability of the software source in an OCI environment for a tenancy.
    */
   "availabilityAtOci"?: Array<model.Availability>;
   /**
-   * The availabilities of the software source. Use this query parameter to filter across availabilities in different environments.
+   * The availability of the software source. Use this query parameter to filter across availabilities in different environments.
    */
   "availabilityAnywhere"?: Array<model.Availability>;
   /**
@@ -60,7 +60,7 @@ export interface ListSoftwarePackageSoftwareSourcesRequest extends common.BaseRe
   "displayNameContains"?: string;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 50}
 * 
@@ -68,7 +68,7 @@ Example: {@code 50}
   "limit"?: number;
   /**
  * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 3}
 * 

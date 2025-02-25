@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The OCPU and memory configuration to update on an existing OpenSearch cluster for [vertical resizing](https://docs.cloud.oracle.com/iaas/Content/search-opensearch/Tasks/resizingacluster.htm#vertical).
+ * The OCPU and memory configuration to update on an existing OpenSearch cluster for [vertical resizing](https://docs.oracle.com/iaas/Content/search-opensearch/Tasks/resizingacluster.htm#vertical).
  */
 export interface ResizeOpensearchClusterVerticalDetails {
   /**

@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -18,7 +18,7 @@ import common = require("oci-common");
 
 export interface CreateRouteTableDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the route table.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the route table.
    */
   "compartmentId": string;
   /**
@@ -45,7 +45,7 @@ export interface CreateRouteTableDetails {
    */
   "routeRules": Array<model.RouteRule>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the route table belongs to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the route table belongs to.
    */
   "vcnId": string;
 }

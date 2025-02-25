@@ -1,6 +1,6 @@
 /**
  * Vault Key Management API
- * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -246,7 +246,7 @@ export class EkmClient {
    * @param CreateEkmsPrivateEndpointRequest
    * @return CreateEkmsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateEkmsPrivateEndpoint.ts.html |here} to see how to use CreateEkmsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateEkmsPrivateEndpoint.ts.html |here} to see how to use CreateEkmsPrivateEndpoint API.
    */
   public async createEkmsPrivateEndpoint(
     createEkmsPrivateEndpointRequest: requests.CreateEkmsPrivateEndpointRequest
@@ -331,7 +331,7 @@ export class EkmClient {
    * @param DeleteEkmsPrivateEndpointRequest
    * @return DeleteEkmsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/DeleteEkmsPrivateEndpoint.ts.html |here} to see how to use DeleteEkmsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/DeleteEkmsPrivateEndpoint.ts.html |here} to see how to use DeleteEkmsPrivateEndpoint API.
    */
   public async deleteEkmsPrivateEndpoint(
     deleteEkmsPrivateEndpointRequest: requests.DeleteEkmsPrivateEndpointRequest
@@ -404,7 +404,7 @@ export class EkmClient {
    * @param GetEkmsPrivateEndpointRequest
    * @return GetEkmsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetEkmsPrivateEndpoint.ts.html |here} to see how to use GetEkmsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetEkmsPrivateEndpoint.ts.html |here} to see how to use GetEkmsPrivateEndpoint API.
    */
   public async getEkmsPrivateEndpoint(
     getEkmsPrivateEndpointRequest: requests.GetEkmsPrivateEndpointRequest
@@ -481,7 +481,7 @@ export class EkmClient {
    * @param ListEkmsPrivateEndpointsRequest
    * @return ListEkmsPrivateEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListEkmsPrivateEndpoints.ts.html |here} to see how to use ListEkmsPrivateEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListEkmsPrivateEndpoints.ts.html |here} to see how to use ListEkmsPrivateEndpoints API.
    */
   public async listEkmsPrivateEndpoints(
     listEkmsPrivateEndpointsRequest: requests.ListEkmsPrivateEndpointsRequest
@@ -613,7 +613,7 @@ export class EkmClient {
    * @param UpdateEkmsPrivateEndpointRequest
    * @return UpdateEkmsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateEkmsPrivateEndpoint.ts.html |here} to see how to use UpdateEkmsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateEkmsPrivateEndpoint.ts.html |here} to see how to use UpdateEkmsPrivateEndpoint API.
    */
   public async updateEkmsPrivateEndpoint(
     updateEkmsPrivateEndpointRequest: requests.UpdateEkmsPrivateEndpointRequest
@@ -814,13 +814,13 @@ export class KmsCryptoClient {
   }
 
   /**
-   * Decrypts data using the given [DecryptDataDetails](https://docs.cloud.oracle.com/api/#/en/key/latest/datatypes/DecryptDataDetails) resource.
+   * Decrypts data using the given [DecryptDataDetails](https://docs.oracle.com/iaas/api/#/en/key/latest/datatypes/DecryptDataDetails) resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DecryptRequest
    * @return DecryptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Decrypt.ts.html |here} to see how to use Decrypt API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Decrypt.ts.html |here} to see how to use Decrypt API.
    */
   public async decrypt(
     decryptRequest: requests.DecryptRequest
@@ -889,14 +889,14 @@ export class KmsCryptoClient {
   }
 
   /**
-   * Encrypts data using the given [EncryptDataDetails](https://docs.cloud.oracle.com/api/#/en/key/latest/datatypes/EncryptDataDetails) resource.
+   * Encrypts data using the given [EncryptDataDetails](https://docs.oracle.com/iaas/api/#/en/key/latest/datatypes/EncryptDataDetails) resource.
    * Plaintext included in the example request is a base64-encoded value of a UTF-8 string.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EncryptRequest
    * @return EncryptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Encrypt.ts.html |here} to see how to use Encrypt API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Encrypt.ts.html |here} to see how to use Encrypt API.
    */
   public async encrypt(
     encryptRequest: requests.EncryptRequest
@@ -974,7 +974,7 @@ export class KmsCryptoClient {
    * @param ExportKeyRequest
    * @return ExportKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ExportKey.ts.html |here} to see how to use ExportKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ExportKey.ts.html |here} to see how to use ExportKey API.
    */
   public async exportKey(
     exportKeyRequest: requests.ExportKeyRequest
@@ -1048,7 +1048,7 @@ export class KmsCryptoClient {
    * @param GenerateDataEncryptionKeyRequest
    * @return GenerateDataEncryptionKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GenerateDataEncryptionKey.ts.html |here} to see how to use GenerateDataEncryptionKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GenerateDataEncryptionKey.ts.html |here} to see how to use GenerateDataEncryptionKey API.
    */
   public async generateDataEncryptionKey(
     generateDataEncryptionKeyRequest: requests.GenerateDataEncryptionKeyRequest
@@ -1119,7 +1119,7 @@ export class KmsCryptoClient {
 
   /**
    * Creates a digital signature for a message or message digest by using the private key of a public-private key pair,
-   * also known as an asymmetric key. To verify the generated signature, you can use the [Verify](https://docs.cloud.oracle.com/api/#/en/key/latest/VerifiedData/Verify)
+   * also known as an asymmetric key. To verify the generated signature, you can use the [Verify](https://docs.oracle.com/iaas/api/#/en/key/latest/VerifiedData/Verify)
    * operation. Or, if you want to validate the signature outside of the service, you can do so by using the public key of the same asymmetric key.
    * This operation is not supported for keys having protection mode `EXTERNAL`.
    *
@@ -1127,7 +1127,7 @@ export class KmsCryptoClient {
    * @param SignRequest
    * @return SignResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Sign.ts.html |here} to see how to use Sign API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Sign.ts.html |here} to see how to use Sign API.
    */
   public async sign(signRequest: requests.SignRequest): Promise<responses.SignResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#sign.");
@@ -1193,7 +1193,7 @@ export class KmsCryptoClient {
   }
 
   /**
-   * Verifies a digital signature that was generated by the [Sign](https://docs.cloud.oracle.com/api/#/en/key/latest/SignedData/Sign) operation
+   * Verifies a digital signature that was generated by the [Sign](https://docs.oracle.com/iaas/api/#/en/key/latest/SignedData/Sign) operation
    * by using the public key of the same asymmetric key that was used to sign the data. If you want to validate the
    * digital signature outside of the service, you can do so by using the public key of the asymmetric key.
    * This operation is not supported for keys having protection mode `EXTERNAL`.
@@ -1202,7 +1202,7 @@ export class KmsCryptoClient {
    * @param VerifyRequest
    * @return VerifyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Verify.ts.html |here} to see how to use Verify API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Verify.ts.html |here} to see how to use Verify API.
    */
   public async verify(verifyRequest: requests.VerifyRequest): Promise<responses.VerifyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#verify.");
@@ -1481,7 +1481,7 @@ export class KmsHsmClusterClient {
    * @param CancelHsmClusterDeletionRequest
    * @return CancelHsmClusterDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelHsmClusterDeletion.ts.html |here} to see how to use CancelHsmClusterDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelHsmClusterDeletion.ts.html |here} to see how to use CancelHsmClusterDeletion API.
    */
   public async cancelHsmClusterDeletion(
     cancelHsmClusterDeletionRequest: requests.CancelHsmClusterDeletionRequest
@@ -1561,7 +1561,7 @@ export class KmsHsmClusterClient {
    * @param ChangeHsmClusterCompartmentRequest
    * @return ChangeHsmClusterCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ChangeHsmClusterCompartment.ts.html |here} to see how to use ChangeHsmClusterCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ChangeHsmClusterCompartment.ts.html |here} to see how to use ChangeHsmClusterCompartment API.
    */
   public async changeHsmClusterCompartment(
     changeHsmClusterCompartmentRequest: requests.ChangeHsmClusterCompartmentRequest
@@ -1642,7 +1642,7 @@ export class KmsHsmClusterClient {
    * @param CreateHsmClusterRequest
    * @return CreateHsmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateHsmCluster.ts.html |here} to see how to use CreateHsmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateHsmCluster.ts.html |here} to see how to use CreateHsmCluster API.
    */
   public async createHsmCluster(
     createHsmClusterRequest: requests.CreateHsmClusterRequest
@@ -1723,7 +1723,7 @@ export class KmsHsmClusterClient {
    * @param DownloadCertificateSigningRequestRequest
    * @return DownloadCertificateSigningRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/DownloadCertificateSigningRequest.ts.html |here} to see how to use DownloadCertificateSigningRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/DownloadCertificateSigningRequest.ts.html |here} to see how to use DownloadCertificateSigningRequest API.
    */
   public async downloadCertificateSigningRequest(
     downloadCertificateSigningRequestRequest: requests.DownloadCertificateSigningRequestRequest
@@ -1808,7 +1808,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param GetHsmClusterRequest
      * @return GetHsmClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetHsmCluster.ts.html |here} to see how to use GetHsmCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetHsmCluster.ts.html |here} to see how to use GetHsmCluster API.
      */
   public async getHsmCluster(
     getHsmClusterRequest: requests.GetHsmClusterRequest
@@ -1885,7 +1885,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    * @param GetHsmPartitionRequest
    * @return GetHsmPartitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetHsmPartition.ts.html |here} to see how to use GetHsmPartition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetHsmPartition.ts.html |here} to see how to use GetHsmPartition API.
    */
   public async getHsmPartition(
     getHsmPartitionRequest: requests.GetHsmPartitionRequest
@@ -1964,7 +1964,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    * @param GetPreCoUserCredentialsRequest
    * @return GetPreCoUserCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetPreCoUserCredentials.ts.html |here} to see how to use GetPreCoUserCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetPreCoUserCredentials.ts.html |here} to see how to use GetPreCoUserCredentials API.
    */
   public async getPreCoUserCredentials(
     getPreCoUserCredentialsRequest: requests.GetPreCoUserCredentialsRequest
@@ -2048,7 +2048,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param ListHsmClustersRequest
      * @return ListHsmClustersResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListHsmClusters.ts.html |here} to see how to use ListHsmClusters API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListHsmClusters.ts.html |here} to see how to use ListHsmClusters API.
      */
   public async listHsmClusters(
     listHsmClustersRequest: requests.ListHsmClustersRequest
@@ -2129,7 +2129,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    * @param ListHsmPartitionsRequest
    * @return ListHsmPartitionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListHsmPartitions.ts.html |here} to see how to use ListHsmPartitions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListHsmPartitions.ts.html |here} to see how to use ListHsmPartitions API.
    */
   public async listHsmPartitions(
     listHsmPartitionsRequest: requests.ListHsmPartitionsRequest
@@ -2213,7 +2213,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    * @param ScheduleHsmClusterDeletionRequest
    * @return ScheduleHsmClusterDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ScheduleHsmClusterDeletion.ts.html |here} to see how to use ScheduleHsmClusterDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ScheduleHsmClusterDeletion.ts.html |here} to see how to use ScheduleHsmClusterDeletion API.
    */
   public async scheduleHsmClusterDeletion(
     scheduleHsmClusterDeletionRequest: requests.ScheduleHsmClusterDeletionRequest
@@ -2303,7 +2303,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param UpdateHsmClusterRequest
      * @return UpdateHsmClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateHsmCluster.ts.html |here} to see how to use UpdateHsmCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateHsmCluster.ts.html |here} to see how to use UpdateHsmCluster API.
      */
   public async updateHsmCluster(
     updateHsmClusterRequest: requests.UpdateHsmClusterRequest
@@ -2386,7 +2386,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    * @param UploadPartitionCertificatesRequest
    * @return UploadPartitionCertificatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UploadPartitionCertificates.ts.html |here} to see how to use UploadPartitionCertificates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UploadPartitionCertificates.ts.html |here} to see how to use UploadPartitionCertificates API.
    */
   public async uploadPartitionCertificates(
     uploadPartitionCertificatesRequest: requests.UploadPartitionCertificatesRequest
@@ -2616,7 +2616,7 @@ export class KmsManagementClient {
    * @param BackupKeyRequest
    * @return BackupKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/BackupKey.ts.html |here} to see how to use BackupKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/BackupKey.ts.html |here} to see how to use BackupKey API.
    */
   public async backupKey(
     backupKeyRequest: requests.BackupKeyRequest
@@ -2711,7 +2711,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param CancelKeyDeletionRequest
      * @return CancelKeyDeletionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelKeyDeletion.ts.html |here} to see how to use CancelKeyDeletion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelKeyDeletion.ts.html |here} to see how to use CancelKeyDeletion API.
      */
   public async cancelKeyDeletion(
     cancelKeyDeletionRequest: requests.CancelKeyDeletionRequest
@@ -2797,7 +2797,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param CancelKeyVersionDeletionRequest
      * @return CancelKeyVersionDeletionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelKeyVersionDeletion.ts.html |here} to see how to use CancelKeyVersionDeletion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelKeyVersionDeletion.ts.html |here} to see how to use CancelKeyVersionDeletion API.
      */
   public async cancelKeyVersionDeletion(
     cancelKeyVersionDeletionRequest: requests.CancelKeyVersionDeletionRequest
@@ -2873,7 +2873,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 
   /**
      * Moves a key into a different compartment within the same tenancy. For information about
-* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When provided, if-match is checked against the ETag values of the key.
 * <p>
@@ -2886,7 +2886,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param ChangeKeyCompartmentRequest
      * @return ChangeKeyCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ChangeKeyCompartment.ts.html |here} to see how to use ChangeKeyCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ChangeKeyCompartment.ts.html |here} to see how to use ChangeKeyCompartment API.
      */
   public async changeKeyCompartment(
     changeKeyCompartmentRequest: requests.ChangeKeyCompartmentRequest
@@ -2972,7 +2972,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @param CreateKeyRequest
      * @return CreateKeyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateKey.ts.html |here} to see how to use CreateKey API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateKey.ts.html |here} to see how to use CreateKey API.
      */
   public async createKey(
     createKeyRequest: requests.CreateKeyRequest
@@ -3046,7 +3046,7 @@ As a management operation, this call is subject to a Key Management limit that a
   }
 
   /**
-     * Generates a new [KeyVersion](https://docs.cloud.oracle.com/api/#/en/key/latest/KeyVersion/) resource that provides new cryptographic
+     * Generates a new [KeyVersion](https://docs.oracle.com/iaas/api/#/en/key/latest/KeyVersion/) resource that provides new cryptographic
 * material for a master encryption key. The key must be in an `ENABLED` state to be rotated.
 * <p>
 As a management operation, this call is subject to a Key Management limit that applies to the total number
@@ -3058,7 +3058,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @param CreateKeyVersionRequest
      * @return CreateKeyVersionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateKeyVersion.ts.html |here} to see how to use CreateKeyVersion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateKeyVersion.ts.html |here} to see how to use CreateKeyVersion API.
      */
   public async createKeyVersion(
     createKeyVersionRequest: requests.CreateKeyVersionRequest
@@ -3147,7 +3147,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @param DisableKeyRequest
      * @return DisableKeyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/DisableKey.ts.html |here} to see how to use DisableKey API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/DisableKey.ts.html |here} to see how to use DisableKey API.
      */
   public async disableKey(
     disableKeyRequest: requests.DisableKeyRequest
@@ -3231,7 +3231,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @param EnableKeyRequest
      * @return EnableKeyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/EnableKey.ts.html |here} to see how to use EnableKey API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/EnableKey.ts.html |here} to see how to use EnableKey API.
      */
   public async enableKey(
     enableKeyRequest: requests.EnableKeyRequest
@@ -3314,7 +3314,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @param GetKeyRequest
      * @return GetKeyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetKey.ts.html |here} to see how to use GetKey API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetKey.ts.html |here} to see how to use GetKey API.
      */
   public async getKey(getKeyRequest: requests.GetKeyRequest): Promise<responses.GetKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#getKey.");
@@ -3393,7 +3393,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @param GetKeyVersionRequest
      * @return GetKeyVersionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetKeyVersion.ts.html |here} to see how to use GetKeyVersion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetKeyVersion.ts.html |here} to see how to use GetKeyVersion API.
      */
   public async getKeyVersion(
     getKeyVersionRequest: requests.GetKeyVersionRequest
@@ -3474,7 +3474,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * @param GetReplicationStatusRequest
    * @return GetReplicationStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetReplicationStatus.ts.html |here} to see how to use GetReplicationStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetReplicationStatus.ts.html |here} to see how to use GetReplicationStatus API.
    */
   public async getReplicationStatus(
     getReplicationStatusRequest: requests.GetReplicationStatusRequest
@@ -3553,7 +3553,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * @param GetWrappingKeyRequest
    * @return GetWrappingKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetWrappingKey.ts.html |here} to see how to use GetWrappingKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetWrappingKey.ts.html |here} to see how to use GetWrappingKey API.
    */
   public async getWrappingKey(
     getWrappingKeyRequest: requests.GetWrappingKeyRequest
@@ -3633,7 +3633,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * @param ImportKeyRequest
    * @return ImportKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ImportKey.ts.html |here} to see how to use ImportKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ImportKey.ts.html |here} to see how to use ImportKey API.
    */
   public async importKey(
     importKeyRequest: requests.ImportKeyRequest
@@ -3718,7 +3718,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * @param ImportKeyVersionRequest
    * @return ImportKeyVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ImportKeyVersion.ts.html |here} to see how to use ImportKeyVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ImportKeyVersion.ts.html |here} to see how to use ImportKeyVersion API.
    */
   public async importKeyVersion(
     importKeyVersionRequest: requests.ImportKeyVersionRequest
@@ -3795,7 +3795,7 @@ As a management operation, this call is subject to a Key Management limit that a
   }
 
   /**
-     * Lists all [KeyVersion](https://docs.cloud.oracle.com/api/#/en/key/latest/KeyVersion/) resources for the specified
+     * Lists all [KeyVersion](https://docs.oracle.com/iaas/api/#/en/key/latest/KeyVersion/) resources for the specified
 * master encryption key.
 * <p>
 As a management operation, this call is subject to a Key Management limit that applies to the total number
@@ -3807,7 +3807,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @param ListKeyVersionsRequest
      * @return ListKeyVersionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListKeyVersions.ts.html |here} to see how to use ListKeyVersions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListKeyVersions.ts.html |here} to see how to use ListKeyVersions API.
      */
   public async listKeyVersions(
     listKeyVersionsRequest: requests.ListKeyVersionsRequest
@@ -3946,7 +3946,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @param ListKeysRequest
      * @return ListKeysResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListKeys.ts.html |here} to see how to use ListKeys API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListKeys.ts.html |here} to see how to use ListKeys API.
      */
   public async listKeys(
     listKeysRequest: requests.ListKeysRequest
@@ -4083,7 +4083,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * @param RestoreKeyFromFileRequest
    * @return RestoreKeyFromFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/RestoreKeyFromFile.ts.html |here} to see how to use RestoreKeyFromFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/RestoreKeyFromFile.ts.html |here} to see how to use RestoreKeyFromFile API.
    */
   public async restoreKeyFromFile(
     restoreKeyFromFileRequest: requests.RestoreKeyFromFileRequest
@@ -4175,7 +4175,7 @@ As a management operation, this call is subject to a Key Management limit that a
    * @param RestoreKeyFromObjectStoreRequest
    * @return RestoreKeyFromObjectStoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/RestoreKeyFromObjectStore.ts.html |here} to see how to use RestoreKeyFromObjectStore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/RestoreKeyFromObjectStore.ts.html |here} to see how to use RestoreKeyFromObjectStore API.
    */
   public async restoreKeyFromObjectStore(
     restoreKeyFromObjectStoreRequest: requests.RestoreKeyFromObjectStoreRequest
@@ -4269,7 +4269,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param ScheduleKeyDeletionRequest
      * @return ScheduleKeyDeletionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ScheduleKeyDeletion.ts.html |here} to see how to use ScheduleKeyDeletion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ScheduleKeyDeletion.ts.html |here} to see how to use ScheduleKeyDeletion API.
      */
   public async scheduleKeyDeletion(
     scheduleKeyDeletionRequest: requests.ScheduleKeyDeletionRequest
@@ -4360,7 +4360,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param ScheduleKeyVersionDeletionRequest
      * @return ScheduleKeyVersionDeletionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ScheduleKeyVersionDeletion.ts.html |here} to see how to use ScheduleKeyVersionDeletion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ScheduleKeyVersionDeletion.ts.html |here} to see how to use ScheduleKeyVersionDeletion API.
      */
   public async scheduleKeyVersionDeletion(
     scheduleKeyVersionDeletionRequest: requests.ScheduleKeyVersionDeletionRequest
@@ -4453,7 +4453,7 @@ As a management operation, this call is subject to a Key Management limit that a
      * @param UpdateKeyRequest
      * @return UpdateKeyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateKey.ts.html |here} to see how to use UpdateKey API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateKey.ts.html |here} to see how to use UpdateKey API.
      */
   public async updateKey(
     updateKeyRequest: requests.UpdateKeyRequest
@@ -4744,7 +4744,7 @@ export class KmsVaultClient {
    * @param BackupVaultRequest
    * @return BackupVaultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/BackupVault.ts.html |here} to see how to use BackupVault API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/BackupVault.ts.html |here} to see how to use BackupVault API.
    */
   public async backupVault(
     backupVaultRequest: requests.BackupVaultRequest
@@ -4840,7 +4840,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param CancelVaultDeletionRequest
      * @return CancelVaultDeletionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelVaultDeletion.ts.html |here} to see how to use CancelVaultDeletion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelVaultDeletion.ts.html |here} to see how to use CancelVaultDeletion API.
      */
   public async cancelVaultDeletion(
     cancelVaultDeletionRequest: requests.CancelVaultDeletionRequest
@@ -4914,7 +4914,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
 
   /**
      * Moves a vault into a different compartment within the same tenancy. For information about
-* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When provided, if-match is checked against the ETag values of the resource.
 * <p>
@@ -4927,7 +4927,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param ChangeVaultCompartmentRequest
      * @return ChangeVaultCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ChangeVaultCompartment.ts.html |here} to see how to use ChangeVaultCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ChangeVaultCompartment.ts.html |here} to see how to use ChangeVaultCompartment API.
      */
   public async changeVaultCompartment(
     changeVaultCompartmentRequest: requests.ChangeVaultCompartmentRequest
@@ -5015,7 +5015,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param CreateVaultRequest
      * @return CreateVaultResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateVault.ts.html |here} to see how to use CreateVault API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateVault.ts.html |here} to see how to use CreateVault API.
      */
   public async createVault(
     createVaultRequest: requests.CreateVaultRequest
@@ -5104,7 +5104,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param CreateVaultReplicaRequest
      * @return CreateVaultReplicaResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateVaultReplica.ts.html |here} to see how to use CreateVaultReplica API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CreateVaultReplica.ts.html |here} to see how to use CreateVaultReplica API.
      */
   public async createVaultReplica(
     createVaultReplicaRequest: requests.CreateVaultReplicaRequest
@@ -5189,7 +5189,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param DeleteVaultReplicaRequest
      * @return DeleteVaultReplicaResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/DeleteVaultReplica.ts.html |here} to see how to use DeleteVaultReplica API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/DeleteVaultReplica.ts.html |here} to see how to use DeleteVaultReplica API.
      */
   public async deleteVaultReplica(
     deleteVaultReplicaRequest: requests.DeleteVaultReplicaRequest
@@ -5274,7 +5274,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param GetVaultRequest
      * @return GetVaultResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetVault.ts.html |here} to see how to use GetVault API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetVault.ts.html |here} to see how to use GetVault API.
      */
   public async getVault(
     getVaultRequest: requests.GetVaultRequest
@@ -5350,7 +5350,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    * @param GetVaultUsageRequest
    * @return GetVaultUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetVaultUsage.ts.html |here} to see how to use GetVaultUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/GetVaultUsage.ts.html |here} to see how to use GetVaultUsage API.
    */
   public async getVaultUsage(
     getVaultUsageRequest: requests.GetVaultUsageRequest
@@ -5427,7 +5427,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param ListVaultReplicasRequest
      * @return ListVaultReplicasResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListVaultReplicas.ts.html |here} to see how to use ListVaultReplicas API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListVaultReplicas.ts.html |here} to see how to use ListVaultReplicas API.
      */
   public async listVaultReplicas(
     listVaultReplicasRequest: requests.ListVaultReplicasRequest
@@ -5573,7 +5573,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param ListVaultsRequest
      * @return ListVaultsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListVaults.ts.html |here} to see how to use ListVaults API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ListVaults.ts.html |here} to see how to use ListVaults API.
      */
   public async listVaults(
     listVaultsRequest: requests.ListVaultsRequest
@@ -5708,7 +5708,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    * @param RestoreVaultFromFileRequest
    * @return RestoreVaultFromFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/RestoreVaultFromFile.ts.html |here} to see how to use RestoreVaultFromFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/RestoreVaultFromFile.ts.html |here} to see how to use RestoreVaultFromFile API.
    */
   public async restoreVaultFromFile(
     restoreVaultFromFileRequest: requests.RestoreVaultFromFileRequest
@@ -5802,7 +5802,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
    * @param RestoreVaultFromObjectStoreRequest
    * @return RestoreVaultFromObjectStoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/RestoreVaultFromObjectStore.ts.html |here} to see how to use RestoreVaultFromObjectStore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/RestoreVaultFromObjectStore.ts.html |here} to see how to use RestoreVaultFromObjectStore API.
    */
   public async restoreVaultFromObjectStore(
     restoreVaultFromObjectStoreRequest: requests.RestoreVaultFromObjectStoreRequest
@@ -5901,7 +5901,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param ScheduleVaultDeletionRequest
      * @return ScheduleVaultDeletionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ScheduleVaultDeletion.ts.html |here} to see how to use ScheduleVaultDeletion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/ScheduleVaultDeletion.ts.html |here} to see how to use ScheduleVaultDeletion API.
      */
   public async scheduleVaultDeletion(
     scheduleVaultDeletionRequest: requests.ScheduleVaultDeletionRequest
@@ -5992,7 +5992,7 @@ As a provisioning operation, this call is subject to a Key Management limit that
      * @param UpdateVaultRequest
      * @return UpdateVaultResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateVault.ts.html |here} to see how to use UpdateVault API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateVault.ts.html |here} to see how to use UpdateVault API.
      */
   public async updateVault(
     updateVaultRequest: requests.UpdateVaultRequest

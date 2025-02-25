@@ -222,7 +222,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param GetAnnouncementRequest
      * @return GetAnnouncementResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncement.ts.html |here} to see how to use GetAnnouncement API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncement.ts.html |here} to see how to use GetAnnouncement API.
      */
   public async getAnnouncement(
     getAnnouncementRequest: requests.GetAnnouncementRequest
@@ -299,7 +299,7 @@ This call is subject to an Announcements limit that applies to the total number 
    * @param GetAnnouncementCompartmentRequest
    * @return GetAnnouncementCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementCompartment.ts.html |here} to see how to use GetAnnouncementCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementCompartment.ts.html |here} to see how to use GetAnnouncementCompartment API.
    */
   public async getAnnouncementCompartment(
     getAnnouncementCompartmentRequest: requests.GetAnnouncementCompartmentRequest
@@ -379,7 +379,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param GetAnnouncementUserStatusRequest
      * @return GetAnnouncementUserStatusResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementUserStatus.ts.html |here} to see how to use GetAnnouncementUserStatus API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementUserStatus.ts.html |here} to see how to use GetAnnouncementUserStatus API.
      */
   public async getAnnouncementUserStatus(
     getAnnouncementUserStatusRequest: requests.GetAnnouncementUserStatusRequest
@@ -459,7 +459,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param ListAnnouncementsRequest
      * @return ListAnnouncementsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncements.ts.html |here} to see how to use ListAnnouncements API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncements.ts.html |here} to see how to use ListAnnouncements API.
      */
   public async listAnnouncements(
     listAnnouncementsRequest: requests.ListAnnouncementsRequest
@@ -558,7 +558,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param UpdateAnnouncementUserStatusRequest
      * @return UpdateAnnouncementUserStatusResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementUserStatus.ts.html |here} to see how to use UpdateAnnouncementUserStatus API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementUserStatus.ts.html |here} to see how to use UpdateAnnouncementUserStatus API.
      */
   public async updateAnnouncementUserStatus(
     updateAnnouncementUserStatusRequest: requests.UpdateAnnouncementUserStatusRequest
@@ -853,7 +853,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param ChangeAnnouncementSubscriptionCompartmentRequest
      * @return ChangeAnnouncementSubscriptionCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ChangeAnnouncementSubscriptionCompartment.ts.html |here} to see how to use ChangeAnnouncementSubscriptionCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ChangeAnnouncementSubscriptionCompartment.ts.html |here} to see how to use ChangeAnnouncementSubscriptionCompartment API.
      */
   public async changeAnnouncementSubscriptionCompartment(
     changeAnnouncementSubscriptionCompartmentRequest: requests.ChangeAnnouncementSubscriptionCompartmentRequest
@@ -938,7 +938,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param CreateAnnouncementSubscriptionRequest
      * @return CreateAnnouncementSubscriptionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateAnnouncementSubscription.ts.html |here} to see how to use CreateAnnouncementSubscription API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateAnnouncementSubscription.ts.html |here} to see how to use CreateAnnouncementSubscription API.
      */
   public async createAnnouncementSubscription(
     createAnnouncementSubscriptionRequest: requests.CreateAnnouncementSubscriptionRequest
@@ -1024,7 +1024,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param CreateFilterGroupRequest
      * @return CreateFilterGroupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateFilterGroup.ts.html |here} to see how to use CreateFilterGroup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateFilterGroup.ts.html |here} to see how to use CreateFilterGroup API.
      */
   public async createFilterGroup(
     createFilterGroupRequest: requests.CreateFilterGroupRequest
@@ -1111,7 +1111,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param DeleteAnnouncementSubscriptionRequest
      * @return DeleteAnnouncementSubscriptionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/DeleteAnnouncementSubscription.ts.html |here} to see how to use DeleteAnnouncementSubscription API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/DeleteAnnouncementSubscription.ts.html |here} to see how to use DeleteAnnouncementSubscription API.
      */
   public async deleteAnnouncementSubscription(
     deleteAnnouncementSubscriptionRequest: requests.DeleteAnnouncementSubscriptionRequest
@@ -1186,7 +1186,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param DeleteFilterGroupRequest
      * @return DeleteFilterGroupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/DeleteFilterGroup.ts.html |here} to see how to use DeleteFilterGroup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/DeleteFilterGroup.ts.html |here} to see how to use DeleteFilterGroup API.
      */
   public async deleteFilterGroup(
     deleteFilterGroupRequest: requests.DeleteFilterGroupRequest
@@ -1265,7 +1265,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param GetAnnouncementSubscriptionRequest
      * @return GetAnnouncementSubscriptionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementSubscription.ts.html |here} to see how to use GetAnnouncementSubscription API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementSubscription.ts.html |here} to see how to use GetAnnouncementSubscription API.
      */
   public async getAnnouncementSubscription(
     getAnnouncementSubscriptionRequest: requests.GetAnnouncementSubscriptionRequest
@@ -1347,7 +1347,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param ListAnnouncementSubscriptionsRequest
      * @return ListAnnouncementSubscriptionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncementSubscriptions.ts.html |here} to see how to use ListAnnouncementSubscriptions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncementSubscriptions.ts.html |here} to see how to use ListAnnouncementSubscriptions API.
      */
   public async listAnnouncementSubscriptions(
     listAnnouncementSubscriptionsRequest: requests.ListAnnouncementSubscriptionsRequest
@@ -1436,7 +1436,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param UpdateAnnouncementSubscriptionRequest
      * @return UpdateAnnouncementSubscriptionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementSubscription.ts.html |here} to see how to use UpdateAnnouncementSubscription API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementSubscription.ts.html |here} to see how to use UpdateAnnouncementSubscription API.
      */
   public async updateAnnouncementSubscription(
     updateAnnouncementSubscriptionRequest: requests.UpdateAnnouncementSubscriptionRequest
@@ -1525,7 +1525,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param UpdateFilterGroupRequest
      * @return UpdateFilterGroupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateFilterGroup.ts.html |here} to see how to use UpdateFilterGroup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateFilterGroup.ts.html |here} to see how to use UpdateFilterGroup API.
      */
   public async updateFilterGroup(
     updateFilterGroupRequest: requests.UpdateFilterGroupRequest
@@ -1798,7 +1798,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param CreateAnnouncementsPreferenceRequest
      * @return CreateAnnouncementsPreferenceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateAnnouncementsPreference.ts.html |here} to see how to use CreateAnnouncementsPreference API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/CreateAnnouncementsPreference.ts.html |here} to see how to use CreateAnnouncementsPreference API.
      */
   public async createAnnouncementsPreference(
     createAnnouncementsPreferenceRequest: requests.CreateAnnouncementsPreferenceRequest
@@ -1884,7 +1884,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param GetAnnouncementsPreferenceRequest
      * @return GetAnnouncementsPreferenceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementsPreference.ts.html |here} to see how to use GetAnnouncementsPreference API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/GetAnnouncementsPreference.ts.html |here} to see how to use GetAnnouncementsPreference API.
      */
   public async getAnnouncementsPreference(
     getAnnouncementsPreferenceRequest: requests.GetAnnouncementsPreferenceRequest
@@ -1966,7 +1966,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param ListAnnouncementsPreferencesRequest
      * @return ListAnnouncementsPreferencesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncementsPreferences.ts.html |here} to see how to use ListAnnouncementsPreferences API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListAnnouncementsPreferences.ts.html |here} to see how to use ListAnnouncementsPreferences API.
      */
   public async listAnnouncementsPreferences(
     listAnnouncementsPreferencesRequest: requests.ListAnnouncementsPreferencesRequest
@@ -2102,7 +2102,7 @@ This call is subject to an Announcements limit that applies to the total number 
      * @param UpdateAnnouncementsPreferenceRequest
      * @return UpdateAnnouncementsPreferenceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementsPreference.ts.html |here} to see how to use UpdateAnnouncementsPreference API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/UpdateAnnouncementsPreference.ts.html |here} to see how to use UpdateAnnouncementsPreference API.
      */
   public async updateAnnouncementsPreference(
     updateAnnouncementsPreferenceRequest: requests.UpdateAnnouncementsPreferenceRequest
@@ -2372,7 +2372,7 @@ export class ServiceClient {
    * @param ListServicesRequest
    * @return ListServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListServices.ts.html |here} to see how to use ListServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/announcementsservice/ListServices.ts.html |here} to see how to use ListServices API.
    */
   public async listServices(
     listServicesRequest: requests.ListServicesRequest

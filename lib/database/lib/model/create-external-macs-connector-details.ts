@@ -1,6 +1,6 @@
 /**
  * Database Service API
- * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](/iaas/Content/Database/Concepts/databaseoverview.htm).
+ * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: sic_dbaas_cp_us_grp@oracle.com
@@ -17,7 +17,7 @@ import common = require("oci-common");
 
 /**
  * Details for creating a resource used to connect to an external Oracle Database using
- * the [Management Agent cloud service (MACS)](https://docs.cloud.oracle.com/iaas/management-agents/index.html).
+ * the [Management Agent cloud service (MACS)](https://docs.oracle.com/iaas/management-agents/index.html).
  *
  */
 export interface CreateExternalMacsConnectorDetails

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/ListSecretBundleVersions.ts.html |here} to see how to use ListSecretBundleVersionsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/ListSecretBundleVersions.ts.html |here} to see how to use ListSecretBundleVersionsRequest.
  */
 export interface ListSecretBundleVersionsRequest extends common.BaseRequest {
   /**
@@ -28,13 +28,13 @@ export interface ListSecretBundleVersionsRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * The maximum number of items to return in a paginated \"List\" call. For information about pagination, see
-   * [List Pagination](https://docs.cloud.oracle.com/#API/Concepts/usingapi.htm#List_Pagination).
+   * [List Pagination](https://docs.oracle.com/iaas/#API/Concepts/usingapi.htm#List_Pagination).
    *
    */
   "limit"?: number;
   /**
    * The value of the {@code opc-next-page} response header from the previous \"List\" call. For information about
-   * pagination, see [List Pagination](https://docs.cloud.oracle.com/#API/Concepts/usingapi.htm#List_Pagination).
+   * pagination, see [List Pagination](https://docs.oracle.com/iaas/#API/Concepts/usingapi.htm#List_Pagination).
    *
    */
   "page"?: string;

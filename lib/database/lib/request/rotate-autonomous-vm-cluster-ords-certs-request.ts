@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousVmClusterOrdsCerts.ts.html |here} to see how to use RotateAutonomousVmClusterOrdsCertsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousVmClusterOrdsCerts.ts.html |here} to see how to use RotateAutonomousVmClusterOrdsCertsRequest.
  */
 export interface RotateAutonomousVmClusterOrdsCertsRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface RotateAutonomousVmClusterOrdsCertsRequest extends common.BaseRe
    */
   "rotateAutonomousVmClusterOrdsCertsDetails": model.RotateAutonomousVmClusterOrdsCertsDetails;
   /**
-   * The autonomous VM cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The autonomous VM cluster [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousVmClusterId": string;
   /**

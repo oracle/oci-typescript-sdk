@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -27,11 +27,11 @@ import common = require("oci-common");
  */
 export interface ByoipRangeVcnIpv6AllocationSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code ByoipRange} resource to which the CIDR block belongs.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code ByoipRange} resource to which the CIDR block belongs.
    */
   "byoipRangeId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the {@code ByoipRange}.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the {@code ByoipRange}.
    *
    */
   "compartmentId"?: string;
@@ -42,7 +42,7 @@ export interface ByoipRangeVcnIpv6AllocationSummary {
    */
   "ipv6CidrBlock"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code Vcn} resource to which the ByoipRange belongs.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code Vcn} resource to which the ByoipRange belongs.
    *
    */
   "vcnId"?: string;

@@ -2,7 +2,7 @@
  * Database Management API
  * Use the Database Management API to monitor and manage resources such as
 Oracle Databases, MySQL Databases, and External Database Systems. 
-For more information, see [Database Management](/iaas/database-management/home.htm).
+For more information, see [Database Management](https://docs.oracle.com/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface NamedPreferredCredential extends model.PreferredCredential {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Named Credential that contains the database user password metadata.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Named Credential that contains the database user password metadata.
    */
   "namedCredentialId"?: string;
 

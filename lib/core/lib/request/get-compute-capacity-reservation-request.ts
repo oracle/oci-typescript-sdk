@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCapacityReservation.ts.html |here} to see how to use GetComputeCapacityReservationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCapacityReservation.ts.html |here} to see how to use GetComputeCapacityReservationRequest.
  */
 export interface GetComputeCapacityReservationRequest extends common.BaseRequest {
   /**

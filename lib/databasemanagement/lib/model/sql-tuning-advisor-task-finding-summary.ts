@@ -2,7 +2,7 @@
  * Database Management API
  * Use the Database Management API to monitor and manage resources such as
 Oracle Databases, MySQL Databases, and External Database Systems. 
-For more information, see [Database Management](/iaas/database-management/home.htm).
+For more information, see [Database Management](https://docs.oracle.com/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -24,17 +24,17 @@ import common = require("oci-common");
  */
 export interface SqlTuningAdvisorTaskFindingSummary {
   /**
-   * The unique identifier of the SQL Tuning Advisor task. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The unique identifier of the SQL Tuning Advisor task. This is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sqlTuningAdvisorTaskId": number;
   /**
    * The key of the object to which these recommendations apply.
-   * This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * This is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sqlTuningAdvisorTaskObjectId": number;
   /**
-   * The execution id of the analyzed SQL object. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The execution id of the analyzed SQL object. This is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sqlTuningAdvisorTaskObjectExecutionId": number;
   /**

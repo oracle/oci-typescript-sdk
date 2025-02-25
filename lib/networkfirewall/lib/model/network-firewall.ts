@@ -15,16 +15,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A network firewall is a security resource that exists in a subnet of your choice and controls incoming and outgoing network traffic based on a set of security rules. Each firewall is associated with a policy. Traffic is routed to and from the firewall from resources such as internet gateways and dynamic routing gateways (DRGs). For more information, see [Overview of Network Firewall](https://docs.cloud.oracle.com/iaas/Content/network-firewall/overview.htm)
+ * A network firewall is a security resource that exists in a subnet of your choice and controls incoming and outgoing network traffic based on a set of security rules. Each firewall is associated with a policy. Traffic is routed to and from the firewall from resources such as internet gateways and dynamic routing gateways (DRGs). For more information, see [Overview of Network Firewall](https://docs.oracle.com/iaas/Content/network-firewall/overview.htm)
  *
  */
 export interface NetworkFirewall {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Network Firewall resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Network Firewall resource.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the Network Firewall.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the Network Firewall.
    */
   "compartmentId": string;
   /**
@@ -32,7 +32,7 @@ export interface NetworkFirewall {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet associated with the Network Firewall.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet associated with the Network Firewall.
    */
   "subnetId": string;
   /**
@@ -44,7 +44,7 @@ export interface NetworkFirewall {
    */
   "ipv6Address"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Network Firewall Policy.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Network Firewall Policy.
    */
   "networkFirewallPolicyId": string;
   /**
@@ -55,7 +55,7 @@ export interface NetworkFirewall {
    */
   "availabilityDomain"?: string;
   /**
-   * An array of network security groups [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) associated with the Network Firewall.
+   * An array of network security groups [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) associated with the Network Firewall.
    */
   "networkSecurityGroupIds"?: Array<string>;
   /**
@@ -80,14 +80,14 @@ export interface NetworkFirewall {
   "lifecycleDetails"?: string;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags": { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreatePathRouteSet.ts.html |here} to see how to use CreatePathRouteSetRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreatePathRouteSet.ts.html |here} to see how to use CreatePathRouteSetRequest.
  */
 export interface CreatePathRouteSetRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface CreatePathRouteSetRequest extends common.BaseRequest {
    */
   "createPathRouteSetDetails": model.CreatePathRouteSetDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the load balancer to add the path route set to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the load balancer to add the path route set to.
    */
   "loadBalancerId": string;
   /**

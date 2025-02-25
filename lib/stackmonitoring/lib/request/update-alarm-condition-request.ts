@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateAlarmCondition.ts.html |here} to see how to use UpdateAlarmConditionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateAlarmCondition.ts.html |here} to see how to use UpdateAlarmConditionRequest.
  */
 export interface UpdateAlarmConditionRequest extends common.BaseRequest {
   /**
@@ -23,11 +23,11 @@ export interface UpdateAlarmConditionRequest extends common.BaseRequest {
    */
   "updateAlarmConditionDetails": model.UpdateAlarmConditionDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the alarm condition.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the alarm condition.
    */
   "alarmConditionId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the monitoring template.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the monitoring template.
    */
   "monitoringTemplateId": string;
   /**

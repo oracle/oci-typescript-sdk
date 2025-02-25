@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListProductLicenseConsumers.ts.html |here} to see how to use ListProductLicenseConsumersRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListProductLicenseConsumers.ts.html |here} to see how to use ListProductLicenseConsumersRequest.
  */
 export interface ListProductLicenseConsumersRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ListProductLicenseConsumersRequest extends common.BaseRequest {
    */
   "productLicenseId": string;
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) used for the license record, product license, and configuration.
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) used for the license record, product license, and configuration.
    *
    */
   "compartmentId": string;

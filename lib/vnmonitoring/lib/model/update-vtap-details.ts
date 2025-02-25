@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -39,12 +39,12 @@ export interface UpdateVtapDetails {
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source point where packets are captured.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source point where packets are captured.
    *
    */
   "sourceId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the destination resource where mirrored packets are sent.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the destination resource where mirrored packets are sent.
    *
    */
   "targetId"?: string;
@@ -54,7 +54,7 @@ export interface UpdateVtapDetails {
    */
   "targetIp"?: string;
   /**
-   * The capture filter's Oracle ID ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
+   * The capture filter's Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
    *
    */
   "captureFilterId"?: string;
@@ -90,7 +90,7 @@ export interface UpdateVtapDetails {
    */
   "sourcePrivateEndpointIp"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet that source private endpoint belongs to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet that source private endpoint belongs to.
    *
    */
   "sourcePrivateEndpointSubnetId"?: string;

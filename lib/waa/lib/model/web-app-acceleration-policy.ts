@@ -26,7 +26,7 @@ import common = require("oci-common");
  */
 export interface WebAppAccelerationPolicy {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the WebAppAccelerationPolicy.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the WebAppAccelerationPolicy.
    */
   "id": string;
   /**
@@ -34,7 +34,7 @@ export interface WebAppAccelerationPolicy {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**

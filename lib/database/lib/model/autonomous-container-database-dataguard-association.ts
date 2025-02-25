@@ -1,6 +1,6 @@
 /**
  * Database Service API
- * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](/iaas/Content/Database/Concepts/databaseoverview.htm).
+ * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: sic_dbaas_cp_us_grp@oracle.com
@@ -25,7 +25,7 @@ export interface AutonomousContainerDatabaseDataguardAssociation {
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Autonomous Container Database that has a relationship with the peer Autonomous Container Database. Used only by Autonomous Database on Dedicated Exadata Infrastructure.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Container Database that has a relationship with the peer Autonomous Container Database. Used only by Autonomous Database on Dedicated Exadata Infrastructure.
    *
    */
   "autonomousContainerDatabaseId": string;
@@ -48,7 +48,7 @@ export interface AutonomousContainerDatabaseDataguardAssociation {
    */
   "peerAutonomousContainerDatabaseDataguardAssociationId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the peer Autonomous Container Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peer Autonomous Container Database.
    *
    */
   "peerAutonomousContainerDatabaseId"?: string;

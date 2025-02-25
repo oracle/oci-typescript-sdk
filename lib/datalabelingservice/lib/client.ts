@@ -245,7 +245,7 @@ export class DataLabelingManagementClient {
    * @param AddDatasetLabelsRequest
    * @return AddDatasetLabelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/AddDatasetLabels.ts.html |here} to see how to use AddDatasetLabels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/AddDatasetLabels.ts.html |here} to see how to use AddDatasetLabels API.
    */
   public async addDatasetLabels(
     addDatasetLabelsRequest: requests.AddDatasetLabelsRequest
@@ -325,7 +325,7 @@ export class DataLabelingManagementClient {
    * @param ChangeDatasetCompartmentRequest
    * @return ChangeDatasetCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ChangeDatasetCompartment.ts.html |here} to see how to use ChangeDatasetCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ChangeDatasetCompartment.ts.html |here} to see how to use ChangeDatasetCompartment API.
    */
   public async changeDatasetCompartment(
     changeDatasetCompartmentRequest: requests.ChangeDatasetCompartmentRequest
@@ -405,7 +405,7 @@ export class DataLabelingManagementClient {
    * @param CreateDatasetRequest
    * @return CreateDatasetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/CreateDataset.ts.html |here} to see how to use CreateDataset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/CreateDataset.ts.html |here} to see how to use CreateDataset API.
    */
   public async createDataset(
     createDatasetRequest: requests.CreateDatasetRequest
@@ -501,7 +501,7 @@ export class DataLabelingManagementClient {
    * @param DeleteDatasetRequest
    * @return DeleteDatasetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/DeleteDataset.ts.html |here} to see how to use DeleteDataset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/DeleteDataset.ts.html |here} to see how to use DeleteDataset API.
    */
   public async deleteDataset(
     deleteDatasetRequest: requests.DeleteDatasetRequest
@@ -575,7 +575,7 @@ export class DataLabelingManagementClient {
    * @param GenerateDatasetRecordsRequest
    * @return GenerateDatasetRecordsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/GenerateDatasetRecords.ts.html |here} to see how to use GenerateDatasetRecords API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/GenerateDatasetRecords.ts.html |here} to see how to use GenerateDatasetRecords API.
    */
   public async generateDatasetRecords(
     generateDatasetRecordsRequest: requests.GenerateDatasetRecordsRequest
@@ -655,7 +655,7 @@ export class DataLabelingManagementClient {
    * @param GetDatasetRequest
    * @return GetDatasetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/GetDataset.ts.html |here} to see how to use GetDataset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/GetDataset.ts.html |here} to see how to use GetDataset API.
    */
   public async getDataset(
     getDatasetRequest: requests.GetDatasetRequest
@@ -732,7 +732,7 @@ export class DataLabelingManagementClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -809,7 +809,7 @@ export class DataLabelingManagementClient {
    * @param ImportPreAnnotatedDataRequest
    * @return ImportPreAnnotatedDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ImportPreAnnotatedData.ts.html |here} to see how to use ImportPreAnnotatedData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ImportPreAnnotatedData.ts.html |here} to see how to use ImportPreAnnotatedData API.
    */
   public async importPreAnnotatedData(
     importPreAnnotatedDataRequest: requests.ImportPreAnnotatedDataRequest
@@ -889,7 +889,7 @@ export class DataLabelingManagementClient {
    * @param ListAnnotationFormatsRequest
    * @return ListAnnotationFormatsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ListAnnotationFormats.ts.html |here} to see how to use ListAnnotationFormats API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ListAnnotationFormats.ts.html |here} to see how to use ListAnnotationFormats API.
    */
   public async listAnnotationFormats(
     listAnnotationFormatsRequest: requests.ListAnnotationFormatsRequest
@@ -970,7 +970,7 @@ export class DataLabelingManagementClient {
    * @param ListDatasetsRequest
    * @return ListDatasetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ListDatasets.ts.html |here} to see how to use ListDatasets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ListDatasets.ts.html |here} to see how to use ListDatasets API.
    */
   public async listDatasets(
     listDatasetsRequest: requests.ListDatasetsRequest
@@ -1056,7 +1056,7 @@ export class DataLabelingManagementClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1137,7 +1137,7 @@ export class DataLabelingManagementClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1218,7 +1218,7 @@ export class DataLabelingManagementClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1299,7 +1299,7 @@ export class DataLabelingManagementClient {
    * @param RemoveDatasetLabelsRequest
    * @return RemoveDatasetLabelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/RemoveDatasetLabels.ts.html |here} to see how to use RemoveDatasetLabels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/RemoveDatasetLabels.ts.html |here} to see how to use RemoveDatasetLabels API.
    */
   public async removeDatasetLabels(
     removeDatasetLabelsRequest: requests.RemoveDatasetLabelsRequest
@@ -1380,7 +1380,7 @@ export class DataLabelingManagementClient {
    * @param RenameDatasetLabelsRequest
    * @return RenameDatasetLabelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/RenameDatasetLabels.ts.html |here} to see how to use RenameDatasetLabels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/RenameDatasetLabels.ts.html |here} to see how to use RenameDatasetLabels API.
    */
   public async renameDatasetLabels(
     renameDatasetLabelsRequest: requests.RenameDatasetLabelsRequest
@@ -1462,7 +1462,7 @@ export class DataLabelingManagementClient {
    * @param SnapshotDatasetRequest
    * @return SnapshotDatasetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/SnapshotDataset.ts.html |here} to see how to use SnapshotDataset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/SnapshotDataset.ts.html |here} to see how to use SnapshotDataset API.
    */
   public async snapshotDataset(
     snapshotDatasetRequest: requests.SnapshotDatasetRequest
@@ -1542,7 +1542,7 @@ export class DataLabelingManagementClient {
    * @param UpdateDatasetRequest
    * @return UpdateDatasetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/UpdateDataset.ts.html |here} to see how to use UpdateDataset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/UpdateDataset.ts.html |here} to see how to use UpdateDataset API.
    */
   public async updateDataset(
     updateDatasetRequest: requests.UpdateDatasetRequest

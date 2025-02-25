@@ -25,7 +25,7 @@ export interface UpdateWebAppFirewallDetails {
    */
   "displayName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of WebAppFirewallPolicy, which is attached to the resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of WebAppFirewallPolicy, which is attached to the resource.
    * This update guarantees that the resource always has WebAppFirewallPolicy attached at any time.
    *
    */

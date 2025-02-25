@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -23,7 +23,7 @@ A virtual circuit is an isolated network path that runs over one or more physica
 * network connections to provide a single, logical connection between the edge router
 * on the customer's existing network and Oracle Cloud Infrastructure. *Private*
 * virtual circuits support private peering, and *public* virtual circuits support
-* public peering. For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+* public peering. For more information, see [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * <p>
 Each virtual circuit is made up of information shared between a customer, Oracle,
 * and a provider (if the customer is using FastConnect via a provider). Who fills in
@@ -35,7 +35,7 @@ Each virtual circuit is made up of information shared between a customer, Oracle
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface VirtualCircuit {
@@ -63,7 +63,7 @@ Example: {@code 10 Gbps}
    */
   "bgpIpv6SessionState"?: VirtualCircuit.BgpIpv6SessionState;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the virtual circuit.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the virtual circuit.
    */
   "compartmentId"?: string;
   /**
@@ -76,7 +76,7 @@ Example: {@code 10 Gbps}
   /**
    * The routing policy sets how routing information about the Oracle cloud is shared over a public virtual circuit.
    * Policies available are: {@code ORACLE_SERVICE_NETWORK}, {@code REGIONAL}, {@code MARKET_LEVEL}, and {@code GLOBAL}.
-   * See [Route Filtering](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/routingonprem.htm#route_filtering) for details.
+   * See [Route Filtering](https://docs.oracle.com/iaas/Content/Network/Concepts/routingonprem.htm#route_filtering) for details.
    * By default, routing information is shared for all routes in the same market.
    *
    */
@@ -131,19 +131,19 @@ Example: {@code 10 Gbps}
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customer's {@link Drg}
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customer's {@link Drg}
    * that this virtual circuit uses. Applicable only to private virtual circuits.
    *
    */
   "gatewayId"?: string;
   /**
-   * The virtual circuit's Oracle ID ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
+   * The virtual circuit's Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
    */
   "id"?: string;
   /**
    * The virtual circuit's current state. For information about
    * the different states, see
-   * [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+   * [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
    *
    */
   "lifecycleState"?: VirtualCircuit.LifecycleState;
@@ -157,7 +157,7 @@ Example: {@code 10 Gbps}
    */
   "providerName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the service offered by the provider (if the customer is connecting via a provider).
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the service offered by the provider (if the customer is connecting via a provider).
    *
    */
   "providerServiceId"?: string;
@@ -213,7 +213,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   "timeCreated"?: Date;
   /**
    * Whether the virtual circuit supports private or public peering. For more information,
-   * see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+   * see [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
    *
    */
   "type"?: VirtualCircuit.Type;

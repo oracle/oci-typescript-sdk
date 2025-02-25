@@ -218,7 +218,7 @@ export class DataplaneClient {
    * @param GenerateScopedAccessTokenRequest
    * @return GenerateScopedAccessTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydataplane/GenerateScopedAccessToken.ts.html |here} to see how to use GenerateScopedAccessToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydataplane/GenerateScopedAccessToken.ts.html |here} to see how to use GenerateScopedAccessToken API.
    */
   public async generateScopedAccessToken(
     generateScopedAccessTokenRequest: requests.GenerateScopedAccessTokenRequest
@@ -295,7 +295,7 @@ export class DataplaneClient {
    * @param GenerateUserSecurityTokenRequest
    * @return GenerateUserSecurityTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydataplane/GenerateUserSecurityToken.ts.html |here} to see how to use GenerateUserSecurityToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydataplane/GenerateUserSecurityToken.ts.html |here} to see how to use GenerateUserSecurityToken API.
    */
   public async generateUserSecurityToken(
     generateUserSecurityTokenRequest: requests.GenerateUserSecurityTokenRequest

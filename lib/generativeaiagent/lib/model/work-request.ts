@@ -6,9 +6,9 @@ OCI Generative AI Agents supports several ways to onboard your data and then all
 
 Use the Generative AI Agents API to create and manage agents, knowledge bases, data sources, endpoints, data ingestion jobs, and work requests.
 
-For creating and managing client chat sessions see the [Generative AI Agents Client API](#/EN/generative-ai-agents-client/latest/).
+For creating and managing client chat sessions see the {@link #eNGenerative-ai-agents-clientLatest(ENGenerative-ai-agents-clientLatestRequest) eNGenerative-ai-agents-clientLatest}.
 
-To learn more about the service, see the [Generative AI Agents documentation](/iaas/Content/generative-ai-agents/home.htm).
+To learn more about the service, see the [Generative AI Agents documentation](https://docs.oracle.com/iaas/Content/generative-ai-agents/home.htm).
 
  * OpenAPI spec version: 20240531
  * 
@@ -39,11 +39,11 @@ export interface WorkRequest {
    */
   "status": model.OperationStatus;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the work request.
    *
    */
   "compartmentId": string;

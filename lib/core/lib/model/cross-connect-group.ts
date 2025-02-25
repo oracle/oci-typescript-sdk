@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -26,7 +26,7 @@ import common = require("oci-common");
 * is a link aggregation group (LAG), which can contain one or more
 * {@link CrossConnect}. Customers who are colocated with
 * Oracle in a FastConnect location create and use cross-connect groups. For more
-* information, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+* information, see [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * <p>
 **Note:** If you're a provider who is setting up a physical connection to Oracle so customers
 * can use FastConnect over the connection, be aware that your connection is modeled the
@@ -34,17 +34,17 @@ import common = require("oci-common");
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface CrossConnectGroup {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the cross-connect group.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the cross-connect group.
    */
   "compartmentId"?: string;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
@@ -58,7 +58,7 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
   "displayName"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 

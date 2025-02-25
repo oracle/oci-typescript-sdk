@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabaseConfigurationData.ts.html |here} to see how to use ListManagedMySqlDatabaseConfigurationDataRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabaseConfigurationData.ts.html |here} to see how to use ListManagedMySqlDatabaseConfigurationDataRequest.
  */
 export interface ListManagedMySqlDatabaseConfigurationDataRequest extends common.BaseRequest {
   /**

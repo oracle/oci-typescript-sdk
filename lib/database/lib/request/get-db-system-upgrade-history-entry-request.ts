@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemUpgradeHistoryEntry.ts.html |here} to see how to use GetDbSystemUpgradeHistoryEntryRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemUpgradeHistoryEntry.ts.html |here} to see how to use GetDbSystemUpgradeHistoryEntryRequest.
  */
 export interface GetDbSystemUpgradeHistoryEntryRequest extends common.BaseRequest {
   /**
-   * The DB system [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The DB system [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "dbSystemId": string;
   /**
-   * The database/db system upgrade History [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The database/db system upgrade History [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "upgradeHistoryEntryId": string;
   /**

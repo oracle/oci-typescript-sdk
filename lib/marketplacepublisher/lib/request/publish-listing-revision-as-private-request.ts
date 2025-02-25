@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/PublishListingRevisionAsPrivate.ts.html |here} to see how to use PublishListingRevisionAsPrivateRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/PublishListingRevisionAsPrivate.ts.html |here} to see how to use PublishListingRevisionAsPrivateRequest.
  */
 export interface PublishListingRevisionAsPrivateRequest extends common.BaseRequest {
   /**

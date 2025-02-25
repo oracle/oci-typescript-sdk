@@ -25,7 +25,7 @@ export interface WorkRequestError {
   /**
    * A machine-usable code for the error that occured. Error
    * codes are listed on
-   * (https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm)
+   * (https://docs.oracle.com/iaas/Content/API/References/apierrors.htm)
    *
    */
   "code": string;

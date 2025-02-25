@@ -1,6 +1,6 @@
 /**
  * OCI Cache API
- * Use the OCI Cache API to create and manage clusters. A cluster is a memory-based storage solution. For more information, see [OCI Cache](/iaas/Content/ocicache/home.htm).
+ * Use the OCI Cache API to create and manage clusters. A cluster is a memory-based storage solution. For more information, see [OCI Cache](https://docs.oracle.com/iaas/Content/ocicache/home.htm).
  * OpenAPI spec version: 20220315
  *
  *
@@ -35,9 +35,13 @@ export interface UpdateRedisClusterDetails {
    */
   "nodeMemoryInGBs"?: number;
   /**
-   * A list of Network Security Group (NSG) [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
+   * The OCI Cache engine version that the cluster is running.
+   */
+  "softwareVersion"?: string;
+  /**
+   * A list of Network Security Group (NSG) [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    * associated with this cluster. For more information,
-   * see [Using an NSG for Clusters](https://docs.cloud.oracle.com/iaas/Content/ocicache/connecttocluster.htm#connecttocluster__networksecuritygroup).
+   * see [Using an NSG for Clusters](https://docs.oracle.com/iaas/Content/ocicache/connecttocluster.htm#connecttocluster__networksecuritygroup).
    *
    */
   "nsgIds"?: Array<string>;

@@ -1,7 +1,7 @@
 /**
  * Audit API
  * API for the Audit Service. Use this API for compliance monitoring in your tenancy.
-For more information, see [Overview of Audit](/iaas/Content/Audit/Concepts/auditoverview.htm).
+For more information, see [Overview of Audit](https://docs.oracle.com/iaas/Content/Audit/Concepts/auditoverview.htm).
 
 **Tip**: This API is good for queries, but not bulk-export operations.
 
@@ -222,7 +222,7 @@ export class AuditClient {
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/audit/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/audit/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
    */
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
@@ -288,7 +288,7 @@ export class AuditClient {
    * @param ListEventsRequest
    * @return ListEventsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/audit/ListEvents.ts.html |here} to see how to use ListEvents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/audit/ListEvents.ts.html |here} to see how to use ListEvents API.
    */
   public async listEvents(
     listEventsRequest: requests.ListEventsRequest
@@ -419,7 +419,7 @@ export class AuditClient {
    * @param UpdateConfigurationRequest
    * @return UpdateConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/audit/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/audit/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
    */
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest

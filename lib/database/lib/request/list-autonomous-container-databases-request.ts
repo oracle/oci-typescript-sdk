@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabases.ts.html |here} to see how to use ListAutonomousContainerDatabasesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabases.ts.html |here} to see how to use ListAutonomousContainerDatabasesRequest.
  */
 export interface ListAutonomousContainerDatabasesRequest extends common.BaseRequest {
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId": string;
   /**
-   * The Autonomous Exadata Infrastructure [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Autonomous Exadata Infrastructure [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousExadataInfrastructureId"?: string;
   /**
-   * The Autonomous VM Cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Autonomous VM Cluster [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousVmClusterId"?: string;
   /**
@@ -70,7 +70,7 @@ export interface ListAutonomousContainerDatabasesRequest extends common.BaseRequ
    */
   "serviceLevelAgreementType"?: string;
   /**
-   * The cloud Autonomous VM Cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The cloud Autonomous VM Cluster [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "cloudAutonomousVmClusterId"?: string;
 }

@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudAutonomousVmClusterAcdResourceUsage.ts.html |here} to see how to use ListCloudAutonomousVmClusterAcdResourceUsageRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudAutonomousVmClusterAcdResourceUsage.ts.html |here} to see how to use ListCloudAutonomousVmClusterAcdResourceUsageRequest.
  */
 export interface ListCloudAutonomousVmClusterAcdResourceUsageRequest extends common.BaseRequest {
   /**
-   * The Cloud VM cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Cloud VM cluster [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "cloudAutonomousVmClusterId": string;
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId"?: string;
   /**

@@ -1,6 +1,6 @@
 /**
  * Bastion API
- * Use the Bastion API to provide restricted and time-limited access to target resources that don't have public endpoints. Bastions let authorized users connect from specific IP addresses to target resources using Secure Shell (SSH) sessions. For more information, see [the Bastion documentation](/iaas/Content/Bastion/home.htm).
+ * Use the Bastion API to provide restricted and time-limited access to target resources that don't have public endpoints. Bastions let authorized users connect from specific IP addresses to target resources using Secure Shell (SSH) sessions. For more information, see [the Bastion documentation](https://docs.oracle.com/iaas/Content/Bastion/home.htm).
  * OpenAPI spec version: 20210331
  *
  *
@@ -243,7 +243,7 @@ export class BastionClient {
    * @param ChangeBastionCompartmentRequest
    * @return ChangeBastionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ChangeBastionCompartment.ts.html |here} to see how to use ChangeBastionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ChangeBastionCompartment.ts.html |here} to see how to use ChangeBastionCompartment API.
    */
   public async changeBastionCompartment(
     changeBastionCompartmentRequest: requests.ChangeBastionCompartmentRequest
@@ -317,7 +317,7 @@ export class BastionClient {
    * @param CreateBastionRequest
    * @return CreateBastionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/CreateBastion.ts.html |here} to see how to use CreateBastion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/CreateBastion.ts.html |here} to see how to use CreateBastion API.
    */
   public async createBastion(
     createBastionRequest: requests.CreateBastionRequest
@@ -408,7 +408,7 @@ export class BastionClient {
    * @param CreateSessionRequest
    * @return CreateSessionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/CreateSession.ts.html |here} to see how to use CreateSession API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/CreateSession.ts.html |here} to see how to use CreateSession API.
    */
   public async createSession(
     createSessionRequest: requests.CreateSessionRequest
@@ -498,7 +498,7 @@ export class BastionClient {
    * @param DeleteBastionRequest
    * @return DeleteBastionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/DeleteBastion.ts.html |here} to see how to use DeleteBastion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/DeleteBastion.ts.html |here} to see how to use DeleteBastion API.
    */
   public async deleteBastion(
     deleteBastionRequest: requests.DeleteBastionRequest
@@ -571,7 +571,7 @@ export class BastionClient {
    * @param DeleteSessionRequest
    * @return DeleteSessionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/DeleteSession.ts.html |here} to see how to use DeleteSession API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/DeleteSession.ts.html |here} to see how to use DeleteSession API.
    */
   public async deleteSession(
     deleteSessionRequest: requests.DeleteSessionRequest
@@ -644,7 +644,7 @@ export class BastionClient {
    * @param GetBastionRequest
    * @return GetBastionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/GetBastion.ts.html |here} to see how to use GetBastion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/GetBastion.ts.html |here} to see how to use GetBastion API.
    */
   public async getBastion(
     getBastionRequest: requests.GetBastionRequest
@@ -720,7 +720,7 @@ export class BastionClient {
    * @param GetSessionRequest
    * @return GetSessionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/GetSession.ts.html |here} to see how to use GetSession API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/GetSession.ts.html |here} to see how to use GetSession API.
    */
   public async getSession(
     getSessionRequest: requests.GetSessionRequest
@@ -796,7 +796,7 @@ export class BastionClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -873,7 +873,7 @@ export class BastionClient {
    * @param ListBastionsRequest
    * @return ListBastionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ListBastions.ts.html |here} to see how to use ListBastions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ListBastions.ts.html |here} to see how to use ListBastions API.
    */
   public async listBastions(
     listBastionsRequest: requests.ListBastionsRequest
@@ -1009,7 +1009,7 @@ export class BastionClient {
    * @param ListSessionsRequest
    * @return ListSessionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ListSessions.ts.html |here} to see how to use ListSessions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ListSessions.ts.html |here} to see how to use ListSessions API.
    */
   public async listSessions(
     listSessionsRequest: requests.ListSessionsRequest
@@ -1145,7 +1145,7 @@ export class BastionClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1277,7 +1277,7 @@ export class BastionClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1409,7 +1409,7 @@ export class BastionClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1539,7 +1539,7 @@ export class BastionClient {
    * @param UpdateBastionRequest
    * @return UpdateBastionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/UpdateBastion.ts.html |here} to see how to use UpdateBastion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/UpdateBastion.ts.html |here} to see how to use UpdateBastion API.
    */
   public async updateBastion(
     updateBastionRequest: requests.UpdateBastionRequest
@@ -1617,7 +1617,7 @@ export class BastionClient {
    * @param UpdateSessionRequest
    * @return UpdateSessionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/UpdateSession.ts.html |here} to see how to use UpdateSession API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bastion/UpdateSession.ts.html |here} to see how to use UpdateSession API.
    */
   public async updateSession(
     updateSessionRequest: requests.UpdateSessionRequest

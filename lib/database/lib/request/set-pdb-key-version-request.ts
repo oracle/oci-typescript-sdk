@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SetPdbKeyVersion.ts.html |here} to see how to use SetPdbKeyVersionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SetPdbKeyVersion.ts.html |here} to see how to use SetPdbKeyVersionRequest.
  */
 export interface SetPdbKeyVersionRequest extends common.BaseRequest {
   /**
-   * The database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "pluggableDatabaseId": string;
   /**

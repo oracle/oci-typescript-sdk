@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/genericartifactscontent/GetGenericArtifactContentByPath.ts.html |here} to see how to use GetGenericArtifactContentByPathRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/genericartifactscontent/GetGenericArtifactContentByPath.ts.html |here} to see how to use GetGenericArtifactContentByPathRequest.
  */
 export interface GetGenericArtifactContentByPathRequest extends common.BaseRequest {
   /**
- * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the repository.
+ * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the repository.
 * <p>
 Example: {@code ocid1.repository.oc1..exampleuniqueID}
 * 
@@ -40,7 +40,7 @@ Example: {@code 1.1.2} or {@code 1.2-beta-2}
  */
   "version": string;
   /**
- * Unique Oracle-assigned [request ID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm)
+ * Unique Oracle-assigned [request ID](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm)
 * <p>
 Example: {@code bxxxxxxx-fxxx-4xxx-9xxx-bxxxxxxxxxxx}
 * If you contact Oracle about a request, provide this request ID.

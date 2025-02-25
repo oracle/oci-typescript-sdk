@@ -242,7 +242,7 @@ export class DatabaseRecoveryClient {
    * @param CancelProtectedDatabaseDeletionRequest
    * @return CancelProtectedDatabaseDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CancelProtectedDatabaseDeletion.ts.html |here} to see how to use CancelProtectedDatabaseDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CancelProtectedDatabaseDeletion.ts.html |here} to see how to use CancelProtectedDatabaseDeletion API.
    */
   public async cancelProtectedDatabaseDeletion(
     cancelProtectedDatabaseDeletionRequest: requests.CancelProtectedDatabaseDeletionRequest
@@ -312,7 +312,7 @@ export class DatabaseRecoveryClient {
    * @param ChangeProtectedDatabaseCompartmentRequest
    * @return ChangeProtectedDatabaseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeProtectedDatabaseCompartment.ts.html |here} to see how to use ChangeProtectedDatabaseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeProtectedDatabaseCompartment.ts.html |here} to see how to use ChangeProtectedDatabaseCompartment API.
    */
   public async changeProtectedDatabaseCompartment(
     changeProtectedDatabaseCompartmentRequest: requests.ChangeProtectedDatabaseCompartmentRequest
@@ -392,7 +392,7 @@ export class DatabaseRecoveryClient {
    * @param ChangeProtectedDatabaseSubscriptionRequest
    * @return ChangeProtectedDatabaseSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeProtectedDatabaseSubscription.ts.html |here} to see how to use ChangeProtectedDatabaseSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeProtectedDatabaseSubscription.ts.html |here} to see how to use ChangeProtectedDatabaseSubscription API.
    */
   public async changeProtectedDatabaseSubscription(
     changeProtectedDatabaseSubscriptionRequest: requests.ChangeProtectedDatabaseSubscriptionRequest
@@ -472,7 +472,7 @@ export class DatabaseRecoveryClient {
    * @param ChangeProtectionPolicyCompartmentRequest
    * @return ChangeProtectionPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeProtectionPolicyCompartment.ts.html |here} to see how to use ChangeProtectionPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeProtectionPolicyCompartment.ts.html |here} to see how to use ChangeProtectionPolicyCompartment API.
    */
   public async changeProtectionPolicyCompartment(
     changeProtectionPolicyCompartmentRequest: requests.ChangeProtectionPolicyCompartmentRequest
@@ -552,7 +552,7 @@ export class DatabaseRecoveryClient {
    * @param ChangeRecoveryServiceSubnetCompartmentRequest
    * @return ChangeRecoveryServiceSubnetCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeRecoveryServiceSubnetCompartment.ts.html |here} to see how to use ChangeRecoveryServiceSubnetCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeRecoveryServiceSubnetCompartment.ts.html |here} to see how to use ChangeRecoveryServiceSubnetCompartment API.
    */
   public async changeRecoveryServiceSubnetCompartment(
     changeRecoveryServiceSubnetCompartmentRequest: requests.ChangeRecoveryServiceSubnetCompartmentRequest
@@ -634,7 +634,7 @@ export class DatabaseRecoveryClient {
    * @param CreateProtectedDatabaseRequest
    * @return CreateProtectedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CreateProtectedDatabase.ts.html |here} to see how to use CreateProtectedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CreateProtectedDatabase.ts.html |here} to see how to use CreateProtectedDatabase API.
    */
   public async createProtectedDatabase(
     createProtectedDatabaseRequest: requests.CreateProtectedDatabaseRequest
@@ -726,7 +726,7 @@ export class DatabaseRecoveryClient {
    * @param CreateProtectionPolicyRequest
    * @return CreateProtectionPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CreateProtectionPolicy.ts.html |here} to see how to use CreateProtectionPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CreateProtectionPolicy.ts.html |here} to see how to use CreateProtectionPolicy API.
    */
   public async createProtectionPolicy(
     createProtectionPolicyRequest: requests.CreateProtectionPolicyRequest
@@ -817,7 +817,7 @@ export class DatabaseRecoveryClient {
    * @param CreateRecoveryServiceSubnetRequest
    * @return CreateRecoveryServiceSubnetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CreateRecoveryServiceSubnet.ts.html |here} to see how to use CreateRecoveryServiceSubnet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CreateRecoveryServiceSubnet.ts.html |here} to see how to use CreateRecoveryServiceSubnet API.
    */
   public async createRecoveryServiceSubnet(
     createRecoveryServiceSubnetRequest: requests.CreateRecoveryServiceSubnetRequest
@@ -907,7 +907,7 @@ export class DatabaseRecoveryClient {
    * @param DeleteProtectedDatabaseRequest
    * @return DeleteProtectedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/DeleteProtectedDatabase.ts.html |here} to see how to use DeleteProtectedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/DeleteProtectedDatabase.ts.html |here} to see how to use DeleteProtectedDatabase API.
    */
   public async deleteProtectedDatabase(
     deleteProtectedDatabaseRequest: requests.DeleteProtectedDatabaseRequest
@@ -984,7 +984,7 @@ export class DatabaseRecoveryClient {
    * @param DeleteProtectionPolicyRequest
    * @return DeleteProtectionPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/DeleteProtectionPolicy.ts.html |here} to see how to use DeleteProtectionPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/DeleteProtectionPolicy.ts.html |here} to see how to use DeleteProtectionPolicy API.
    */
   public async deleteProtectionPolicy(
     deleteProtectionPolicyRequest: requests.DeleteProtectionPolicyRequest
@@ -1057,7 +1057,7 @@ export class DatabaseRecoveryClient {
    * @param DeleteRecoveryServiceSubnetRequest
    * @return DeleteRecoveryServiceSubnetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/DeleteRecoveryServiceSubnet.ts.html |here} to see how to use DeleteRecoveryServiceSubnet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/DeleteRecoveryServiceSubnet.ts.html |here} to see how to use DeleteRecoveryServiceSubnet API.
    */
   public async deleteRecoveryServiceSubnet(
     deleteRecoveryServiceSubnetRequest: requests.DeleteRecoveryServiceSubnetRequest
@@ -1130,7 +1130,7 @@ export class DatabaseRecoveryClient {
    * @param FetchProtectedDatabaseConfigurationRequest
    * @return FetchProtectedDatabaseConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/FetchProtectedDatabaseConfiguration.ts.html |here} to see how to use FetchProtectedDatabaseConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/FetchProtectedDatabaseConfiguration.ts.html |here} to see how to use FetchProtectedDatabaseConfiguration API.
    */
   public async fetchProtectedDatabaseConfiguration(
     fetchProtectedDatabaseConfigurationRequest: requests.FetchProtectedDatabaseConfigurationRequest
@@ -1224,7 +1224,7 @@ export class DatabaseRecoveryClient {
    * @param GetProtectedDatabaseRequest
    * @return GetProtectedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/GetProtectedDatabase.ts.html |here} to see how to use GetProtectedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/GetProtectedDatabase.ts.html |here} to see how to use GetProtectedDatabase API.
    */
   public async getProtectedDatabase(
     getProtectedDatabaseRequest: requests.GetProtectedDatabaseRequest
@@ -1300,7 +1300,7 @@ export class DatabaseRecoveryClient {
    * @param GetProtectionPolicyRequest
    * @return GetProtectionPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/GetProtectionPolicy.ts.html |here} to see how to use GetProtectionPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/GetProtectionPolicy.ts.html |here} to see how to use GetProtectionPolicy API.
    */
   public async getProtectionPolicy(
     getProtectionPolicyRequest: requests.GetProtectionPolicyRequest
@@ -1376,7 +1376,7 @@ export class DatabaseRecoveryClient {
    * @param GetRecoveryServiceSubnetRequest
    * @return GetRecoveryServiceSubnetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/GetRecoveryServiceSubnet.ts.html |here} to see how to use GetRecoveryServiceSubnet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/GetRecoveryServiceSubnet.ts.html |here} to see how to use GetRecoveryServiceSubnet API.
    */
   public async getRecoveryServiceSubnet(
     getRecoveryServiceSubnetRequest: requests.GetRecoveryServiceSubnetRequest
@@ -1452,7 +1452,7 @@ export class DatabaseRecoveryClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1528,7 +1528,7 @@ export class DatabaseRecoveryClient {
    * @param ListProtectedDatabasesRequest
    * @return ListProtectedDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListProtectedDatabases.ts.html |here} to see how to use ListProtectedDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListProtectedDatabases.ts.html |here} to see how to use ListProtectedDatabases API.
    */
   public async listProtectedDatabases(
     listProtectedDatabasesRequest: requests.ListProtectedDatabasesRequest
@@ -1614,7 +1614,7 @@ export class DatabaseRecoveryClient {
    * @param ListProtectionPoliciesRequest
    * @return ListProtectionPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListProtectionPolicies.ts.html |here} to see how to use ListProtectionPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListProtectionPolicies.ts.html |here} to see how to use ListProtectionPolicies API.
    */
   public async listProtectionPolicies(
     listProtectionPoliciesRequest: requests.ListProtectionPoliciesRequest
@@ -1699,7 +1699,7 @@ export class DatabaseRecoveryClient {
    * @param ListRecoveryServiceSubnetsRequest
    * @return ListRecoveryServiceSubnetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListRecoveryServiceSubnets.ts.html |here} to see how to use ListRecoveryServiceSubnets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListRecoveryServiceSubnets.ts.html |here} to see how to use ListRecoveryServiceSubnets API.
    */
   public async listRecoveryServiceSubnets(
     listRecoveryServiceSubnetsRequest: requests.ListRecoveryServiceSubnetsRequest
@@ -1784,7 +1784,7 @@ export class DatabaseRecoveryClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1866,7 +1866,7 @@ export class DatabaseRecoveryClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1948,7 +1948,7 @@ export class DatabaseRecoveryClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2034,7 +2034,7 @@ export class DatabaseRecoveryClient {
    * @param ScheduleProtectedDatabaseDeletionRequest
    * @return ScheduleProtectedDatabaseDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ScheduleProtectedDatabaseDeletion.ts.html |here} to see how to use ScheduleProtectedDatabaseDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ScheduleProtectedDatabaseDeletion.ts.html |here} to see how to use ScheduleProtectedDatabaseDeletion API.
    */
   public async scheduleProtectedDatabaseDeletion(
     scheduleProtectedDatabaseDeletionRequest: requests.ScheduleProtectedDatabaseDeletionRequest
@@ -2114,7 +2114,7 @@ export class DatabaseRecoveryClient {
    * @param UpdateProtectedDatabaseRequest
    * @return UpdateProtectedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/UpdateProtectedDatabase.ts.html |here} to see how to use UpdateProtectedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/UpdateProtectedDatabase.ts.html |here} to see how to use UpdateProtectedDatabase API.
    */
   public async updateProtectedDatabase(
     updateProtectedDatabaseRequest: requests.UpdateProtectedDatabaseRequest
@@ -2192,7 +2192,7 @@ export class DatabaseRecoveryClient {
    * @param UpdateProtectionPolicyRequest
    * @return UpdateProtectionPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/UpdateProtectionPolicy.ts.html |here} to see how to use UpdateProtectionPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/UpdateProtectionPolicy.ts.html |here} to see how to use UpdateProtectionPolicy API.
    */
   public async updateProtectionPolicy(
     updateProtectionPolicyRequest: requests.UpdateProtectionPolicyRequest
@@ -2270,7 +2270,7 @@ export class DatabaseRecoveryClient {
    * @param UpdateRecoveryServiceSubnetRequest
    * @return UpdateRecoveryServiceSubnetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/UpdateRecoveryServiceSubnet.ts.html |here} to see how to use UpdateRecoveryServiceSubnet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/UpdateRecoveryServiceSubnet.ts.html |here} to see how to use UpdateRecoveryServiceSubnet API.
    */
   public async updateRecoveryServiceSubnet(
     updateRecoveryServiceSubnetRequest: requests.UpdateRecoveryServiceSubnetRequest

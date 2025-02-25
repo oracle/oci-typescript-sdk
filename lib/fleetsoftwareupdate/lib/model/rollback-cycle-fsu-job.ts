@@ -22,12 +22,12 @@ import common = require("oci-common");
  */
 export interface RollbackCycleFsuJob extends model.FsuJob {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Collection that the job is executing on.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Collection that the job is executing on.
    *
    */
   "fsuCollectionId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Cycle that this job is part of.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Cycle that this job is part of.
    *
    */
   "fsuCycleId": string;

@@ -1,6 +1,6 @@
 /**
  * Database Service API
- * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](/iaas/Content/Database/Concepts/databaseoverview.htm).
+ * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: sic_dbaas_cp_us_grp@oracle.com
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface VmClusterUpdateDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the maintenance update.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the maintenance update.
    */
   "updateId"?: string;
   /**
@@ -29,7 +29,7 @@ export interface VmClusterUpdateDetails {
    */
   "updateAction"?: VmClusterUpdateDetails.UpdateAction;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a grid infrastructure software image. This is a database software image of the type {@code GRID_IMAGE}.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a grid infrastructure software image. This is a database software image of the type {@code GRID_IMAGE}.
    */
   "giSoftwareImageId"?: string;
 }

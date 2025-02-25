@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Many of the API requests you use to create and configure WAAS policies do not take effect immediately. In these cases, the request spawns an asynchronous work flow to fulfill the request. {@code WorkRequest} objects provide visibility for in-progress work flows. For more information about work requests, see [Viewing the State of a Work Request](https://docs.cloud.oracle.com/Content/Balance/Tasks/viewingworkrequest.htm).
+ * Many of the API requests you use to create and configure WAAS policies do not take effect immediately. In these cases, the request spawns an asynchronous work flow to fulfill the request. {@code WorkRequest} objects provide visibility for in-progress work flows. For more information about work requests, see [Viewing the State of a Work Request](https://docs.oracle.com/iaas/Content/Balance/Tasks/viewingworkrequest.htm).
  */
 export interface WorkRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "id": string;
   /**
@@ -31,7 +31,7 @@ export interface WorkRequest {
    */
   "status": model.WorkRequestStatusValues;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the work request.
    */
   "compartmentId": string;
   /**

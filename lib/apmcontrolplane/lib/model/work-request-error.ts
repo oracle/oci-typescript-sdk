@@ -1,7 +1,7 @@
 /**
  * Application Performance Monitoring Control Plane API
  * Use the Application Performance Monitoring Control Plane API to perform operations such as creating, updating,
-deleting and listing APM domains and monitoring the progress of these operations using the work request APIs. For more information, see [Application Performance Monitoring](/iaas/application-performance-monitoring/index.html).
+deleting and listing APM domains and monitoring the progress of these operations using the work request APIs. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface WorkRequestError {
   /**
    * A machine-usable code for the error that occurred. Error codes are listed at
-   * [API Errors](https://docs.cloud.oracle.com/iaas/Content/API/References/apierrors.htm)
+   * [API Errors](https://docs.oracle.com/iaas/Content/API/References/apierrors.htm)
    *
    */
   "code": string;

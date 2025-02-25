@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use UpdateOperationsInsightsPrivateEndpointRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use UpdateOperationsInsightsPrivateEndpointRequest.
  */
 export interface UpdateOperationsInsightsPrivateEndpointRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Operation Insights private endpoint.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Operation Insights private endpoint.
    */
   "operationsInsightsPrivateEndpointId": string;
   /**

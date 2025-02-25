@@ -243,7 +243,7 @@ export class AccessGovernanceCPClient {
    * @param ChangeGovernanceInstanceCompartmentRequest
    * @return ChangeGovernanceInstanceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/ChangeGovernanceInstanceCompartment.ts.html |here} to see how to use ChangeGovernanceInstanceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/ChangeGovernanceInstanceCompartment.ts.html |here} to see how to use ChangeGovernanceInstanceCompartment API.
    */
   public async changeGovernanceInstanceCompartment(
     changeGovernanceInstanceCompartmentRequest: requests.ChangeGovernanceInstanceCompartmentRequest
@@ -320,7 +320,7 @@ export class AccessGovernanceCPClient {
    * @param CreateGovernanceInstanceRequest
    * @return CreateGovernanceInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/CreateGovernanceInstance.ts.html |here} to see how to use CreateGovernanceInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/CreateGovernanceInstance.ts.html |here} to see how to use CreateGovernanceInstance API.
    */
   public async createGovernanceInstance(
     createGovernanceInstanceRequest: requests.CreateGovernanceInstanceRequest
@@ -406,7 +406,7 @@ export class AccessGovernanceCPClient {
    * @param DeleteGovernanceInstanceRequest
    * @return DeleteGovernanceInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/DeleteGovernanceInstance.ts.html |here} to see how to use DeleteGovernanceInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/DeleteGovernanceInstance.ts.html |here} to see how to use DeleteGovernanceInstance API.
    */
   public async deleteGovernanceInstance(
     deleteGovernanceInstanceRequest: requests.DeleteGovernanceInstanceRequest
@@ -480,7 +480,7 @@ export class AccessGovernanceCPClient {
    * @param GetGovernanceInstanceRequest
    * @return GetGovernanceInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/GetGovernanceInstance.ts.html |here} to see how to use GetGovernanceInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/GetGovernanceInstance.ts.html |here} to see how to use GetGovernanceInstance API.
    */
   public async getGovernanceInstance(
     getGovernanceInstanceRequest: requests.GetGovernanceInstanceRequest
@@ -556,7 +556,7 @@ export class AccessGovernanceCPClient {
    * @param GetGovernanceInstanceConfigurationRequest
    * @return GetGovernanceInstanceConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/GetGovernanceInstanceConfiguration.ts.html |here} to see how to use GetGovernanceInstanceConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/GetGovernanceInstanceConfiguration.ts.html |here} to see how to use GetGovernanceInstanceConfiguration API.
    */
   public async getGovernanceInstanceConfiguration(
     getGovernanceInstanceConfigurationRequest: requests.GetGovernanceInstanceConfigurationRequest
@@ -635,7 +635,7 @@ export class AccessGovernanceCPClient {
    * @param ListGovernanceInstancesRequest
    * @return ListGovernanceInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/ListGovernanceInstances.ts.html |here} to see how to use ListGovernanceInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/ListGovernanceInstances.ts.html |here} to see how to use ListGovernanceInstances API.
    */
   public async listGovernanceInstances(
     listGovernanceInstancesRequest: requests.ListGovernanceInstancesRequest
@@ -718,7 +718,7 @@ export class AccessGovernanceCPClient {
    * @param UpdateGovernanceInstanceRequest
    * @return UpdateGovernanceInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/UpdateGovernanceInstance.ts.html |here} to see how to use UpdateGovernanceInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/UpdateGovernanceInstance.ts.html |here} to see how to use UpdateGovernanceInstance API.
    */
   public async updateGovernanceInstance(
     updateGovernanceInstanceRequest: requests.UpdateGovernanceInstanceRequest
@@ -805,7 +805,7 @@ export class AccessGovernanceCPClient {
    * @param UpdateGovernanceInstanceConfigurationRequest
    * @return UpdateGovernanceInstanceConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/UpdateGovernanceInstanceConfiguration.ts.html |here} to see how to use UpdateGovernanceInstanceConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/accessgovernancecp/UpdateGovernanceInstanceConfiguration.ts.html |here} to see how to use UpdateGovernanceInstanceConfiguration API.
    */
   public async updateGovernanceInstanceConfiguration(
     updateGovernanceInstanceConfigurationRequest: requests.UpdateGovernanceInstanceConfigurationRequest

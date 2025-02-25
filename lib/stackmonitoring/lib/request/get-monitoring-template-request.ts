@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoringTemplate.ts.html |here} to see how to use GetMonitoringTemplateRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoringTemplate.ts.html |here} to see how to use GetMonitoringTemplateRequest.
  */
 export interface GetMonitoringTemplateRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the monitoring template.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the monitoring template.
    */
   "monitoringTemplateId": string;
   /**

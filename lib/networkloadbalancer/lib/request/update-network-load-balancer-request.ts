@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateNetworkLoadBalancer.ts.html |here} to see how to use UpdateNetworkLoadBalancerRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateNetworkLoadBalancer.ts.html |here} to see how to use UpdateNetworkLoadBalancerRequest.
  */
 export interface UpdateNetworkLoadBalancerRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the network load balancer to update.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the network load balancer to update.
    */
   "networkLoadBalancerId": string;
   /**

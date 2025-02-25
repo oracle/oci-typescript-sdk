@@ -2,7 +2,7 @@
  * Dashboards API
  * Use the Oracle Cloud Infrastructure Dashboards service API to manage dashboards in the Console. 
 Dashboards provide an organized and customizable view of resources and their metrics in the Console.
-For more information, see [Dashboards](/Content/Dashboards/home.htm).
+For more information, see [Dashboards](https://docs.oracle.com/iaas/Content/Dashboards/home.htm).
 
 **Important:** Resources for the Dashboards service are created in the tenacy's home region.
 Although it is possible to create dashboard and dashboard group resources in regions other than the home region,
@@ -251,7 +251,7 @@ export class DashboardClient {
    * @param ChangeDashboardGroupRequest
    * @return ChangeDashboardGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ChangeDashboardGroup.ts.html |here} to see how to use ChangeDashboardGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ChangeDashboardGroup.ts.html |here} to see how to use ChangeDashboardGroup API.
    */
   public async changeDashboardGroup(
     changeDashboardGroupRequest: requests.ChangeDashboardGroupRequest
@@ -330,7 +330,7 @@ export class DashboardClient {
    * @param CreateDashboardRequest
    * @return CreateDashboardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/CreateDashboard.ts.html |here} to see how to use CreateDashboard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/CreateDashboard.ts.html |here} to see how to use CreateDashboard API.
    */
   public async createDashboard(
     createDashboardRequest: requests.CreateDashboardRequest
@@ -411,7 +411,7 @@ export class DashboardClient {
    * @param DeleteDashboardRequest
    * @return DeleteDashboardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/DeleteDashboard.ts.html |here} to see how to use DeleteDashboard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/DeleteDashboard.ts.html |here} to see how to use DeleteDashboard API.
    */
   public async deleteDashboard(
     deleteDashboardRequest: requests.DeleteDashboardRequest
@@ -480,7 +480,7 @@ export class DashboardClient {
    * @param GetDashboardRequest
    * @return GetDashboardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/GetDashboard.ts.html |here} to see how to use GetDashboard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/GetDashboard.ts.html |here} to see how to use GetDashboard API.
    */
   public async getDashboard(
     getDashboardRequest: requests.GetDashboardRequest
@@ -558,7 +558,7 @@ export class DashboardClient {
    * @param ListDashboardsRequest
    * @return ListDashboardsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ListDashboards.ts.html |here} to see how to use ListDashboards API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ListDashboards.ts.html |here} to see how to use ListDashboards API.
    */
   public async listDashboards(
     listDashboardsRequest: requests.ListDashboardsRequest
@@ -642,7 +642,7 @@ export class DashboardClient {
    * @param UpdateDashboardRequest
    * @return UpdateDashboardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/UpdateDashboard.ts.html |here} to see how to use UpdateDashboard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/UpdateDashboard.ts.html |here} to see how to use UpdateDashboard API.
    */
   public async updateDashboard(
     updateDashboardRequest: requests.UpdateDashboardRequest
@@ -933,7 +933,7 @@ export class DashboardGroupClient {
    * @param ChangeDashboardGroupCompartmentRequest
    * @return ChangeDashboardGroupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ChangeDashboardGroupCompartment.ts.html |here} to see how to use ChangeDashboardGroupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ChangeDashboardGroupCompartment.ts.html |here} to see how to use ChangeDashboardGroupCompartment API.
    */
   public async changeDashboardGroupCompartment(
     changeDashboardGroupCompartmentRequest: requests.ChangeDashboardGroupCompartmentRequest
@@ -1013,7 +1013,7 @@ export class DashboardGroupClient {
    * @param CreateDashboardGroupRequest
    * @return CreateDashboardGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/CreateDashboardGroup.ts.html |here} to see how to use CreateDashboardGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/CreateDashboardGroup.ts.html |here} to see how to use CreateDashboardGroup API.
    */
   public async createDashboardGroup(
     createDashboardGroupRequest: requests.CreateDashboardGroupRequest
@@ -1095,7 +1095,7 @@ export class DashboardGroupClient {
    * @param DeleteDashboardGroupRequest
    * @return DeleteDashboardGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/DeleteDashboardGroup.ts.html |here} to see how to use DeleteDashboardGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/DeleteDashboardGroup.ts.html |here} to see how to use DeleteDashboardGroup API.
    */
   public async deleteDashboardGroup(
     deleteDashboardGroupRequest: requests.DeleteDashboardGroupRequest
@@ -1165,7 +1165,7 @@ export class DashboardGroupClient {
    * @param GetDashboardGroupRequest
    * @return GetDashboardGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/GetDashboardGroup.ts.html |here} to see how to use GetDashboardGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/GetDashboardGroup.ts.html |here} to see how to use GetDashboardGroup API.
    */
   public async getDashboardGroup(
     getDashboardGroupRequest: requests.GetDashboardGroupRequest
@@ -1243,7 +1243,7 @@ export class DashboardGroupClient {
    * @param ListDashboardGroupsRequest
    * @return ListDashboardGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ListDashboardGroups.ts.html |here} to see how to use ListDashboardGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ListDashboardGroups.ts.html |here} to see how to use ListDashboardGroups API.
    */
   public async listDashboardGroups(
     listDashboardGroupsRequest: requests.ListDashboardGroupsRequest
@@ -1328,7 +1328,7 @@ export class DashboardGroupClient {
    * @param UpdateDashboardGroupRequest
    * @return UpdateDashboardGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/UpdateDashboardGroup.ts.html |here} to see how to use UpdateDashboardGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/UpdateDashboardGroup.ts.html |here} to see how to use UpdateDashboardGroup API.
    */
   public async updateDashboardGroup(
     updateDashboardGroupRequest: requests.UpdateDashboardGroupRequest

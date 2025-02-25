@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -20,7 +20,7 @@ import common = require("oci-common");
  * The managed instances to attach to the lifecycle stage.
  */
 export interface AttachManagedInstancesToLifecycleStageDetails {
-  "managedInstanceDetails"?: model.ManagedInstancesDetails;
+  "managedInstanceDetails": model.ManagedInstancesDetails;
 }
 
 export namespace AttachManagedInstancesToLifecycleStageDetails {

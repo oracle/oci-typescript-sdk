@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListWafLogs.ts.html |here} to see how to use ListWafLogsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/ListWafLogs.ts.html |here} to see how to use ListWafLogsRequest.
  */
 export interface ListWafLogsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the WAAS policy.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the WAAS policy.
    */
   "waasPolicyId": string;
   /**
@@ -79,7 +79,7 @@ export interface ListWafLogsRequest extends common.BaseRequest {
    */
   "incidentKey"?: Array<string>;
   /**
-   * Filter by log type. For more information about WAF logs, see [Logs](https://docs.cloud.oracle.com/iaas/Content/WAF/Tasks/logs.htm).
+   * Filter by log type. For more information about WAF logs, see [Logs](https://docs.oracle.com/iaas/Content/WAF/Tasks/logs.htm).
    */
   "logType"?: Array<ListWafLogsRequest.LogType>;
   /**

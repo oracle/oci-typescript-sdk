@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface MacsecKey {
   /**
-   * Secret [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) containing the Connectivity association Key Name (CKN) of this MACsec key.
+   * Secret [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) containing the Connectivity association Key Name (CKN) of this MACsec key.
    */
   "connectivityAssociationNameSecretId": string;
   /**
@@ -29,7 +29,7 @@ export interface MacsecKey {
    */
   "connectivityAssociationNameSecretVersion"?: number;
   /**
-   * Secret [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) containing the Connectivity Association Key (CAK) of this MACsec key.
+   * Secret [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) containing the Connectivity Association Key (CAK) of this MACsec key.
    */
   "connectivityAssociationKeySecretId": string;
   /**

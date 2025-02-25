@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -25,6 +25,10 @@ export interface ManagementStationEventData {
    */
   "operationType": ManagementStationEventData.OperationType;
   /**
+   * Health state of the management station
+   */
+  "healthState"?: ManagementStationEventData.HealthState;
+  /**
    * Status of the management station operation.
    */
   "status": model.EventStatus;
@@ -36,6 +40,18 @@ export namespace ManagementStationEventData {
     SetManagementStationConfig = "SET_MANAGEMENT_STATION_CONFIG",
     SyncManagementStationMirror = "SYNC_MANAGEMENT_STATION_MIRROR",
     UpdateManagementStationSoftware = "UPDATE_MANAGEMENT_STATION_SOFTWARE",
+    SetManagementStationHealthState = "SET_MANAGEMENT_STATION_HEALTH_STATE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum HealthState {
+    Healthy = "HEALTHY",
+    Unhealthy = "UNHEALTHY",
+    Unavailable = "UNAVAILABLE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

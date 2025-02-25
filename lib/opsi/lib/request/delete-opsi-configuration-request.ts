@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOpsiConfiguration.ts.html |here} to see how to use DeleteOpsiConfigurationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOpsiConfiguration.ts.html |here} to see how to use DeleteOpsiConfigurationRequest.
  */
 export interface DeleteOpsiConfigurationRequest extends common.BaseRequest {
   /**
-   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of OPSI configuration resource.
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of OPSI configuration resource.
    *
    */
   "opsiConfigurationId": string;

@@ -63,12 +63,12 @@ The private IP address of the connection's endpoint in the customer's VCN, typic
     */
   "privateIp"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the database being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database being referenced.
    *
    */
   "databaseId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
    * The password Oracle GoldenGate uses to connect the associated system of the given technology.
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
    * If secretId is used plaintext field must not be provided.
@@ -77,7 +77,7 @@ The private IP address of the connection's endpoint in the customer's VCN, typic
    */
   "passwordSecretId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the wallet file is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the wallet file is stored.
    * The wallet contents Oracle GoldenGate uses to make connections to a database.
    * Note: When provided, 'wallet' field must not be provided.
    *

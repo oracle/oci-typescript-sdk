@@ -3,7 +3,7 @@
  * Use the Logging Management API to create, read, list, update, move and delete
 log groups, log objects, log saved searches, and agent configurations.
 
-For more information, see [Logging Overview](/iaas/Content/Logging/Concepts/loggingoverview.htm).
+For more information, see [Logging Overview](https://docs.oracle.com/iaas/Content/Logging/Concepts/loggingoverview.htm).
 
  * OpenAPI spec version: 20200531
  * 
@@ -243,13 +243,13 @@ export class LoggingManagementClient {
 
   /**
    * Moves a log group into a different compartment within the same tenancy.  When provided, the If-Match is checked against the resource ETag values.
-   * For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeLogGroupCompartmentRequest
    * @return ChangeLogGroupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeLogGroupCompartment.ts.html |here} to see how to use ChangeLogGroupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeLogGroupCompartment.ts.html |here} to see how to use ChangeLogGroupCompartment API.
    */
   public async changeLogGroupCompartment(
     changeLogGroupCompartmentRequest: requests.ChangeLogGroupCompartmentRequest
@@ -329,7 +329,7 @@ export class LoggingManagementClient {
    * @param ChangeLogLogGroupRequest
    * @return ChangeLogLogGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeLogLogGroup.ts.html |here} to see how to use ChangeLogLogGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeLogLogGroup.ts.html |here} to see how to use ChangeLogLogGroup API.
    */
   public async changeLogLogGroup(
     changeLogLogGroupRequest: requests.ChangeLogLogGroupRequest
@@ -405,13 +405,13 @@ export class LoggingManagementClient {
 
   /**
    * Moves a saved search into a different compartment within the same tenancy. For information about moving
-   * resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeLogSavedSearchCompartmentRequest
    * @return ChangeLogSavedSearchCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeLogSavedSearchCompartment.ts.html |here} to see how to use ChangeLogSavedSearchCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeLogSavedSearchCompartment.ts.html |here} to see how to use ChangeLogSavedSearchCompartment API.
    */
   public async changeLogSavedSearchCompartment(
     changeLogSavedSearchCompartmentRequest: requests.ChangeLogSavedSearchCompartmentRequest
@@ -484,13 +484,13 @@ export class LoggingManagementClient {
 
   /**
    * Moves the unified agent configuration into a different compartment within the same tenancy.  When provided, the If-Match is checked against the ETag values of the resource.
-   * For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeUnifiedAgentConfigurationCompartmentRequest
    * @return ChangeUnifiedAgentConfigurationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeUnifiedAgentConfigurationCompartment.ts.html |here} to see how to use ChangeUnifiedAgentConfigurationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeUnifiedAgentConfigurationCompartment.ts.html |here} to see how to use ChangeUnifiedAgentConfigurationCompartment API.
    */
   public async changeUnifiedAgentConfigurationCompartment(
     changeUnifiedAgentConfigurationCompartmentRequest: requests.ChangeUnifiedAgentConfigurationCompartmentRequest
@@ -575,7 +575,7 @@ export class LoggingManagementClient {
    * @param CreateLogRequest
    * @return CreateLogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/CreateLog.ts.html |here} to see how to use CreateLog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/CreateLog.ts.html |here} to see how to use CreateLog API.
    */
   public async createLog(
     createLogRequest: requests.CreateLogRequest
@@ -655,7 +655,7 @@ export class LoggingManagementClient {
    * @param CreateLogGroupRequest
    * @return CreateLogGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/CreateLogGroup.ts.html |here} to see how to use CreateLogGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/CreateLogGroup.ts.html |here} to see how to use CreateLogGroup API.
    */
   public async createLogGroup(
     createLogGroupRequest: requests.CreateLogGroupRequest
@@ -732,7 +732,7 @@ export class LoggingManagementClient {
    * @param CreateLogSavedSearchRequest
    * @return CreateLogSavedSearchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/CreateLogSavedSearch.ts.html |here} to see how to use CreateLogSavedSearch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/CreateLogSavedSearch.ts.html |here} to see how to use CreateLogSavedSearch API.
    */
   public async createLogSavedSearch(
     createLogSavedSearchRequest: requests.CreateLogSavedSearchRequest
@@ -813,7 +813,7 @@ export class LoggingManagementClient {
    * @param CreateUnifiedAgentConfigurationRequest
    * @return CreateUnifiedAgentConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/CreateUnifiedAgentConfiguration.ts.html |here} to see how to use CreateUnifiedAgentConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/CreateUnifiedAgentConfiguration.ts.html |here} to see how to use CreateUnifiedAgentConfiguration API.
    */
   public async createUnifiedAgentConfiguration(
     createUnifiedAgentConfigurationRequest: requests.CreateUnifiedAgentConfigurationRequest
@@ -892,7 +892,7 @@ export class LoggingManagementClient {
    * @param DeleteLogRequest
    * @return DeleteLogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/DeleteLog.ts.html |here} to see how to use DeleteLog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/DeleteLog.ts.html |here} to see how to use DeleteLog API.
    */
   public async deleteLog(
     deleteLogRequest: requests.DeleteLogRequest
@@ -966,7 +966,7 @@ export class LoggingManagementClient {
    * @param DeleteLogGroupRequest
    * @return DeleteLogGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/DeleteLogGroup.ts.html |here} to see how to use DeleteLogGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/DeleteLogGroup.ts.html |here} to see how to use DeleteLogGroup API.
    */
   public async deleteLogGroup(
     deleteLogGroupRequest: requests.DeleteLogGroupRequest
@@ -1039,7 +1039,7 @@ export class LoggingManagementClient {
    * @param DeleteLogSavedSearchRequest
    * @return DeleteLogSavedSearchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/DeleteLogSavedSearch.ts.html |here} to see how to use DeleteLogSavedSearch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/DeleteLogSavedSearch.ts.html |here} to see how to use DeleteLogSavedSearch API.
    */
   public async deleteLogSavedSearch(
     deleteLogSavedSearchRequest: requests.DeleteLogSavedSearchRequest
@@ -1108,7 +1108,7 @@ export class LoggingManagementClient {
    * @param DeleteUnifiedAgentConfigurationRequest
    * @return DeleteUnifiedAgentConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/DeleteUnifiedAgentConfiguration.ts.html |here} to see how to use DeleteUnifiedAgentConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/DeleteUnifiedAgentConfiguration.ts.html |here} to see how to use DeleteUnifiedAgentConfiguration API.
    */
   public async deleteUnifiedAgentConfiguration(
     deleteUnifiedAgentConfigurationRequest: requests.DeleteUnifiedAgentConfigurationRequest
@@ -1186,7 +1186,7 @@ export class LoggingManagementClient {
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
    */
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
@@ -1261,7 +1261,7 @@ export class LoggingManagementClient {
    * @param GetLogRequest
    * @return GetLogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetLog.ts.html |here} to see how to use GetLog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetLog.ts.html |here} to see how to use GetLog API.
    */
   public async getLog(getLogRequest: requests.GetLogRequest): Promise<responses.GetLogResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#getLog.");
@@ -1336,7 +1336,7 @@ export class LoggingManagementClient {
    * @param GetLogGroupRequest
    * @return GetLogGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetLogGroup.ts.html |here} to see how to use GetLogGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetLogGroup.ts.html |here} to see how to use GetLogGroup API.
    */
   public async getLogGroup(
     getLogGroupRequest: requests.GetLogGroupRequest
@@ -1412,7 +1412,7 @@ export class LoggingManagementClient {
    * @param GetLogSavedSearchRequest
    * @return GetLogSavedSearchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetLogSavedSearch.ts.html |here} to see how to use GetLogSavedSearch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetLogSavedSearch.ts.html |here} to see how to use GetLogSavedSearch API.
    */
   public async getLogSavedSearch(
     getLogSavedSearchRequest: requests.GetLogSavedSearchRequest
@@ -1489,7 +1489,7 @@ export class LoggingManagementClient {
    * @param GetUnifiedAgentConfigurationRequest
    * @return GetUnifiedAgentConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetUnifiedAgentConfiguration.ts.html |here} to see how to use GetUnifiedAgentConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetUnifiedAgentConfiguration.ts.html |here} to see how to use GetUnifiedAgentConfiguration API.
    */
   public async getUnifiedAgentConfiguration(
     getUnifiedAgentConfigurationRequest: requests.GetUnifiedAgentConfigurationRequest
@@ -1567,7 +1567,7 @@ export class LoggingManagementClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1648,7 +1648,7 @@ export class LoggingManagementClient {
    * @param ListLogGroupsRequest
    * @return ListLogGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListLogGroups.ts.html |here} to see how to use ListLogGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListLogGroups.ts.html |here} to see how to use ListLogGroups API.
    */
   public async listLogGroups(
     listLogGroupsRequest: requests.ListLogGroupsRequest
@@ -1788,7 +1788,7 @@ export class LoggingManagementClient {
    * @param ListLogSavedSearchesRequest
    * @return ListLogSavedSearchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListLogSavedSearches.ts.html |here} to see how to use ListLogSavedSearches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListLogSavedSearches.ts.html |here} to see how to use ListLogSavedSearches API.
    */
   public async listLogSavedSearches(
     listLogSavedSearchesRequest: requests.ListLogSavedSearchesRequest
@@ -1876,7 +1876,7 @@ export class LoggingManagementClient {
    * @param ListLogsRequest
    * @return ListLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListLogs.ts.html |here} to see how to use ListLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListLogs.ts.html |here} to see how to use ListLogs API.
    */
   public async listLogs(
     listLogsRequest: requests.ListLogsRequest
@@ -2017,7 +2017,7 @@ export class LoggingManagementClient {
    * @param ListServicesRequest
    * @return ListServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListServices.ts.html |here} to see how to use ListServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListServices.ts.html |here} to see how to use ListServices API.
    */
   public async listServices(
     listServicesRequest: requests.ListServicesRequest
@@ -2096,7 +2096,7 @@ export class LoggingManagementClient {
    * @param ListUnifiedAgentConfigurationsRequest
    * @return ListUnifiedAgentConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListUnifiedAgentConfigurations.ts.html |here} to see how to use ListUnifiedAgentConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListUnifiedAgentConfigurations.ts.html |here} to see how to use ListUnifiedAgentConfigurations API.
    */
   public async listUnifiedAgentConfigurations(
     listUnifiedAgentConfigurationsRequest: requests.ListUnifiedAgentConfigurationsRequest
@@ -2190,7 +2190,7 @@ export class LoggingManagementClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2323,7 +2323,7 @@ export class LoggingManagementClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2456,7 +2456,7 @@ export class LoggingManagementClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2598,7 +2598,7 @@ export class LoggingManagementClient {
    * @param UpdateLogRequest
    * @return UpdateLogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/UpdateLog.ts.html |here} to see how to use UpdateLog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/UpdateLog.ts.html |here} to see how to use UpdateLog API.
    */
   public async updateLog(
     updateLogRequest: requests.UpdateLogRequest
@@ -2679,7 +2679,7 @@ export class LoggingManagementClient {
    * @param UpdateLogGroupRequest
    * @return UpdateLogGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/UpdateLogGroup.ts.html |here} to see how to use UpdateLogGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/UpdateLogGroup.ts.html |here} to see how to use UpdateLogGroup API.
    */
   public async updateLogGroup(
     updateLogGroupRequest: requests.UpdateLogGroupRequest
@@ -2758,7 +2758,7 @@ export class LoggingManagementClient {
    * @param UpdateLogSavedSearchRequest
    * @return UpdateLogSavedSearchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/UpdateLogSavedSearch.ts.html |here} to see how to use UpdateLogSavedSearch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/UpdateLogSavedSearch.ts.html |here} to see how to use UpdateLogSavedSearch API.
    */
   public async updateLogSavedSearch(
     updateLogSavedSearchRequest: requests.UpdateLogSavedSearchRequest
@@ -2843,7 +2843,7 @@ export class LoggingManagementClient {
    * @param UpdateUnifiedAgentConfigurationRequest
    * @return UpdateUnifiedAgentConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/UpdateUnifiedAgentConfiguration.ts.html |here} to see how to use UpdateUnifiedAgentConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/UpdateUnifiedAgentConfiguration.ts.html |here} to see how to use UpdateUnifiedAgentConfiguration API.
    */
   public async updateUnifiedAgentConfiguration(
     updateUnifiedAgentConfigurationRequest: requests.UpdateUnifiedAgentConfigurationRequest

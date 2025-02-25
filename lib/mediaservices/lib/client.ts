@@ -2,7 +2,7 @@
  * Media Services API
  * Media Services (includes Media Flow and Media Streams) is a fully managed service for processing media (video) source content. Use Media Flow and Media Streams to transcode and package digital video using configurable workflows and stream video outputs.
 
-Use the Media Services API to configure media workflows and run Media Flow jobs, create distribution channels, ingest assets, create Preview URLs and play assets. For more information, see [Media Flow](/iaas/Content/dms-mediaflow/home.htm) and [Media Streams](/iaas/Content/dms-mediastream/home.htm).
+Use the Media Services API to configure media workflows and run Media Flow jobs, create distribution channels, ingest assets, create Preview URLs and play assets. For more information, see [Media Flow](https://docs.oracle.com/iaas/Content/dms-mediaflow/home.htm) and [Media Streams](https://docs.oracle.com/iaas/Content/dms-mediastream/home.htm).
 
  * OpenAPI spec version: 20211101
  * 
@@ -247,7 +247,7 @@ export class MediaServicesClient {
    * @param AddMediaAssetLockRequest
    * @return AddMediaAssetLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaAssetLock.ts.html |here} to see how to use AddMediaAssetLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaAssetLock.ts.html |here} to see how to use AddMediaAssetLock API.
    */
   public async addMediaAssetLock(
     addMediaAssetLockRequest: requests.AddMediaAssetLockRequest
@@ -330,7 +330,7 @@ export class MediaServicesClient {
    * @param AddMediaWorkflowConfigurationLockRequest
    * @return AddMediaWorkflowConfigurationLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowConfigurationLock.ts.html |here} to see how to use AddMediaWorkflowConfigurationLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowConfigurationLock.ts.html |here} to see how to use AddMediaWorkflowConfigurationLock API.
    */
   public async addMediaWorkflowConfigurationLock(
     addMediaWorkflowConfigurationLockRequest: requests.AddMediaWorkflowConfigurationLockRequest
@@ -415,7 +415,7 @@ export class MediaServicesClient {
    * @param AddMediaWorkflowJobLockRequest
    * @return AddMediaWorkflowJobLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowJobLock.ts.html |here} to see how to use AddMediaWorkflowJobLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowJobLock.ts.html |here} to see how to use AddMediaWorkflowJobLock API.
    */
   public async addMediaWorkflowJobLock(
     addMediaWorkflowJobLockRequest: requests.AddMediaWorkflowJobLockRequest
@@ -499,7 +499,7 @@ export class MediaServicesClient {
    * @param AddMediaWorkflowLockRequest
    * @return AddMediaWorkflowLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowLock.ts.html |here} to see how to use AddMediaWorkflowLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowLock.ts.html |here} to see how to use AddMediaWorkflowLock API.
    */
   public async addMediaWorkflowLock(
     addMediaWorkflowLockRequest: requests.AddMediaWorkflowLockRequest
@@ -583,7 +583,7 @@ export class MediaServicesClient {
    * @param AddStreamCdnConfigLockRequest
    * @return AddStreamCdnConfigLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddStreamCdnConfigLock.ts.html |here} to see how to use AddStreamCdnConfigLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddStreamCdnConfigLock.ts.html |here} to see how to use AddStreamCdnConfigLock API.
    */
   public async addStreamCdnConfigLock(
     addStreamCdnConfigLockRequest: requests.AddStreamCdnConfigLockRequest
@@ -667,7 +667,7 @@ export class MediaServicesClient {
    * @param AddStreamDistributionChannelLockRequest
    * @return AddStreamDistributionChannelLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddStreamDistributionChannelLock.ts.html |here} to see how to use AddStreamDistributionChannelLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddStreamDistributionChannelLock.ts.html |here} to see how to use AddStreamDistributionChannelLock API.
    */
   public async addStreamDistributionChannelLock(
     addStreamDistributionChannelLockRequest: requests.AddStreamDistributionChannelLockRequest
@@ -752,7 +752,7 @@ export class MediaServicesClient {
    * @param AddStreamPackagingConfigLockRequest
    * @return AddStreamPackagingConfigLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddStreamPackagingConfigLock.ts.html |here} to see how to use AddStreamPackagingConfigLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddStreamPackagingConfigLock.ts.html |here} to see how to use AddStreamPackagingConfigLock API.
    */
   public async addStreamPackagingConfigLock(
     addStreamPackagingConfigLockRequest: requests.AddStreamPackagingConfigLockRequest
@@ -835,7 +835,7 @@ export class MediaServicesClient {
    * @param ChangeMediaAssetCompartmentRequest
    * @return ChangeMediaAssetCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ChangeMediaAssetCompartment.ts.html |here} to see how to use ChangeMediaAssetCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ChangeMediaAssetCompartment.ts.html |here} to see how to use ChangeMediaAssetCompartment API.
    */
   public async changeMediaAssetCompartment(
     changeMediaAssetCompartmentRequest: requests.ChangeMediaAssetCompartmentRequest
@@ -911,7 +911,7 @@ export class MediaServicesClient {
    * @param ChangeMediaWorkflowCompartmentRequest
    * @return ChangeMediaWorkflowCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ChangeMediaWorkflowCompartment.ts.html |here} to see how to use ChangeMediaWorkflowCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ChangeMediaWorkflowCompartment.ts.html |here} to see how to use ChangeMediaWorkflowCompartment API.
    */
   public async changeMediaWorkflowCompartment(
     changeMediaWorkflowCompartmentRequest: requests.ChangeMediaWorkflowCompartmentRequest
@@ -987,7 +987,7 @@ export class MediaServicesClient {
    * @param ChangeMediaWorkflowConfigurationCompartmentRequest
    * @return ChangeMediaWorkflowConfigurationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ChangeMediaWorkflowConfigurationCompartment.ts.html |here} to see how to use ChangeMediaWorkflowConfigurationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ChangeMediaWorkflowConfigurationCompartment.ts.html |here} to see how to use ChangeMediaWorkflowConfigurationCompartment API.
    */
   public async changeMediaWorkflowConfigurationCompartment(
     changeMediaWorkflowConfigurationCompartmentRequest: requests.ChangeMediaWorkflowConfigurationCompartmentRequest
@@ -1066,7 +1066,7 @@ export class MediaServicesClient {
    * @param ChangeMediaWorkflowJobCompartmentRequest
    * @return ChangeMediaWorkflowJobCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ChangeMediaWorkflowJobCompartment.ts.html |here} to see how to use ChangeMediaWorkflowJobCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ChangeMediaWorkflowJobCompartment.ts.html |here} to see how to use ChangeMediaWorkflowJobCompartment API.
    */
   public async changeMediaWorkflowJobCompartment(
     changeMediaWorkflowJobCompartmentRequest: requests.ChangeMediaWorkflowJobCompartmentRequest
@@ -1142,7 +1142,7 @@ export class MediaServicesClient {
    * @param ChangeStreamDistributionChannelCompartmentRequest
    * @return ChangeStreamDistributionChannelCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ChangeStreamDistributionChannelCompartment.ts.html |here} to see how to use ChangeStreamDistributionChannelCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ChangeStreamDistributionChannelCompartment.ts.html |here} to see how to use ChangeStreamDistributionChannelCompartment API.
    */
   public async changeStreamDistributionChannelCompartment(
     changeStreamDistributionChannelCompartmentRequest: requests.ChangeStreamDistributionChannelCompartmentRequest
@@ -1222,7 +1222,7 @@ export class MediaServicesClient {
    * @param CreateMediaAssetRequest
    * @return CreateMediaAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateMediaAsset.ts.html |here} to see how to use CreateMediaAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateMediaAsset.ts.html |here} to see how to use CreateMediaAsset API.
    */
   public async createMediaAsset(
     createMediaAssetRequest: requests.CreateMediaAssetRequest
@@ -1302,7 +1302,7 @@ export class MediaServicesClient {
    * @param CreateMediaWorkflowRequest
    * @return CreateMediaWorkflowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateMediaWorkflow.ts.html |here} to see how to use CreateMediaWorkflow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateMediaWorkflow.ts.html |here} to see how to use CreateMediaWorkflow API.
    */
   public async createMediaWorkflow(
     createMediaWorkflowRequest: requests.CreateMediaWorkflowRequest
@@ -1383,7 +1383,7 @@ export class MediaServicesClient {
    * @param CreateMediaWorkflowConfigurationRequest
    * @return CreateMediaWorkflowConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateMediaWorkflowConfiguration.ts.html |here} to see how to use CreateMediaWorkflowConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateMediaWorkflowConfiguration.ts.html |here} to see how to use CreateMediaWorkflowConfiguration API.
    */
   public async createMediaWorkflowConfiguration(
     createMediaWorkflowConfigurationRequest: requests.CreateMediaWorkflowConfigurationRequest
@@ -1463,7 +1463,7 @@ export class MediaServicesClient {
    * @param CreateMediaWorkflowJobRequest
    * @return CreateMediaWorkflowJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateMediaWorkflowJob.ts.html |here} to see how to use CreateMediaWorkflowJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateMediaWorkflowJob.ts.html |here} to see how to use CreateMediaWorkflowJob API.
    */
   public async createMediaWorkflowJob(
     createMediaWorkflowJobRequest: requests.CreateMediaWorkflowJobRequest
@@ -1544,7 +1544,7 @@ export class MediaServicesClient {
    * @param CreateStreamCdnConfigRequest
    * @return CreateStreamCdnConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateStreamCdnConfig.ts.html |here} to see how to use CreateStreamCdnConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateStreamCdnConfig.ts.html |here} to see how to use CreateStreamCdnConfig API.
    */
   public async createStreamCdnConfig(
     createStreamCdnConfigRequest: requests.CreateStreamCdnConfigRequest
@@ -1625,7 +1625,7 @@ export class MediaServicesClient {
    * @param CreateStreamDistributionChannelRequest
    * @return CreateStreamDistributionChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateStreamDistributionChannel.ts.html |here} to see how to use CreateStreamDistributionChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateStreamDistributionChannel.ts.html |here} to see how to use CreateStreamDistributionChannel API.
    */
   public async createStreamDistributionChannel(
     createStreamDistributionChannelRequest: requests.CreateStreamDistributionChannelRequest
@@ -1706,7 +1706,7 @@ export class MediaServicesClient {
    * @param CreateStreamPackagingConfigRequest
    * @return CreateStreamPackagingConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateStreamPackagingConfig.ts.html |here} to see how to use CreateStreamPackagingConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/CreateStreamPackagingConfig.ts.html |here} to see how to use CreateStreamPackagingConfig API.
    */
   public async createStreamPackagingConfig(
     createStreamPackagingConfigRequest: requests.CreateStreamPackagingConfigRequest
@@ -1786,7 +1786,7 @@ export class MediaServicesClient {
    * @param DeleteMediaAssetRequest
    * @return DeleteMediaAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaAsset.ts.html |here} to see how to use DeleteMediaAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaAsset.ts.html |here} to see how to use DeleteMediaAsset API.
    */
   public async deleteMediaAsset(
     deleteMediaAssetRequest: requests.DeleteMediaAssetRequest
@@ -1856,7 +1856,7 @@ export class MediaServicesClient {
    * @param DeleteMediaAssetDistributionChannelAttachmentRequest
    * @return DeleteMediaAssetDistributionChannelAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaAssetDistributionChannelAttachment.ts.html |here} to see how to use DeleteMediaAssetDistributionChannelAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaAssetDistributionChannelAttachment.ts.html |here} to see how to use DeleteMediaAssetDistributionChannelAttachment API.
    */
   public async deleteMediaAssetDistributionChannelAttachment(
     deleteMediaAssetDistributionChannelAttachmentRequest: requests.DeleteMediaAssetDistributionChannelAttachmentRequest
@@ -1931,7 +1931,7 @@ export class MediaServicesClient {
    * @param DeleteMediaWorkflowRequest
    * @return DeleteMediaWorkflowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaWorkflow.ts.html |here} to see how to use DeleteMediaWorkflow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaWorkflow.ts.html |here} to see how to use DeleteMediaWorkflow API.
    */
   public async deleteMediaWorkflow(
     deleteMediaWorkflowRequest: requests.DeleteMediaWorkflowRequest
@@ -2001,7 +2001,7 @@ export class MediaServicesClient {
    * @param DeleteMediaWorkflowConfigurationRequest
    * @return DeleteMediaWorkflowConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaWorkflowConfiguration.ts.html |here} to see how to use DeleteMediaWorkflowConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaWorkflowConfiguration.ts.html |here} to see how to use DeleteMediaWorkflowConfiguration API.
    */
   public async deleteMediaWorkflowConfiguration(
     deleteMediaWorkflowConfigurationRequest: requests.DeleteMediaWorkflowConfigurationRequest
@@ -2072,7 +2072,7 @@ export class MediaServicesClient {
    * @param DeleteMediaWorkflowJobRequest
    * @return DeleteMediaWorkflowJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaWorkflowJob.ts.html |here} to see how to use DeleteMediaWorkflowJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaWorkflowJob.ts.html |here} to see how to use DeleteMediaWorkflowJob API.
    */
   public async deleteMediaWorkflowJob(
     deleteMediaWorkflowJobRequest: requests.DeleteMediaWorkflowJobRequest
@@ -2142,7 +2142,7 @@ export class MediaServicesClient {
    * @param DeleteStreamCdnConfigRequest
    * @return DeleteStreamCdnConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteStreamCdnConfig.ts.html |here} to see how to use DeleteStreamCdnConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteStreamCdnConfig.ts.html |here} to see how to use DeleteStreamCdnConfig API.
    */
   public async deleteStreamCdnConfig(
     deleteStreamCdnConfigRequest: requests.DeleteStreamCdnConfigRequest
@@ -2212,7 +2212,7 @@ export class MediaServicesClient {
    * @param DeleteStreamDistributionChannelRequest
    * @return DeleteStreamDistributionChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteStreamDistributionChannel.ts.html |here} to see how to use DeleteStreamDistributionChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteStreamDistributionChannel.ts.html |here} to see how to use DeleteStreamDistributionChannel API.
    */
   public async deleteStreamDistributionChannel(
     deleteStreamDistributionChannelRequest: requests.DeleteStreamDistributionChannelRequest
@@ -2283,7 +2283,7 @@ export class MediaServicesClient {
    * @param DeleteStreamPackagingConfigRequest
    * @return DeleteStreamPackagingConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteStreamPackagingConfig.ts.html |here} to see how to use DeleteStreamPackagingConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteStreamPackagingConfig.ts.html |here} to see how to use DeleteStreamPackagingConfig API.
    */
   public async deleteStreamPackagingConfig(
     deleteStreamPackagingConfigRequest: requests.DeleteStreamPackagingConfigRequest
@@ -2353,7 +2353,7 @@ export class MediaServicesClient {
    * @param GetMediaAssetRequest
    * @return GetMediaAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaAsset.ts.html |here} to see how to use GetMediaAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaAsset.ts.html |here} to see how to use GetMediaAsset API.
    */
   public async getMediaAsset(
     getMediaAssetRequest: requests.GetMediaAssetRequest
@@ -2428,7 +2428,7 @@ export class MediaServicesClient {
    * @param GetMediaAssetDistributionChannelAttachmentRequest
    * @return GetMediaAssetDistributionChannelAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaAssetDistributionChannelAttachment.ts.html |here} to see how to use GetMediaAssetDistributionChannelAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaAssetDistributionChannelAttachment.ts.html |here} to see how to use GetMediaAssetDistributionChannelAttachment API.
    */
   public async getMediaAssetDistributionChannelAttachment(
     getMediaAssetDistributionChannelAttachmentRequest: requests.GetMediaAssetDistributionChannelAttachmentRequest
@@ -2510,7 +2510,7 @@ export class MediaServicesClient {
    * @param GetMediaWorkflowRequest
    * @return GetMediaWorkflowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaWorkflow.ts.html |here} to see how to use GetMediaWorkflow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaWorkflow.ts.html |here} to see how to use GetMediaWorkflow API.
    */
   public async getMediaWorkflow(
     getMediaWorkflowRequest: requests.GetMediaWorkflowRequest
@@ -2585,7 +2585,7 @@ export class MediaServicesClient {
    * @param GetMediaWorkflowConfigurationRequest
    * @return GetMediaWorkflowConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaWorkflowConfiguration.ts.html |here} to see how to use GetMediaWorkflowConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaWorkflowConfiguration.ts.html |here} to see how to use GetMediaWorkflowConfiguration API.
    */
   public async getMediaWorkflowConfiguration(
     getMediaWorkflowConfigurationRequest: requests.GetMediaWorkflowConfigurationRequest
@@ -2662,7 +2662,7 @@ export class MediaServicesClient {
    * @param GetMediaWorkflowJobRequest
    * @return GetMediaWorkflowJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaWorkflowJob.ts.html |here} to see how to use GetMediaWorkflowJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetMediaWorkflowJob.ts.html |here} to see how to use GetMediaWorkflowJob API.
    */
   public async getMediaWorkflowJob(
     getMediaWorkflowJobRequest: requests.GetMediaWorkflowJobRequest
@@ -2738,7 +2738,7 @@ export class MediaServicesClient {
    * @param GetStreamCdnConfigRequest
    * @return GetStreamCdnConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetStreamCdnConfig.ts.html |here} to see how to use GetStreamCdnConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetStreamCdnConfig.ts.html |here} to see how to use GetStreamCdnConfig API.
    */
   public async getStreamCdnConfig(
     getStreamCdnConfigRequest: requests.GetStreamCdnConfigRequest
@@ -2813,7 +2813,7 @@ export class MediaServicesClient {
    * @param GetStreamDistributionChannelRequest
    * @return GetStreamDistributionChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetStreamDistributionChannel.ts.html |here} to see how to use GetStreamDistributionChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetStreamDistributionChannel.ts.html |here} to see how to use GetStreamDistributionChannel API.
    */
   public async getStreamDistributionChannel(
     getStreamDistributionChannelRequest: requests.GetStreamDistributionChannelRequest
@@ -2890,7 +2890,7 @@ export class MediaServicesClient {
    * @param GetStreamPackagingConfigRequest
    * @return GetStreamPackagingConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetStreamPackagingConfig.ts.html |here} to see how to use GetStreamPackagingConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GetStreamPackagingConfig.ts.html |here} to see how to use GetStreamPackagingConfig API.
    */
   public async getStreamPackagingConfig(
     getStreamPackagingConfigRequest: requests.GetStreamPackagingConfigRequest
@@ -2966,7 +2966,7 @@ export class MediaServicesClient {
    * @param IngestStreamDistributionChannelRequest
    * @return IngestStreamDistributionChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/IngestStreamDistributionChannel.ts.html |here} to see how to use IngestStreamDistributionChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/IngestStreamDistributionChannel.ts.html |here} to see how to use IngestStreamDistributionChannel API.
    */
   public async ingestStreamDistributionChannel(
     ingestStreamDistributionChannelRequest: requests.IngestStreamDistributionChannelRequest
@@ -3044,7 +3044,7 @@ export class MediaServicesClient {
    * @param ListMediaAssetDistributionChannelAttachmentsRequest
    * @return ListMediaAssetDistributionChannelAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaAssetDistributionChannelAttachments.ts.html |here} to see how to use ListMediaAssetDistributionChannelAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaAssetDistributionChannelAttachments.ts.html |here} to see how to use ListMediaAssetDistributionChannelAttachments API.
    */
   public async listMediaAssetDistributionChannelAttachments(
     listMediaAssetDistributionChannelAttachmentsRequest: requests.ListMediaAssetDistributionChannelAttachmentsRequest
@@ -3131,7 +3131,7 @@ export class MediaServicesClient {
    * @param ListMediaAssetsRequest
    * @return ListMediaAssetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaAssets.ts.html |here} to see how to use ListMediaAssets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaAssets.ts.html |here} to see how to use ListMediaAssets API.
    */
   public async listMediaAssets(
     listMediaAssetsRequest: requests.ListMediaAssetsRequest
@@ -3222,7 +3222,7 @@ export class MediaServicesClient {
    * @param ListMediaWorkflowConfigurationsRequest
    * @return ListMediaWorkflowConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaWorkflowConfigurations.ts.html |here} to see how to use ListMediaWorkflowConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaWorkflowConfigurations.ts.html |here} to see how to use ListMediaWorkflowConfigurations API.
    */
   public async listMediaWorkflowConfigurations(
     listMediaWorkflowConfigurationsRequest: requests.ListMediaWorkflowConfigurationsRequest
@@ -3305,7 +3305,7 @@ export class MediaServicesClient {
    * @param ListMediaWorkflowJobsRequest
    * @return ListMediaWorkflowJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaWorkflowJobs.ts.html |here} to see how to use ListMediaWorkflowJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaWorkflowJobs.ts.html |here} to see how to use ListMediaWorkflowJobs API.
    */
   public async listMediaWorkflowJobs(
     listMediaWorkflowJobsRequest: requests.ListMediaWorkflowJobsRequest
@@ -3390,7 +3390,7 @@ export class MediaServicesClient {
    * @param ListMediaWorkflowTaskDeclarationsRequest
    * @return ListMediaWorkflowTaskDeclarationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaWorkflowTaskDeclarations.ts.html |here} to see how to use ListMediaWorkflowTaskDeclarations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaWorkflowTaskDeclarations.ts.html |here} to see how to use ListMediaWorkflowTaskDeclarations API.
    */
   public async listMediaWorkflowTaskDeclarations(
     listMediaWorkflowTaskDeclarationsRequest: requests.ListMediaWorkflowTaskDeclarationsRequest
@@ -3473,7 +3473,7 @@ export class MediaServicesClient {
    * @param ListMediaWorkflowsRequest
    * @return ListMediaWorkflowsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaWorkflows.ts.html |here} to see how to use ListMediaWorkflows API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListMediaWorkflows.ts.html |here} to see how to use ListMediaWorkflows API.
    */
   public async listMediaWorkflows(
     listMediaWorkflowsRequest: requests.ListMediaWorkflowsRequest
@@ -3555,7 +3555,7 @@ export class MediaServicesClient {
    * @param ListStreamCdnConfigsRequest
    * @return ListStreamCdnConfigsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListStreamCdnConfigs.ts.html |here} to see how to use ListStreamCdnConfigs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListStreamCdnConfigs.ts.html |here} to see how to use ListStreamCdnConfigs API.
    */
   public async listStreamCdnConfigs(
     listStreamCdnConfigsRequest: requests.ListStreamCdnConfigsRequest
@@ -3638,7 +3638,7 @@ export class MediaServicesClient {
    * @param ListStreamDistributionChannelsRequest
    * @return ListStreamDistributionChannelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListStreamDistributionChannels.ts.html |here} to see how to use ListStreamDistributionChannels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListStreamDistributionChannels.ts.html |here} to see how to use ListStreamDistributionChannels API.
    */
   public async listStreamDistributionChannels(
     listStreamDistributionChannelsRequest: requests.ListStreamDistributionChannelsRequest
@@ -3721,7 +3721,7 @@ export class MediaServicesClient {
    * @param ListStreamPackagingConfigsRequest
    * @return ListStreamPackagingConfigsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListStreamPackagingConfigs.ts.html |here} to see how to use ListStreamPackagingConfigs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListStreamPackagingConfigs.ts.html |here} to see how to use ListStreamPackagingConfigs API.
    */
   public async listStreamPackagingConfigs(
     listStreamPackagingConfigsRequest: requests.ListStreamPackagingConfigsRequest
@@ -3805,7 +3805,7 @@ export class MediaServicesClient {
    * @param ListSystemMediaWorkflowsRequest
    * @return ListSystemMediaWorkflowsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListSystemMediaWorkflows.ts.html |here} to see how to use ListSystemMediaWorkflows API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListSystemMediaWorkflows.ts.html |here} to see how to use ListSystemMediaWorkflows API.
    */
   public async listSystemMediaWorkflows(
     listSystemMediaWorkflowsRequest: requests.ListSystemMediaWorkflowsRequest
@@ -3886,7 +3886,7 @@ export class MediaServicesClient {
    * @param RemoveMediaAssetLockRequest
    * @return RemoveMediaAssetLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaAssetLock.ts.html |here} to see how to use RemoveMediaAssetLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaAssetLock.ts.html |here} to see how to use RemoveMediaAssetLock API.
    */
   public async removeMediaAssetLock(
     removeMediaAssetLockRequest: requests.RemoveMediaAssetLockRequest
@@ -3970,7 +3970,7 @@ export class MediaServicesClient {
    * @param RemoveMediaWorkflowConfigurationLockRequest
    * @return RemoveMediaWorkflowConfigurationLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaWorkflowConfigurationLock.ts.html |here} to see how to use RemoveMediaWorkflowConfigurationLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaWorkflowConfigurationLock.ts.html |here} to see how to use RemoveMediaWorkflowConfigurationLock API.
    */
   public async removeMediaWorkflowConfigurationLock(
     removeMediaWorkflowConfigurationLockRequest: requests.RemoveMediaWorkflowConfigurationLockRequest
@@ -4057,7 +4057,7 @@ export class MediaServicesClient {
    * @param RemoveMediaWorkflowJobLockRequest
    * @return RemoveMediaWorkflowJobLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaWorkflowJobLock.ts.html |here} to see how to use RemoveMediaWorkflowJobLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaWorkflowJobLock.ts.html |here} to see how to use RemoveMediaWorkflowJobLock API.
    */
   public async removeMediaWorkflowJobLock(
     removeMediaWorkflowJobLockRequest: requests.RemoveMediaWorkflowJobLockRequest
@@ -4141,7 +4141,7 @@ export class MediaServicesClient {
    * @param RemoveMediaWorkflowLockRequest
    * @return RemoveMediaWorkflowLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaWorkflowLock.ts.html |here} to see how to use RemoveMediaWorkflowLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveMediaWorkflowLock.ts.html |here} to see how to use RemoveMediaWorkflowLock API.
    */
   public async removeMediaWorkflowLock(
     removeMediaWorkflowLockRequest: requests.RemoveMediaWorkflowLockRequest
@@ -4225,7 +4225,7 @@ export class MediaServicesClient {
    * @param RemoveStreamCdnConfigLockRequest
    * @return RemoveStreamCdnConfigLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveStreamCdnConfigLock.ts.html |here} to see how to use RemoveStreamCdnConfigLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveStreamCdnConfigLock.ts.html |here} to see how to use RemoveStreamCdnConfigLock API.
    */
   public async removeStreamCdnConfigLock(
     removeStreamCdnConfigLockRequest: requests.RemoveStreamCdnConfigLockRequest
@@ -4309,7 +4309,7 @@ export class MediaServicesClient {
    * @param RemoveStreamDistributionChannelLockRequest
    * @return RemoveStreamDistributionChannelLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveStreamDistributionChannelLock.ts.html |here} to see how to use RemoveStreamDistributionChannelLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveStreamDistributionChannelLock.ts.html |here} to see how to use RemoveStreamDistributionChannelLock API.
    */
   public async removeStreamDistributionChannelLock(
     removeStreamDistributionChannelLockRequest: requests.RemoveStreamDistributionChannelLockRequest
@@ -4396,7 +4396,7 @@ export class MediaServicesClient {
    * @param RemoveStreamPackagingConfigLockRequest
    * @return RemoveStreamPackagingConfigLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveStreamPackagingConfigLock.ts.html |here} to see how to use RemoveStreamPackagingConfigLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/RemoveStreamPackagingConfigLock.ts.html |here} to see how to use RemoveStreamPackagingConfigLock API.
    */
   public async removeStreamPackagingConfigLock(
     removeStreamPackagingConfigLockRequest: requests.RemoveStreamPackagingConfigLockRequest
@@ -4479,7 +4479,7 @@ export class MediaServicesClient {
    * @param UpdateMediaAssetRequest
    * @return UpdateMediaAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateMediaAsset.ts.html |here} to see how to use UpdateMediaAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateMediaAsset.ts.html |here} to see how to use UpdateMediaAsset API.
    */
   public async updateMediaAsset(
     updateMediaAssetRequest: requests.UpdateMediaAssetRequest
@@ -4562,7 +4562,7 @@ export class MediaServicesClient {
    * @param UpdateMediaWorkflowRequest
    * @return UpdateMediaWorkflowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateMediaWorkflow.ts.html |here} to see how to use UpdateMediaWorkflow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateMediaWorkflow.ts.html |here} to see how to use UpdateMediaWorkflow API.
    */
   public async updateMediaWorkflow(
     updateMediaWorkflowRequest: requests.UpdateMediaWorkflowRequest
@@ -4646,7 +4646,7 @@ export class MediaServicesClient {
    * @param UpdateMediaWorkflowConfigurationRequest
    * @return UpdateMediaWorkflowConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateMediaWorkflowConfiguration.ts.html |here} to see how to use UpdateMediaWorkflowConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateMediaWorkflowConfiguration.ts.html |here} to see how to use UpdateMediaWorkflowConfiguration API.
    */
   public async updateMediaWorkflowConfiguration(
     updateMediaWorkflowConfigurationRequest: requests.UpdateMediaWorkflowConfigurationRequest
@@ -4731,7 +4731,7 @@ export class MediaServicesClient {
    * @param UpdateMediaWorkflowJobRequest
    * @return UpdateMediaWorkflowJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateMediaWorkflowJob.ts.html |here} to see how to use UpdateMediaWorkflowJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateMediaWorkflowJob.ts.html |here} to see how to use UpdateMediaWorkflowJob API.
    */
   public async updateMediaWorkflowJob(
     updateMediaWorkflowJobRequest: requests.UpdateMediaWorkflowJobRequest
@@ -4815,7 +4815,7 @@ export class MediaServicesClient {
    * @param UpdateStreamCdnConfigRequest
    * @return UpdateStreamCdnConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateStreamCdnConfig.ts.html |here} to see how to use UpdateStreamCdnConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateStreamCdnConfig.ts.html |here} to see how to use UpdateStreamCdnConfig API.
    */
   public async updateStreamCdnConfig(
     updateStreamCdnConfigRequest: requests.UpdateStreamCdnConfigRequest
@@ -4899,7 +4899,7 @@ export class MediaServicesClient {
    * @param UpdateStreamDistributionChannelRequest
    * @return UpdateStreamDistributionChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateStreamDistributionChannel.ts.html |here} to see how to use UpdateStreamDistributionChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateStreamDistributionChannel.ts.html |here} to see how to use UpdateStreamDistributionChannel API.
    */
   public async updateStreamDistributionChannel(
     updateStreamDistributionChannelRequest: requests.UpdateStreamDistributionChannelRequest
@@ -4984,7 +4984,7 @@ export class MediaServicesClient {
    * @param UpdateStreamPackagingConfigRequest
    * @return UpdateStreamPackagingConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateStreamPackagingConfig.ts.html |here} to see how to use UpdateStreamPackagingConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/UpdateStreamPackagingConfig.ts.html |here} to see how to use UpdateStreamPackagingConfig API.
    */
   public async updateStreamPackagingConfig(
     updateStreamPackagingConfigRequest: requests.UpdateStreamPackagingConfigRequest
@@ -5253,7 +5253,7 @@ export class MediaStreamClient {
    * @param GeneratePlaylistRequest
    * @return GeneratePlaylistResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GeneratePlaylist.ts.html |here} to see how to use GeneratePlaylist API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GeneratePlaylist.ts.html |here} to see how to use GeneratePlaylist API.
    */
   public async generatePlaylist(
     generatePlaylistRequest: requests.GeneratePlaylistRequest
@@ -5330,7 +5330,7 @@ export class MediaStreamClient {
    * @param GenerateSessionTokenRequest
    * @return GenerateSessionTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GenerateSessionToken.ts.html |here} to see how to use GenerateSessionToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/GenerateSessionToken.ts.html |here} to see how to use GenerateSessionToken API.
    */
   public async generateSessionToken(
     generateSessionTokenRequest: requests.GenerateSessionTokenRequest

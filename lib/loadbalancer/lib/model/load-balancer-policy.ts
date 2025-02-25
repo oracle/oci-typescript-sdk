@@ -1,7 +1,7 @@
 /**
  * Load Balancing API
  * API for the Load Balancing service. Use this API to manage load balancers, backend sets, and related items. For more
-information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/balanceoverview.htm).
+information, see [Overview of Load Balancing](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).
 
  * OpenAPI spec version: 20170115
  * 
@@ -19,7 +19,7 @@ import common = require("oci-common");
 /**
  * A policy that determines how traffic is distributed among backend servers.
  * For more information on load balancing policies, see
- * [How Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/Balance/Reference/lbpolicies.htm).
+ * [How Load Balancing Policies Work](https://docs.oracle.com/iaas/Content/Balance/Reference/lbpolicies.htm).
  *
  */
 export interface LoadBalancerPolicy {

@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -25,12 +25,12 @@ import common = require("oci-common");
 * A logical subdivision of a VCN. Each subnet
 * consists of a contiguous range of IP addresses that do not overlap with
 * other subnets in the VCN. Example: 172.16.1.0/24. For more information, see
-* [Overview of the Networking Service](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm) and
-* [VCNs and Subnets](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingVCNs.htm).
+* [Overview of the Networking Service](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm) and
+* [VCNs and Subnets](https://docs.oracle.com/iaas/Content/Network/Tasks/managingVCNs.htm).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface Subnet {
@@ -50,19 +50,19 @@ Example: {@code 10.0.1.0/24}
     */
   "cidrBlock": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the subnet.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the subnet.
    */
   "compartmentId": string;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the set of DHCP options that the subnet uses.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the set of DHCP options that the subnet uses.
    *
    */
   "dhcpOptionsId"?: string;
@@ -83,7 +83,7 @@ The absence of this parameter means the Internet and VCN Resolver
 * will not resolve hostnames of instances in this subnet.
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 Example: {@code subnet123}
 * 
@@ -91,19 +91,19 @@ Example: {@code subnet123}
   "dnsLabel"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The subnet's Oracle ID ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
+   * The subnet's Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
    */
   "id": string;
   /**
     * For an IPv6-enabled subnet, this is the IPv6 prefix for the subnet's IP address space.
-* The subnet size is always /64. See [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+* The subnet size is always /64. See [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: {@code 2001:0db8:0123:1111::/64}
 * 
@@ -158,7 +158,7 @@ Example: {@code true}
     */
   "prohibitPublicIpOnVnic"?: boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table that the subnet uses.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table that the subnet uses.
    */
   "routeTableId": string;
   /**
@@ -173,7 +173,7 @@ Example: {@code true}
 * the VCN's DNS label, and the {@code oraclevcn.com} domain.
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 Example: {@code subnet123.vcn1.oraclevcn.com}
 * 
@@ -187,7 +187,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeCreated"?: Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the subnet is in.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the subnet is in.
    */
   "vcnId": string;
   /**

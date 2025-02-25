@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCpeDeviceShape.ts.html |here} to see how to use GetCpeDeviceShapeRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCpeDeviceShape.ts.html |here} to see how to use GetCpeDeviceShapeRequest.
  */
 export interface GetCpeDeviceShapeRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the CPE device shape.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the CPE device shape.
    */
   "cpeDeviceShapeId": string;
   /**

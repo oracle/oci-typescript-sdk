@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateVirtualNodePool.ts.html |here} to see how to use UpdateVirtualNodePoolRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateVirtualNodePool.ts.html |here} to see how to use UpdateVirtualNodePoolRequest.
  */
 export interface UpdateVirtualNodePoolRequest extends common.BaseRequest {
   /**

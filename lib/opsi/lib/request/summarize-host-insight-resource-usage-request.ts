@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUsage.ts.html |here} to see how to use SummarizeHostInsightResourceUsageRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUsage.ts.html |here} to see how to use SummarizeHostInsightResourceUsageRequest.
  */
 export interface SummarizeHostInsightResourceUsageRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
@@ -62,19 +62,19 @@ export interface SummarizeHostInsightResourceUsageRequest extends common.BaseReq
    */
   "platformType"?: Array<SummarizeHostInsightResourceUsageRequest.PlatformType>;
   /**
-   * Optional list of host insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Optional list of host insight resource [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "id"?: Array<string>;
   /**
-   * Optional list of exadata insight resource [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Optional list of exadata insight resource [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "exadataInsightId"?: Array<string>;
   /**
    * For list pagination. The value of the {@code opc-next-page} response header from
    * the previous \"List\" call. For important details about how pagination works,
-   * see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
+   * see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
@@ -134,7 +134,7 @@ export interface SummarizeHostInsightResourceUsageRequest extends common.BaseReq
    */
   "hostType"?: Array<string>;
   /**
-   * Optional [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host (Compute Id)
+   * Optional [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host (Compute Id)
    *
    */
   "hostId"?: string;

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface RequestSummarizedJavaDownloadCountsDetails {
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) here should be the tenancy OCID.
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) here should be the tenancy OCID.
    *
    */
   "compartmentId": string;

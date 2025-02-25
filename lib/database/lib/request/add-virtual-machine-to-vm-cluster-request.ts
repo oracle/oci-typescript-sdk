@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddVirtualMachineToVmCluster.ts.html |here} to see how to use AddVirtualMachineToVmClusterRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddVirtualMachineToVmCluster.ts.html |here} to see how to use AddVirtualMachineToVmClusterRequest.
  */
 export interface AddVirtualMachineToVmClusterRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface AddVirtualMachineToVmClusterRequest extends common.BaseRequest 
    */
   "addVirtualMachineToVmClusterDetails": model.AddVirtualMachineToVmClusterDetails;
   /**
-   * The VM cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The VM cluster [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "vmClusterId": string;
   /**

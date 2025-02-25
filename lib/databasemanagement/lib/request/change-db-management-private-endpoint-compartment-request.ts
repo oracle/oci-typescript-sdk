@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeDbManagementPrivateEndpointCompartment.ts.html |here} to see how to use ChangeDbManagementPrivateEndpointCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeDbManagementPrivateEndpointCompartment.ts.html |here} to see how to use ChangeDbManagementPrivateEndpointCompartmentRequest.
  */
 export interface ChangeDbManagementPrivateEndpointCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Database Management private endpoint.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Management private endpoint.
    */
   "dbManagementPrivateEndpointId": string;
   /**

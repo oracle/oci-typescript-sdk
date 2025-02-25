@@ -1,7 +1,7 @@
 /**
  * PGSQL Control Plane API
  * Use the OCI Database with PostgreSQL API to manage resources such as database systems, database nodes, backups, and configurations. 
-For information, see the user guide documentation for the [service](/iaas/Content/postgresql/home.htm).
+For information, see the user guide documentation for the [service](https://docs.oracle.com/iaas/Content/postgresql/home.htm).
 
  * OpenAPI spec version: 20220915
  * 
@@ -29,7 +29,7 @@ export interface BackupSummary {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the backup.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the backup.
    */
   "compartmentId": string;
   /**
@@ -65,7 +65,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "backupSize"?: number;
   /**
-   * The backup's source database system's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The backup's source database system's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "dbSystemId"?: string;
   /**

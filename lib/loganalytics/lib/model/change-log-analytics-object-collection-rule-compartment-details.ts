@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ChangeLogAnalyticsObjectCollectionRuleCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to which the rule have to be moved.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to which the rule have to be moved.
    *
    */
   "compartmentId": string;

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeDatabaseToolsPrivateEndpointCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to move the {@code DatabaseConnectionProfile} to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the {@code DatabaseConnectionProfile} to.
    */
   "compartmentId": string;
 }

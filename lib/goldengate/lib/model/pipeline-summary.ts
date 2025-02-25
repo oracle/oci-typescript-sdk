@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface PipelineSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the pipeline. This option applies when retrieving a pipeline.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the pipeline. This option applies when retrieving a pipeline.
    *
    */
   "id": string;
@@ -36,7 +36,7 @@ export interface PipelineSummary {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
    *
    */
   "compartmentId": string;
@@ -75,7 +75,7 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
   /**
     * The system tags associated with this resource, if any. The system tags are set by Oracle
 * Cloud Infrastructure services. Each key is predefined and scoped to namespaces.  For more
-* information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {orcl-cloud: {free-tier-retain: true}}}
 * 

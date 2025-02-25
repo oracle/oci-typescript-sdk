@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -24,7 +24,7 @@ import common = require("oci-common");
 /**
  * Request to update a multi-encryption domain policy on the IPSec tunnel.
  * There can't be more than 50 security associations in use at one time. See [Encryption domain for policy-based
- * tunnels](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/ipsecencryptiondomains.htm#spi_policy_based_tunnel) for more.
+ * tunnels](https://docs.oracle.com/iaas/Content/Network/Tasks/ipsecencryptiondomains.htm#spi_policy_based_tunnel) for more.
  *
  */
 export interface UpdateIPSecTunnelEncryptionDomainDetails {

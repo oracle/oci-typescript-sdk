@@ -45,7 +45,7 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
    */
   "password"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
    * The password Oracle GoldenGate uses to connect the associated system of the given technology.
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
    * If secretId is used plaintext field must not be provided.
@@ -60,7 +60,7 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
    */
   "trustStore"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the TrustStore file.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the TrustStore file.
    * Note: When provided, 'trustStore' field must not be provided.
    *
    */
@@ -72,7 +72,7 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
    */
   "trustStorePassword"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the kafka Ssl TrustStore password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the kafka Ssl TrustStore password is stored.
    * Note: When provided, 'trustStorePassword' field must not be provided.
    *
    */
@@ -84,7 +84,7 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
    */
   "keyStore"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the KeyStore file.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the KeyStore file.
    * Note: When provided, 'keyStore' field must not be provided.
    *
    */
@@ -96,7 +96,7 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
    */
   "keyStorePassword"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the kafka Ssl KeyStore password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the kafka Ssl KeyStore password is stored.
    * Note: When provided, 'keyStorePassword' field must not be provided.
    *
    */
@@ -109,7 +109,7 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
    */
   "sslKeyPassword"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the password for the cert inside the KeyStore.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret that stores the password for the cert inside the KeyStore.
    * In case it differs from the KeyStore password, it should be provided.
    * Note: When provided, 'sslKeyPassword' field must not be provided.
    *

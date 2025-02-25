@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DatabaseToolsEndpointService {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Database Tools Endpoint Service.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Tools Endpoint Service.
    */
   "id": string;
   /**
@@ -31,7 +31,7 @@ export interface DatabaseToolsEndpointService {
    */
   "name"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the Database Tools Endpoint Service.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the Database Tools Endpoint Service.
    */
   "compartmentId"?: string;
   /**

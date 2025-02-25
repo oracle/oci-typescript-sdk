@@ -1,7 +1,7 @@
 /**
  * Notifications API
  * Use the Notifications API to broadcast messages to distributed components by topic, using a publish-subscribe pattern.
-For information about managing topics, subscriptions, and messages, see [Notifications Overview](/iaas/Content/Notification/Concepts/notificationoverview.htm).
+For information about managing topics, subscriptions, and messages, see [Notifications Overview](https://docs.oracle.com/iaas/Content/Notification/Concepts/notificationoverview.htm).
 
  * OpenAPI spec version: 20181201
  * 

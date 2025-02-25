@@ -3,7 +3,7 @@
  * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
 Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
+[the Resource Manager documentation](https://docs.oracle.com/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -253,7 +253,7 @@ export class ResourceManagerClient {
    * @param CancelJobRequest
    * @return CancelJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CancelJob.ts.html |here} to see how to use CancelJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CancelJob.ts.html |here} to see how to use CancelJob API.
    */
   public async cancelJob(
     cancelJobRequest: requests.CancelJobRequest
@@ -320,13 +320,13 @@ export class ResourceManagerClient {
   /**
    * Moves a configuration source provider into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeConfigurationSourceProviderCompartmentRequest
    * @return ChangeConfigurationSourceProviderCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ChangeConfigurationSourceProviderCompartment.ts.html |here} to see how to use ChangeConfigurationSourceProviderCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ChangeConfigurationSourceProviderCompartment.ts.html |here} to see how to use ChangeConfigurationSourceProviderCompartment API.
    */
   public async changeConfigurationSourceProviderCompartment(
     changeConfigurationSourceProviderCompartmentRequest: requests.ChangeConfigurationSourceProviderCompartmentRequest
@@ -402,13 +402,13 @@ export class ResourceManagerClient {
   /**
    * Moves a private endpoint to a different compartment within the same tenancy.
    * For information about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangePrivateEndpointCompartmentRequest
    * @return ChangePrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ChangePrivateEndpointCompartment.ts.html |here} to see how to use ChangePrivateEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ChangePrivateEndpointCompartment.ts.html |here} to see how to use ChangePrivateEndpointCompartment API.
    */
   public async changePrivateEndpointCompartment(
     changePrivateEndpointCompartmentRequest: requests.ChangePrivateEndpointCompartmentRequest
@@ -482,13 +482,13 @@ export class ResourceManagerClient {
   /**
    * Moves a stack (and its associated jobs) into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeStackCompartmentRequest
    * @return ChangeStackCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ChangeStackCompartment.ts.html |here} to see how to use ChangeStackCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ChangeStackCompartment.ts.html |here} to see how to use ChangeStackCompartment API.
    */
   public async changeStackCompartment(
     changeStackCompartmentRequest: requests.ChangeStackCompartmentRequest
@@ -565,13 +565,13 @@ export class ResourceManagerClient {
   /**
    * Moves a template into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeTemplateCompartmentRequest
    * @return ChangeTemplateCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ChangeTemplateCompartment.ts.html |here} to see how to use ChangeTemplateCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ChangeTemplateCompartment.ts.html |here} to see how to use ChangeTemplateCompartment API.
    */
   public async changeTemplateCompartment(
     changeTemplateCompartmentRequest: requests.ChangeTemplateCompartmentRequest
@@ -643,13 +643,13 @@ export class ResourceManagerClient {
   /**
    * Creates a configuration source provider in the specified compartment.
    * For more information, see
-   * [To create a configuration source provider](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingconfigurationsourceproviders.htm#CreateConfigurationSourceProvider).
+   * [To create a configuration source provider](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/managingconfigurationsourceproviders.htm#CreateConfigurationSourceProvider).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateConfigurationSourceProviderRequest
    * @return CreateConfigurationSourceProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreateConfigurationSourceProvider.ts.html |here} to see how to use CreateConfigurationSourceProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreateConfigurationSourceProvider.ts.html |here} to see how to use CreateConfigurationSourceProvider API.
    */
   public async createConfigurationSourceProvider(
     createConfigurationSourceProviderRequest: requests.CreateConfigurationSourceProviderRequest
@@ -732,7 +732,7 @@ export class ResourceManagerClient {
    * @param CreateJobRequest
    * @return CreateJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreateJob.ts.html |here} to see how to use CreateJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreateJob.ts.html |here} to see how to use CreateJob API.
    */
   public async createJob(
     createJobRequest: requests.CreateJobRequest
@@ -813,7 +813,7 @@ export class ResourceManagerClient {
    * @param CreatePrivateEndpointRequest
    * @return CreatePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreatePrivateEndpoint.ts.html |here} to see how to use CreatePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreatePrivateEndpoint.ts.html |here} to see how to use CreatePrivateEndpoint API.
    */
   public async createPrivateEndpoint(
     createPrivateEndpointRequest: requests.CreatePrivateEndpointRequest
@@ -895,13 +895,13 @@ export class ResourceManagerClient {
    * You can also create a stack from an existing compartment, which generates a Terraform configuration.
    * You can also upload the Terraform configuration from an Object Storage bucket.
    * For more information, see
-   * [Creating Stacks](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/create-stack.htm).
+   * [Creating Stacks](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/create-stack.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateStackRequest
    * @return CreateStackResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreateStack.ts.html |here} to see how to use CreateStack API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreateStack.ts.html |here} to see how to use CreateStack API.
    */
   public async createStack(
     createStackRequest: requests.CreateStackRequest
@@ -987,7 +987,7 @@ export class ResourceManagerClient {
    * @param CreateTemplateRequest
    * @return CreateTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreateTemplate.ts.html |here} to see how to use CreateTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreateTemplate.ts.html |here} to see how to use CreateTemplate API.
    */
   public async createTemplate(
     createTemplateRequest: requests.CreateTemplateRequest
@@ -1067,7 +1067,7 @@ export class ResourceManagerClient {
    * @param DeleteConfigurationSourceProviderRequest
    * @return DeleteConfigurationSourceProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DeleteConfigurationSourceProvider.ts.html |here} to see how to use DeleteConfigurationSourceProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DeleteConfigurationSourceProvider.ts.html |here} to see how to use DeleteConfigurationSourceProvider API.
    */
   public async deleteConfigurationSourceProvider(
     deleteConfigurationSourceProviderRequest: requests.DeleteConfigurationSourceProviderRequest
@@ -1139,7 +1139,7 @@ export class ResourceManagerClient {
    * @param DeletePrivateEndpointRequest
    * @return DeletePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DeletePrivateEndpoint.ts.html |here} to see how to use DeletePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DeletePrivateEndpoint.ts.html |here} to see how to use DeletePrivateEndpoint API.
    */
   public async deletePrivateEndpoint(
     deletePrivateEndpointRequest: requests.DeletePrivateEndpointRequest
@@ -1208,7 +1208,7 @@ export class ResourceManagerClient {
    * @param DeleteStackRequest
    * @return DeleteStackResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DeleteStack.ts.html |here} to see how to use DeleteStack API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DeleteStack.ts.html |here} to see how to use DeleteStack API.
    */
   public async deleteStack(
     deleteStackRequest: requests.DeleteStackRequest
@@ -1276,7 +1276,7 @@ export class ResourceManagerClient {
    * @param DeleteTemplateRequest
    * @return DeleteTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DeleteTemplate.ts.html |here} to see how to use DeleteTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DeleteTemplate.ts.html |here} to see how to use DeleteTemplate API.
    */
   public async deleteTemplate(
     deleteTemplateRequest: requests.DeleteTemplateRequest
@@ -1344,7 +1344,7 @@ export class ResourceManagerClient {
    * @param DetectStackDriftRequest
    * @return DetectStackDriftResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DetectStackDrift.ts.html |here} to see how to use DetectStackDrift API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DetectStackDrift.ts.html |here} to see how to use DetectStackDrift API.
    */
   public async detectStackDrift(
     detectStackDriftRequest: requests.DetectStackDriftRequest
@@ -1423,7 +1423,7 @@ export class ResourceManagerClient {
    * @param GetConfigurationSourceProviderRequest
    * @return GetConfigurationSourceProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetConfigurationSourceProvider.ts.html |here} to see how to use GetConfigurationSourceProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetConfigurationSourceProvider.ts.html |here} to see how to use GetConfigurationSourceProvider API.
    */
   public async getConfigurationSourceProvider(
     getConfigurationSourceProviderRequest: requests.GetConfigurationSourceProviderRequest
@@ -1501,7 +1501,7 @@ export class ResourceManagerClient {
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJob.ts.html |here} to see how to use GetJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJob.ts.html |here} to see how to use GetJob API.
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJob.");
@@ -1576,7 +1576,7 @@ export class ResourceManagerClient {
    * @param GetJobDetailedLogContentRequest
    * @return GetJobDetailedLogContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobDetailedLogContent.ts.html |here} to see how to use GetJobDetailedLogContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobDetailedLogContent.ts.html |here} to see how to use GetJobDetailedLogContent API.
    */
   public async getJobDetailedLogContent(
     getJobDetailedLogContentRequest: requests.GetJobDetailedLogContentRequest
@@ -1649,7 +1649,7 @@ export class ResourceManagerClient {
    * @param GetJobLogsRequest
    * @return GetJobLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobLogs.ts.html |here} to see how to use GetJobLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobLogs.ts.html |here} to see how to use GetJobLogs API.
    */
   public async getJobLogs(
     getJobLogsRequest: requests.GetJobLogsRequest
@@ -1785,7 +1785,7 @@ export class ResourceManagerClient {
    * @param GetJobLogsContentRequest
    * @return GetJobLogsContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobLogsContent.ts.html |here} to see how to use GetJobLogsContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobLogsContent.ts.html |here} to see how to use GetJobLogsContent API.
    */
   public async getJobLogsContent(
     getJobLogsContentRequest: requests.GetJobLogsContentRequest
@@ -1859,7 +1859,7 @@ export class ResourceManagerClient {
    * @param GetJobTfConfigRequest
    * @return GetJobTfConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobTfConfig.ts.html |here} to see how to use GetJobTfConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobTfConfig.ts.html |here} to see how to use GetJobTfConfig API.
    */
   public async getJobTfConfig(
     getJobTfConfigRequest: requests.GetJobTfConfigRequest
@@ -1927,13 +1927,13 @@ export class ResourceManagerClient {
   /**
    * Returns the output of the specified Terraform plan job in binary or JSON format.
    * For information about running Terraform plan jobs, see
-   * [Creating Plan Jobs](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/create-job.htm).
+   * [Creating Plan Jobs](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/create-job.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobTfPlanRequest
    * @return GetJobTfPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobTfPlan.ts.html |here} to see how to use GetJobTfPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobTfPlan.ts.html |here} to see how to use GetJobTfPlan API.
    */
   public async getJobTfPlan(
     getJobTfPlanRequest: requests.GetJobTfPlanRequest
@@ -2006,7 +2006,7 @@ export class ResourceManagerClient {
    * @param GetJobTfStateRequest
    * @return GetJobTfStateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobTfState.ts.html |here} to see how to use GetJobTfState API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobTfState.ts.html |here} to see how to use GetJobTfState API.
    */
   public async getJobTfState(
     getJobTfStateRequest: requests.GetJobTfStateRequest
@@ -2077,7 +2077,7 @@ export class ResourceManagerClient {
    * @param GetPrivateEndpointRequest
    * @return GetPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetPrivateEndpoint.ts.html |here} to see how to use GetPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetPrivateEndpoint.ts.html |here} to see how to use GetPrivateEndpoint API.
    */
   public async getPrivateEndpoint(
     getPrivateEndpointRequest: requests.GetPrivateEndpointRequest
@@ -2156,7 +2156,7 @@ export class ResourceManagerClient {
    * @param GetReachableIpRequest
    * @return GetReachableIpResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetReachableIp.ts.html |here} to see how to use GetReachableIp API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetReachableIp.ts.html |here} to see how to use GetReachableIp API.
    */
   public async getReachableIp(
     getReachableIpRequest: requests.GetReachableIpRequest
@@ -2230,7 +2230,7 @@ export class ResourceManagerClient {
    * @param GetStackRequest
    * @return GetStackResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetStack.ts.html |here} to see how to use GetStack API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetStack.ts.html |here} to see how to use GetStack API.
    */
   public async getStack(
     getStackRequest: requests.GetStackRequest
@@ -2308,7 +2308,7 @@ export class ResourceManagerClient {
    * @param GetStackTfConfigRequest
    * @return GetStackTfConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetStackTfConfig.ts.html |here} to see how to use GetStackTfConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetStackTfConfig.ts.html |here} to see how to use GetStackTfConfig API.
    */
   public async getStackTfConfig(
     getStackTfConfigRequest: requests.GetStackTfConfigRequest
@@ -2379,7 +2379,7 @@ export class ResourceManagerClient {
    * @param GetStackTfStateRequest
    * @return GetStackTfStateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetStackTfState.ts.html |here} to see how to use GetStackTfState API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetStackTfState.ts.html |here} to see how to use GetStackTfState API.
    */
   public async getStackTfState(
     getStackTfStateRequest: requests.GetStackTfStateRequest
@@ -2450,7 +2450,7 @@ export class ResourceManagerClient {
    * @param GetTemplateRequest
    * @return GetTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetTemplate.ts.html |here} to see how to use GetTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetTemplate.ts.html |here} to see how to use GetTemplate API.
    */
   public async getTemplate(
     getTemplateRequest: requests.GetTemplateRequest
@@ -2528,7 +2528,7 @@ export class ResourceManagerClient {
    * @param GetTemplateLogoRequest
    * @return GetTemplateLogoResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetTemplateLogo.ts.html |here} to see how to use GetTemplateLogo API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetTemplateLogo.ts.html |here} to see how to use GetTemplateLogo API.
    */
   public async getTemplateLogo(
     getTemplateLogoRequest: requests.GetTemplateLogoRequest
@@ -2601,7 +2601,7 @@ export class ResourceManagerClient {
    * @param GetTemplateTfConfigRequest
    * @return GetTemplateTfConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetTemplateTfConfig.ts.html |here} to see how to use GetTemplateTfConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetTemplateTfConfig.ts.html |here} to see how to use GetTemplateTfConfig API.
    */
   public async getTemplateTfConfig(
     getTemplateTfConfigRequest: requests.GetTemplateTfConfigRequest
@@ -2673,7 +2673,7 @@ export class ResourceManagerClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2747,7 +2747,7 @@ export class ResourceManagerClient {
    * @param ListConfigurationSourceProvidersRequest
    * @return ListConfigurationSourceProvidersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListConfigurationSourceProviders.ts.html |here} to see how to use ListConfigurationSourceProviders API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListConfigurationSourceProviders.ts.html |here} to see how to use ListConfigurationSourceProviders API.
    */
   public async listConfigurationSourceProviders(
     listConfigurationSourceProvidersRequest: requests.ListConfigurationSourceProvidersRequest
@@ -2834,7 +2834,7 @@ export class ResourceManagerClient {
    * @param ListJobAssociatedResourcesRequest
    * @return ListJobAssociatedResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListJobAssociatedResources.ts.html |here} to see how to use ListJobAssociatedResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListJobAssociatedResources.ts.html |here} to see how to use ListJobAssociatedResources API.
    */
   public async listJobAssociatedResources(
     listJobAssociatedResourcesRequest: requests.ListJobAssociatedResourcesRequest
@@ -2916,7 +2916,7 @@ export class ResourceManagerClient {
    * @param ListJobOutputsRequest
    * @return ListJobOutputsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListJobOutputs.ts.html |here} to see how to use ListJobOutputs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListJobOutputs.ts.html |here} to see how to use ListJobOutputs API.
    */
   public async listJobOutputs(
     listJobOutputsRequest: requests.ListJobOutputsRequest
@@ -2993,15 +2993,15 @@ export class ResourceManagerClient {
   /**
      * Lists jobs according to the specified filter. By default, the list is ordered by time created.
 * <p>
-- To list all jobs in a stack, provide the stack [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
-* - To list all jobs in a compartment, provide the compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
-* - To return a specific job, provide the job [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). (Equivalent to {@link #getStack(GetStackRequest) getStack}.)
+- To list all jobs in a stack, provide the stack [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* - To list all jobs in a compartment, provide the compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* - To return a specific job, provide the job [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). (Equivalent to {@link #getStack(GetStackRequest) getStack}.)
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListJobsRequest
      * @return ListJobsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListJobs.ts.html |here} to see how to use ListJobs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListJobs.ts.html |here} to see how to use ListJobs API.
      */
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
@@ -3138,7 +3138,7 @@ export class ResourceManagerClient {
    * @param ListPrivateEndpointsRequest
    * @return ListPrivateEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListPrivateEndpoints.ts.html |here} to see how to use ListPrivateEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListPrivateEndpoints.ts.html |here} to see how to use ListPrivateEndpoints API.
    */
   public async listPrivateEndpoints(
     listPrivateEndpointsRequest: requests.ListPrivateEndpointsRequest
@@ -3217,14 +3217,14 @@ export class ResourceManagerClient {
   }
 
   /**
-   * Returns a list of supported services for [Resource Discovery](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resource-discovery.htm).
+   * Returns a list of supported services for [Resource Discovery](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resource-discovery.htm).
    * For reference on service names, see the [Terraform provider documentation](https://www.terraform.io/docs/providers/oci/guides/resource_discovery.html#services).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListResourceDiscoveryServicesRequest
    * @return ListResourceDiscoveryServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListResourceDiscoveryServices.ts.html |here} to see how to use ListResourceDiscoveryServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListResourceDiscoveryServices.ts.html |here} to see how to use ListResourceDiscoveryServices API.
    */
   public async listResourceDiscoveryServices(
     listResourceDiscoveryServicesRequest: requests.ListResourceDiscoveryServicesRequest
@@ -3296,7 +3296,7 @@ export class ResourceManagerClient {
    * @param ListStackAssociatedResourcesRequest
    * @return ListStackAssociatedResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListStackAssociatedResources.ts.html |here} to see how to use ListStackAssociatedResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListStackAssociatedResources.ts.html |here} to see how to use ListStackAssociatedResources API.
    */
   public async listStackAssociatedResources(
     listStackAssociatedResourcesRequest: requests.ListStackAssociatedResourcesRequest
@@ -3383,7 +3383,7 @@ export class ResourceManagerClient {
    * @param ListStackResourceDriftDetailsRequest
    * @return ListStackResourceDriftDetailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListStackResourceDriftDetails.ts.html |here} to see how to use ListStackResourceDriftDetails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListStackResourceDriftDetails.ts.html |here} to see how to use ListStackResourceDriftDetails API.
    */
   public async listStackResourceDriftDetails(
     listStackResourceDriftDetailsRequest: requests.ListStackResourceDriftDetailsRequest
@@ -3468,7 +3468,7 @@ export class ResourceManagerClient {
    * @param ListStacksRequest
    * @return ListStacksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListStacks.ts.html |here} to see how to use ListStacks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListStacks.ts.html |here} to see how to use ListStacks API.
    */
   public async listStacks(
     listStacksRequest: requests.ListStacksRequest
@@ -3604,7 +3604,7 @@ export class ResourceManagerClient {
    * @param ListTemplateCategoriesRequest
    * @return ListTemplateCategoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListTemplateCategories.ts.html |here} to see how to use ListTemplateCategories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListTemplateCategories.ts.html |here} to see how to use ListTemplateCategories API.
    */
   public async listTemplateCategories(
     listTemplateCategoriesRequest: requests.ListTemplateCategoriesRequest
@@ -3676,7 +3676,7 @@ export class ResourceManagerClient {
    * @param ListTemplatesRequest
    * @return ListTemplatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListTemplates.ts.html |here} to see how to use ListTemplates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListTemplates.ts.html |here} to see how to use ListTemplates API.
    */
   public async listTemplates(
     listTemplatesRequest: requests.ListTemplatesRequest
@@ -3760,7 +3760,7 @@ export class ResourceManagerClient {
    * @param ListTerraformVersionsRequest
    * @return ListTerraformVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListTerraformVersions.ts.html |here} to see how to use ListTerraformVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListTerraformVersions.ts.html |here} to see how to use ListTerraformVersions API.
    */
   public async listTerraformVersions(
     listTerraformVersionsRequest: requests.ListTerraformVersionsRequest
@@ -3833,7 +3833,7 @@ export class ResourceManagerClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -3968,7 +3968,7 @@ export class ResourceManagerClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -4103,7 +4103,7 @@ export class ResourceManagerClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -4231,13 +4231,13 @@ export class ResourceManagerClient {
   /**
    * Updates the properties of the specified configuration source provider.
    * For more information, see
-   * [To edit a configuration source provider](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingconfigurationsourceproviders.htm#EditConfigurationSourceProvider).
+   * [To edit a configuration source provider](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/managingconfigurationsourceproviders.htm#EditConfigurationSourceProvider).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateConfigurationSourceProviderRequest
    * @return UpdateConfigurationSourceProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdateConfigurationSourceProvider.ts.html |here} to see how to use UpdateConfigurationSourceProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdateConfigurationSourceProvider.ts.html |here} to see how to use UpdateConfigurationSourceProvider API.
    */
   public async updateConfigurationSourceProvider(
     updateConfigurationSourceProviderRequest: requests.UpdateConfigurationSourceProviderRequest
@@ -4323,7 +4323,7 @@ export class ResourceManagerClient {
    * @param UpdateJobRequest
    * @return UpdateJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdateJob.ts.html |here} to see how to use UpdateJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdateJob.ts.html |here} to see how to use UpdateJob API.
    */
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
@@ -4405,7 +4405,7 @@ export class ResourceManagerClient {
    * @param UpdatePrivateEndpointRequest
    * @return UpdatePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdatePrivateEndpoint.ts.html |here} to see how to use UpdatePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdatePrivateEndpoint.ts.html |here} to see how to use UpdatePrivateEndpoint API.
    */
   public async updatePrivateEndpoint(
     updatePrivateEndpointRequest: requests.UpdatePrivateEndpointRequest
@@ -4487,13 +4487,13 @@ export class ResourceManagerClient {
    * Use `UpdateStack` when you update your Terraform configuration
    * and want your changes to be reflected in the execution plan.
    * For more information, see
-   * [Updating Stacks](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/update-stack.htm).
+   * [Updating Stacks](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/update-stack.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateStackRequest
    * @return UpdateStackResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdateStack.ts.html |here} to see how to use UpdateStack API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdateStack.ts.html |here} to see how to use UpdateStack API.
    */
   public async updateStack(
     updateStackRequest: requests.UpdateStackRequest
@@ -4576,7 +4576,7 @@ export class ResourceManagerClient {
    * @param UpdateTemplateRequest
    * @return UpdateTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdateTemplate.ts.html |here} to see how to use UpdateTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdateTemplate.ts.html |here} to see how to use UpdateTemplate API.
    */
   public async updateTemplate(
     updateTemplateRequest: requests.UpdateTemplateRequest

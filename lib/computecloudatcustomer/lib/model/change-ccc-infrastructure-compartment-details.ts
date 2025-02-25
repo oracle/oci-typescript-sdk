@@ -1,7 +1,7 @@
 /**
  * Compute Cloud@Customer API
  * Use the Compute Cloud@Customer API to manage Compute Cloud@Customer infrastructures and upgrade schedules.
-For more information see [Compute Cloud@Customer documentation](/iaas/compute-cloud-at-customer/home.htm).
+For more information see [Compute Cloud@Customer documentation](https://docs.oracle.com/iaas/compute-cloud-at-customer/home.htm).
 
  * OpenAPI spec version: 20221208
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ChangeCccInfrastructureCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
    * into which the resource should be moved.
    *
    */

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetNamespace.ts.html |here} to see how to use GetNamespaceRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetNamespace.ts.html |here} to see how to use GetNamespaceRequest.
  */
 export interface GetNamespaceRequest extends common.BaseRequest {
   /**
@@ -23,8 +23,8 @@ export interface GetNamespaceRequest extends common.BaseRequest {
    */
   "opcClientRequestId"?: string;
   /**
-   * This is an optional field representing either the tenancy [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) or the compartment
-   * [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) within the tenancy whose Object Storage namespace is to be retrieved.
+   * This is an optional field representing either the tenancy [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) or the compartment
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) within the tenancy whose Object Storage namespace is to be retrieved.
    *
    */
   "compartmentId"?: string;

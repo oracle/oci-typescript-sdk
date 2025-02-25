@@ -32,7 +32,7 @@ export interface ListRetentionRulesResponse {
 * the {@code page} parameter in a subsequent GET request to get the next set of retention rules.
 * Repeat this process to retrieve the entire list of retention rules.
 * <p>
-For more details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+For more details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * 
      */
   "opcNextPage": string;

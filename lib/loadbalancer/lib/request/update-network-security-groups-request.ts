@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateNetworkSecurityGroups.ts.html |here} to see how to use UpdateNetworkSecurityGroupsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateNetworkSecurityGroups.ts.html |here} to see how to use UpdateNetworkSecurityGroupsRequest.
  */
 export interface UpdateNetworkSecurityGroupsRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface UpdateNetworkSecurityGroupsRequest extends common.BaseRequest {
    */
   "updateNetworkSecurityGroupsDetails": model.UpdateNetworkSecurityGroupsDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the load balancer to update the NSGs for.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the load balancer to update the NSGs for.
    */
   "loadBalancerId": string;
   /**

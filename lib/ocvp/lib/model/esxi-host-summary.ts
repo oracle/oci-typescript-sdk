@@ -1,7 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
  * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
-For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+For more information, see [Oracle Cloud VMware Solution](https://docs.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20230701
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface EsxiHostSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ESXi host.
    *
    */
   "id": string;
@@ -32,19 +32,19 @@ export interface EsxiHostSummary {
    */
   "displayName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the SDDC that the
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the SDDC that the
    * ESXi host belongs to.
    *
    */
   "sddcId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Cluster that the
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cluster that the
    * ESXi host belongs to.
    *
    */
   "clusterId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that
    * contains the Cluster.
    *
    */
@@ -52,7 +52,7 @@ export interface EsxiHostSummary {
   /**
    * In terms of implementation, an ESXi host is a Compute instance that
    * is configured with the chosen bundle of VMware software. The {@code computeInstanceId}
-   * is the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of that Compute instance.
+   * is the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of that Compute instance.
    *
    */
   "computeInstanceId"?: string;
@@ -95,12 +95,12 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "billingContractEndDate": Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that failed.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ESXi host that failed.
    *
    */
   "failedEsxiHostId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ESXi host that
    * is newly created to replace the failed host.
    *
    */
@@ -118,13 +118,13 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "vmwareSoftwareVersion": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ESXi host that
    * will be upgraded.
    *
    */
   "nonUpgradedEsxiHostId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ESXi host that
    * is newly created to upgrade the original host.
    *
    */
@@ -146,12 +146,12 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "hostOcpuCount"?: number;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the deleted ESXi Host with LeftOver billing cycle.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the deleted ESXi Host with LeftOver billing cycle.
    *
    */
   "billingDonorHostId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the active ESXi Host to swap billing with current host.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the active ESXi Host to swap billing with current host.
    *
    */
   "swapBillingHostId"?: string;
@@ -167,7 +167,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   "isBillingSwappingInProgress"?: boolean;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -175,7 +175,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags": { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

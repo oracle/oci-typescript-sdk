@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListDkims.ts.html |here} to see how to use ListDkimsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListDkims.ts.html |here} to see how to use ListDkimsRequest.
  */
 export interface ListDkimsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the email domain to which this DKIM belongs.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the email domain to which this DKIM belongs.
    *
    */
   "emailDomainId": string;
@@ -40,14 +40,14 @@ export interface ListDkimsRequest extends common.BaseRequest {
   /**
    * For list pagination. The maximum number of results per page, or items to return in a
    * paginated \"List\" call. {@code 1} is the minimum, {@code 1000} is the maximum. For important details about
-   * how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
    * For list pagination. The value of the opc-next-page response header from the previous \"List\" call.
    * For important details about how pagination works,
-   * see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

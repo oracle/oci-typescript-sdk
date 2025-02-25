@@ -1,6 +1,6 @@
 /**
  * License Manager API
- * Use the License Manager API to manage product licenses and license records. For more information, see [License Manager Overview](/iaas/Content/LicenseManager/Concepts/licensemanageroverview.htm).
+ * Use the License Manager API to manage product licenses and license records. For more information, see [License Manager Overview](https://docs.oracle.com/iaas/Content/LicenseManager/Concepts/licensemanageroverview.htm).
  * OpenAPI spec version: 20220430
  *
  *
@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface LicenseRecordSummary {
   /**
-   * The license record [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The license record [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "id": string;
   /**
-   * The product license [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) with which the license record is associated.
+   * The product license [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) with which the license record is associated.
    */
   "productLicenseId"?: string;
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) where the license record is created.
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) where the license record is created.
    */
   "compartmentId"?: string;
   /**

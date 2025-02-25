@@ -1,6 +1,6 @@
 /**
  * Database Service API
- * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](/iaas/Content/Database/Concepts/databaseoverview.htm).
+ * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: sic_dbaas_cp_us_grp@oracle.com
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ExternalBackupJob {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the associated backup resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated backup resource.
    */
   "backupId": string;
   /**
@@ -46,7 +46,7 @@ export interface ExternalBackupJob {
   "userName": string;
   /**
    * The auth token to use for access to the Swift compartment bucket that will store the standalone backup.
-   * For information about auth tokens, see [Working with Auth Tokens](https://docs.cloud.oracle.com/Content/Identity/Tasks/managingcredentials.htm#two).
+   * For information about auth tokens, see [Working with Auth Tokens](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcredentials.htm#two).
    *
    */
   "swiftPassword"?: string;

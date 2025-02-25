@@ -2,7 +2,7 @@
  * Kubernetes Engine API
  * API for the Kubernetes Engine service (also known as the Container Engine for Kubernetes service). Use this API to build, deploy,
 and manage cloud-native applications. For more information, see
-[Overview of Kubernetes Engine](/iaas/Content/ContEng/Concepts/contengoverview.htm).
+[Overview of Kubernetes Engine](https://docs.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm).
 
  * OpenAPI spec version: 20180222
  * 
@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The lifecycle state of a cluster. For more information, see [Monitoring Clusters](https://docs.cloud.oracle.com/Content/ContEng/Tasks/contengmonitoringclusters.htm)
+ * The lifecycle state of a cluster. For more information, see [Monitoring Clusters](https://docs.oracle.com/iaas/Content/ContEng/Tasks/contengmonitoringclusters.htm)
  **/
 export enum ClusterLifecycleState {
   Creating = "CREATING",

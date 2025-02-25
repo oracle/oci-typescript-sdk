@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExecutionWindow.ts.html |here} to see how to use GetExecutionWindowRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExecutionWindow.ts.html |here} to see how to use GetExecutionWindowRequest.
  */
 export interface GetExecutionWindowRequest extends common.BaseRequest {
   /**
-   * The execution window [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The execution window [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "executionWindowId": string;
   /**

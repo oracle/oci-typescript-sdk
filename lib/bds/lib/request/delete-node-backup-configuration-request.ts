@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteNodeBackupConfiguration.ts.html |here} to see how to use DeleteNodeBackupConfigurationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteNodeBackupConfiguration.ts.html |here} to see how to use DeleteNodeBackupConfigurationRequest.
  */
 export interface DeleteNodeBackupConfigurationRequest extends common.BaseRequest {
   /**

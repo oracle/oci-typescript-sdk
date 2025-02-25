@@ -1,6 +1,6 @@
 /**
  * Security Attribute API
- * Use the Security Attributes API to manage security attributes and security attribute namespaces. For more information, see the documentation for [Security Attributes](/iaas/Content/zero-trust-packet-routing/managing-security-attributes.htm) and [Security Attribute Nampespaces](/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
+ * Use the Security Attributes API to manage security attributes and security attribute namespaces. For more information, see the documentation for [Security Attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attributes.htm) and [Security Attribute Nampespaces](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
  * OpenAPI spec version: 20240815
  *
  *
@@ -260,7 +260,7 @@ export class SecurityAttributeClient {
    * @param BulkDeleteSecurityAttributesRequest
    * @return BulkDeleteSecurityAttributesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/BulkDeleteSecurityAttributes.ts.html |here} to see how to use BulkDeleteSecurityAttributes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/BulkDeleteSecurityAttributes.ts.html |here} to see how to use BulkDeleteSecurityAttributes API.
    */
   public async bulkDeleteSecurityAttributes(
     bulkDeleteSecurityAttributesRequest: requests.BulkDeleteSecurityAttributesRequest
@@ -346,7 +346,7 @@ The edits can include a combination of operations and attributes.
      * @param BulkEditSecurityAttributesRequest
      * @return BulkEditSecurityAttributesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/BulkEditSecurityAttributes.ts.html |here} to see how to use BulkEditSecurityAttributes API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/BulkEditSecurityAttributes.ts.html |here} to see how to use BulkEditSecurityAttributes API.
      */
   public async bulkEditSecurityAttributes(
     bulkEditSecurityAttributesRequest: requests.BulkEditSecurityAttributesRequest
@@ -441,7 +441,7 @@ To delete a security attribute namespace, you must first retire it. Use {@link #
      * @param CascadingDeleteSecurityAttributeNamespaceRequest
      * @return CascadingDeleteSecurityAttributeNamespaceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/CascadingDeleteSecurityAttributeNamespace.ts.html |here} to see how to use CascadingDeleteSecurityAttributeNamespace API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/CascadingDeleteSecurityAttributeNamespace.ts.html |here} to see how to use CascadingDeleteSecurityAttributeNamespace API.
      */
   public async cascadingDeleteSecurityAttributeNamespace(
     cascadingDeleteSecurityAttributeNamespaceRequest: requests.CascadingDeleteSecurityAttributeNamespaceRequest
@@ -516,7 +516,7 @@ To delete a security attribute namespace, you must first retire it. Use {@link #
      * Moves the specified security attribute namespace to the specified compartment within the same tenancy.
 * <p>
 To move the security attribute namespace, you must have the manage security-attributes permission on both compartments.
-* For more information about IAM policies, see [Details for IAM](https://docs.cloud.oracle.com/Content/Identity/policyreference/iampolicyreference.htm).
+* For more information about IAM policies, see [Details for IAM](https://docs.oracle.com/iaas/Content/Identity/policyreference/iampolicyreference.htm).
 * <p>
 Moving a security attribute namespace moves all the security attributes contained in the security attribute namespace.
 * 
@@ -524,7 +524,7 @@ Moving a security attribute namespace moves all the security attributes containe
      * @param ChangeSecurityAttributeNamespaceCompartmentRequest
      * @return ChangeSecurityAttributeNamespaceCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ChangeSecurityAttributeNamespaceCompartment.ts.html |here} to see how to use ChangeSecurityAttributeNamespaceCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ChangeSecurityAttributeNamespaceCompartment.ts.html |here} to see how to use ChangeSecurityAttributeNamespaceCompartment API.
      */
   public async changeSecurityAttributeNamespaceCompartment(
     changeSecurityAttributeNamespaceCompartmentRequest: requests.ChangeSecurityAttributeNamespaceCompartmentRequest
@@ -618,7 +618,7 @@ The security attribute must have a value type, which is specified with a validat
      * @param CreateSecurityAttributeRequest
      * @return CreateSecurityAttributeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/CreateSecurityAttribute.ts.html |here} to see how to use CreateSecurityAttribute API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/CreateSecurityAttribute.ts.html |here} to see how to use CreateSecurityAttribute API.
      */
   public async createSecurityAttribute(
     createSecurityAttributeRequest: requests.CreateSecurityAttributeRequest
@@ -714,7 +714,7 @@ You must also specify a *description* for the namespace.
      * @param CreateSecurityAttributeNamespaceRequest
      * @return CreateSecurityAttributeNamespaceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/CreateSecurityAttributeNamespace.ts.html |here} to see how to use CreateSecurityAttributeNamespace API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/CreateSecurityAttributeNamespace.ts.html |here} to see how to use CreateSecurityAttributeNamespace API.
      */
   public async createSecurityAttributeNamespace(
     createSecurityAttributeNamespaceRequest: requests.CreateSecurityAttributeNamespaceRequest
@@ -810,7 +810,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
      * @param DeleteSecurityAttributeRequest
      * @return DeleteSecurityAttributeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/DeleteSecurityAttribute.ts.html |here} to see how to use DeleteSecurityAttribute API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/DeleteSecurityAttribute.ts.html |here} to see how to use DeleteSecurityAttribute API.
      */
   public async deleteSecurityAttribute(
     deleteSecurityAttributeRequest: requests.DeleteSecurityAttributeRequest
@@ -889,7 +889,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
    * @param DeleteSecurityAttributeNamespaceRequest
    * @return DeleteSecurityAttributeNamespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/DeleteSecurityAttributeNamespace.ts.html |here} to see how to use DeleteSecurityAttributeNamespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/DeleteSecurityAttributeNamespace.ts.html |here} to see how to use DeleteSecurityAttributeNamespace API.
    */
   public async deleteSecurityAttributeNamespace(
     deleteSecurityAttributeNamespaceRequest: requests.DeleteSecurityAttributeNamespaceRequest
@@ -961,7 +961,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
    * @param GetSecurityAttributeRequest
    * @return GetSecurityAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/GetSecurityAttribute.ts.html |here} to see how to use GetSecurityAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/GetSecurityAttribute.ts.html |here} to see how to use GetSecurityAttribute API.
    */
   public async getSecurityAttribute(
     getSecurityAttributeRequest: requests.GetSecurityAttributeRequest
@@ -1040,7 +1040,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
    * @param GetSecurityAttributeNamespaceRequest
    * @return GetSecurityAttributeNamespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/GetSecurityAttributeNamespace.ts.html |here} to see how to use GetSecurityAttributeNamespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/GetSecurityAttributeNamespace.ts.html |here} to see how to use GetSecurityAttributeNamespace API.
    */
   public async getSecurityAttributeNamespace(
     getSecurityAttributeNamespaceRequest: requests.GetSecurityAttributeNamespaceRequest
@@ -1119,7 +1119,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
    * @param GetSecurityAttributeWorkRequestRequest
    * @return GetSecurityAttributeWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/GetSecurityAttributeWorkRequest.ts.html |here} to see how to use GetSecurityAttributeWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/GetSecurityAttributeWorkRequest.ts.html |here} to see how to use GetSecurityAttributeWorkRequest API.
    */
   public async getSecurityAttributeWorkRequest(
     getSecurityAttributeWorkRequestRequest: requests.GetSecurityAttributeWorkRequestRequest
@@ -1198,7 +1198,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
    * @param ListSecurityAttributeNamespacesRequest
    * @return ListSecurityAttributeNamespacesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ListSecurityAttributeNamespaces.ts.html |here} to see how to use ListSecurityAttributeNamespaces API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ListSecurityAttributeNamespaces.ts.html |here} to see how to use ListSecurityAttributeNamespaces API.
    */
   public async listSecurityAttributeNamespaces(
     listSecurityAttributeNamespacesRequest: requests.ListSecurityAttributeNamespacesRequest
@@ -1336,7 +1336,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
    * @param ListSecurityAttributeWorkRequestErrorsRequest
    * @return ListSecurityAttributeWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ListSecurityAttributeWorkRequestErrors.ts.html |here} to see how to use ListSecurityAttributeWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ListSecurityAttributeWorkRequestErrors.ts.html |here} to see how to use ListSecurityAttributeWorkRequestErrors API.
    */
   public async listSecurityAttributeWorkRequestErrors(
     listSecurityAttributeWorkRequestErrorsRequest: requests.ListSecurityAttributeWorkRequestErrorsRequest
@@ -1475,7 +1475,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
    * @param ListSecurityAttributeWorkRequestLogsRequest
    * @return ListSecurityAttributeWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ListSecurityAttributeWorkRequestLogs.ts.html |here} to see how to use ListSecurityAttributeWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ListSecurityAttributeWorkRequestLogs.ts.html |here} to see how to use ListSecurityAttributeWorkRequestLogs API.
    */
   public async listSecurityAttributeWorkRequestLogs(
     listSecurityAttributeWorkRequestLogsRequest: requests.ListSecurityAttributeWorkRequestLogsRequest
@@ -1614,7 +1614,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
    * @param ListSecurityAttributeWorkRequestsRequest
    * @return ListSecurityAttributeWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ListSecurityAttributeWorkRequests.ts.html |here} to see how to use ListSecurityAttributeWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ListSecurityAttributeWorkRequests.ts.html |here} to see how to use ListSecurityAttributeWorkRequests API.
    */
   public async listSecurityAttributeWorkRequests(
     listSecurityAttributeWorkRequestsRequest: requests.ListSecurityAttributeWorkRequestsRequest
@@ -1748,7 +1748,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
    * @param ListSecurityAttributesRequest
    * @return ListSecurityAttributesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ListSecurityAttributes.ts.html |here} to see how to use ListSecurityAttributes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/ListSecurityAttributes.ts.html |here} to see how to use ListSecurityAttributes API.
    */
   public async listSecurityAttributes(
     listSecurityAttributesRequest: requests.ListSecurityAttributesRequest
@@ -1881,7 +1881,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
    * @param UpdateSecurityAttributeRequest
    * @return UpdateSecurityAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/UpdateSecurityAttribute.ts.html |here} to see how to use UpdateSecurityAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/UpdateSecurityAttribute.ts.html |here} to see how to use UpdateSecurityAttribute API.
    */
   public async updateSecurityAttribute(
     updateSecurityAttributeRequest: requests.UpdateSecurityAttributeRequest
@@ -1967,7 +1967,7 @@ Updating `isRetired` to 'true' retires the namespace and all the security attrib
 * namespace (changing `isRetired` from 'true' to 'false') does not reactivate security attributes.
 * To reactivate the security attributes, you must reactivate each one individually *after* you reactivate the namespace,
 * using {@link #updateTag(UpdateTagRequest) updateTag}. For more information about retiring security attribute namespaces, see
-* [Managing Security Attribute Namespaces](https://docs.cloud.oracle.com/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
+* [Managing Security Attribute Namespaces](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
 * <p>
 You can't add a namespace with the same name as a retired namespace in the same tenancy.
 * 
@@ -1975,7 +1975,7 @@ You can't add a namespace with the same name as a retired namespace in the same 
      * @param UpdateSecurityAttributeNamespaceRequest
      * @return UpdateSecurityAttributeNamespaceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/UpdateSecurityAttributeNamespace.ts.html |here} to see how to use UpdateSecurityAttributeNamespace API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/UpdateSecurityAttributeNamespace.ts.html |here} to see how to use UpdateSecurityAttributeNamespace API.
      */
   public async updateSecurityAttributeNamespace(
     updateSecurityAttributeNamespaceRequest: requests.UpdateSecurityAttributeNamespaceRequest

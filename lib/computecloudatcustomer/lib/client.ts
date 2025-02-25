@@ -1,7 +1,7 @@
 /**
  * Compute Cloud@Customer API
  * Use the Compute Cloud@Customer API to manage Compute Cloud@Customer infrastructures and upgrade schedules.
-For more information see [Compute Cloud@Customer documentation](/iaas/compute-cloud-at-customer/home.htm).
+For more information see [Compute Cloud@Customer documentation](https://docs.oracle.com/iaas/compute-cloud-at-customer/home.htm).
 
  * OpenAPI spec version: 20221208
  * 
@@ -246,7 +246,7 @@ export class ComputeCloudAtCustomerClient {
    * @param ChangeCccInfrastructureCompartmentRequest
    * @return ChangeCccInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ChangeCccInfrastructureCompartment.ts.html |here} to see how to use ChangeCccInfrastructureCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ChangeCccInfrastructureCompartment.ts.html |here} to see how to use ChangeCccInfrastructureCompartment API.
    */
   public async changeCccInfrastructureCompartment(
     changeCccInfrastructureCompartmentRequest: requests.ChangeCccInfrastructureCompartmentRequest
@@ -318,13 +318,13 @@ export class ComputeCloudAtCustomerClient {
 
   /**
    * Moves a Compute Cloud@Customer upgrade schedule from one compartment to another using the
-   * specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * specified [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeCccUpgradeScheduleCompartmentRequest
    * @return ChangeCccUpgradeScheduleCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ChangeCccUpgradeScheduleCompartment.ts.html |here} to see how to use ChangeCccUpgradeScheduleCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ChangeCccUpgradeScheduleCompartment.ts.html |here} to see how to use ChangeCccUpgradeScheduleCompartment API.
    */
   public async changeCccUpgradeScheduleCompartment(
     changeCccUpgradeScheduleCompartmentRequest: requests.ChangeCccUpgradeScheduleCompartmentRequest
@@ -402,7 +402,7 @@ export class ComputeCloudAtCustomerClient {
    * @param CreateCccInfrastructureRequest
    * @return CreateCccInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/CreateCccInfrastructure.ts.html |here} to see how to use CreateCccInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/CreateCccInfrastructure.ts.html |here} to see how to use CreateCccInfrastructure API.
    */
   public async createCccInfrastructure(
     createCccInfrastructureRequest: requests.CreateCccInfrastructureRequest
@@ -483,7 +483,7 @@ export class ComputeCloudAtCustomerClient {
    * @param CreateCccUpgradeScheduleRequest
    * @return CreateCccUpgradeScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/CreateCccUpgradeSchedule.ts.html |here} to see how to use CreateCccUpgradeSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/CreateCccUpgradeSchedule.ts.html |here} to see how to use CreateCccUpgradeSchedule API.
    */
   public async createCccUpgradeSchedule(
     createCccUpgradeScheduleRequest: requests.CreateCccUpgradeScheduleRequest
@@ -559,13 +559,13 @@ export class ComputeCloudAtCustomerClient {
 
   /**
    * Deletes a Compute Cloud@Customer infrastructure resource specified by the resource
-   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCccInfrastructureRequest
    * @return DeleteCccInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/DeleteCccInfrastructure.ts.html |here} to see how to use DeleteCccInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/DeleteCccInfrastructure.ts.html |here} to see how to use DeleteCccInfrastructure API.
    */
   public async deleteCccInfrastructure(
     deleteCccInfrastructureRequest: requests.DeleteCccInfrastructureRequest
@@ -629,13 +629,13 @@ export class ComputeCloudAtCustomerClient {
 
   /**
    * Deletes a Compute Cloud@Customer upgrade schedule by the specified
-   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCccUpgradeScheduleRequest
    * @return DeleteCccUpgradeScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/DeleteCccUpgradeSchedule.ts.html |here} to see how to use DeleteCccUpgradeSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/DeleteCccUpgradeSchedule.ts.html |here} to see how to use DeleteCccUpgradeSchedule API.
    */
   public async deleteCccUpgradeSchedule(
     deleteCccUpgradeScheduleRequest: requests.DeleteCccUpgradeScheduleRequest
@@ -699,13 +699,13 @@ export class ComputeCloudAtCustomerClient {
 
   /**
    * Gets a Compute Cloud@Customer infrastructure using the infrastructure
-   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCccInfrastructureRequest
    * @return GetCccInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/GetCccInfrastructure.ts.html |here} to see how to use GetCccInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/GetCccInfrastructure.ts.html |here} to see how to use GetCccInfrastructure API.
    */
   public async getCccInfrastructure(
     getCccInfrastructureRequest: requests.GetCccInfrastructureRequest
@@ -777,13 +777,13 @@ export class ComputeCloudAtCustomerClient {
 
   /**
    * Gets a Compute Cloud@Customer upgrade schedule by the specified
-   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCccUpgradeScheduleRequest
    * @return GetCccUpgradeScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/GetCccUpgradeSchedule.ts.html |here} to see how to use GetCccUpgradeSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/GetCccUpgradeSchedule.ts.html |here} to see how to use GetCccUpgradeSchedule API.
    */
   public async getCccUpgradeSchedule(
     getCccUpgradeScheduleRequest: requests.GetCccUpgradeScheduleRequest
@@ -860,7 +860,7 @@ export class ComputeCloudAtCustomerClient {
    * @param ListCccInfrastructuresRequest
    * @return ListCccInfrastructuresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ListCccInfrastructures.ts.html |here} to see how to use ListCccInfrastructures API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ListCccInfrastructures.ts.html |here} to see how to use ListCccInfrastructures API.
    */
   public async listCccInfrastructures(
     listCccInfrastructuresRequest: requests.ListCccInfrastructuresRequest
@@ -952,7 +952,7 @@ export class ComputeCloudAtCustomerClient {
    * @param ListCccUpgradeSchedulesRequest
    * @return ListCccUpgradeSchedulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ListCccUpgradeSchedules.ts.html |here} to see how to use ListCccUpgradeSchedules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ListCccUpgradeSchedules.ts.html |here} to see how to use ListCccUpgradeSchedules API.
    */
   public async listCccUpgradeSchedules(
     listCccUpgradeSchedulesRequest: requests.ListCccUpgradeSchedulesRequest
@@ -1043,7 +1043,7 @@ export class ComputeCloudAtCustomerClient {
    * @param UpdateCccInfrastructureRequest
    * @return UpdateCccInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/UpdateCccInfrastructure.ts.html |here} to see how to use UpdateCccInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/UpdateCccInfrastructure.ts.html |here} to see how to use UpdateCccInfrastructure API.
    */
   public async updateCccInfrastructure(
     updateCccInfrastructureRequest: requests.UpdateCccInfrastructureRequest
@@ -1125,7 +1125,7 @@ export class ComputeCloudAtCustomerClient {
    * @param UpdateCccUpgradeScheduleRequest
    * @return UpdateCccUpgradeScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/UpdateCccUpgradeSchedule.ts.html |here} to see how to use UpdateCccUpgradeSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/UpdateCccUpgradeSchedule.ts.html |here} to see how to use UpdateCccUpgradeSchedule API.
    */
   public async updateCccUpgradeSchedule(
     updateCccUpgradeScheduleRequest: requests.UpdateCccUpgradeScheduleRequest

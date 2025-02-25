@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetServiceGateway.ts.html |here} to see how to use GetServiceGatewayRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetServiceGateway.ts.html |here} to see how to use GetServiceGatewayRequest.
  */
 export interface GetServiceGatewayRequest extends common.BaseRequest {
   /**
-   * The service gateway's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The service gateway's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "serviceGatewayId": string;
 }

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbNode.ts.html |here} to see how to use GetDbNodeRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbNode.ts.html |here} to see how to use GetDbNodeRequest.
  */
 export interface GetDbNodeRequest extends common.BaseRequest {
   /**
-   * The database node [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The database node [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "dbNodeId": string;
 }

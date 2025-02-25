@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/DeleteGateway.ts.html |here} to see how to use DeleteGatewayRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/DeleteGateway.ts.html |here} to see how to use DeleteGatewayRequest.
  */
 export interface DeleteGatewayRequest extends common.BaseRequest {
   /**

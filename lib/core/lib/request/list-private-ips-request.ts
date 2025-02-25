@@ -15,13 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListPrivateIps.ts.html |here} to see how to use ListPrivateIpsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListPrivateIps.ts.html |here} to see how to use ListPrivateIpsRequest.
  */
 export interface ListPrivateIpsRequest extends common.BaseRequest {
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated
 * \"List\" call. For important details about how pagination works, see
-* [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 50}
 * 
@@ -30,7 +30,7 @@ Example: {@code 50}
   /**
    * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
@@ -41,7 +41,7 @@ Example: {@code 50}
    */
   "ipAddress"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet.
    */
   "subnetId"?: string;
   /**
@@ -49,7 +49,19 @@ Example: {@code 50}
    */
   "vnicId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN.
+   * State of the IP address. If an IP address is assigned to a VNIC it is ASSIGNED otherwise AVAILABLE
+   */
+  "ipState"?: string;
+  /**
+   * Lifetime of the IP address.
+   * There are two types of IPs:
+   *  - Ephemeral
+   *  - Reserved
+   *
+   */
+  "lifetime"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN.
    */
   "vlanId"?: string;
 }

@@ -1,6 +1,6 @@
 /**
  * Queue API
- * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](https://docs.oracle.com/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeQueueCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
    * into which the resource should be moved.
    *
    */

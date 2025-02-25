@@ -23,7 +23,7 @@ export interface Application {
   "applicationLogConfig"?: model.ApplicationLogConfig;
   /**
    * A comma separated list of one or more archive files as Oracle Cloud Infrastructure URIs. For example, {@code oci://path/to/a.zip,oci://path/to/b.zip}. An Oracle Cloud Infrastructure URI of an archive.zip file containing custom dependencies that may be used to support the execution of a Python, Java, or Scala application.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
+   * See https://docs.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "archiveUri"?: string;
@@ -59,7 +59,7 @@ export interface Application {
    */
   "compartmentId": string;
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -97,13 +97,13 @@ export interface Application {
   "executorShapeConfig"?: model.ShapeConfig;
   /**
    * An Oracle Cloud Infrastructure URI of the file containing the application to execute.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
+   * See https://docs.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "fileUri": string;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
@@ -125,7 +125,7 @@ export interface Application {
   "lifecycleState": model.ApplicationLifecycleState;
   /**
    * An Oracle Cloud Infrastructure URI of the bucket where the Spark job logs are to be uploaded.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
+   * See https://docs.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "logsBucketUri"?: string;
@@ -193,7 +193,7 @@ export interface Application {
   /**
    * An Oracle Cloud Infrastructure URI of the bucket to be used as default warehouse directory
    * for BATCH SQL runs.
-   * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
+   * See https://docs.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
   "warehouseBucketUri"?: string;

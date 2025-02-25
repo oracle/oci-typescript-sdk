@@ -1,6 +1,6 @@
 /**
  * DevOps API
- * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](/Content/devops/using/home.htm).
+ * Use the DevOps API to create DevOps projects, configure code repositories,  add artifacts to deploy, build and test software applications, configure  target deployment environments, and deploy software applications.  For more information, see [DevOps](https://docs.oracle.com/iaas/Content/devops/using/home.htm).
  * OpenAPI spec version: 20210630
  *
  *
@@ -242,7 +242,7 @@ export class DevopsClient {
    * @param ApproveDeploymentRequest
    * @return ApproveDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ApproveDeployment.ts.html |here} to see how to use ApproveDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ApproveDeployment.ts.html |here} to see how to use ApproveDeployment API.
    */
   public async approveDeployment(
     approveDeploymentRequest: requests.ApproveDeploymentRequest
@@ -325,7 +325,7 @@ export class DevopsClient {
    * @param CancelBuildRunRequest
    * @return CancelBuildRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CancelBuildRun.ts.html |here} to see how to use CancelBuildRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CancelBuildRun.ts.html |here} to see how to use CancelBuildRun API.
    */
   public async cancelBuildRun(
     cancelBuildRunRequest: requests.CancelBuildRunRequest
@@ -408,7 +408,7 @@ export class DevopsClient {
    * @param CancelDeploymentRequest
    * @return CancelDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CancelDeployment.ts.html |here} to see how to use CancelDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CancelDeployment.ts.html |here} to see how to use CancelDeployment API.
    */
   public async cancelDeployment(
     cancelDeploymentRequest: requests.CancelDeploymentRequest
@@ -491,7 +491,7 @@ export class DevopsClient {
    * @param CancelScheduledCascadingProjectDeletionRequest
    * @return CancelScheduledCascadingProjectDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CancelScheduledCascadingProjectDeletion.ts.html |here} to see how to use CancelScheduledCascadingProjectDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CancelScheduledCascadingProjectDeletion.ts.html |here} to see how to use CancelScheduledCascadingProjectDeletion API.
    */
   public async cancelScheduledCascadingProjectDeletion(
     cancelScheduledCascadingProjectDeletionRequest: requests.CancelScheduledCascadingProjectDeletionRequest
@@ -566,7 +566,7 @@ export class DevopsClient {
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ChangeProjectCompartment.ts.html |here} to see how to use ChangeProjectCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ChangeProjectCompartment.ts.html |here} to see how to use ChangeProjectCompartment API.
    */
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
@@ -646,7 +646,7 @@ export class DevopsClient {
    * @param CreateBuildPipelineRequest
    * @return CreateBuildPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateBuildPipeline.ts.html |here} to see how to use CreateBuildPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateBuildPipeline.ts.html |here} to see how to use CreateBuildPipeline API.
    */
   public async createBuildPipeline(
     createBuildPipelineRequest: requests.CreateBuildPipelineRequest
@@ -737,7 +737,7 @@ export class DevopsClient {
    * @param CreateBuildPipelineStageRequest
    * @return CreateBuildPipelineStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateBuildPipelineStage.ts.html |here} to see how to use CreateBuildPipelineStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateBuildPipelineStage.ts.html |here} to see how to use CreateBuildPipelineStage API.
    */
   public async createBuildPipelineStage(
     createBuildPipelineStageRequest: requests.CreateBuildPipelineStageRequest
@@ -828,7 +828,7 @@ export class DevopsClient {
    * @param CreateBuildRunRequest
    * @return CreateBuildRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateBuildRun.ts.html |here} to see how to use CreateBuildRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateBuildRun.ts.html |here} to see how to use CreateBuildRun API.
    */
   public async createBuildRun(
     createBuildRunRequest: requests.CreateBuildRunRequest
@@ -915,7 +915,7 @@ export class DevopsClient {
    * @param CreateConnectionRequest
    * @return CreateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateConnection.ts.html |here} to see how to use CreateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateConnection.ts.html |here} to see how to use CreateConnection API.
    */
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
@@ -1005,7 +1005,7 @@ export class DevopsClient {
    * @param CreateDeployArtifactRequest
    * @return CreateDeployArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateDeployArtifact.ts.html |here} to see how to use CreateDeployArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateDeployArtifact.ts.html |here} to see how to use CreateDeployArtifact API.
    */
   public async createDeployArtifact(
     createDeployArtifactRequest: requests.CreateDeployArtifactRequest
@@ -1095,7 +1095,7 @@ export class DevopsClient {
    * @param CreateDeployEnvironmentRequest
    * @return CreateDeployEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateDeployEnvironment.ts.html |here} to see how to use CreateDeployEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateDeployEnvironment.ts.html |here} to see how to use CreateDeployEnvironment API.
    */
   public async createDeployEnvironment(
     createDeployEnvironmentRequest: requests.CreateDeployEnvironmentRequest
@@ -1185,7 +1185,7 @@ export class DevopsClient {
    * @param CreateDeployPipelineRequest
    * @return CreateDeployPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateDeployPipeline.ts.html |here} to see how to use CreateDeployPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateDeployPipeline.ts.html |here} to see how to use CreateDeployPipeline API.
    */
   public async createDeployPipeline(
     createDeployPipelineRequest: requests.CreateDeployPipelineRequest
@@ -1275,7 +1275,7 @@ export class DevopsClient {
    * @param CreateDeployStageRequest
    * @return CreateDeployStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateDeployStage.ts.html |here} to see how to use CreateDeployStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateDeployStage.ts.html |here} to see how to use CreateDeployStage API.
    */
   public async createDeployStage(
     createDeployStageRequest: requests.CreateDeployStageRequest
@@ -1365,7 +1365,7 @@ export class DevopsClient {
    * @param CreateDeploymentRequest
    * @return CreateDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateDeployment.ts.html |here} to see how to use CreateDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateDeployment.ts.html |here} to see how to use CreateDeployment API.
    */
   public async createDeployment(
     createDeploymentRequest: requests.CreateDeploymentRequest
@@ -1446,7 +1446,7 @@ export class DevopsClient {
    * @param CreateOrUpdateGitRefRequest
    * @return CreateOrUpdateGitRefResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateOrUpdateGitRef.ts.html |here} to see how to use CreateOrUpdateGitRef API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateOrUpdateGitRef.ts.html |here} to see how to use CreateOrUpdateGitRef API.
    */
   public async createOrUpdateGitRef(
     createOrUpdateGitRefRequest: requests.CreateOrUpdateGitRefRequest
@@ -1539,7 +1539,7 @@ export class DevopsClient {
    * @param CreateOrUpdateProtectedBranchRequest
    * @return CreateOrUpdateProtectedBranchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateOrUpdateProtectedBranch.ts.html |here} to see how to use CreateOrUpdateProtectedBranch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateOrUpdateProtectedBranch.ts.html |here} to see how to use CreateOrUpdateProtectedBranch API.
    */
   public async createOrUpdateProtectedBranch(
     createOrUpdateProtectedBranchRequest: requests.CreateOrUpdateProtectedBranchRequest
@@ -1628,7 +1628,7 @@ export class DevopsClient {
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateProject.ts.html |here} to see how to use CreateProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateProject.ts.html |here} to see how to use CreateProject API.
    */
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
@@ -1719,7 +1719,7 @@ export class DevopsClient {
    * @param CreatePullRequestRequest
    * @return CreatePullRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreatePullRequest.ts.html |here} to see how to use CreatePullRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreatePullRequest.ts.html |here} to see how to use CreatePullRequest API.
    */
   public async createPullRequest(
     createPullRequestRequest: requests.CreatePullRequestRequest
@@ -1815,7 +1815,7 @@ export class DevopsClient {
    * @param CreatePullRequestAttachmentRequest
    * @return CreatePullRequestAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreatePullRequestAttachment.ts.html |here} to see how to use CreatePullRequestAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreatePullRequestAttachment.ts.html |here} to see how to use CreatePullRequestAttachment API.
    */
   public async createPullRequestAttachment(
     createPullRequestAttachmentRequest: requests.CreatePullRequestAttachmentRequest
@@ -1906,7 +1906,7 @@ export class DevopsClient {
    * @param CreatePullRequestCommentRequest
    * @return CreatePullRequestCommentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreatePullRequestComment.ts.html |here} to see how to use CreatePullRequestComment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreatePullRequestComment.ts.html |here} to see how to use CreatePullRequestComment API.
    */
   public async createPullRequestComment(
     createPullRequestCommentRequest: requests.CreatePullRequestCommentRequest
@@ -1989,7 +1989,7 @@ export class DevopsClient {
    * @param CreateRepositoryRequest
    * @return CreateRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateRepository.ts.html |here} to see how to use CreateRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateRepository.ts.html |here} to see how to use CreateRepository API.
    */
   public async createRepository(
     createRepositoryRequest: requests.CreateRepositoryRequest
@@ -2080,7 +2080,7 @@ export class DevopsClient {
    * @param CreateTriggerRequest
    * @return CreateTriggerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateTrigger.ts.html |here} to see how to use CreateTrigger API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CreateTrigger.ts.html |here} to see how to use CreateTrigger API.
    */
   public async createTrigger(
     createTriggerRequest: requests.CreateTriggerRequest
@@ -2171,7 +2171,7 @@ export class DevopsClient {
    * @param DeclinePullRequestRequest
    * @return DeclinePullRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeclinePullRequest.ts.html |here} to see how to use DeclinePullRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeclinePullRequest.ts.html |here} to see how to use DeclinePullRequest API.
    */
   public async declinePullRequest(
     declinePullRequestRequest: requests.DeclinePullRequestRequest
@@ -2253,7 +2253,7 @@ export class DevopsClient {
    * @param DeleteBuildPipelineRequest
    * @return DeleteBuildPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteBuildPipeline.ts.html |here} to see how to use DeleteBuildPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteBuildPipeline.ts.html |here} to see how to use DeleteBuildPipeline API.
    */
   public async deleteBuildPipeline(
     deleteBuildPipelineRequest: requests.DeleteBuildPipelineRequest
@@ -2326,7 +2326,7 @@ export class DevopsClient {
    * @param DeleteBuildPipelineStageRequest
    * @return DeleteBuildPipelineStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteBuildPipelineStage.ts.html |here} to see how to use DeleteBuildPipelineStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteBuildPipelineStage.ts.html |here} to see how to use DeleteBuildPipelineStage API.
    */
   public async deleteBuildPipelineStage(
     deleteBuildPipelineStageRequest: requests.DeleteBuildPipelineStageRequest
@@ -2399,7 +2399,7 @@ export class DevopsClient {
    * @param DeleteConnectionRequest
    * @return DeleteConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
    */
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
@@ -2472,7 +2472,7 @@ export class DevopsClient {
    * @param DeleteDeployArtifactRequest
    * @return DeleteDeployArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteDeployArtifact.ts.html |here} to see how to use DeleteDeployArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteDeployArtifact.ts.html |here} to see how to use DeleteDeployArtifact API.
    */
   public async deleteDeployArtifact(
     deleteDeployArtifactRequest: requests.DeleteDeployArtifactRequest
@@ -2545,7 +2545,7 @@ export class DevopsClient {
    * @param DeleteDeployEnvironmentRequest
    * @return DeleteDeployEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteDeployEnvironment.ts.html |here} to see how to use DeleteDeployEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteDeployEnvironment.ts.html |here} to see how to use DeleteDeployEnvironment API.
    */
   public async deleteDeployEnvironment(
     deleteDeployEnvironmentRequest: requests.DeleteDeployEnvironmentRequest
@@ -2618,7 +2618,7 @@ export class DevopsClient {
    * @param DeleteDeployPipelineRequest
    * @return DeleteDeployPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteDeployPipeline.ts.html |here} to see how to use DeleteDeployPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteDeployPipeline.ts.html |here} to see how to use DeleteDeployPipeline API.
    */
   public async deleteDeployPipeline(
     deleteDeployPipelineRequest: requests.DeleteDeployPipelineRequest
@@ -2691,7 +2691,7 @@ export class DevopsClient {
    * @param DeleteDeployStageRequest
    * @return DeleteDeployStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteDeployStage.ts.html |here} to see how to use DeleteDeployStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteDeployStage.ts.html |here} to see how to use DeleteDeployStage API.
    */
   public async deleteDeployStage(
     deleteDeployStageRequest: requests.DeleteDeployStageRequest
@@ -2764,7 +2764,7 @@ export class DevopsClient {
    * @param DeleteGitRefRequest
    * @return DeleteGitRefResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteGitRef.ts.html |here} to see how to use DeleteGitRef API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteGitRef.ts.html |here} to see how to use DeleteGitRef API.
    */
   public async deleteGitRef(
     deleteGitRefRequest: requests.DeleteGitRefRequest
@@ -2843,7 +2843,7 @@ export class DevopsClient {
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteProject.ts.html |here} to see how to use DeleteProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteProject.ts.html |here} to see how to use DeleteProject API.
    */
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
@@ -2916,7 +2916,7 @@ export class DevopsClient {
    * @param DeleteProjectRepositorySettingsRequest
    * @return DeleteProjectRepositorySettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteProjectRepositorySettings.ts.html |here} to see how to use DeleteProjectRepositorySettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteProjectRepositorySettings.ts.html |here} to see how to use DeleteProjectRepositorySettings API.
    */
   public async deleteProjectRepositorySettings(
     deleteProjectRepositorySettingsRequest: requests.DeleteProjectRepositorySettingsRequest
@@ -2986,7 +2986,7 @@ export class DevopsClient {
    * @param DeleteProtectedBranchRequest
    * @return DeleteProtectedBranchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteProtectedBranch.ts.html |here} to see how to use DeleteProtectedBranch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteProtectedBranch.ts.html |here} to see how to use DeleteProtectedBranch API.
    */
   public async deleteProtectedBranch(
     deleteProtectedBranchRequest: requests.DeleteProtectedBranchRequest
@@ -3060,7 +3060,7 @@ export class DevopsClient {
    * @param DeletePullRequestRequest
    * @return DeletePullRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeletePullRequest.ts.html |here} to see how to use DeletePullRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeletePullRequest.ts.html |here} to see how to use DeletePullRequest API.
    */
   public async deletePullRequest(
     deletePullRequestRequest: requests.DeletePullRequestRequest
@@ -3128,7 +3128,7 @@ export class DevopsClient {
    * @param DeletePullRequestAttachmentRequest
    * @return DeletePullRequestAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeletePullRequestAttachment.ts.html |here} to see how to use DeletePullRequestAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeletePullRequestAttachment.ts.html |here} to see how to use DeletePullRequestAttachment API.
    */
   public async deletePullRequestAttachment(
     deletePullRequestAttachmentRequest: requests.DeletePullRequestAttachmentRequest
@@ -3198,7 +3198,7 @@ export class DevopsClient {
    * @param DeletePullRequestCommentRequest
    * @return DeletePullRequestCommentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeletePullRequestComment.ts.html |here} to see how to use DeletePullRequestComment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeletePullRequestComment.ts.html |here} to see how to use DeletePullRequestComment API.
    */
   public async deletePullRequestComment(
     deletePullRequestCommentRequest: requests.DeletePullRequestCommentRequest
@@ -3267,7 +3267,7 @@ export class DevopsClient {
    * @param DeleteRefRequest
    * @return DeleteRefResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteRef.ts.html |here} to see how to use DeleteRef API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteRef.ts.html |here} to see how to use DeleteRef API.
    */
   public async deleteRef(
     deleteRefRequest: requests.DeleteRefRequest
@@ -3347,7 +3347,7 @@ export class DevopsClient {
    * @param DeleteRepositoryRequest
    * @return DeleteRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteRepository.ts.html |here} to see how to use DeleteRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteRepository.ts.html |here} to see how to use DeleteRepository API.
    */
   public async deleteRepository(
     deleteRepositoryRequest: requests.DeleteRepositoryRequest
@@ -3420,7 +3420,7 @@ export class DevopsClient {
    * @param DeleteRepositorySettingsRequest
    * @return DeleteRepositorySettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteRepositorySettings.ts.html |here} to see how to use DeleteRepositorySettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteRepositorySettings.ts.html |here} to see how to use DeleteRepositorySettings API.
    */
   public async deleteRepositorySettings(
     deleteRepositorySettingsRequest: requests.DeleteRepositorySettingsRequest
@@ -3489,7 +3489,7 @@ export class DevopsClient {
    * @param DeleteTriggerRequest
    * @return DeleteTriggerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteTrigger.ts.html |here} to see how to use DeleteTrigger API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/DeleteTrigger.ts.html |here} to see how to use DeleteTrigger API.
    */
   public async deleteTrigger(
     deleteTriggerRequest: requests.DeleteTriggerRequest
@@ -3562,7 +3562,7 @@ export class DevopsClient {
    * @param GetBuildPipelineRequest
    * @return GetBuildPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetBuildPipeline.ts.html |here} to see how to use GetBuildPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetBuildPipeline.ts.html |here} to see how to use GetBuildPipeline API.
    */
   public async getBuildPipeline(
     getBuildPipelineRequest: requests.GetBuildPipelineRequest
@@ -3638,7 +3638,7 @@ export class DevopsClient {
    * @param GetBuildPipelineStageRequest
    * @return GetBuildPipelineStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetBuildPipelineStage.ts.html |here} to see how to use GetBuildPipelineStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetBuildPipelineStage.ts.html |here} to see how to use GetBuildPipelineStage API.
    */
   public async getBuildPipelineStage(
     getBuildPipelineStageRequest: requests.GetBuildPipelineStageRequest
@@ -3715,7 +3715,7 @@ export class DevopsClient {
    * @param GetBuildRunRequest
    * @return GetBuildRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetBuildRun.ts.html |here} to see how to use GetBuildRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetBuildRun.ts.html |here} to see how to use GetBuildRun API.
    */
   public async getBuildRun(
     getBuildRunRequest: requests.GetBuildRunRequest
@@ -3791,7 +3791,7 @@ export class DevopsClient {
    * @param GetCommitRequest
    * @return GetCommitResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetCommit.ts.html |here} to see how to use GetCommit API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetCommit.ts.html |here} to see how to use GetCommit API.
    */
   public async getCommit(
     getCommitRequest: requests.GetCommitRequest
@@ -3869,7 +3869,7 @@ export class DevopsClient {
    * @param GetCommitDiffRequest
    * @return GetCommitDiffResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetCommitDiff.ts.html |here} to see how to use GetCommitDiff API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetCommitDiff.ts.html |here} to see how to use GetCommitDiff API.
    */
   public async getCommitDiff(
     getCommitDiffRequest: requests.GetCommitDiffRequest
@@ -3950,7 +3950,7 @@ export class DevopsClient {
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetConnection.ts.html |here} to see how to use GetConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetConnection.ts.html |here} to see how to use GetConnection API.
    */
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
@@ -4026,7 +4026,7 @@ export class DevopsClient {
    * @param GetDeployArtifactRequest
    * @return GetDeployArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetDeployArtifact.ts.html |here} to see how to use GetDeployArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetDeployArtifact.ts.html |here} to see how to use GetDeployArtifact API.
    */
   public async getDeployArtifact(
     getDeployArtifactRequest: requests.GetDeployArtifactRequest
@@ -4102,7 +4102,7 @@ export class DevopsClient {
    * @param GetDeployEnvironmentRequest
    * @return GetDeployEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetDeployEnvironment.ts.html |here} to see how to use GetDeployEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetDeployEnvironment.ts.html |here} to see how to use GetDeployEnvironment API.
    */
   public async getDeployEnvironment(
     getDeployEnvironmentRequest: requests.GetDeployEnvironmentRequest
@@ -4178,7 +4178,7 @@ export class DevopsClient {
    * @param GetDeployPipelineRequest
    * @return GetDeployPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetDeployPipeline.ts.html |here} to see how to use GetDeployPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetDeployPipeline.ts.html |here} to see how to use GetDeployPipeline API.
    */
   public async getDeployPipeline(
     getDeployPipelineRequest: requests.GetDeployPipelineRequest
@@ -4254,7 +4254,7 @@ export class DevopsClient {
    * @param GetDeployStageRequest
    * @return GetDeployStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetDeployStage.ts.html |here} to see how to use GetDeployStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetDeployStage.ts.html |here} to see how to use GetDeployStage API.
    */
   public async getDeployStage(
     getDeployStageRequest: requests.GetDeployStageRequest
@@ -4330,7 +4330,7 @@ export class DevopsClient {
    * @param GetDeploymentRequest
    * @return GetDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetDeployment.ts.html |here} to see how to use GetDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetDeployment.ts.html |here} to see how to use GetDeployment API.
    */
   public async getDeployment(
     getDeploymentRequest: requests.GetDeploymentRequest
@@ -4407,7 +4407,7 @@ export class DevopsClient {
    * @param GetFileDiffRequest
    * @return GetFileDiffResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetFileDiff.ts.html |here} to see how to use GetFileDiff API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetFileDiff.ts.html |here} to see how to use GetFileDiff API.
    */
   public async getFileDiff(
     getFileDiffRequest: requests.GetFileDiffRequest
@@ -4494,7 +4494,7 @@ export class DevopsClient {
    * @param GetMirrorRecordRequest
    * @return GetMirrorRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetMirrorRecord.ts.html |here} to see how to use GetMirrorRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetMirrorRecord.ts.html |here} to see how to use GetMirrorRecord API.
    */
   public async getMirrorRecord(
     getMirrorRecordRequest: requests.GetMirrorRecordRequest
@@ -4572,7 +4572,7 @@ export class DevopsClient {
    * @param GetObjectRequest
    * @return GetObjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetObject.ts.html |here} to see how to use GetObject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetObject.ts.html |here} to see how to use GetObject API.
    */
   public async getObject(
     getObjectRequest: requests.GetObjectRequest
@@ -4652,7 +4652,7 @@ export class DevopsClient {
    * @param GetObjectContentRequest
    * @return GetObjectContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetObjectContent.ts.html |here} to see how to use GetObjectContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetObjectContent.ts.html |here} to see how to use GetObjectContent API.
    */
   public async getObjectContent(
     getObjectContentRequest: requests.GetObjectContentRequest
@@ -4736,7 +4736,7 @@ export class DevopsClient {
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetProject.ts.html |here} to see how to use GetProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetProject.ts.html |here} to see how to use GetProject API.
    */
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
@@ -4812,7 +4812,7 @@ export class DevopsClient {
    * @param GetProjectNotificationPreferenceRequest
    * @return GetProjectNotificationPreferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetProjectNotificationPreference.ts.html |here} to see how to use GetProjectNotificationPreference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetProjectNotificationPreference.ts.html |here} to see how to use GetProjectNotificationPreference API.
    */
   public async getProjectNotificationPreference(
     getProjectNotificationPreferenceRequest: requests.GetProjectNotificationPreferenceRequest
@@ -4890,7 +4890,7 @@ export class DevopsClient {
    * @param GetProjectRepositorySettingsRequest
    * @return GetProjectRepositorySettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetProjectRepositorySettings.ts.html |here} to see how to use GetProjectRepositorySettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetProjectRepositorySettings.ts.html |here} to see how to use GetProjectRepositorySettings API.
    */
   public async getProjectRepositorySettings(
     getProjectRepositorySettingsRequest: requests.GetProjectRepositorySettingsRequest
@@ -4967,7 +4967,7 @@ export class DevopsClient {
    * @param GetPullRequestRequest
    * @return GetPullRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequest.ts.html |here} to see how to use GetPullRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequest.ts.html |here} to see how to use GetPullRequest API.
    */
   public async getPullRequest(
     getPullRequestRequest: requests.GetPullRequestRequest
@@ -5043,7 +5043,7 @@ export class DevopsClient {
    * @param GetPullRequestAttachmentRequest
    * @return GetPullRequestAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestAttachment.ts.html |here} to see how to use GetPullRequestAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestAttachment.ts.html |here} to see how to use GetPullRequestAttachment API.
    */
   public async getPullRequestAttachment(
     getPullRequestAttachmentRequest: requests.GetPullRequestAttachmentRequest
@@ -5120,7 +5120,7 @@ export class DevopsClient {
    * @param GetPullRequestAttachmentContentRequest
    * @return GetPullRequestAttachmentContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestAttachmentContent.ts.html |here} to see how to use GetPullRequestAttachmentContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestAttachmentContent.ts.html |here} to see how to use GetPullRequestAttachmentContent API.
    */
   public async getPullRequestAttachmentContent(
     getPullRequestAttachmentContentRequest: requests.GetPullRequestAttachmentContentRequest
@@ -5198,7 +5198,7 @@ export class DevopsClient {
    * @param GetPullRequestChangeSummaryMetricsRequest
    * @return GetPullRequestChangeSummaryMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestChangeSummaryMetrics.ts.html |here} to see how to use GetPullRequestChangeSummaryMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestChangeSummaryMetrics.ts.html |here} to see how to use GetPullRequestChangeSummaryMetrics API.
    */
   public async getPullRequestChangeSummaryMetrics(
     getPullRequestChangeSummaryMetricsRequest: requests.GetPullRequestChangeSummaryMetricsRequest
@@ -5270,7 +5270,7 @@ export class DevopsClient {
    * @param GetPullRequestCommentRequest
    * @return GetPullRequestCommentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestComment.ts.html |here} to see how to use GetPullRequestComment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestComment.ts.html |here} to see how to use GetPullRequestComment API.
    */
   public async getPullRequestComment(
     getPullRequestCommentRequest: requests.GetPullRequestCommentRequest
@@ -5347,7 +5347,7 @@ export class DevopsClient {
    * @param GetPullRequestNotificationPreferenceRequest
    * @return GetPullRequestNotificationPreferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestNotificationPreference.ts.html |here} to see how to use GetPullRequestNotificationPreference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetPullRequestNotificationPreference.ts.html |here} to see how to use GetPullRequestNotificationPreference API.
    */
   public async getPullRequestNotificationPreference(
     getPullRequestNotificationPreferenceRequest: requests.GetPullRequestNotificationPreferenceRequest
@@ -5426,7 +5426,7 @@ export class DevopsClient {
    * @param GetRefRequest
    * @return GetRefResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRef.ts.html |here} to see how to use GetRef API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRef.ts.html |here} to see how to use GetRef API.
    */
   public async getRef(getRefRequest: requests.GetRefRequest): Promise<responses.GetRefResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getRef.");
@@ -5507,7 +5507,7 @@ export class DevopsClient {
    * @param GetRepoFileDiffRequest
    * @return GetRepoFileDiffResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepoFileDiff.ts.html |here} to see how to use GetRepoFileDiff API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepoFileDiff.ts.html |here} to see how to use GetRepoFileDiff API.
    */
   public async getRepoFileDiff(
     getRepoFileDiffRequest: requests.GetRepoFileDiffRequest
@@ -5589,7 +5589,7 @@ export class DevopsClient {
    * @param GetRepoFileLinesRequest
    * @return GetRepoFileLinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepoFileLines.ts.html |here} to see how to use GetRepoFileLines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepoFileLines.ts.html |here} to see how to use GetRepoFileLines API.
    */
   public async getRepoFileLines(
     getRepoFileLinesRequest: requests.GetRepoFileLinesRequest
@@ -5670,7 +5670,7 @@ export class DevopsClient {
    * @param GetRepositoryRequest
    * @return GetRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepository.ts.html |here} to see how to use GetRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepository.ts.html |here} to see how to use GetRepository API.
    */
   public async getRepository(
     getRepositoryRequest: requests.GetRepositoryRequest
@@ -5749,7 +5749,7 @@ export class DevopsClient {
    * @param GetRepositoryArchiveContentRequest
    * @return GetRepositoryArchiveContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositoryArchiveContent.ts.html |here} to see how to use GetRepositoryArchiveContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositoryArchiveContent.ts.html |here} to see how to use GetRepositoryArchiveContent API.
    */
   public async getRepositoryArchiveContent(
     getRepositoryArchiveContentRequest: requests.GetRepositoryArchiveContentRequest
@@ -5835,7 +5835,7 @@ export class DevopsClient {
    * @param GetRepositoryFileLinesRequest
    * @return GetRepositoryFileLinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositoryFileLines.ts.html |here} to see how to use GetRepositoryFileLines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositoryFileLines.ts.html |here} to see how to use GetRepositoryFileLines API.
    */
   public async getRepositoryFileLines(
     getRepositoryFileLinesRequest: requests.GetRepositoryFileLinesRequest
@@ -5921,7 +5921,7 @@ export class DevopsClient {
    * @param GetRepositoryNotificationPreferenceRequest
    * @return GetRepositoryNotificationPreferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositoryNotificationPreference.ts.html |here} to see how to use GetRepositoryNotificationPreference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositoryNotificationPreference.ts.html |here} to see how to use GetRepositoryNotificationPreference API.
    */
   public async getRepositoryNotificationPreference(
     getRepositoryNotificationPreferenceRequest: requests.GetRepositoryNotificationPreferenceRequest
@@ -6000,7 +6000,7 @@ export class DevopsClient {
    * @param GetRepositorySettingsRequest
    * @return GetRepositorySettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositorySettings.ts.html |here} to see how to use GetRepositorySettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetRepositorySettings.ts.html |here} to see how to use GetRepositorySettings API.
    */
   public async getRepositorySettings(
     getRepositorySettingsRequest: requests.GetRepositorySettingsRequest
@@ -6076,7 +6076,7 @@ export class DevopsClient {
    * @param GetTriggerRequest
    * @return GetTriggerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetTrigger.ts.html |here} to see how to use GetTrigger API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetTrigger.ts.html |here} to see how to use GetTrigger API.
    */
   public async getTrigger(
     getTriggerRequest: requests.GetTriggerRequest
@@ -6152,7 +6152,7 @@ export class DevopsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -6229,7 +6229,7 @@ export class DevopsClient {
    * @param LikePullRequestCommentRequest
    * @return LikePullRequestCommentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/LikePullRequestComment.ts.html |here} to see how to use LikePullRequestComment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/LikePullRequestComment.ts.html |here} to see how to use LikePullRequestComment API.
    */
   public async likePullRequestComment(
     likePullRequestCommentRequest: requests.LikePullRequestCommentRequest
@@ -6308,7 +6308,7 @@ export class DevopsClient {
    * @param ListAuthorsRequest
    * @return ListAuthorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListAuthors.ts.html |here} to see how to use ListAuthors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListAuthors.ts.html |here} to see how to use ListAuthors API.
    */
   public async listAuthors(
     listAuthorsRequest: requests.ListAuthorsRequest
@@ -6390,7 +6390,7 @@ export class DevopsClient {
    * @param ListBuildPipelineStagesRequest
    * @return ListBuildPipelineStagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildPipelineStages.ts.html |here} to see how to use ListBuildPipelineStages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildPipelineStages.ts.html |here} to see how to use ListBuildPipelineStages API.
    */
   public async listBuildPipelineStages(
     listBuildPipelineStagesRequest: requests.ListBuildPipelineStagesRequest
@@ -6475,7 +6475,7 @@ export class DevopsClient {
    * @param ListBuildPipelinesRequest
    * @return ListBuildPipelinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildPipelines.ts.html |here} to see how to use ListBuildPipelines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildPipelines.ts.html |here} to see how to use ListBuildPipelines API.
    */
   public async listBuildPipelines(
     listBuildPipelinesRequest: requests.ListBuildPipelinesRequest
@@ -6560,7 +6560,7 @@ export class DevopsClient {
    * @param ListBuildRunSnapshotsRequest
    * @return ListBuildRunSnapshotsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildRunSnapshots.ts.html |here} to see how to use ListBuildRunSnapshots API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildRunSnapshots.ts.html |here} to see how to use ListBuildRunSnapshots API.
    */
   public async listBuildRunSnapshots(
     listBuildRunSnapshotsRequest: requests.ListBuildRunSnapshotsRequest
@@ -6645,7 +6645,7 @@ export class DevopsClient {
    * @param ListBuildRunsRequest
    * @return ListBuildRunsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildRuns.ts.html |here} to see how to use ListBuildRuns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListBuildRuns.ts.html |here} to see how to use ListBuildRuns API.
    */
   public async listBuildRuns(
     listBuildRunsRequest: requests.ListBuildRunsRequest
@@ -6731,7 +6731,7 @@ export class DevopsClient {
    * @param ListCommitDiffsRequest
    * @return ListCommitDiffsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListCommitDiffs.ts.html |here} to see how to use ListCommitDiffs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListCommitDiffs.ts.html |here} to see how to use ListCommitDiffs API.
    */
   public async listCommitDiffs(
     listCommitDiffsRequest: requests.ListCommitDiffsRequest
@@ -6815,7 +6815,7 @@ export class DevopsClient {
    * @param ListCommitsRequest
    * @return ListCommitsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListCommits.ts.html |here} to see how to use ListCommits API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListCommits.ts.html |here} to see how to use ListCommits API.
    */
   public async listCommits(
     listCommitsRequest: requests.ListCommitsRequest
@@ -6902,7 +6902,7 @@ export class DevopsClient {
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListConnections.ts.html |here} to see how to use ListConnections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListConnections.ts.html |here} to see how to use ListConnections API.
    */
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
@@ -6987,7 +6987,7 @@ export class DevopsClient {
    * @param ListDeployArtifactsRequest
    * @return ListDeployArtifactsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListDeployArtifacts.ts.html |here} to see how to use ListDeployArtifacts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListDeployArtifacts.ts.html |here} to see how to use ListDeployArtifacts API.
    */
   public async listDeployArtifacts(
     listDeployArtifactsRequest: requests.ListDeployArtifactsRequest
@@ -7071,7 +7071,7 @@ export class DevopsClient {
    * @param ListDeployEnvironmentsRequest
    * @return ListDeployEnvironmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListDeployEnvironments.ts.html |here} to see how to use ListDeployEnvironments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListDeployEnvironments.ts.html |here} to see how to use ListDeployEnvironments API.
    */
   public async listDeployEnvironments(
     listDeployEnvironmentsRequest: requests.ListDeployEnvironmentsRequest
@@ -7155,7 +7155,7 @@ export class DevopsClient {
    * @param ListDeployPipelinesRequest
    * @return ListDeployPipelinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListDeployPipelines.ts.html |here} to see how to use ListDeployPipelines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListDeployPipelines.ts.html |here} to see how to use ListDeployPipelines API.
    */
   public async listDeployPipelines(
     listDeployPipelinesRequest: requests.ListDeployPipelinesRequest
@@ -7239,7 +7239,7 @@ export class DevopsClient {
    * @param ListDeployStagesRequest
    * @return ListDeployStagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListDeployStages.ts.html |here} to see how to use ListDeployStages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListDeployStages.ts.html |here} to see how to use ListDeployStages API.
    */
   public async listDeployStages(
     listDeployStagesRequest: requests.ListDeployStagesRequest
@@ -7323,7 +7323,7 @@ export class DevopsClient {
    * @param ListDeploymentsRequest
    * @return ListDeploymentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListDeployments.ts.html |here} to see how to use ListDeployments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListDeployments.ts.html |here} to see how to use ListDeployments API.
    */
   public async listDeployments(
     listDeploymentsRequest: requests.ListDeploymentsRequest
@@ -7410,7 +7410,7 @@ export class DevopsClient {
    * @param ListForkSyncStatusesRequest
    * @return ListForkSyncStatusesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListForkSyncStatuses.ts.html |here} to see how to use ListForkSyncStatuses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListForkSyncStatuses.ts.html |here} to see how to use ListForkSyncStatuses API.
    */
   public async listForkSyncStatuses(
     listForkSyncStatusesRequest: requests.ListForkSyncStatusesRequest
@@ -7490,7 +7490,7 @@ export class DevopsClient {
    * @param ListMirrorRecordsRequest
    * @return ListMirrorRecordsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListMirrorRecords.ts.html |here} to see how to use ListMirrorRecords API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListMirrorRecords.ts.html |here} to see how to use ListMirrorRecords API.
    */
   public async listMirrorRecords(
     listMirrorRecordsRequest: requests.ListMirrorRecordsRequest
@@ -7571,7 +7571,7 @@ export class DevopsClient {
    * @param ListPathsRequest
    * @return ListPathsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPaths.ts.html |here} to see how to use ListPaths API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPaths.ts.html |here} to see how to use ListPaths API.
    */
   public async listPaths(
     listPathsRequest: requests.ListPathsRequest
@@ -7657,7 +7657,7 @@ export class DevopsClient {
    * @param ListProjectCommitAnalyticsAuthorsRequest
    * @return ListProjectCommitAnalyticsAuthorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListProjectCommitAnalyticsAuthors.ts.html |here} to see how to use ListProjectCommitAnalyticsAuthors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListProjectCommitAnalyticsAuthors.ts.html |here} to see how to use ListProjectCommitAnalyticsAuthors API.
    */
   public async listProjectCommitAnalyticsAuthors(
     listProjectCommitAnalyticsAuthorsRequest: requests.ListProjectCommitAnalyticsAuthorsRequest
@@ -7739,7 +7739,7 @@ export class DevopsClient {
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListProjects.ts.html |here} to see how to use ListProjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListProjects.ts.html |here} to see how to use ListProjects API.
    */
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
@@ -7823,7 +7823,7 @@ export class DevopsClient {
    * @param ListProtectedBranchesRequest
    * @return ListProtectedBranchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListProtectedBranches.ts.html |here} to see how to use ListProtectedBranches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListProtectedBranches.ts.html |here} to see how to use ListProtectedBranches API.
    */
   public async listProtectedBranches(
     listProtectedBranchesRequest: requests.ListProtectedBranchesRequest
@@ -7905,7 +7905,7 @@ export class DevopsClient {
    * @param ListPullRequestActivitiesRequest
    * @return ListPullRequestActivitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestActivities.ts.html |here} to see how to use ListPullRequestActivities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestActivities.ts.html |here} to see how to use ListPullRequestActivities API.
    */
   public async listPullRequestActivities(
     listPullRequestActivitiesRequest: requests.ListPullRequestActivitiesRequest
@@ -7986,7 +7986,7 @@ export class DevopsClient {
    * @param ListPullRequestAttachmentsRequest
    * @return ListPullRequestAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestAttachments.ts.html |here} to see how to use ListPullRequestAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestAttachments.ts.html |here} to see how to use ListPullRequestAttachments API.
    */
   public async listPullRequestAttachments(
     listPullRequestAttachmentsRequest: requests.ListPullRequestAttachmentsRequest
@@ -8071,7 +8071,7 @@ export class DevopsClient {
    * @param ListPullRequestAuthorsRequest
    * @return ListPullRequestAuthorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestAuthors.ts.html |here} to see how to use ListPullRequestAuthors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestAuthors.ts.html |here} to see how to use ListPullRequestAuthors API.
    */
   public async listPullRequestAuthors(
     listPullRequestAuthorsRequest: requests.ListPullRequestAuthorsRequest
@@ -8151,7 +8151,7 @@ export class DevopsClient {
    * @param ListPullRequestCommentsRequest
    * @return ListPullRequestCommentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestComments.ts.html |here} to see how to use ListPullRequestComments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestComments.ts.html |here} to see how to use ListPullRequestComments API.
    */
   public async listPullRequestComments(
     listPullRequestCommentsRequest: requests.ListPullRequestCommentsRequest
@@ -8236,7 +8236,7 @@ export class DevopsClient {
    * @param ListPullRequestCommitsRequest
    * @return ListPullRequestCommitsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestCommits.ts.html |here} to see how to use ListPullRequestCommits API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestCommits.ts.html |here} to see how to use ListPullRequestCommits API.
    */
   public async listPullRequestCommits(
     listPullRequestCommitsRequest: requests.ListPullRequestCommitsRequest
@@ -8315,7 +8315,7 @@ export class DevopsClient {
    * @param ListPullRequestFileChangesRequest
    * @return ListPullRequestFileChangesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestFileChanges.ts.html |here} to see how to use ListPullRequestFileChanges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequestFileChanges.ts.html |here} to see how to use ListPullRequestFileChanges API.
    */
   public async listPullRequestFileChanges(
     listPullRequestFileChangesRequest: requests.ListPullRequestFileChangesRequest
@@ -8397,7 +8397,7 @@ export class DevopsClient {
    * @param ListPullRequestsRequest
    * @return ListPullRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequests.ts.html |here} to see how to use ListPullRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListPullRequests.ts.html |here} to see how to use ListPullRequests API.
    */
   public async listPullRequests(
     listPullRequestsRequest: requests.ListPullRequestsRequest
@@ -8488,7 +8488,7 @@ export class DevopsClient {
    * @param ListRefsRequest
    * @return ListRefsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListRefs.ts.html |here} to see how to use ListRefs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListRefs.ts.html |here} to see how to use ListRefs API.
    */
   public async listRefs(
     listRefsRequest: requests.ListRefsRequest
@@ -8573,7 +8573,7 @@ export class DevopsClient {
    * @param ListRepositoriesRequest
    * @return ListRepositoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListRepositories.ts.html |here} to see how to use ListRepositories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListRepositories.ts.html |here} to see how to use ListRepositories API.
    */
   public async listRepositories(
     listRepositoriesRequest: requests.ListRepositoriesRequest
@@ -8658,7 +8658,7 @@ export class DevopsClient {
    * @param ListRepositoryCommitAnalyticsAuthorsRequest
    * @return ListRepositoryCommitAnalyticsAuthorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListRepositoryCommitAnalyticsAuthors.ts.html |here} to see how to use ListRepositoryCommitAnalyticsAuthors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListRepositoryCommitAnalyticsAuthors.ts.html |here} to see how to use ListRepositoryCommitAnalyticsAuthors API.
    */
   public async listRepositoryCommitAnalyticsAuthors(
     listRepositoryCommitAnalyticsAuthorsRequest: requests.ListRepositoryCommitAnalyticsAuthorsRequest
@@ -8741,7 +8741,7 @@ export class DevopsClient {
    * @param ListTriggersRequest
    * @return ListTriggersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListTriggers.ts.html |here} to see how to use ListTriggers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListTriggers.ts.html |here} to see how to use ListTriggers API.
    */
   public async listTriggers(
     listTriggersRequest: requests.ListTriggersRequest
@@ -8825,7 +8825,7 @@ export class DevopsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -8906,7 +8906,7 @@ export class DevopsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -8987,7 +8987,7 @@ export class DevopsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -9071,7 +9071,7 @@ export class DevopsClient {
    * @param MergePullRequestRequest
    * @return MergePullRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/MergePullRequest.ts.html |here} to see how to use MergePullRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/MergePullRequest.ts.html |here} to see how to use MergePullRequest API.
    */
   public async mergePullRequest(
     mergePullRequestRequest: requests.MergePullRequestRequest
@@ -9165,7 +9165,7 @@ export class DevopsClient {
    * @param MirrorRepositoryRequest
    * @return MirrorRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/MirrorRepository.ts.html |here} to see how to use MirrorRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/MirrorRepository.ts.html |here} to see how to use MirrorRepository API.
    */
   public async mirrorRepository(
     mirrorRepositoryRequest: requests.MirrorRepositoryRequest
@@ -9239,7 +9239,7 @@ export class DevopsClient {
    * @param PatchPullRequestRequest
    * @return PatchPullRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/PatchPullRequest.ts.html |here} to see how to use PatchPullRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/PatchPullRequest.ts.html |here} to see how to use PatchPullRequest API.
    */
   public async patchPullRequest(
     patchPullRequestRequest: requests.PatchPullRequestRequest
@@ -9327,7 +9327,7 @@ export class DevopsClient {
    * @param PutRepositoryRefRequest
    * @return PutRepositoryRefResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/PutRepositoryRef.ts.html |here} to see how to use PutRepositoryRef API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/PutRepositoryRef.ts.html |here} to see how to use PutRepositoryRef API.
    */
   public async putRepositoryRef(
     putRepositoryRefRequest: requests.PutRepositoryRefRequest
@@ -9427,7 +9427,7 @@ export class DevopsClient {
    * @param ReopenPullRequestRequest
    * @return ReopenPullRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ReopenPullRequest.ts.html |here} to see how to use ReopenPullRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ReopenPullRequest.ts.html |here} to see how to use ReopenPullRequest API.
    */
   public async reopenPullRequest(
     reopenPullRequestRequest: requests.ReopenPullRequestRequest
@@ -9510,7 +9510,7 @@ export class DevopsClient {
    * @param ReviewPullRequestRequest
    * @return ReviewPullRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ReviewPullRequest.ts.html |here} to see how to use ReviewPullRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ReviewPullRequest.ts.html |here} to see how to use ReviewPullRequest API.
    */
   public async reviewPullRequest(
     reviewPullRequestRequest: requests.ReviewPullRequestRequest
@@ -9598,7 +9598,7 @@ export class DevopsClient {
    * @param ScheduleCascadingProjectDeletionRequest
    * @return ScheduleCascadingProjectDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ScheduleCascadingProjectDeletion.ts.html |here} to see how to use ScheduleCascadingProjectDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ScheduleCascadingProjectDeletion.ts.html |here} to see how to use ScheduleCascadingProjectDeletion API.
    */
   public async scheduleCascadingProjectDeletion(
     scheduleCascadingProjectDeletionRequest: requests.ScheduleCascadingProjectDeletionRequest
@@ -9673,7 +9673,7 @@ export class DevopsClient {
    * @param SummarizeProjectRepositoryAnalyticsRequest
    * @return SummarizeProjectRepositoryAnalyticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SummarizeProjectRepositoryAnalytics.ts.html |here} to see how to use SummarizeProjectRepositoryAnalytics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SummarizeProjectRepositoryAnalytics.ts.html |here} to see how to use SummarizeProjectRepositoryAnalytics API.
    */
   public async summarizeProjectRepositoryAnalytics(
     summarizeProjectRepositoryAnalyticsRequest: requests.SummarizeProjectRepositoryAnalyticsRequest
@@ -9758,7 +9758,7 @@ export class DevopsClient {
    * @param SummarizeRepositoryAnalyticsRequest
    * @return SummarizeRepositoryAnalyticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SummarizeRepositoryAnalytics.ts.html |here} to see how to use SummarizeRepositoryAnalytics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SummarizeRepositoryAnalytics.ts.html |here} to see how to use SummarizeRepositoryAnalytics API.
    */
   public async summarizeRepositoryAnalytics(
     summarizeRepositoryAnalyticsRequest: requests.SummarizeRepositoryAnalyticsRequest
@@ -9844,7 +9844,7 @@ export class DevopsClient {
    * @param SyncRepositoryRequest
    * @return SyncRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SyncRepository.ts.html |here} to see how to use SyncRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SyncRepository.ts.html |here} to see how to use SyncRepository API.
    */
   public async syncRepository(
     syncRepositoryRequest: requests.SyncRepositoryRequest
@@ -9926,7 +9926,7 @@ export class DevopsClient {
    * @param UnlikePullRequestCommentRequest
    * @return UnlikePullRequestCommentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UnlikePullRequestComment.ts.html |here} to see how to use UnlikePullRequestComment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UnlikePullRequestComment.ts.html |here} to see how to use UnlikePullRequestComment API.
    */
   public async unlikePullRequestComment(
     unlikePullRequestCommentRequest: requests.UnlikePullRequestCommentRequest
@@ -10004,7 +10004,7 @@ export class DevopsClient {
    * @param UnsubscribePullRequestRequest
    * @return UnsubscribePullRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UnsubscribePullRequest.ts.html |here} to see how to use UnsubscribePullRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UnsubscribePullRequest.ts.html |here} to see how to use UnsubscribePullRequest API.
    */
   public async unsubscribePullRequest(
     unsubscribePullRequestRequest: requests.UnsubscribePullRequestRequest
@@ -10088,7 +10088,7 @@ export class DevopsClient {
    * @param UpdateBuildPipelineRequest
    * @return UpdateBuildPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateBuildPipeline.ts.html |here} to see how to use UpdateBuildPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateBuildPipeline.ts.html |here} to see how to use UpdateBuildPipeline API.
    */
   public async updateBuildPipeline(
     updateBuildPipelineRequest: requests.UpdateBuildPipelineRequest
@@ -10180,7 +10180,7 @@ export class DevopsClient {
    * @param UpdateBuildPipelineStageRequest
    * @return UpdateBuildPipelineStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateBuildPipelineStage.ts.html |here} to see how to use UpdateBuildPipelineStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateBuildPipelineStage.ts.html |here} to see how to use UpdateBuildPipelineStage API.
    */
   public async updateBuildPipelineStage(
     updateBuildPipelineStageRequest: requests.UpdateBuildPipelineStageRequest
@@ -10272,7 +10272,7 @@ export class DevopsClient {
    * @param UpdateBuildRunRequest
    * @return UpdateBuildRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateBuildRun.ts.html |here} to see how to use UpdateBuildRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateBuildRun.ts.html |here} to see how to use UpdateBuildRun API.
    */
   public async updateBuildRun(
     updateBuildRunRequest: requests.UpdateBuildRunRequest
@@ -10359,7 +10359,7 @@ export class DevopsClient {
    * @param UpdateConnectionRequest
    * @return UpdateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
    */
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
@@ -10451,7 +10451,7 @@ export class DevopsClient {
    * @param UpdateDeployArtifactRequest
    * @return UpdateDeployArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateDeployArtifact.ts.html |here} to see how to use UpdateDeployArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateDeployArtifact.ts.html |here} to see how to use UpdateDeployArtifact API.
    */
   public async updateDeployArtifact(
     updateDeployArtifactRequest: requests.UpdateDeployArtifactRequest
@@ -10543,7 +10543,7 @@ export class DevopsClient {
    * @param UpdateDeployEnvironmentRequest
    * @return UpdateDeployEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateDeployEnvironment.ts.html |here} to see how to use UpdateDeployEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateDeployEnvironment.ts.html |here} to see how to use UpdateDeployEnvironment API.
    */
   public async updateDeployEnvironment(
     updateDeployEnvironmentRequest: requests.UpdateDeployEnvironmentRequest
@@ -10635,7 +10635,7 @@ export class DevopsClient {
    * @param UpdateDeployPipelineRequest
    * @return UpdateDeployPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateDeployPipeline.ts.html |here} to see how to use UpdateDeployPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateDeployPipeline.ts.html |here} to see how to use UpdateDeployPipeline API.
    */
   public async updateDeployPipeline(
     updateDeployPipelineRequest: requests.UpdateDeployPipelineRequest
@@ -10727,7 +10727,7 @@ export class DevopsClient {
    * @param UpdateDeployStageRequest
    * @return UpdateDeployStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateDeployStage.ts.html |here} to see how to use UpdateDeployStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateDeployStage.ts.html |here} to see how to use UpdateDeployStage API.
    */
   public async updateDeployStage(
     updateDeployStageRequest: requests.UpdateDeployStageRequest
@@ -10819,7 +10819,7 @@ export class DevopsClient {
    * @param UpdateDeploymentRequest
    * @return UpdateDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateDeployment.ts.html |here} to see how to use UpdateDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateDeployment.ts.html |here} to see how to use UpdateDeployment API.
    */
   public async updateDeployment(
     updateDeploymentRequest: requests.UpdateDeploymentRequest
@@ -10901,7 +10901,7 @@ export class DevopsClient {
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateProject.ts.html |here} to see how to use UpdateProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateProject.ts.html |here} to see how to use UpdateProject API.
    */
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest
@@ -10993,7 +10993,7 @@ export class DevopsClient {
    * @param UpdateProjectNotificationPreferenceRequest
    * @return UpdateProjectNotificationPreferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateProjectNotificationPreference.ts.html |here} to see how to use UpdateProjectNotificationPreference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateProjectNotificationPreference.ts.html |here} to see how to use UpdateProjectNotificationPreference API.
    */
   public async updateProjectNotificationPreference(
     updateProjectNotificationPreferenceRequest: requests.UpdateProjectNotificationPreferenceRequest
@@ -11082,7 +11082,7 @@ export class DevopsClient {
    * @param UpdateProjectRepositorySettingsRequest
    * @return UpdateProjectRepositorySettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateProjectRepositorySettings.ts.html |here} to see how to use UpdateProjectRepositorySettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateProjectRepositorySettings.ts.html |here} to see how to use UpdateProjectRepositorySettings API.
    */
   public async updateProjectRepositorySettings(
     updateProjectRepositorySettingsRequest: requests.UpdateProjectRepositorySettingsRequest
@@ -11171,7 +11171,7 @@ export class DevopsClient {
    * @param UpdatePullRequestRequest
    * @return UpdatePullRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdatePullRequest.ts.html |here} to see how to use UpdatePullRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdatePullRequest.ts.html |here} to see how to use UpdatePullRequest API.
    */
   public async updatePullRequest(
     updatePullRequestRequest: requests.UpdatePullRequestRequest
@@ -11263,7 +11263,7 @@ export class DevopsClient {
    * @param UpdatePullRequestCommentRequest
    * @return UpdatePullRequestCommentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdatePullRequestComment.ts.html |here} to see how to use UpdatePullRequestComment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdatePullRequestComment.ts.html |here} to see how to use UpdatePullRequestComment API.
    */
   public async updatePullRequestComment(
     updatePullRequestCommentRequest: requests.UpdatePullRequestCommentRequest
@@ -11346,7 +11346,7 @@ export class DevopsClient {
    * @param UpdatePullRequestNotificationPreferenceRequest
    * @return UpdatePullRequestNotificationPreferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdatePullRequestNotificationPreference.ts.html |here} to see how to use UpdatePullRequestNotificationPreference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdatePullRequestNotificationPreference.ts.html |here} to see how to use UpdatePullRequestNotificationPreference API.
    */
   public async updatePullRequestNotificationPreference(
     updatePullRequestNotificationPreferenceRequest: requests.UpdatePullRequestNotificationPreferenceRequest
@@ -11436,7 +11436,7 @@ export class DevopsClient {
    * @param UpdateRepositoryRequest
    * @return UpdateRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateRepository.ts.html |here} to see how to use UpdateRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateRepository.ts.html |here} to see how to use UpdateRepository API.
    */
   public async updateRepository(
     updateRepositoryRequest: requests.UpdateRepositoryRequest
@@ -11523,7 +11523,7 @@ export class DevopsClient {
    * @param UpdateRepositoryNotificationPreferenceRequest
    * @return UpdateRepositoryNotificationPreferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateRepositoryNotificationPreference.ts.html |here} to see how to use UpdateRepositoryNotificationPreference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateRepositoryNotificationPreference.ts.html |here} to see how to use UpdateRepositoryNotificationPreference API.
    */
   public async updateRepositoryNotificationPreference(
     updateRepositoryNotificationPreferenceRequest: requests.UpdateRepositoryNotificationPreferenceRequest
@@ -11613,7 +11613,7 @@ export class DevopsClient {
    * @param UpdateRepositorySettingsRequest
    * @return UpdateRepositorySettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateRepositorySettings.ts.html |here} to see how to use UpdateRepositorySettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateRepositorySettings.ts.html |here} to see how to use UpdateRepositorySettings API.
    */
   public async updateRepositorySettings(
     updateRepositorySettingsRequest: requests.UpdateRepositorySettingsRequest
@@ -11701,7 +11701,7 @@ export class DevopsClient {
    * @param UpdateTriggerRequest
    * @return UpdateTriggerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateTrigger.ts.html |here} to see how to use UpdateTrigger API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/UpdateTrigger.ts.html |here} to see how to use UpdateTrigger API.
    */
   public async updateTrigger(
     updateTriggerRequest: requests.UpdateTriggerRequest
@@ -11794,7 +11794,7 @@ export class DevopsClient {
    * @param ValidateConnectionRequest
    * @return ValidateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ValidateConnection.ts.html |here} to see how to use ValidateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ValidateConnection.ts.html |here} to see how to use ValidateConnection API.
    */
   public async validateConnection(
     validateConnectionRequest: requests.ValidateConnectionRequest

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataStorageConnector.ts.html |here} to see how to use UpdateExternalExadataStorageConnectorRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataStorageConnector.ts.html |here} to see how to use UpdateExternalExadataStorageConnectorRequest.
  */
 export interface UpdateExternalExadataStorageConnectorRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the connector to the Exadata storage server.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the connector to the Exadata storage server.
    */
   "externalExadataStorageConnectorId": string;
   /**

@@ -1,6 +1,6 @@
 /**
  * OCI Cache API
- * Use the OCI Cache API to create and manage clusters. A cluster is a memory-based storage solution. For more information, see [OCI Cache](/iaas/Content/ocicache/home.htm).
+ * Use the OCI Cache API to create and manage clusters. A cluster is a memory-based storage solution. For more information, see [OCI Cache](https://docs.oracle.com/iaas/Content/ocicache/home.htm).
  * OpenAPI spec version: 20220315
  *
  *
@@ -27,11 +27,11 @@ export interface WorkRequest {
    */
   "status": model.OperationStatus;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the work request.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the compartment that contains the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the compartment that contains the work request.
    *
    */
   "compartmentId": string;

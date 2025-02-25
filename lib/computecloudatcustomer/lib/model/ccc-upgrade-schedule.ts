@@ -1,7 +1,7 @@
 /**
  * Compute Cloud@Customer API
  * Use the Compute Cloud@Customer API to manage Compute Cloud@Customer infrastructures and upgrade schedules.
-For more information see [Compute Cloud@Customer documentation](/iaas/compute-cloud-at-customer/home.htm).
+For more information see [Compute Cloud@Customer documentation](https://docs.oracle.com/iaas/compute-cloud-at-customer/home.htm).
 
  * OpenAPI spec version: 20221208
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface CccUpgradeSchedule {
   /**
-   * Upgrade schedule [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Upgrade schedule [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * This cannot be changed once created.
    *
    */
@@ -39,7 +39,7 @@ export interface CccUpgradeSchedule {
    */
   "description"?: string;
   /**
-   * Compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the
+   * Compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the
    * Compute Cloud@Customer upgrade schedule.
    *
    */
@@ -73,7 +73,7 @@ export interface CccUpgradeSchedule {
   "events"?: Array<model.CccScheduleEvent>;
   /**
    * List of Compute Cloud@Customer infrastructure
-   * [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that are using this upgrade
+   * [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that are using this upgrade
    * schedule.
    *
    */

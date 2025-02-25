@@ -1,6 +1,6 @@
 /**
  * Zero Trust Packet Routing Control Plane API
- * Use the Zero Trust Packet Routing Control Plane API to manage ZPR configuration and policy. See the [Zero Trust Packet Routing](/iaas/Content/zero-trust-packet-routing/home.htm) documentation for more information.
+ * Use the Zero Trust Packet Routing Control Plane API to manage ZPR configuration and policy. See the [Zero Trust Packet Routing](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/home.htm) documentation for more information.
  * OpenAPI spec version: 20240301
  *
  *
@@ -19,12 +19,12 @@ import common = require("oci-common");
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized, talk to
 * an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm).
+* [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm).
 * 
 */
 export interface ZprPolicy {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ZprPolicy.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ZprPolicy.
    */
   "id": string;
   /**
@@ -36,7 +36,7 @@ export interface ZprPolicy {
    */
   "description": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
@@ -56,7 +56,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   "timeCreated": Date;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -64,7 +64,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags": { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

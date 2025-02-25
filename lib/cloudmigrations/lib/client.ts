@@ -243,7 +243,7 @@ export class MigrationClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -310,7 +310,7 @@ export class MigrationClient {
    * @param ChangeMigrationCompartmentRequest
    * @return ChangeMigrationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ChangeMigrationCompartment.ts.html |here} to see how to use ChangeMigrationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ChangeMigrationCompartment.ts.html |here} to see how to use ChangeMigrationCompartment API.
    */
   public async changeMigrationCompartment(
     changeMigrationCompartmentRequest: requests.ChangeMigrationCompartmentRequest
@@ -389,7 +389,7 @@ export class MigrationClient {
    * @param ChangeMigrationPlanCompartmentRequest
    * @return ChangeMigrationPlanCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ChangeMigrationPlanCompartment.ts.html |here} to see how to use ChangeMigrationPlanCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ChangeMigrationPlanCompartment.ts.html |here} to see how to use ChangeMigrationPlanCompartment API.
    */
   public async changeMigrationPlanCompartment(
     changeMigrationPlanCompartmentRequest: requests.ChangeMigrationPlanCompartmentRequest
@@ -468,7 +468,7 @@ export class MigrationClient {
    * @param ChangeReplicationScheduleCompartmentRequest
    * @return ChangeReplicationScheduleCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ChangeReplicationScheduleCompartment.ts.html |here} to see how to use ChangeReplicationScheduleCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ChangeReplicationScheduleCompartment.ts.html |here} to see how to use ChangeReplicationScheduleCompartment API.
    */
   public async changeReplicationScheduleCompartment(
     changeReplicationScheduleCompartmentRequest: requests.ChangeReplicationScheduleCompartmentRequest
@@ -548,7 +548,7 @@ export class MigrationClient {
    * @param CreateMigrationRequest
    * @return CreateMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateMigration.ts.html |here} to see how to use CreateMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateMigration.ts.html |here} to see how to use CreateMigration API.
    */
   public async createMigration(
     createMigrationRequest: requests.CreateMigrationRequest
@@ -628,7 +628,7 @@ export class MigrationClient {
    * @param CreateMigrationAssetRequest
    * @return CreateMigrationAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateMigrationAsset.ts.html |here} to see how to use CreateMigrationAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateMigrationAsset.ts.html |here} to see how to use CreateMigrationAsset API.
    */
   public async createMigrationAsset(
     createMigrationAssetRequest: requests.CreateMigrationAssetRequest
@@ -723,7 +723,7 @@ export class MigrationClient {
    * @param CreateMigrationPlanRequest
    * @return CreateMigrationPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateMigrationPlan.ts.html |here} to see how to use CreateMigrationPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateMigrationPlan.ts.html |here} to see how to use CreateMigrationPlan API.
    */
   public async createMigrationPlan(
     createMigrationPlanRequest: requests.CreateMigrationPlanRequest
@@ -818,7 +818,7 @@ export class MigrationClient {
    * @param CreateReplicationScheduleRequest
    * @return CreateReplicationScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateReplicationSchedule.ts.html |here} to see how to use CreateReplicationSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateReplicationSchedule.ts.html |here} to see how to use CreateReplicationSchedule API.
    */
   public async createReplicationSchedule(
     createReplicationScheduleRequest: requests.CreateReplicationScheduleRequest
@@ -914,7 +914,7 @@ export class MigrationClient {
    * @param CreateTargetAssetRequest
    * @return CreateTargetAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateTargetAsset.ts.html |here} to see how to use CreateTargetAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateTargetAsset.ts.html |here} to see how to use CreateTargetAsset API.
    */
   public async createTargetAsset(
     createTargetAssetRequest: requests.CreateTargetAssetRequest
@@ -1008,7 +1008,7 @@ export class MigrationClient {
    * @param DeleteMigrationRequest
    * @return DeleteMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/DeleteMigration.ts.html |here} to see how to use DeleteMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/DeleteMigration.ts.html |here} to see how to use DeleteMigration API.
    */
   public async deleteMigration(
     deleteMigrationRequest: requests.DeleteMigrationRequest
@@ -1080,7 +1080,7 @@ export class MigrationClient {
    * @param DeleteMigrationAssetRequest
    * @return DeleteMigrationAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/DeleteMigrationAsset.ts.html |here} to see how to use DeleteMigrationAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/DeleteMigrationAsset.ts.html |here} to see how to use DeleteMigrationAsset API.
    */
   public async deleteMigrationAsset(
     deleteMigrationAssetRequest: requests.DeleteMigrationAssetRequest
@@ -1152,7 +1152,7 @@ export class MigrationClient {
    * @param DeleteMigrationPlanRequest
    * @return DeleteMigrationPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/DeleteMigrationPlan.ts.html |here} to see how to use DeleteMigrationPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/DeleteMigrationPlan.ts.html |here} to see how to use DeleteMigrationPlan API.
    */
   public async deleteMigrationPlan(
     deleteMigrationPlanRequest: requests.DeleteMigrationPlanRequest
@@ -1224,7 +1224,7 @@ export class MigrationClient {
    * @param DeleteReplicationScheduleRequest
    * @return DeleteReplicationScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/DeleteReplicationSchedule.ts.html |here} to see how to use DeleteReplicationSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/DeleteReplicationSchedule.ts.html |here} to see how to use DeleteReplicationSchedule API.
    */
   public async deleteReplicationSchedule(
     deleteReplicationScheduleRequest: requests.DeleteReplicationScheduleRequest
@@ -1297,7 +1297,7 @@ export class MigrationClient {
    * @param DeleteTargetAssetRequest
    * @return DeleteTargetAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/DeleteTargetAsset.ts.html |here} to see how to use DeleteTargetAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/DeleteTargetAsset.ts.html |here} to see how to use DeleteTargetAsset API.
    */
   public async deleteTargetAsset(
     deleteTargetAssetRequest: requests.DeleteTargetAssetRequest
@@ -1370,7 +1370,7 @@ export class MigrationClient {
    * @param ExecuteMigrationPlanRequest
    * @return ExecuteMigrationPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ExecuteMigrationPlan.ts.html |here} to see how to use ExecuteMigrationPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ExecuteMigrationPlan.ts.html |here} to see how to use ExecuteMigrationPlan API.
    */
   public async executeMigrationPlan(
     executeMigrationPlanRequest: requests.ExecuteMigrationPlanRequest
@@ -1443,7 +1443,7 @@ export class MigrationClient {
    * @param ExportMigrationPlanRequest
    * @return ExportMigrationPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ExportMigrationPlan.ts.html |here} to see how to use ExportMigrationPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ExportMigrationPlan.ts.html |here} to see how to use ExportMigrationPlan API.
    */
   public async exportMigrationPlan(
     exportMigrationPlanRequest: requests.ExportMigrationPlanRequest
@@ -1513,7 +1513,7 @@ export class MigrationClient {
    * @param GetMigrationRequest
    * @return GetMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetMigration.ts.html |here} to see how to use GetMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetMigration.ts.html |here} to see how to use GetMigration API.
    */
   public async getMigration(
     getMigrationRequest: requests.GetMigrationRequest
@@ -1588,7 +1588,7 @@ export class MigrationClient {
    * @param GetMigrationAssetRequest
    * @return GetMigrationAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetMigrationAsset.ts.html |here} to see how to use GetMigrationAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetMigrationAsset.ts.html |here} to see how to use GetMigrationAsset API.
    */
   public async getMigrationAsset(
     getMigrationAssetRequest: requests.GetMigrationAssetRequest
@@ -1663,7 +1663,7 @@ export class MigrationClient {
    * @param GetMigrationPlanRequest
    * @return GetMigrationPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetMigrationPlan.ts.html |here} to see how to use GetMigrationPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetMigrationPlan.ts.html |here} to see how to use GetMigrationPlan API.
    */
   public async getMigrationPlan(
     getMigrationPlanRequest: requests.GetMigrationPlanRequest
@@ -1739,7 +1739,7 @@ export class MigrationClient {
    * @param GetReplicationProgressRequest
    * @return GetReplicationProgressResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetReplicationProgress.ts.html |here} to see how to use GetReplicationProgress API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetReplicationProgress.ts.html |here} to see how to use GetReplicationProgress API.
    */
   public async getReplicationProgress(
     getReplicationProgressRequest: requests.GetReplicationProgressRequest
@@ -1809,7 +1809,7 @@ export class MigrationClient {
    * @param GetReplicationScheduleRequest
    * @return GetReplicationScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetReplicationSchedule.ts.html |here} to see how to use GetReplicationSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetReplicationSchedule.ts.html |here} to see how to use GetReplicationSchedule API.
    */
   public async getReplicationSchedule(
     getReplicationScheduleRequest: requests.GetReplicationScheduleRequest
@@ -1884,7 +1884,7 @@ export class MigrationClient {
    * @param GetTargetAssetRequest
    * @return GetTargetAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetTargetAsset.ts.html |here} to see how to use GetTargetAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetTargetAsset.ts.html |here} to see how to use GetTargetAsset API.
    */
   public async getTargetAsset(
     getTargetAssetRequest: requests.GetTargetAssetRequest
@@ -1959,7 +1959,7 @@ export class MigrationClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2039,7 +2039,7 @@ export class MigrationClient {
    * @param ImportMigrationPlanRequest
    * @return ImportMigrationPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ImportMigrationPlan.ts.html |here} to see how to use ImportMigrationPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ImportMigrationPlan.ts.html |here} to see how to use ImportMigrationPlan API.
    */
   public async importMigrationPlan(
     importMigrationPlanRequest: requests.ImportMigrationPlanRequest
@@ -2113,7 +2113,7 @@ export class MigrationClient {
    * @param ListAvailableShapesRequest
    * @return ListAvailableShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListAvailableShapes.ts.html |here} to see how to use ListAvailableShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListAvailableShapes.ts.html |here} to see how to use ListAvailableShapes API.
    */
   public async listAvailableShapes(
     listAvailableShapesRequest: requests.ListAvailableShapesRequest
@@ -2198,7 +2198,7 @@ export class MigrationClient {
    * @param ListMigrationAssetsRequest
    * @return ListMigrationAssetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListMigrationAssets.ts.html |here} to see how to use ListMigrationAssets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListMigrationAssets.ts.html |here} to see how to use ListMigrationAssets API.
    */
   public async listMigrationAssets(
     listMigrationAssetsRequest: requests.ListMigrationAssetsRequest
@@ -2281,7 +2281,7 @@ export class MigrationClient {
    * @param ListMigrationPlansRequest
    * @return ListMigrationPlansResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListMigrationPlans.ts.html |here} to see how to use ListMigrationPlans API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListMigrationPlans.ts.html |here} to see how to use ListMigrationPlans API.
    */
   public async listMigrationPlans(
     listMigrationPlansRequest: requests.ListMigrationPlansRequest
@@ -2365,7 +2365,7 @@ export class MigrationClient {
    * @param ListMigrationsRequest
    * @return ListMigrationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListMigrations.ts.html |here} to see how to use ListMigrations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListMigrations.ts.html |here} to see how to use ListMigrations API.
    */
   public async listMigrations(
     listMigrationsRequest: requests.ListMigrationsRequest
@@ -2448,7 +2448,7 @@ export class MigrationClient {
    * @param ListReplicationSchedulesRequest
    * @return ListReplicationSchedulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListReplicationSchedules.ts.html |here} to see how to use ListReplicationSchedules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListReplicationSchedules.ts.html |here} to see how to use ListReplicationSchedules API.
    */
   public async listReplicationSchedules(
     listReplicationSchedulesRequest: requests.ListReplicationSchedulesRequest
@@ -2532,7 +2532,7 @@ export class MigrationClient {
    * @param ListTargetAssetsRequest
    * @return ListTargetAssetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListTargetAssets.ts.html |here} to see how to use ListTargetAssets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListTargetAssets.ts.html |here} to see how to use ListTargetAssets API.
    */
   public async listTargetAssets(
     listTargetAssetsRequest: requests.ListTargetAssetsRequest
@@ -2615,7 +2615,7 @@ export class MigrationClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2696,7 +2696,7 @@ export class MigrationClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2777,7 +2777,7 @@ export class MigrationClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2861,7 +2861,7 @@ export class MigrationClient {
    * @param RefreshMigrationRequest
    * @return RefreshMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/RefreshMigration.ts.html |here} to see how to use RefreshMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/RefreshMigration.ts.html |here} to see how to use RefreshMigration API.
    */
   public async refreshMigration(
     refreshMigrationRequest: requests.RefreshMigrationRequest
@@ -2935,7 +2935,7 @@ export class MigrationClient {
    * @param RefreshMigrationAssetRequest
    * @return RefreshMigrationAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/RefreshMigrationAsset.ts.html |here} to see how to use RefreshMigrationAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/RefreshMigrationAsset.ts.html |here} to see how to use RefreshMigrationAsset API.
    */
   public async refreshMigrationAsset(
     refreshMigrationAssetRequest: requests.RefreshMigrationAssetRequest
@@ -3009,7 +3009,7 @@ export class MigrationClient {
    * @param RefreshMigrationPlanRequest
    * @return RefreshMigrationPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/RefreshMigrationPlan.ts.html |here} to see how to use RefreshMigrationPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/RefreshMigrationPlan.ts.html |here} to see how to use RefreshMigrationPlan API.
    */
   public async refreshMigrationPlan(
     refreshMigrationPlanRequest: requests.RefreshMigrationPlanRequest
@@ -3083,7 +3083,7 @@ export class MigrationClient {
    * @param StartAssetReplicationRequest
    * @return StartAssetReplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/StartAssetReplication.ts.html |here} to see how to use StartAssetReplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/StartAssetReplication.ts.html |here} to see how to use StartAssetReplication API.
    */
   public async startAssetReplication(
     startAssetReplicationRequest: requests.StartAssetReplicationRequest
@@ -3157,7 +3157,7 @@ export class MigrationClient {
    * @param StartMigrationReplicationRequest
    * @return StartMigrationReplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/StartMigrationReplication.ts.html |here} to see how to use StartMigrationReplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/StartMigrationReplication.ts.html |here} to see how to use StartMigrationReplication API.
    */
   public async startMigrationReplication(
     startMigrationReplicationRequest: requests.StartMigrationReplicationRequest
@@ -3231,7 +3231,7 @@ export class MigrationClient {
    * @param UpdateMigrationRequest
    * @return UpdateMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/UpdateMigration.ts.html |here} to see how to use UpdateMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/UpdateMigration.ts.html |here} to see how to use UpdateMigration API.
    */
   public async updateMigration(
     updateMigrationRequest: requests.UpdateMigrationRequest
@@ -3312,7 +3312,7 @@ export class MigrationClient {
    * @param UpdateMigrationAssetRequest
    * @return UpdateMigrationAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/UpdateMigrationAsset.ts.html |here} to see how to use UpdateMigrationAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/UpdateMigrationAsset.ts.html |here} to see how to use UpdateMigrationAsset API.
    */
   public async updateMigrationAsset(
     updateMigrationAssetRequest: requests.UpdateMigrationAssetRequest
@@ -3393,7 +3393,7 @@ export class MigrationClient {
    * @param UpdateMigrationPlanRequest
    * @return UpdateMigrationPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/UpdateMigrationPlan.ts.html |here} to see how to use UpdateMigrationPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/UpdateMigrationPlan.ts.html |here} to see how to use UpdateMigrationPlan API.
    */
   public async updateMigrationPlan(
     updateMigrationPlanRequest: requests.UpdateMigrationPlanRequest
@@ -3471,7 +3471,7 @@ export class MigrationClient {
    * @param UpdateReplicationScheduleRequest
    * @return UpdateReplicationScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/UpdateReplicationSchedule.ts.html |here} to see how to use UpdateReplicationSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/UpdateReplicationSchedule.ts.html |here} to see how to use UpdateReplicationSchedule API.
    */
   public async updateReplicationSchedule(
     updateReplicationScheduleRequest: requests.UpdateReplicationScheduleRequest
@@ -3550,7 +3550,7 @@ export class MigrationClient {
    * @param UpdateTargetAssetRequest
    * @return UpdateTargetAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/UpdateTargetAsset.ts.html |here} to see how to use UpdateTargetAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/UpdateTargetAsset.ts.html |here} to see how to use UpdateTargetAsset API.
    */
   public async updateTargetAsset(
     updateTargetAssetRequest: requests.UpdateTargetAssetRequest

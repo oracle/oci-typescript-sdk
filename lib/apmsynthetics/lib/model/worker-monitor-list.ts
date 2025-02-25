@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface WorkerMonitorList {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the monitor.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the monitor.
    */
   "id": string;
   /**

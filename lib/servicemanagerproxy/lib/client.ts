@@ -221,7 +221,7 @@ export class ServiceManagerProxyClient {
    * @param GetServiceEnvironmentRequest
    * @return GetServiceEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemanagerproxy/GetServiceEnvironment.ts.html |here} to see how to use GetServiceEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemanagerproxy/GetServiceEnvironment.ts.html |here} to see how to use GetServiceEnvironment API.
    */
   public async getServiceEnvironment(
     getServiceEnvironmentRequest: requests.GetServiceEnvironmentRequest
@@ -302,7 +302,7 @@ export class ServiceManagerProxyClient {
    * @param ListServiceEnvironmentsRequest
    * @return ListServiceEnvironmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemanagerproxy/ListServiceEnvironments.ts.html |here} to see how to use ListServiceEnvironments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemanagerproxy/ListServiceEnvironments.ts.html |here} to see how to use ListServiceEnvironments API.
    */
   public async listServiceEnvironments(
     listServiceEnvironmentsRequest: requests.ListServiceEnvironmentsRequest

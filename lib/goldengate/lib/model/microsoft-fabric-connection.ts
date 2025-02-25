@@ -37,7 +37,7 @@ export interface MicrosoftFabricConnection extends model.Connection {
    */
   "clientId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the client secret is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the client secret is stored.
    * Note: When provided, 'clientSecret' field must not be provided.
    *
    */

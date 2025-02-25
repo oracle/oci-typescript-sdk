@@ -21,19 +21,19 @@ import common = require("oci-common");
 export interface MetricBasedVerticalScaleDownConfig {
   "metric"?: model.AutoScalePolicyMetricRule;
   /**
-   * For nodes with [flexible compute shapes](https://docs.cloud.oracle.com/iaas/Content/bigdata/create-cluster.htm#cluster-plan-shape), this value is the minimum number of OCPUs each node can be scaled-down to. This value is not used for nodes with fixed compute shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * For nodes with [flexible compute shapes](https://docs.oracle.com/iaas/Content/bigdata/create-cluster.htm#cluster-plan-shape), this value is the minimum number of OCPUs each node can be scaled-down to. This value is not used for nodes with fixed compute shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minOcpusPerNode"?: number;
   /**
-   * For nodes with [flexible compute shapes](https://docs.cloud.oracle.com/iaas/Content/bigdata/create-cluster.htm#cluster-plan-shape), this value is the minimum memory in GBs each node can be scaled-down to. This value is not used for nodes with fixed compute shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * For nodes with [flexible compute shapes](https://docs.oracle.com/iaas/Content/bigdata/create-cluster.htm#cluster-plan-shape), this value is the minimum memory in GBs each node can be scaled-down to. This value is not used for nodes with fixed compute shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minMemoryPerNode"?: number;
   /**
-   * For nodes with [flexible compute shapes](https://docs.cloud.oracle.com/iaas/Content/bigdata/create-cluster.htm#cluster-plan-shape), this value is the number of OCPUs to remove from each node during a scale-down event. This value is not used for nodes with fixed compute shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * For nodes with [flexible compute shapes](https://docs.oracle.com/iaas/Content/bigdata/create-cluster.htm#cluster-plan-shape), this value is the number of OCPUs to remove from each node during a scale-down event. This value is not used for nodes with fixed compute shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpuStepSize"?: number;
   /**
-   * For nodes with [flexible compute shapes](https://docs.cloud.oracle.com/iaas/Content/bigdata/create-cluster.htm#cluster-plan-shape), this value is the size of memory in GBs to remove from each node during a scale-down event. This value is not used for nodes with fixed compute shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * For nodes with [flexible compute shapes](https://docs.oracle.com/iaas/Content/bigdata/create-cluster.htm#cluster-plan-shape), this value is the size of memory in GBs to remove from each node during a scale-down event. This value is not used for nodes with fixed compute shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryStepSize"?: number;
 }

@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeSoftwareSourceCompartment.ts.html |here} to see how to use ChangeSoftwareSourceCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeSoftwareSourceCompartment.ts.html |here} to see how to use ChangeSoftwareSourceCompartmentRequest.
  */
 export interface ChangeSoftwareSourceCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source.
    */
   "softwareSourceId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the compartment to move the software source to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the compartment to move the software source to.
    */
   "changeSoftwareSourceCompartmentDetails": model.ChangeSoftwareSourceCompartmentDetails;
   /**

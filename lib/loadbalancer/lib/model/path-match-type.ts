@@ -1,7 +1,7 @@
 /**
  * Load Balancing API
  * API for the Load Balancing service. Use this API to manage load balancers, backend sets, and related items. For more
-information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/balanceoverview.htm).
+information, see [Overview of Load Balancing](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).
 
  * OpenAPI spec version: 20170115
  * 
@@ -34,7 +34,7 @@ export interface PathMatchType {
 *  **SUFFIX_MATCH** - Looks for a {@code path} string that matches the ending portion of the incoming URI path.
 * <p>
 For a full description of how the system handles {@code matchType} in a path route set containing multiple rules, see
-* [Managing Request Routing](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingrequest.htm).
+* [Managing Request Routing](https://docs.oracle.com/iaas/Content/Balance/Tasks/managingrequest.htm).
 * 
     */
   "matchType": PathMatchType.MatchType;

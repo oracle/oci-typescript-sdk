@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -31,7 +31,7 @@ export interface ListIpInventoryDetails {
    */
   "regionList": Array<string>;
   /**
-   * List the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartments.
+   * List the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartments.
    */
   "compartmentList": Array<string>;
   /**
@@ -75,12 +75,12 @@ export interface ListIpInventoryDetails {
   "sortOrder"?: ListIpInventoryDetails.SortOrder;
   /**
    * Most List operations paginate results. Results are paginated for the ListInstances operations. When you call a paginated List operation, the response indicates more pages of results by including the opc-next-page header.
-   * For more information, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For more information, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "paginationOffset"?: number;
   /**
-   * Specifies the maximum number of results displayed per page for a paginated \"List\" call. For more information, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * Specifies the maximum number of results displayed per page for a paginated \"List\" call. For more information, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    * Example: {@code 50}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

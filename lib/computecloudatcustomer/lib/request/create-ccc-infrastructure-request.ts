@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/CreateCccInfrastructure.ts.html |here} to see how to use CreateCccInfrastructureRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/CreateCccInfrastructure.ts.html |here} to see how to use CreateCccInfrastructureRequest.
  */
 export interface CreateCccInfrastructureRequest extends common.BaseRequest {
   /**
@@ -32,7 +32,7 @@ export interface CreateCccInfrastructureRequest extends common.BaseRequest {
    */
   "opcRetryToken"?: string;
   /**
-   * The client request [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for tracing.
+   * The client request [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for tracing.
    *
    */
   "opcRequestId"?: string;

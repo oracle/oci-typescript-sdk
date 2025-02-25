@@ -1,7 +1,7 @@
 /**
  * Audit API
  * API for the Audit Service. Use this API for compliance monitoring in your tenancy.
-For more information, see [Overview of Audit](/iaas/Content/Audit/Concepts/auditoverview.htm).
+For more information, see [Overview of Audit](https://docs.oracle.com/iaas/Content/Audit/Concepts/auditoverview.htm).
 
 **Tip**: This API is good for queries, but not bulk-export operations.
 
@@ -20,7 +20,7 @@ import common = require("oci-common");
 
 /**
  * The configuration details for the retention period setting, specified in days. For more
- * information, see [Setting Audit Log Retention Period](https://docs.cloud.oracle.com/iaas/Content/Audit/Tasks/settingretentionperiod.htm).
+ * information, see [Setting Audit Log Retention Period](https://docs.oracle.com/iaas/Content/Audit/Tasks/settingretentionperiod.htm).
  *
  */
 export interface UpdateConfigurationDetails {

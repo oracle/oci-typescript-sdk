@@ -2,7 +2,7 @@
  * Connector Hub API
  * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Connector Hub, see
-[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+[the Connector Hub documentation](https://docs.oracle.com/iaas/Content/connector-hub/home.htm).
 Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
@@ -22,9 +22,9 @@ import common = require("oci-common");
  * A service source or service target used to create a connector.
  * Example connector plugins include the Queue source and the Notifications target.
  * For more information about flows defined by connectors, see
- * [Overview of Connector Hub](https://docs.cloud.oracle.com/iaas/Content/connector-hub/overview.htm).
+ * [Overview of Connector Hub](https://docs.oracle.com/iaas/Content/connector-hub/overview.htm).
  * For configuration instructions, see
- * [Creating a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/create-service-connector.htm).
+ * [Creating a Connector](https://docs.oracle.com/iaas/Content/connector-hub/create-service-connector.htm).
  *
  */
 export interface ConnectorPlugin {

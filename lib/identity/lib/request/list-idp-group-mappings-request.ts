@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdpGroupMappings.ts.html |here} to see how to use ListIdpGroupMappingsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListIdpGroupMappings.ts.html |here} to see how to use ListIdpGroupMappingsRequest.
  */
 export interface ListIdpGroupMappingsRequest extends common.BaseRequest {
   /**

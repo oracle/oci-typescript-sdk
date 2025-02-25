@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -34,13 +34,13 @@ Allowed values:
 * <p>
   * An IP address range in CIDR notation. For example: {@code 192.168.1.0/24} or {@code 2001:0db8:0123:45::/56}
 *     IPv6 addressing is supported for all commercial and government regions. See
-*     [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+*     [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
   * The {@code cidrBlock} value for a {@link Service}, if you're
 *     setting up a security rule for traffic destined for a particular {@code Service} through
 *     a service gateway. For example: {@code oci-phx-objectstorage}.
 * <p>
-  * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a {@link NetworkSecurityGroup} in the same
+  * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a {@link NetworkSecurityGroup} in the same
 *     VCN. The value can be the NSG that the rule belongs to if the rule's intent is to control
 *     traffic between VNICs in the same NSG.
 * 
@@ -57,7 +57,7 @@ Allowed values:
 *     {@link Service} (the rule is for traffic destined for a
 *     particular {@code Service} through a service gateway).
 * <p>
-  * {@code NETWORK_SECURITY_GROUP}: If the rule's {@code destination} is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
+  * {@code NETWORK_SECURITY_GROUP}: If the rule's {@code destination} is the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
 *     {@link NetworkSecurityGroup}.
 * 
     */
@@ -101,13 +101,13 @@ Allowed values:
 * <p>
   * An IP address range in CIDR notation. For example: {@code 192.168.1.0/24} or {@code 2001:0db8:0123:45::/56}
 *     IPv6 addressing is supported for all commercial and government regions. See
-*     [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+*     [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
   * The {@code cidrBlock} value for a {@link Service}, if you're
 *     setting up a security rule for traffic coming from a particular {@code Service} through
 *     a service gateway. For example: {@code oci-phx-objectstorage}.
 * <p>
-  * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a {@link NetworkSecurityGroup} in the same
+  * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a {@link NetworkSecurityGroup} in the same
 *     VCN. The value can be the NSG that the rule belongs to if the rule's intent is to control
 *     traffic between VNICs in the same NSG.
 * 
@@ -122,7 +122,7 @@ Allowed values:
    *     {@link Service} (the rule is for traffic coming from a
    *     particular {@code Service} through a service gateway).
    * <p>
-   * {@code NETWORK_SECURITY_GROUP}: If the rule's {@code source} is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
+   * {@code NETWORK_SECURITY_GROUP}: If the rule's {@code source} is the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
    *     {@link NetworkSecurityGroup}.
    *
    */

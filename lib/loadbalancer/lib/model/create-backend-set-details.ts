@@ -1,7 +1,7 @@
 /**
  * Load Balancing API
  * API for the Load Balancing service. Use this API to manage load balancers, backend sets, and related items. For more
-information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/balanceoverview.htm).
+information, see [Overview of Load Balancing](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).
 
  * OpenAPI spec version: 20170115
  * 
@@ -19,7 +19,7 @@ import common = require("oci-common");
 /**
  * The configuration details for creating a backend set in a load balancer.
  * For more information on backend set configuration, see
- * [Managing Backend Sets](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingbackendsets.htm).
+ * [Managing Backend Sets](https://docs.oracle.com/iaas/Content/Balance/Tasks/managingbackendsets.htm).
  * <p>
  **Note:** The {@code sessionPersistenceConfiguration} (application cookie stickiness) and {@code lbCookieSessionPersistenceConfiguration}
  * (LB cookie stickiness) attributes are mutually exclusive. To avoid returning an error, configure only one of these two

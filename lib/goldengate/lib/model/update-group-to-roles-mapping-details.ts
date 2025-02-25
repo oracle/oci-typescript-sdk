@@ -23,27 +23,27 @@ import common = require("oci-common");
  */
 export interface UpdateGroupToRolesMappingDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the IDP group which will be mapped to goldengate role securityGroup.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the IDP group which will be mapped to goldengate role securityGroup.
    * It grants administration of security related objects and invoke security related service requests. This role has full privileges.
    *
    */
   "securityGroupId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the IDP group which will be mapped to goldengate role administratorGroup.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the IDP group which will be mapped to goldengate role administratorGroup.
    * It grants full access to the user, including the ability to alter general, non-security related operational parameters
    * and profiles of the server.
    *
    */
   "administratorGroupId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the IDP group which will be mapped to goldengate role operatorGroup.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the IDP group which will be mapped to goldengate role operatorGroup.
    * It allows users to perform only operational actions, like starting and stopping resources.
    * Operators cannot alter the operational parameters or profiles of the MA server.
    *
    */
   "operatorGroupId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the IDP group which will be mapped to goldengate role userGroup.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the IDP group which will be mapped to goldengate role userGroup.
    * It allows information-only service requests, which do not alter or affect the operation of either the MA.
    * Examples of query and read-only information include performance metric information and resource status and monitoring information
    *

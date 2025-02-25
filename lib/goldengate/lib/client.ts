@@ -244,7 +244,7 @@ export class GoldenGateClient {
    * @param AddConnectionLockRequest
    * @return AddConnectionLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/AddConnectionLock.ts.html |here} to see how to use AddConnectionLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/AddConnectionLock.ts.html |here} to see how to use AddConnectionLock API.
    */
   public async addConnectionLock(
     addConnectionLockRequest: requests.AddConnectionLockRequest
@@ -326,7 +326,7 @@ export class GoldenGateClient {
    * @param AddDeploymentBackupLockRequest
    * @return AddDeploymentBackupLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/AddDeploymentBackupLock.ts.html |here} to see how to use AddDeploymentBackupLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/AddDeploymentBackupLock.ts.html |here} to see how to use AddDeploymentBackupLock API.
    */
   public async addDeploymentBackupLock(
     addDeploymentBackupLockRequest: requests.AddDeploymentBackupLockRequest
@@ -409,7 +409,7 @@ export class GoldenGateClient {
    * @param AddDeploymentLockRequest
    * @return AddDeploymentLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/AddDeploymentLock.ts.html |here} to see how to use AddDeploymentLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/AddDeploymentLock.ts.html |here} to see how to use AddDeploymentLock API.
    */
   public async addDeploymentLock(
     addDeploymentLockRequest: requests.AddDeploymentLockRequest
@@ -491,7 +491,7 @@ export class GoldenGateClient {
    * @param CancelDeploymentBackupRequest
    * @return CancelDeploymentBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelDeploymentBackup.ts.html |here} to see how to use CancelDeploymentBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelDeploymentBackup.ts.html |here} to see how to use CancelDeploymentBackup API.
    */
   public async cancelDeploymentBackup(
     cancelDeploymentBackupRequest: requests.CancelDeploymentBackupRequest
@@ -574,7 +574,7 @@ export class GoldenGateClient {
    * @param CancelDeploymentUpgradeRequest
    * @return CancelDeploymentUpgradeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelDeploymentUpgrade.ts.html |here} to see how to use CancelDeploymentUpgrade API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelDeploymentUpgrade.ts.html |here} to see how to use CancelDeploymentUpgrade API.
    */
   public async cancelDeploymentUpgrade(
     cancelDeploymentUpgradeRequest: requests.CancelDeploymentUpgradeRequest
@@ -659,7 +659,7 @@ export class GoldenGateClient {
    * @param CancelSnoozeDeploymentUpgradeRequest
    * @return CancelSnoozeDeploymentUpgradeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelSnoozeDeploymentUpgrade.ts.html |here} to see how to use CancelSnoozeDeploymentUpgrade API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelSnoozeDeploymentUpgrade.ts.html |here} to see how to use CancelSnoozeDeploymentUpgrade API.
    */
   public async cancelSnoozeDeploymentUpgrade(
     cancelSnoozeDeploymentUpgradeRequest: requests.CancelSnoozeDeploymentUpgradeRequest
@@ -732,13 +732,13 @@ export class GoldenGateClient {
    * Moves the Connection into a different compartment within the same tenancy. When
    * provided, If-Match is checked against ETag values of the resource.  For information about
    * moving resources between compartments, see [Moving Resources Between
-   * Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Compartments](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeConnectionCompartmentRequest
    * @return ChangeConnectionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeConnectionCompartment.ts.html |here} to see how to use ChangeConnectionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeConnectionCompartment.ts.html |here} to see how to use ChangeConnectionCompartment API.
    */
   public async changeConnectionCompartment(
     changeConnectionCompartmentRequest: requests.ChangeConnectionCompartmentRequest
@@ -818,13 +818,13 @@ export class GoldenGateClient {
    * Moves the DatabaseRegistration into a different compartment within the same tenancy. When
    * provided, If-Match is checked against ETag values of the resource.  For information about
    * moving resources between compartments, see [Moving Resources Between
-   * Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Compartments](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDatabaseRegistrationCompartmentRequest
    * @return ChangeDatabaseRegistrationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeDatabaseRegistrationCompartment.ts.html |here} to see how to use ChangeDatabaseRegistrationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeDatabaseRegistrationCompartment.ts.html |here} to see how to use ChangeDatabaseRegistrationCompartment API.
    */
   public async changeDatabaseRegistrationCompartment(
     changeDatabaseRegistrationCompartmentRequest: requests.ChangeDatabaseRegistrationCompartmentRequest
@@ -910,13 +910,13 @@ export class GoldenGateClient {
    * Moves a DeploymentBackup into a different compartment within the same tenancy.  When provided,
    * If-Match is checked against ETag values of the resource.  For information about moving
    * resources between compartments, see [Moving Resources Between
-   * Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Compartments](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDeploymentBackupCompartmentRequest
    * @return ChangeDeploymentBackupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeDeploymentBackupCompartment.ts.html |here} to see how to use ChangeDeploymentBackupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeDeploymentBackupCompartment.ts.html |here} to see how to use ChangeDeploymentBackupCompartment API.
    */
   public async changeDeploymentBackupCompartment(
     changeDeploymentBackupCompartmentRequest: requests.ChangeDeploymentBackupCompartmentRequest
@@ -991,13 +991,13 @@ export class GoldenGateClient {
    * Moves the Deployment into a different compartment within the same tenancy.  When provided,
    * If-Match is checked against ETag values of the resource.  For information about moving
    * resources between compartments, see [Moving Resources Between
-   * Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Compartments](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDeploymentCompartmentRequest
    * @return ChangeDeploymentCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeDeploymentCompartment.ts.html |here} to see how to use ChangeDeploymentCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeDeploymentCompartment.ts.html |here} to see how to use ChangeDeploymentCompartment API.
    */
   public async changeDeploymentCompartment(
     changeDeploymentCompartmentRequest: requests.ChangeDeploymentCompartmentRequest
@@ -1077,13 +1077,13 @@ export class GoldenGateClient {
    * Moves the Pipeline into a different compartment within the same tenancy. When
    * provided, If-Match is checked against ETag values of the resource.  For information about
    * moving resources between compartments, see [Moving Resources Between
-   * Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Compartments](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangePipelineCompartmentRequest
    * @return ChangePipelineCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangePipelineCompartment.ts.html |here} to see how to use ChangePipelineCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangePipelineCompartment.ts.html |here} to see how to use ChangePipelineCompartment API.
    */
   public async changePipelineCompartment(
     changePipelineCompartmentRequest: requests.ChangePipelineCompartmentRequest
@@ -1166,7 +1166,7 @@ export class GoldenGateClient {
    * @param CollectDeploymentDiagnosticRequest
    * @return CollectDeploymentDiagnosticResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CollectDeploymentDiagnostic.ts.html |here} to see how to use CollectDeploymentDiagnostic API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CollectDeploymentDiagnostic.ts.html |here} to see how to use CollectDeploymentDiagnostic API.
    */
   public async collectDeploymentDiagnostic(
     collectDeploymentDiagnosticRequest: requests.CollectDeploymentDiagnosticRequest
@@ -1246,7 +1246,7 @@ export class GoldenGateClient {
    * @param CopyDeploymentBackupRequest
    * @return CopyDeploymentBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CopyDeploymentBackup.ts.html |here} to see how to use CopyDeploymentBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CopyDeploymentBackup.ts.html |here} to see how to use CopyDeploymentBackup API.
    */
   public async copyDeploymentBackup(
     copyDeploymentBackupRequest: requests.CopyDeploymentBackupRequest
@@ -1335,7 +1335,7 @@ export class GoldenGateClient {
    * @param CreateCertificateRequest
    * @return CreateCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateCertificate.ts.html |here} to see how to use CreateCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateCertificate.ts.html |here} to see how to use CreateCertificate API.
    */
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
@@ -1416,7 +1416,7 @@ export class GoldenGateClient {
    * @param CreateConnectionRequest
    * @return CreateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateConnection.ts.html |here} to see how to use CreateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateConnection.ts.html |here} to see how to use CreateConnection API.
    */
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
@@ -1501,7 +1501,7 @@ export class GoldenGateClient {
    * @param CreateConnectionAssignmentRequest
    * @return CreateConnectionAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateConnectionAssignment.ts.html |here} to see how to use CreateConnectionAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateConnectionAssignment.ts.html |here} to see how to use CreateConnectionAssignment API.
    */
   public async createConnectionAssignment(
     createConnectionAssignmentRequest: requests.CreateConnectionAssignmentRequest
@@ -1591,7 +1591,7 @@ export class GoldenGateClient {
    * @param CreateDatabaseRegistrationRequest
    * @return CreateDatabaseRegistrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateDatabaseRegistration.ts.html |here} to see how to use CreateDatabaseRegistration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateDatabaseRegistration.ts.html |here} to see how to use CreateDatabaseRegistration API.
    */
   public async createDatabaseRegistration(
     createDatabaseRegistrationRequest: requests.CreateDatabaseRegistrationRequest
@@ -1683,7 +1683,7 @@ export class GoldenGateClient {
    * @param CreateDeploymentRequest
    * @return CreateDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateDeployment.ts.html |here} to see how to use CreateDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateDeployment.ts.html |here} to see how to use CreateDeployment API.
    */
   public async createDeployment(
     createDeploymentRequest: requests.CreateDeploymentRequest
@@ -1768,7 +1768,7 @@ export class GoldenGateClient {
    * @param CreateDeploymentBackupRequest
    * @return CreateDeploymentBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateDeploymentBackup.ts.html |here} to see how to use CreateDeploymentBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateDeploymentBackup.ts.html |here} to see how to use CreateDeploymentBackup API.
    */
   public async createDeploymentBackup(
     createDeploymentBackupRequest: requests.CreateDeploymentBackupRequest
@@ -1855,7 +1855,7 @@ export class GoldenGateClient {
    * @param CreatePipelineRequest
    * @return CreatePipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreatePipeline.ts.html |here} to see how to use CreatePipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreatePipeline.ts.html |here} to see how to use CreatePipeline API.
    */
   public async createPipeline(
     createPipelineRequest: requests.CreatePipelineRequest
@@ -1941,7 +1941,7 @@ export class GoldenGateClient {
    * @param DeleteCertificateRequest
    * @return DeleteCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteCertificate.ts.html |here} to see how to use DeleteCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteCertificate.ts.html |here} to see how to use DeleteCertificate API.
    */
   public async deleteCertificate(
     deleteCertificateRequest: requests.DeleteCertificateRequest
@@ -2018,7 +2018,7 @@ export class GoldenGateClient {
    * @param DeleteConnectionRequest
    * @return DeleteConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
    */
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
@@ -2093,7 +2093,7 @@ export class GoldenGateClient {
    * @param DeleteConnectionAssignmentRequest
    * @return DeleteConnectionAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteConnectionAssignment.ts.html |here} to see how to use DeleteConnectionAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteConnectionAssignment.ts.html |here} to see how to use DeleteConnectionAssignment API.
    */
   public async deleteConnectionAssignment(
     deleteConnectionAssignmentRequest: requests.DeleteConnectionAssignmentRequest
@@ -2171,7 +2171,7 @@ export class GoldenGateClient {
    * @param DeleteDatabaseRegistrationRequest
    * @return DeleteDatabaseRegistrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteDatabaseRegistration.ts.html |here} to see how to use DeleteDatabaseRegistration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteDatabaseRegistration.ts.html |here} to see how to use DeleteDatabaseRegistration API.
    */
   public async deleteDatabaseRegistration(
     deleteDatabaseRegistrationRequest: requests.DeleteDatabaseRegistrationRequest
@@ -2251,7 +2251,7 @@ export class GoldenGateClient {
    * @param DeleteDeploymentRequest
    * @return DeleteDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteDeployment.ts.html |here} to see how to use DeleteDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteDeployment.ts.html |here} to see how to use DeleteDeployment API.
    */
   public async deleteDeployment(
     deleteDeploymentRequest: requests.DeleteDeploymentRequest
@@ -2327,7 +2327,7 @@ export class GoldenGateClient {
    * @param DeleteDeploymentBackupRequest
    * @return DeleteDeploymentBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteDeploymentBackup.ts.html |here} to see how to use DeleteDeploymentBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteDeploymentBackup.ts.html |here} to see how to use DeleteDeploymentBackup API.
    */
   public async deleteDeploymentBackup(
     deleteDeploymentBackupRequest: requests.DeleteDeploymentBackupRequest
@@ -2404,7 +2404,7 @@ export class GoldenGateClient {
    * @param DeletePipelineRequest
    * @return DeletePipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeletePipeline.ts.html |here} to see how to use DeletePipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeletePipeline.ts.html |here} to see how to use DeletePipeline API.
    */
   public async deletePipeline(
     deletePipelineRequest: requests.DeletePipelineRequest
@@ -2480,7 +2480,7 @@ export class GoldenGateClient {
    * @param DeploymentWalletExistsRequest
    * @return DeploymentWalletExistsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeploymentWalletExists.ts.html |here} to see how to use DeploymentWalletExists API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeploymentWalletExists.ts.html |here} to see how to use DeploymentWalletExists API.
    */
   public async deploymentWalletExists(
     deploymentWalletExistsRequest: requests.DeploymentWalletExistsRequest
@@ -2565,7 +2565,7 @@ export class GoldenGateClient {
    * @param ExportDeploymentWalletRequest
    * @return ExportDeploymentWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ExportDeploymentWallet.ts.html |here} to see how to use ExportDeploymentWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ExportDeploymentWallet.ts.html |here} to see how to use ExportDeploymentWallet API.
    */
   public async exportDeploymentWallet(
     exportDeploymentWalletRequest: requests.ExportDeploymentWalletRequest
@@ -2646,7 +2646,7 @@ export class GoldenGateClient {
    * @param GenerateLibraryUrlRequest
    * @return GenerateLibraryUrlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GenerateLibraryUrl.ts.html |here} to see how to use GenerateLibraryUrl API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GenerateLibraryUrl.ts.html |here} to see how to use GenerateLibraryUrl API.
    */
   public async generateLibraryUrl(
     generateLibraryUrlRequest: requests.GenerateLibraryUrlRequest
@@ -2730,7 +2730,7 @@ export class GoldenGateClient {
    * @param GetCertificateRequest
    * @return GetCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetCertificate.ts.html |here} to see how to use GetCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetCertificate.ts.html |here} to see how to use GetCertificate API.
    */
   public async getCertificate(
     getCertificateRequest: requests.GetCertificateRequest
@@ -2808,7 +2808,7 @@ export class GoldenGateClient {
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetConnection.ts.html |here} to see how to use GetConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetConnection.ts.html |here} to see how to use GetConnection API.
    */
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
@@ -2885,7 +2885,7 @@ export class GoldenGateClient {
    * @param GetConnectionAssignmentRequest
    * @return GetConnectionAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetConnectionAssignment.ts.html |here} to see how to use GetConnectionAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetConnectionAssignment.ts.html |here} to see how to use GetConnectionAssignment API.
    */
   public async getConnectionAssignment(
     getConnectionAssignmentRequest: requests.GetConnectionAssignmentRequest
@@ -2964,7 +2964,7 @@ export class GoldenGateClient {
    * @param GetDatabaseRegistrationRequest
    * @return GetDatabaseRegistrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetDatabaseRegistration.ts.html |here} to see how to use GetDatabaseRegistration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetDatabaseRegistration.ts.html |here} to see how to use GetDatabaseRegistration API.
    */
   public async getDatabaseRegistration(
     getDatabaseRegistrationRequest: requests.GetDatabaseRegistrationRequest
@@ -3047,7 +3047,7 @@ export class GoldenGateClient {
    * @param GetDeploymentRequest
    * @return GetDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetDeployment.ts.html |here} to see how to use GetDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetDeployment.ts.html |here} to see how to use GetDeployment API.
    */
   public async getDeployment(
     getDeploymentRequest: requests.GetDeploymentRequest
@@ -3124,7 +3124,7 @@ export class GoldenGateClient {
    * @param GetDeploymentBackupRequest
    * @return GetDeploymentBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetDeploymentBackup.ts.html |here} to see how to use GetDeploymentBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetDeploymentBackup.ts.html |here} to see how to use GetDeploymentBackup API.
    */
   public async getDeploymentBackup(
     getDeploymentBackupRequest: requests.GetDeploymentBackupRequest
@@ -3201,7 +3201,7 @@ export class GoldenGateClient {
    * @param GetDeploymentUpgradeRequest
    * @return GetDeploymentUpgradeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetDeploymentUpgrade.ts.html |here} to see how to use GetDeploymentUpgrade API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetDeploymentUpgrade.ts.html |here} to see how to use GetDeploymentUpgrade API.
    */
   public async getDeploymentUpgrade(
     getDeploymentUpgradeRequest: requests.GetDeploymentUpgradeRequest
@@ -3278,7 +3278,7 @@ export class GoldenGateClient {
    * @param GetPipelineRequest
    * @return GetPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetPipeline.ts.html |here} to see how to use GetPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetPipeline.ts.html |here} to see how to use GetPipeline API.
    */
   public async getPipeline(
     getPipelineRequest: requests.GetPipelineRequest
@@ -3355,7 +3355,7 @@ export class GoldenGateClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -3432,7 +3432,7 @@ export class GoldenGateClient {
    * @param ImportDeploymentWalletRequest
    * @return ImportDeploymentWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ImportDeploymentWallet.ts.html |here} to see how to use ImportDeploymentWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ImportDeploymentWallet.ts.html |here} to see how to use ImportDeploymentWallet API.
    */
   public async importDeploymentWallet(
     importDeploymentWalletRequest: requests.ImportDeploymentWalletRequest
@@ -3514,7 +3514,7 @@ export class GoldenGateClient {
    * @param ListCertificatesRequest
    * @return ListCertificatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListCertificates.ts.html |here} to see how to use ListCertificates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListCertificates.ts.html |here} to see how to use ListCertificates API.
    */
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
@@ -3596,7 +3596,7 @@ export class GoldenGateClient {
    * @param ListConnectionAssignmentsRequest
    * @return ListConnectionAssignmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListConnectionAssignments.ts.html |here} to see how to use ListConnectionAssignments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListConnectionAssignments.ts.html |here} to see how to use ListConnectionAssignments API.
    */
   public async listConnectionAssignments(
     listConnectionAssignmentsRequest: requests.ListConnectionAssignmentsRequest
@@ -3682,7 +3682,7 @@ export class GoldenGateClient {
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListConnections.ts.html |here} to see how to use ListConnections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListConnections.ts.html |here} to see how to use ListConnections API.
    */
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
@@ -3771,7 +3771,7 @@ export class GoldenGateClient {
    * @param ListDatabaseRegistrationsRequest
    * @return ListDatabaseRegistrationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDatabaseRegistrations.ts.html |here} to see how to use ListDatabaseRegistrations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDatabaseRegistrations.ts.html |here} to see how to use ListDatabaseRegistrations API.
    */
   public async listDatabaseRegistrations(
     listDatabaseRegistrationsRequest: requests.ListDatabaseRegistrationsRequest
@@ -3860,7 +3860,7 @@ export class GoldenGateClient {
    * @param ListDeploymentBackupsRequest
    * @return ListDeploymentBackupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentBackups.ts.html |here} to see how to use ListDeploymentBackups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentBackups.ts.html |here} to see how to use ListDeploymentBackups API.
    */
   public async listDeploymentBackups(
     listDeploymentBackupsRequest: requests.ListDeploymentBackupsRequest
@@ -3944,7 +3944,7 @@ export class GoldenGateClient {
    * @param ListDeploymentEnvironmentsRequest
    * @return ListDeploymentEnvironmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentEnvironments.ts.html |here} to see how to use ListDeploymentEnvironments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentEnvironments.ts.html |here} to see how to use ListDeploymentEnvironments API.
    */
   public async listDeploymentEnvironments(
     listDeploymentEnvironmentsRequest: requests.ListDeploymentEnvironmentsRequest
@@ -4026,7 +4026,7 @@ export class GoldenGateClient {
    * @param ListDeploymentTypesRequest
    * @return ListDeploymentTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentTypes.ts.html |here} to see how to use ListDeploymentTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentTypes.ts.html |here} to see how to use ListDeploymentTypes API.
    */
   public async listDeploymentTypes(
     listDeploymentTypesRequest: requests.ListDeploymentTypesRequest
@@ -4110,7 +4110,7 @@ export class GoldenGateClient {
    * @param ListDeploymentUpgradesRequest
    * @return ListDeploymentUpgradesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentUpgrades.ts.html |here} to see how to use ListDeploymentUpgrades API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentUpgrades.ts.html |here} to see how to use ListDeploymentUpgrades API.
    */
   public async listDeploymentUpgrades(
     listDeploymentUpgradesRequest: requests.ListDeploymentUpgradesRequest
@@ -4195,7 +4195,7 @@ export class GoldenGateClient {
    * @param ListDeploymentVersionsRequest
    * @return ListDeploymentVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentVersions.ts.html |here} to see how to use ListDeploymentVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentVersions.ts.html |here} to see how to use ListDeploymentVersions API.
    */
   public async listDeploymentVersions(
     listDeploymentVersionsRequest: requests.ListDeploymentVersionsRequest
@@ -4279,7 +4279,7 @@ export class GoldenGateClient {
    * @param ListDeploymentWalletsOperationsRequest
    * @return ListDeploymentWalletsOperationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentWalletsOperations.ts.html |here} to see how to use ListDeploymentWalletsOperations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentWalletsOperations.ts.html |here} to see how to use ListDeploymentWalletsOperations API.
    */
   public async listDeploymentWalletsOperations(
     listDeploymentWalletsOperationsRequest: requests.ListDeploymentWalletsOperationsRequest
@@ -4363,7 +4363,7 @@ export class GoldenGateClient {
    * @param ListDeploymentsRequest
    * @return ListDeploymentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeployments.ts.html |here} to see how to use ListDeployments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeployments.ts.html |here} to see how to use ListDeployments API.
    */
   public async listDeployments(
     listDeploymentsRequest: requests.ListDeploymentsRequest
@@ -4451,7 +4451,7 @@ export class GoldenGateClient {
    * @param ListMessagesRequest
    * @return ListMessagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListMessages.ts.html |here} to see how to use ListMessages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListMessages.ts.html |here} to see how to use ListMessages API.
    */
   public async listMessages(
     listMessagesRequest: requests.ListMessagesRequest
@@ -4525,7 +4525,7 @@ export class GoldenGateClient {
    * @param ListPipelineInitializationStepsRequest
    * @return ListPipelineInitializationStepsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineInitializationSteps.ts.html |here} to see how to use ListPipelineInitializationSteps API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineInitializationSteps.ts.html |here} to see how to use ListPipelineInitializationSteps API.
    */
   public async listPipelineInitializationSteps(
     listPipelineInitializationStepsRequest: requests.ListPipelineInitializationStepsRequest
@@ -4603,7 +4603,7 @@ export class GoldenGateClient {
    * @param ListPipelineRunningProcessesRequest
    * @return ListPipelineRunningProcessesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineRunningProcesses.ts.html |here} to see how to use ListPipelineRunningProcesses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineRunningProcesses.ts.html |here} to see how to use ListPipelineRunningProcesses API.
    */
   public async listPipelineRunningProcesses(
     listPipelineRunningProcessesRequest: requests.ListPipelineRunningProcessesRequest
@@ -4686,7 +4686,7 @@ export class GoldenGateClient {
    * @param ListPipelineSchemaTablesRequest
    * @return ListPipelineSchemaTablesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineSchemaTables.ts.html |here} to see how to use ListPipelineSchemaTables API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineSchemaTables.ts.html |here} to see how to use ListPipelineSchemaTables API.
    */
   public async listPipelineSchemaTables(
     listPipelineSchemaTablesRequest: requests.ListPipelineSchemaTablesRequest
@@ -4772,7 +4772,7 @@ export class GoldenGateClient {
    * @param ListPipelineSchemasRequest
    * @return ListPipelineSchemasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineSchemas.ts.html |here} to see how to use ListPipelineSchemas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelineSchemas.ts.html |here} to see how to use ListPipelineSchemas API.
    */
   public async listPipelineSchemas(
     listPipelineSchemasRequest: requests.ListPipelineSchemasRequest
@@ -4855,7 +4855,7 @@ export class GoldenGateClient {
    * @param ListPipelinesRequest
    * @return ListPipelinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelines.ts.html |here} to see how to use ListPipelines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListPipelines.ts.html |here} to see how to use ListPipelines API.
    */
   public async listPipelines(
     listPipelinesRequest: requests.ListPipelinesRequest
@@ -4939,7 +4939,7 @@ export class GoldenGateClient {
    * @param ListRecipesRequest
    * @return ListRecipesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListRecipes.ts.html |here} to see how to use ListRecipes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListRecipes.ts.html |here} to see how to use ListRecipes API.
    */
   public async listRecipes(
     listRecipesRequest: requests.ListRecipesRequest
@@ -5023,7 +5023,7 @@ export class GoldenGateClient {
    * @param ListTrailFilesRequest
    * @return ListTrailFilesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListTrailFiles.ts.html |here} to see how to use ListTrailFiles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListTrailFiles.ts.html |here} to see how to use ListTrailFiles API.
    */
   public async listTrailFiles(
     listTrailFilesRequest: requests.ListTrailFilesRequest
@@ -5107,7 +5107,7 @@ export class GoldenGateClient {
    * @param ListTrailSequencesRequest
    * @return ListTrailSequencesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListTrailSequences.ts.html |here} to see how to use ListTrailSequences API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListTrailSequences.ts.html |here} to see how to use ListTrailSequences API.
    */
   public async listTrailSequences(
     listTrailSequencesRequest: requests.ListTrailSequencesRequest
@@ -5191,7 +5191,7 @@ export class GoldenGateClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -5323,7 +5323,7 @@ export class GoldenGateClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -5455,7 +5455,7 @@ export class GoldenGateClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -5587,7 +5587,7 @@ export class GoldenGateClient {
    * @param RefreshConnectionRequest
    * @return RefreshConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RefreshConnection.ts.html |here} to see how to use RefreshConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RefreshConnection.ts.html |here} to see how to use RefreshConnection API.
    */
   public async refreshConnection(
     refreshConnectionRequest: requests.RefreshConnectionRequest
@@ -5667,7 +5667,7 @@ export class GoldenGateClient {
    * @param RemoveConnectionLockRequest
    * @return RemoveConnectionLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveConnectionLock.ts.html |here} to see how to use RemoveConnectionLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveConnectionLock.ts.html |here} to see how to use RemoveConnectionLock API.
    */
   public async removeConnectionLock(
     removeConnectionLockRequest: requests.RemoveConnectionLockRequest
@@ -5749,7 +5749,7 @@ export class GoldenGateClient {
    * @param RemoveDeploymentBackupLockRequest
    * @return RemoveDeploymentBackupLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveDeploymentBackupLock.ts.html |here} to see how to use RemoveDeploymentBackupLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveDeploymentBackupLock.ts.html |here} to see how to use RemoveDeploymentBackupLock API.
    */
   public async removeDeploymentBackupLock(
     removeDeploymentBackupLockRequest: requests.RemoveDeploymentBackupLockRequest
@@ -5832,7 +5832,7 @@ export class GoldenGateClient {
    * @param RemoveDeploymentLockRequest
    * @return RemoveDeploymentLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveDeploymentLock.ts.html |here} to see how to use RemoveDeploymentLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveDeploymentLock.ts.html |here} to see how to use RemoveDeploymentLock API.
    */
   public async removeDeploymentLock(
     removeDeploymentLockRequest: requests.RemoveDeploymentLockRequest
@@ -5915,7 +5915,7 @@ export class GoldenGateClient {
    * @param RescheduleDeploymentUpgradeRequest
    * @return RescheduleDeploymentUpgradeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RescheduleDeploymentUpgrade.ts.html |here} to see how to use RescheduleDeploymentUpgrade API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RescheduleDeploymentUpgrade.ts.html |here} to see how to use RescheduleDeploymentUpgrade API.
    */
   public async rescheduleDeploymentUpgrade(
     rescheduleDeploymentUpgradeRequest: requests.RescheduleDeploymentUpgradeRequest
@@ -5999,7 +5999,7 @@ export class GoldenGateClient {
    * @param RestoreDeploymentRequest
    * @return RestoreDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RestoreDeployment.ts.html |here} to see how to use RestoreDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RestoreDeployment.ts.html |here} to see how to use RestoreDeployment API.
    */
   public async restoreDeployment(
     restoreDeploymentRequest: requests.RestoreDeploymentRequest
@@ -6081,7 +6081,7 @@ export class GoldenGateClient {
    * @param RollbackDeploymentUpgradeRequest
    * @return RollbackDeploymentUpgradeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RollbackDeploymentUpgrade.ts.html |here} to see how to use RollbackDeploymentUpgrade API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RollbackDeploymentUpgrade.ts.html |here} to see how to use RollbackDeploymentUpgrade API.
    */
   public async rollbackDeploymentUpgrade(
     rollbackDeploymentUpgradeRequest: requests.RollbackDeploymentUpgradeRequest
@@ -6164,7 +6164,7 @@ export class GoldenGateClient {
    * @param SnoozeDeploymentUpgradeRequest
    * @return SnoozeDeploymentUpgradeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/SnoozeDeploymentUpgrade.ts.html |here} to see how to use SnoozeDeploymentUpgrade API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/SnoozeDeploymentUpgrade.ts.html |here} to see how to use SnoozeDeploymentUpgrade API.
    */
   public async snoozeDeploymentUpgrade(
     snoozeDeploymentUpgradeRequest: requests.SnoozeDeploymentUpgradeRequest
@@ -6240,7 +6240,7 @@ export class GoldenGateClient {
    * @param StartDeploymentRequest
    * @return StartDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/StartDeployment.ts.html |here} to see how to use StartDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/StartDeployment.ts.html |here} to see how to use StartDeployment API.
    */
   public async startDeployment(
     startDeploymentRequest: requests.StartDeploymentRequest
@@ -6322,7 +6322,7 @@ export class GoldenGateClient {
    * @param StartPipelineRequest
    * @return StartPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/StartPipeline.ts.html |here} to see how to use StartPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/StartPipeline.ts.html |here} to see how to use StartPipeline API.
    */
   public async startPipeline(
     startPipelineRequest: requests.StartPipelineRequest
@@ -6404,7 +6404,7 @@ export class GoldenGateClient {
    * @param StopDeploymentRequest
    * @return StopDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/StopDeployment.ts.html |here} to see how to use StopDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/StopDeployment.ts.html |here} to see how to use StopDeployment API.
    */
   public async stopDeployment(
     stopDeploymentRequest: requests.StopDeploymentRequest
@@ -6486,7 +6486,7 @@ export class GoldenGateClient {
    * @param StopPipelineRequest
    * @return StopPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/StopPipeline.ts.html |here} to see how to use StopPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/StopPipeline.ts.html |here} to see how to use StopPipeline API.
    */
   public async stopPipeline(
     stopPipelineRequest: requests.StopPipelineRequest
@@ -6569,7 +6569,7 @@ export class GoldenGateClient {
    * @param TestConnectionAssignmentRequest
    * @return TestConnectionAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/TestConnectionAssignment.ts.html |here} to see how to use TestConnectionAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/TestConnectionAssignment.ts.html |here} to see how to use TestConnectionAssignment API.
    */
   public async testConnectionAssignment(
     testConnectionAssignmentRequest: requests.TestConnectionAssignmentRequest
@@ -6655,7 +6655,7 @@ export class GoldenGateClient {
    * @param TestPipelineConnectionRequest
    * @return TestPipelineConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/TestPipelineConnection.ts.html |here} to see how to use TestPipelineConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/TestPipelineConnection.ts.html |here} to see how to use TestPipelineConnection API.
    */
   public async testPipelineConnection(
     testPipelineConnectionRequest: requests.TestPipelineConnectionRequest
@@ -6740,7 +6740,7 @@ export class GoldenGateClient {
    * @param UpdateConnectionRequest
    * @return UpdateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
    */
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
@@ -6822,7 +6822,7 @@ export class GoldenGateClient {
    * @param UpdateDatabaseRegistrationRequest
    * @return UpdateDatabaseRegistrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdateDatabaseRegistration.ts.html |here} to see how to use UpdateDatabaseRegistration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdateDatabaseRegistration.ts.html |here} to see how to use UpdateDatabaseRegistration API.
    */
   public async updateDatabaseRegistration(
     updateDatabaseRegistrationRequest: requests.UpdateDatabaseRegistrationRequest
@@ -6907,7 +6907,7 @@ export class GoldenGateClient {
    * @param UpdateDeploymentRequest
    * @return UpdateDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdateDeployment.ts.html |here} to see how to use UpdateDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdateDeployment.ts.html |here} to see how to use UpdateDeployment API.
    */
   public async updateDeployment(
     updateDeploymentRequest: requests.UpdateDeploymentRequest
@@ -6988,7 +6988,7 @@ export class GoldenGateClient {
    * @param UpdateDeploymentBackupRequest
    * @return UpdateDeploymentBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdateDeploymentBackup.ts.html |here} to see how to use UpdateDeploymentBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdateDeploymentBackup.ts.html |here} to see how to use UpdateDeploymentBackup API.
    */
   public async updateDeploymentBackup(
     updateDeploymentBackupRequest: requests.UpdateDeploymentBackupRequest
@@ -7074,7 +7074,7 @@ export class GoldenGateClient {
    * @param UpdatePipelineRequest
    * @return UpdatePipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdatePipeline.ts.html |here} to see how to use UpdatePipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdatePipeline.ts.html |here} to see how to use UpdatePipeline API.
    */
   public async updatePipeline(
     updatePipelineRequest: requests.UpdatePipelineRequest
@@ -7155,7 +7155,7 @@ export class GoldenGateClient {
    * @param UpgradeDeploymentRequest
    * @return UpgradeDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpgradeDeployment.ts.html |here} to see how to use UpgradeDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpgradeDeployment.ts.html |here} to see how to use UpgradeDeployment API.
    */
   public async upgradeDeployment(
     upgradeDeploymentRequest: requests.UpgradeDeploymentRequest
@@ -7237,7 +7237,7 @@ export class GoldenGateClient {
    * @param UpgradeDeploymentUpgradeRequest
    * @return UpgradeDeploymentUpgradeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpgradeDeploymentUpgrade.ts.html |here} to see how to use UpgradeDeploymentUpgrade API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpgradeDeploymentUpgrade.ts.html |here} to see how to use UpgradeDeploymentUpgrade API.
    */
   public async upgradeDeploymentUpgrade(
     upgradeDeploymentUpgradeRequest: requests.UpgradeDeploymentUpgradeRequest

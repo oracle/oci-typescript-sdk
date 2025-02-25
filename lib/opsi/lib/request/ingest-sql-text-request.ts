@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlText.ts.html |here} to see how to use IngestSqlTextRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlText.ts.html |here} to see how to use IngestSqlTextRequest.
  */
 export interface IngestSqlTextRequest extends common.BaseRequest {
   /**
@@ -23,16 +23,16 @@ export interface IngestSqlTextRequest extends common.BaseRequest {
    */
   "ingestSqlTextDetails": model.IngestSqlTextDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId"?: string;
   /**
-   * Optional [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
+   * Optional [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
    *
    */
   "databaseId"?: string;
   /**
-   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
    *
    */
   "id"?: string;

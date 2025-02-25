@@ -1,7 +1,7 @@
 /**
  * File Storage API
  * Use the File Storage service API to manage file systems, mount targets, and snapshots.
-For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+For more information, see [Overview of File Storage](https://docs.oracle.com/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ChangeReplicationCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to move the replication to. Also changes the replication target's compartment in the target region.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the replication to. Also changes the replication target's compartment in the target region.
    *
    */
   "compartmentId": string;

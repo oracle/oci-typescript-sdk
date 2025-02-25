@@ -25,6 +25,7 @@ export interface PipelineStepOverrideDetails {
   "stepName": string;
   "stepConfigurationDetails": model.PipelineStepConfigurationDetails;
   "stepContainerConfigurationDetails"?: model.PipelineOcirContainerConfigurationDetails;
+  "stepDataflowConfigurationDetails"?: model.PipelineDataflowConfigurationDetails;
 }
 
 export namespace PipelineStepOverrideDetails {
@@ -38,6 +39,11 @@ export namespace PipelineStepOverrideDetails {
         "stepContainerConfigurationDetails": obj.stepContainerConfigurationDetails
           ? model.PipelineContainerConfigurationDetails.getJsonObj(
               obj.stepContainerConfigurationDetails
+            )
+          : undefined,
+        "stepDataflowConfigurationDetails": obj.stepDataflowConfigurationDetails
+          ? model.PipelineDataflowConfigurationDetails.getJsonObj(
+              obj.stepDataflowConfigurationDetails
             )
           : undefined
       }
@@ -57,6 +63,11 @@ export namespace PipelineStepOverrideDetails {
         "stepContainerConfigurationDetails": obj.stepContainerConfigurationDetails
           ? model.PipelineContainerConfigurationDetails.getDeserializedJsonObj(
               obj.stepContainerConfigurationDetails
+            )
+          : undefined,
+        "stepDataflowConfigurationDetails": obj.stepDataflowConfigurationDetails
+          ? model.PipelineDataflowConfigurationDetails.getDeserializedJsonObj(
+              obj.stepDataflowConfigurationDetails
             )
           : undefined
       }

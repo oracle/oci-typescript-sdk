@@ -1,7 +1,7 @@
 /**
  * DNS API
  * API for the DNS service. Use this API to manage DNS zones, records, and other DNS resources.
-For more information, see [Overview of the DNS Service](/iaas/Content/DNS/Concepts/dnszonemanagement.htm).
+For more information, see [Overview of the DNS Service](https://docs.oracle.com/iaas/Content/DNS/Concepts/dnszonemanagement.htm).
 
  * OpenAPI spec version: 20180115
  * 
@@ -18,7 +18,7 @@ import common = require("oci-common");
 
 export interface ChangeSteeringPolicyCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
    * into which the steering policy should be moved.
    *
    */

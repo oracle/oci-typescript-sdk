@@ -1,6 +1,6 @@
 /**
  * Database Service API
- * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](/iaas/Content/Database/Concepts/databaseoverview.htm).
+ * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: sic_dbaas_cp_us_grp@oracle.com
@@ -44,7 +44,7 @@ To get a list of all shapes, use the {@link #listDbSystemShapes(ListDbSystemShap
    */
   "cpuCoreCount"?: number;
   /**
-   * The block storage volume performance level. Valid values are {@code BALANCED} and {@code HIGH_PERFORMANCE}. See [Block Volume Performance](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumeperformance.htm) for more information.
+   * The block storage volume performance level. Valid values are {@code BALANCED} and {@code HIGH_PERFORMANCE}. See [Block Volume Performance](https://docs.oracle.com/iaas/Content/Block/Concepts/blockvolumeperformance.htm) for more information.
    *
    */
   "storageVolumePerformanceMode"?: CreateDataGuardAssociationWithNewDbSystemDetails.StorageVolumePerformanceMode;
@@ -65,14 +65,14 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
     */
   "subnetId"?: string;
   /**
-   * The list of [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) for the network security groups (NSGs) to which this resource belongs. Setting this to an empty list removes all resources from all NSGs. For more information about NSGs, see [Security Rules](https://docs.cloud.oracle.com/Content/Network/Concepts/securityrules.htm).
+   * The list of [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the network security groups (NSGs) to which this resource belongs. Setting this to an empty list removes all resources from all NSGs. For more information about NSGs, see [Security Rules](https://docs.oracle.com/iaas/Content/Network/Concepts/securityrules.htm).
    * **NsgIds restrictions:**
    * - A network security group (NSG) is optional for Autonomous Databases with private access. The nsgIds list can be empty.
    *
    */
   "nsgIds"?: Array<string>;
   /**
-   * A list of the [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the network security groups (NSGs) that the backup network of this DB system belongs to. Setting this to an empty array after the list is created removes the resource from all NSGs. For more information about NSGs, see [Security Rules](https://docs.cloud.oracle.com/Content/Network/Concepts/securityrules.htm). Applicable only to Exadata systems.
+   * A list of the [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the network security groups (NSGs) that the backup network of this DB system belongs to. Setting this to an empty array after the list is created removes the resource from all NSGs. For more information about NSGs, see [Security Rules](https://docs.oracle.com/iaas/Content/Network/Concepts/securityrules.htm). Applicable only to Exadata systems.
    *
    */
   "backupNetworkNsgIds"?: Array<string>;
@@ -88,7 +88,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "domain"?: string;
   /**
-   * The time zone of the dataguard standby DB system. For details, see [DB System Time Zones](https://docs.cloud.oracle.com/Content/Database/References/timezones.htm).
+   * The time zone of the dataguard standby DB system. For details, see [DB System Time Zones](https://docs.oracle.com/iaas/Content/Database/References/timezones.htm).
    */
   "timeZone"?: string;
   /**
@@ -131,7 +131,7 @@ Example: {@code FAULT-DOMAIN-1}
   "licenseModel"?: CreateDataGuardAssociationWithNewDbSystemDetails.LicenseModel;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -139,20 +139,20 @@ Example: {@code {\"Department\": \"Finance\"}}
   "dbSystemFreeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    *
    */
   "dbSystemDefinedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Security Attributes for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"audit\"}}}}
    *
    */
   "dbSystemSecurityAttributes"?: { [key: string]: { [key: string]: any } };
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -160,7 +160,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "databaseFreeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    *
    */
   "databaseDefinedTags"?: { [key: string]: { [key: string]: any } };

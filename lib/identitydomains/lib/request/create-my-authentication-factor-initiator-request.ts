@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyAuthenticationFactorInitiator.ts.html |here} to see how to use CreateMyAuthenticationFactorInitiatorRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyAuthenticationFactorInitiator.ts.html |here} to see how to use CreateMyAuthenticationFactorInitiatorRequest.
  */
 export interface CreateMyAuthenticationFactorInitiatorRequest extends common.BaseRequest {
   /**

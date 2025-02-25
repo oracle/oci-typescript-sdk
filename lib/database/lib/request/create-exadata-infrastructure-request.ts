@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExadataInfrastructure.ts.html |here} to see how to use CreateExadataInfrastructureRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExadataInfrastructure.ts.html |here} to see how to use CreateExadataInfrastructureRequest.
  */
 export interface CreateExadataInfrastructureRequest extends common.BaseRequest {
   /**

@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -18,8 +18,8 @@ import common = require("oci-common");
 
 export interface CreatePublicIpDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the public IP. For ephemeral public IPs,
-   * you must set this to the private IP's compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the public IP. For ephemeral public IPs,
+   * you must set this to the private IP's compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId": string;
@@ -44,12 +44,12 @@ export interface CreatePublicIpDetails {
   /**
    * Defines when the public IP is deleted and released back to the Oracle Cloud
    * Infrastructure public IP pool. For more information, see
-   * [Public IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
+   * [Public IP Addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
    *
    */
   "lifetime": CreatePublicIpDetails.Lifetime;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private IP to assign the public IP to.
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private IP to assign the public IP to.
 * <p>
 Required for an ephemeral public IP because it must always be assigned to a private IP
 * (specifically a *primary* private IP).
@@ -61,7 +61,7 @@ Optional for a reserved public IP. If you don't provide it, the public IP is cre
     */
   "privateIpId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the public IP pool.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the public IP pool.
    */
   "publicIpPoolId"?: string;
 }

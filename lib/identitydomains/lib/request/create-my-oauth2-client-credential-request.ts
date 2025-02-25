@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyOAuth2ClientCredential.ts.html |here} to see how to use CreateMyOAuth2ClientCredentialRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyOAuth2ClientCredential.ts.html |here} to see how to use CreateMyOAuth2ClientCredentialRequest.
  */
 export interface CreateMyOAuth2ClientCredentialRequest extends common.BaseRequest {
   /**

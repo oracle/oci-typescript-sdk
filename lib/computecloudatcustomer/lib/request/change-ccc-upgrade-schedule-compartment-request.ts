@@ -15,18 +15,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ChangeCccUpgradeScheduleCompartment.ts.html |here} to see how to use ChangeCccUpgradeScheduleCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ChangeCccUpgradeScheduleCompartment.ts.html |here} to see how to use ChangeCccUpgradeScheduleCompartmentRequest.
  */
 export interface ChangeCccUpgradeScheduleCompartmentRequest extends common.BaseRequest {
   /**
    * Compute Cloud@Customer upgrade schedule
-   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "cccUpgradeScheduleId": string;
   /**
    * Details about the compartment change operation including the destination compartment
-   * specified by the resource [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * specified by the resource [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "changeCccUpgradeScheduleCompartmentDetails": model.ChangeCccUpgradeScheduleCompartmentDetails;
@@ -49,7 +49,7 @@ export interface ChangeCccUpgradeScheduleCompartmentRequest extends common.BaseR
    */
   "opcRetryToken"?: string;
   /**
-   * The client request [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for tracing.
+   * The client request [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for tracing.
    *
    */
   "opcRequestId"?: string;

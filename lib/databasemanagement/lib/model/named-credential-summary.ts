@@ -2,7 +2,7 @@
  * Database Management API
  * Use the Database Management API to monitor and manage resources such as
 Oracle Databases, MySQL Databases, and External Database Systems. 
-For more information, see [Database Management](/iaas/database-management/home.htm).
+For more information, see [Database Management](https://docs.oracle.com/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -22,11 +22,11 @@ import common = require("oci-common");
  */
 export interface NamedCredentialSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the named credential.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the named credential.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
    * in which the named credential resides.
    *
    */
@@ -69,21 +69,21 @@ export interface NamedCredentialSummary {
   "timeUpdated": Date;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
     * System tags for this resource. Each key is predefined and scoped to a namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * System tags can be viewed by users, but can only be created by the system.
 * <p>
 Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}

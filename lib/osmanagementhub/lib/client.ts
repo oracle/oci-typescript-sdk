@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -247,13 +247,13 @@ export class EventClient {
 
   /**
    * Moves an event into a different compartment within the same tenancy. For information about moving resources between
-   * compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeEventCompartmentRequest
    * @return ChangeEventCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeEventCompartment.ts.html |here} to see how to use ChangeEventCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeEventCompartment.ts.html |here} to see how to use ChangeEventCompartment API.
    */
   public async changeEventCompartment(
     changeEventCompartmentRequest: requests.ChangeEventCompartmentRequest
@@ -326,7 +326,7 @@ export class EventClient {
    * @param DeleteEventRequest
    * @return DeleteEventResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteEvent.ts.html |here} to see how to use DeleteEvent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteEvent.ts.html |here} to see how to use DeleteEvent API.
    */
   public async deleteEvent(
     deleteEventRequest: requests.DeleteEventRequest
@@ -399,7 +399,7 @@ export class EventClient {
    * @param DeleteEventContentRequest
    * @return DeleteEventContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteEventContent.ts.html |here} to see how to use DeleteEventContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteEventContent.ts.html |here} to see how to use DeleteEventContent API.
    */
   public async deleteEventContent(
     deleteEventContentRequest: requests.DeleteEventContentRequest
@@ -467,7 +467,7 @@ export class EventClient {
    * @param GetEventRequest
    * @return GetEventResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetEvent.ts.html |here} to see how to use GetEvent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetEvent.ts.html |here} to see how to use GetEvent API.
    */
   public async getEvent(
     getEventRequest: requests.GetEventRequest
@@ -543,7 +543,7 @@ export class EventClient {
    * @param GetEventContentRequest
    * @return GetEventContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetEventContent.ts.html |here} to see how to use GetEventContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetEventContent.ts.html |here} to see how to use GetEventContent API.
    */
   public async getEventContent(
     getEventContentRequest: requests.GetEventContentRequest
@@ -619,7 +619,7 @@ export class EventClient {
    * @param ImportEventContentRequest
    * @return ImportEventContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ImportEventContent.ts.html |here} to see how to use ImportEventContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ImportEventContent.ts.html |here} to see how to use ImportEventContent API.
    */
   public async importEventContent(
     importEventContentRequest: requests.ImportEventContentRequest
@@ -693,7 +693,7 @@ export class EventClient {
    * @param ListEventsRequest
    * @return ListEventsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListEvents.ts.html |here} to see how to use ListEvents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListEvents.ts.html |here} to see how to use ListEvents API.
    */
   public async listEvents(
     listEventsRequest: requests.ListEventsRequest
@@ -782,7 +782,7 @@ export class EventClient {
    * @param UpdateEventRequest
    * @return UpdateEventResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateEvent.ts.html |here} to see how to use UpdateEvent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateEvent.ts.html |here} to see how to use UpdateEvent API.
    */
   public async updateEvent(
     updateEventRequest: requests.UpdateEventRequest
@@ -1073,7 +1073,7 @@ export class LifecycleEnvironmentClient {
    * @param AttachManagedInstancesToLifecycleStageRequest
    * @return AttachManagedInstancesToLifecycleStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachManagedInstancesToLifecycleStage.ts.html |here} to see how to use AttachManagedInstancesToLifecycleStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachManagedInstancesToLifecycleStage.ts.html |here} to see how to use AttachManagedInstancesToLifecycleStage API.
    */
   public async attachManagedInstancesToLifecycleStage(
     attachManagedInstancesToLifecycleStageRequest: requests.AttachManagedInstancesToLifecycleStageRequest
@@ -1149,13 +1149,13 @@ export class LifecycleEnvironmentClient {
   }
 
   /**
-   * Moves a lifecycle environment into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Moves a lifecycle environment into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeLifecycleEnvironmentCompartmentRequest
    * @return ChangeLifecycleEnvironmentCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeLifecycleEnvironmentCompartment.ts.html |here} to see how to use ChangeLifecycleEnvironmentCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeLifecycleEnvironmentCompartment.ts.html |here} to see how to use ChangeLifecycleEnvironmentCompartment API.
    */
   public async changeLifecycleEnvironmentCompartment(
     changeLifecycleEnvironmentCompartmentRequest: requests.ChangeLifecycleEnvironmentCompartmentRequest
@@ -1233,7 +1233,7 @@ export class LifecycleEnvironmentClient {
    * @param CreateLifecycleEnvironmentRequest
    * @return CreateLifecycleEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateLifecycleEnvironment.ts.html |here} to see how to use CreateLifecycleEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateLifecycleEnvironment.ts.html |here} to see how to use CreateLifecycleEnvironment API.
    */
   public async createLifecycleEnvironment(
     createLifecycleEnvironmentRequest: requests.CreateLifecycleEnvironmentRequest
@@ -1314,7 +1314,7 @@ export class LifecycleEnvironmentClient {
    * @param DeleteLifecycleEnvironmentRequest
    * @return DeleteLifecycleEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteLifecycleEnvironment.ts.html |here} to see how to use DeleteLifecycleEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteLifecycleEnvironment.ts.html |here} to see how to use DeleteLifecycleEnvironment API.
    */
   public async deleteLifecycleEnvironment(
     deleteLifecycleEnvironmentRequest: requests.DeleteLifecycleEnvironmentRequest
@@ -1383,7 +1383,7 @@ export class LifecycleEnvironmentClient {
    * @param DetachManagedInstancesFromLifecycleStageRequest
    * @return DetachManagedInstancesFromLifecycleStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachManagedInstancesFromLifecycleStage.ts.html |here} to see how to use DetachManagedInstancesFromLifecycleStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachManagedInstancesFromLifecycleStage.ts.html |here} to see how to use DetachManagedInstancesFromLifecycleStage API.
    */
   public async detachManagedInstancesFromLifecycleStage(
     detachManagedInstancesFromLifecycleStageRequest: requests.DetachManagedInstancesFromLifecycleStageRequest
@@ -1464,7 +1464,7 @@ export class LifecycleEnvironmentClient {
    * @param GetLifecycleEnvironmentRequest
    * @return GetLifecycleEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetLifecycleEnvironment.ts.html |here} to see how to use GetLifecycleEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetLifecycleEnvironment.ts.html |here} to see how to use GetLifecycleEnvironment API.
    */
   public async getLifecycleEnvironment(
     getLifecycleEnvironmentRequest: requests.GetLifecycleEnvironmentRequest
@@ -1541,7 +1541,7 @@ export class LifecycleEnvironmentClient {
    * @param GetLifecycleStageRequest
    * @return GetLifecycleStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetLifecycleStage.ts.html |here} to see how to use GetLifecycleStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetLifecycleStage.ts.html |here} to see how to use GetLifecycleStage API.
    */
   public async getLifecycleStage(
     getLifecycleStageRequest: requests.GetLifecycleStageRequest
@@ -1619,7 +1619,7 @@ export class LifecycleEnvironmentClient {
    * @param ListLifecycleEnvironmentsRequest
    * @return ListLifecycleEnvironmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListLifecycleEnvironments.ts.html |here} to see how to use ListLifecycleEnvironments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListLifecycleEnvironments.ts.html |here} to see how to use ListLifecycleEnvironments API.
    */
   public async listLifecycleEnvironments(
     listLifecycleEnvironmentsRequest: requests.ListLifecycleEnvironmentsRequest
@@ -1709,7 +1709,7 @@ export class LifecycleEnvironmentClient {
    * @param ListLifecycleStageInstalledPackagesRequest
    * @return ListLifecycleStageInstalledPackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListLifecycleStageInstalledPackages.ts.html |here} to see how to use ListLifecycleStageInstalledPackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListLifecycleStageInstalledPackages.ts.html |here} to see how to use ListLifecycleStageInstalledPackages API.
    */
   public async listLifecycleStageInstalledPackages(
     listLifecycleStageInstalledPackagesRequest: requests.ListLifecycleStageInstalledPackagesRequest
@@ -1791,13 +1791,13 @@ export class LifecycleEnvironmentClient {
   }
 
   /**
-   * Lists lifecycle stages that match the specified compartment or lifecycle stage [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against
+   * Lists lifecycle stages that match the specified compartment or lifecycle stage [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLifecycleStagesRequest
    * @return ListLifecycleStagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListLifecycleStages.ts.html |here} to see how to use ListLifecycleStages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListLifecycleStages.ts.html |here} to see how to use ListLifecycleStages API.
    */
   public async listLifecycleStages(
     listLifecycleStagesRequest: requests.ListLifecycleStagesRequest
@@ -1889,7 +1889,7 @@ export class LifecycleEnvironmentClient {
    * @param PromoteSoftwareSourceToLifecycleStageRequest
    * @return PromoteSoftwareSourceToLifecycleStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/PromoteSoftwareSourceToLifecycleStage.ts.html |here} to see how to use PromoteSoftwareSourceToLifecycleStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/PromoteSoftwareSourceToLifecycleStage.ts.html |here} to see how to use PromoteSoftwareSourceToLifecycleStage API.
    */
   public async promoteSoftwareSourceToLifecycleStage(
     promoteSoftwareSourceToLifecycleStageRequest: requests.PromoteSoftwareSourceToLifecycleStageRequest
@@ -1967,12 +1967,92 @@ export class LifecycleEnvironmentClient {
   }
 
   /**
+   * Reboots all managed instances in the specified lifecycle stage.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RebootLifecycleStageRequest
+   * @return RebootLifecycleStageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RebootLifecycleStage.ts.html |here} to see how to use RebootLifecycleStage API.
+   */
+  public async rebootLifecycleStage(
+    rebootLifecycleStageRequest: requests.RebootLifecycleStageRequest
+  ): Promise<responses.RebootLifecycleStageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LifecycleEnvironmentClient#rebootLifecycleStage.");
+    const operationName = "rebootLifecycleStage";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{lifecycleStageId}": rebootLifecycleStageRequest.lifecycleStageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": rebootLifecycleStageRequest.opcRequestId,
+      "opc-retry-token": rebootLifecycleStageRequest.opcRetryToken,
+      "if-match": rebootLifecycleStageRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rebootLifecycleStageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/lifecycleStages/{lifecycleStageId}/actions/reboot",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rebootLifecycleStageRequest.rebootLifecycleStageDetails,
+        "RebootLifecycleStageDetails",
+        model.RebootLifecycleStageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RebootLifecycleStageResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified lifecycle environment's name, description, stages, or tags.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateLifecycleEnvironmentRequest
    * @return UpdateLifecycleEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateLifecycleEnvironment.ts.html |here} to see how to use UpdateLifecycleEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateLifecycleEnvironment.ts.html |here} to see how to use UpdateLifecycleEnvironment API.
    */
   public async updateLifecycleEnvironment(
     updateLifecycleEnvironmentRequest: requests.UpdateLifecycleEnvironmentRequest
@@ -2233,6 +2313,89 @@ export class ManagedInstanceClient {
   }
 
   /**
+   * Associates managed instances to the specified management station
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AssociateManagedInstancesWithManagementStationRequest
+   * @return AssociateManagedInstancesWithManagementStationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AssociateManagedInstancesWithManagementStation.ts.html |here} to see how to use AssociateManagedInstancesWithManagementStation API.
+   */
+  public async associateManagedInstancesWithManagementStation(
+    associateManagedInstancesWithManagementStationRequest: requests.AssociateManagedInstancesWithManagementStationRequest
+  ): Promise<responses.AssociateManagedInstancesWithManagementStationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedInstanceClient#associateManagedInstancesWithManagementStation."
+      );
+    const operationName = "associateManagedInstancesWithManagementStation";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{managementStationId}":
+        associateManagedInstancesWithManagementStationRequest.managementStationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": associateManagedInstancesWithManagementStationRequest.opcRequestId,
+      "opc-retry-token": associateManagedInstancesWithManagementStationRequest.opcRetryToken,
+      "if-match": associateManagedInstancesWithManagementStationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      associateManagedInstancesWithManagementStationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementStations/{managementStationId}/actions/associateManagedInstances",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        associateManagedInstancesWithManagementStationRequest.associateManagedInstancesWithManagementStationDetails,
+        "AssociateManagedInstancesWithManagementStationDetails",
+        model.AssociateManagedInstancesWithManagementStationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AssociateManagedInstancesWithManagementStationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Adds profile to a managed instance. After the profile has been added,
    * the instance can be registered as a managed instance.
    *
@@ -2240,7 +2403,7 @@ export class ManagedInstanceClient {
    * @param AttachProfileToManagedInstanceRequest
    * @return AttachProfileToManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachProfileToManagedInstance.ts.html |here} to see how to use AttachProfileToManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachProfileToManagedInstance.ts.html |here} to see how to use AttachProfileToManagedInstance API.
    */
   public async attachProfileToManagedInstance(
     attachProfileToManagedInstanceRequest: requests.AttachProfileToManagedInstanceRequest
@@ -2316,7 +2479,7 @@ export class ManagedInstanceClient {
    * @param AttachSoftwareSourcesToManagedInstanceRequest
    * @return AttachSoftwareSourcesToManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachSoftwareSourcesToManagedInstance.ts.html |here} to see how to use AttachSoftwareSourcesToManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachSoftwareSourcesToManagedInstance.ts.html |here} to see how to use AttachSoftwareSourcesToManagedInstance API.
    */
   public async attachSoftwareSourcesToManagedInstance(
     attachSoftwareSourcesToManagedInstanceRequest: requests.AttachSoftwareSourcesToManagedInstanceRequest
@@ -2399,7 +2562,7 @@ export class ManagedInstanceClient {
    * @param DeleteManagedInstanceRequest
    * @return DeleteManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteManagedInstance.ts.html |here} to see how to use DeleteManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteManagedInstance.ts.html |here} to see how to use DeleteManagedInstance API.
    */
   public async deleteManagedInstance(
     deleteManagedInstanceRequest: requests.DeleteManagedInstanceRequest
@@ -2474,7 +2637,7 @@ export class ManagedInstanceClient {
    * @param DetachProfileFromManagedInstanceRequest
    * @return DetachProfileFromManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachProfileFromManagedInstance.ts.html |here} to see how to use DetachProfileFromManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachProfileFromManagedInstance.ts.html |here} to see how to use DetachProfileFromManagedInstance API.
    */
   public async detachProfileFromManagedInstance(
     detachProfileFromManagedInstanceRequest: requests.DetachProfileFromManagedInstanceRequest
@@ -2547,7 +2710,7 @@ export class ManagedInstanceClient {
    * @param DetachSoftwareSourcesFromManagedInstanceRequest
    * @return DetachSoftwareSourcesFromManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachSoftwareSourcesFromManagedInstance.ts.html |here} to see how to use DetachSoftwareSourcesFromManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachSoftwareSourcesFromManagedInstance.ts.html |here} to see how to use DetachSoftwareSourcesFromManagedInstance API.
    */
   public async detachSoftwareSourcesFromManagedInstance(
     detachSoftwareSourcesFromManagedInstanceRequest: requests.DetachSoftwareSourcesFromManagedInstanceRequest
@@ -2632,7 +2795,7 @@ export class ManagedInstanceClient {
    * @param DisableModuleStreamOnManagedInstanceRequest
    * @return DisableModuleStreamOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DisableModuleStreamOnManagedInstance.ts.html |here} to see how to use DisableModuleStreamOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DisableModuleStreamOnManagedInstance.ts.html |here} to see how to use DisableModuleStreamOnManagedInstance API.
    */
   public async disableModuleStreamOnManagedInstance(
     disableModuleStreamOnManagedInstanceRequest: requests.DisableModuleStreamOnManagedInstanceRequest
@@ -2718,7 +2881,7 @@ export class ManagedInstanceClient {
    * @param EnableModuleStreamOnManagedInstanceRequest
    * @return EnableModuleStreamOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/EnableModuleStreamOnManagedInstance.ts.html |here} to see how to use EnableModuleStreamOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/EnableModuleStreamOnManagedInstance.ts.html |here} to see how to use EnableModuleStreamOnManagedInstance API.
    */
   public async enableModuleStreamOnManagedInstance(
     enableModuleStreamOnManagedInstanceRequest: requests.EnableModuleStreamOnManagedInstanceRequest
@@ -2799,7 +2962,7 @@ export class ManagedInstanceClient {
    * @param GetManagedInstanceRequest
    * @return GetManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetManagedInstance.ts.html |here} to see how to use GetManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetManagedInstance.ts.html |here} to see how to use GetManagedInstance API.
    */
   public async getManagedInstance(
     getManagedInstanceRequest: requests.GetManagedInstanceRequest
@@ -2881,7 +3044,7 @@ export class ManagedInstanceClient {
    * @param GetWindowsUpdateRequest
    * @return GetWindowsUpdateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetWindowsUpdate.ts.html |here} to see how to use GetWindowsUpdate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetWindowsUpdate.ts.html |here} to see how to use GetWindowsUpdate API.
    */
   public async getWindowsUpdate(
     getWindowsUpdateRequest: requests.GetWindowsUpdateRequest
@@ -2952,7 +3115,7 @@ export class ManagedInstanceClient {
    * @param InstallAllWindowsUpdatesOnManagedInstancesInCompartmentRequest
    * @return InstallAllWindowsUpdatesOnManagedInstancesInCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallAllWindowsUpdatesOnManagedInstancesInCompartment.ts.html |here} to see how to use InstallAllWindowsUpdatesOnManagedInstancesInCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallAllWindowsUpdatesOnManagedInstancesInCompartment.ts.html |here} to see how to use InstallAllWindowsUpdatesOnManagedInstancesInCompartment API.
    */
   public async installAllWindowsUpdatesOnManagedInstancesInCompartment(
     installAllWindowsUpdatesOnManagedInstancesInCompartmentRequest: requests.InstallAllWindowsUpdatesOnManagedInstancesInCompartmentRequest
@@ -3037,7 +3200,7 @@ export class ManagedInstanceClient {
    * @param InstallModuleStreamProfileOnManagedInstanceRequest
    * @return InstallModuleStreamProfileOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallModuleStreamProfileOnManagedInstance.ts.html |here} to see how to use InstallModuleStreamProfileOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallModuleStreamProfileOnManagedInstance.ts.html |here} to see how to use InstallModuleStreamProfileOnManagedInstance API.
    */
   public async installModuleStreamProfileOnManagedInstance(
     installModuleStreamProfileOnManagedInstanceRequest: requests.InstallModuleStreamProfileOnManagedInstanceRequest
@@ -3119,7 +3282,7 @@ export class ManagedInstanceClient {
    * @param InstallPackagesOnManagedInstanceRequest
    * @return InstallPackagesOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallPackagesOnManagedInstance.ts.html |here} to see how to use InstallPackagesOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallPackagesOnManagedInstance.ts.html |here} to see how to use InstallPackagesOnManagedInstance API.
    */
   public async installPackagesOnManagedInstance(
     installPackagesOnManagedInstanceRequest: requests.InstallPackagesOnManagedInstanceRequest
@@ -3201,7 +3364,7 @@ export class ManagedInstanceClient {
    * @param InstallWindowsUpdatesOnManagedInstanceRequest
    * @return InstallWindowsUpdatesOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallWindowsUpdatesOnManagedInstance.ts.html |here} to see how to use InstallWindowsUpdatesOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallWindowsUpdatesOnManagedInstance.ts.html |here} to see how to use InstallWindowsUpdatesOnManagedInstance API.
    */
   public async installWindowsUpdatesOnManagedInstance(
     installWindowsUpdatesOnManagedInstanceRequest: requests.InstallWindowsUpdatesOnManagedInstanceRequest
@@ -3283,7 +3446,7 @@ export class ManagedInstanceClient {
    * @param ListManagedInstanceAvailablePackagesRequest
    * @return ListManagedInstanceAvailablePackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceAvailablePackages.ts.html |here} to see how to use ListManagedInstanceAvailablePackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceAvailablePackages.ts.html |here} to see how to use ListManagedInstanceAvailablePackages API.
    */
   public async listManagedInstanceAvailablePackages(
     listManagedInstanceAvailablePackagesRequest: requests.ListManagedInstanceAvailablePackagesRequest
@@ -3370,7 +3533,7 @@ export class ManagedInstanceClient {
    * @param ListManagedInstanceAvailableSoftwareSourcesRequest
    * @return ListManagedInstanceAvailableSoftwareSourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceAvailableSoftwareSources.ts.html |here} to see how to use ListManagedInstanceAvailableSoftwareSources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceAvailableSoftwareSources.ts.html |here} to see how to use ListManagedInstanceAvailableSoftwareSources API.
    */
   public async listManagedInstanceAvailableSoftwareSources(
     listManagedInstanceAvailableSoftwareSourcesRequest: requests.ListManagedInstanceAvailableSoftwareSourcesRequest
@@ -3457,7 +3620,7 @@ export class ManagedInstanceClient {
    * @param ListManagedInstanceAvailableWindowsUpdatesRequest
    * @return ListManagedInstanceAvailableWindowsUpdatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceAvailableWindowsUpdates.ts.html |here} to see how to use ListManagedInstanceAvailableWindowsUpdates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceAvailableWindowsUpdates.ts.html |here} to see how to use ListManagedInstanceAvailableWindowsUpdates API.
    */
   public async listManagedInstanceAvailableWindowsUpdates(
     listManagedInstanceAvailableWindowsUpdatesRequest: requests.ListManagedInstanceAvailableWindowsUpdatesRequest
@@ -3547,7 +3710,7 @@ export class ManagedInstanceClient {
    * @param ListManagedInstanceErrataRequest
    * @return ListManagedInstanceErrataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceErrata.ts.html |here} to see how to use ListManagedInstanceErrata API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceErrata.ts.html |here} to see how to use ListManagedInstanceErrata API.
    */
   public async listManagedInstanceErrata(
     listManagedInstanceErrataRequest: requests.ListManagedInstanceErrataRequest
@@ -3633,7 +3796,7 @@ export class ManagedInstanceClient {
    * @param ListManagedInstanceInstalledPackagesRequest
    * @return ListManagedInstanceInstalledPackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceInstalledPackages.ts.html |here} to see how to use ListManagedInstanceInstalledPackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceInstalledPackages.ts.html |here} to see how to use ListManagedInstanceInstalledPackages API.
    */
   public async listManagedInstanceInstalledPackages(
     listManagedInstanceInstalledPackagesRequest: requests.ListManagedInstanceInstalledPackagesRequest
@@ -3722,7 +3885,7 @@ export class ManagedInstanceClient {
    * @param ListManagedInstanceInstalledWindowsUpdatesRequest
    * @return ListManagedInstanceInstalledWindowsUpdatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceInstalledWindowsUpdates.ts.html |here} to see how to use ListManagedInstanceInstalledWindowsUpdates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceInstalledWindowsUpdates.ts.html |here} to see how to use ListManagedInstanceInstalledWindowsUpdates API.
    */
   public async listManagedInstanceInstalledWindowsUpdates(
     listManagedInstanceInstalledWindowsUpdatesRequest: requests.ListManagedInstanceInstalledWindowsUpdatesRequest
@@ -3810,7 +3973,7 @@ export class ManagedInstanceClient {
    * @param ListManagedInstanceModulesRequest
    * @return ListManagedInstanceModulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceModules.ts.html |here} to see how to use ListManagedInstanceModules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceModules.ts.html |here} to see how to use ListManagedInstanceModules API.
    */
   public async listManagedInstanceModules(
     listManagedInstanceModulesRequest: requests.ListManagedInstanceModulesRequest
@@ -3900,7 +4063,7 @@ export class ManagedInstanceClient {
    * @param ListManagedInstanceUpdatablePackagesRequest
    * @return ListManagedInstanceUpdatablePackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceUpdatablePackages.ts.html |here} to see how to use ListManagedInstanceUpdatablePackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceUpdatablePackages.ts.html |here} to see how to use ListManagedInstanceUpdatablePackages API.
    */
   public async listManagedInstanceUpdatablePackages(
     listManagedInstanceUpdatablePackagesRequest: requests.ListManagedInstanceUpdatablePackagesRequest
@@ -3988,7 +4151,7 @@ export class ManagedInstanceClient {
    * @param ListManagedInstancesRequest
    * @return ListManagedInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstances.ts.html |here} to see how to use ListManagedInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstances.ts.html |here} to see how to use ListManagedInstances API.
    */
   public async listManagedInstances(
     listManagedInstancesRequest: requests.ListManagedInstancesRequest
@@ -4024,6 +4187,10 @@ export class ManagedInstanceClient {
       "profileNotEqualTo": listManagedInstancesRequest.profileNotEqualTo,
       "isProfileAttached": listManagedInstancesRequest.isProfileAttached,
       "isManagedByAutonomousLinux": listManagedInstancesRequest.isManagedByAutonomousLinux,
+      "agentVersion": listManagedInstancesRequest.agentVersion,
+      "managementStation": listManagedInstancesRequest.managementStation,
+      "managementStationNotEqualTo": listManagedInstancesRequest.managementStationNotEqualTo,
+      "isRebootRequired": listManagedInstancesRequest.isRebootRequired,
       "limit": listManagedInstancesRequest.limit,
       "page": listManagedInstancesRequest.page,
       "sortOrder": listManagedInstancesRequest.sortOrder,
@@ -4075,6 +4242,11 @@ export class ManagedInstanceClient {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
           }
         ]
       });
@@ -4092,7 +4264,7 @@ export class ManagedInstanceClient {
    * @param ListWindowsUpdatesRequest
    * @return ListWindowsUpdatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListWindowsUpdates.ts.html |here} to see how to use ListWindowsUpdates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListWindowsUpdates.ts.html |here} to see how to use ListWindowsUpdates API.
    */
   public async listWindowsUpdates(
     listWindowsUpdatesRequest: requests.ListWindowsUpdatesRequest
@@ -4179,7 +4351,7 @@ export class ManagedInstanceClient {
    * @param ManageModuleStreamsOnManagedInstanceRequest
    * @return ManageModuleStreamsOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ManageModuleStreamsOnManagedInstance.ts.html |here} to see how to use ManageModuleStreamsOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ManageModuleStreamsOnManagedInstance.ts.html |here} to see how to use ManageModuleStreamsOnManagedInstance API.
    */
   public async manageModuleStreamsOnManagedInstance(
     manageModuleStreamsOnManagedInstanceRequest: requests.ManageModuleStreamsOnManagedInstanceRequest
@@ -4255,13 +4427,94 @@ export class ManagedInstanceClient {
   }
 
   /**
+   * Initiates a reboot of the specified managed instance. You can also specify the number of minutes the service
+   * waits before marking the reboot operation as failed.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RebootManagedInstanceRequest
+   * @return RebootManagedInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RebootManagedInstance.ts.html |here} to see how to use RebootManagedInstance API.
+   */
+  public async rebootManagedInstance(
+    rebootManagedInstanceRequest: requests.RebootManagedInstanceRequest
+  ): Promise<responses.RebootManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedInstanceClient#rebootManagedInstance.");
+    const operationName = "rebootManagedInstance";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{managedInstanceId}": rebootManagedInstanceRequest.managedInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": rebootManagedInstanceRequest.ifMatch,
+      "opc-request-id": rebootManagedInstanceRequest.opcRequestId,
+      "opc-retry-token": rebootManagedInstanceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rebootManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstances/{managedInstanceId}/actions/reboot",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rebootManagedInstanceRequest.rebootManagedInstanceDetails,
+        "RebootManagedInstanceDetails",
+        model.RebootManagedInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RebootManagedInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Refreshes the package or Windows update information on a managed instance with the latest data from the software source. This does not update packages on the instance. It provides the service with the latest package data.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RefreshSoftwareOnManagedInstanceRequest
    * @return RefreshSoftwareOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RefreshSoftwareOnManagedInstance.ts.html |here} to see how to use RefreshSoftwareOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RefreshSoftwareOnManagedInstance.ts.html |here} to see how to use RefreshSoftwareOnManagedInstance API.
    */
   public async refreshSoftwareOnManagedInstance(
     refreshSoftwareOnManagedInstanceRequest: requests.RefreshSoftwareOnManagedInstanceRequest
@@ -4340,7 +4593,7 @@ export class ManagedInstanceClient {
    * @param RemoveModuleStreamProfileFromManagedInstanceRequest
    * @return RemoveModuleStreamProfileFromManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RemoveModuleStreamProfileFromManagedInstance.ts.html |here} to see how to use RemoveModuleStreamProfileFromManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RemoveModuleStreamProfileFromManagedInstance.ts.html |here} to see how to use RemoveModuleStreamProfileFromManagedInstance API.
    */
   public async removeModuleStreamProfileFromManagedInstance(
     removeModuleStreamProfileFromManagedInstanceRequest: requests.RemoveModuleStreamProfileFromManagedInstanceRequest
@@ -4422,7 +4675,7 @@ export class ManagedInstanceClient {
    * @param RemovePackagesFromManagedInstanceRequest
    * @return RemovePackagesFromManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RemovePackagesFromManagedInstance.ts.html |here} to see how to use RemovePackagesFromManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RemovePackagesFromManagedInstance.ts.html |here} to see how to use RemovePackagesFromManagedInstance API.
    */
   public async removePackagesFromManagedInstance(
     removePackagesFromManagedInstanceRequest: requests.RemovePackagesFromManagedInstanceRequest
@@ -4507,7 +4760,7 @@ export class ManagedInstanceClient {
    * @param SwitchModuleStreamOnManagedInstanceRequest
    * @return SwitchModuleStreamOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SwitchModuleStreamOnManagedInstance.ts.html |here} to see how to use SwitchModuleStreamOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SwitchModuleStreamOnManagedInstance.ts.html |here} to see how to use SwitchModuleStreamOnManagedInstance API.
    */
   public async switchModuleStreamOnManagedInstance(
     switchModuleStreamOnManagedInstanceRequest: requests.SwitchModuleStreamOnManagedInstanceRequest
@@ -4589,7 +4842,7 @@ export class ManagedInstanceClient {
    * @param UpdateAllPackagesOnManagedInstancesInCompartmentRequest
    * @return UpdateAllPackagesOnManagedInstancesInCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateAllPackagesOnManagedInstancesInCompartment.ts.html |here} to see how to use UpdateAllPackagesOnManagedInstancesInCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateAllPackagesOnManagedInstancesInCompartment.ts.html |here} to see how to use UpdateAllPackagesOnManagedInstancesInCompartment API.
    */
   public async updateAllPackagesOnManagedInstancesInCompartment(
     updateAllPackagesOnManagedInstancesInCompartmentRequest: requests.UpdateAllPackagesOnManagedInstancesInCompartmentRequest
@@ -4669,7 +4922,7 @@ export class ManagedInstanceClient {
    * @param UpdateManagedInstanceRequest
    * @return UpdateManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateManagedInstance.ts.html |here} to see how to use UpdateManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateManagedInstance.ts.html |here} to see how to use UpdateManagedInstance API.
    */
   public async updateManagedInstance(
     updateManagedInstanceRequest: requests.UpdateManagedInstanceRequest
@@ -4752,7 +5005,7 @@ export class ManagedInstanceClient {
    * @param UpdatePackagesOnManagedInstanceRequest
    * @return UpdatePackagesOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdatePackagesOnManagedInstance.ts.html |here} to see how to use UpdatePackagesOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdatePackagesOnManagedInstance.ts.html |here} to see how to use UpdatePackagesOnManagedInstance API.
    */
   public async updatePackagesOnManagedInstance(
     updatePackagesOnManagedInstanceRequest: requests.UpdatePackagesOnManagedInstanceRequest
@@ -5041,7 +5294,7 @@ export class ManagedInstanceGroupClient {
    * @param AttachManagedInstancesToManagedInstanceGroupRequest
    * @return AttachManagedInstancesToManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachManagedInstancesToManagedInstanceGroup.ts.html |here} to see how to use AttachManagedInstancesToManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachManagedInstancesToManagedInstanceGroup.ts.html |here} to see how to use AttachManagedInstancesToManagedInstanceGroup API.
    */
   public async attachManagedInstancesToManagedInstanceGroup(
     attachManagedInstancesToManagedInstanceGroupRequest: requests.AttachManagedInstancesToManagedInstanceGroupRequest
@@ -5124,7 +5377,7 @@ export class ManagedInstanceGroupClient {
    * @param AttachSoftwareSourcesToManagedInstanceGroupRequest
    * @return AttachSoftwareSourcesToManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachSoftwareSourcesToManagedInstanceGroup.ts.html |here} to see how to use AttachSoftwareSourcesToManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachSoftwareSourcesToManagedInstanceGroup.ts.html |here} to see how to use AttachSoftwareSourcesToManagedInstanceGroup API.
    */
   public async attachSoftwareSourcesToManagedInstanceGroup(
     attachSoftwareSourcesToManagedInstanceGroupRequest: requests.AttachSoftwareSourcesToManagedInstanceGroupRequest
@@ -5201,13 +5454,13 @@ export class ManagedInstanceGroupClient {
   }
 
   /**
-   * Moves the specified managed instance group to a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Moves the specified managed instance group to a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeManagedInstanceGroupCompartmentRequest
    * @return ChangeManagedInstanceGroupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeManagedInstanceGroupCompartment.ts.html |here} to see how to use ChangeManagedInstanceGroupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeManagedInstanceGroupCompartment.ts.html |here} to see how to use ChangeManagedInstanceGroupCompartment API.
    */
   public async changeManagedInstanceGroupCompartment(
     changeManagedInstanceGroupCompartmentRequest: requests.ChangeManagedInstanceGroupCompartmentRequest
@@ -5285,7 +5538,7 @@ export class ManagedInstanceGroupClient {
    * @param CreateManagedInstanceGroupRequest
    * @return CreateManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateManagedInstanceGroup.ts.html |here} to see how to use CreateManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateManagedInstanceGroup.ts.html |here} to see how to use CreateManagedInstanceGroup API.
    */
   public async createManagedInstanceGroup(
     createManagedInstanceGroupRequest: requests.CreateManagedInstanceGroupRequest
@@ -5365,7 +5618,7 @@ export class ManagedInstanceGroupClient {
    * @param DeleteManagedInstanceGroupRequest
    * @return DeleteManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteManagedInstanceGroup.ts.html |here} to see how to use DeleteManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteManagedInstanceGroup.ts.html |here} to see how to use DeleteManagedInstanceGroup API.
    */
   public async deleteManagedInstanceGroup(
     deleteManagedInstanceGroupRequest: requests.DeleteManagedInstanceGroupRequest
@@ -5434,7 +5687,7 @@ export class ManagedInstanceGroupClient {
    * @param DetachManagedInstancesFromManagedInstanceGroupRequest
    * @return DetachManagedInstancesFromManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachManagedInstancesFromManagedInstanceGroup.ts.html |here} to see how to use DetachManagedInstancesFromManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachManagedInstancesFromManagedInstanceGroup.ts.html |here} to see how to use DetachManagedInstancesFromManagedInstanceGroup API.
    */
   public async detachManagedInstancesFromManagedInstanceGroup(
     detachManagedInstancesFromManagedInstanceGroupRequest: requests.DetachManagedInstancesFromManagedInstanceGroupRequest
@@ -5512,7 +5765,7 @@ export class ManagedInstanceGroupClient {
    * @param DetachSoftwareSourcesFromManagedInstanceGroupRequest
    * @return DetachSoftwareSourcesFromManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachSoftwareSourcesFromManagedInstanceGroup.ts.html |here} to see how to use DetachSoftwareSourcesFromManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachSoftwareSourcesFromManagedInstanceGroup.ts.html |here} to see how to use DetachSoftwareSourcesFromManagedInstanceGroup API.
    */
   public async detachSoftwareSourcesFromManagedInstanceGroup(
     detachSoftwareSourcesFromManagedInstanceGroupRequest: requests.DetachSoftwareSourcesFromManagedInstanceGroupRequest
@@ -5590,7 +5843,7 @@ export class ManagedInstanceGroupClient {
    * @param DisableModuleStreamOnManagedInstanceGroupRequest
    * @return DisableModuleStreamOnManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DisableModuleStreamOnManagedInstanceGroup.ts.html |here} to see how to use DisableModuleStreamOnManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DisableModuleStreamOnManagedInstanceGroup.ts.html |here} to see how to use DisableModuleStreamOnManagedInstanceGroup API.
    */
   public async disableModuleStreamOnManagedInstanceGroup(
     disableModuleStreamOnManagedInstanceGroupRequest: requests.DisableModuleStreamOnManagedInstanceGroupRequest
@@ -5673,7 +5926,7 @@ export class ManagedInstanceGroupClient {
    * @param EnableModuleStreamOnManagedInstanceGroupRequest
    * @return EnableModuleStreamOnManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/EnableModuleStreamOnManagedInstanceGroup.ts.html |here} to see how to use EnableModuleStreamOnManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/EnableModuleStreamOnManagedInstanceGroup.ts.html |here} to see how to use EnableModuleStreamOnManagedInstanceGroup API.
    */
   public async enableModuleStreamOnManagedInstanceGroup(
     enableModuleStreamOnManagedInstanceGroupRequest: requests.EnableModuleStreamOnManagedInstanceGroupRequest
@@ -5755,7 +6008,7 @@ export class ManagedInstanceGroupClient {
    * @param GetManagedInstanceGroupRequest
    * @return GetManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetManagedInstanceGroup.ts.html |here} to see how to use GetManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetManagedInstanceGroup.ts.html |here} to see how to use GetManagedInstanceGroup API.
    */
   public async getManagedInstanceGroup(
     getManagedInstanceGroupRequest: requests.GetManagedInstanceGroupRequest
@@ -5832,7 +6085,7 @@ export class ManagedInstanceGroupClient {
    * @param InstallModuleStreamProfileOnManagedInstanceGroupRequest
    * @return InstallModuleStreamProfileOnManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallModuleStreamProfileOnManagedInstanceGroup.ts.html |here} to see how to use InstallModuleStreamProfileOnManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallModuleStreamProfileOnManagedInstanceGroup.ts.html |here} to see how to use InstallModuleStreamProfileOnManagedInstanceGroup API.
    */
   public async installModuleStreamProfileOnManagedInstanceGroup(
     installModuleStreamProfileOnManagedInstanceGroupRequest: requests.InstallModuleStreamProfileOnManagedInstanceGroupRequest
@@ -5915,7 +6168,7 @@ export class ManagedInstanceGroupClient {
    * @param InstallPackagesOnManagedInstanceGroupRequest
    * @return InstallPackagesOnManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallPackagesOnManagedInstanceGroup.ts.html |here} to see how to use InstallPackagesOnManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallPackagesOnManagedInstanceGroup.ts.html |here} to see how to use InstallPackagesOnManagedInstanceGroup API.
    */
   public async installPackagesOnManagedInstanceGroup(
     installPackagesOnManagedInstanceGroupRequest: requests.InstallPackagesOnManagedInstanceGroupRequest
@@ -5998,7 +6251,7 @@ export class ManagedInstanceGroupClient {
    * @param InstallWindowsUpdatesOnManagedInstanceGroupRequest
    * @return InstallWindowsUpdatesOnManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallWindowsUpdatesOnManagedInstanceGroup.ts.html |here} to see how to use InstallWindowsUpdatesOnManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/InstallWindowsUpdatesOnManagedInstanceGroup.ts.html |here} to see how to use InstallWindowsUpdatesOnManagedInstanceGroup API.
    */
   public async installWindowsUpdatesOnManagedInstanceGroup(
     installWindowsUpdatesOnManagedInstanceGroupRequest: requests.InstallWindowsUpdatesOnManagedInstanceGroupRequest
@@ -6081,7 +6334,7 @@ export class ManagedInstanceGroupClient {
    * @param ListManagedInstanceGroupAvailableModulesRequest
    * @return ListManagedInstanceGroupAvailableModulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroupAvailableModules.ts.html |here} to see how to use ListManagedInstanceGroupAvailableModules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroupAvailableModules.ts.html |here} to see how to use ListManagedInstanceGroupAvailableModules API.
    */
   public async listManagedInstanceGroupAvailableModules(
     listManagedInstanceGroupAvailableModulesRequest: requests.ListManagedInstanceGroupAvailableModulesRequest
@@ -6170,7 +6423,7 @@ export class ManagedInstanceGroupClient {
    * @param ListManagedInstanceGroupAvailablePackagesRequest
    * @return ListManagedInstanceGroupAvailablePackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroupAvailablePackages.ts.html |here} to see how to use ListManagedInstanceGroupAvailablePackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroupAvailablePackages.ts.html |here} to see how to use ListManagedInstanceGroupAvailablePackages API.
    */
   public async listManagedInstanceGroupAvailablePackages(
     listManagedInstanceGroupAvailablePackagesRequest: requests.ListManagedInstanceGroupAvailablePackagesRequest
@@ -6259,7 +6512,7 @@ export class ManagedInstanceGroupClient {
    * @param ListManagedInstanceGroupAvailableSoftwareSourcesRequest
    * @return ListManagedInstanceGroupAvailableSoftwareSourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroupAvailableSoftwareSources.ts.html |here} to see how to use ListManagedInstanceGroupAvailableSoftwareSources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroupAvailableSoftwareSources.ts.html |here} to see how to use ListManagedInstanceGroupAvailableSoftwareSources API.
    */
   public async listManagedInstanceGroupAvailableSoftwareSources(
     listManagedInstanceGroupAvailableSoftwareSourcesRequest: requests.ListManagedInstanceGroupAvailableSoftwareSourcesRequest
@@ -6349,7 +6602,7 @@ export class ManagedInstanceGroupClient {
    * @param ListManagedInstanceGroupInstalledPackagesRequest
    * @return ListManagedInstanceGroupInstalledPackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroupInstalledPackages.ts.html |here} to see how to use ListManagedInstanceGroupInstalledPackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroupInstalledPackages.ts.html |here} to see how to use ListManagedInstanceGroupInstalledPackages API.
    */
   public async listManagedInstanceGroupInstalledPackages(
     listManagedInstanceGroupInstalledPackagesRequest: requests.ListManagedInstanceGroupInstalledPackagesRequest
@@ -6459,7 +6712,7 @@ When sorting by the display name, the result set is sorted first
      * @param ListManagedInstanceGroupModulesRequest
      * @return ListManagedInstanceGroupModulesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroupModules.ts.html |here} to see how to use ListManagedInstanceGroupModules API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroupModules.ts.html |here} to see how to use ListManagedInstanceGroupModules API.
      */
   public async listManagedInstanceGroupModules(
     listManagedInstanceGroupModulesRequest: requests.ListManagedInstanceGroupModulesRequest
@@ -6546,13 +6799,13 @@ When sorting by the display name, the result set is sorted first
   }
 
   /**
-   * Lists managed instance groups that match the specified compartment or managed instance group [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against a variety of criteria including but not limited to name, status, architecture, and OS family.
+   * Lists managed instance groups that match the specified compartment or managed instance group [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against a variety of criteria including but not limited to name, status, architecture, and OS family.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListManagedInstanceGroupsRequest
    * @return ListManagedInstanceGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroups.ts.html |here} to see how to use ListManagedInstanceGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstanceGroups.ts.html |here} to see how to use ListManagedInstanceGroups API.
    */
   public async listManagedInstanceGroups(
     listManagedInstanceGroupsRequest: requests.ListManagedInstanceGroupsRequest
@@ -6644,7 +6897,7 @@ When sorting by the display name, the result set is sorted first
    * @param ManageModuleStreamsOnManagedInstanceGroupRequest
    * @return ManageModuleStreamsOnManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ManageModuleStreamsOnManagedInstanceGroup.ts.html |here} to see how to use ManageModuleStreamsOnManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ManageModuleStreamsOnManagedInstanceGroup.ts.html |here} to see how to use ManageModuleStreamsOnManagedInstanceGroup API.
    */
   public async manageModuleStreamsOnManagedInstanceGroup(
     manageModuleStreamsOnManagedInstanceGroupRequest: requests.ManageModuleStreamsOnManagedInstanceGroupRequest
@@ -6721,13 +6974,93 @@ When sorting by the display name, the result set is sorted first
   }
 
   /**
+   * Reboots all managed instances in the specified group.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RebootManagedInstanceGroupRequest
+   * @return RebootManagedInstanceGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RebootManagedInstanceGroup.ts.html |here} to see how to use RebootManagedInstanceGroup API.
+   */
+  public async rebootManagedInstanceGroup(
+    rebootManagedInstanceGroupRequest: requests.RebootManagedInstanceGroupRequest
+  ): Promise<responses.RebootManagedInstanceGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedInstanceGroupClient#rebootManagedInstanceGroup.");
+    const operationName = "rebootManagedInstanceGroup";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{managedInstanceGroupId}": rebootManagedInstanceGroupRequest.managedInstanceGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": rebootManagedInstanceGroupRequest.opcRequestId,
+      "opc-retry-token": rebootManagedInstanceGroupRequest.opcRetryToken,
+      "if-match": rebootManagedInstanceGroupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rebootManagedInstanceGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstanceGroups/{managedInstanceGroupId}/actions/reboot",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rebootManagedInstanceGroupRequest.rebootManagedInstanceGroupDetails,
+        "RebootManagedInstanceGroupDetails",
+        model.RebootManagedInstanceGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RebootManagedInstanceGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a profile for a module stream that is installed on a managed instance group. Providing the module stream name (without specifying a profile name) removes all profiles that have been installed for the module stream.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveModuleStreamProfileFromManagedInstanceGroupRequest
    * @return RemoveModuleStreamProfileFromManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RemoveModuleStreamProfileFromManagedInstanceGroup.ts.html |here} to see how to use RemoveModuleStreamProfileFromManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RemoveModuleStreamProfileFromManagedInstanceGroup.ts.html |here} to see how to use RemoveModuleStreamProfileFromManagedInstanceGroup API.
    */
   public async removeModuleStreamProfileFromManagedInstanceGroup(
     removeModuleStreamProfileFromManagedInstanceGroupRequest: requests.RemoveModuleStreamProfileFromManagedInstanceGroupRequest
@@ -6810,7 +7143,7 @@ When sorting by the display name, the result set is sorted first
    * @param RemovePackagesFromManagedInstanceGroupRequest
    * @return RemovePackagesFromManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RemovePackagesFromManagedInstanceGroup.ts.html |here} to see how to use RemovePackagesFromManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RemovePackagesFromManagedInstanceGroup.ts.html |here} to see how to use RemovePackagesFromManagedInstanceGroup API.
    */
   public async removePackagesFromManagedInstanceGroup(
     removePackagesFromManagedInstanceGroupRequest: requests.RemovePackagesFromManagedInstanceGroupRequest
@@ -6896,7 +7229,7 @@ When sorting by the display name, the result set is sorted first
    * @param SwitchModuleStreamOnManagedInstanceGroupRequest
    * @return SwitchModuleStreamOnManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SwitchModuleStreamOnManagedInstanceGroup.ts.html |here} to see how to use SwitchModuleStreamOnManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SwitchModuleStreamOnManagedInstanceGroup.ts.html |here} to see how to use SwitchModuleStreamOnManagedInstanceGroup API.
    */
   public async switchModuleStreamOnManagedInstanceGroup(
     switchModuleStreamOnManagedInstanceGroupRequest: requests.SwitchModuleStreamOnManagedInstanceGroupRequest
@@ -6980,7 +7313,7 @@ When sorting by the display name, the result set is sorted first
    * @param UpdateAllPackagesOnManagedInstanceGroupRequest
    * @return UpdateAllPackagesOnManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateAllPackagesOnManagedInstanceGroup.ts.html |here} to see how to use UpdateAllPackagesOnManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateAllPackagesOnManagedInstanceGroup.ts.html |here} to see how to use UpdateAllPackagesOnManagedInstanceGroup API.
    */
   public async updateAllPackagesOnManagedInstanceGroup(
     updateAllPackagesOnManagedInstanceGroupRequest: requests.UpdateAllPackagesOnManagedInstanceGroupRequest
@@ -7062,7 +7395,7 @@ When sorting by the display name, the result set is sorted first
    * @param UpdateManagedInstanceGroupRequest
    * @return UpdateManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateManagedInstanceGroup.ts.html |here} to see how to use UpdateManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateManagedInstanceGroup.ts.html |here} to see how to use UpdateManagedInstanceGroup API.
    */
   public async updateManagedInstanceGroup(
     updateManagedInstanceGroupRequest: requests.UpdateManagedInstanceGroupRequest
@@ -7352,7 +7685,7 @@ export class ManagementStationClient {
    * @param ChangeManagementStationCompartmentRequest
    * @return ChangeManagementStationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeManagementStationCompartment.ts.html |here} to see how to use ChangeManagementStationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeManagementStationCompartment.ts.html |here} to see how to use ChangeManagementStationCompartment API.
    */
   public async changeManagementStationCompartment(
     changeManagementStationCompartmentRequest: requests.ChangeManagementStationCompartmentRequest
@@ -7423,13 +7756,13 @@ export class ManagementStationClient {
   }
 
   /**
-   * Create a management station. You must provide proxy and mirror configuration information.
+   * Creates a management station using the proxy and mirror configuration information provided.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateManagementStationRequest
    * @return CreateManagementStationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateManagementStation.ts.html |here} to see how to use CreateManagementStation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateManagementStation.ts.html |here} to see how to use CreateManagementStation API.
    */
   public async createManagementStation(
     createManagementStationRequest: requests.CreateManagementStationRequest
@@ -7504,13 +7837,15 @@ export class ManagementStationClient {
   }
 
   /**
-   * Deletes a management station.
+   * Deletes a management station. You can't delete a station if there are resources associated with the station
+   * (such as instances using the station or profiles associated with the station). Switch stations and edit profiles
+   * as needed before deleting the station.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteManagementStationRequest
    * @return DeleteManagementStationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteManagementStation.ts.html |here} to see how to use DeleteManagementStation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteManagementStation.ts.html |here} to see how to use DeleteManagementStation API.
    */
   public async deleteManagementStation(
     deleteManagementStationRequest: requests.DeleteManagementStationRequest
@@ -7528,6 +7863,7 @@ export class ManagementStationClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteManagementStationRequest.ifMatch,
+      "opc-retry-token": deleteManagementStationRequest.opcRetryToken,
       "opc-request-id": deleteManagementStationRequest.opcRequestId
     };
 
@@ -7573,13 +7909,13 @@ export class ManagementStationClient {
   }
 
   /**
-   * Gets information about the specified management station.
+   * Returns information about the specified management station.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetManagementStationRequest
    * @return GetManagementStationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetManagementStation.ts.html |here} to see how to use GetManagementStation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetManagementStation.ts.html |here} to see how to use GetManagementStation API.
    */
   public async getManagementStation(
     getManagementStationRequest: requests.GetManagementStationRequest
@@ -7655,13 +7991,14 @@ export class ManagementStationClient {
   }
 
   /**
-   * Lists management stations in a compartment.
+   * Lists management stations within the specified compartment. Filter the list against a variety of criteria
+   * including but not limited to name, status, and location.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListManagementStationsRequest
    * @return ListManagementStationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagementStations.ts.html |here} to see how to use ListManagementStations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagementStations.ts.html |here} to see how to use ListManagementStations API.
    */
   public async listManagementStations(
     listManagementStationsRequest: requests.ListManagementStationsRequest
@@ -7680,6 +8017,8 @@ export class ManagementStationClient {
       "managedInstanceId": listManagementStationsRequest.managedInstanceId,
       "limit": listManagementStationsRequest.limit,
       "page": listManagementStationsRequest.page,
+      "location": listManagementStationsRequest.location,
+      "locationNotEqualTo": listManagementStationsRequest.locationNotEqualTo,
       "sortOrder": listManagementStationsRequest.sortOrder,
       "sortBy": listManagementStationsRequest.sortBy,
       "id": listManagementStationsRequest.id
@@ -7747,7 +8086,7 @@ export class ManagementStationClient {
    * @param ListMirrorsRequest
    * @return ListMirrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListMirrors.ts.html |here} to see how to use ListMirrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListMirrors.ts.html |here} to see how to use ListMirrors API.
    */
   public async listMirrors(
     listMirrorsRequest: requests.ListMirrorsRequest
@@ -7825,13 +8164,13 @@ export class ManagementStationClient {
   }
 
   /**
-   * Refreshes the list of software sources mirrored by the management station to support the associated instances.
+   * Refreshes the list of software sources mirrored by the management station.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RefreshManagementStationConfigRequest
    * @return RefreshManagementStationConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RefreshManagementStationConfig.ts.html |here} to see how to use RefreshManagementStationConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RefreshManagementStationConfig.ts.html |here} to see how to use RefreshManagementStationConfig API.
    */
   public async refreshManagementStationConfig(
     refreshManagementStationConfigRequest: requests.RefreshManagementStationConfigRequest
@@ -7902,13 +8241,13 @@ export class ManagementStationClient {
   }
 
   /**
-   * Synchronize the specified software sources mirrors on the management station.
+   * Synchronize the specified software sources mirrored on the management station.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SynchronizeMirrorsRequest
    * @return SynchronizeMirrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SynchronizeMirrors.ts.html |here} to see how to use SynchronizeMirrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SynchronizeMirrors.ts.html |here} to see how to use SynchronizeMirrors API.
    */
   public async synchronizeMirrors(
     synchronizeMirrorsRequest: requests.SynchronizeMirrorsRequest
@@ -7988,7 +8327,7 @@ export class ManagementStationClient {
    * @param SynchronizeSingleMirrorsRequest
    * @return SynchronizeSingleMirrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SynchronizeSingleMirrors.ts.html |here} to see how to use SynchronizeSingleMirrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SynchronizeSingleMirrors.ts.html |here} to see how to use SynchronizeSingleMirrors API.
    */
   public async synchronizeSingleMirrors(
     synchronizeSingleMirrorsRequest: requests.SynchronizeSingleMirrorsRequest
@@ -8064,7 +8403,7 @@ export class ManagementStationClient {
    * @param UpdateManagementStationRequest
    * @return UpdateManagementStationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateManagementStation.ts.html |here} to see how to use UpdateManagementStation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateManagementStation.ts.html |here} to see how to use UpdateManagementStation API.
    */
   public async updateManagementStation(
     updateManagementStationRequest: requests.UpdateManagementStationRequest
@@ -8349,12 +8688,312 @@ export class OnboardingClient {
   }
 
   /**
+   * Attaches the specified lifecycle stage to a profile.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AttachLifecycleStageToProfileRequest
+   * @return AttachLifecycleStageToProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachLifecycleStageToProfile.ts.html |here} to see how to use AttachLifecycleStageToProfile API.
+   */
+  public async attachLifecycleStageToProfile(
+    attachLifecycleStageToProfileRequest: requests.AttachLifecycleStageToProfileRequest
+  ): Promise<responses.AttachLifecycleStageToProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OnboardingClient#attachLifecycleStageToProfile.");
+    const operationName = "attachLifecycleStageToProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{profileId}": attachLifecycleStageToProfileRequest.profileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": attachLifecycleStageToProfileRequest.opcRequestId,
+      "opc-retry-token": attachLifecycleStageToProfileRequest.opcRetryToken,
+      "if-match": attachLifecycleStageToProfileRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachLifecycleStageToProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/profiles/{profileId}/actions/attachLifecycleStage",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        attachLifecycleStageToProfileRequest.attachLifecycleStageToProfileDetails,
+        "AttachLifecycleStageToProfileDetails",
+        model.AttachLifecycleStageToProfileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AttachLifecycleStageToProfileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Attaches the specified managed instance group to a profile.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AttachManagedInstanceGroupToProfileRequest
+   * @return AttachManagedInstanceGroupToProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachManagedInstanceGroupToProfile.ts.html |here} to see how to use AttachManagedInstanceGroupToProfile API.
+   */
+  public async attachManagedInstanceGroupToProfile(
+    attachManagedInstanceGroupToProfileRequest: requests.AttachManagedInstanceGroupToProfileRequest
+  ): Promise<responses.AttachManagedInstanceGroupToProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OnboardingClient#attachManagedInstanceGroupToProfile.");
+    const operationName = "attachManagedInstanceGroupToProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{profileId}": attachManagedInstanceGroupToProfileRequest.profileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": attachManagedInstanceGroupToProfileRequest.opcRequestId,
+      "opc-retry-token": attachManagedInstanceGroupToProfileRequest.opcRetryToken,
+      "if-match": attachManagedInstanceGroupToProfileRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachManagedInstanceGroupToProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/profiles/{profileId}/actions/attachManagedInstanceGroup",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        attachManagedInstanceGroupToProfileRequest.attachManagedInstanceGroupToProfileDetails,
+        "AttachManagedInstanceGroupToProfileDetails",
+        model.AttachManagedInstanceGroupToProfileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AttachManagedInstanceGroupToProfileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Attaches the specified management station to a profile.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AttachManagementStationToProfileRequest
+   * @return AttachManagementStationToProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachManagementStationToProfile.ts.html |here} to see how to use AttachManagementStationToProfile API.
+   */
+  public async attachManagementStationToProfile(
+    attachManagementStationToProfileRequest: requests.AttachManagementStationToProfileRequest
+  ): Promise<responses.AttachManagementStationToProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OnboardingClient#attachManagementStationToProfile.");
+    const operationName = "attachManagementStationToProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{profileId}": attachManagementStationToProfileRequest.profileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": attachManagementStationToProfileRequest.opcRequestId,
+      "opc-retry-token": attachManagementStationToProfileRequest.opcRetryToken,
+      "if-match": attachManagementStationToProfileRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachManagementStationToProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/profiles/{profileId}/actions/attachManagementStation",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        attachManagementStationToProfileRequest.attachManagementStationToProfileDetails,
+        "AttachManagementStationToProfileDetails",
+        model.AttachManagementStationToProfileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AttachManagementStationToProfileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Attaches the specified software sources to a profile.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AttachSoftwareSourcesToProfileRequest
+   * @return AttachSoftwareSourcesToProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AttachSoftwareSourcesToProfile.ts.html |here} to see how to use AttachSoftwareSourcesToProfile API.
+   */
+  public async attachSoftwareSourcesToProfile(
+    attachSoftwareSourcesToProfileRequest: requests.AttachSoftwareSourcesToProfileRequest
+  ): Promise<responses.AttachSoftwareSourcesToProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OnboardingClient#attachSoftwareSourcesToProfile.");
+    const operationName = "attachSoftwareSourcesToProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{profileId}": attachSoftwareSourcesToProfileRequest.profileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": attachSoftwareSourcesToProfileRequest.opcRequestId,
+      "opc-retry-token": attachSoftwareSourcesToProfileRequest.opcRetryToken,
+      "if-match": attachSoftwareSourcesToProfileRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachSoftwareSourcesToProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/profiles/{profileId}/actions/attachSoftwareSources",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        attachSoftwareSourcesToProfileRequest.attachSoftwareSourcesToProfileDetails,
+        "AttachSoftwareSourcesToProfileDetails",
+        model.AttachSoftwareSourcesToProfileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AttachSoftwareSourcesToProfileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the profile to a different compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeProfileCompartmentRequest
    * @return ChangeProfileCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeProfileCompartment.ts.html |here} to see how to use ChangeProfileCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeProfileCompartment.ts.html |here} to see how to use ChangeProfileCompartment API.
    */
   public async changeProfileCompartment(
     changeProfileCompartmentRequest: requests.ChangeProfileCompartmentRequest
@@ -8429,7 +9068,7 @@ export class OnboardingClient {
    * @param CreateProfileRequest
    * @return CreateProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateProfile.ts.html |here} to see how to use CreateProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateProfile.ts.html |here} to see how to use CreateProfile API.
    */
   public async createProfile(
     createProfileRequest: requests.CreateProfileRequest
@@ -8508,7 +9147,7 @@ export class OnboardingClient {
    * @param DeleteProfileRequest
    * @return DeleteProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteProfile.ts.html |here} to see how to use DeleteProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteProfile.ts.html |here} to see how to use DeleteProfile API.
    */
   public async deleteProfile(
     deleteProfileRequest: requests.DeleteProfileRequest
@@ -8570,12 +9209,87 @@ export class OnboardingClient {
   }
 
   /**
-   * Gets information about the specified registration profile.
+   * Detaches the specified software sources from a profile.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DetachSoftwareSourcesFromProfileRequest
+   * @return DetachSoftwareSourcesFromProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachSoftwareSourcesFromProfile.ts.html |here} to see how to use DetachSoftwareSourcesFromProfile API.
+   */
+  public async detachSoftwareSourcesFromProfile(
+    detachSoftwareSourcesFromProfileRequest: requests.DetachSoftwareSourcesFromProfileRequest
+  ): Promise<responses.DetachSoftwareSourcesFromProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OnboardingClient#detachSoftwareSourcesFromProfile.");
+    const operationName = "detachSoftwareSourcesFromProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{profileId}": detachSoftwareSourcesFromProfileRequest.profileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": detachSoftwareSourcesFromProfileRequest.opcRequestId,
+      "opc-retry-token": detachSoftwareSourcesFromProfileRequest.opcRetryToken,
+      "if-match": detachSoftwareSourcesFromProfileRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachSoftwareSourcesFromProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/profiles/{profileId}/actions/detachSoftwareSources",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        detachSoftwareSourcesFromProfileRequest.detachSoftwareSourcesFromProfileDetails,
+        "DetachSoftwareSourcesFromProfileDetails",
+        model.DetachSoftwareSourcesFromProfileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DetachSoftwareSourcesFromProfileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns information about the specified registration profile.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetProfileRequest
    * @return GetProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetProfile.ts.html |here} to see how to use GetProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetProfile.ts.html |here} to see how to use GetProfile API.
    */
   public async getProfile(
     getProfileRequest: requests.GetProfileRequest
@@ -8645,6 +9359,167 @@ export class OnboardingClient {
   }
 
   /**
+   * Returns information about the version of the specified registration profile.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetProfileVersionRequest
+   * @return GetProfileVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetProfileVersion.ts.html |here} to see how to use GetProfileVersion API.
+   */
+  public async getProfileVersion(
+    getProfileVersionRequest: requests.GetProfileVersionRequest
+  ): Promise<responses.GetProfileVersionResponse> {
+    if (this.logger) this.logger.debug("Calling operation OnboardingClient#getProfileVersion.");
+    const operationName = "getProfileVersion";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{profileId}": getProfileVersionRequest.profileId,
+      "{profileVersion}": getProfileVersionRequest.profileVersion
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getProfileVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProfileVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/profiles/{profileId}/version/{profileVersion}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetProfileVersionResponse>{},
+        body: await response.json(),
+        bodyKey: "profileVersion",
+        bodyModel: model.ProfileVersion,
+        type: "model.ProfileVersion",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists available software sources for a specified profile. Filter the list against a variety of criteria including but not limited to the software source name. The results list only software sources that have not already been added to the profile.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListProfileAvailableSoftwareSourcesRequest
+   * @return ListProfileAvailableSoftwareSourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListProfileAvailableSoftwareSources.ts.html |here} to see how to use ListProfileAvailableSoftwareSources API.
+   */
+  public async listProfileAvailableSoftwareSources(
+    listProfileAvailableSoftwareSourcesRequest: requests.ListProfileAvailableSoftwareSourcesRequest
+  ): Promise<responses.ListProfileAvailableSoftwareSourcesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OnboardingClient#listProfileAvailableSoftwareSources.");
+    const operationName = "listProfileAvailableSoftwareSources";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{profileId}": listProfileAvailableSoftwareSourcesRequest.profileId
+    };
+
+    const queryParams = {
+      "displayName": listProfileAvailableSoftwareSourcesRequest.displayName,
+      "displayNameContains": listProfileAvailableSoftwareSourcesRequest.displayNameContains,
+      "compartmentId": listProfileAvailableSoftwareSourcesRequest.compartmentId,
+      "limit": listProfileAvailableSoftwareSourcesRequest.limit,
+      "page": listProfileAvailableSoftwareSourcesRequest.page,
+      "sortOrder": listProfileAvailableSoftwareSourcesRequest.sortOrder,
+      "sortBy": listProfileAvailableSoftwareSourcesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listProfileAvailableSoftwareSourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProfileAvailableSoftwareSourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/profiles/{profileId}/availableSoftwareSources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListProfileAvailableSoftwareSourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "availableSoftwareSourceCollection",
+        bodyModel: model.AvailableSoftwareSourceCollection,
+        type: "model.AvailableSoftwareSourceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists registration profiles that match the specified compartment or profile OCID. Filter the list against a
    * variety of criteria including but not limited to its name, status, vendor name, and architecture type.
    *
@@ -8652,7 +9527,7 @@ export class OnboardingClient {
    * @param ListProfilesRequest
    * @return ListProfilesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListProfiles.ts.html |here} to see how to use ListProfiles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListProfiles.ts.html |here} to see how to use ListProfiles API.
    */
   public async listProfiles(
     listProfilesRequest: requests.ListProfilesRequest
@@ -8673,6 +9548,9 @@ export class OnboardingClient {
       "registrationType": listProfilesRequest.registrationType,
       "isDefaultProfile": listProfilesRequest.isDefaultProfile,
       "isServiceProvidedProfile": listProfilesRequest.isServiceProvidedProfile,
+      "managementStation": listProfilesRequest.managementStation,
+      "managementStationNotEqualTo": listProfilesRequest.managementStationNotEqualTo,
+      "profileVersion": listProfilesRequest.profileVersion,
       "vendorName": listProfilesRequest.vendorName,
       "limit": listProfilesRequest.limit,
       "page": listProfilesRequest.page,
@@ -8726,6 +9604,11 @@ export class OnboardingClient {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
           }
         ]
       });
@@ -8742,7 +9625,7 @@ export class OnboardingClient {
    * @param UpdateProfileRequest
    * @return UpdateProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateProfile.ts.html |here} to see how to use UpdateProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateProfile.ts.html |here} to see how to use UpdateProfile API.
    */
   public async updateProfile(
     updateProfileRequest: requests.UpdateProfileRequest
@@ -9009,7 +9892,7 @@ export class ReportingManagedInstanceClient {
    * @param GetManagedInstanceAnalyticContentRequest
    * @return GetManagedInstanceAnalyticContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetManagedInstanceAnalyticContent.ts.html |here} to see how to use GetManagedInstanceAnalyticContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetManagedInstanceAnalyticContent.ts.html |here} to see how to use GetManagedInstanceAnalyticContent API.
    */
   public async getManagedInstanceAnalyticContent(
     getManagedInstanceAnalyticContentRequest: requests.GetManagedInstanceAnalyticContentRequest
@@ -9109,7 +9992,7 @@ export class ReportingManagedInstanceClient {
    * @param GetManagedInstanceContentRequest
    * @return GetManagedInstanceContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetManagedInstanceContent.ts.html |here} to see how to use GetManagedInstanceContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetManagedInstanceContent.ts.html |here} to see how to use GetManagedInstanceContent API.
    */
   public async getManagedInstanceContent(
     getManagedInstanceContentRequest: requests.GetManagedInstanceContentRequest
@@ -9196,7 +10079,7 @@ export class ReportingManagedInstanceClient {
    * @param SummarizeManagedInstanceAnalyticsRequest
    * @return SummarizeManagedInstanceAnalyticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SummarizeManagedInstanceAnalytics.ts.html |here} to see how to use SummarizeManagedInstanceAnalytics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SummarizeManagedInstanceAnalytics.ts.html |here} to see how to use SummarizeManagedInstanceAnalytics API.
    */
   public async summarizeManagedInstanceAnalytics(
     summarizeManagedInstanceAnalyticsRequest: requests.SummarizeManagedInstanceAnalyticsRequest
@@ -9498,7 +10381,7 @@ export class ScheduledJobClient {
    * @param ChangeScheduledJobCompartmentRequest
    * @return ChangeScheduledJobCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeScheduledJobCompartment.ts.html |here} to see how to use ChangeScheduledJobCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeScheduledJobCompartment.ts.html |here} to see how to use ChangeScheduledJobCompartment API.
    */
   public async changeScheduledJobCompartment(
     changeScheduledJobCompartmentRequest: requests.ChangeScheduledJobCompartmentRequest
@@ -9573,7 +10456,7 @@ export class ScheduledJobClient {
    * @param CreateScheduledJobRequest
    * @return CreateScheduledJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateScheduledJob.ts.html |here} to see how to use CreateScheduledJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateScheduledJob.ts.html |here} to see how to use CreateScheduledJob API.
    */
   public async createScheduledJob(
     createScheduledJobRequest: requests.CreateScheduledJobRequest
@@ -9658,7 +10541,7 @@ export class ScheduledJobClient {
    * @param DeleteScheduledJobRequest
    * @return DeleteScheduledJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteScheduledJob.ts.html |here} to see how to use DeleteScheduledJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteScheduledJob.ts.html |here} to see how to use DeleteScheduledJob API.
    */
   public async deleteScheduledJob(
     deleteScheduledJobRequest: requests.DeleteScheduledJobRequest
@@ -9726,7 +10609,7 @@ export class ScheduledJobClient {
    * @param GetScheduledJobRequest
    * @return GetScheduledJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetScheduledJob.ts.html |here} to see how to use GetScheduledJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetScheduledJob.ts.html |here} to see how to use GetScheduledJob API.
    */
   public async getScheduledJob(
     getScheduledJobRequest: requests.GetScheduledJobRequest
@@ -9801,13 +10684,13 @@ export class ScheduledJobClient {
   }
 
   /**
-   * Lists scheduled jobs that match the specified compartment or scheduled job [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Lists scheduled jobs that match the specified compartment or scheduled job [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListScheduledJobsRequest
    * @return ListScheduledJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListScheduledJobs.ts.html |here} to see how to use ListScheduledJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListScheduledJobs.ts.html |here} to see how to use ListScheduledJobs API.
    */
   public async listScheduledJobs(
     listScheduledJobsRequest: requests.ListScheduledJobsRequest
@@ -9905,7 +10788,7 @@ export class ScheduledJobClient {
    * @param RunScheduledJobNowRequest
    * @return RunScheduledJobNowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RunScheduledJobNow.ts.html |here} to see how to use RunScheduledJobNow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RunScheduledJobNow.ts.html |here} to see how to use RunScheduledJobNow API.
    */
   public async runScheduledJobNow(
     runScheduledJobNowRequest: requests.RunScheduledJobNowRequest
@@ -9974,7 +10857,7 @@ export class ScheduledJobClient {
    * @param UpdateScheduledJobRequest
    * @return UpdateScheduledJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateScheduledJob.ts.html |here} to see how to use UpdateScheduledJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateScheduledJob.ts.html |here} to see how to use UpdateScheduledJob API.
    */
   public async updateScheduledJob(
     updateScheduledJobRequest: requests.UpdateScheduledJobRequest
@@ -10260,12 +11143,16 @@ export class SoftwareSourceClient {
   /**
    * Adds packages to a software source. This operation can only be done for custom and versioned custom software sources that are not created using filters.
    * For a versioned custom software source, you can only add packages when the source is created. Once content is added to a versioned custom software source, it is immutable.
+   * Packages can be of the format:
+   *   * name (for example: git). If isLatestContentOnly is true, only the latest version of the package will be added, otherwise all versions of the package will be added.
+   *   * name-version-release.architecture (for example: git-2.43.5-1.el8_10.x86_64)
+   *   * name-epoch:version-release.architecture (for example: git-0:2.43.5-1.el8_10.x86_64)
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddPackagesToSoftwareSourceRequest
    * @return AddPackagesToSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AddPackagesToSoftwareSource.ts.html |here} to see how to use AddPackagesToSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/AddPackagesToSoftwareSource.ts.html |here} to see how to use AddPackagesToSoftwareSource API.
    */
   public async addPackagesToSoftwareSource(
     addPackagesToSoftwareSourceRequest: requests.AddPackagesToSoftwareSourceRequest
@@ -10345,7 +11232,7 @@ export class SoftwareSourceClient {
    * @param ChangeAvailabilityOfSoftwareSourcesRequest
    * @return ChangeAvailabilityOfSoftwareSourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeAvailabilityOfSoftwareSources.ts.html |here} to see how to use ChangeAvailabilityOfSoftwareSources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeAvailabilityOfSoftwareSources.ts.html |here} to see how to use ChangeAvailabilityOfSoftwareSources API.
    */
   public async changeAvailabilityOfSoftwareSources(
     changeAvailabilityOfSoftwareSourcesRequest: requests.ChangeAvailabilityOfSoftwareSourcesRequest
@@ -10414,13 +11301,13 @@ export class SoftwareSourceClient {
 
   /**
    * Moves the specified software sources to a different compartment within the same tenancy.
-   * For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeSoftwareSourceCompartmentRequest
    * @return ChangeSoftwareSourceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeSoftwareSourceCompartment.ts.html |here} to see how to use ChangeSoftwareSourceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeSoftwareSourceCompartment.ts.html |here} to see how to use ChangeSoftwareSourceCompartment API.
    */
   public async changeSoftwareSourceCompartment(
     changeSoftwareSourceCompartmentRequest: requests.ChangeSoftwareSourceCompartmentRequest
@@ -10495,7 +11382,7 @@ export class SoftwareSourceClient {
    * @param CreateEntitlementRequest
    * @return CreateEntitlementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateEntitlement.ts.html |here} to see how to use CreateEntitlement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateEntitlement.ts.html |here} to see how to use CreateEntitlement API.
    */
   public async createEntitlement(
     createEntitlementRequest: requests.CreateEntitlementRequest
@@ -10560,13 +11447,13 @@ export class SoftwareSourceClient {
   }
 
   /**
-   * Creates a new versioned or custom software source.
+   * Creates a new software source.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSoftwareSourceRequest
    * @return CreateSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateSoftwareSource.ts.html |here} to see how to use CreateSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateSoftwareSource.ts.html |here} to see how to use CreateSoftwareSource API.
    */
   public async createSoftwareSource(
     createSoftwareSourceRequest: requests.CreateSoftwareSourceRequest
@@ -10656,7 +11543,7 @@ export class SoftwareSourceClient {
    * @param DeleteSoftwareSourceRequest
    * @return DeleteSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteSoftwareSource.ts.html |here} to see how to use DeleteSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteSoftwareSource.ts.html |here} to see how to use DeleteSoftwareSource API.
    */
   public async deleteSoftwareSource(
     deleteSoftwareSourceRequest: requests.DeleteSoftwareSourceRequest
@@ -10725,7 +11612,7 @@ export class SoftwareSourceClient {
    * @param GetErratumRequest
    * @return GetErratumResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetErratum.ts.html |here} to see how to use GetErratum API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetErratum.ts.html |here} to see how to use GetErratum API.
    */
   public async getErratum(
     getErratumRequest: requests.GetErratumRequest
@@ -10798,7 +11685,7 @@ export class SoftwareSourceClient {
    * @param GetModuleStreamRequest
    * @return GetModuleStreamResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetModuleStream.ts.html |here} to see how to use GetModuleStream API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetModuleStream.ts.html |here} to see how to use GetModuleStream API.
    */
   public async getModuleStream(
     getModuleStreamRequest: requests.GetModuleStreamRequest
@@ -10872,7 +11759,7 @@ export class SoftwareSourceClient {
    * @param GetModuleStreamProfileRequest
    * @return GetModuleStreamProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetModuleStreamProfile.ts.html |here} to see how to use GetModuleStreamProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetModuleStreamProfile.ts.html |here} to see how to use GetModuleStreamProfile API.
    */
   public async getModuleStreamProfile(
     getModuleStreamProfileRequest: requests.GetModuleStreamProfileRequest
@@ -10948,7 +11835,7 @@ export class SoftwareSourceClient {
    * @param GetPackageGroupRequest
    * @return GetPackageGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetPackageGroup.ts.html |here} to see how to use GetPackageGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetPackageGroup.ts.html |here} to see how to use GetPackageGroup API.
    */
   public async getPackageGroup(
     getPackageGroupRequest: requests.GetPackageGroupRequest
@@ -11020,7 +11907,7 @@ export class SoftwareSourceClient {
    * @param GetSoftwarePackageRequest
    * @return GetSoftwarePackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetSoftwarePackage.ts.html |here} to see how to use GetSoftwarePackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetSoftwarePackage.ts.html |here} to see how to use GetSoftwarePackage API.
    */
   public async getSoftwarePackage(
     getSoftwarePackageRequest: requests.GetSoftwarePackageRequest
@@ -11087,12 +11974,12 @@ export class SoftwareSourceClient {
   }
 
   /**
-   * Returns information about the specified software package based on its fully qualified name.
+   * Returns information about the specified software package based on its fully qualified name (NVRA or NEVRA).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSoftwarePackageByNameRequest
    * @return GetSoftwarePackageByNameResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetSoftwarePackageByName.ts.html |here} to see how to use GetSoftwarePackageByName API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetSoftwarePackageByName.ts.html |here} to see how to use GetSoftwarePackageByName API.
    */
   public async getSoftwarePackageByName(
     getSoftwarePackageByNameRequest: requests.GetSoftwarePackageByNameRequest
@@ -11163,7 +12050,7 @@ export class SoftwareSourceClient {
    * @param GetSoftwareSourceRequest
    * @return GetSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetSoftwareSource.ts.html |here} to see how to use GetSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetSoftwareSource.ts.html |here} to see how to use GetSoftwareSource API.
    */
   public async getSoftwareSource(
     getSoftwareSourceRequest: requests.GetSoftwareSourceRequest
@@ -11238,6 +12125,83 @@ export class SoftwareSourceClient {
   }
 
   /**
+   * Returns an archive containing the list of packages in the software source.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSoftwareSourceManifestRequest
+   * @return GetSoftwareSourceManifestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetSoftwareSourceManifest.ts.html |here} to see how to use GetSoftwareSourceManifest API.
+   */
+  public async getSoftwareSourceManifest(
+    getSoftwareSourceManifestRequest: requests.GetSoftwareSourceManifestRequest
+  ): Promise<responses.GetSoftwareSourceManifestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SoftwareSourceClient#getSoftwareSourceManifest.");
+    const operationName = "getSoftwareSourceManifest";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{softwareSourceId}": getSoftwareSourceManifestRequest.softwareSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSoftwareSourceManifestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSoftwareSourceManifestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/softwareSources/{softwareSourceId}/manifest",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSoftwareSourceManifestResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists software packages available through the OS Management Hub service.  Filter the list against a variety of criteria
    * including but not limited to its name.
    *
@@ -11245,7 +12209,7 @@ export class SoftwareSourceClient {
    * @param ListAllSoftwarePackagesRequest
    * @return ListAllSoftwarePackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListAllSoftwarePackages.ts.html |here} to see how to use ListAllSoftwarePackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListAllSoftwarePackages.ts.html |here} to see how to use ListAllSoftwarePackages API.
    */
   public async listAllSoftwarePackages(
     listAllSoftwarePackagesRequest: requests.ListAllSoftwarePackagesRequest
@@ -11325,14 +12289,100 @@ export class SoftwareSourceClient {
   }
 
   /**
-   * Lists entitlements in the specified tenancy [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against a variety of criteria including but
+   * Lists software packages that are available to be added to a custom software source of type MANIFEST.  Filter the list against a variety of criteria
+   * including but not limited to its name.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAvailableSoftwarePackagesRequest
+   * @return ListAvailableSoftwarePackagesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListAvailableSoftwarePackages.ts.html |here} to see how to use ListAvailableSoftwarePackages API.
+   */
+  public async listAvailableSoftwarePackages(
+    listAvailableSoftwarePackagesRequest: requests.ListAvailableSoftwarePackagesRequest
+  ): Promise<responses.ListAvailableSoftwarePackagesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SoftwareSourceClient#listAvailableSoftwarePackages.");
+    const operationName = "listAvailableSoftwarePackages";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{softwareSourceId}": listAvailableSoftwarePackagesRequest.softwareSourceId
+    };
+
+    const queryParams = {
+      "displayName": listAvailableSoftwarePackagesRequest.displayName,
+      "displayNameContains": listAvailableSoftwarePackagesRequest.displayNameContains,
+      "isLatest": listAvailableSoftwarePackagesRequest.isLatest,
+      "limit": listAvailableSoftwarePackagesRequest.limit,
+      "page": listAvailableSoftwarePackagesRequest.page,
+      "sortOrder": listAvailableSoftwarePackagesRequest.sortOrder,
+      "sortBy": listAvailableSoftwarePackagesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAvailableSoftwarePackagesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailableSoftwarePackagesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/softwareSources/{softwareSourceId}/availableSoftwarePackages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAvailableSoftwarePackagesResponse>{},
+        body: await response.json(),
+        bodyKey: "softwarePackageCollection",
+        bodyModel: model.SoftwarePackageCollection,
+        type: "model.SoftwarePackageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists entitlements in the specified tenancy [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against a variety of criteria including but
    * not limited to its Customer Support Identifier (CSI), and vendor name.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListEntitlementsRequest
    * @return ListEntitlementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListEntitlements.ts.html |here} to see how to use ListEntitlements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListEntitlements.ts.html |here} to see how to use ListEntitlements API.
    */
   public async listEntitlements(
     listEntitlementsRequest: requests.ListEntitlementsRequest
@@ -11415,7 +12465,7 @@ export class SoftwareSourceClient {
    * @param ListErrataRequest
    * @return ListErrataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListErrata.ts.html |here} to see how to use ListErrata API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListErrata.ts.html |here} to see how to use ListErrata API.
    */
   public async listErrata(
     listErrataRequest: requests.ListErrataRequest
@@ -11497,14 +12547,14 @@ export class SoftwareSourceClient {
   }
 
   /**
-   * Lists module stream profiles from the specified software source [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against a variety of
+   * Lists module stream profiles from the specified software source [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against a variety of
    * criteria including but not limited to its module name, stream name, and profile name.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListModuleStreamProfilesRequest
    * @return ListModuleStreamProfilesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListModuleStreamProfiles.ts.html |here} to see how to use ListModuleStreamProfiles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListModuleStreamProfiles.ts.html |here} to see how to use ListModuleStreamProfiles API.
    */
   public async listModuleStreamProfiles(
     listModuleStreamProfilesRequest: requests.ListModuleStreamProfilesRequest
@@ -11583,14 +12633,14 @@ export class SoftwareSourceClient {
   }
 
   /**
-   * Lists module streams from the specified software source [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Lists module streams from the specified software source [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * Filter the list against a variety of criteria including but not limited to its module name and (stream) name.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListModuleStreamsRequest
    * @return ListModuleStreamsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListModuleStreams.ts.html |here} to see how to use ListModuleStreams API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListModuleStreams.ts.html |here} to see how to use ListModuleStreams API.
    */
   public async listModuleStreams(
     listModuleStreamsRequest: requests.ListModuleStreamsRequest
@@ -11669,14 +12719,14 @@ export class SoftwareSourceClient {
   }
 
   /**
-   * Lists package groups that are associated with the specified software source [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against a
+   * Lists package groups that are associated with the specified software source [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against a
    * variety of criteria including but not limited to its name, and package group type.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListPackageGroupsRequest
    * @return ListPackageGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListPackageGroups.ts.html |here} to see how to use ListPackageGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListPackageGroups.ts.html |here} to see how to use ListPackageGroups API.
    */
   public async listPackageGroups(
     listPackageGroupsRequest: requests.ListPackageGroupsRequest
@@ -11762,7 +12812,7 @@ export class SoftwareSourceClient {
    * @param ListSoftwarePackageSoftwareSourcesRequest
    * @return ListSoftwarePackageSoftwareSourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwarePackageSoftwareSources.ts.html |here} to see how to use ListSoftwarePackageSoftwareSources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwarePackageSoftwareSources.ts.html |here} to see how to use ListSoftwarePackageSoftwareSources API.
    */
   public async listSoftwarePackageSoftwareSources(
     listSoftwarePackageSoftwareSourcesRequest: requests.ListSoftwarePackageSoftwareSourcesRequest
@@ -11857,7 +12907,7 @@ export class SoftwareSourceClient {
    * @param ListSoftwarePackagesRequest
    * @return ListSoftwarePackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwarePackages.ts.html |here} to see how to use ListSoftwarePackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwarePackages.ts.html |here} to see how to use ListSoftwarePackages API.
    */
   public async listSoftwarePackages(
     listSoftwarePackagesRequest: requests.ListSoftwarePackagesRequest
@@ -11943,7 +12993,7 @@ export class SoftwareSourceClient {
    * @param ListSoftwareSourceVendorsRequest
    * @return ListSoftwareSourceVendorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwareSourceVendors.ts.html |here} to see how to use ListSoftwareSourceVendors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwareSourceVendors.ts.html |here} to see how to use ListSoftwareSourceVendors API.
    */
   public async listSoftwareSourceVendors(
     listSoftwareSourceVendorsRequest: requests.ListSoftwareSourceVendorsRequest
@@ -12012,14 +13062,14 @@ export class SoftwareSourceClient {
   }
 
   /**
-   * Lists software sources that match the specified tenancy or software source [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against a
+   * Lists software sources that match the specified tenancy or software source [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Filter the list against a
    * variety of criteria including but not limited to its name, status, architecture, and OS family.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSoftwareSourcesRequest
    * @return ListSoftwareSourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwareSources.ts.html |here} to see how to use ListSoftwareSources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwareSources.ts.html |here} to see how to use ListSoftwareSources API.
    */
   public async listSoftwareSources(
     listSoftwareSourcesRequest: requests.ListSoftwareSourcesRequest
@@ -12041,6 +13091,7 @@ export class SoftwareSourceClient {
       "availabilityAtOci": listSoftwareSourcesRequest.availabilityAtOci,
       "availabilityAnywhere": listSoftwareSourcesRequest.availabilityAnywhere,
       "isMandatoryForAutonomousLinux": listSoftwareSourcesRequest.isMandatoryForAutonomousLinux,
+      "isMirrorSyncAllowed": listSoftwareSourcesRequest.isMirrorSyncAllowed,
       "displayName": listSoftwareSourcesRequest.displayName,
       "displayNameContains": listSoftwareSourcesRequest.displayNameContains,
       "displayNameNotEqualTo": listSoftwareSourcesRequest.displayNameNotEqualTo,
@@ -12107,6 +13158,174 @@ export class SoftwareSourceClient {
   }
 
   /**
+   * Removes packages from a software source. This operation can only be done for custom software sources that are not created using filters.
+   * Packages can be of the format:
+   *   * name (for example: git). This removes all versions of the package.
+   *   * name-version-release.architecture (for example: git-2.43.5-1.el8_10.x86_64)
+   *   * name-epoch:version-release.architecture (for example: git-0:2.43.5-1.el8_10.x86_64)
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemovePackagesFromSoftwareSourceRequest
+   * @return RemovePackagesFromSoftwareSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RemovePackagesFromSoftwareSource.ts.html |here} to see how to use RemovePackagesFromSoftwareSource API.
+   */
+  public async removePackagesFromSoftwareSource(
+    removePackagesFromSoftwareSourceRequest: requests.RemovePackagesFromSoftwareSourceRequest
+  ): Promise<responses.RemovePackagesFromSoftwareSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SoftwareSourceClient#removePackagesFromSoftwareSource.");
+    const operationName = "removePackagesFromSoftwareSource";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{softwareSourceId}": removePackagesFromSoftwareSourceRequest.softwareSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removePackagesFromSoftwareSourceRequest.opcRequestId,
+      "if-match": removePackagesFromSoftwareSourceRequest.ifMatch,
+      "opc-retry-token": removePackagesFromSoftwareSourceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removePackagesFromSoftwareSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/softwareSources/{softwareSourceId}/actions/removePackages",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removePackagesFromSoftwareSourceRequest.removePackagesFromSoftwareSourceDetails,
+        "RemovePackagesFromSoftwareSourceDetails",
+        model.RemovePackagesFromSoftwareSourceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemovePackagesFromSoftwareSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replaces packages in a software source with the provided list of packages. This operation can only be done for custom software sources that are not created using filters.
+   * Packages can be of the format:
+   *  * name (for example: git). If isLatestContentOnly is true, only the latest version of the package will be added, otherwise all versions of the package will be added.
+   *  * name-version-release.architecture (for example: git-2.43.5-1.el8_10.x86_64)
+   *  * name-epoch:version-release.architecture (for example: git-0:2.43.5-1.el8_10.x86_64)
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReplacePackagesInSoftwareSourceRequest
+   * @return ReplacePackagesInSoftwareSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ReplacePackagesInSoftwareSource.ts.html |here} to see how to use ReplacePackagesInSoftwareSource API.
+   */
+  public async replacePackagesInSoftwareSource(
+    replacePackagesInSoftwareSourceRequest: requests.ReplacePackagesInSoftwareSourceRequest
+  ): Promise<responses.ReplacePackagesInSoftwareSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SoftwareSourceClient#replacePackagesInSoftwareSource.");
+    const operationName = "replacePackagesInSoftwareSource";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{softwareSourceId}": replacePackagesInSoftwareSourceRequest.softwareSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": replacePackagesInSoftwareSourceRequest.opcRequestId,
+      "if-match": replacePackagesInSoftwareSourceRequest.ifMatch,
+      "opc-retry-token": replacePackagesInSoftwareSourceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      replacePackagesInSoftwareSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/softwareSources/{softwareSourceId}/actions/replacePackages",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        replacePackagesInSoftwareSourceRequest.replacePackagesInSoftwareSourceDetails,
+        "ReplacePackagesInSoftwareSourceDetails",
+        model.ReplacePackagesInSoftwareSourceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReplacePackagesInSoftwareSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of module streams from the specified software sources. Filter the list against a variety of
    * criteria including the module name.
    *
@@ -12114,7 +13333,7 @@ export class SoftwareSourceClient {
    * @param SearchSoftwareSourceModuleStreamsRequest
    * @return SearchSoftwareSourceModuleStreamsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SearchSoftwareSourceModuleStreams.ts.html |here} to see how to use SearchSoftwareSourceModuleStreams API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SearchSoftwareSourceModuleStreams.ts.html |here} to see how to use SearchSoftwareSourceModuleStreams API.
    */
   public async searchSoftwareSourceModuleStreams(
     searchSoftwareSourceModuleStreamsRequest: requests.SearchSoftwareSourceModuleStreamsRequest
@@ -12200,7 +13419,7 @@ export class SoftwareSourceClient {
    * @param SearchSoftwareSourceModulesRequest
    * @return SearchSoftwareSourceModulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SearchSoftwareSourceModules.ts.html |here} to see how to use SearchSoftwareSourceModules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SearchSoftwareSourceModules.ts.html |here} to see how to use SearchSoftwareSourceModules API.
    */
   public async searchSoftwareSourceModules(
     searchSoftwareSourceModulesRequest: requests.SearchSoftwareSourceModulesRequest
@@ -12284,7 +13503,7 @@ export class SoftwareSourceClient {
    * @param SearchSoftwareSourcePackageGroupsRequest
    * @return SearchSoftwareSourcePackageGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SearchSoftwareSourcePackageGroups.ts.html |here} to see how to use SearchSoftwareSourcePackageGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SearchSoftwareSourcePackageGroups.ts.html |here} to see how to use SearchSoftwareSourcePackageGroups API.
    */
   public async searchSoftwareSourcePackageGroups(
     searchSoftwareSourcePackageGroupsRequest: requests.SearchSoftwareSourcePackageGroupsRequest
@@ -12363,13 +13582,82 @@ export class SoftwareSourceClient {
   }
 
   /**
+   * Regenerates metadata for the specified custom software source.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SoftwareSourceGenerateMetadataRequest
+   * @return SoftwareSourceGenerateMetadataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SoftwareSourceGenerateMetadata.ts.html |here} to see how to use SoftwareSourceGenerateMetadata API.
+   */
+  public async softwareSourceGenerateMetadata(
+    softwareSourceGenerateMetadataRequest: requests.SoftwareSourceGenerateMetadataRequest
+  ): Promise<responses.SoftwareSourceGenerateMetadataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SoftwareSourceClient#softwareSourceGenerateMetadata.");
+    const operationName = "softwareSourceGenerateMetadata";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{softwareSourceId}": softwareSourceGenerateMetadataRequest.softwareSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": softwareSourceGenerateMetadataRequest.opcRequestId,
+      "if-match": softwareSourceGenerateMetadataRequest.ifMatch,
+      "opc-retry-token": softwareSourceGenerateMetadataRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      softwareSourceGenerateMetadataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/softwareSources/{softwareSourceId}/actions/generateMetadata",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SoftwareSourceGenerateMetadataResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified software source's details, including but not limited to name, description, and tags.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSoftwareSourceRequest
    * @return UpdateSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateSoftwareSource.ts.html |here} to see how to use UpdateSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateSoftwareSource.ts.html |here} to see how to use UpdateSoftwareSource API.
    */
   public async updateSoftwareSource(
     updateSoftwareSourceRequest: requests.UpdateSoftwareSourceRequest
@@ -12439,6 +13727,91 @@ export class SoftwareSourceClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the package list document for the software source.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSoftwareSourceManifestRequest
+   * @return UpdateSoftwareSourceManifestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateSoftwareSourceManifest.ts.html |here} to see how to use UpdateSoftwareSourceManifest API.
+   */
+  public async updateSoftwareSourceManifest(
+    updateSoftwareSourceManifestRequest: requests.UpdateSoftwareSourceManifestRequest
+  ): Promise<responses.UpdateSoftwareSourceManifestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SoftwareSourceClient#updateSoftwareSourceManifest.");
+    const operationName = "updateSoftwareSourceManifest";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{softwareSourceId}": updateSoftwareSourceManifestRequest.softwareSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": updateSoftwareSourceManifestRequest.opcRequestId,
+      "if-match": updateSoftwareSourceManifestRequest.ifMatch,
+      "opc-retry-token": updateSoftwareSourceManifestRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSoftwareSourceManifestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/softwareSources/{softwareSourceId}/manifest",
+      method: "PUT",
+      bodyContent: updateSoftwareSourceManifestRequest.updateSoftwareSourceManifestDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSoftwareSourceManifestResponse>{},
+        body: await response.json(),
+        bodyKey: "softwareSource",
+        bodyModel: model.SoftwareSource,
+        type: "model.SoftwareSource",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -12659,12 +14032,12 @@ export class WorkRequestClient {
   }
 
   /**
-   * Gets information about the specified work request.
+   * Returns information about the specified work request.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -12739,13 +14112,13 @@ export class WorkRequestClient {
   }
 
   /**
-   * Gets the errors for the specified work request.
+   * Returns the errors for the specified work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -12821,13 +14194,13 @@ export class WorkRequestClient {
   }
 
   /**
-   * Gets the logs for the specified work request.
+   * Returns the logs for the specified work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -12909,7 +14282,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -12934,6 +14307,7 @@ export class WorkRequestClient {
       "operationType": listWorkRequestsRequest.operationType,
       "displayNameContains": listWorkRequestsRequest.displayNameContains,
       "retryOfId": listWorkRequestsRequest.retryOfId,
+      "rerunOfId": listWorkRequestsRequest.rerunOfId,
       "timeCreatedLessThan": listWorkRequestsRequest.timeCreatedLessThan,
       "timeCreatedGreaterThanOrEqualTo": listWorkRequestsRequest.timeCreatedGreaterThanOrEqualTo,
       "isManagedByAutonomousLinux": listWorkRequestsRequest.isManagedByAutonomousLinux
@@ -12983,6 +14357,85 @@ export class WorkRequestClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Reruns a failed work for the specified work request [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Rerunning restarts the work on failed targets.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RerunWorkRequestRequest
+   * @return RerunWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RerunWorkRequest.ts.html |here} to see how to use RerunWorkRequest API.
+   */
+  public async rerunWorkRequest(
+    rerunWorkRequestRequest: requests.RerunWorkRequestRequest
+  ): Promise<responses.RerunWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestClient#rerunWorkRequest.");
+    const operationName = "rerunWorkRequest";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{workRequestId}": rerunWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": rerunWorkRequestRequest.opcRequestId,
+      "opc-retry-token": rerunWorkRequestRequest.opcRetryToken,
+      "if-match": rerunWorkRequestRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rerunWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/actions/rerun",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rerunWorkRequestRequest.rerunWorkRequestDetails,
+        "RerunWorkRequestDetails",
+        model.RerunWorkRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RerunWorkRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

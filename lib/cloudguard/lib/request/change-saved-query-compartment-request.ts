@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSavedQueryCompartment.ts.html |here} to see how to use ChangeSavedQueryCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSavedQueryCompartment.ts.html |here} to see how to use ChangeSavedQueryCompartmentRequest.
  */
 export interface ChangeSavedQueryCompartmentRequest extends common.BaseRequest {
   /**

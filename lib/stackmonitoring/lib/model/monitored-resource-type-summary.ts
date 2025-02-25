@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface MonitoredResourceTypeSummary {
   /**
-   * Monitored resource type identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Monitored resource type identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "id": string;
@@ -42,7 +42,7 @@ export interface MonitoredResourceTypeSummary {
    */
   "metricNamespace"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the tenancy containing the resource type.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tenancy containing the resource type.
    *
    */
   "compartmentId": string;

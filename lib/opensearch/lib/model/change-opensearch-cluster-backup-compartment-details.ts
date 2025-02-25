@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeOpensearchClusterBackupCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
    * into which the cluster backup should be moved.
    *
    */

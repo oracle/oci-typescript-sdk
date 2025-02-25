@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListSkills.ts.html |here} to see how to use ListSkillsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListSkills.ts.html |here} to see how to use ListSkillsRequest.
  */
 export interface ListSkillsRequest extends common.BaseRequest {
   /**

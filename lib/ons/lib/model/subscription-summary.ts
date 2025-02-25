@@ -1,7 +1,7 @@
 /**
  * Notifications API
  * Use the Notifications API to broadcast messages to distributed components by topic, using a publish-subscribe pattern.
-For information about managing topics, subscriptions, and messages, see [Notifications Overview](/iaas/Content/Notification/Concepts/notificationoverview.htm).
+For information about managing topics, subscriptions, and messages, see [Notifications Overview](https://docs.oracle.com/iaas/Content/Notification/Concepts/notificationoverview.htm).
 
  * OpenAPI spec version: 20181201
  * 
@@ -22,12 +22,12 @@ import common = require("oci-common");
  */
 export interface SubscriptionSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription.
    *
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated topic.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated topic.
    *
    */
   "topicId": string;
@@ -44,7 +44,7 @@ Allowed values:
 *   * {@code SMS}
 * <p>
 For information about subscription protocols, see
-* [To create a subscription](https://docs.cloud.oracle.com/iaas/Content/Notification/Tasks/managingtopicsandsubscriptions.htm#createSub).
+* [To create a subscription](https://docs.oracle.com/iaas/Content/Notification/Tasks/managingtopicsandsubscriptions.htm#createSub).
 * 
     */
   "protocol": string;
@@ -60,7 +60,7 @@ For information about subscription protocols, see
    */
   "lifecycleState": SubscriptionSummary.LifecycleState;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment for the subscription.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment for the subscription.
    *
    */
   "compartmentId": string;
@@ -75,14 +75,14 @@ For information about subscription protocols, see
    */
   "etag"?: string;
   /**
-    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
-    * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+    * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

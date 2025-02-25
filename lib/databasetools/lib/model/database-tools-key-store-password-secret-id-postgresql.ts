@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface DatabaseToolsKeyStorePasswordSecretIdPostgresql
   extends model.DatabaseToolsKeyStorePasswordPostgresql {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the secret containing the key store password.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the secret containing the key store password.
    */
   "secretId"?: string;
 

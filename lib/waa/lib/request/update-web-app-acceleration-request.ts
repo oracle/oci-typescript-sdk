@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/UpdateWebAppAcceleration.ts.html |here} to see how to use UpdateWebAppAccelerationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/UpdateWebAppAcceleration.ts.html |here} to see how to use UpdateWebAppAccelerationRequest.
  */
 export interface UpdateWebAppAccelerationRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the WebAppAcceleration.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the WebAppAcceleration.
    */
   "webAppAccelerationId": string;
   /**

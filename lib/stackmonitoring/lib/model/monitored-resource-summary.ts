@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface MonitoredResourceSummary {
   /**
-   * Monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Monitored resource identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "id": string;
@@ -38,7 +38,7 @@ export interface MonitoredResourceSummary {
    */
   "type": string;
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Compartment Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId"?: string;
   /**
@@ -47,13 +47,13 @@ export interface MonitoredResourceSummary {
    */
   "hostName"?: string;
   /**
-   * External resource is any OCI resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * External resource is any OCI resource identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    * which is not a Stack Monitoring service resource.
    *
    */
   "externalId"?: string;
   /**
-   * Management Agent Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Management Agent Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "managementAgentId"?: string;
   /**

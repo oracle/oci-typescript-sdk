@@ -1,7 +1,7 @@
 /**
  * File Storage API
  * Use the File Storage service API to manage file systems, mount targets, and snapshots.
-For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+For more information, see [Overview of File Storage](https://docs.oracle.com/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -38,7 +38,7 @@ Example: {@code Uocm:PHX-AD-1}
    */
   "meteredBytes": number;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the file system.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the file system.
    */
   "compartmentId": string;
   /**
@@ -50,7 +50,7 @@ Example: {@code My file system}
     */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the file system.
    */
   "id": string;
   /**
@@ -72,14 +72,14 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -91,14 +91,14 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the KMS key used to encrypt the encryption keys associated with this file system.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the KMS key used to encrypt the encryption keys associated with this file system.
    *
    */
   "kmsKeyId"?: string;
   "sourceDetails"?: model.SourceDetails;
   /**
    * Specifies whether the file system has been cloned.
-   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningFS.htm).
+   * See [Cloning a File System](https://docs.oracle.com/iaas/Content/File/Tasks/cloningFS.htm).
    *
    */
   "isCloneParent"?: boolean;
@@ -106,7 +106,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * Specifies whether the data has finished copying from the source to the clone.
    * Hydration can take up to several hours to complete depending on the size of the source.
    * The source and clone remain available during hydration, but there may be some performance impact.
-   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningFS.htm#hydration).
+   * See [Cloning a File System](https://docs.oracle.com/iaas/Content/File/Tasks/cloningFS.htm#hydration).
    *
    */
   "isHydrated"?: boolean;

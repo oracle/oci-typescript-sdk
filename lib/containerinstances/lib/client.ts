@@ -243,7 +243,7 @@ export class ContainerInstanceClient {
    * @param ChangeContainerInstanceCompartmentRequest
    * @return ChangeContainerInstanceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ChangeContainerInstanceCompartment.ts.html |here} to see how to use ChangeContainerInstanceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ChangeContainerInstanceCompartment.ts.html |here} to see how to use ChangeContainerInstanceCompartment API.
    */
   public async changeContainerInstanceCompartment(
     changeContainerInstanceCompartmentRequest: requests.ChangeContainerInstanceCompartmentRequest
@@ -324,7 +324,7 @@ export class ContainerInstanceClient {
    * @param CreateContainerInstanceRequest
    * @return CreateContainerInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/CreateContainerInstance.ts.html |here} to see how to use CreateContainerInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/CreateContainerInstance.ts.html |here} to see how to use CreateContainerInstance API.
    */
   public async createContainerInstance(
     createContainerInstanceRequest: requests.CreateContainerInstanceRequest
@@ -409,7 +409,7 @@ export class ContainerInstanceClient {
    * @param DeleteContainerInstanceRequest
    * @return DeleteContainerInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/DeleteContainerInstance.ts.html |here} to see how to use DeleteContainerInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/DeleteContainerInstance.ts.html |here} to see how to use DeleteContainerInstance API.
    */
   public async deleteContainerInstance(
     deleteContainerInstanceRequest: requests.DeleteContainerInstanceRequest
@@ -482,7 +482,7 @@ export class ContainerInstanceClient {
    * @param GetContainerRequest
    * @return GetContainerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/GetContainer.ts.html |here} to see how to use GetContainer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/GetContainer.ts.html |here} to see how to use GetContainer API.
    */
   public async getContainer(
     getContainerRequest: requests.GetContainerRequest
@@ -557,7 +557,7 @@ export class ContainerInstanceClient {
    * @param GetContainerInstanceRequest
    * @return GetContainerInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/GetContainerInstance.ts.html |here} to see how to use GetContainerInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/GetContainerInstance.ts.html |here} to see how to use GetContainerInstance API.
    */
   public async getContainerInstance(
     getContainerInstanceRequest: requests.GetContainerInstanceRequest
@@ -633,7 +633,7 @@ export class ContainerInstanceClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -708,7 +708,7 @@ export class ContainerInstanceClient {
    * @param ListContainerInstanceShapesRequest
    * @return ListContainerInstanceShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListContainerInstanceShapes.ts.html |here} to see how to use ListContainerInstanceShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListContainerInstanceShapes.ts.html |here} to see how to use ListContainerInstanceShapes API.
    */
   public async listContainerInstanceShapes(
     listContainerInstanceShapesRequest: requests.ListContainerInstanceShapesRequest
@@ -788,7 +788,7 @@ export class ContainerInstanceClient {
    * @param ListContainerInstancesRequest
    * @return ListContainerInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListContainerInstances.ts.html |here} to see how to use ListContainerInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListContainerInstances.ts.html |here} to see how to use ListContainerInstances API.
    */
   public async listContainerInstances(
     listContainerInstancesRequest: requests.ListContainerInstancesRequest
@@ -872,7 +872,7 @@ export class ContainerInstanceClient {
    * @param ListContainersRequest
    * @return ListContainersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListContainers.ts.html |here} to see how to use ListContainers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListContainers.ts.html |here} to see how to use ListContainers API.
    */
   public async listContainers(
     listContainersRequest: requests.ListContainersRequest
@@ -956,7 +956,7 @@ export class ContainerInstanceClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1038,7 +1038,7 @@ export class ContainerInstanceClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1120,7 +1120,7 @@ export class ContainerInstanceClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1204,7 +1204,7 @@ export class ContainerInstanceClient {
    * @param RestartContainerInstanceRequest
    * @return RestartContainerInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/RestartContainerInstance.ts.html |here} to see how to use RestartContainerInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/RestartContainerInstance.ts.html |here} to see how to use RestartContainerInstance API.
    */
   public async restartContainerInstance(
     restartContainerInstanceRequest: requests.RestartContainerInstanceRequest
@@ -1278,7 +1278,7 @@ export class ContainerInstanceClient {
    * @param RetrieveLogsRequest
    * @return RetrieveLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/RetrieveLogs.ts.html |here} to see how to use RetrieveLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/RetrieveLogs.ts.html |here} to see how to use RetrieveLogs API.
    */
   public async retrieveLogs(
     retrieveLogsRequest: requests.RetrieveLogsRequest
@@ -1350,7 +1350,7 @@ export class ContainerInstanceClient {
    * @param StartContainerInstanceRequest
    * @return StartContainerInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/StartContainerInstance.ts.html |here} to see how to use StartContainerInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/StartContainerInstance.ts.html |here} to see how to use StartContainerInstance API.
    */
   public async startContainerInstance(
     startContainerInstanceRequest: requests.StartContainerInstanceRequest
@@ -1423,7 +1423,7 @@ export class ContainerInstanceClient {
    * @param StopContainerInstanceRequest
    * @return StopContainerInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/StopContainerInstance.ts.html |here} to see how to use StopContainerInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/StopContainerInstance.ts.html |here} to see how to use StopContainerInstance API.
    */
   public async stopContainerInstance(
     stopContainerInstanceRequest: requests.StopContainerInstanceRequest
@@ -1496,7 +1496,7 @@ export class ContainerInstanceClient {
    * @param UpdateContainerRequest
    * @return UpdateContainerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/UpdateContainer.ts.html |here} to see how to use UpdateContainer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/UpdateContainer.ts.html |here} to see how to use UpdateContainer API.
    */
   public async updateContainer(
     updateContainerRequest: requests.UpdateContainerRequest
@@ -1574,7 +1574,7 @@ export class ContainerInstanceClient {
    * @param UpdateContainerInstanceRequest
    * @return UpdateContainerInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/UpdateContainerInstance.ts.html |here} to see how to use UpdateContainerInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/UpdateContainerInstance.ts.html |here} to see how to use UpdateContainerInstance API.
    */
   public async updateContainerInstance(
     updateContainerInstanceRequest: requests.UpdateContainerInstanceRequest

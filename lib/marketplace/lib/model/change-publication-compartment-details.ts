@@ -1,6 +1,6 @@
 /**
  * Marketplace Service API
- * Use the Marketplace API to manage applications in Oracle Cloud Infrastructure Marketplace. For more information, see [Overview of Marketplace](/Content/Marketplace/Concepts/marketoverview.htm)
+ * Use the Marketplace API to manage applications in Oracle Cloud Infrastructure Marketplace. For more information, see [Overview of Marketplace](https://docs.oracle.com/iaas/Content/Marketplace/Concepts/marketoverview.htm)
  * OpenAPI spec version: 20181001
  *
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangePublicationCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want to move the publication.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to move the publication.
    */
   "compartmentId"?: string;
 }

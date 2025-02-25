@@ -3,7 +3,7 @@
  * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
 Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
+[the Resource Manager documentation](https://docs.oracle.com/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -22,18 +22,18 @@ import common = require("oci-common");
  * The properties that define a stack.
  * A stack is the collection of Oracle Cloud Infrastructure resources corresponding to a given Terraform configuration.
  * For instructions on managing stacks, see
- * [Managing Stacks](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/stacks.htm).
+ * [Managing Stacks](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/stacks.htm).
  * For more information about stacks, see
- * [Key Concepts](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__stackdefinition).
+ * [Key Concepts](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__stackdefinition).
  *
  */
 export interface Stack {
   /**
-   * Unique identifier ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) for the stack.
+   * Unique identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) for the stack.
    */
   "id"?: string;
   /**
-   * Unique identifier ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) for the compartment where the stack is located.
+   * Unique identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) for the compartment where the stack is located.
    */
   "compartmentId"?: string;
   /**
@@ -54,7 +54,7 @@ export interface Stack {
   /**
    * The current lifecycle state of the stack.
    * For more information about stack lifecycle states in Resource Manager, see
-   * [Key Concepts](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__StackStates).
+   * [Key Concepts](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__StackStates).
    *
    */
   "lifecycleState"?: Stack.LifecycleState;
@@ -72,7 +72,7 @@ export interface Stack {
    * [Terraform Registry](https://registry.terraform.io/browse/providers) and allows
    * {@link #customTerraformProvider(CustomTerraformProviderRequest) customTerraformProvider}.
    * For more information about stack sourcing of third-party Terraform providers, see
-   * [Third-party Provider Configuration](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager.htm#third-party-providers).
+   * [Third-party Provider Configuration](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager.htm#third-party-providers).
    *
    */
   "isThirdPartyProviderExperienceEnabled"?: boolean;
@@ -104,14 +104,14 @@ export interface Stack {
   "timeDriftLastChecked"?: Date;
   /**
    * Free-form tags associated with the resource. Each tag is a key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */

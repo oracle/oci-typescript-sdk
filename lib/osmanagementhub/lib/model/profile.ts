@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -21,11 +21,11 @@ import common = require("oci-common");
  */
 export interface Profile {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the registration profile.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the registration profile.
    */
   "compartmentId": string;
   /**
@@ -37,7 +37,9 @@ export interface Profile {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station to associate with an instance once registered. Associating with a management station applies only to non-OCI instances.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station to associate with an
+   * instance once registered. Management stations are only used by non-OCI instances.
+   *
    */
   "managementStationId"?: string;
   /**
@@ -56,6 +58,14 @@ export interface Profile {
    * The time the registration profile was created (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
    */
   "timeCreated"?: Date;
+  /**
+   * The time the registration profile was last modified (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
+   */
+  "timeModified"?: Date;
+  /**
+   * The version of the profile. The version is automatically incremented each time the profiled is edited.
+   */
+  "profileVersion"?: string;
   /**
    * The current state of the registration profile.
    */
@@ -76,14 +86,14 @@ export interface Profile {
   "isServiceProvidedProfile"?: boolean;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -103,6 +113,7 @@ export namespace Profile {
     Creating = "CREATING",
     Updating = "UPDATING",
     Active = "ACTIVE",
+    Inactive = "INACTIVE",
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",

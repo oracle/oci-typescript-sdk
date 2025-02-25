@@ -19,7 +19,7 @@ export interface ListWorkRequestLogsResponse {
    * For list pagination. When this header appears in the response,
    * additional pages of results remain. For important details about
    * how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcNextPage": string;
@@ -33,7 +33,7 @@ export interface ListWorkRequestLogsResponse {
    * For list pagination.  When this header appears in the response,
    * previous pages of results exist. For important details about
    * how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcPrevPage": string;

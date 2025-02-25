@@ -27,7 +27,7 @@ export interface ListHealthChecksVantagePointsResponse {
    * this header appears in the response, then there may be additional
    * items still to get. Include this value as the {@code page} parameter for the
    * subsequent GET request. For information about pagination, see
-   * [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#List_Pagination).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#List_Pagination).
    *
    */
   "opcNextPage": string;

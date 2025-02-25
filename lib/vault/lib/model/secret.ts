@@ -1,6 +1,6 @@
 /**
  * Vault Secret Management API
- * Use the Secret Management API to manage secrets and secret versions. For more information, see [Managing Secrets](/Content/KeyManagement/Tasks/managingsecrets.htm).
+ * Use the Secret Management API to manage secrets and secret versions. For more information, see [Managing Secrets](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingsecrets.htm).
  * OpenAPI spec version: 20180608
  *
  *
@@ -28,7 +28,7 @@ export interface Secret {
   "currentVersionNumber"?: number;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -39,7 +39,7 @@ export interface Secret {
   "description"?: string;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */

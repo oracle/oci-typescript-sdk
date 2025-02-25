@@ -33,7 +33,7 @@ export interface ListBucketsResponse {
 * next batch of buckets. Repeat this process to retrieve the entire list of buckets.
 * By default, the page limit is set to 25 buckets per page, but you can specify a value from 1 to 1000.
 * <p>
-For more details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+For more details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * 
      */
   "opcNextPage": string;

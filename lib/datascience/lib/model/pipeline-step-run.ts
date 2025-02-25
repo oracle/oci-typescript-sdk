@@ -81,6 +81,11 @@ export namespace PipelineStepRun {
             <model.PipelineMLJobStepRun>(<object>jsonObj),
             true
           );
+        case "DATAFLOW":
+          return model.PipelineDataflowStepRun.getJsonObj(
+            <model.PipelineDataflowStepRun>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.stepType}`);
       }
@@ -105,6 +110,11 @@ export namespace PipelineStepRun {
         case "ML_JOB":
           return model.PipelineMLJobStepRun.getDeserializedJsonObj(
             <model.PipelineMLJobStepRun>(<object>jsonObj),
+            true
+          );
+        case "DATAFLOW":
+          return model.PipelineDataflowStepRun.getDeserializedJsonObj(
+            <model.PipelineDataflowStepRun>(<object>jsonObj),
             true
           );
         default:

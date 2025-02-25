@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/AbortFsuDiscovery.ts.html |here} to see how to use AbortFsuDiscoveryRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/AbortFsuDiscovery.ts.html |here} to see how to use AbortFsuDiscoveryRequest.
  */
 export interface AbortFsuDiscoveryRequest extends common.BaseRequest {
   /**

@@ -218,7 +218,7 @@ export class AddressRuleServiceClient {
    * @param GetAddressRuleRequest
    * @return GetAddressRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/GetAddressRule.ts.html |here} to see how to use GetAddressRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/GetAddressRule.ts.html |here} to see how to use GetAddressRule API.
    */
   public async getAddressRule(
     getAddressRuleRequest: requests.GetAddressRuleRequest
@@ -477,7 +477,7 @@ export class AddressServiceClient {
    * @param GetAddressRequest
    * @return GetAddressResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/GetAddress.ts.html |here} to see how to use GetAddress API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/GetAddress.ts.html |here} to see how to use GetAddress API.
    */
   public async getAddress(
     getAddressRequest: requests.GetAddressRequest
@@ -550,7 +550,7 @@ export class AddressServiceClient {
    * @param VerifyAddressRequest
    * @return VerifyAddressResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/VerifyAddress.ts.html |here} to see how to use VerifyAddress API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/VerifyAddress.ts.html |here} to see how to use VerifyAddress API.
    */
   public async verifyAddress(
     verifyAddressRequest: requests.VerifyAddressRequest
@@ -818,7 +818,7 @@ export class InvoiceServiceClient {
    * @param DownloadPdfContentRequest
    * @return DownloadPdfContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/DownloadPdfContent.ts.html |here} to see how to use DownloadPdfContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/DownloadPdfContent.ts.html |here} to see how to use DownloadPdfContent API.
    */
   public async downloadPdfContent(
     downloadPdfContentRequest: requests.DownloadPdfContentRequest
@@ -907,7 +907,7 @@ export class InvoiceServiceClient {
    * @param GetInvoiceRequest
    * @return GetInvoiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/GetInvoice.ts.html |here} to see how to use GetInvoice API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/GetInvoice.ts.html |here} to see how to use GetInvoice API.
    */
   public async getInvoice(
     getInvoiceRequest: requests.GetInvoiceRequest
@@ -985,7 +985,7 @@ export class InvoiceServiceClient {
    * @param ListInvoiceLinesRequest
    * @return ListInvoiceLinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/ListInvoiceLines.ts.html |here} to see how to use ListInvoiceLines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/ListInvoiceLines.ts.html |here} to see how to use ListInvoiceLines API.
    */
   public async listInvoiceLines(
     listInvoiceLinesRequest: requests.ListInvoiceLinesRequest
@@ -1075,7 +1075,7 @@ export class InvoiceServiceClient {
    * @param ListInvoicesRequest
    * @return ListInvoicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/ListInvoices.ts.html |here} to see how to use ListInvoices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/ListInvoices.ts.html |here} to see how to use ListInvoices API.
    */
   public async listInvoices(
     listInvoicesRequest: requests.ListInvoicesRequest
@@ -1168,7 +1168,7 @@ export class InvoiceServiceClient {
    * @param PayInvoiceRequest
    * @return PayInvoiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/PayInvoice.ts.html |here} to see how to use PayInvoice API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/PayInvoice.ts.html |here} to see how to use PayInvoice API.
    */
   public async payInvoice(
     payInvoiceRequest: requests.PayInvoiceRequest
@@ -1439,7 +1439,7 @@ export class SubscriptionServiceClient {
    * @param AuthorizeSubscriptionPaymentRequest
    * @return AuthorizeSubscriptionPaymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/AuthorizeSubscriptionPayment.ts.html |here} to see how to use AuthorizeSubscriptionPayment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/AuthorizeSubscriptionPayment.ts.html |here} to see how to use AuthorizeSubscriptionPayment API.
    */
   public async authorizeSubscriptionPayment(
     authorizeSubscriptionPaymentRequest: requests.AuthorizeSubscriptionPaymentRequest
@@ -1527,7 +1527,7 @@ export class SubscriptionServiceClient {
    * @param GetSubscriptionRequest
    * @return GetSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/GetSubscription.ts.html |here} to see how to use GetSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/GetSubscription.ts.html |here} to see how to use GetSubscription API.
    */
   public async getSubscription(
     getSubscriptionRequest: requests.GetSubscriptionRequest
@@ -1606,7 +1606,7 @@ export class SubscriptionServiceClient {
    * @param ListSubscriptionsRequest
    * @return ListSubscriptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/ListSubscriptions.ts.html |here} to see how to use ListSubscriptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/ListSubscriptions.ts.html |here} to see how to use ListSubscriptions API.
    */
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest
@@ -1692,7 +1692,7 @@ export class SubscriptionServiceClient {
    * @param PaySubscriptionRequest
    * @return PaySubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/PaySubscription.ts.html |here} to see how to use PaySubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/PaySubscription.ts.html |here} to see how to use PaySubscription API.
    */
   public async paySubscription(
     paySubscriptionRequest: requests.PaySubscriptionRequest
@@ -1778,7 +1778,7 @@ export class SubscriptionServiceClient {
    * @param UpdateSubscriptionRequest
    * @return UpdateSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/UpdateSubscription.ts.html |here} to see how to use UpdateSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/UpdateSubscription.ts.html |here} to see how to use UpdateSubscription API.
    */
   public async updateSubscription(
     updateSubscriptionRequest: requests.UpdateSubscriptionRequest

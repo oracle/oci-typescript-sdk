@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -17,11 +17,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Overall health status of the managment station.
+ * Overall health status of the management station.
  **/
 export enum HealthState {
   Healthy = "HEALTHY",
   Unhealthy = "UNHEALTHY",
+  Unavailable = "UNAVAILABLE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

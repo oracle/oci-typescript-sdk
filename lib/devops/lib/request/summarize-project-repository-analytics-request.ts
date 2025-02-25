@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SummarizeProjectRepositoryAnalytics.ts.html |here} to see how to use SummarizeProjectRepositoryAnalyticsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/SummarizeProjectRepositoryAnalytics.ts.html |here} to see how to use SummarizeProjectRepositoryAnalyticsRequest.
  */
 export interface SummarizeProjectRepositoryAnalyticsRequest extends common.BaseRequest {
   /**

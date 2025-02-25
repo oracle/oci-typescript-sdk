@@ -219,7 +219,7 @@ export class CertificatesClient {
    * @param GetCaBundleRequest
    * @return GetCaBundleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificates/GetCaBundle.ts.html |here} to see how to use GetCaBundle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificates/GetCaBundle.ts.html |here} to see how to use GetCaBundle API.
    */
   public async getCaBundle(
     getCaBundleRequest: requests.GetCaBundleRequest
@@ -297,7 +297,7 @@ export class CertificatesClient {
    * @param GetCertificateAuthorityBundleRequest
    * @return GetCertificateAuthorityBundleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificates/GetCertificateAuthorityBundle.ts.html |here} to see how to use GetCertificateAuthorityBundle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificates/GetCertificateAuthorityBundle.ts.html |here} to see how to use GetCertificateAuthorityBundle API.
    */
   public async getCertificateAuthorityBundle(
     getCertificateAuthorityBundleRequest: requests.GetCertificateAuthorityBundleRequest
@@ -384,7 +384,7 @@ By default, the private key is not included in the query result, and a Certifica
      * @param GetCertificateBundleRequest
      * @return GetCertificateBundleResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificates/GetCertificateBundle.ts.html |here} to see how to use GetCertificateBundle API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificates/GetCertificateBundle.ts.html |here} to see how to use GetCertificateBundle API.
      */
   public async getCertificateBundle(
     getCertificateBundleRequest: requests.GetCertificateBundleRequest
@@ -466,7 +466,7 @@ By default, the private key is not included in the query result, and a Certifica
    * @param ListCertificateAuthorityBundleVersionsRequest
    * @return ListCertificateAuthorityBundleVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificates/ListCertificateAuthorityBundleVersions.ts.html |here} to see how to use ListCertificateAuthorityBundleVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificates/ListCertificateAuthorityBundleVersions.ts.html |here} to see how to use ListCertificateAuthorityBundleVersions API.
    */
   public async listCertificateAuthorityBundleVersions(
     listCertificateAuthorityBundleVersionsRequest: requests.ListCertificateAuthorityBundleVersionsRequest
@@ -544,7 +544,7 @@ By default, the private key is not included in the query result, and a Certifica
    * @param ListCertificateBundleVersionsRequest
    * @return ListCertificateBundleVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificates/ListCertificateBundleVersions.ts.html |here} to see how to use ListCertificateBundleVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificates/ListCertificateBundleVersions.ts.html |here} to see how to use ListCertificateBundleVersions API.
    */
   public async listCertificateBundleVersions(
     listCertificateBundleVersionsRequest: requests.ListCertificateBundleVersionsRequest

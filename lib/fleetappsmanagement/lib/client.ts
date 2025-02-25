@@ -249,7 +249,7 @@ export class FleetAppsManagementClient {
    * @param CheckResourceTaggingRequest
    * @return CheckResourceTaggingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CheckResourceTagging.ts.html |here} to see how to use CheckResourceTagging API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CheckResourceTagging.ts.html |here} to see how to use CheckResourceTagging API.
    */
   public async checkResourceTagging(
     checkResourceTaggingRequest: requests.CheckResourceTaggingRequest
@@ -331,7 +331,7 @@ export class FleetAppsManagementClient {
    * @param ConfirmTargetsRequest
    * @return ConfirmTargetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ConfirmTargets.ts.html |here} to see how to use ConfirmTargets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ConfirmTargets.ts.html |here} to see how to use ConfirmTargets API.
    */
   public async confirmTargets(
     confirmTargetsRequest: requests.ConfirmTargetsRequest
@@ -410,7 +410,7 @@ export class FleetAppsManagementClient {
    * @param CreateFleetRequest
    * @return CreateFleetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateFleet.ts.html |here} to see how to use CreateFleet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateFleet.ts.html |here} to see how to use CreateFleet API.
    */
   public async createFleet(
     createFleetRequest: requests.CreateFleetRequest
@@ -505,7 +505,7 @@ export class FleetAppsManagementClient {
    * @param CreateFleetCredentialRequest
    * @return CreateFleetCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateFleetCredential.ts.html |here} to see how to use CreateFleetCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateFleetCredential.ts.html |here} to see how to use CreateFleetCredential API.
    */
   public async createFleetCredential(
     createFleetCredentialRequest: requests.CreateFleetCredentialRequest
@@ -603,7 +603,7 @@ export class FleetAppsManagementClient {
    * @param CreateFleetPropertyRequest
    * @return CreateFleetPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateFleetProperty.ts.html |here} to see how to use CreateFleetProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateFleetProperty.ts.html |here} to see how to use CreateFleetProperty API.
    */
   public async createFleetProperty(
     createFleetPropertyRequest: requests.CreateFleetPropertyRequest
@@ -686,7 +686,7 @@ export class FleetAppsManagementClient {
    * @param CreateFleetResourceRequest
    * @return CreateFleetResourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateFleetResource.ts.html |here} to see how to use CreateFleetResource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateFleetResource.ts.html |here} to see how to use CreateFleetResource API.
    */
   public async createFleetResource(
     createFleetResourceRequest: requests.CreateFleetResourceRequest
@@ -783,7 +783,7 @@ export class FleetAppsManagementClient {
    * @param DeleteFleetRequest
    * @return DeleteFleetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteFleet.ts.html |here} to see how to use DeleteFleet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteFleet.ts.html |here} to see how to use DeleteFleet API.
    */
   public async deleteFleet(
     deleteFleetRequest: requests.DeleteFleetRequest
@@ -855,7 +855,7 @@ export class FleetAppsManagementClient {
    * @param DeleteFleetCredentialRequest
    * @return DeleteFleetCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteFleetCredential.ts.html |here} to see how to use DeleteFleetCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteFleetCredential.ts.html |here} to see how to use DeleteFleetCredential API.
    */
   public async deleteFleetCredential(
     deleteFleetCredentialRequest: requests.DeleteFleetCredentialRequest
@@ -929,7 +929,7 @@ export class FleetAppsManagementClient {
    * @param DeleteFleetPropertyRequest
    * @return DeleteFleetPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteFleetProperty.ts.html |here} to see how to use DeleteFleetProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteFleetProperty.ts.html |here} to see how to use DeleteFleetProperty API.
    */
   public async deleteFleetProperty(
     deleteFleetPropertyRequest: requests.DeleteFleetPropertyRequest
@@ -998,7 +998,7 @@ export class FleetAppsManagementClient {
    * @param DeleteFleetResourceRequest
    * @return DeleteFleetResourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteFleetResource.ts.html |here} to see how to use DeleteFleetResource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteFleetResource.ts.html |here} to see how to use DeleteFleetResource API.
    */
   public async deleteFleetResource(
     deleteFleetResourceRequest: requests.DeleteFleetResourceRequest
@@ -1073,7 +1073,7 @@ export class FleetAppsManagementClient {
    * @param GenerateComplianceReportRequest
    * @return GenerateComplianceReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GenerateComplianceReport.ts.html |here} to see how to use GenerateComplianceReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GenerateComplianceReport.ts.html |here} to see how to use GenerateComplianceReport API.
    */
   public async generateComplianceReport(
     generateComplianceReportRequest: requests.GenerateComplianceReportRequest
@@ -1151,7 +1151,7 @@ export class FleetAppsManagementClient {
    * @param GetComplianceReportRequest
    * @return GetComplianceReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetComplianceReport.ts.html |here} to see how to use GetComplianceReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetComplianceReport.ts.html |here} to see how to use GetComplianceReport API.
    */
   public async getComplianceReport(
     getComplianceReportRequest: requests.GetComplianceReportRequest
@@ -1228,7 +1228,7 @@ export class FleetAppsManagementClient {
    * @param GetFleetRequest
    * @return GetFleetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetFleet.ts.html |here} to see how to use GetFleet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetFleet.ts.html |here} to see how to use GetFleet API.
    */
   public async getFleet(
     getFleetRequest: requests.GetFleetRequest
@@ -1303,7 +1303,7 @@ export class FleetAppsManagementClient {
    * @param GetFleetCredentialRequest
    * @return GetFleetCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetFleetCredential.ts.html |here} to see how to use GetFleetCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetFleetCredential.ts.html |here} to see how to use GetFleetCredential API.
    */
   public async getFleetCredential(
     getFleetCredentialRequest: requests.GetFleetCredentialRequest
@@ -1380,7 +1380,7 @@ export class FleetAppsManagementClient {
    * @param GetFleetPropertyRequest
    * @return GetFleetPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetFleetProperty.ts.html |here} to see how to use GetFleetProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetFleetProperty.ts.html |here} to see how to use GetFleetProperty API.
    */
   public async getFleetProperty(
     getFleetPropertyRequest: requests.GetFleetPropertyRequest
@@ -1457,7 +1457,7 @@ export class FleetAppsManagementClient {
    * @param GetFleetResourceRequest
    * @return GetFleetResourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetFleetResource.ts.html |here} to see how to use GetFleetResource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetFleetResource.ts.html |here} to see how to use GetFleetResource API.
    */
   public async getFleetResource(
     getFleetResourceRequest: requests.GetFleetResourceRequest
@@ -1534,7 +1534,7 @@ export class FleetAppsManagementClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1615,7 +1615,7 @@ export class FleetAppsManagementClient {
    * @param ListAnnouncementsRequest
    * @return ListAnnouncementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListAnnouncements.ts.html |here} to see how to use ListAnnouncements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListAnnouncements.ts.html |here} to see how to use ListAnnouncements API.
    */
   public async listAnnouncements(
     listAnnouncementsRequest: requests.ListAnnouncementsRequest
@@ -1697,7 +1697,7 @@ export class FleetAppsManagementClient {
    * @param ListFleetCredentialsRequest
    * @return ListFleetCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleetCredentials.ts.html |here} to see how to use ListFleetCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleetCredentials.ts.html |here} to see how to use ListFleetCredentials API.
    */
   public async listFleetCredentials(
     listFleetCredentialsRequest: requests.ListFleetCredentialsRequest
@@ -1786,7 +1786,7 @@ export class FleetAppsManagementClient {
    * @param ListFleetProductsRequest
    * @return ListFleetProductsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleetProducts.ts.html |here} to see how to use ListFleetProducts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleetProducts.ts.html |here} to see how to use ListFleetProducts API.
    */
   public async listFleetProducts(
     listFleetProductsRequest: requests.ListFleetProductsRequest
@@ -1872,7 +1872,7 @@ export class FleetAppsManagementClient {
    * @param ListFleetPropertiesRequest
    * @return ListFleetPropertiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleetProperties.ts.html |here} to see how to use ListFleetProperties API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleetProperties.ts.html |here} to see how to use ListFleetProperties API.
    */
   public async listFleetProperties(
     listFleetPropertiesRequest: requests.ListFleetPropertiesRequest
@@ -1958,7 +1958,7 @@ export class FleetAppsManagementClient {
    * @param ListFleetResourcesRequest
    * @return ListFleetResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleetResources.ts.html |here} to see how to use ListFleetResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleetResources.ts.html |here} to see how to use ListFleetResources API.
    */
   public async listFleetResources(
     listFleetResourcesRequest: requests.ListFleetResourcesRequest
@@ -2045,7 +2045,7 @@ export class FleetAppsManagementClient {
    * @param ListFleetTargetsRequest
    * @return ListFleetTargetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleetTargets.ts.html |here} to see how to use ListFleetTargets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleetTargets.ts.html |here} to see how to use ListFleetTargets API.
    */
   public async listFleetTargets(
     listFleetTargetsRequest: requests.ListFleetTargetsRequest
@@ -2131,7 +2131,7 @@ export class FleetAppsManagementClient {
    * @param ListFleetsRequest
    * @return ListFleetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleets.ts.html |here} to see how to use ListFleets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListFleets.ts.html |here} to see how to use ListFleets API.
    */
   public async listFleets(
     listFleetsRequest: requests.ListFleetsRequest
@@ -2223,7 +2223,7 @@ export class FleetAppsManagementClient {
    * @param ListInventoryResourcesRequest
    * @return ListInventoryResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListInventoryResources.ts.html |here} to see how to use ListInventoryResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListInventoryResources.ts.html |here} to see how to use ListInventoryResources API.
    */
   public async listInventoryResources(
     listInventoryResourcesRequest: requests.ListInventoryResourcesRequest
@@ -2313,7 +2313,7 @@ export class FleetAppsManagementClient {
    * @param ListTargetsRequest
    * @return ListTargetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListTargets.ts.html |here} to see how to use ListTargets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListTargets.ts.html |here} to see how to use ListTargets API.
    */
   public async listTargets(
     listTargetsRequest: requests.ListTargetsRequest
@@ -2395,7 +2395,7 @@ export class FleetAppsManagementClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2477,7 +2477,7 @@ export class FleetAppsManagementClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2559,7 +2559,7 @@ export class FleetAppsManagementClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2643,7 +2643,7 @@ export class FleetAppsManagementClient {
    * @param RequestResourceValidationRequest
    * @return RequestResourceValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/RequestResourceValidation.ts.html |here} to see how to use RequestResourceValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/RequestResourceValidation.ts.html |here} to see how to use RequestResourceValidation API.
    */
   public async requestResourceValidation(
     requestResourceValidationRequest: requests.RequestResourceValidationRequest
@@ -2723,7 +2723,7 @@ export class FleetAppsManagementClient {
    * @param RequestTargetDiscoveryRequest
    * @return RequestTargetDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/RequestTargetDiscovery.ts.html |here} to see how to use RequestTargetDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/RequestTargetDiscovery.ts.html |here} to see how to use RequestTargetDiscovery API.
    */
   public async requestTargetDiscovery(
     requestTargetDiscoveryRequest: requests.RequestTargetDiscoveryRequest
@@ -2801,7 +2801,7 @@ export class FleetAppsManagementClient {
    * @param UpdateFleetRequest
    * @return UpdateFleetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateFleet.ts.html |here} to see how to use UpdateFleet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateFleet.ts.html |here} to see how to use UpdateFleet API.
    */
   public async updateFleet(
     updateFleetRequest: requests.UpdateFleetRequest
@@ -2882,7 +2882,7 @@ export class FleetAppsManagementClient {
    * @param UpdateFleetCredentialRequest
    * @return UpdateFleetCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateFleetCredential.ts.html |here} to see how to use UpdateFleetCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateFleetCredential.ts.html |here} to see how to use UpdateFleetCredential API.
    */
   public async updateFleetCredential(
     updateFleetCredentialRequest: requests.UpdateFleetCredentialRequest
@@ -2961,7 +2961,7 @@ export class FleetAppsManagementClient {
    * @param UpdateFleetPropertyRequest
    * @return UpdateFleetPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateFleetProperty.ts.html |here} to see how to use UpdateFleetProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateFleetProperty.ts.html |here} to see how to use UpdateFleetProperty API.
    */
   public async updateFleetProperty(
     updateFleetPropertyRequest: requests.UpdateFleetPropertyRequest
@@ -3044,7 +3044,7 @@ export class FleetAppsManagementClient {
    * @param UpdateFleetResourceRequest
    * @return UpdateFleetResourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateFleetResource.ts.html |here} to see how to use UpdateFleetResource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateFleetResource.ts.html |here} to see how to use UpdateFleetResource API.
    */
   public async updateFleetResource(
     updateFleetResourceRequest: requests.UpdateFleetResourceRequest
@@ -3333,7 +3333,7 @@ export class FleetAppsManagementAdminClient {
    * @param CreateCompliancePolicyRuleRequest
    * @return CreateCompliancePolicyRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateCompliancePolicyRule.ts.html |here} to see how to use CreateCompliancePolicyRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateCompliancePolicyRule.ts.html |here} to see how to use CreateCompliancePolicyRule API.
    */
   public async createCompliancePolicyRule(
     createCompliancePolicyRuleRequest: requests.CreateCompliancePolicyRuleRequest
@@ -3432,7 +3432,7 @@ export class FleetAppsManagementAdminClient {
    * @param CreateOnboardingRequest
    * @return CreateOnboardingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateOnboarding.ts.html |here} to see how to use CreateOnboarding API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateOnboarding.ts.html |here} to see how to use CreateOnboarding API.
    */
   public async createOnboarding(
     createOnboardingRequest: requests.CreateOnboardingRequest
@@ -3528,7 +3528,7 @@ export class FleetAppsManagementAdminClient {
    * @param CreatePlatformConfigurationRequest
    * @return CreatePlatformConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreatePlatformConfiguration.ts.html |here} to see how to use CreatePlatformConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreatePlatformConfiguration.ts.html |here} to see how to use CreatePlatformConfiguration API.
    */
   public async createPlatformConfiguration(
     createPlatformConfigurationRequest: requests.CreatePlatformConfigurationRequest
@@ -3611,7 +3611,7 @@ export class FleetAppsManagementAdminClient {
    * @param CreatePropertyRequest
    * @return CreatePropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateProperty.ts.html |here} to see how to use CreateProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateProperty.ts.html |here} to see how to use CreateProperty API.
    */
   public async createProperty(
     createPropertyRequest: requests.CreatePropertyRequest
@@ -3691,7 +3691,7 @@ export class FleetAppsManagementAdminClient {
    * @param DeleteCompliancePolicyRuleRequest
    * @return DeleteCompliancePolicyRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteCompliancePolicyRule.ts.html |here} to see how to use DeleteCompliancePolicyRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteCompliancePolicyRule.ts.html |here} to see how to use DeleteCompliancePolicyRule API.
    */
   public async deleteCompliancePolicyRule(
     deleteCompliancePolicyRuleRequest: requests.DeleteCompliancePolicyRuleRequest
@@ -3766,7 +3766,7 @@ export class FleetAppsManagementAdminClient {
    * @param DeleteOnboardingRequest
    * @return DeleteOnboardingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteOnboarding.ts.html |here} to see how to use DeleteOnboarding API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteOnboarding.ts.html |here} to see how to use DeleteOnboarding API.
    */
   public async deleteOnboarding(
     deleteOnboardingRequest: requests.DeleteOnboardingRequest
@@ -3839,7 +3839,7 @@ export class FleetAppsManagementAdminClient {
    * @param DeletePlatformConfigurationRequest
    * @return DeletePlatformConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeletePlatformConfiguration.ts.html |here} to see how to use DeletePlatformConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeletePlatformConfiguration.ts.html |here} to see how to use DeletePlatformConfiguration API.
    */
   public async deletePlatformConfiguration(
     deletePlatformConfigurationRequest: requests.DeletePlatformConfigurationRequest
@@ -3914,7 +3914,7 @@ export class FleetAppsManagementAdminClient {
    * @param DeletePropertyRequest
    * @return DeletePropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteProperty.ts.html |here} to see how to use DeleteProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteProperty.ts.html |here} to see how to use DeleteProperty API.
    */
   public async deleteProperty(
     deletePropertyRequest: requests.DeletePropertyRequest
@@ -3982,7 +3982,7 @@ export class FleetAppsManagementAdminClient {
    * @param EnableLatestPolicyRequest
    * @return EnableLatestPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/EnableLatestPolicy.ts.html |here} to see how to use EnableLatestPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/EnableLatestPolicy.ts.html |here} to see how to use EnableLatestPolicy API.
    */
   public async enableLatestPolicy(
     enableLatestPolicyRequest: requests.EnableLatestPolicyRequest
@@ -4056,7 +4056,7 @@ export class FleetAppsManagementAdminClient {
    * @param GetCompliancePolicyRequest
    * @return GetCompliancePolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetCompliancePolicy.ts.html |here} to see how to use GetCompliancePolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetCompliancePolicy.ts.html |here} to see how to use GetCompliancePolicy API.
    */
   public async getCompliancePolicy(
     getCompliancePolicyRequest: requests.GetCompliancePolicyRequest
@@ -4132,7 +4132,7 @@ export class FleetAppsManagementAdminClient {
    * @param GetCompliancePolicyRuleRequest
    * @return GetCompliancePolicyRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetCompliancePolicyRule.ts.html |here} to see how to use GetCompliancePolicyRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetCompliancePolicyRule.ts.html |here} to see how to use GetCompliancePolicyRule API.
    */
   public async getCompliancePolicyRule(
     getCompliancePolicyRuleRequest: requests.GetCompliancePolicyRuleRequest
@@ -4210,7 +4210,7 @@ export class FleetAppsManagementAdminClient {
    * @param GetOnboardingRequest
    * @return GetOnboardingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetOnboarding.ts.html |here} to see how to use GetOnboarding API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetOnboarding.ts.html |here} to see how to use GetOnboarding API.
    */
   public async getOnboarding(
     getOnboardingRequest: requests.GetOnboardingRequest
@@ -4286,7 +4286,7 @@ export class FleetAppsManagementAdminClient {
    * @param GetPlatformConfigurationRequest
    * @return GetPlatformConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetPlatformConfiguration.ts.html |here} to see how to use GetPlatformConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetPlatformConfiguration.ts.html |here} to see how to use GetPlatformConfiguration API.
    */
   public async getPlatformConfiguration(
     getPlatformConfigurationRequest: requests.GetPlatformConfigurationRequest
@@ -4364,7 +4364,7 @@ export class FleetAppsManagementAdminClient {
    * @param GetPropertyRequest
    * @return GetPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetProperty.ts.html |here} to see how to use GetProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetProperty.ts.html |here} to see how to use GetProperty API.
    */
   public async getProperty(
     getPropertyRequest: requests.GetPropertyRequest
@@ -4441,7 +4441,7 @@ export class FleetAppsManagementAdminClient {
    * @param ListCompliancePoliciesRequest
    * @return ListCompliancePoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListCompliancePolicies.ts.html |here} to see how to use ListCompliancePolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListCompliancePolicies.ts.html |here} to see how to use ListCompliancePolicies API.
    */
   public async listCompliancePolicies(
     listCompliancePoliciesRequest: requests.ListCompliancePoliciesRequest
@@ -4525,7 +4525,7 @@ export class FleetAppsManagementAdminClient {
    * @param ListCompliancePolicyRulesRequest
    * @return ListCompliancePolicyRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListCompliancePolicyRules.ts.html |here} to see how to use ListCompliancePolicyRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListCompliancePolicyRules.ts.html |here} to see how to use ListCompliancePolicyRules API.
    */
   public async listCompliancePolicyRules(
     listCompliancePolicyRulesRequest: requests.ListCompliancePolicyRulesRequest
@@ -4613,7 +4613,7 @@ export class FleetAppsManagementAdminClient {
    * @param ListOnboardingPoliciesRequest
    * @return ListOnboardingPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListOnboardingPolicies.ts.html |here} to see how to use ListOnboardingPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListOnboardingPolicies.ts.html |here} to see how to use ListOnboardingPolicies API.
    */
   public async listOnboardingPolicies(
     listOnboardingPoliciesRequest: requests.ListOnboardingPoliciesRequest
@@ -4693,7 +4693,7 @@ export class FleetAppsManagementAdminClient {
    * @param ListOnboardingsRequest
    * @return ListOnboardingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListOnboardings.ts.html |here} to see how to use ListOnboardings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListOnboardings.ts.html |here} to see how to use ListOnboardings API.
    */
   public async listOnboardings(
     listOnboardingsRequest: requests.ListOnboardingsRequest
@@ -4776,7 +4776,7 @@ export class FleetAppsManagementAdminClient {
    * @param ListPlatformConfigurationsRequest
    * @return ListPlatformConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListPlatformConfigurations.ts.html |here} to see how to use ListPlatformConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListPlatformConfigurations.ts.html |here} to see how to use ListPlatformConfigurations API.
    */
   public async listPlatformConfigurations(
     listPlatformConfigurationsRequest: requests.ListPlatformConfigurationsRequest
@@ -4863,7 +4863,7 @@ export class FleetAppsManagementAdminClient {
    * @param ListPropertiesRequest
    * @return ListPropertiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListProperties.ts.html |here} to see how to use ListProperties API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListProperties.ts.html |here} to see how to use ListProperties API.
    */
   public async listProperties(
     listPropertiesRequest: requests.ListPropertiesRequest
@@ -4947,7 +4947,7 @@ export class FleetAppsManagementAdminClient {
    * @param ManageSettingsRequest
    * @return ManageSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ManageSettings.ts.html |here} to see how to use ManageSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ManageSettings.ts.html |here} to see how to use ManageSettings API.
    */
   public async manageSettings(
     manageSettingsRequest: requests.ManageSettingsRequest
@@ -5021,7 +5021,7 @@ export class FleetAppsManagementAdminClient {
    * @param UpdateCompliancePolicyRuleRequest
    * @return UpdateCompliancePolicyRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateCompliancePolicyRule.ts.html |here} to see how to use UpdateCompliancePolicyRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateCompliancePolicyRule.ts.html |here} to see how to use UpdateCompliancePolicyRule API.
    */
   public async updateCompliancePolicyRule(
     updateCompliancePolicyRuleRequest: requests.UpdateCompliancePolicyRuleRequest
@@ -5101,7 +5101,7 @@ export class FleetAppsManagementAdminClient {
    * @param UpdateOnboardingRequest
    * @return UpdateOnboardingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateOnboarding.ts.html |here} to see how to use UpdateOnboarding API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateOnboarding.ts.html |here} to see how to use UpdateOnboarding API.
    */
   public async updateOnboarding(
     updateOnboardingRequest: requests.UpdateOnboardingRequest
@@ -5179,7 +5179,7 @@ export class FleetAppsManagementAdminClient {
    * @param UpdatePlatformConfigurationRequest
    * @return UpdatePlatformConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdatePlatformConfiguration.ts.html |here} to see how to use UpdatePlatformConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdatePlatformConfiguration.ts.html |here} to see how to use UpdatePlatformConfiguration API.
    */
   public async updatePlatformConfiguration(
     updatePlatformConfigurationRequest: requests.UpdatePlatformConfigurationRequest
@@ -5259,7 +5259,7 @@ export class FleetAppsManagementAdminClient {
    * @param UpdatePropertyRequest
    * @return UpdatePropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateProperty.ts.html |here} to see how to use UpdateProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateProperty.ts.html |here} to see how to use UpdateProperty API.
    */
   public async updateProperty(
     updatePropertyRequest: requests.UpdatePropertyRequest
@@ -5555,7 +5555,7 @@ export class FleetAppsManagementMaintenanceWindowClient {
    * @param CreateMaintenanceWindowRequest
    * @return CreateMaintenanceWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateMaintenanceWindow.ts.html |here} to see how to use CreateMaintenanceWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateMaintenanceWindow.ts.html |here} to see how to use CreateMaintenanceWindow API.
    */
   public async createMaintenanceWindow(
     createMaintenanceWindowRequest: requests.CreateMaintenanceWindowRequest
@@ -5637,7 +5637,7 @@ export class FleetAppsManagementMaintenanceWindowClient {
    * @param DeleteMaintenanceWindowRequest
    * @return DeleteMaintenanceWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteMaintenanceWindow.ts.html |here} to see how to use DeleteMaintenanceWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteMaintenanceWindow.ts.html |here} to see how to use DeleteMaintenanceWindow API.
    */
   public async deleteMaintenanceWindow(
     deleteMaintenanceWindowRequest: requests.DeleteMaintenanceWindowRequest
@@ -5712,7 +5712,7 @@ export class FleetAppsManagementMaintenanceWindowClient {
    * @param GetMaintenanceWindowRequest
    * @return GetMaintenanceWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetMaintenanceWindow.ts.html |here} to see how to use GetMaintenanceWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetMaintenanceWindow.ts.html |here} to see how to use GetMaintenanceWindow API.
    */
   public async getMaintenanceWindow(
     getMaintenanceWindowRequest: requests.GetMaintenanceWindowRequest
@@ -5791,7 +5791,7 @@ export class FleetAppsManagementMaintenanceWindowClient {
    * @param ListMaintenanceWindowsRequest
    * @return ListMaintenanceWindowsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListMaintenanceWindows.ts.html |here} to see how to use ListMaintenanceWindows API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListMaintenanceWindows.ts.html |here} to see how to use ListMaintenanceWindows API.
    */
   public async listMaintenanceWindows(
     listMaintenanceWindowsRequest: requests.ListMaintenanceWindowsRequest
@@ -5883,7 +5883,7 @@ export class FleetAppsManagementMaintenanceWindowClient {
    * @param UpdateMaintenanceWindowRequest
    * @return UpdateMaintenanceWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateMaintenanceWindow.ts.html |here} to see how to use UpdateMaintenanceWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateMaintenanceWindow.ts.html |here} to see how to use UpdateMaintenanceWindow API.
    */
   public async updateMaintenanceWindow(
     updateMaintenanceWindowRequest: requests.UpdateMaintenanceWindowRequest
@@ -6173,7 +6173,7 @@ export class FleetAppsManagementOperationsClient {
    * @param CreatePatchRequest
    * @return CreatePatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreatePatch.ts.html |here} to see how to use CreatePatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreatePatch.ts.html |here} to see how to use CreatePatch API.
    */
   public async createPatch(
     createPatchRequest: requests.CreatePatchRequest
@@ -6254,7 +6254,7 @@ export class FleetAppsManagementOperationsClient {
    * @param CreateSchedulerDefinitionRequest
    * @return CreateSchedulerDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateSchedulerDefinition.ts.html |here} to see how to use CreateSchedulerDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateSchedulerDefinition.ts.html |here} to see how to use CreateSchedulerDefinition API.
    */
   public async createSchedulerDefinition(
     createSchedulerDefinitionRequest: requests.CreateSchedulerDefinitionRequest
@@ -6351,7 +6351,7 @@ export class FleetAppsManagementOperationsClient {
    * @param DeletePatchRequest
    * @return DeletePatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeletePatch.ts.html |here} to see how to use DeletePatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeletePatch.ts.html |here} to see how to use DeletePatch API.
    */
   public async deletePatch(
     deletePatchRequest: requests.DeletePatchRequest
@@ -6424,7 +6424,7 @@ export class FleetAppsManagementOperationsClient {
    * @param DeleteSchedulerDefinitionRequest
    * @return DeleteSchedulerDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteSchedulerDefinition.ts.html |here} to see how to use DeleteSchedulerDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteSchedulerDefinition.ts.html |here} to see how to use DeleteSchedulerDefinition API.
    */
   public async deleteSchedulerDefinition(
     deleteSchedulerDefinitionRequest: requests.DeleteSchedulerDefinitionRequest
@@ -6494,7 +6494,7 @@ export class FleetAppsManagementOperationsClient {
    * @param DeleteSchedulerJobRequest
    * @return DeleteSchedulerJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteSchedulerJob.ts.html |here} to see how to use DeleteSchedulerJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteSchedulerJob.ts.html |here} to see how to use DeleteSchedulerJob API.
    */
   public async deleteSchedulerJob(
     deleteSchedulerJobRequest: requests.DeleteSchedulerJobRequest
@@ -6565,7 +6565,7 @@ export class FleetAppsManagementOperationsClient {
    * @param ExportComplianceReportRequest
    * @return ExportComplianceReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ExportComplianceReport.ts.html |here} to see how to use ExportComplianceReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ExportComplianceReport.ts.html |here} to see how to use ExportComplianceReport API.
    */
   public async exportComplianceReport(
     exportComplianceReportRequest: requests.ExportComplianceReportRequest
@@ -6658,7 +6658,7 @@ export class FleetAppsManagementOperationsClient {
    * @param GetExecutionRequest
    * @return GetExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetExecution.ts.html |here} to see how to use GetExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetExecution.ts.html |here} to see how to use GetExecution API.
    */
   public async getExecution(
     getExecutionRequest: requests.GetExecutionRequest
@@ -6738,7 +6738,7 @@ export class FleetAppsManagementOperationsClient {
    * @param GetJobActivityRequest
    * @return GetJobActivityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetJobActivity.ts.html |here} to see how to use GetJobActivity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetJobActivity.ts.html |here} to see how to use GetJobActivity API.
    */
   public async getJobActivity(
     getJobActivityRequest: requests.GetJobActivityRequest
@@ -6815,7 +6815,7 @@ export class FleetAppsManagementOperationsClient {
    * @param GetPatchRequest
    * @return GetPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetPatch.ts.html |here} to see how to use GetPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetPatch.ts.html |here} to see how to use GetPatch API.
    */
   public async getPatch(
     getPatchRequest: requests.GetPatchRequest
@@ -6891,7 +6891,7 @@ export class FleetAppsManagementOperationsClient {
    * @param GetSchedulerDefinitionRequest
    * @return GetSchedulerDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetSchedulerDefinition.ts.html |here} to see how to use GetSchedulerDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetSchedulerDefinition.ts.html |here} to see how to use GetSchedulerDefinition API.
    */
   public async getSchedulerDefinition(
     getSchedulerDefinitionRequest: requests.GetSchedulerDefinitionRequest
@@ -6969,7 +6969,7 @@ export class FleetAppsManagementOperationsClient {
    * @param GetSchedulerJobRequest
    * @return GetSchedulerJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetSchedulerJob.ts.html |here} to see how to use GetSchedulerJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetSchedulerJob.ts.html |here} to see how to use GetSchedulerJob API.
    */
   public async getSchedulerJob(
     getSchedulerJobRequest: requests.GetSchedulerJobRequest
@@ -7046,7 +7046,7 @@ export class FleetAppsManagementOperationsClient {
    * @param ListComplianceRecordsRequest
    * @return ListComplianceRecordsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListComplianceRecords.ts.html |here} to see how to use ListComplianceRecords API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListComplianceRecords.ts.html |here} to see how to use ListComplianceRecords API.
    */
   public async listComplianceRecords(
     listComplianceRecordsRequest: requests.ListComplianceRecordsRequest
@@ -7134,7 +7134,7 @@ export class FleetAppsManagementOperationsClient {
    * @param ListExecutionsRequest
    * @return ListExecutionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListExecutions.ts.html |here} to see how to use ListExecutions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListExecutions.ts.html |here} to see how to use ListExecutions API.
    */
   public async listExecutions(
     listExecutionsRequest: requests.ListExecutionsRequest
@@ -7223,7 +7223,7 @@ export class FleetAppsManagementOperationsClient {
    * @param ListPatchesRequest
    * @return ListPatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListPatches.ts.html |here} to see how to use ListPatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListPatches.ts.html |here} to see how to use ListPatches API.
    */
   public async listPatches(
     listPatchesRequest: requests.ListPatchesRequest
@@ -7314,7 +7314,7 @@ export class FleetAppsManagementOperationsClient {
    * @param ListResourcesRequest
    * @return ListResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListResources.ts.html |here} to see how to use ListResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListResources.ts.html |here} to see how to use ListResources API.
    */
   public async listResources(
     listResourcesRequest: requests.ListResourcesRequest
@@ -7401,7 +7401,7 @@ export class FleetAppsManagementOperationsClient {
    * @param ListScheduledFleetsRequest
    * @return ListScheduledFleetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListScheduledFleets.ts.html |here} to see how to use ListScheduledFleets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListScheduledFleets.ts.html |here} to see how to use ListScheduledFleets API.
    */
   public async listScheduledFleets(
     listScheduledFleetsRequest: requests.ListScheduledFleetsRequest
@@ -7487,7 +7487,7 @@ export class FleetAppsManagementOperationsClient {
    * @param ListSchedulerDefinitionsRequest
    * @return ListSchedulerDefinitionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListSchedulerDefinitions.ts.html |here} to see how to use ListSchedulerDefinitions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListSchedulerDefinitions.ts.html |here} to see how to use ListSchedulerDefinitions API.
    */
   public async listSchedulerDefinitions(
     listSchedulerDefinitionsRequest: requests.ListSchedulerDefinitionsRequest
@@ -7582,7 +7582,7 @@ export class FleetAppsManagementOperationsClient {
    * @param ListSchedulerJobsRequest
    * @return ListSchedulerJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListSchedulerJobs.ts.html |here} to see how to use ListSchedulerJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListSchedulerJobs.ts.html |here} to see how to use ListSchedulerJobs API.
    */
   public async listSchedulerJobs(
     listSchedulerJobsRequest: requests.ListSchedulerJobsRequest
@@ -7672,7 +7672,7 @@ export class FleetAppsManagementOperationsClient {
    * @param ListStepsRequest
    * @return ListStepsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListSteps.ts.html |here} to see how to use ListSteps API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListSteps.ts.html |here} to see how to use ListSteps API.
    */
   public async listSteps(
     listStepsRequest: requests.ListStepsRequest
@@ -7759,7 +7759,7 @@ export class FleetAppsManagementOperationsClient {
    * @param ManageJobExecutionRequest
    * @return ManageJobExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ManageJobExecution.ts.html |here} to see how to use ManageJobExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ManageJobExecution.ts.html |here} to see how to use ManageJobExecution API.
    */
   public async manageJobExecution(
     manageJobExecutionRequest: requests.ManageJobExecutionRequest
@@ -7841,7 +7841,7 @@ export class FleetAppsManagementOperationsClient {
    * @param SummarizeComplianceRecordCountsRequest
    * @return SummarizeComplianceRecordCountsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SummarizeComplianceRecordCounts.ts.html |here} to see how to use SummarizeComplianceRecordCounts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SummarizeComplianceRecordCounts.ts.html |here} to see how to use SummarizeComplianceRecordCounts API.
    */
   public async summarizeComplianceRecordCounts(
     summarizeComplianceRecordCountsRequest: requests.SummarizeComplianceRecordCountsRequest
@@ -7923,7 +7923,7 @@ export class FleetAppsManagementOperationsClient {
    * @param SummarizeManagedEntityCountsRequest
    * @return SummarizeManagedEntityCountsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SummarizeManagedEntityCounts.ts.html |here} to see how to use SummarizeManagedEntityCounts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SummarizeManagedEntityCounts.ts.html |here} to see how to use SummarizeManagedEntityCounts API.
    */
   public async summarizeManagedEntityCounts(
     summarizeManagedEntityCountsRequest: requests.SummarizeManagedEntityCountsRequest
@@ -8005,7 +8005,7 @@ export class FleetAppsManagementOperationsClient {
    * @param SummarizeSchedulerJobCountsRequest
    * @return SummarizeSchedulerJobCountsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SummarizeSchedulerJobCounts.ts.html |here} to see how to use SummarizeSchedulerJobCounts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SummarizeSchedulerJobCounts.ts.html |here} to see how to use SummarizeSchedulerJobCounts API.
    */
   public async summarizeSchedulerJobCounts(
     summarizeSchedulerJobCountsRequest: requests.SummarizeSchedulerJobCountsRequest
@@ -8086,7 +8086,7 @@ export class FleetAppsManagementOperationsClient {
    * @param UpdatePatchRequest
    * @return UpdatePatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdatePatch.ts.html |here} to see how to use UpdatePatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdatePatch.ts.html |here} to see how to use UpdatePatch API.
    */
   public async updatePatch(
     updatePatchRequest: requests.UpdatePatchRequest
@@ -8164,7 +8164,7 @@ export class FleetAppsManagementOperationsClient {
    * @param UpdateSchedulerDefinitionRequest
    * @return UpdateSchedulerDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateSchedulerDefinition.ts.html |here} to see how to use UpdateSchedulerDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateSchedulerDefinition.ts.html |here} to see how to use UpdateSchedulerDefinition API.
    */
   public async updateSchedulerDefinition(
     updateSchedulerDefinitionRequest: requests.UpdateSchedulerDefinitionRequest
@@ -8244,7 +8244,7 @@ export class FleetAppsManagementOperationsClient {
    * @param UpdateSchedulerJobRequest
    * @return UpdateSchedulerJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateSchedulerJob.ts.html |here} to see how to use UpdateSchedulerJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateSchedulerJob.ts.html |here} to see how to use UpdateSchedulerJob API.
    */
   public async updateSchedulerJob(
     updateSchedulerJobRequest: requests.UpdateSchedulerJobRequest
@@ -8538,7 +8538,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param CreateRunbookRequest
    * @return CreateRunbookResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateRunbook.ts.html |here} to see how to use CreateRunbook API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateRunbook.ts.html |here} to see how to use CreateRunbook API.
    */
   public async createRunbook(
     createRunbookRequest: requests.CreateRunbookRequest
@@ -8634,7 +8634,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param CreateTaskRecordRequest
    * @return CreateTaskRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateTaskRecord.ts.html |here} to see how to use CreateTaskRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/CreateTaskRecord.ts.html |here} to see how to use CreateTaskRecord API.
    */
   public async createTaskRecord(
     createTaskRecordRequest: requests.CreateTaskRecordRequest
@@ -8714,7 +8714,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param DeleteRunbookRequest
    * @return DeleteRunbookResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteRunbook.ts.html |here} to see how to use DeleteRunbook API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteRunbook.ts.html |here} to see how to use DeleteRunbook API.
    */
   public async deleteRunbook(
     deleteRunbookRequest: requests.DeleteRunbookRequest
@@ -8787,7 +8787,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param DeleteTaskRecordRequest
    * @return DeleteTaskRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteTaskRecord.ts.html |here} to see how to use DeleteTaskRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteTaskRecord.ts.html |here} to see how to use DeleteTaskRecord API.
    */
   public async deleteTaskRecord(
     deleteTaskRecordRequest: requests.DeleteTaskRecordRequest
@@ -8860,7 +8860,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param GetRunbookRequest
    * @return GetRunbookResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetRunbook.ts.html |here} to see how to use GetRunbook API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetRunbook.ts.html |here} to see how to use GetRunbook API.
    */
   public async getRunbook(
     getRunbookRequest: requests.GetRunbookRequest
@@ -8936,7 +8936,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param GetTaskRecordRequest
    * @return GetTaskRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetTaskRecord.ts.html |here} to see how to use GetTaskRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetTaskRecord.ts.html |here} to see how to use GetTaskRecord API.
    */
   public async getTaskRecord(
     getTaskRecordRequest: requests.GetTaskRecordRequest
@@ -9013,7 +9013,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param ListRunbooksRequest
    * @return ListRunbooksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListRunbooks.ts.html |here} to see how to use ListRunbooks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListRunbooks.ts.html |here} to see how to use ListRunbooks API.
    */
   public async listRunbooks(
     listRunbooksRequest: requests.ListRunbooksRequest
@@ -9101,7 +9101,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param ListTaskRecordsRequest
    * @return ListTaskRecordsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListTaskRecords.ts.html |here} to see how to use ListTaskRecords API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListTaskRecords.ts.html |here} to see how to use ListTaskRecords API.
    */
   public async listTaskRecords(
     listTaskRecordsRequest: requests.ListTaskRecordsRequest
@@ -9187,7 +9187,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param PublishRunbookRequest
    * @return PublishRunbookResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/PublishRunbook.ts.html |here} to see how to use PublishRunbook API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/PublishRunbook.ts.html |here} to see how to use PublishRunbook API.
    */
   public async publishRunbook(
     publishRunbookRequest: requests.PublishRunbookRequest
@@ -9265,7 +9265,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param SetDefaultRunbookRequest
    * @return SetDefaultRunbookResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SetDefaultRunbook.ts.html |here} to see how to use SetDefaultRunbook API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/SetDefaultRunbook.ts.html |here} to see how to use SetDefaultRunbook API.
    */
   public async setDefaultRunbook(
     setDefaultRunbookRequest: requests.SetDefaultRunbookRequest
@@ -9346,7 +9346,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param UpdateRunbookRequest
    * @return UpdateRunbookResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateRunbook.ts.html |here} to see how to use UpdateRunbook API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateRunbook.ts.html |here} to see how to use UpdateRunbook API.
    */
   public async updateRunbook(
     updateRunbookRequest: requests.UpdateRunbookRequest
@@ -9424,7 +9424,7 @@ export class FleetAppsManagementRunbooksClient {
    * @param UpdateTaskRecordRequest
    * @return UpdateTaskRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateTaskRecord.ts.html |here} to see how to use UpdateTaskRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/UpdateTaskRecord.ts.html |here} to see how to use UpdateTaskRecord API.
    */
   public async updateTaskRecord(
     updateTaskRecordRequest: requests.UpdateTaskRecordRequest

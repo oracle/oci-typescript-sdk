@@ -249,7 +249,7 @@ export class DisasterRecoveryClient {
    * @param AssociateDrProtectionGroupRequest
    * @return AssociateDrProtectionGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/AssociateDrProtectionGroup.ts.html |here} to see how to use AssociateDrProtectionGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/AssociateDrProtectionGroup.ts.html |here} to see how to use AssociateDrProtectionGroup API.
    */
   public async associateDrProtectionGroup(
     associateDrProtectionGroupRequest: requests.AssociateDrProtectionGroupRequest
@@ -328,7 +328,7 @@ export class DisasterRecoveryClient {
    * @param CancelDrPlanExecutionRequest
    * @return CancelDrPlanExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CancelDrPlanExecution.ts.html |here} to see how to use CancelDrPlanExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CancelDrPlanExecution.ts.html |here} to see how to use CancelDrPlanExecution API.
    */
   public async cancelDrPlanExecution(
     cancelDrPlanExecutionRequest: requests.CancelDrPlanExecutionRequest
@@ -407,7 +407,7 @@ export class DisasterRecoveryClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -475,7 +475,7 @@ export class DisasterRecoveryClient {
    * @param ChangeDrProtectionGroupCompartmentRequest
    * @return ChangeDrProtectionGroupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ChangeDrProtectionGroupCompartment.ts.html |here} to see how to use ChangeDrProtectionGroupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ChangeDrProtectionGroupCompartment.ts.html |here} to see how to use ChangeDrProtectionGroupCompartment API.
    */
   public async changeDrProtectionGroupCompartment(
     changeDrProtectionGroupCompartmentRequest: requests.ChangeDrProtectionGroupCompartmentRequest
@@ -556,7 +556,7 @@ export class DisasterRecoveryClient {
    * @param CreateDrPlanRequest
    * @return CreateDrPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CreateDrPlan.ts.html |here} to see how to use CreateDrPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CreateDrPlan.ts.html |here} to see how to use CreateDrPlan API.
    */
   public async createDrPlan(
     createDrPlanRequest: requests.CreateDrPlanRequest
@@ -645,7 +645,7 @@ export class DisasterRecoveryClient {
    * @param CreateDrPlanExecutionRequest
    * @return CreateDrPlanExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CreateDrPlanExecution.ts.html |here} to see how to use CreateDrPlanExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CreateDrPlanExecution.ts.html |here} to see how to use CreateDrPlanExecution API.
    */
   public async createDrPlanExecution(
     createDrPlanExecutionRequest: requests.CreateDrPlanExecutionRequest
@@ -735,7 +735,7 @@ export class DisasterRecoveryClient {
    * @param CreateDrProtectionGroupRequest
    * @return CreateDrProtectionGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CreateDrProtectionGroup.ts.html |here} to see how to use CreateDrProtectionGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CreateDrProtectionGroup.ts.html |here} to see how to use CreateDrProtectionGroup API.
    */
   public async createDrProtectionGroup(
     createDrProtectionGroupRequest: requests.CreateDrProtectionGroupRequest
@@ -825,7 +825,7 @@ export class DisasterRecoveryClient {
    * @param DeleteDrPlanRequest
    * @return DeleteDrPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DeleteDrPlan.ts.html |here} to see how to use DeleteDrPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DeleteDrPlan.ts.html |here} to see how to use DeleteDrPlan API.
    */
   public async deleteDrPlan(
     deleteDrPlanRequest: requests.DeleteDrPlanRequest
@@ -892,7 +892,7 @@ export class DisasterRecoveryClient {
    * @param DeleteDrPlanExecutionRequest
    * @return DeleteDrPlanExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DeleteDrPlanExecution.ts.html |here} to see how to use DeleteDrPlanExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DeleteDrPlanExecution.ts.html |here} to see how to use DeleteDrPlanExecution API.
    */
   public async deleteDrPlanExecution(
     deleteDrPlanExecutionRequest: requests.DeleteDrPlanExecutionRequest
@@ -965,7 +965,7 @@ export class DisasterRecoveryClient {
    * @param DeleteDrProtectionGroupRequest
    * @return DeleteDrProtectionGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DeleteDrProtectionGroup.ts.html |here} to see how to use DeleteDrProtectionGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DeleteDrProtectionGroup.ts.html |here} to see how to use DeleteDrProtectionGroup API.
    */
   public async deleteDrProtectionGroup(
     deleteDrProtectionGroupRequest: requests.DeleteDrProtectionGroupRequest
@@ -1040,7 +1040,7 @@ export class DisasterRecoveryClient {
    * @param DisassociateDrProtectionGroupRequest
    * @return DisassociateDrProtectionGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DisassociateDrProtectionGroup.ts.html |here} to see how to use DisassociateDrProtectionGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DisassociateDrProtectionGroup.ts.html |here} to see how to use DisassociateDrProtectionGroup API.
    */
   public async disassociateDrProtectionGroup(
     disassociateDrProtectionGroupRequest: requests.DisassociateDrProtectionGroupRequest
@@ -1119,7 +1119,7 @@ export class DisasterRecoveryClient {
    * @param GetDrPlanRequest
    * @return GetDrPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/GetDrPlan.ts.html |here} to see how to use GetDrPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/GetDrPlan.ts.html |here} to see how to use GetDrPlan API.
    */
   public async getDrPlan(
     getDrPlanRequest: requests.GetDrPlanRequest
@@ -1194,7 +1194,7 @@ export class DisasterRecoveryClient {
    * @param GetDrPlanExecutionRequest
    * @return GetDrPlanExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/GetDrPlanExecution.ts.html |here} to see how to use GetDrPlanExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/GetDrPlanExecution.ts.html |here} to see how to use GetDrPlanExecution API.
    */
   public async getDrPlanExecution(
     getDrPlanExecutionRequest: requests.GetDrPlanExecutionRequest
@@ -1270,7 +1270,7 @@ export class DisasterRecoveryClient {
    * @param GetDrProtectionGroupRequest
    * @return GetDrProtectionGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/GetDrProtectionGroup.ts.html |here} to see how to use GetDrProtectionGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/GetDrProtectionGroup.ts.html |here} to see how to use GetDrProtectionGroup API.
    */
   public async getDrProtectionGroup(
     getDrProtectionGroupRequest: requests.GetDrProtectionGroupRequest
@@ -1346,7 +1346,7 @@ export class DisasterRecoveryClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1426,7 +1426,7 @@ export class DisasterRecoveryClient {
    * @param IgnoreDrPlanExecutionRequest
    * @return IgnoreDrPlanExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/IgnoreDrPlanExecution.ts.html |here} to see how to use IgnoreDrPlanExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/IgnoreDrPlanExecution.ts.html |here} to see how to use IgnoreDrPlanExecution API.
    */
   public async ignoreDrPlanExecution(
     ignoreDrPlanExecutionRequest: requests.IgnoreDrPlanExecutionRequest
@@ -1505,7 +1505,7 @@ export class DisasterRecoveryClient {
    * @param ListDrPlanExecutionsRequest
    * @return ListDrPlanExecutionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListDrPlanExecutions.ts.html |here} to see how to use ListDrPlanExecutions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListDrPlanExecutions.ts.html |here} to see how to use ListDrPlanExecutions API.
    */
   public async listDrPlanExecutions(
     listDrPlanExecutionsRequest: requests.ListDrPlanExecutionsRequest
@@ -1588,7 +1588,7 @@ export class DisasterRecoveryClient {
    * @param ListDrPlansRequest
    * @return ListDrPlansResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListDrPlans.ts.html |here} to see how to use ListDrPlans API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListDrPlans.ts.html |here} to see how to use ListDrPlans API.
    */
   public async listDrPlans(
     listDrPlansRequest: requests.ListDrPlansRequest
@@ -1672,7 +1672,7 @@ export class DisasterRecoveryClient {
    * @param ListDrProtectionGroupsRequest
    * @return ListDrProtectionGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListDrProtectionGroups.ts.html |here} to see how to use ListDrProtectionGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListDrProtectionGroups.ts.html |here} to see how to use ListDrProtectionGroups API.
    */
   public async listDrProtectionGroups(
     listDrProtectionGroupsRequest: requests.ListDrProtectionGroupsRequest
@@ -1758,7 +1758,7 @@ export class DisasterRecoveryClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1840,7 +1840,7 @@ export class DisasterRecoveryClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1922,7 +1922,7 @@ export class DisasterRecoveryClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2005,7 +2005,7 @@ export class DisasterRecoveryClient {
    * @param PauseDrPlanExecutionRequest
    * @return PauseDrPlanExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/PauseDrPlanExecution.ts.html |here} to see how to use PauseDrPlanExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/PauseDrPlanExecution.ts.html |here} to see how to use PauseDrPlanExecution API.
    */
   public async pauseDrPlanExecution(
     pauseDrPlanExecutionRequest: requests.PauseDrPlanExecutionRequest
@@ -2084,7 +2084,7 @@ export class DisasterRecoveryClient {
    * @param RefreshDrPlanRequest
    * @return RefreshDrPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/RefreshDrPlan.ts.html |here} to see how to use RefreshDrPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/RefreshDrPlan.ts.html |here} to see how to use RefreshDrPlan API.
    */
   public async refreshDrPlan(
     refreshDrPlanRequest: requests.RefreshDrPlanRequest
@@ -2162,7 +2162,7 @@ export class DisasterRecoveryClient {
    * @param ResumeDrPlanExecutionRequest
    * @return ResumeDrPlanExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ResumeDrPlanExecution.ts.html |here} to see how to use ResumeDrPlanExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ResumeDrPlanExecution.ts.html |here} to see how to use ResumeDrPlanExecution API.
    */
   public async resumeDrPlanExecution(
     resumeDrPlanExecutionRequest: requests.ResumeDrPlanExecutionRequest
@@ -2241,7 +2241,7 @@ export class DisasterRecoveryClient {
    * @param RetryDrPlanExecutionRequest
    * @return RetryDrPlanExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/RetryDrPlanExecution.ts.html |here} to see how to use RetryDrPlanExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/RetryDrPlanExecution.ts.html |here} to see how to use RetryDrPlanExecution API.
    */
   public async retryDrPlanExecution(
     retryDrPlanExecutionRequest: requests.RetryDrPlanExecutionRequest
@@ -2320,7 +2320,7 @@ export class DisasterRecoveryClient {
    * @param UpdateDrPlanRequest
    * @return UpdateDrPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/UpdateDrPlan.ts.html |here} to see how to use UpdateDrPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/UpdateDrPlan.ts.html |here} to see how to use UpdateDrPlan API.
    */
   public async updateDrPlan(
     updateDrPlanRequest: requests.UpdateDrPlanRequest
@@ -2397,7 +2397,7 @@ export class DisasterRecoveryClient {
    * @param UpdateDrPlanExecutionRequest
    * @return UpdateDrPlanExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/UpdateDrPlanExecution.ts.html |here} to see how to use UpdateDrPlanExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/UpdateDrPlanExecution.ts.html |here} to see how to use UpdateDrPlanExecution API.
    */
   public async updateDrPlanExecution(
     updateDrPlanExecutionRequest: requests.UpdateDrPlanExecutionRequest
@@ -2475,7 +2475,7 @@ export class DisasterRecoveryClient {
    * @param UpdateDrProtectionGroupRequest
    * @return UpdateDrProtectionGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/UpdateDrProtectionGroup.ts.html |here} to see how to use UpdateDrProtectionGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/UpdateDrProtectionGroup.ts.html |here} to see how to use UpdateDrProtectionGroup API.
    */
   public async updateDrProtectionGroup(
     updateDrProtectionGroupRequest: requests.UpdateDrProtectionGroupRequest
@@ -2553,7 +2553,7 @@ export class DisasterRecoveryClient {
    * @param UpdateDrProtectionGroupRoleRequest
    * @return UpdateDrProtectionGroupRoleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/UpdateDrProtectionGroupRole.ts.html |here} to see how to use UpdateDrProtectionGroupRole API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/UpdateDrProtectionGroupRole.ts.html |here} to see how to use UpdateDrProtectionGroupRole API.
    */
   public async updateDrProtectionGroupRole(
     updateDrProtectionGroupRoleRequest: requests.UpdateDrProtectionGroupRoleRequest
@@ -2632,7 +2632,7 @@ export class DisasterRecoveryClient {
    * @param VerifyDrPlanRequest
    * @return VerifyDrPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/VerifyDrPlan.ts.html |here} to see how to use VerifyDrPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/VerifyDrPlan.ts.html |here} to see how to use VerifyDrPlan API.
    */
   public async verifyDrPlan(
     verifyDrPlanRequest: requests.VerifyDrPlanRequest

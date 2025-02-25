@@ -3,7 +3,7 @@
  * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
 Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
+[the Resource Manager documentation](https://docs.oracle.com/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -24,11 +24,11 @@ import common = require("oci-common");
  */
 export interface Template {
   /**
-   * Unique identifier ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) for the template.
+   * Unique identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) for the template.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing this template.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing this template.
    */
   "compartmentId"?: string;
   /**
@@ -68,14 +68,14 @@ export interface Template {
   "lifecycleState"?: Template.LifecycleState;
   /**
    * Free-form tags associated with the resource. Each tag is a key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */

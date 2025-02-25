@@ -2,7 +2,7 @@
  * Connector Hub API
  * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Connector Hub, see
-[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+[the Connector Hub documentation](https://docs.oracle.com/iaas/Content/connector-hub/home.htm).
 Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
@@ -30,7 +30,7 @@ export interface CreateServiceConnectorDetails {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
    * comparment to create the connector in.
    *
    */

@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 export interface ListWaasPoliciesResponse {
   /**
-   * For list pagination. When this header appears in the response, additional pages of results may remain. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For list pagination. When this header appears in the response, additional pages of results may remain. For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "opcNextPage": string;
   /**

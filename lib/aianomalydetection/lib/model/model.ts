@@ -36,7 +36,7 @@ export interface Model {
   "modelTrainingDetails": model.ModelTrainingDetails;
   "modelTrainingResults": model.ModelTrainingResults;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project to associate with the model.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project to associate with the model.
    */
   "projectId": string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListZoneTransferServers.ts.html |here} to see how to use ListZoneTransferServersRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListZoneTransferServers.ts.html |here} to see how to use ListZoneTransferServersRequest.
  */
 export interface ListZoneTransferServersRequest extends common.BaseRequest {
   /**

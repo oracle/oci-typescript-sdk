@@ -1,7 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
  * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
-For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+For more information, see [Oracle Cloud VMware Solution](https://docs.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20230701
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface CreateClusterDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the SDDC that the
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the SDDC that the
    * Cluster belongs to.
    *
    */
@@ -88,7 +88,7 @@ For example, if the value is {@code myCluster}, the ESXi hosts are named {@code 
    */
   "isShieldedInstanceEnabled"?: boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Capacity Reservation.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Capacity Reservation.
    *
    */
   "capacityReservationId"?: string;
@@ -114,7 +114,7 @@ For example, if the value is {@code myCluster}, the ESXi hosts are named {@code 
   "esxiSoftwareVersion"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -122,7 +122,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

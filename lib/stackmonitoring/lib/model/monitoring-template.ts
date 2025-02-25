@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface MonitoringTemplate {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the monitoringTemplate
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the monitoringTemplate
    */
   "id": string;
   /**
@@ -27,7 +27,7 @@ export interface MonitoringTemplate {
    */
   "displayName": string;
   /**
-   * Tenant Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Tenant Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    */
   "tenantId": string;
   /**

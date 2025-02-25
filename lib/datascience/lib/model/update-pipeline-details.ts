@@ -31,17 +31,21 @@ export interface UpdatePipelineDetails {
   "infrastructureConfigurationDetails"?: model.PipelineInfrastructureConfigurationDetails;
   "logConfigurationDetails"?: model.PipelineLogConfigurationDetails;
   /**
+   * The storage mount details to mount to the instance running the pipeline step.
+   */
+  "storageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  /**
    * Array of update details for each step. Only step configurations and step infrastructure configurations are allowed to be updated.
    */
   "stepDetails"?: Array<model.PipelineStepUpdateDetails>;
   /**
-   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -63,6 +67,11 @@ export namespace UpdatePipelineDetails {
           : undefined,
         "logConfigurationDetails": obj.logConfigurationDetails
           ? model.PipelineLogConfigurationDetails.getJsonObj(obj.logConfigurationDetails)
+          : undefined,
+        "storageMountConfigurationDetailsList": obj.storageMountConfigurationDetailsList
+          ? obj.storageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
           : undefined,
         "stepDetails": obj.stepDetails
           ? obj.stepDetails.map(item => {
@@ -90,6 +99,11 @@ export namespace UpdatePipelineDetails {
           ? model.PipelineLogConfigurationDetails.getDeserializedJsonObj(
               obj.logConfigurationDetails
             )
+          : undefined,
+        "storageMountConfigurationDetailsList": obj.storageMountConfigurationDetailsList
+          ? obj.storageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined,
         "stepDetails": obj.stepDetails
           ? obj.stepDetails.map(item => {

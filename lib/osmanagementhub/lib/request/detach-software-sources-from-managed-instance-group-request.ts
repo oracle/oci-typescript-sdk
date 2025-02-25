@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachSoftwareSourcesFromManagedInstanceGroup.ts.html |here} to see how to use DetachSoftwareSourcesFromManagedInstanceGroupRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DetachSoftwareSourcesFromManagedInstanceGroup.ts.html |here} to see how to use DetachSoftwareSourcesFromManagedInstanceGroupRequest.
  */
 export interface DetachSoftwareSourcesFromManagedInstanceGroupRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
    */
   "managedInstanceGroupId": string;
   /**
-   * The software source [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) to detach from the managed instance group.
+   * The software source [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) to detach from the managed instance group.
    */
   "detachSoftwareSourcesFromManagedInstanceGroupDetails": model.DetachSoftwareSourcesFromManagedInstanceGroupDetails;
   /**

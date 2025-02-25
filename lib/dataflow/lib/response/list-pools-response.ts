@@ -18,13 +18,13 @@ export interface ListPoolsResponse {
   /**
    * Retrieves the previous page of results.
    * When this header appears in the response, previous pages of results exist.
-   * See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * See [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcPrevPage": string;
   /**
    * Retrieves the next page of results. When this header appears in the response,
-   * additional pages of results remain. See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * additional pages of results remain. See [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcNextPage": string;

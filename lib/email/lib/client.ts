@@ -1,7 +1,7 @@
 /**
  * Email Delivery API
  * Use the Email Delivery API to do the necessary set up to send high-volume and application-generated emails through the OCI Email Delivery service.
-For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
+For more information, see [Overview of the Email Delivery Service](https://docs.oracle.com/iaas/Content/Email/Concepts/overview.htm).
 
  **Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
  If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
@@ -246,7 +246,7 @@ export class EmailClient {
    * Moves an email domain into a different compartment.
    * When provided, If-Match is checked against ETag value of the resource.
    * For information about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * <p>
    **Note:** All DKIM objects associated with this email domain will also be moved into the provided compartment.
    *
@@ -254,7 +254,7 @@ export class EmailClient {
    * @param ChangeEmailDomainCompartmentRequest
    * @return ChangeEmailDomainCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ChangeEmailDomainCompartment.ts.html |here} to see how to use ChangeEmailDomainCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ChangeEmailDomainCompartment.ts.html |here} to see how to use ChangeEmailDomainCompartment API.
    */
   public async changeEmailDomainCompartment(
     changeEmailDomainCompartmentRequest: requests.ChangeEmailDomainCompartmentRequest
@@ -334,7 +334,7 @@ export class EmailClient {
    * @param ChangeSenderCompartmentRequest
    * @return ChangeSenderCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ChangeSenderCompartment.ts.html |here} to see how to use ChangeSenderCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ChangeSenderCompartment.ts.html |here} to see how to use ChangeSenderCompartment API.
    */
   public async changeSenderCompartment(
     changeSenderCompartmentRequest: requests.ChangeSenderCompartmentRequest
@@ -412,7 +412,7 @@ export class EmailClient {
    * @param CreateDkimRequest
    * @return CreateDkimResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateDkim.ts.html |here} to see how to use CreateDkim API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateDkim.ts.html |here} to see how to use CreateDkim API.
    */
   public async createDkim(
     createDkimRequest: requests.CreateDkimRequest
@@ -507,7 +507,7 @@ export class EmailClient {
    * @param CreateEmailDomainRequest
    * @return CreateEmailDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateEmailDomain.ts.html |here} to see how to use CreateEmailDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateEmailDomain.ts.html |here} to see how to use CreateEmailDomain API.
    */
   public async createEmailDomain(
     createEmailDomainRequest: requests.CreateEmailDomainRequest
@@ -602,7 +602,7 @@ export class EmailClient {
    * @param CreateEmailReturnPathRequest
    * @return CreateEmailReturnPathResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateEmailReturnPath.ts.html |here} to see how to use CreateEmailReturnPath API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateEmailReturnPath.ts.html |here} to see how to use CreateEmailReturnPath API.
    */
   public async createEmailReturnPath(
     createEmailReturnPathRequest: requests.CreateEmailReturnPathRequest
@@ -697,7 +697,7 @@ export class EmailClient {
    * @param CreateSenderRequest
    * @return CreateSenderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateSender.ts.html |here} to see how to use CreateSender API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateSender.ts.html |here} to see how to use CreateSender API.
    */
   public async createSender(
     createSenderRequest: requests.CreateSenderRequest
@@ -780,7 +780,7 @@ export class EmailClient {
    * @param CreateSuppressionRequest
    * @return CreateSuppressionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateSuppression.ts.html |here} to see how to use CreateSuppression API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateSuppression.ts.html |here} to see how to use CreateSuppression API.
    */
   public async createSuppression(
     createSuppressionRequest: requests.CreateSuppressionRequest
@@ -860,7 +860,7 @@ export class EmailClient {
    * @param DeleteDkimRequest
    * @return DeleteDkimResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteDkim.ts.html |here} to see how to use DeleteDkim API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteDkim.ts.html |here} to see how to use DeleteDkim API.
    */
   public async deleteDkim(
     deleteDkimRequest: requests.DeleteDkimRequest
@@ -933,7 +933,7 @@ export class EmailClient {
    * @param DeleteEmailDomainRequest
    * @return DeleteEmailDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteEmailDomain.ts.html |here} to see how to use DeleteEmailDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteEmailDomain.ts.html |here} to see how to use DeleteEmailDomain API.
    */
   public async deleteEmailDomain(
     deleteEmailDomainRequest: requests.DeleteEmailDomainRequest
@@ -1006,7 +1006,7 @@ export class EmailClient {
    * @param DeleteEmailReturnPathRequest
    * @return DeleteEmailReturnPathResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteEmailReturnPath.ts.html |here} to see how to use DeleteEmailReturnPath API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteEmailReturnPath.ts.html |here} to see how to use DeleteEmailReturnPath API.
    */
   public async deleteEmailReturnPath(
     deleteEmailReturnPathRequest: requests.DeleteEmailReturnPathRequest
@@ -1081,7 +1081,7 @@ export class EmailClient {
    * @param DeleteSenderRequest
    * @return DeleteSenderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteSender.ts.html |here} to see how to use DeleteSender API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteSender.ts.html |here} to see how to use DeleteSender API.
    */
   public async deleteSender(
     deleteSenderRequest: requests.DeleteSenderRequest
@@ -1151,7 +1151,7 @@ export class EmailClient {
    * @param DeleteSuppressionRequest
    * @return DeleteSuppressionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteSuppression.ts.html |here} to see how to use DeleteSuppression API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteSuppression.ts.html |here} to see how to use DeleteSuppression API.
    */
   public async deleteSuppression(
     deleteSuppressionRequest: requests.DeleteSuppressionRequest
@@ -1218,7 +1218,7 @@ export class EmailClient {
    * @param GetDkimRequest
    * @return GetDkimResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetDkim.ts.html |here} to see how to use GetDkim API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetDkim.ts.html |here} to see how to use GetDkim API.
    */
   public async getDkim(
     getDkimRequest: requests.GetDkimRequest
@@ -1295,7 +1295,7 @@ export class EmailClient {
    * @param GetEmailConfigurationRequest
    * @return GetEmailConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetEmailConfiguration.ts.html |here} to see how to use GetEmailConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetEmailConfiguration.ts.html |here} to see how to use GetEmailConfiguration API.
    */
   public async getEmailConfiguration(
     getEmailConfigurationRequest: requests.GetEmailConfigurationRequest
@@ -1366,7 +1366,7 @@ export class EmailClient {
    * @param GetEmailDomainRequest
    * @return GetEmailDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetEmailDomain.ts.html |here} to see how to use GetEmailDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetEmailDomain.ts.html |here} to see how to use GetEmailDomain API.
    */
   public async getEmailDomain(
     getEmailDomainRequest: requests.GetEmailDomainRequest
@@ -1442,7 +1442,7 @@ export class EmailClient {
    * @param GetEmailReturnPathRequest
    * @return GetEmailReturnPathResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetEmailReturnPath.ts.html |here} to see how to use GetEmailReturnPath API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetEmailReturnPath.ts.html |here} to see how to use GetEmailReturnPath API.
    */
   public async getEmailReturnPath(
     getEmailReturnPathRequest: requests.GetEmailReturnPathRequest
@@ -1518,7 +1518,7 @@ export class EmailClient {
    * @param GetSenderRequest
    * @return GetSenderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetSender.ts.html |here} to see how to use GetSender API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetSender.ts.html |here} to see how to use GetSender API.
    */
   public async getSender(
     getSenderRequest: requests.GetSenderRequest
@@ -1596,7 +1596,7 @@ export class EmailClient {
    * @param GetSuppressionRequest
    * @return GetSuppressionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetSuppression.ts.html |here} to see how to use GetSuppression API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetSuppression.ts.html |here} to see how to use GetSuppression API.
    */
   public async getSuppression(
     getSuppressionRequest: requests.GetSuppressionRequest
@@ -1667,7 +1667,7 @@ export class EmailClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1743,7 +1743,7 @@ export class EmailClient {
    * @param ListDkimsRequest
    * @return ListDkimsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListDkims.ts.html |here} to see how to use ListDkims API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListDkims.ts.html |here} to see how to use ListDkims API.
    */
   public async listDkims(
     listDkimsRequest: requests.ListDkimsRequest
@@ -1826,7 +1826,7 @@ export class EmailClient {
    * @param ListEmailDomainsRequest
    * @return ListEmailDomainsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListEmailDomains.ts.html |here} to see how to use ListEmailDomains API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListEmailDomains.ts.html |here} to see how to use ListEmailDomains API.
    */
   public async listEmailDomains(
     listEmailDomainsRequest: requests.ListEmailDomainsRequest
@@ -1909,7 +1909,7 @@ export class EmailClient {
    * @param ListEmailReturnPathsRequest
    * @return ListEmailReturnPathsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListEmailReturnPaths.ts.html |here} to see how to use ListEmailReturnPaths API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListEmailReturnPaths.ts.html |here} to see how to use ListEmailReturnPaths API.
    */
   public async listEmailReturnPaths(
     listEmailReturnPathsRequest: requests.ListEmailReturnPathsRequest
@@ -1994,7 +1994,7 @@ export class EmailClient {
    * @param ListSendersRequest
    * @return ListSendersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListSenders.ts.html |here} to see how to use ListSenders API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListSenders.ts.html |here} to see how to use ListSenders API.
    */
   public async listSenders(
     listSendersRequest: requests.ListSendersRequest
@@ -2142,7 +2142,7 @@ export class EmailClient {
    * @param ListSuppressionsRequest
    * @return ListSuppressionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListSuppressions.ts.html |here} to see how to use ListSuppressions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListSuppressions.ts.html |here} to see how to use ListSuppressions API.
    */
   public async listSuppressions(
     listSuppressionsRequest: requests.ListSuppressionsRequest
@@ -2283,7 +2283,7 @@ export class EmailClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2363,7 +2363,7 @@ export class EmailClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2443,7 +2443,7 @@ export class EmailClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2522,7 +2522,7 @@ export class EmailClient {
    * @param UpdateDkimRequest
    * @return UpdateDkimResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateDkim.ts.html |here} to see how to use UpdateDkim API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateDkim.ts.html |here} to see how to use UpdateDkim API.
    */
   public async updateDkim(
     updateDkimRequest: requests.UpdateDkimRequest
@@ -2600,7 +2600,7 @@ export class EmailClient {
    * @param UpdateEmailDomainRequest
    * @return UpdateEmailDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateEmailDomain.ts.html |here} to see how to use UpdateEmailDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateEmailDomain.ts.html |here} to see how to use UpdateEmailDomain API.
    */
   public async updateEmailDomain(
     updateEmailDomainRequest: requests.UpdateEmailDomainRequest
@@ -2678,7 +2678,7 @@ export class EmailClient {
    * @param UpdateEmailReturnPathRequest
    * @return UpdateEmailReturnPathResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateEmailReturnPath.ts.html |here} to see how to use UpdateEmailReturnPath API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateEmailReturnPath.ts.html |here} to see how to use UpdateEmailReturnPath API.
    */
   public async updateEmailReturnPath(
     updateEmailReturnPathRequest: requests.UpdateEmailReturnPathRequest
@@ -2754,13 +2754,13 @@ export class EmailClient {
    * Replaces the set of tags for a sender with the tags provided. If either freeform
    * or defined tags are omitted, the tags for that set remain the same. Each set must
    * include the full set of tags for the sender, partial updates are not permitted.
-   * For more information about tagging, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information about tagging, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSenderRequest
    * @return UpdateSenderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateSender.ts.html |here} to see how to use UpdateSender API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateSender.ts.html |here} to see how to use UpdateSender API.
    */
   public async updateSender(
     updateSenderRequest: requests.UpdateSenderRequest

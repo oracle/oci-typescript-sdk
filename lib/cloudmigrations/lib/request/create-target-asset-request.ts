@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateTargetAsset.ts.html |here} to see how to use CreateTargetAssetRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudmigrations/CreateTargetAsset.ts.html |here} to see how to use CreateTargetAssetRequest.
  */
 export interface CreateTargetAssetRequest extends common.BaseRequest {
   /**

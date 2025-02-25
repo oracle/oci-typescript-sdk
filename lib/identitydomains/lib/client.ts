@@ -1,7 +1,7 @@
 /**
  * Identity Domains API
  * Use the Identity Domains API to manage resources within an identity domain, for example, users, dynamic resource groups, groups, and identity providers. For information about managing resources within identity domains, see [Identity and Access Management (with identity domains)](https://docs.oracle.com/iaas/Content/Identity/home.htm).
-Use this pattern to construct endpoints for identity domains: `https://<domainURL>/admin/v1/`. See [Finding an Identity Domain URL](https://docs.oracle.com/en-us/iaas/Content/Identity/api-getstarted/locate-identity-domain-url.htm) to locate the domain URL you need.
+Use this pattern to construct endpoints for identity domains: {@code https://<domainURL>/admin/v1/}. See [Finding an Identity Domain URL](https://docs.oracle.com/en-us/iaas/Content/Identity/api-getstarted/locate-identity-domain-url.htm) to locate the domain URL you need.
 Use the table of contents and search tool to explore the Identity Domains API.
  * OpenAPI spec version: v1
  * 
@@ -160,7 +160,7 @@ export class IdentityDomainsClient {
    * @param CreateApiKeyRequest
    * @return CreateApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApiKey.ts.html |here} to see how to use CreateApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApiKey.ts.html |here} to see how to use CreateApiKey API.
    */
   public async createApiKey(
     createApiKeyRequest: requests.CreateApiKeyRequest
@@ -243,7 +243,7 @@ export class IdentityDomainsClient {
    * @param CreateAppRequest
    * @return CreateAppResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApp.ts.html |here} to see how to use CreateApp API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApp.ts.html |here} to see how to use CreateApp API.
    */
   public async createApp(
     createAppRequest: requests.CreateAppRequest
@@ -326,7 +326,7 @@ export class IdentityDomainsClient {
    * @param CreateAppRoleRequest
    * @return CreateAppRoleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateAppRole.ts.html |here} to see how to use CreateAppRole API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateAppRole.ts.html |here} to see how to use CreateAppRole API.
    */
   public async createAppRole(
     createAppRoleRequest: requests.CreateAppRoleRequest
@@ -409,7 +409,7 @@ export class IdentityDomainsClient {
    * @param CreateApprovalWorkflowRequest
    * @return CreateApprovalWorkflowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApprovalWorkflow.ts.html |here} to see how to use CreateApprovalWorkflow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApprovalWorkflow.ts.html |here} to see how to use CreateApprovalWorkflow API.
    */
   public async createApprovalWorkflow(
     createApprovalWorkflowRequest: requests.CreateApprovalWorkflowRequest
@@ -493,7 +493,7 @@ export class IdentityDomainsClient {
    * @param CreateApprovalWorkflowAssignmentRequest
    * @return CreateApprovalWorkflowAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApprovalWorkflowAssignment.ts.html |here} to see how to use CreateApprovalWorkflowAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApprovalWorkflowAssignment.ts.html |here} to see how to use CreateApprovalWorkflowAssignment API.
    */
   public async createApprovalWorkflowAssignment(
     createApprovalWorkflowAssignmentRequest: requests.CreateApprovalWorkflowAssignmentRequest
@@ -580,7 +580,7 @@ export class IdentityDomainsClient {
    * @param CreateApprovalWorkflowStepRequest
    * @return CreateApprovalWorkflowStepResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApprovalWorkflowStep.ts.html |here} to see how to use CreateApprovalWorkflowStep API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateApprovalWorkflowStep.ts.html |here} to see how to use CreateApprovalWorkflowStep API.
    */
   public async createApprovalWorkflowStep(
     createApprovalWorkflowStepRequest: requests.CreateApprovalWorkflowStepRequest
@@ -664,7 +664,7 @@ export class IdentityDomainsClient {
    * @param CreateAuthTokenRequest
    * @return CreateAuthTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateAuthToken.ts.html |here} to see how to use CreateAuthToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateAuthToken.ts.html |here} to see how to use CreateAuthToken API.
    */
   public async createAuthToken(
     createAuthTokenRequest: requests.CreateAuthTokenRequest
@@ -747,7 +747,7 @@ export class IdentityDomainsClient {
    * @param CreateAuthenticationFactorsRemoverRequest
    * @return CreateAuthenticationFactorsRemoverResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateAuthenticationFactorsRemover.ts.html |here} to see how to use CreateAuthenticationFactorsRemover API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateAuthenticationFactorsRemover.ts.html |here} to see how to use CreateAuthenticationFactorsRemover API.
    */
   public async createAuthenticationFactorsRemover(
     createAuthenticationFactorsRemoverRequest: requests.CreateAuthenticationFactorsRemoverRequest
@@ -831,7 +831,7 @@ export class IdentityDomainsClient {
    * @param CreateCloudGateRequest
    * @return CreateCloudGateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCloudGate.ts.html |here} to see how to use CreateCloudGate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCloudGate.ts.html |here} to see how to use CreateCloudGate API.
    */
   public async createCloudGate(
     createCloudGateRequest: requests.CreateCloudGateRequest
@@ -914,7 +914,7 @@ export class IdentityDomainsClient {
    * @param CreateCloudGateMappingRequest
    * @return CreateCloudGateMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCloudGateMapping.ts.html |here} to see how to use CreateCloudGateMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCloudGateMapping.ts.html |here} to see how to use CreateCloudGateMapping API.
    */
   public async createCloudGateMapping(
     createCloudGateMappingRequest: requests.CreateCloudGateMappingRequest
@@ -998,7 +998,7 @@ export class IdentityDomainsClient {
    * @param CreateCloudGateServerRequest
    * @return CreateCloudGateServerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCloudGateServer.ts.html |here} to see how to use CreateCloudGateServer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCloudGateServer.ts.html |here} to see how to use CreateCloudGateServer API.
    */
   public async createCloudGateServer(
     createCloudGateServerRequest: requests.CreateCloudGateServerRequest
@@ -1082,7 +1082,7 @@ export class IdentityDomainsClient {
    * @param CreateConditionRequest
    * @return CreateConditionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCondition.ts.html |here} to see how to use CreateCondition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCondition.ts.html |here} to see how to use CreateCondition API.
    */
   public async createCondition(
     createConditionRequest: requests.CreateConditionRequest
@@ -1165,7 +1165,7 @@ export class IdentityDomainsClient {
    * @param CreateCustomerSecretKeyRequest
    * @return CreateCustomerSecretKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCustomerSecretKey.ts.html |here} to see how to use CreateCustomerSecretKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateCustomerSecretKey.ts.html |here} to see how to use CreateCustomerSecretKey API.
    */
   public async createCustomerSecretKey(
     createCustomerSecretKeyRequest: requests.CreateCustomerSecretKeyRequest
@@ -1249,7 +1249,7 @@ export class IdentityDomainsClient {
    * @param CreateDynamicResourceGroupRequest
    * @return CreateDynamicResourceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateDynamicResourceGroup.ts.html |here} to see how to use CreateDynamicResourceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateDynamicResourceGroup.ts.html |here} to see how to use CreateDynamicResourceGroup API.
    */
   public async createDynamicResourceGroup(
     createDynamicResourceGroupRequest: requests.CreateDynamicResourceGroupRequest
@@ -1333,7 +1333,7 @@ export class IdentityDomainsClient {
    * @param CreateGrantRequest
    * @return CreateGrantResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateGrant.ts.html |here} to see how to use CreateGrant API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateGrant.ts.html |here} to see how to use CreateGrant API.
    */
   public async createGrant(
     createGrantRequest: requests.CreateGrantRequest
@@ -1416,7 +1416,7 @@ export class IdentityDomainsClient {
    * @param CreateGroupRequest
    * @return CreateGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateGroup.ts.html |here} to see how to use CreateGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateGroup.ts.html |here} to see how to use CreateGroup API.
    */
   public async createGroup(
     createGroupRequest: requests.CreateGroupRequest
@@ -1499,7 +1499,7 @@ export class IdentityDomainsClient {
    * @param CreateIdentityPropagationTrustRequest
    * @return CreateIdentityPropagationTrustResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateIdentityPropagationTrust.ts.html |here} to see how to use CreateIdentityPropagationTrust API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateIdentityPropagationTrust.ts.html |here} to see how to use CreateIdentityPropagationTrust API.
    */
   public async createIdentityPropagationTrust(
     createIdentityPropagationTrustRequest: requests.CreateIdentityPropagationTrustRequest
@@ -1584,7 +1584,7 @@ export class IdentityDomainsClient {
    * @param CreateIdentityProviderRequest
    * @return CreateIdentityProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateIdentityProvider.ts.html |here} to see how to use CreateIdentityProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateIdentityProvider.ts.html |here} to see how to use CreateIdentityProvider API.
    */
   public async createIdentityProvider(
     createIdentityProviderRequest: requests.CreateIdentityProviderRequest
@@ -1668,7 +1668,7 @@ export class IdentityDomainsClient {
    * @param CreateMeRequest
    * @return CreateMeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMe.ts.html |here} to see how to use CreateMe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMe.ts.html |here} to see how to use CreateMe API.
    */
   public async createMe(
     createMeRequest: requests.CreateMeRequest
@@ -1747,7 +1747,7 @@ export class IdentityDomainsClient {
    * @param CreateMyApiKeyRequest
    * @return CreateMyApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyApiKey.ts.html |here} to see how to use CreateMyApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyApiKey.ts.html |here} to see how to use CreateMyApiKey API.
    */
   public async createMyApiKey(
     createMyApiKeyRequest: requests.CreateMyApiKeyRequest
@@ -1827,7 +1827,7 @@ export class IdentityDomainsClient {
    * @param CreateMyAuthTokenRequest
    * @return CreateMyAuthTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyAuthToken.ts.html |here} to see how to use CreateMyAuthToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyAuthToken.ts.html |here} to see how to use CreateMyAuthToken API.
    */
   public async createMyAuthToken(
     createMyAuthTokenRequest: requests.CreateMyAuthTokenRequest
@@ -1908,7 +1908,7 @@ export class IdentityDomainsClient {
    * @param CreateMyAuthenticationFactorInitiatorRequest
    * @return CreateMyAuthenticationFactorInitiatorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyAuthenticationFactorInitiator.ts.html |here} to see how to use CreateMyAuthenticationFactorInitiator API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyAuthenticationFactorInitiator.ts.html |here} to see how to use CreateMyAuthenticationFactorInitiator API.
    */
   public async createMyAuthenticationFactorInitiator(
     createMyAuthenticationFactorInitiatorRequest: requests.CreateMyAuthenticationFactorInitiatorRequest
@@ -1992,7 +1992,7 @@ export class IdentityDomainsClient {
    * @param CreateMyAuthenticationFactorValidatorRequest
    * @return CreateMyAuthenticationFactorValidatorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyAuthenticationFactorValidator.ts.html |here} to see how to use CreateMyAuthenticationFactorValidator API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyAuthenticationFactorValidator.ts.html |here} to see how to use CreateMyAuthenticationFactorValidator API.
    */
   public async createMyAuthenticationFactorValidator(
     createMyAuthenticationFactorValidatorRequest: requests.CreateMyAuthenticationFactorValidatorRequest
@@ -2076,7 +2076,7 @@ export class IdentityDomainsClient {
    * @param CreateMyAuthenticationFactorsRemoverRequest
    * @return CreateMyAuthenticationFactorsRemoverResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyAuthenticationFactorsRemover.ts.html |here} to see how to use CreateMyAuthenticationFactorsRemover API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyAuthenticationFactorsRemover.ts.html |here} to see how to use CreateMyAuthenticationFactorsRemover API.
    */
   public async createMyAuthenticationFactorsRemover(
     createMyAuthenticationFactorsRemoverRequest: requests.CreateMyAuthenticationFactorsRemoverRequest
@@ -2160,7 +2160,7 @@ export class IdentityDomainsClient {
    * @param CreateMyCustomerSecretKeyRequest
    * @return CreateMyCustomerSecretKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyCustomerSecretKey.ts.html |here} to see how to use CreateMyCustomerSecretKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyCustomerSecretKey.ts.html |here} to see how to use CreateMyCustomerSecretKey API.
    */
   public async createMyCustomerSecretKey(
     createMyCustomerSecretKeyRequest: requests.CreateMyCustomerSecretKeyRequest
@@ -2241,7 +2241,7 @@ export class IdentityDomainsClient {
    * @param CreateMyOAuth2ClientCredentialRequest
    * @return CreateMyOAuth2ClientCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyOAuth2ClientCredential.ts.html |here} to see how to use CreateMyOAuth2ClientCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyOAuth2ClientCredential.ts.html |here} to see how to use CreateMyOAuth2ClientCredential API.
    */
   public async createMyOAuth2ClientCredential(
     createMyOAuth2ClientCredentialRequest: requests.CreateMyOAuth2ClientCredentialRequest
@@ -2323,7 +2323,7 @@ export class IdentityDomainsClient {
    * @param CreateMyRequestRequest
    * @return CreateMyRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyRequest.ts.html |here} to see how to use CreateMyRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyRequest.ts.html |here} to see how to use CreateMyRequest API.
    */
   public async createMyRequest(
     createMyRequestRequest: requests.CreateMyRequestRequest
@@ -2406,7 +2406,7 @@ export class IdentityDomainsClient {
    * @param CreateMySmtpCredentialRequest
    * @return CreateMySmtpCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMySmtpCredential.ts.html |here} to see how to use CreateMySmtpCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMySmtpCredential.ts.html |here} to see how to use CreateMySmtpCredential API.
    */
   public async createMySmtpCredential(
     createMySmtpCredentialRequest: requests.CreateMySmtpCredentialRequest
@@ -2487,7 +2487,7 @@ export class IdentityDomainsClient {
    * @param CreateMySupportAccountRequest
    * @return CreateMySupportAccountResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMySupportAccount.ts.html |here} to see how to use CreateMySupportAccount API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMySupportAccount.ts.html |here} to see how to use CreateMySupportAccount API.
    */
   public async createMySupportAccount(
     createMySupportAccountRequest: requests.CreateMySupportAccountRequest
@@ -2568,7 +2568,7 @@ export class IdentityDomainsClient {
    * @param CreateMyUserDbCredentialRequest
    * @return CreateMyUserDbCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyUserDbCredential.ts.html |here} to see how to use CreateMyUserDbCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateMyUserDbCredential.ts.html |here} to see how to use CreateMyUserDbCredential API.
    */
   public async createMyUserDbCredential(
     createMyUserDbCredentialRequest: requests.CreateMyUserDbCredentialRequest
@@ -2649,7 +2649,7 @@ export class IdentityDomainsClient {
    * @param CreateNetworkPerimeterRequest
    * @return CreateNetworkPerimeterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateNetworkPerimeter.ts.html |here} to see how to use CreateNetworkPerimeter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateNetworkPerimeter.ts.html |here} to see how to use CreateNetworkPerimeter API.
    */
   public async createNetworkPerimeter(
     createNetworkPerimeterRequest: requests.CreateNetworkPerimeterRequest
@@ -2733,7 +2733,7 @@ export class IdentityDomainsClient {
    * @param CreateOAuth2ClientCredentialRequest
    * @return CreateOAuth2ClientCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateOAuth2ClientCredential.ts.html |here} to see how to use CreateOAuth2ClientCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateOAuth2ClientCredential.ts.html |here} to see how to use CreateOAuth2ClientCredential API.
    */
   public async createOAuth2ClientCredential(
     createOAuth2ClientCredentialRequest: requests.CreateOAuth2ClientCredentialRequest
@@ -2817,7 +2817,7 @@ export class IdentityDomainsClient {
    * @param CreateOAuthClientCertificateRequest
    * @return CreateOAuthClientCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateOAuthClientCertificate.ts.html |here} to see how to use CreateOAuthClientCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateOAuthClientCertificate.ts.html |here} to see how to use CreateOAuthClientCertificate API.
    */
   public async createOAuthClientCertificate(
     createOAuthClientCertificateRequest: requests.CreateOAuthClientCertificateRequest
@@ -2898,7 +2898,7 @@ export class IdentityDomainsClient {
    * @param CreateOAuthPartnerCertificateRequest
    * @return CreateOAuthPartnerCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateOAuthPartnerCertificate.ts.html |here} to see how to use CreateOAuthPartnerCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateOAuthPartnerCertificate.ts.html |here} to see how to use CreateOAuthPartnerCertificate API.
    */
   public async createOAuthPartnerCertificate(
     createOAuthPartnerCertificateRequest: requests.CreateOAuthPartnerCertificateRequest
@@ -2980,7 +2980,7 @@ export class IdentityDomainsClient {
    * @param CreatePasswordPolicyRequest
    * @return CreatePasswordPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreatePasswordPolicy.ts.html |here} to see how to use CreatePasswordPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreatePasswordPolicy.ts.html |here} to see how to use CreatePasswordPolicy API.
    */
   public async createPasswordPolicy(
     createPasswordPolicyRequest: requests.CreatePasswordPolicyRequest
@@ -3064,7 +3064,7 @@ export class IdentityDomainsClient {
    * @param CreatePolicyRequest
    * @return CreatePolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreatePolicy.ts.html |here} to see how to use CreatePolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreatePolicy.ts.html |here} to see how to use CreatePolicy API.
    */
   public async createPolicy(
     createPolicyRequest: requests.CreatePolicyRequest
@@ -3147,7 +3147,7 @@ export class IdentityDomainsClient {
    * @param CreateRestoreOciConsolePolicyRequest
    * @return CreateRestoreOciConsolePolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateRestoreOciConsolePolicy.ts.html |here} to see how to use CreateRestoreOciConsolePolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateRestoreOciConsolePolicy.ts.html |here} to see how to use CreateRestoreOciConsolePolicy API.
    */
   public async createRestoreOciConsolePolicy(
     createRestoreOciConsolePolicyRequest: requests.CreateRestoreOciConsolePolicyRequest
@@ -3229,7 +3229,7 @@ export class IdentityDomainsClient {
    * @param CreateRuleRequest
    * @return CreateRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateRule.ts.html |here} to see how to use CreateRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateRule.ts.html |here} to see how to use CreateRule API.
    */
   public async createRule(
     createRuleRequest: requests.CreateRuleRequest
@@ -3312,7 +3312,7 @@ export class IdentityDomainsClient {
    * @param CreateSecurityQuestionRequest
    * @return CreateSecurityQuestionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateSecurityQuestion.ts.html |here} to see how to use CreateSecurityQuestion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateSecurityQuestion.ts.html |here} to see how to use CreateSecurityQuestion API.
    */
   public async createSecurityQuestion(
     createSecurityQuestionRequest: requests.CreateSecurityQuestionRequest
@@ -3396,7 +3396,7 @@ export class IdentityDomainsClient {
    * @param CreateSelfRegistrationProfileRequest
    * @return CreateSelfRegistrationProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateSelfRegistrationProfile.ts.html |here} to see how to use CreateSelfRegistrationProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateSelfRegistrationProfile.ts.html |here} to see how to use CreateSelfRegistrationProfile API.
    */
   public async createSelfRegistrationProfile(
     createSelfRegistrationProfileRequest: requests.CreateSelfRegistrationProfileRequest
@@ -3481,7 +3481,7 @@ export class IdentityDomainsClient {
    * @param CreateSmtpCredentialRequest
    * @return CreateSmtpCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateSmtpCredential.ts.html |here} to see how to use CreateSmtpCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateSmtpCredential.ts.html |here} to see how to use CreateSmtpCredential API.
    */
   public async createSmtpCredential(
     createSmtpCredentialRequest: requests.CreateSmtpCredentialRequest
@@ -3565,7 +3565,7 @@ export class IdentityDomainsClient {
    * @param CreateSocialIdentityProviderRequest
    * @return CreateSocialIdentityProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateSocialIdentityProvider.ts.html |here} to see how to use CreateSocialIdentityProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateSocialIdentityProvider.ts.html |here} to see how to use CreateSocialIdentityProvider API.
    */
   public async createSocialIdentityProvider(
     createSocialIdentityProviderRequest: requests.CreateSocialIdentityProviderRequest
@@ -3646,7 +3646,7 @@ export class IdentityDomainsClient {
    * @param CreateUserRequest
    * @return CreateUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateUser.ts.html |here} to see how to use CreateUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateUser.ts.html |here} to see how to use CreateUser API.
    */
   public async createUser(
     createUserRequest: requests.CreateUserRequest
@@ -3729,7 +3729,7 @@ export class IdentityDomainsClient {
    * @param CreateUserDbCredentialRequest
    * @return CreateUserDbCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateUserDbCredential.ts.html |here} to see how to use CreateUserDbCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateUserDbCredential.ts.html |here} to see how to use CreateUserDbCredential API.
    */
   public async createUserDbCredential(
     createUserDbCredentialRequest: requests.CreateUserDbCredentialRequest
@@ -3813,7 +3813,7 @@ export class IdentityDomainsClient {
    * @param DeleteApiKeyRequest
    * @return DeleteApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApiKey.ts.html |here} to see how to use DeleteApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApiKey.ts.html |here} to see how to use DeleteApiKey API.
    */
   public async deleteApiKey(
     deleteApiKeyRequest: requests.DeleteApiKeyRequest
@@ -3884,7 +3884,7 @@ export class IdentityDomainsClient {
    * @param DeleteAppRequest
    * @return DeleteAppResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApp.ts.html |here} to see how to use DeleteApp API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApp.ts.html |here} to see how to use DeleteApp API.
    */
   public async deleteApp(
     deleteAppRequest: requests.DeleteAppRequest
@@ -3955,7 +3955,7 @@ export class IdentityDomainsClient {
    * @param DeleteAppRoleRequest
    * @return DeleteAppRoleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteAppRole.ts.html |here} to see how to use DeleteAppRole API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteAppRole.ts.html |here} to see how to use DeleteAppRole API.
    */
   public async deleteAppRole(
     deleteAppRoleRequest: requests.DeleteAppRoleRequest
@@ -4026,7 +4026,7 @@ export class IdentityDomainsClient {
    * @param DeleteApprovalWorkflowRequest
    * @return DeleteApprovalWorkflowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflow.ts.html |here} to see how to use DeleteApprovalWorkflow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflow.ts.html |here} to see how to use DeleteApprovalWorkflow API.
    */
   public async deleteApprovalWorkflow(
     deleteApprovalWorkflowRequest: requests.DeleteApprovalWorkflowRequest
@@ -4098,7 +4098,7 @@ export class IdentityDomainsClient {
    * @param DeleteApprovalWorkflowAssignmentRequest
    * @return DeleteApprovalWorkflowAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflowAssignment.ts.html |here} to see how to use DeleteApprovalWorkflowAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflowAssignment.ts.html |here} to see how to use DeleteApprovalWorkflowAssignment API.
    */
   public async deleteApprovalWorkflowAssignment(
     deleteApprovalWorkflowAssignmentRequest: requests.DeleteApprovalWorkflowAssignmentRequest
@@ -4174,7 +4174,7 @@ export class IdentityDomainsClient {
    * @param DeleteApprovalWorkflowStepRequest
    * @return DeleteApprovalWorkflowStepResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflowStep.ts.html |here} to see how to use DeleteApprovalWorkflowStep API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflowStep.ts.html |here} to see how to use DeleteApprovalWorkflowStep API.
    */
   public async deleteApprovalWorkflowStep(
     deleteApprovalWorkflowStepRequest: requests.DeleteApprovalWorkflowStepRequest
@@ -4246,7 +4246,7 @@ export class IdentityDomainsClient {
    * @param DeleteAuthTokenRequest
    * @return DeleteAuthTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteAuthToken.ts.html |here} to see how to use DeleteAuthToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteAuthToken.ts.html |here} to see how to use DeleteAuthToken API.
    */
   public async deleteAuthToken(
     deleteAuthTokenRequest: requests.DeleteAuthTokenRequest
@@ -4317,7 +4317,7 @@ export class IdentityDomainsClient {
    * @param DeleteCloudGateRequest
    * @return DeleteCloudGateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCloudGate.ts.html |here} to see how to use DeleteCloudGate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCloudGate.ts.html |here} to see how to use DeleteCloudGate API.
    */
   public async deleteCloudGate(
     deleteCloudGateRequest: requests.DeleteCloudGateRequest
@@ -4388,7 +4388,7 @@ export class IdentityDomainsClient {
    * @param DeleteCloudGateMappingRequest
    * @return DeleteCloudGateMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCloudGateMapping.ts.html |here} to see how to use DeleteCloudGateMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCloudGateMapping.ts.html |here} to see how to use DeleteCloudGateMapping API.
    */
   public async deleteCloudGateMapping(
     deleteCloudGateMappingRequest: requests.DeleteCloudGateMappingRequest
@@ -4460,7 +4460,7 @@ export class IdentityDomainsClient {
    * @param DeleteCloudGateServerRequest
    * @return DeleteCloudGateServerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCloudGateServer.ts.html |here} to see how to use DeleteCloudGateServer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCloudGateServer.ts.html |here} to see how to use DeleteCloudGateServer API.
    */
   public async deleteCloudGateServer(
     deleteCloudGateServerRequest: requests.DeleteCloudGateServerRequest
@@ -4532,7 +4532,7 @@ export class IdentityDomainsClient {
    * @param DeleteConditionRequest
    * @return DeleteConditionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCondition.ts.html |here} to see how to use DeleteCondition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCondition.ts.html |here} to see how to use DeleteCondition API.
    */
   public async deleteCondition(
     deleteConditionRequest: requests.DeleteConditionRequest
@@ -4603,7 +4603,7 @@ export class IdentityDomainsClient {
    * @param DeleteCustomerSecretKeyRequest
    * @return DeleteCustomerSecretKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCustomerSecretKey.ts.html |here} to see how to use DeleteCustomerSecretKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteCustomerSecretKey.ts.html |here} to see how to use DeleteCustomerSecretKey API.
    */
   public async deleteCustomerSecretKey(
     deleteCustomerSecretKeyRequest: requests.DeleteCustomerSecretKeyRequest
@@ -4675,7 +4675,7 @@ export class IdentityDomainsClient {
    * @param DeleteDynamicResourceGroupRequest
    * @return DeleteDynamicResourceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteDynamicResourceGroup.ts.html |here} to see how to use DeleteDynamicResourceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteDynamicResourceGroup.ts.html |here} to see how to use DeleteDynamicResourceGroup API.
    */
   public async deleteDynamicResourceGroup(
     deleteDynamicResourceGroupRequest: requests.DeleteDynamicResourceGroupRequest
@@ -4747,7 +4747,7 @@ export class IdentityDomainsClient {
    * @param DeleteGrantRequest
    * @return DeleteGrantResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteGrant.ts.html |here} to see how to use DeleteGrant API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteGrant.ts.html |here} to see how to use DeleteGrant API.
    */
   public async deleteGrant(
     deleteGrantRequest: requests.DeleteGrantRequest
@@ -4818,7 +4818,7 @@ export class IdentityDomainsClient {
    * @param DeleteGroupRequest
    * @return DeleteGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteGroup.ts.html |here} to see how to use DeleteGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteGroup.ts.html |here} to see how to use DeleteGroup API.
    */
   public async deleteGroup(
     deleteGroupRequest: requests.DeleteGroupRequest
@@ -4889,7 +4889,7 @@ export class IdentityDomainsClient {
    * @param DeleteIdentityPropagationTrustRequest
    * @return DeleteIdentityPropagationTrustResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteIdentityPropagationTrust.ts.html |here} to see how to use DeleteIdentityPropagationTrust API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteIdentityPropagationTrust.ts.html |here} to see how to use DeleteIdentityPropagationTrust API.
    */
   public async deleteIdentityPropagationTrust(
     deleteIdentityPropagationTrustRequest: requests.DeleteIdentityPropagationTrustRequest
@@ -4963,7 +4963,7 @@ export class IdentityDomainsClient {
    * @param DeleteIdentityProviderRequest
    * @return DeleteIdentityProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteIdentityProvider.ts.html |here} to see how to use DeleteIdentityProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteIdentityProvider.ts.html |here} to see how to use DeleteIdentityProvider API.
    */
   public async deleteIdentityProvider(
     deleteIdentityProviderRequest: requests.DeleteIdentityProviderRequest
@@ -5035,7 +5035,7 @@ export class IdentityDomainsClient {
    * @param DeleteMyApiKeyRequest
    * @return DeleteMyApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyApiKey.ts.html |here} to see how to use DeleteMyApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyApiKey.ts.html |here} to see how to use DeleteMyApiKey API.
    */
   public async deleteMyApiKey(
     deleteMyApiKeyRequest: requests.DeleteMyApiKeyRequest
@@ -5106,7 +5106,7 @@ export class IdentityDomainsClient {
    * @param DeleteMyAuthTokenRequest
    * @return DeleteMyAuthTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyAuthToken.ts.html |here} to see how to use DeleteMyAuthToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyAuthToken.ts.html |here} to see how to use DeleteMyAuthToken API.
    */
   public async deleteMyAuthToken(
     deleteMyAuthTokenRequest: requests.DeleteMyAuthTokenRequest
@@ -5178,7 +5178,7 @@ export class IdentityDomainsClient {
    * @param DeleteMyCustomerSecretKeyRequest
    * @return DeleteMyCustomerSecretKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyCustomerSecretKey.ts.html |here} to see how to use DeleteMyCustomerSecretKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyCustomerSecretKey.ts.html |here} to see how to use DeleteMyCustomerSecretKey API.
    */
   public async deleteMyCustomerSecretKey(
     deleteMyCustomerSecretKeyRequest: requests.DeleteMyCustomerSecretKeyRequest
@@ -5250,7 +5250,7 @@ export class IdentityDomainsClient {
    * @param DeleteMyDeviceRequest
    * @return DeleteMyDeviceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyDevice.ts.html |here} to see how to use DeleteMyDevice API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyDevice.ts.html |here} to see how to use DeleteMyDevice API.
    */
   public async deleteMyDevice(
     deleteMyDeviceRequest: requests.DeleteMyDeviceRequest
@@ -5321,7 +5321,7 @@ export class IdentityDomainsClient {
    * @param DeleteMyOAuth2ClientCredentialRequest
    * @return DeleteMyOAuth2ClientCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyOAuth2ClientCredential.ts.html |here} to see how to use DeleteMyOAuth2ClientCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyOAuth2ClientCredential.ts.html |here} to see how to use DeleteMyOAuth2ClientCredential API.
    */
   public async deleteMyOAuth2ClientCredential(
     deleteMyOAuth2ClientCredentialRequest: requests.DeleteMyOAuth2ClientCredentialRequest
@@ -5395,7 +5395,7 @@ export class IdentityDomainsClient {
    * @param DeleteMySmtpCredentialRequest
    * @return DeleteMySmtpCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMySmtpCredential.ts.html |here} to see how to use DeleteMySmtpCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMySmtpCredential.ts.html |here} to see how to use DeleteMySmtpCredential API.
    */
   public async deleteMySmtpCredential(
     deleteMySmtpCredentialRequest: requests.DeleteMySmtpCredentialRequest
@@ -5467,7 +5467,7 @@ export class IdentityDomainsClient {
    * @param DeleteMySupportAccountRequest
    * @return DeleteMySupportAccountResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMySupportAccount.ts.html |here} to see how to use DeleteMySupportAccount API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMySupportAccount.ts.html |here} to see how to use DeleteMySupportAccount API.
    */
   public async deleteMySupportAccount(
     deleteMySupportAccountRequest: requests.DeleteMySupportAccountRequest
@@ -5539,7 +5539,7 @@ export class IdentityDomainsClient {
    * @param DeleteMyTrustedUserAgentRequest
    * @return DeleteMyTrustedUserAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyTrustedUserAgent.ts.html |here} to see how to use DeleteMyTrustedUserAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyTrustedUserAgent.ts.html |here} to see how to use DeleteMyTrustedUserAgent API.
    */
   public async deleteMyTrustedUserAgent(
     deleteMyTrustedUserAgentRequest: requests.DeleteMyTrustedUserAgentRequest
@@ -5611,7 +5611,7 @@ export class IdentityDomainsClient {
    * @param DeleteMyUserDbCredentialRequest
    * @return DeleteMyUserDbCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyUserDbCredential.ts.html |here} to see how to use DeleteMyUserDbCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteMyUserDbCredential.ts.html |here} to see how to use DeleteMyUserDbCredential API.
    */
   public async deleteMyUserDbCredential(
     deleteMyUserDbCredentialRequest: requests.DeleteMyUserDbCredentialRequest
@@ -5683,7 +5683,7 @@ export class IdentityDomainsClient {
    * @param DeleteNetworkPerimeterRequest
    * @return DeleteNetworkPerimeterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteNetworkPerimeter.ts.html |here} to see how to use DeleteNetworkPerimeter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteNetworkPerimeter.ts.html |here} to see how to use DeleteNetworkPerimeter API.
    */
   public async deleteNetworkPerimeter(
     deleteNetworkPerimeterRequest: requests.DeleteNetworkPerimeterRequest
@@ -5755,7 +5755,7 @@ export class IdentityDomainsClient {
    * @param DeleteOAuth2ClientCredentialRequest
    * @return DeleteOAuth2ClientCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteOAuth2ClientCredential.ts.html |here} to see how to use DeleteOAuth2ClientCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteOAuth2ClientCredential.ts.html |here} to see how to use DeleteOAuth2ClientCredential API.
    */
   public async deleteOAuth2ClientCredential(
     deleteOAuth2ClientCredentialRequest: requests.DeleteOAuth2ClientCredentialRequest
@@ -5827,7 +5827,7 @@ export class IdentityDomainsClient {
    * @param DeleteOAuthClientCertificateRequest
    * @return DeleteOAuthClientCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteOAuthClientCertificate.ts.html |here} to see how to use DeleteOAuthClientCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteOAuthClientCertificate.ts.html |here} to see how to use DeleteOAuthClientCertificate API.
    */
   public async deleteOAuthClientCertificate(
     deleteOAuthClientCertificateRequest: requests.DeleteOAuthClientCertificateRequest
@@ -5899,7 +5899,7 @@ export class IdentityDomainsClient {
    * @param DeleteOAuthPartnerCertificateRequest
    * @return DeleteOAuthPartnerCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteOAuthPartnerCertificate.ts.html |here} to see how to use DeleteOAuthPartnerCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteOAuthPartnerCertificate.ts.html |here} to see how to use DeleteOAuthPartnerCertificate API.
    */
   public async deleteOAuthPartnerCertificate(
     deleteOAuthPartnerCertificateRequest: requests.DeleteOAuthPartnerCertificateRequest
@@ -5972,7 +5972,7 @@ export class IdentityDomainsClient {
    * @param DeletePasswordPolicyRequest
    * @return DeletePasswordPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeletePasswordPolicy.ts.html |here} to see how to use DeletePasswordPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeletePasswordPolicy.ts.html |here} to see how to use DeletePasswordPolicy API.
    */
   public async deletePasswordPolicy(
     deletePasswordPolicyRequest: requests.DeletePasswordPolicyRequest
@@ -6044,7 +6044,7 @@ export class IdentityDomainsClient {
    * @param DeletePolicyRequest
    * @return DeletePolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeletePolicy.ts.html |here} to see how to use DeletePolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeletePolicy.ts.html |here} to see how to use DeletePolicy API.
    */
   public async deletePolicy(
     deletePolicyRequest: requests.DeletePolicyRequest
@@ -6115,7 +6115,7 @@ export class IdentityDomainsClient {
    * @param DeleteRuleRequest
    * @return DeleteRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteRule.ts.html |here} to see how to use DeleteRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteRule.ts.html |here} to see how to use DeleteRule API.
    */
   public async deleteRule(
     deleteRuleRequest: requests.DeleteRuleRequest
@@ -6186,7 +6186,7 @@ export class IdentityDomainsClient {
    * @param DeleteSecurityQuestionRequest
    * @return DeleteSecurityQuestionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteSecurityQuestion.ts.html |here} to see how to use DeleteSecurityQuestion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteSecurityQuestion.ts.html |here} to see how to use DeleteSecurityQuestion API.
    */
   public async deleteSecurityQuestion(
     deleteSecurityQuestionRequest: requests.DeleteSecurityQuestionRequest
@@ -6258,7 +6258,7 @@ export class IdentityDomainsClient {
    * @param DeleteSelfRegistrationProfileRequest
    * @return DeleteSelfRegistrationProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteSelfRegistrationProfile.ts.html |here} to see how to use DeleteSelfRegistrationProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteSelfRegistrationProfile.ts.html |here} to see how to use DeleteSelfRegistrationProfile API.
    */
   public async deleteSelfRegistrationProfile(
     deleteSelfRegistrationProfileRequest: requests.DeleteSelfRegistrationProfileRequest
@@ -6331,7 +6331,7 @@ export class IdentityDomainsClient {
    * @param DeleteSmtpCredentialRequest
    * @return DeleteSmtpCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteSmtpCredential.ts.html |here} to see how to use DeleteSmtpCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteSmtpCredential.ts.html |here} to see how to use DeleteSmtpCredential API.
    */
   public async deleteSmtpCredential(
     deleteSmtpCredentialRequest: requests.DeleteSmtpCredentialRequest
@@ -6403,7 +6403,7 @@ export class IdentityDomainsClient {
    * @param DeleteSocialIdentityProviderRequest
    * @return DeleteSocialIdentityProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteSocialIdentityProvider.ts.html |here} to see how to use DeleteSocialIdentityProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteSocialIdentityProvider.ts.html |here} to see how to use DeleteSocialIdentityProvider API.
    */
   public async deleteSocialIdentityProvider(
     deleteSocialIdentityProviderRequest: requests.DeleteSocialIdentityProviderRequest
@@ -6475,7 +6475,7 @@ export class IdentityDomainsClient {
    * @param DeleteUserRequest
    * @return DeleteUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteUser.ts.html |here} to see how to use DeleteUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteUser.ts.html |here} to see how to use DeleteUser API.
    */
   public async deleteUser(
     deleteUserRequest: requests.DeleteUserRequest
@@ -6546,7 +6546,7 @@ export class IdentityDomainsClient {
    * @param DeleteUserDbCredentialRequest
    * @return DeleteUserDbCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteUserDbCredential.ts.html |here} to see how to use DeleteUserDbCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteUserDbCredential.ts.html |here} to see how to use DeleteUserDbCredential API.
    */
   public async deleteUserDbCredential(
     deleteUserDbCredentialRequest: requests.DeleteUserDbCredentialRequest
@@ -6618,7 +6618,7 @@ export class IdentityDomainsClient {
    * @param GetAccountMgmtInfoRequest
    * @return GetAccountMgmtInfoResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetAccountMgmtInfo.ts.html |here} to see how to use GetAccountMgmtInfo API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetAccountMgmtInfo.ts.html |here} to see how to use GetAccountMgmtInfo API.
    */
   public async getAccountMgmtInfo(
     getAccountMgmtInfoRequest: requests.GetAccountMgmtInfoRequest
@@ -6694,7 +6694,7 @@ export class IdentityDomainsClient {
    * @param GetAccountRecoverySettingRequest
    * @return GetAccountRecoverySettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetAccountRecoverySetting.ts.html |here} to see how to use GetAccountRecoverySetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetAccountRecoverySetting.ts.html |here} to see how to use GetAccountRecoverySetting API.
    */
   public async getAccountRecoverySetting(
     getAccountRecoverySettingRequest: requests.GetAccountRecoverySettingRequest
@@ -6770,7 +6770,7 @@ export class IdentityDomainsClient {
    * @param GetApiKeyRequest
    * @return GetApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApiKey.ts.html |here} to see how to use GetApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApiKey.ts.html |here} to see how to use GetApiKey API.
    */
   public async getApiKey(
     getApiKeyRequest: requests.GetApiKeyRequest
@@ -6845,7 +6845,7 @@ export class IdentityDomainsClient {
    * @param GetAppRequest
    * @return GetAppResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApp.ts.html |here} to see how to use GetApp API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApp.ts.html |here} to see how to use GetApp API.
    */
   public async getApp(getAppRequest: requests.GetAppRequest): Promise<responses.GetAppResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getApp.");
@@ -6918,7 +6918,7 @@ export class IdentityDomainsClient {
    * @param GetAppRoleRequest
    * @return GetAppRoleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetAppRole.ts.html |here} to see how to use GetAppRole API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetAppRole.ts.html |here} to see how to use GetAppRole API.
    */
   public async getAppRole(
     getAppRoleRequest: requests.GetAppRoleRequest
@@ -6993,7 +6993,7 @@ export class IdentityDomainsClient {
    * @param GetApprovalWorkflowRequest
    * @return GetApprovalWorkflowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApprovalWorkflow.ts.html |here} to see how to use GetApprovalWorkflow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApprovalWorkflow.ts.html |here} to see how to use GetApprovalWorkflow API.
    */
   public async getApprovalWorkflow(
     getApprovalWorkflowRequest: requests.GetApprovalWorkflowRequest
@@ -7069,7 +7069,7 @@ export class IdentityDomainsClient {
    * @param GetApprovalWorkflowAssignmentRequest
    * @return GetApprovalWorkflowAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApprovalWorkflowAssignment.ts.html |here} to see how to use GetApprovalWorkflowAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApprovalWorkflowAssignment.ts.html |here} to see how to use GetApprovalWorkflowAssignment API.
    */
   public async getApprovalWorkflowAssignment(
     getApprovalWorkflowAssignmentRequest: requests.GetApprovalWorkflowAssignmentRequest
@@ -7147,7 +7147,7 @@ export class IdentityDomainsClient {
    * @param GetApprovalWorkflowStepRequest
    * @return GetApprovalWorkflowStepResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApprovalWorkflowStep.ts.html |here} to see how to use GetApprovalWorkflowStep API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetApprovalWorkflowStep.ts.html |here} to see how to use GetApprovalWorkflowStep API.
    */
   public async getApprovalWorkflowStep(
     getApprovalWorkflowStepRequest: requests.GetApprovalWorkflowStepRequest
@@ -7223,7 +7223,7 @@ export class IdentityDomainsClient {
    * @param GetAuthTokenRequest
    * @return GetAuthTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetAuthToken.ts.html |here} to see how to use GetAuthToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetAuthToken.ts.html |here} to see how to use GetAuthToken API.
    */
   public async getAuthToken(
     getAuthTokenRequest: requests.GetAuthTokenRequest
@@ -7298,7 +7298,7 @@ export class IdentityDomainsClient {
    * @param GetAuthenticationFactorSettingRequest
    * @return GetAuthenticationFactorSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetAuthenticationFactorSetting.ts.html |here} to see how to use GetAuthenticationFactorSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetAuthenticationFactorSetting.ts.html |here} to see how to use GetAuthenticationFactorSetting API.
    */
   public async getAuthenticationFactorSetting(
     getAuthenticationFactorSettingRequest: requests.GetAuthenticationFactorSettingRequest
@@ -7376,7 +7376,7 @@ export class IdentityDomainsClient {
    * @param GetBrandingSettingRequest
    * @return GetBrandingSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetBrandingSetting.ts.html |here} to see how to use GetBrandingSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetBrandingSetting.ts.html |here} to see how to use GetBrandingSetting API.
    */
   public async getBrandingSetting(
     getBrandingSettingRequest: requests.GetBrandingSettingRequest
@@ -7452,7 +7452,7 @@ export class IdentityDomainsClient {
    * @param GetCloudGateRequest
    * @return GetCloudGateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCloudGate.ts.html |here} to see how to use GetCloudGate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCloudGate.ts.html |here} to see how to use GetCloudGate API.
    */
   public async getCloudGate(
     getCloudGateRequest: requests.GetCloudGateRequest
@@ -7527,7 +7527,7 @@ export class IdentityDomainsClient {
    * @param GetCloudGateMappingRequest
    * @return GetCloudGateMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCloudGateMapping.ts.html |here} to see how to use GetCloudGateMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCloudGateMapping.ts.html |here} to see how to use GetCloudGateMapping API.
    */
   public async getCloudGateMapping(
     getCloudGateMappingRequest: requests.GetCloudGateMappingRequest
@@ -7603,7 +7603,7 @@ export class IdentityDomainsClient {
    * @param GetCloudGateServerRequest
    * @return GetCloudGateServerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCloudGateServer.ts.html |here} to see how to use GetCloudGateServer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCloudGateServer.ts.html |here} to see how to use GetCloudGateServer API.
    */
   public async getCloudGateServer(
     getCloudGateServerRequest: requests.GetCloudGateServerRequest
@@ -7679,7 +7679,7 @@ export class IdentityDomainsClient {
    * @param GetConditionRequest
    * @return GetConditionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCondition.ts.html |here} to see how to use GetCondition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCondition.ts.html |here} to see how to use GetCondition API.
    */
   public async getCondition(
     getConditionRequest: requests.GetConditionRequest
@@ -7754,7 +7754,7 @@ export class IdentityDomainsClient {
    * @param GetCustomerSecretKeyRequest
    * @return GetCustomerSecretKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCustomerSecretKey.ts.html |here} to see how to use GetCustomerSecretKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetCustomerSecretKey.ts.html |here} to see how to use GetCustomerSecretKey API.
    */
   public async getCustomerSecretKey(
     getCustomerSecretKeyRequest: requests.GetCustomerSecretKeyRequest
@@ -7830,7 +7830,7 @@ export class IdentityDomainsClient {
    * @param GetDynamicResourceGroupRequest
    * @return GetDynamicResourceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetDynamicResourceGroup.ts.html |here} to see how to use GetDynamicResourceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetDynamicResourceGroup.ts.html |here} to see how to use GetDynamicResourceGroup API.
    */
   public async getDynamicResourceGroup(
     getDynamicResourceGroupRequest: requests.GetDynamicResourceGroupRequest
@@ -7906,7 +7906,7 @@ export class IdentityDomainsClient {
    * @param GetGrantRequest
    * @return GetGrantResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetGrant.ts.html |here} to see how to use GetGrant API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetGrant.ts.html |here} to see how to use GetGrant API.
    */
   public async getGrant(
     getGrantRequest: requests.GetGrantRequest
@@ -7981,7 +7981,7 @@ export class IdentityDomainsClient {
    * @param GetGroupRequest
    * @return GetGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetGroup.ts.html |here} to see how to use GetGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetGroup.ts.html |here} to see how to use GetGroup API.
    */
   public async getGroup(
     getGroupRequest: requests.GetGroupRequest
@@ -8056,7 +8056,7 @@ export class IdentityDomainsClient {
    * @param GetIdentityPropagationTrustRequest
    * @return GetIdentityPropagationTrustResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetIdentityPropagationTrust.ts.html |here} to see how to use GetIdentityPropagationTrust API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetIdentityPropagationTrust.ts.html |here} to see how to use GetIdentityPropagationTrust API.
    */
   public async getIdentityPropagationTrust(
     getIdentityPropagationTrustRequest: requests.GetIdentityPropagationTrustRequest
@@ -8132,7 +8132,7 @@ export class IdentityDomainsClient {
    * @param GetIdentityProviderRequest
    * @return GetIdentityProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetIdentityProvider.ts.html |here} to see how to use GetIdentityProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetIdentityProvider.ts.html |here} to see how to use GetIdentityProvider API.
    */
   public async getIdentityProvider(
     getIdentityProviderRequest: requests.GetIdentityProviderRequest
@@ -8208,7 +8208,7 @@ export class IdentityDomainsClient {
    * @param GetIdentitySettingRequest
    * @return GetIdentitySettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetIdentitySetting.ts.html |here} to see how to use GetIdentitySetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetIdentitySetting.ts.html |here} to see how to use GetIdentitySetting API.
    */
   public async getIdentitySetting(
     getIdentitySettingRequest: requests.GetIdentitySettingRequest
@@ -8284,7 +8284,7 @@ export class IdentityDomainsClient {
    * @param GetKmsiSettingRequest
    * @return GetKmsiSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetKmsiSetting.ts.html |here} to see how to use GetKmsiSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetKmsiSetting.ts.html |here} to see how to use GetKmsiSetting API.
    */
   public async getKmsiSetting(
     getKmsiSettingRequest: requests.GetKmsiSettingRequest
@@ -8359,7 +8359,7 @@ export class IdentityDomainsClient {
    * @param GetMeRequest
    * @return GetMeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMe.ts.html |here} to see how to use GetMe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMe.ts.html |here} to see how to use GetMe API.
    */
   public async getMe(getMeRequest: requests.GetMeRequest): Promise<responses.GetMeResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#getMe.");
@@ -8430,7 +8430,7 @@ export class IdentityDomainsClient {
    * @param GetMyApiKeyRequest
    * @return GetMyApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyApiKey.ts.html |here} to see how to use GetMyApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyApiKey.ts.html |here} to see how to use GetMyApiKey API.
    */
   public async getMyApiKey(
     getMyApiKeyRequest: requests.GetMyApiKeyRequest
@@ -8502,7 +8502,7 @@ export class IdentityDomainsClient {
    * @param GetMyAuthTokenRequest
    * @return GetMyAuthTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyAuthToken.ts.html |here} to see how to use GetMyAuthToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyAuthToken.ts.html |here} to see how to use GetMyAuthToken API.
    */
   public async getMyAuthToken(
     getMyAuthTokenRequest: requests.GetMyAuthTokenRequest
@@ -8574,7 +8574,7 @@ export class IdentityDomainsClient {
    * @param GetMyCompletedApprovalRequest
    * @return GetMyCompletedApprovalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyCompletedApproval.ts.html |here} to see how to use GetMyCompletedApproval API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyCompletedApproval.ts.html |here} to see how to use GetMyCompletedApproval API.
    */
   public async getMyCompletedApproval(
     getMyCompletedApprovalRequest: requests.GetMyCompletedApprovalRequest
@@ -8647,7 +8647,7 @@ export class IdentityDomainsClient {
    * @param GetMyCustomerSecretKeyRequest
    * @return GetMyCustomerSecretKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyCustomerSecretKey.ts.html |here} to see how to use GetMyCustomerSecretKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyCustomerSecretKey.ts.html |here} to see how to use GetMyCustomerSecretKey API.
    */
   public async getMyCustomerSecretKey(
     getMyCustomerSecretKeyRequest: requests.GetMyCustomerSecretKeyRequest
@@ -8720,7 +8720,7 @@ export class IdentityDomainsClient {
    * @param GetMyDeviceRequest
    * @return GetMyDeviceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyDevice.ts.html |here} to see how to use GetMyDevice API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyDevice.ts.html |here} to see how to use GetMyDevice API.
    */
   public async getMyDevice(
     getMyDeviceRequest: requests.GetMyDeviceRequest
@@ -8795,7 +8795,7 @@ export class IdentityDomainsClient {
    * @param GetMyOAuth2ClientCredentialRequest
    * @return GetMyOAuth2ClientCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyOAuth2ClientCredential.ts.html |here} to see how to use GetMyOAuth2ClientCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyOAuth2ClientCredential.ts.html |here} to see how to use GetMyOAuth2ClientCredential API.
    */
   public async getMyOAuth2ClientCredential(
     getMyOAuth2ClientCredentialRequest: requests.GetMyOAuth2ClientCredentialRequest
@@ -8868,7 +8868,7 @@ export class IdentityDomainsClient {
    * @param GetMyPendingApprovalRequest
    * @return GetMyPendingApprovalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyPendingApproval.ts.html |here} to see how to use GetMyPendingApproval API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyPendingApproval.ts.html |here} to see how to use GetMyPendingApproval API.
    */
   public async getMyPendingApproval(
     getMyPendingApprovalRequest: requests.GetMyPendingApprovalRequest
@@ -8941,7 +8941,7 @@ export class IdentityDomainsClient {
    * @param GetMyRequestRequest
    * @return GetMyRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyRequest.ts.html |here} to see how to use GetMyRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyRequest.ts.html |here} to see how to use GetMyRequest API.
    */
   public async getMyRequest(
     getMyRequestRequest: requests.GetMyRequestRequest
@@ -9016,7 +9016,7 @@ export class IdentityDomainsClient {
    * @param GetMySmtpCredentialRequest
    * @return GetMySmtpCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMySmtpCredential.ts.html |here} to see how to use GetMySmtpCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMySmtpCredential.ts.html |here} to see how to use GetMySmtpCredential API.
    */
   public async getMySmtpCredential(
     getMySmtpCredentialRequest: requests.GetMySmtpCredentialRequest
@@ -9089,7 +9089,7 @@ export class IdentityDomainsClient {
    * @param GetMySupportAccountRequest
    * @return GetMySupportAccountResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMySupportAccount.ts.html |here} to see how to use GetMySupportAccount API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMySupportAccount.ts.html |here} to see how to use GetMySupportAccount API.
    */
   public async getMySupportAccount(
     getMySupportAccountRequest: requests.GetMySupportAccountRequest
@@ -9162,7 +9162,7 @@ export class IdentityDomainsClient {
    * @param GetMyTrustedUserAgentRequest
    * @return GetMyTrustedUserAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyTrustedUserAgent.ts.html |here} to see how to use GetMyTrustedUserAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyTrustedUserAgent.ts.html |here} to see how to use GetMyTrustedUserAgent API.
    */
   public async getMyTrustedUserAgent(
     getMyTrustedUserAgentRequest: requests.GetMyTrustedUserAgentRequest
@@ -9238,7 +9238,7 @@ export class IdentityDomainsClient {
    * @param GetMyUserDbCredentialRequest
    * @return GetMyUserDbCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyUserDbCredential.ts.html |here} to see how to use GetMyUserDbCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMyUserDbCredential.ts.html |here} to see how to use GetMyUserDbCredential API.
    */
   public async getMyUserDbCredential(
     getMyUserDbCredentialRequest: requests.GetMyUserDbCredentialRequest
@@ -9311,7 +9311,7 @@ export class IdentityDomainsClient {
    * @param GetNetworkPerimeterRequest
    * @return GetNetworkPerimeterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetNetworkPerimeter.ts.html |here} to see how to use GetNetworkPerimeter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetNetworkPerimeter.ts.html |here} to see how to use GetNetworkPerimeter API.
    */
   public async getNetworkPerimeter(
     getNetworkPerimeterRequest: requests.GetNetworkPerimeterRequest
@@ -9387,7 +9387,7 @@ export class IdentityDomainsClient {
    * @param GetNotificationSettingRequest
    * @return GetNotificationSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetNotificationSetting.ts.html |here} to see how to use GetNotificationSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetNotificationSetting.ts.html |here} to see how to use GetNotificationSetting API.
    */
   public async getNotificationSetting(
     getNotificationSettingRequest: requests.GetNotificationSettingRequest
@@ -9463,7 +9463,7 @@ export class IdentityDomainsClient {
    * @param GetOAuth2ClientCredentialRequest
    * @return GetOAuth2ClientCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOAuth2ClientCredential.ts.html |here} to see how to use GetOAuth2ClientCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOAuth2ClientCredential.ts.html |here} to see how to use GetOAuth2ClientCredential API.
    */
   public async getOAuth2ClientCredential(
     getOAuth2ClientCredentialRequest: requests.GetOAuth2ClientCredentialRequest
@@ -9539,7 +9539,7 @@ export class IdentityDomainsClient {
    * @param GetOAuthClientCertificateRequest
    * @return GetOAuthClientCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOAuthClientCertificate.ts.html |here} to see how to use GetOAuthClientCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOAuthClientCertificate.ts.html |here} to see how to use GetOAuthClientCertificate API.
    */
   public async getOAuthClientCertificate(
     getOAuthClientCertificateRequest: requests.GetOAuthClientCertificateRequest
@@ -9612,7 +9612,7 @@ export class IdentityDomainsClient {
    * @param GetOAuthPartnerCertificateRequest
    * @return GetOAuthPartnerCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOAuthPartnerCertificate.ts.html |here} to see how to use GetOAuthPartnerCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOAuthPartnerCertificate.ts.html |here} to see how to use GetOAuthPartnerCertificate API.
    */
   public async getOAuthPartnerCertificate(
     getOAuthPartnerCertificateRequest: requests.GetOAuthPartnerCertificateRequest
@@ -9685,7 +9685,7 @@ export class IdentityDomainsClient {
    * @param GetOciConsoleSignOnPolicyConsentRequest
    * @return GetOciConsoleSignOnPolicyConsentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOciConsoleSignOnPolicyConsent.ts.html |here} to see how to use GetOciConsoleSignOnPolicyConsent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetOciConsoleSignOnPolicyConsent.ts.html |here} to see how to use GetOciConsoleSignOnPolicyConsent API.
    */
   public async getOciConsoleSignOnPolicyConsent(
     getOciConsoleSignOnPolicyConsentRequest: requests.GetOciConsoleSignOnPolicyConsentRequest
@@ -9765,7 +9765,7 @@ export class IdentityDomainsClient {
    * @param GetPasswordPolicyRequest
    * @return GetPasswordPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetPasswordPolicy.ts.html |here} to see how to use GetPasswordPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetPasswordPolicy.ts.html |here} to see how to use GetPasswordPolicy API.
    */
   public async getPasswordPolicy(
     getPasswordPolicyRequest: requests.GetPasswordPolicyRequest
@@ -9841,7 +9841,7 @@ export class IdentityDomainsClient {
    * @param GetPolicyRequest
    * @return GetPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetPolicy.ts.html |here} to see how to use GetPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetPolicy.ts.html |here} to see how to use GetPolicy API.
    */
   public async getPolicy(
     getPolicyRequest: requests.GetPolicyRequest
@@ -9916,7 +9916,7 @@ export class IdentityDomainsClient {
    * @param GetRuleRequest
    * @return GetRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetRule.ts.html |here} to see how to use GetRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetRule.ts.html |here} to see how to use GetRule API.
    */
   public async getRule(
     getRuleRequest: requests.GetRuleRequest
@@ -9991,7 +9991,7 @@ export class IdentityDomainsClient {
    * @param GetSchemaRequest
    * @return GetSchemaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSchema.ts.html |here} to see how to use GetSchema API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSchema.ts.html |here} to see how to use GetSchema API.
    */
   public async getSchema(
     getSchemaRequest: requests.GetSchemaRequest
@@ -10063,7 +10063,7 @@ export class IdentityDomainsClient {
    * @param GetSecurityQuestionRequest
    * @return GetSecurityQuestionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSecurityQuestion.ts.html |here} to see how to use GetSecurityQuestion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSecurityQuestion.ts.html |here} to see how to use GetSecurityQuestion API.
    */
   public async getSecurityQuestion(
     getSecurityQuestionRequest: requests.GetSecurityQuestionRequest
@@ -10139,7 +10139,7 @@ export class IdentityDomainsClient {
    * @param GetSecurityQuestionSettingRequest
    * @return GetSecurityQuestionSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSecurityQuestionSetting.ts.html |here} to see how to use GetSecurityQuestionSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSecurityQuestionSetting.ts.html |here} to see how to use GetSecurityQuestionSetting API.
    */
   public async getSecurityQuestionSetting(
     getSecurityQuestionSettingRequest: requests.GetSecurityQuestionSettingRequest
@@ -10215,7 +10215,7 @@ export class IdentityDomainsClient {
    * @param GetSelfRegistrationProfileRequest
    * @return GetSelfRegistrationProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSelfRegistrationProfile.ts.html |here} to see how to use GetSelfRegistrationProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSelfRegistrationProfile.ts.html |here} to see how to use GetSelfRegistrationProfile API.
    */
   public async getSelfRegistrationProfile(
     getSelfRegistrationProfileRequest: requests.GetSelfRegistrationProfileRequest
@@ -10291,7 +10291,7 @@ export class IdentityDomainsClient {
    * @param GetSettingRequest
    * @return GetSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSetting.ts.html |here} to see how to use GetSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSetting.ts.html |here} to see how to use GetSetting API.
    */
   public async getSetting(
     getSettingRequest: requests.GetSettingRequest
@@ -10366,7 +10366,7 @@ export class IdentityDomainsClient {
    * @param GetSmtpCredentialRequest
    * @return GetSmtpCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSmtpCredential.ts.html |here} to see how to use GetSmtpCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSmtpCredential.ts.html |here} to see how to use GetSmtpCredential API.
    */
   public async getSmtpCredential(
     getSmtpCredentialRequest: requests.GetSmtpCredentialRequest
@@ -10442,7 +10442,7 @@ export class IdentityDomainsClient {
    * @param GetSocialIdentityProviderRequest
    * @return GetSocialIdentityProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSocialIdentityProvider.ts.html |here} to see how to use GetSocialIdentityProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetSocialIdentityProvider.ts.html |here} to see how to use GetSocialIdentityProvider API.
    */
   public async getSocialIdentityProvider(
     getSocialIdentityProviderRequest: requests.GetSocialIdentityProviderRequest
@@ -10515,7 +10515,7 @@ export class IdentityDomainsClient {
    * @param GetUserRequest
    * @return GetUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetUser.ts.html |here} to see how to use GetUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetUser.ts.html |here} to see how to use GetUser API.
    */
   public async getUser(
     getUserRequest: requests.GetUserRequest
@@ -10590,7 +10590,7 @@ export class IdentityDomainsClient {
    * @param GetUserAttributesSettingRequest
    * @return GetUserAttributesSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetUserAttributesSetting.ts.html |here} to see how to use GetUserAttributesSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetUserAttributesSetting.ts.html |here} to see how to use GetUserAttributesSetting API.
    */
   public async getUserAttributesSetting(
     getUserAttributesSettingRequest: requests.GetUserAttributesSettingRequest
@@ -10666,7 +10666,7 @@ export class IdentityDomainsClient {
    * @param GetUserDbCredentialRequest
    * @return GetUserDbCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetUserDbCredential.ts.html |here} to see how to use GetUserDbCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetUserDbCredential.ts.html |here} to see how to use GetUserDbCredential API.
    */
   public async getUserDbCredential(
     getUserDbCredentialRequest: requests.GetUserDbCredentialRequest
@@ -10742,7 +10742,7 @@ export class IdentityDomainsClient {
    * @param ListAccountMgmtInfosRequest
    * @return ListAccountMgmtInfosResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListAccountMgmtInfos.ts.html |here} to see how to use ListAccountMgmtInfos API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListAccountMgmtInfos.ts.html |here} to see how to use ListAccountMgmtInfos API.
    */
   public async listAccountMgmtInfos(
     listAccountMgmtInfosRequest: requests.ListAccountMgmtInfosRequest
@@ -10828,7 +10828,7 @@ export class IdentityDomainsClient {
    * @param ListAccountRecoverySettingsRequest
    * @return ListAccountRecoverySettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListAccountRecoverySettings.ts.html |here} to see how to use ListAccountRecoverySettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListAccountRecoverySettings.ts.html |here} to see how to use ListAccountRecoverySettings API.
    */
   public async listAccountRecoverySettings(
     listAccountRecoverySettingsRequest: requests.ListAccountRecoverySettingsRequest
@@ -10909,7 +10909,7 @@ export class IdentityDomainsClient {
    * @param ListApiKeysRequest
    * @return ListApiKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApiKeys.ts.html |here} to see how to use ListApiKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApiKeys.ts.html |here} to see how to use ListApiKeys API.
    */
   public async listApiKeys(
     listApiKeysRequest: requests.ListApiKeysRequest
@@ -10994,7 +10994,7 @@ export class IdentityDomainsClient {
    * @param ListAppRolesRequest
    * @return ListAppRolesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListAppRoles.ts.html |here} to see how to use ListAppRoles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListAppRoles.ts.html |here} to see how to use ListAppRoles API.
    */
   public async listAppRoles(
     listAppRolesRequest: requests.ListAppRolesRequest
@@ -11079,7 +11079,7 @@ export class IdentityDomainsClient {
    * @param ListApprovalWorkflowAssignmentsRequest
    * @return ListApprovalWorkflowAssignmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApprovalWorkflowAssignments.ts.html |here} to see how to use ListApprovalWorkflowAssignments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApprovalWorkflowAssignments.ts.html |here} to see how to use ListApprovalWorkflowAssignments API.
    */
   public async listApprovalWorkflowAssignments(
     listApprovalWorkflowAssignmentsRequest: requests.ListApprovalWorkflowAssignmentsRequest
@@ -11166,7 +11166,7 @@ export class IdentityDomainsClient {
    * @param ListApprovalWorkflowStepsRequest
    * @return ListApprovalWorkflowStepsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApprovalWorkflowSteps.ts.html |here} to see how to use ListApprovalWorkflowSteps API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApprovalWorkflowSteps.ts.html |here} to see how to use ListApprovalWorkflowSteps API.
    */
   public async listApprovalWorkflowSteps(
     listApprovalWorkflowStepsRequest: requests.ListApprovalWorkflowStepsRequest
@@ -11252,7 +11252,7 @@ export class IdentityDomainsClient {
    * @param ListApprovalWorkflowsRequest
    * @return ListApprovalWorkflowsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApprovalWorkflows.ts.html |here} to see how to use ListApprovalWorkflows API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApprovalWorkflows.ts.html |here} to see how to use ListApprovalWorkflows API.
    */
   public async listApprovalWorkflows(
     listApprovalWorkflowsRequest: requests.ListApprovalWorkflowsRequest
@@ -11338,7 +11338,7 @@ export class IdentityDomainsClient {
    * @param ListAppsRequest
    * @return ListAppsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApps.ts.html |here} to see how to use ListApps API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListApps.ts.html |here} to see how to use ListApps API.
    */
   public async listApps(
     listAppsRequest: requests.ListAppsRequest
@@ -11423,7 +11423,7 @@ export class IdentityDomainsClient {
    * @param ListAuthTokensRequest
    * @return ListAuthTokensResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListAuthTokens.ts.html |here} to see how to use ListAuthTokens API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListAuthTokens.ts.html |here} to see how to use ListAuthTokens API.
    */
   public async listAuthTokens(
     listAuthTokensRequest: requests.ListAuthTokensRequest
@@ -11508,7 +11508,7 @@ export class IdentityDomainsClient {
    * @param ListAuthenticationFactorSettingsRequest
    * @return ListAuthenticationFactorSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListAuthenticationFactorSettings.ts.html |here} to see how to use ListAuthenticationFactorSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListAuthenticationFactorSettings.ts.html |here} to see how to use ListAuthenticationFactorSettings API.
    */
   public async listAuthenticationFactorSettings(
     listAuthenticationFactorSettingsRequest: requests.ListAuthenticationFactorSettingsRequest
@@ -11592,7 +11592,7 @@ export class IdentityDomainsClient {
    * @param ListBrandingSettingsRequest
    * @return ListBrandingSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListBrandingSettings.ts.html |here} to see how to use ListBrandingSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListBrandingSettings.ts.html |here} to see how to use ListBrandingSettings API.
    */
   public async listBrandingSettings(
     listBrandingSettingsRequest: requests.ListBrandingSettingsRequest
@@ -11673,7 +11673,7 @@ export class IdentityDomainsClient {
    * @param ListCloudGateMappingsRequest
    * @return ListCloudGateMappingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCloudGateMappings.ts.html |here} to see how to use ListCloudGateMappings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCloudGateMappings.ts.html |here} to see how to use ListCloudGateMappings API.
    */
   public async listCloudGateMappings(
     listCloudGateMappingsRequest: requests.ListCloudGateMappingsRequest
@@ -11759,7 +11759,7 @@ export class IdentityDomainsClient {
    * @param ListCloudGateServersRequest
    * @return ListCloudGateServersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCloudGateServers.ts.html |here} to see how to use ListCloudGateServers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCloudGateServers.ts.html |here} to see how to use ListCloudGateServers API.
    */
   public async listCloudGateServers(
     listCloudGateServersRequest: requests.ListCloudGateServersRequest
@@ -11845,7 +11845,7 @@ export class IdentityDomainsClient {
    * @param ListCloudGatesRequest
    * @return ListCloudGatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCloudGates.ts.html |here} to see how to use ListCloudGates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCloudGates.ts.html |here} to see how to use ListCloudGates API.
    */
   public async listCloudGates(
     listCloudGatesRequest: requests.ListCloudGatesRequest
@@ -11930,7 +11930,7 @@ export class IdentityDomainsClient {
    * @param ListConditionsRequest
    * @return ListConditionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListConditions.ts.html |here} to see how to use ListConditions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListConditions.ts.html |here} to see how to use ListConditions API.
    */
   public async listConditions(
     listConditionsRequest: requests.ListConditionsRequest
@@ -12015,7 +12015,7 @@ export class IdentityDomainsClient {
    * @param ListCustomerSecretKeysRequest
    * @return ListCustomerSecretKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCustomerSecretKeys.ts.html |here} to see how to use ListCustomerSecretKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListCustomerSecretKeys.ts.html |here} to see how to use ListCustomerSecretKeys API.
    */
   public async listCustomerSecretKeys(
     listCustomerSecretKeysRequest: requests.ListCustomerSecretKeysRequest
@@ -12101,7 +12101,7 @@ export class IdentityDomainsClient {
    * @param ListDynamicResourceGroupsRequest
    * @return ListDynamicResourceGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListDynamicResourceGroups.ts.html |here} to see how to use ListDynamicResourceGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListDynamicResourceGroups.ts.html |here} to see how to use ListDynamicResourceGroups API.
    */
   public async listDynamicResourceGroups(
     listDynamicResourceGroupsRequest: requests.ListDynamicResourceGroupsRequest
@@ -12187,7 +12187,7 @@ export class IdentityDomainsClient {
    * @param ListGrantsRequest
    * @return ListGrantsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListGrants.ts.html |here} to see how to use ListGrants API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListGrants.ts.html |here} to see how to use ListGrants API.
    */
   public async listGrants(
     listGrantsRequest: requests.ListGrantsRequest
@@ -12272,7 +12272,7 @@ export class IdentityDomainsClient {
    * @param ListGroupsRequest
    * @return ListGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListGroups.ts.html |here} to see how to use ListGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListGroups.ts.html |here} to see how to use ListGroups API.
    */
   public async listGroups(
     listGroupsRequest: requests.ListGroupsRequest
@@ -12357,7 +12357,7 @@ export class IdentityDomainsClient {
    * @param ListIdentityPropagationTrustsRequest
    * @return ListIdentityPropagationTrustsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListIdentityPropagationTrusts.ts.html |here} to see how to use ListIdentityPropagationTrusts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListIdentityPropagationTrusts.ts.html |here} to see how to use ListIdentityPropagationTrusts API.
    */
   public async listIdentityPropagationTrusts(
     listIdentityPropagationTrustsRequest: requests.ListIdentityPropagationTrustsRequest
@@ -12444,7 +12444,7 @@ export class IdentityDomainsClient {
    * @param ListIdentityProvidersRequest
    * @return ListIdentityProvidersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListIdentityProviders.ts.html |here} to see how to use ListIdentityProviders API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListIdentityProviders.ts.html |here} to see how to use ListIdentityProviders API.
    */
   public async listIdentityProviders(
     listIdentityProvidersRequest: requests.ListIdentityProvidersRequest
@@ -12530,7 +12530,7 @@ export class IdentityDomainsClient {
    * @param ListIdentitySettingsRequest
    * @return ListIdentitySettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListIdentitySettings.ts.html |here} to see how to use ListIdentitySettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListIdentitySettings.ts.html |here} to see how to use ListIdentitySettings API.
    */
   public async listIdentitySettings(
     listIdentitySettingsRequest: requests.ListIdentitySettingsRequest
@@ -12611,7 +12611,7 @@ export class IdentityDomainsClient {
    * @param ListKmsiSettingsRequest
    * @return ListKmsiSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListKmsiSettings.ts.html |here} to see how to use ListKmsiSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListKmsiSettings.ts.html |here} to see how to use ListKmsiSettings API.
    */
   public async listKmsiSettings(
     listKmsiSettingsRequest: requests.ListKmsiSettingsRequest
@@ -12691,7 +12691,7 @@ export class IdentityDomainsClient {
    * @param ListMyApiKeysRequest
    * @return ListMyApiKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyApiKeys.ts.html |here} to see how to use ListMyApiKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyApiKeys.ts.html |here} to see how to use ListMyApiKeys API.
    */
   public async listMyApiKeys(
     listMyApiKeysRequest: requests.ListMyApiKeysRequest
@@ -12774,7 +12774,7 @@ export class IdentityDomainsClient {
    * @param ListMyAppsRequest
    * @return ListMyAppsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyApps.ts.html |here} to see how to use ListMyApps API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyApps.ts.html |here} to see how to use ListMyApps API.
    */
   public async listMyApps(
     listMyAppsRequest: requests.ListMyAppsRequest
@@ -12857,7 +12857,7 @@ export class IdentityDomainsClient {
    * @param ListMyAuthTokensRequest
    * @return ListMyAuthTokensResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyAuthTokens.ts.html |here} to see how to use ListMyAuthTokens API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyAuthTokens.ts.html |here} to see how to use ListMyAuthTokens API.
    */
   public async listMyAuthTokens(
     listMyAuthTokensRequest: requests.ListMyAuthTokensRequest
@@ -12940,7 +12940,7 @@ export class IdentityDomainsClient {
    * @param ListMyCompletedApprovalsRequest
    * @return ListMyCompletedApprovalsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyCompletedApprovals.ts.html |here} to see how to use ListMyCompletedApprovals API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyCompletedApprovals.ts.html |here} to see how to use ListMyCompletedApprovals API.
    */
   public async listMyCompletedApprovals(
     listMyCompletedApprovalsRequest: requests.ListMyCompletedApprovalsRequest
@@ -13024,7 +13024,7 @@ export class IdentityDomainsClient {
    * @param ListMyCustomerSecretKeysRequest
    * @return ListMyCustomerSecretKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyCustomerSecretKeys.ts.html |here} to see how to use ListMyCustomerSecretKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyCustomerSecretKeys.ts.html |here} to see how to use ListMyCustomerSecretKeys API.
    */
   public async listMyCustomerSecretKeys(
     listMyCustomerSecretKeysRequest: requests.ListMyCustomerSecretKeysRequest
@@ -13108,7 +13108,7 @@ export class IdentityDomainsClient {
    * @param ListMyDevicesRequest
    * @return ListMyDevicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyDevices.ts.html |here} to see how to use ListMyDevices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyDevices.ts.html |here} to see how to use ListMyDevices API.
    */
   public async listMyDevices(
     listMyDevicesRequest: requests.ListMyDevicesRequest
@@ -13193,7 +13193,7 @@ export class IdentityDomainsClient {
    * @param ListMyGroupsRequest
    * @return ListMyGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyGroups.ts.html |here} to see how to use ListMyGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyGroups.ts.html |here} to see how to use ListMyGroups API.
    */
   public async listMyGroups(
     listMyGroupsRequest: requests.ListMyGroupsRequest
@@ -13278,7 +13278,7 @@ export class IdentityDomainsClient {
    * @param ListMyOAuth2ClientCredentialsRequest
    * @return ListMyOAuth2ClientCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyOAuth2ClientCredentials.ts.html |here} to see how to use ListMyOAuth2ClientCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyOAuth2ClientCredentials.ts.html |here} to see how to use ListMyOAuth2ClientCredentials API.
    */
   public async listMyOAuth2ClientCredentials(
     listMyOAuth2ClientCredentialsRequest: requests.ListMyOAuth2ClientCredentialsRequest
@@ -13363,7 +13363,7 @@ export class IdentityDomainsClient {
    * @param ListMyPendingApprovalsRequest
    * @return ListMyPendingApprovalsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyPendingApprovals.ts.html |here} to see how to use ListMyPendingApprovals API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyPendingApprovals.ts.html |here} to see how to use ListMyPendingApprovals API.
    */
   public async listMyPendingApprovals(
     listMyPendingApprovalsRequest: requests.ListMyPendingApprovalsRequest
@@ -13447,7 +13447,7 @@ export class IdentityDomainsClient {
    * @param ListMyRequestableGroupsRequest
    * @return ListMyRequestableGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyRequestableGroups.ts.html |here} to see how to use ListMyRequestableGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyRequestableGroups.ts.html |here} to see how to use ListMyRequestableGroups API.
    */
   public async listMyRequestableGroups(
     listMyRequestableGroupsRequest: requests.ListMyRequestableGroupsRequest
@@ -13531,7 +13531,7 @@ export class IdentityDomainsClient {
    * @param ListMyRequestsRequest
    * @return ListMyRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyRequests.ts.html |here} to see how to use ListMyRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyRequests.ts.html |here} to see how to use ListMyRequests API.
    */
   public async listMyRequests(
     listMyRequestsRequest: requests.ListMyRequestsRequest
@@ -13616,7 +13616,7 @@ export class IdentityDomainsClient {
    * @param ListMySmtpCredentialsRequest
    * @return ListMySmtpCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMySmtpCredentials.ts.html |here} to see how to use ListMySmtpCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMySmtpCredentials.ts.html |here} to see how to use ListMySmtpCredentials API.
    */
   public async listMySmtpCredentials(
     listMySmtpCredentialsRequest: requests.ListMySmtpCredentialsRequest
@@ -13700,7 +13700,7 @@ export class IdentityDomainsClient {
    * @param ListMySupportAccountsRequest
    * @return ListMySupportAccountsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMySupportAccounts.ts.html |here} to see how to use ListMySupportAccounts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMySupportAccounts.ts.html |here} to see how to use ListMySupportAccounts API.
    */
   public async listMySupportAccounts(
     listMySupportAccountsRequest: requests.ListMySupportAccountsRequest
@@ -13784,7 +13784,7 @@ export class IdentityDomainsClient {
    * @param ListMyTrustedUserAgentsRequest
    * @return ListMyTrustedUserAgentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyTrustedUserAgents.ts.html |here} to see how to use ListMyTrustedUserAgents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyTrustedUserAgents.ts.html |here} to see how to use ListMyTrustedUserAgents API.
    */
   public async listMyTrustedUserAgents(
     listMyTrustedUserAgentsRequest: requests.ListMyTrustedUserAgentsRequest
@@ -13870,7 +13870,7 @@ export class IdentityDomainsClient {
    * @param ListMyUserDbCredentialsRequest
    * @return ListMyUserDbCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyUserDbCredentials.ts.html |here} to see how to use ListMyUserDbCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMyUserDbCredentials.ts.html |here} to see how to use ListMyUserDbCredentials API.
    */
   public async listMyUserDbCredentials(
     listMyUserDbCredentialsRequest: requests.ListMyUserDbCredentialsRequest
@@ -13954,7 +13954,7 @@ export class IdentityDomainsClient {
    * @param ListNetworkPerimetersRequest
    * @return ListNetworkPerimetersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListNetworkPerimeters.ts.html |here} to see how to use ListNetworkPerimeters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListNetworkPerimeters.ts.html |here} to see how to use ListNetworkPerimeters API.
    */
   public async listNetworkPerimeters(
     listNetworkPerimetersRequest: requests.ListNetworkPerimetersRequest
@@ -14040,7 +14040,7 @@ export class IdentityDomainsClient {
    * @param ListNotificationSettingsRequest
    * @return ListNotificationSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListNotificationSettings.ts.html |here} to see how to use ListNotificationSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListNotificationSettings.ts.html |here} to see how to use ListNotificationSettings API.
    */
   public async listNotificationSettings(
     listNotificationSettingsRequest: requests.ListNotificationSettingsRequest
@@ -14121,7 +14121,7 @@ export class IdentityDomainsClient {
    * @param ListOAuth2ClientCredentialsRequest
    * @return ListOAuth2ClientCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOAuth2ClientCredentials.ts.html |here} to see how to use ListOAuth2ClientCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOAuth2ClientCredentials.ts.html |here} to see how to use ListOAuth2ClientCredentials API.
    */
   public async listOAuth2ClientCredentials(
     listOAuth2ClientCredentialsRequest: requests.ListOAuth2ClientCredentialsRequest
@@ -14207,7 +14207,7 @@ export class IdentityDomainsClient {
    * @param ListOAuthClientCertificatesRequest
    * @return ListOAuthClientCertificatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOAuthClientCertificates.ts.html |here} to see how to use ListOAuthClientCertificates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOAuthClientCertificates.ts.html |here} to see how to use ListOAuthClientCertificates API.
    */
   public async listOAuthClientCertificates(
     listOAuthClientCertificatesRequest: requests.ListOAuthClientCertificatesRequest
@@ -14291,7 +14291,7 @@ export class IdentityDomainsClient {
    * @param ListOAuthPartnerCertificatesRequest
    * @return ListOAuthPartnerCertificatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOAuthPartnerCertificates.ts.html |here} to see how to use ListOAuthPartnerCertificates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOAuthPartnerCertificates.ts.html |here} to see how to use ListOAuthPartnerCertificates API.
    */
   public async listOAuthPartnerCertificates(
     listOAuthPartnerCertificatesRequest: requests.ListOAuthPartnerCertificatesRequest
@@ -14375,7 +14375,7 @@ export class IdentityDomainsClient {
    * @param ListOciConsoleSignOnPolicyConsentsRequest
    * @return ListOciConsoleSignOnPolicyConsentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOciConsoleSignOnPolicyConsents.ts.html |here} to see how to use ListOciConsoleSignOnPolicyConsents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListOciConsoleSignOnPolicyConsents.ts.html |here} to see how to use ListOciConsoleSignOnPolicyConsents API.
    */
   public async listOciConsoleSignOnPolicyConsents(
     listOciConsoleSignOnPolicyConsentsRequest: requests.ListOciConsoleSignOnPolicyConsentsRequest
@@ -14464,7 +14464,7 @@ export class IdentityDomainsClient {
    * @param ListPasswordPoliciesRequest
    * @return ListPasswordPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListPasswordPolicies.ts.html |here} to see how to use ListPasswordPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListPasswordPolicies.ts.html |here} to see how to use ListPasswordPolicies API.
    */
   public async listPasswordPolicies(
     listPasswordPoliciesRequest: requests.ListPasswordPoliciesRequest
@@ -14550,7 +14550,7 @@ export class IdentityDomainsClient {
    * @param ListPoliciesRequest
    * @return ListPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListPolicies.ts.html |here} to see how to use ListPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListPolicies.ts.html |here} to see how to use ListPolicies API.
    */
   public async listPolicies(
     listPoliciesRequest: requests.ListPoliciesRequest
@@ -14635,7 +14635,7 @@ export class IdentityDomainsClient {
    * @param ListResourceTypeSchemaAttributesRequest
    * @return ListResourceTypeSchemaAttributesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListResourceTypeSchemaAttributes.ts.html |here} to see how to use ListResourceTypeSchemaAttributes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListResourceTypeSchemaAttributes.ts.html |here} to see how to use ListResourceTypeSchemaAttributes API.
    */
   public async listResourceTypeSchemaAttributes(
     listResourceTypeSchemaAttributesRequest: requests.ListResourceTypeSchemaAttributesRequest
@@ -14724,7 +14724,7 @@ export class IdentityDomainsClient {
    * @param ListRulesRequest
    * @return ListRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListRules.ts.html |here} to see how to use ListRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListRules.ts.html |here} to see how to use ListRules API.
    */
   public async listRules(
     listRulesRequest: requests.ListRulesRequest
@@ -14809,7 +14809,7 @@ export class IdentityDomainsClient {
    * @param ListSchemasRequest
    * @return ListSchemasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSchemas.ts.html |here} to see how to use ListSchemas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSchemas.ts.html |here} to see how to use ListSchemas API.
    */
   public async listSchemas(
     listSchemasRequest: requests.ListSchemasRequest
@@ -14891,7 +14891,7 @@ export class IdentityDomainsClient {
    * @param ListSecurityQuestionSettingsRequest
    * @return ListSecurityQuestionSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSecurityQuestionSettings.ts.html |here} to see how to use ListSecurityQuestionSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSecurityQuestionSettings.ts.html |here} to see how to use ListSecurityQuestionSettings API.
    */
   public async listSecurityQuestionSettings(
     listSecurityQuestionSettingsRequest: requests.ListSecurityQuestionSettingsRequest
@@ -14972,7 +14972,7 @@ export class IdentityDomainsClient {
    * @param ListSecurityQuestionsRequest
    * @return ListSecurityQuestionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSecurityQuestions.ts.html |here} to see how to use ListSecurityQuestions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSecurityQuestions.ts.html |here} to see how to use ListSecurityQuestions API.
    */
   public async listSecurityQuestions(
     listSecurityQuestionsRequest: requests.ListSecurityQuestionsRequest
@@ -15058,7 +15058,7 @@ export class IdentityDomainsClient {
    * @param ListSelfRegistrationProfilesRequest
    * @return ListSelfRegistrationProfilesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSelfRegistrationProfiles.ts.html |here} to see how to use ListSelfRegistrationProfiles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSelfRegistrationProfiles.ts.html |here} to see how to use ListSelfRegistrationProfiles API.
    */
   public async listSelfRegistrationProfiles(
     listSelfRegistrationProfilesRequest: requests.ListSelfRegistrationProfilesRequest
@@ -15144,7 +15144,7 @@ export class IdentityDomainsClient {
    * @param ListSettingsRequest
    * @return ListSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSettings.ts.html |here} to see how to use ListSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSettings.ts.html |here} to see how to use ListSettings API.
    */
   public async listSettings(
     listSettingsRequest: requests.ListSettingsRequest
@@ -15224,7 +15224,7 @@ export class IdentityDomainsClient {
    * @param ListSmtpCredentialsRequest
    * @return ListSmtpCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSmtpCredentials.ts.html |here} to see how to use ListSmtpCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSmtpCredentials.ts.html |here} to see how to use ListSmtpCredentials API.
    */
   public async listSmtpCredentials(
     listSmtpCredentialsRequest: requests.ListSmtpCredentialsRequest
@@ -15310,7 +15310,7 @@ export class IdentityDomainsClient {
    * @param ListSocialIdentityProvidersRequest
    * @return ListSocialIdentityProvidersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSocialIdentityProviders.ts.html |here} to see how to use ListSocialIdentityProviders API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListSocialIdentityProviders.ts.html |here} to see how to use ListSocialIdentityProviders API.
    */
   public async listSocialIdentityProviders(
     listSocialIdentityProvidersRequest: requests.ListSocialIdentityProvidersRequest
@@ -15394,7 +15394,7 @@ export class IdentityDomainsClient {
    * @param ListUserAttributesSettingsRequest
    * @return ListUserAttributesSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListUserAttributesSettings.ts.html |here} to see how to use ListUserAttributesSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListUserAttributesSettings.ts.html |here} to see how to use ListUserAttributesSettings API.
    */
   public async listUserAttributesSettings(
     listUserAttributesSettingsRequest: requests.ListUserAttributesSettingsRequest
@@ -15475,7 +15475,7 @@ export class IdentityDomainsClient {
    * @param ListUserDbCredentialsRequest
    * @return ListUserDbCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListUserDbCredentials.ts.html |here} to see how to use ListUserDbCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListUserDbCredentials.ts.html |here} to see how to use ListUserDbCredentials API.
    */
   public async listUserDbCredentials(
     listUserDbCredentialsRequest: requests.ListUserDbCredentialsRequest
@@ -15561,7 +15561,7 @@ export class IdentityDomainsClient {
    * @param ListUsersRequest
    * @return ListUsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListUsers.ts.html |here} to see how to use ListUsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListUsers.ts.html |here} to see how to use ListUsers API.
    */
   public async listUsers(
     listUsersRequest: requests.ListUsersRequest
@@ -15646,7 +15646,7 @@ export class IdentityDomainsClient {
    * @param PatchAccountRecoverySettingRequest
    * @return PatchAccountRecoverySettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchAccountRecoverySetting.ts.html |here} to see how to use PatchAccountRecoverySetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchAccountRecoverySetting.ts.html |here} to see how to use PatchAccountRecoverySetting API.
    */
   public async patchAccountRecoverySetting(
     patchAccountRecoverySettingRequest: requests.PatchAccountRecoverySettingRequest
@@ -15733,7 +15733,7 @@ export class IdentityDomainsClient {
    * @param PatchApiKeyRequest
    * @return PatchApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchApiKey.ts.html |here} to see how to use PatchApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchApiKey.ts.html |here} to see how to use PatchApiKey API.
    */
   public async patchApiKey(
     patchApiKeyRequest: requests.PatchApiKeyRequest
@@ -15819,7 +15819,7 @@ export class IdentityDomainsClient {
    * @param PatchAppRequest
    * @return PatchAppResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchApp.ts.html |here} to see how to use PatchApp API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchApp.ts.html |here} to see how to use PatchApp API.
    */
   public async patchApp(
     patchAppRequest: requests.PatchAppRequest
@@ -15905,7 +15905,7 @@ export class IdentityDomainsClient {
    * @param PatchAppRoleRequest
    * @return PatchAppRoleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchAppRole.ts.html |here} to see how to use PatchAppRole API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchAppRole.ts.html |here} to see how to use PatchAppRole API.
    */
   public async patchAppRole(
     patchAppRoleRequest: requests.PatchAppRoleRequest
@@ -15991,7 +15991,7 @@ export class IdentityDomainsClient {
    * @param PatchApprovalWorkflowRequest
    * @return PatchApprovalWorkflowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchApprovalWorkflow.ts.html |here} to see how to use PatchApprovalWorkflow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchApprovalWorkflow.ts.html |here} to see how to use PatchApprovalWorkflow API.
    */
   public async patchApprovalWorkflow(
     patchApprovalWorkflowRequest: requests.PatchApprovalWorkflowRequest
@@ -16078,7 +16078,7 @@ export class IdentityDomainsClient {
    * @param PatchApprovalWorkflowStepRequest
    * @return PatchApprovalWorkflowStepResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchApprovalWorkflowStep.ts.html |here} to see how to use PatchApprovalWorkflowStep API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchApprovalWorkflowStep.ts.html |here} to see how to use PatchApprovalWorkflowStep API.
    */
   public async patchApprovalWorkflowStep(
     patchApprovalWorkflowStepRequest: requests.PatchApprovalWorkflowStepRequest
@@ -16165,7 +16165,7 @@ export class IdentityDomainsClient {
    * @param PatchAuthTokenRequest
    * @return PatchAuthTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchAuthToken.ts.html |here} to see how to use PatchAuthToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchAuthToken.ts.html |here} to see how to use PatchAuthToken API.
    */
   public async patchAuthToken(
     patchAuthTokenRequest: requests.PatchAuthTokenRequest
@@ -16251,7 +16251,7 @@ export class IdentityDomainsClient {
    * @param PatchCloudGateRequest
    * @return PatchCloudGateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCloudGate.ts.html |here} to see how to use PatchCloudGate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCloudGate.ts.html |here} to see how to use PatchCloudGate API.
    */
   public async patchCloudGate(
     patchCloudGateRequest: requests.PatchCloudGateRequest
@@ -16337,7 +16337,7 @@ export class IdentityDomainsClient {
    * @param PatchCloudGateMappingRequest
    * @return PatchCloudGateMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCloudGateMapping.ts.html |here} to see how to use PatchCloudGateMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCloudGateMapping.ts.html |here} to see how to use PatchCloudGateMapping API.
    */
   public async patchCloudGateMapping(
     patchCloudGateMappingRequest: requests.PatchCloudGateMappingRequest
@@ -16424,7 +16424,7 @@ export class IdentityDomainsClient {
    * @param PatchCloudGateServerRequest
    * @return PatchCloudGateServerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCloudGateServer.ts.html |here} to see how to use PatchCloudGateServer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCloudGateServer.ts.html |here} to see how to use PatchCloudGateServer API.
    */
   public async patchCloudGateServer(
     patchCloudGateServerRequest: requests.PatchCloudGateServerRequest
@@ -16511,7 +16511,7 @@ export class IdentityDomainsClient {
    * @param PatchConditionRequest
    * @return PatchConditionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCondition.ts.html |here} to see how to use PatchCondition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCondition.ts.html |here} to see how to use PatchCondition API.
    */
   public async patchCondition(
     patchConditionRequest: requests.PatchConditionRequest
@@ -16597,7 +16597,7 @@ export class IdentityDomainsClient {
    * @param PatchCustomerSecretKeyRequest
    * @return PatchCustomerSecretKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCustomerSecretKey.ts.html |here} to see how to use PatchCustomerSecretKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchCustomerSecretKey.ts.html |here} to see how to use PatchCustomerSecretKey API.
    */
   public async patchCustomerSecretKey(
     patchCustomerSecretKeyRequest: requests.PatchCustomerSecretKeyRequest
@@ -16684,7 +16684,7 @@ export class IdentityDomainsClient {
    * @param PatchDynamicResourceGroupRequest
    * @return PatchDynamicResourceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchDynamicResourceGroup.ts.html |here} to see how to use PatchDynamicResourceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchDynamicResourceGroup.ts.html |here} to see how to use PatchDynamicResourceGroup API.
    */
   public async patchDynamicResourceGroup(
     patchDynamicResourceGroupRequest: requests.PatchDynamicResourceGroupRequest
@@ -16771,7 +16771,7 @@ export class IdentityDomainsClient {
    * @param PatchGrantRequest
    * @return PatchGrantResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchGrant.ts.html |here} to see how to use PatchGrant API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchGrant.ts.html |here} to see how to use PatchGrant API.
    */
   public async patchGrant(
     patchGrantRequest: requests.PatchGrantRequest
@@ -16857,7 +16857,7 @@ export class IdentityDomainsClient {
    * @param PatchGroupRequest
    * @return PatchGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchGroup.ts.html |here} to see how to use PatchGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchGroup.ts.html |here} to see how to use PatchGroup API.
    */
   public async patchGroup(
     patchGroupRequest: requests.PatchGroupRequest
@@ -16943,7 +16943,7 @@ export class IdentityDomainsClient {
    * @param PatchIdentityPropagationTrustRequest
    * @return PatchIdentityPropagationTrustResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchIdentityPropagationTrust.ts.html |here} to see how to use PatchIdentityPropagationTrust API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchIdentityPropagationTrust.ts.html |here} to see how to use PatchIdentityPropagationTrust API.
    */
   public async patchIdentityPropagationTrust(
     patchIdentityPropagationTrustRequest: requests.PatchIdentityPropagationTrustRequest
@@ -17032,7 +17032,7 @@ export class IdentityDomainsClient {
    * @param PatchIdentityProviderRequest
    * @return PatchIdentityProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchIdentityProvider.ts.html |here} to see how to use PatchIdentityProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchIdentityProvider.ts.html |here} to see how to use PatchIdentityProvider API.
    */
   public async patchIdentityProvider(
     patchIdentityProviderRequest: requests.PatchIdentityProviderRequest
@@ -17119,7 +17119,7 @@ export class IdentityDomainsClient {
    * @param PatchIdentitySettingRequest
    * @return PatchIdentitySettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchIdentitySetting.ts.html |here} to see how to use PatchIdentitySetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchIdentitySetting.ts.html |here} to see how to use PatchIdentitySetting API.
    */
   public async patchIdentitySetting(
     patchIdentitySettingRequest: requests.PatchIdentitySettingRequest
@@ -17206,7 +17206,7 @@ export class IdentityDomainsClient {
    * @param PatchKmsiSettingRequest
    * @return PatchKmsiSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchKmsiSetting.ts.html |here} to see how to use PatchKmsiSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchKmsiSetting.ts.html |here} to see how to use PatchKmsiSetting API.
    */
   public async patchKmsiSetting(
     patchKmsiSettingRequest: requests.PatchKmsiSettingRequest
@@ -17292,7 +17292,7 @@ export class IdentityDomainsClient {
    * @param PatchMeRequest
    * @return PatchMeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMe.ts.html |here} to see how to use PatchMe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMe.ts.html |here} to see how to use PatchMe API.
    */
   public async patchMe(
     patchMeRequest: requests.PatchMeRequest
@@ -17376,7 +17376,7 @@ export class IdentityDomainsClient {
    * @param PatchMyApiKeyRequest
    * @return PatchMyApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyApiKey.ts.html |here} to see how to use PatchMyApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyApiKey.ts.html |here} to see how to use PatchMyApiKey API.
    */
   public async patchMyApiKey(
     patchMyApiKeyRequest: requests.PatchMyApiKeyRequest
@@ -17459,7 +17459,7 @@ export class IdentityDomainsClient {
    * @param PatchMyAuthTokenRequest
    * @return PatchMyAuthTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyAuthToken.ts.html |here} to see how to use PatchMyAuthToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyAuthToken.ts.html |here} to see how to use PatchMyAuthToken API.
    */
   public async patchMyAuthToken(
     patchMyAuthTokenRequest: requests.PatchMyAuthTokenRequest
@@ -17542,7 +17542,7 @@ export class IdentityDomainsClient {
    * @param PatchMyCustomerSecretKeyRequest
    * @return PatchMyCustomerSecretKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyCustomerSecretKey.ts.html |here} to see how to use PatchMyCustomerSecretKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyCustomerSecretKey.ts.html |here} to see how to use PatchMyCustomerSecretKey API.
    */
   public async patchMyCustomerSecretKey(
     patchMyCustomerSecretKeyRequest: requests.PatchMyCustomerSecretKeyRequest
@@ -17626,7 +17626,7 @@ export class IdentityDomainsClient {
    * @param PatchMyDeviceRequest
    * @return PatchMyDeviceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyDevice.ts.html |here} to see how to use PatchMyDevice API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyDevice.ts.html |here} to see how to use PatchMyDevice API.
    */
   public async patchMyDevice(
     patchMyDeviceRequest: requests.PatchMyDeviceRequest
@@ -17712,7 +17712,7 @@ export class IdentityDomainsClient {
    * @param PatchMyOAuth2ClientCredentialRequest
    * @return PatchMyOAuth2ClientCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyOAuth2ClientCredential.ts.html |here} to see how to use PatchMyOAuth2ClientCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyOAuth2ClientCredential.ts.html |here} to see how to use PatchMyOAuth2ClientCredential API.
    */
   public async patchMyOAuth2ClientCredential(
     patchMyOAuth2ClientCredentialRequest: requests.PatchMyOAuth2ClientCredentialRequest
@@ -17798,7 +17798,7 @@ export class IdentityDomainsClient {
    * @param PatchMyPendingApprovalRequest
    * @return PatchMyPendingApprovalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyPendingApproval.ts.html |here} to see how to use PatchMyPendingApproval API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyPendingApproval.ts.html |here} to see how to use PatchMyPendingApproval API.
    */
   public async patchMyPendingApproval(
     patchMyPendingApprovalRequest: requests.PatchMyPendingApprovalRequest
@@ -17882,7 +17882,7 @@ export class IdentityDomainsClient {
    * @param PatchMyRequestRequest
    * @return PatchMyRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyRequest.ts.html |here} to see how to use PatchMyRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMyRequest.ts.html |here} to see how to use PatchMyRequest API.
    */
   public async patchMyRequest(
     patchMyRequestRequest: requests.PatchMyRequestRequest
@@ -17968,7 +17968,7 @@ export class IdentityDomainsClient {
    * @param PatchMySmtpCredentialRequest
    * @return PatchMySmtpCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMySmtpCredential.ts.html |here} to see how to use PatchMySmtpCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMySmtpCredential.ts.html |here} to see how to use PatchMySmtpCredential API.
    */
   public async patchMySmtpCredential(
     patchMySmtpCredentialRequest: requests.PatchMySmtpCredentialRequest
@@ -18052,7 +18052,7 @@ export class IdentityDomainsClient {
    * @param PatchNetworkPerimeterRequest
    * @return PatchNetworkPerimeterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchNetworkPerimeter.ts.html |here} to see how to use PatchNetworkPerimeter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchNetworkPerimeter.ts.html |here} to see how to use PatchNetworkPerimeter API.
    */
   public async patchNetworkPerimeter(
     patchNetworkPerimeterRequest: requests.PatchNetworkPerimeterRequest
@@ -18139,7 +18139,7 @@ export class IdentityDomainsClient {
    * @param PatchOAuth2ClientCredentialRequest
    * @return PatchOAuth2ClientCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchOAuth2ClientCredential.ts.html |here} to see how to use PatchOAuth2ClientCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchOAuth2ClientCredential.ts.html |here} to see how to use PatchOAuth2ClientCredential API.
    */
   public async patchOAuth2ClientCredential(
     patchOAuth2ClientCredentialRequest: requests.PatchOAuth2ClientCredentialRequest
@@ -18226,7 +18226,7 @@ export class IdentityDomainsClient {
    * @param PatchPasswordPolicyRequest
    * @return PatchPasswordPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchPasswordPolicy.ts.html |here} to see how to use PatchPasswordPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchPasswordPolicy.ts.html |here} to see how to use PatchPasswordPolicy API.
    */
   public async patchPasswordPolicy(
     patchPasswordPolicyRequest: requests.PatchPasswordPolicyRequest
@@ -18313,7 +18313,7 @@ export class IdentityDomainsClient {
    * @param PatchPolicyRequest
    * @return PatchPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchPolicy.ts.html |here} to see how to use PatchPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchPolicy.ts.html |here} to see how to use PatchPolicy API.
    */
   public async patchPolicy(
     patchPolicyRequest: requests.PatchPolicyRequest
@@ -18399,7 +18399,7 @@ export class IdentityDomainsClient {
    * @param PatchRuleRequest
    * @return PatchRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchRule.ts.html |here} to see how to use PatchRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchRule.ts.html |here} to see how to use PatchRule API.
    */
   public async patchRule(
     patchRuleRequest: requests.PatchRuleRequest
@@ -18485,7 +18485,7 @@ export class IdentityDomainsClient {
    * @param PatchSchemaRequest
    * @return PatchSchemaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSchema.ts.html |here} to see how to use PatchSchema API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSchema.ts.html |here} to see how to use PatchSchema API.
    */
   public async patchSchema(
     patchSchemaRequest: requests.PatchSchemaRequest
@@ -18568,7 +18568,7 @@ export class IdentityDomainsClient {
    * @param PatchSecurityQuestionRequest
    * @return PatchSecurityQuestionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSecurityQuestion.ts.html |here} to see how to use PatchSecurityQuestion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSecurityQuestion.ts.html |here} to see how to use PatchSecurityQuestion API.
    */
   public async patchSecurityQuestion(
     patchSecurityQuestionRequest: requests.PatchSecurityQuestionRequest
@@ -18655,7 +18655,7 @@ export class IdentityDomainsClient {
    * @param PatchSecurityQuestionSettingRequest
    * @return PatchSecurityQuestionSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSecurityQuestionSetting.ts.html |here} to see how to use PatchSecurityQuestionSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSecurityQuestionSetting.ts.html |here} to see how to use PatchSecurityQuestionSetting API.
    */
   public async patchSecurityQuestionSetting(
     patchSecurityQuestionSettingRequest: requests.PatchSecurityQuestionSettingRequest
@@ -18742,7 +18742,7 @@ export class IdentityDomainsClient {
    * @param PatchSelfRegistrationProfileRequest
    * @return PatchSelfRegistrationProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSelfRegistrationProfile.ts.html |here} to see how to use PatchSelfRegistrationProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSelfRegistrationProfile.ts.html |here} to see how to use PatchSelfRegistrationProfile API.
    */
   public async patchSelfRegistrationProfile(
     patchSelfRegistrationProfileRequest: requests.PatchSelfRegistrationProfileRequest
@@ -18829,7 +18829,7 @@ export class IdentityDomainsClient {
    * @param PatchSettingRequest
    * @return PatchSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSetting.ts.html |here} to see how to use PatchSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSetting.ts.html |here} to see how to use PatchSetting API.
    */
   public async patchSetting(
     patchSettingRequest: requests.PatchSettingRequest
@@ -18915,7 +18915,7 @@ export class IdentityDomainsClient {
    * @param PatchSmtpCredentialRequest
    * @return PatchSmtpCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSmtpCredential.ts.html |here} to see how to use PatchSmtpCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSmtpCredential.ts.html |here} to see how to use PatchSmtpCredential API.
    */
   public async patchSmtpCredential(
     patchSmtpCredentialRequest: requests.PatchSmtpCredentialRequest
@@ -19002,7 +19002,7 @@ export class IdentityDomainsClient {
    * @param PatchSocialIdentityProviderRequest
    * @return PatchSocialIdentityProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSocialIdentityProvider.ts.html |here} to see how to use PatchSocialIdentityProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchSocialIdentityProvider.ts.html |here} to see how to use PatchSocialIdentityProvider API.
    */
   public async patchSocialIdentityProvider(
     patchSocialIdentityProviderRequest: requests.PatchSocialIdentityProviderRequest
@@ -19086,7 +19086,7 @@ export class IdentityDomainsClient {
    * @param PatchUserRequest
    * @return PatchUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchUser.ts.html |here} to see how to use PatchUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchUser.ts.html |here} to see how to use PatchUser API.
    */
   public async patchUser(
     patchUserRequest: requests.PatchUserRequest
@@ -19172,7 +19172,7 @@ export class IdentityDomainsClient {
    * @param PatchUserAttributesSettingRequest
    * @return PatchUserAttributesSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchUserAttributesSetting.ts.html |here} to see how to use PatchUserAttributesSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchUserAttributesSetting.ts.html |here} to see how to use PatchUserAttributesSetting API.
    */
   public async patchUserAttributesSetting(
     patchUserAttributesSettingRequest: requests.PatchUserAttributesSettingRequest
@@ -19259,7 +19259,7 @@ export class IdentityDomainsClient {
    * @param PutAccountRecoverySettingRequest
    * @return PutAccountRecoverySettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutAccountRecoverySetting.ts.html |here} to see how to use PutAccountRecoverySetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutAccountRecoverySetting.ts.html |here} to see how to use PutAccountRecoverySetting API.
    */
   public async putAccountRecoverySetting(
     putAccountRecoverySettingRequest: requests.PutAccountRecoverySettingRequest
@@ -19346,7 +19346,7 @@ export class IdentityDomainsClient {
    * @param PutAppRequest
    * @return PutAppResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutApp.ts.html |here} to see how to use PutApp API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutApp.ts.html |here} to see how to use PutApp API.
    */
   public async putApp(putAppRequest: requests.PutAppRequest): Promise<responses.PutAppResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putApp.");
@@ -19430,7 +19430,7 @@ export class IdentityDomainsClient {
    * @param PutAppStatusChangerRequest
    * @return PutAppStatusChangerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutAppStatusChanger.ts.html |here} to see how to use PutAppStatusChanger API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutAppStatusChanger.ts.html |here} to see how to use PutAppStatusChanger API.
    */
   public async putAppStatusChanger(
     putAppStatusChangerRequest: requests.PutAppStatusChangerRequest
@@ -19517,7 +19517,7 @@ export class IdentityDomainsClient {
    * @param PutApprovalWorkflowRequest
    * @return PutApprovalWorkflowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutApprovalWorkflow.ts.html |here} to see how to use PutApprovalWorkflow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutApprovalWorkflow.ts.html |here} to see how to use PutApprovalWorkflow API.
    */
   public async putApprovalWorkflow(
     putApprovalWorkflowRequest: requests.PutApprovalWorkflowRequest
@@ -19604,7 +19604,7 @@ export class IdentityDomainsClient {
    * @param PutAuthenticationFactorSettingRequest
    * @return PutAuthenticationFactorSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutAuthenticationFactorSetting.ts.html |here} to see how to use PutAuthenticationFactorSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutAuthenticationFactorSetting.ts.html |here} to see how to use PutAuthenticationFactorSetting API.
    */
   public async putAuthenticationFactorSetting(
     putAuthenticationFactorSettingRequest: requests.PutAuthenticationFactorSettingRequest
@@ -19693,7 +19693,7 @@ export class IdentityDomainsClient {
    * @param PutCloudGateRequest
    * @return PutCloudGateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCloudGate.ts.html |here} to see how to use PutCloudGate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCloudGate.ts.html |here} to see how to use PutCloudGate API.
    */
   public async putCloudGate(
     putCloudGateRequest: requests.PutCloudGateRequest
@@ -19779,7 +19779,7 @@ export class IdentityDomainsClient {
    * @param PutCloudGateMappingRequest
    * @return PutCloudGateMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCloudGateMapping.ts.html |here} to see how to use PutCloudGateMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCloudGateMapping.ts.html |here} to see how to use PutCloudGateMapping API.
    */
   public async putCloudGateMapping(
     putCloudGateMappingRequest: requests.PutCloudGateMappingRequest
@@ -19866,7 +19866,7 @@ export class IdentityDomainsClient {
    * @param PutCloudGateServerRequest
    * @return PutCloudGateServerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCloudGateServer.ts.html |here} to see how to use PutCloudGateServer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCloudGateServer.ts.html |here} to see how to use PutCloudGateServer API.
    */
   public async putCloudGateServer(
     putCloudGateServerRequest: requests.PutCloudGateServerRequest
@@ -19953,7 +19953,7 @@ export class IdentityDomainsClient {
    * @param PutConditionRequest
    * @return PutConditionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCondition.ts.html |here} to see how to use PutCondition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutCondition.ts.html |here} to see how to use PutCondition API.
    */
   public async putCondition(
     putConditionRequest: requests.PutConditionRequest
@@ -20039,7 +20039,7 @@ export class IdentityDomainsClient {
    * @param PutDynamicResourceGroupRequest
    * @return PutDynamicResourceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutDynamicResourceGroup.ts.html |here} to see how to use PutDynamicResourceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutDynamicResourceGroup.ts.html |here} to see how to use PutDynamicResourceGroup API.
    */
   public async putDynamicResourceGroup(
     putDynamicResourceGroupRequest: requests.PutDynamicResourceGroupRequest
@@ -20126,7 +20126,7 @@ export class IdentityDomainsClient {
    * @param PutGroupRequest
    * @return PutGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutGroup.ts.html |here} to see how to use PutGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutGroup.ts.html |here} to see how to use PutGroup API.
    */
   public async putGroup(
     putGroupRequest: requests.PutGroupRequest
@@ -20212,7 +20212,7 @@ export class IdentityDomainsClient {
    * @param PutIdentityPropagationTrustRequest
    * @return PutIdentityPropagationTrustResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutIdentityPropagationTrust.ts.html |here} to see how to use PutIdentityPropagationTrust API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutIdentityPropagationTrust.ts.html |here} to see how to use PutIdentityPropagationTrust API.
    */
   public async putIdentityPropagationTrust(
     putIdentityPropagationTrustRequest: requests.PutIdentityPropagationTrustRequest
@@ -20299,7 +20299,7 @@ export class IdentityDomainsClient {
    * @param PutIdentityProviderRequest
    * @return PutIdentityProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutIdentityProvider.ts.html |here} to see how to use PutIdentityProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutIdentityProvider.ts.html |here} to see how to use PutIdentityProvider API.
    */
   public async putIdentityProvider(
     putIdentityProviderRequest: requests.PutIdentityProviderRequest
@@ -20386,7 +20386,7 @@ export class IdentityDomainsClient {
    * @param PutIdentitySettingRequest
    * @return PutIdentitySettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutIdentitySetting.ts.html |here} to see how to use PutIdentitySetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutIdentitySetting.ts.html |here} to see how to use PutIdentitySetting API.
    */
   public async putIdentitySetting(
     putIdentitySettingRequest: requests.PutIdentitySettingRequest
@@ -20473,7 +20473,7 @@ export class IdentityDomainsClient {
    * @param PutKmsiSettingRequest
    * @return PutKmsiSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutKmsiSetting.ts.html |here} to see how to use PutKmsiSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutKmsiSetting.ts.html |here} to see how to use PutKmsiSetting API.
    */
   public async putKmsiSetting(
     putKmsiSettingRequest: requests.PutKmsiSettingRequest
@@ -20559,7 +20559,7 @@ export class IdentityDomainsClient {
    * @param PutMeRequest
    * @return PutMeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutMe.ts.html |here} to see how to use PutMe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutMe.ts.html |here} to see how to use PutMe API.
    */
   public async putMe(putMeRequest: requests.PutMeRequest): Promise<responses.PutMeResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityDomainsClient#putMe.");
@@ -20637,7 +20637,7 @@ export class IdentityDomainsClient {
    * @param PutMePasswordChangerRequest
    * @return PutMePasswordChangerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutMePasswordChanger.ts.html |here} to see how to use PutMePasswordChanger API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutMePasswordChanger.ts.html |here} to see how to use PutMePasswordChanger API.
    */
   public async putMePasswordChanger(
     putMePasswordChangerRequest: requests.PutMePasswordChangerRequest
@@ -20719,7 +20719,7 @@ export class IdentityDomainsClient {
    * @param PutNetworkPerimeterRequest
    * @return PutNetworkPerimeterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutNetworkPerimeter.ts.html |here} to see how to use PutNetworkPerimeter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutNetworkPerimeter.ts.html |here} to see how to use PutNetworkPerimeter API.
    */
   public async putNetworkPerimeter(
     putNetworkPerimeterRequest: requests.PutNetworkPerimeterRequest
@@ -20806,7 +20806,7 @@ export class IdentityDomainsClient {
    * @param PutNotificationSettingRequest
    * @return PutNotificationSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutNotificationSetting.ts.html |here} to see how to use PutNotificationSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutNotificationSetting.ts.html |here} to see how to use PutNotificationSetting API.
    */
   public async putNotificationSetting(
     putNotificationSettingRequest: requests.PutNotificationSettingRequest
@@ -20893,7 +20893,7 @@ export class IdentityDomainsClient {
    * @param PutPasswordPolicyRequest
    * @return PutPasswordPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutPasswordPolicy.ts.html |here} to see how to use PutPasswordPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutPasswordPolicy.ts.html |here} to see how to use PutPasswordPolicy API.
    */
   public async putPasswordPolicy(
     putPasswordPolicyRequest: requests.PutPasswordPolicyRequest
@@ -20980,7 +20980,7 @@ export class IdentityDomainsClient {
    * @param PutPolicyRequest
    * @return PutPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutPolicy.ts.html |here} to see how to use PutPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutPolicy.ts.html |here} to see how to use PutPolicy API.
    */
   public async putPolicy(
     putPolicyRequest: requests.PutPolicyRequest
@@ -21066,7 +21066,7 @@ export class IdentityDomainsClient {
    * @param PutRuleRequest
    * @return PutRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutRule.ts.html |here} to see how to use PutRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutRule.ts.html |here} to see how to use PutRule API.
    */
   public async putRule(
     putRuleRequest: requests.PutRuleRequest
@@ -21152,7 +21152,7 @@ export class IdentityDomainsClient {
    * @param PutSchemaRequest
    * @return PutSchemaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSchema.ts.html |here} to see how to use PutSchema API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSchema.ts.html |here} to see how to use PutSchema API.
    */
   public async putSchema(
     putSchemaRequest: requests.PutSchemaRequest
@@ -21235,7 +21235,7 @@ export class IdentityDomainsClient {
    * @param PutSecurityQuestionSettingRequest
    * @return PutSecurityQuestionSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSecurityQuestionSetting.ts.html |here} to see how to use PutSecurityQuestionSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSecurityQuestionSetting.ts.html |here} to see how to use PutSecurityQuestionSetting API.
    */
   public async putSecurityQuestionSetting(
     putSecurityQuestionSettingRequest: requests.PutSecurityQuestionSettingRequest
@@ -21322,7 +21322,7 @@ export class IdentityDomainsClient {
    * @param PutSelfRegistrationProfileRequest
    * @return PutSelfRegistrationProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSelfRegistrationProfile.ts.html |here} to see how to use PutSelfRegistrationProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSelfRegistrationProfile.ts.html |here} to see how to use PutSelfRegistrationProfile API.
    */
   public async putSelfRegistrationProfile(
     putSelfRegistrationProfileRequest: requests.PutSelfRegistrationProfileRequest
@@ -21409,7 +21409,7 @@ export class IdentityDomainsClient {
    * @param PutSettingRequest
    * @return PutSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSetting.ts.html |here} to see how to use PutSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSetting.ts.html |here} to see how to use PutSetting API.
    */
   public async putSetting(
     putSettingRequest: requests.PutSettingRequest
@@ -21495,7 +21495,7 @@ export class IdentityDomainsClient {
    * @param PutSocialIdentityProviderRequest
    * @return PutSocialIdentityProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSocialIdentityProvider.ts.html |here} to see how to use PutSocialIdentityProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSocialIdentityProvider.ts.html |here} to see how to use PutSocialIdentityProvider API.
    */
   public async putSocialIdentityProvider(
     putSocialIdentityProviderRequest: requests.PutSocialIdentityProviderRequest
@@ -21579,7 +21579,7 @@ export class IdentityDomainsClient {
    * @param PutUserRequest
    * @return PutUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutUser.ts.html |here} to see how to use PutUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutUser.ts.html |here} to see how to use PutUser API.
    */
   public async putUser(
     putUserRequest: requests.PutUserRequest
@@ -21665,7 +21665,7 @@ export class IdentityDomainsClient {
    * @param PutUserCapabilitiesChangerRequest
    * @return PutUserCapabilitiesChangerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutUserCapabilitiesChanger.ts.html |here} to see how to use PutUserCapabilitiesChanger API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutUserCapabilitiesChanger.ts.html |here} to see how to use PutUserCapabilitiesChanger API.
    */
   public async putUserCapabilitiesChanger(
     putUserCapabilitiesChangerRequest: requests.PutUserCapabilitiesChangerRequest
@@ -21749,7 +21749,7 @@ export class IdentityDomainsClient {
    * @param PutUserPasswordChangerRequest
    * @return PutUserPasswordChangerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutUserPasswordChanger.ts.html |here} to see how to use PutUserPasswordChanger API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutUserPasswordChanger.ts.html |here} to see how to use PutUserPasswordChanger API.
    */
   public async putUserPasswordChanger(
     putUserPasswordChangerRequest: requests.PutUserPasswordChangerRequest
@@ -21833,7 +21833,7 @@ export class IdentityDomainsClient {
    * @param PutUserPasswordResetterRequest
    * @return PutUserPasswordResetterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutUserPasswordResetter.ts.html |here} to see how to use PutUserPasswordResetter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutUserPasswordResetter.ts.html |here} to see how to use PutUserPasswordResetter API.
    */
   public async putUserPasswordResetter(
     putUserPasswordResetterRequest: requests.PutUserPasswordResetterRequest
@@ -21917,7 +21917,7 @@ export class IdentityDomainsClient {
    * @param PutUserStatusChangerRequest
    * @return PutUserStatusChangerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutUserStatusChanger.ts.html |here} to see how to use PutUserStatusChanger API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutUserStatusChanger.ts.html |here} to see how to use PutUserStatusChanger API.
    */
   public async putUserStatusChanger(
     putUserStatusChangerRequest: requests.PutUserStatusChangerRequest
@@ -22004,7 +22004,7 @@ export class IdentityDomainsClient {
    * @param SearchAccountMgmtInfosRequest
    * @return SearchAccountMgmtInfosResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchAccountMgmtInfos.ts.html |here} to see how to use SearchAccountMgmtInfos API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchAccountMgmtInfos.ts.html |here} to see how to use SearchAccountMgmtInfos API.
    */
   public async searchAccountMgmtInfos(
     searchAccountMgmtInfosRequest: requests.SearchAccountMgmtInfosRequest
@@ -22088,7 +22088,7 @@ export class IdentityDomainsClient {
    * @param SearchApiKeysRequest
    * @return SearchApiKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchApiKeys.ts.html |here} to see how to use SearchApiKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchApiKeys.ts.html |here} to see how to use SearchApiKeys API.
    */
   public async searchApiKeys(
     searchApiKeysRequest: requests.SearchApiKeysRequest
@@ -22171,7 +22171,7 @@ export class IdentityDomainsClient {
    * @param SearchAppRolesRequest
    * @return SearchAppRolesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchAppRoles.ts.html |here} to see how to use SearchAppRoles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchAppRoles.ts.html |here} to see how to use SearchAppRoles API.
    */
   public async searchAppRoles(
     searchAppRolesRequest: requests.SearchAppRolesRequest
@@ -22254,7 +22254,7 @@ export class IdentityDomainsClient {
    * @param SearchAppsRequest
    * @return SearchAppsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchApps.ts.html |here} to see how to use SearchApps API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchApps.ts.html |here} to see how to use SearchApps API.
    */
   public async searchApps(
     searchAppsRequest: requests.SearchAppsRequest
@@ -22337,7 +22337,7 @@ export class IdentityDomainsClient {
    * @param SearchAuthTokensRequest
    * @return SearchAuthTokensResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchAuthTokens.ts.html |here} to see how to use SearchAuthTokens API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchAuthTokens.ts.html |here} to see how to use SearchAuthTokens API.
    */
   public async searchAuthTokens(
     searchAuthTokensRequest: requests.SearchAuthTokensRequest
@@ -22420,7 +22420,7 @@ export class IdentityDomainsClient {
    * @param SearchAuthenticationFactorSettingsRequest
    * @return SearchAuthenticationFactorSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchAuthenticationFactorSettings.ts.html |here} to see how to use SearchAuthenticationFactorSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchAuthenticationFactorSettings.ts.html |here} to see how to use SearchAuthenticationFactorSettings API.
    */
   public async searchAuthenticationFactorSettings(
     searchAuthenticationFactorSettingsRequest: requests.SearchAuthenticationFactorSettingsRequest
@@ -22507,7 +22507,7 @@ export class IdentityDomainsClient {
    * @param SearchCloudGateMappingsRequest
    * @return SearchCloudGateMappingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCloudGateMappings.ts.html |here} to see how to use SearchCloudGateMappings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCloudGateMappings.ts.html |here} to see how to use SearchCloudGateMappings API.
    */
   public async searchCloudGateMappings(
     searchCloudGateMappingsRequest: requests.SearchCloudGateMappingsRequest
@@ -22591,7 +22591,7 @@ export class IdentityDomainsClient {
    * @param SearchCloudGateServersRequest
    * @return SearchCloudGateServersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCloudGateServers.ts.html |here} to see how to use SearchCloudGateServers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCloudGateServers.ts.html |here} to see how to use SearchCloudGateServers API.
    */
   public async searchCloudGateServers(
     searchCloudGateServersRequest: requests.SearchCloudGateServersRequest
@@ -22675,7 +22675,7 @@ export class IdentityDomainsClient {
    * @param SearchCloudGatesRequest
    * @return SearchCloudGatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCloudGates.ts.html |here} to see how to use SearchCloudGates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCloudGates.ts.html |here} to see how to use SearchCloudGates API.
    */
   public async searchCloudGates(
     searchCloudGatesRequest: requests.SearchCloudGatesRequest
@@ -22758,7 +22758,7 @@ export class IdentityDomainsClient {
    * @param SearchConditionsRequest
    * @return SearchConditionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchConditions.ts.html |here} to see how to use SearchConditions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchConditions.ts.html |here} to see how to use SearchConditions API.
    */
   public async searchConditions(
     searchConditionsRequest: requests.SearchConditionsRequest
@@ -22841,7 +22841,7 @@ export class IdentityDomainsClient {
    * @param SearchCustomerSecretKeysRequest
    * @return SearchCustomerSecretKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCustomerSecretKeys.ts.html |here} to see how to use SearchCustomerSecretKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchCustomerSecretKeys.ts.html |here} to see how to use SearchCustomerSecretKeys API.
    */
   public async searchCustomerSecretKeys(
     searchCustomerSecretKeysRequest: requests.SearchCustomerSecretKeysRequest
@@ -22925,7 +22925,7 @@ export class IdentityDomainsClient {
    * @param SearchDynamicResourceGroupsRequest
    * @return SearchDynamicResourceGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchDynamicResourceGroups.ts.html |here} to see how to use SearchDynamicResourceGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchDynamicResourceGroups.ts.html |here} to see how to use SearchDynamicResourceGroups API.
    */
   public async searchDynamicResourceGroups(
     searchDynamicResourceGroupsRequest: requests.SearchDynamicResourceGroupsRequest
@@ -23009,7 +23009,7 @@ export class IdentityDomainsClient {
    * @param SearchGrantsRequest
    * @return SearchGrantsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchGrants.ts.html |here} to see how to use SearchGrants API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchGrants.ts.html |here} to see how to use SearchGrants API.
    */
   public async searchGrants(
     searchGrantsRequest: requests.SearchGrantsRequest
@@ -23092,7 +23092,7 @@ export class IdentityDomainsClient {
    * @param SearchGroupsRequest
    * @return SearchGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchGroups.ts.html |here} to see how to use SearchGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchGroups.ts.html |here} to see how to use SearchGroups API.
    */
   public async searchGroups(
     searchGroupsRequest: requests.SearchGroupsRequest
@@ -23175,7 +23175,7 @@ export class IdentityDomainsClient {
    * @param SearchIdentityProvidersRequest
    * @return SearchIdentityProvidersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchIdentityProviders.ts.html |here} to see how to use SearchIdentityProviders API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchIdentityProviders.ts.html |here} to see how to use SearchIdentityProviders API.
    */
   public async searchIdentityProviders(
     searchIdentityProvidersRequest: requests.SearchIdentityProvidersRequest
@@ -23259,7 +23259,7 @@ export class IdentityDomainsClient {
    * @param SearchIdentitySettingsRequest
    * @return SearchIdentitySettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchIdentitySettings.ts.html |here} to see how to use SearchIdentitySettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchIdentitySettings.ts.html |here} to see how to use SearchIdentitySettings API.
    */
   public async searchIdentitySettings(
     searchIdentitySettingsRequest: requests.SearchIdentitySettingsRequest
@@ -23343,7 +23343,7 @@ export class IdentityDomainsClient {
    * @param SearchKmsiSettingsRequest
    * @return SearchKmsiSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchKmsiSettings.ts.html |here} to see how to use SearchKmsiSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchKmsiSettings.ts.html |here} to see how to use SearchKmsiSettings API.
    */
   public async searchKmsiSettings(
     searchKmsiSettingsRequest: requests.SearchKmsiSettingsRequest
@@ -23427,7 +23427,7 @@ export class IdentityDomainsClient {
    * @param SearchMyAppsRequest
    * @return SearchMyAppsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchMyApps.ts.html |here} to see how to use SearchMyApps API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchMyApps.ts.html |here} to see how to use SearchMyApps API.
    */
   public async searchMyApps(
     searchMyAppsRequest: requests.SearchMyAppsRequest
@@ -23510,7 +23510,7 @@ export class IdentityDomainsClient {
    * @param SearchMyGroupsRequest
    * @return SearchMyGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchMyGroups.ts.html |here} to see how to use SearchMyGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchMyGroups.ts.html |here} to see how to use SearchMyGroups API.
    */
   public async searchMyGroups(
     searchMyGroupsRequest: requests.SearchMyGroupsRequest
@@ -23593,7 +23593,7 @@ export class IdentityDomainsClient {
    * @param SearchMyRequestableGroupsRequest
    * @return SearchMyRequestableGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchMyRequestableGroups.ts.html |here} to see how to use SearchMyRequestableGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchMyRequestableGroups.ts.html |here} to see how to use SearchMyRequestableGroups API.
    */
   public async searchMyRequestableGroups(
     searchMyRequestableGroupsRequest: requests.SearchMyRequestableGroupsRequest
@@ -23677,7 +23677,7 @@ export class IdentityDomainsClient {
    * @param SearchMyRequestsRequest
    * @return SearchMyRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchMyRequests.ts.html |here} to see how to use SearchMyRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchMyRequests.ts.html |here} to see how to use SearchMyRequests API.
    */
   public async searchMyRequests(
     searchMyRequestsRequest: requests.SearchMyRequestsRequest
@@ -23760,7 +23760,7 @@ export class IdentityDomainsClient {
    * @param SearchNetworkPerimetersRequest
    * @return SearchNetworkPerimetersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchNetworkPerimeters.ts.html |here} to see how to use SearchNetworkPerimeters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchNetworkPerimeters.ts.html |here} to see how to use SearchNetworkPerimeters API.
    */
   public async searchNetworkPerimeters(
     searchNetworkPerimetersRequest: requests.SearchNetworkPerimetersRequest
@@ -23844,7 +23844,7 @@ export class IdentityDomainsClient {
    * @param SearchNotificationSettingsRequest
    * @return SearchNotificationSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchNotificationSettings.ts.html |here} to see how to use SearchNotificationSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchNotificationSettings.ts.html |here} to see how to use SearchNotificationSettings API.
    */
   public async searchNotificationSettings(
     searchNotificationSettingsRequest: requests.SearchNotificationSettingsRequest
@@ -23928,7 +23928,7 @@ export class IdentityDomainsClient {
    * @param SearchOAuth2ClientCredentialsRequest
    * @return SearchOAuth2ClientCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOAuth2ClientCredentials.ts.html |here} to see how to use SearchOAuth2ClientCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOAuth2ClientCredentials.ts.html |here} to see how to use SearchOAuth2ClientCredentials API.
    */
   public async searchOAuth2ClientCredentials(
     searchOAuth2ClientCredentialsRequest: requests.SearchOAuth2ClientCredentialsRequest
@@ -24013,7 +24013,7 @@ export class IdentityDomainsClient {
    * @param SearchOAuthClientCertificatesRequest
    * @return SearchOAuthClientCertificatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOAuthClientCertificates.ts.html |here} to see how to use SearchOAuthClientCertificates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOAuthClientCertificates.ts.html |here} to see how to use SearchOAuthClientCertificates API.
    */
   public async searchOAuthClientCertificates(
     searchOAuthClientCertificatesRequest: requests.SearchOAuthClientCertificatesRequest
@@ -24098,7 +24098,7 @@ export class IdentityDomainsClient {
    * @param SearchOAuthPartnerCertificatesRequest
    * @return SearchOAuthPartnerCertificatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOAuthPartnerCertificates.ts.html |here} to see how to use SearchOAuthPartnerCertificates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOAuthPartnerCertificates.ts.html |here} to see how to use SearchOAuthPartnerCertificates API.
    */
   public async searchOAuthPartnerCertificates(
     searchOAuthPartnerCertificatesRequest: requests.SearchOAuthPartnerCertificatesRequest
@@ -24183,7 +24183,7 @@ export class IdentityDomainsClient {
    * @param SearchOciConsoleSignOnPolicyConsentsRequest
    * @return SearchOciConsoleSignOnPolicyConsentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOciConsoleSignOnPolicyConsents.ts.html |here} to see how to use SearchOciConsoleSignOnPolicyConsents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOciConsoleSignOnPolicyConsents.ts.html |here} to see how to use SearchOciConsoleSignOnPolicyConsents API.
    */
   public async searchOciConsoleSignOnPolicyConsents(
     searchOciConsoleSignOnPolicyConsentsRequest: requests.SearchOciConsoleSignOnPolicyConsentsRequest
@@ -24270,7 +24270,7 @@ export class IdentityDomainsClient {
    * @param SearchPasswordPoliciesRequest
    * @return SearchPasswordPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchPasswordPolicies.ts.html |here} to see how to use SearchPasswordPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchPasswordPolicies.ts.html |here} to see how to use SearchPasswordPolicies API.
    */
   public async searchPasswordPolicies(
     searchPasswordPoliciesRequest: requests.SearchPasswordPoliciesRequest
@@ -24354,7 +24354,7 @@ export class IdentityDomainsClient {
    * @param SearchPoliciesRequest
    * @return SearchPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchPolicies.ts.html |here} to see how to use SearchPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchPolicies.ts.html |here} to see how to use SearchPolicies API.
    */
   public async searchPolicies(
     searchPoliciesRequest: requests.SearchPoliciesRequest
@@ -24437,7 +24437,7 @@ export class IdentityDomainsClient {
    * @param SearchResourceTypeSchemaAttributesRequest
    * @return SearchResourceTypeSchemaAttributesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchResourceTypeSchemaAttributes.ts.html |here} to see how to use SearchResourceTypeSchemaAttributes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchResourceTypeSchemaAttributes.ts.html |here} to see how to use SearchResourceTypeSchemaAttributes API.
    */
   public async searchResourceTypeSchemaAttributes(
     searchResourceTypeSchemaAttributesRequest: requests.SearchResourceTypeSchemaAttributesRequest
@@ -24524,7 +24524,7 @@ export class IdentityDomainsClient {
    * @param SearchRulesRequest
    * @return SearchRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchRules.ts.html |here} to see how to use SearchRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchRules.ts.html |here} to see how to use SearchRules API.
    */
   public async searchRules(
     searchRulesRequest: requests.SearchRulesRequest
@@ -24607,7 +24607,7 @@ export class IdentityDomainsClient {
    * @param SearchSchemasRequest
    * @return SearchSchemasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSchemas.ts.html |here} to see how to use SearchSchemas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSchemas.ts.html |here} to see how to use SearchSchemas API.
    */
   public async searchSchemas(
     searchSchemasRequest: requests.SearchSchemasRequest
@@ -24690,7 +24690,7 @@ export class IdentityDomainsClient {
    * @param SearchSecurityQuestionSettingsRequest
    * @return SearchSecurityQuestionSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSecurityQuestionSettings.ts.html |here} to see how to use SearchSecurityQuestionSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSecurityQuestionSettings.ts.html |here} to see how to use SearchSecurityQuestionSettings API.
    */
   public async searchSecurityQuestionSettings(
     searchSecurityQuestionSettingsRequest: requests.SearchSecurityQuestionSettingsRequest
@@ -24775,7 +24775,7 @@ export class IdentityDomainsClient {
    * @param SearchSecurityQuestionsRequest
    * @return SearchSecurityQuestionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSecurityQuestions.ts.html |here} to see how to use SearchSecurityQuestions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSecurityQuestions.ts.html |here} to see how to use SearchSecurityQuestions API.
    */
   public async searchSecurityQuestions(
     searchSecurityQuestionsRequest: requests.SearchSecurityQuestionsRequest
@@ -24859,7 +24859,7 @@ export class IdentityDomainsClient {
    * @param SearchSelfRegistrationProfilesRequest
    * @return SearchSelfRegistrationProfilesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSelfRegistrationProfiles.ts.html |here} to see how to use SearchSelfRegistrationProfiles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSelfRegistrationProfiles.ts.html |here} to see how to use SearchSelfRegistrationProfiles API.
    */
   public async searchSelfRegistrationProfiles(
     searchSelfRegistrationProfilesRequest: requests.SearchSelfRegistrationProfilesRequest
@@ -24944,7 +24944,7 @@ export class IdentityDomainsClient {
    * @param SearchSettingsRequest
    * @return SearchSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSettings.ts.html |here} to see how to use SearchSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSettings.ts.html |here} to see how to use SearchSettings API.
    */
   public async searchSettings(
     searchSettingsRequest: requests.SearchSettingsRequest
@@ -25027,7 +25027,7 @@ export class IdentityDomainsClient {
    * @param SearchSmtpCredentialsRequest
    * @return SearchSmtpCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSmtpCredentials.ts.html |here} to see how to use SearchSmtpCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSmtpCredentials.ts.html |here} to see how to use SearchSmtpCredentials API.
    */
   public async searchSmtpCredentials(
     searchSmtpCredentialsRequest: requests.SearchSmtpCredentialsRequest
@@ -25111,7 +25111,7 @@ export class IdentityDomainsClient {
    * @param SearchSocialIdentityProvidersRequest
    * @return SearchSocialIdentityProvidersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSocialIdentityProviders.ts.html |here} to see how to use SearchSocialIdentityProviders API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchSocialIdentityProviders.ts.html |here} to see how to use SearchSocialIdentityProviders API.
    */
   public async searchSocialIdentityProviders(
     searchSocialIdentityProvidersRequest: requests.SearchSocialIdentityProvidersRequest
@@ -25196,7 +25196,7 @@ export class IdentityDomainsClient {
    * @param SearchUserAttributesSettingsRequest
    * @return SearchUserAttributesSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchUserAttributesSettings.ts.html |here} to see how to use SearchUserAttributesSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchUserAttributesSettings.ts.html |here} to see how to use SearchUserAttributesSettings API.
    */
   public async searchUserAttributesSettings(
     searchUserAttributesSettingsRequest: requests.SearchUserAttributesSettingsRequest
@@ -25280,7 +25280,7 @@ export class IdentityDomainsClient {
    * @param SearchUserDbCredentialsRequest
    * @return SearchUserDbCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchUserDbCredentials.ts.html |here} to see how to use SearchUserDbCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchUserDbCredentials.ts.html |here} to see how to use SearchUserDbCredentials API.
    */
   public async searchUserDbCredentials(
     searchUserDbCredentialsRequest: requests.SearchUserDbCredentialsRequest
@@ -25364,7 +25364,7 @@ export class IdentityDomainsClient {
    * @param SearchUsersRequest
    * @return SearchUsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchUsers.ts.html |here} to see how to use SearchUsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchUsers.ts.html |here} to see how to use SearchUsers API.
    */
   public async searchUsers(
     searchUsersRequest: requests.SearchUsersRequest

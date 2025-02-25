@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/DeletePeer.ts.html |here} to see how to use DeletePeerRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/DeletePeer.ts.html |here} to see how to use DeletePeerRequest.
  */
 export interface DeletePeerRequest extends common.BaseRequest {
   /**

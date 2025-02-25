@@ -38,11 +38,11 @@ export interface CreateEndpointDetails {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) compartment identifier for the endpoint
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) compartment identifier for the endpoint
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the model to associate with the endpoint.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the model to associate with the endpoint.
    */
   "modelId": string;
   /**

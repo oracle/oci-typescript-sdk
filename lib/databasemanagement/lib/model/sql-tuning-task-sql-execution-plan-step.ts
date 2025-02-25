@@ -2,7 +2,7 @@
  * Database Management API
  * Use the Database Management API to monitor and manage resources such as
 Oracle Databases, MySQL Databases, and External Database Systems. 
-For more information, see [Database Management](/iaas/database-management/home.htm).
+For more information, see [Database Management](https://docs.oracle.com/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -27,13 +27,13 @@ export interface SqlTuningTaskSqlExecutionPlanStep {
   "planHashValue"?: number;
   /**
    * The identification number of a step in the SQL execution plan. This is unique within the SQL execution plan.
-   * This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * This is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "stepId"?: number;
   /**
    * The ID of the next step that operates on the results of this step.
-   * This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * This is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "parentStepId"?: number;

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflow.ts.html |here} to see how to use DeleteApprovalWorkflowRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteApprovalWorkflow.ts.html |here} to see how to use DeleteApprovalWorkflowRequest.
  */
 export interface DeleteApprovalWorkflowRequest extends common.BaseRequest {
   /**

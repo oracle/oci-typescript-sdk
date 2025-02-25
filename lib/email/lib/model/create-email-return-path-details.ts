@@ -1,7 +1,7 @@
 /**
  * Email Delivery API
  * Use the Email Delivery API to do the necessary set up to send high-volume and application-generated emails through the OCI Email Delivery service.
-For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
+For more information, see [Overview of the Email Delivery Service](https://docs.oracle.com/iaas/Content/Email/Concepts/overview.htm).
 
  **Note:** Write actions (POST, UPDATE, DELETE) may take several minutes to propagate and be reflected by the API.
  If a subsequent read request fails to reflect your changes, wait a few minutes and try again.
@@ -39,7 +39,7 @@ export interface CreateEmailReturnPathDetails {
    */
   "name"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the EmailDomain for this email return path.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the EmailDomain for this email return path.
    *
    */
   "parentResourceId": string;
@@ -51,7 +51,7 @@ export interface CreateEmailReturnPathDetails {
   "description"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -59,7 +59,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

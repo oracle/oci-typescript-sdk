@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateWorkspace.ts.html |here} to see how to use CreateWorkspaceRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateWorkspace.ts.html |here} to see how to use CreateWorkspaceRequest.
  */
 export interface CreateWorkspaceRequest extends common.BaseRequest {
   /**

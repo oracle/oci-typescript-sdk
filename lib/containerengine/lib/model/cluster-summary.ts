@@ -2,7 +2,7 @@
  * Kubernetes Engine API
  * API for the Kubernetes Engine service (also known as the Container Engine for Kubernetes service). Use this API to build, deploy,
 and manage cloud-native applications. For more information, see
-[Overview of Kubernetes Engine](/iaas/Content/ContEng/Concepts/contengoverview.htm).
+[Overview of Kubernetes Engine](https://docs.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm).
 
  * OpenAPI spec version: 20180222
  * 
@@ -48,14 +48,14 @@ export interface ClusterSummary {
   "kubernetesVersion"?: string;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -75,7 +75,7 @@ export interface ClusterSummary {
    */
   "metadata"?: model.ClusterMetadata;
   /**
-   * The state of the cluster masters. For more information, see [Monitoring Clusters](https://docs.cloud.oracle.com/Content/ContEng/Tasks/contengmonitoringclusters.htm)
+   * The state of the cluster masters. For more information, see [Monitoring Clusters](https://docs.oracle.com/iaas/Content/ContEng/Tasks/contengmonitoringclusters.htm)
    */
   "lifecycleState"?: model.ClusterLifecycleState;
   /**
@@ -100,7 +100,7 @@ export interface ClusterSummary {
    */
   "clusterPodNetworkOptions"?: Array<model.ClusterPodNetworkOptionDetails>;
   /**
-   * Type of cluster. Values can be BASIC_CLUSTER or ENHANCED_CLUSTER. For more information, see [Cluster Types](https://docs.cloud.oracle.com/Content/ContEng/Tasks/contengcomparingenhancedwithbasicclusters_topic.htm)
+   * Type of cluster. Values can be BASIC_CLUSTER or ENHANCED_CLUSTER. For more information, see [Cluster Types](https://docs.oracle.com/iaas/Content/ContEng/Tasks/contengcomparingenhancedwithbasicclusters_topic.htm)
    */
   "type"?: model.ClusterType;
 }

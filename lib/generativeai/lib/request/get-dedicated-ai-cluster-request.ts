@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetDedicatedAiCluster.ts.html |here} to see how to use GetDedicatedAiClusterRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetDedicatedAiCluster.ts.html |here} to see how to use GetDedicatedAiClusterRequest.
  */
 export interface GetDedicatedAiClusterRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dedicated AI cluster.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dedicated AI cluster.
    */
   "dedicatedAiClusterId": string;
   /**

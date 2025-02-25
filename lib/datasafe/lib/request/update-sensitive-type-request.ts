@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveType.ts.html |here} to see how to use UpdateSensitiveTypeRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveType.ts.html |here} to see how to use UpdateSensitiveTypeRequest.
  */
 export interface UpdateSensitiveTypeRequest extends common.BaseRequest {
   /**

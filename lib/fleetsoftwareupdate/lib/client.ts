@@ -247,7 +247,7 @@ export class FleetSoftwareUpdateClient {
    * @param AbortFsuDiscoveryRequest
    * @return AbortFsuDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/AbortFsuDiscovery.ts.html |here} to see how to use AbortFsuDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/AbortFsuDiscovery.ts.html |here} to see how to use AbortFsuDiscovery API.
    */
   public async abortFsuDiscovery(
     abortFsuDiscoveryRequest: requests.AbortFsuDiscoveryRequest
@@ -320,7 +320,7 @@ export class FleetSoftwareUpdateClient {
    * @param AddFsuCollectionTargetsRequest
    * @return AddFsuCollectionTargetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/AddFsuCollectionTargets.ts.html |here} to see how to use AddFsuCollectionTargets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/AddFsuCollectionTargets.ts.html |here} to see how to use AddFsuCollectionTargets API.
    */
   public async addFsuCollectionTargets(
     addFsuCollectionTargetsRequest: requests.AddFsuCollectionTargetsRequest
@@ -400,7 +400,7 @@ export class FleetSoftwareUpdateClient {
    * @param CancelFsuActionRequest
    * @return CancelFsuActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CancelFsuAction.ts.html |here} to see how to use CancelFsuAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CancelFsuAction.ts.html |here} to see how to use CancelFsuAction API.
    */
   public async cancelFsuAction(
     cancelFsuActionRequest: requests.CancelFsuActionRequest
@@ -471,7 +471,7 @@ export class FleetSoftwareUpdateClient {
    * @param ChangeFsuActionCompartmentRequest
    * @return ChangeFsuActionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ChangeFsuActionCompartment.ts.html |here} to see how to use ChangeFsuActionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ChangeFsuActionCompartment.ts.html |here} to see how to use ChangeFsuActionCompartment API.
    */
   public async changeFsuActionCompartment(
     changeFsuActionCompartmentRequest: requests.ChangeFsuActionCompartmentRequest
@@ -552,7 +552,7 @@ export class FleetSoftwareUpdateClient {
    * @param ChangeFsuCollectionCompartmentRequest
    * @return ChangeFsuCollectionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ChangeFsuCollectionCompartment.ts.html |here} to see how to use ChangeFsuCollectionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ChangeFsuCollectionCompartment.ts.html |here} to see how to use ChangeFsuCollectionCompartment API.
    */
   public async changeFsuCollectionCompartment(
     changeFsuCollectionCompartmentRequest: requests.ChangeFsuCollectionCompartmentRequest
@@ -635,7 +635,7 @@ export class FleetSoftwareUpdateClient {
    * @param ChangeFsuCycleCompartmentRequest
    * @return ChangeFsuCycleCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ChangeFsuCycleCompartment.ts.html |here} to see how to use ChangeFsuCycleCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ChangeFsuCycleCompartment.ts.html |here} to see how to use ChangeFsuCycleCompartment API.
    */
   public async changeFsuCycleCompartment(
     changeFsuCycleCompartmentRequest: requests.ChangeFsuCycleCompartmentRequest
@@ -716,7 +716,7 @@ export class FleetSoftwareUpdateClient {
    * @param ChangeFsuDiscoveryCompartmentRequest
    * @return ChangeFsuDiscoveryCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ChangeFsuDiscoveryCompartment.ts.html |here} to see how to use ChangeFsuDiscoveryCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ChangeFsuDiscoveryCompartment.ts.html |here} to see how to use ChangeFsuDiscoveryCompartment API.
    */
   public async changeFsuDiscoveryCompartment(
     changeFsuDiscoveryCompartmentRequest: requests.ChangeFsuDiscoveryCompartmentRequest
@@ -793,7 +793,7 @@ export class FleetSoftwareUpdateClient {
    * @param CloneFsuCycleRequest
    * @return CloneFsuCycleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CloneFsuCycle.ts.html |here} to see how to use CloneFsuCycle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CloneFsuCycle.ts.html |here} to see how to use CloneFsuCycle API.
    */
   public async cloneFsuCycle(
     cloneFsuCycleRequest: requests.CloneFsuCycleRequest
@@ -886,7 +886,7 @@ export class FleetSoftwareUpdateClient {
    * @param CreateFsuActionRequest
    * @return CreateFsuActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CreateFsuAction.ts.html |here} to see how to use CreateFsuAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CreateFsuAction.ts.html |here} to see how to use CreateFsuAction API.
    */
   public async createFsuAction(
     createFsuActionRequest: requests.CreateFsuActionRequest
@@ -977,7 +977,7 @@ export class FleetSoftwareUpdateClient {
    * @param CreateFsuCollectionRequest
    * @return CreateFsuCollectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CreateFsuCollection.ts.html |here} to see how to use CreateFsuCollection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CreateFsuCollection.ts.html |here} to see how to use CreateFsuCollection API.
    */
   public async createFsuCollection(
     createFsuCollectionRequest: requests.CreateFsuCollectionRequest
@@ -1068,7 +1068,7 @@ export class FleetSoftwareUpdateClient {
    * @param CreateFsuCycleRequest
    * @return CreateFsuCycleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CreateFsuCycle.ts.html |here} to see how to use CreateFsuCycle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CreateFsuCycle.ts.html |here} to see how to use CreateFsuCycle API.
    */
   public async createFsuCycle(
     createFsuCycleRequest: requests.CreateFsuCycleRequest
@@ -1159,7 +1159,7 @@ export class FleetSoftwareUpdateClient {
    * @param CreateFsuDiscoveryRequest
    * @return CreateFsuDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CreateFsuDiscovery.ts.html |here} to see how to use CreateFsuDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CreateFsuDiscovery.ts.html |here} to see how to use CreateFsuDiscovery API.
    */
   public async createFsuDiscovery(
     createFsuDiscoveryRequest: requests.CreateFsuDiscoveryRequest
@@ -1250,7 +1250,7 @@ export class FleetSoftwareUpdateClient {
    * @param DeleteFsuActionRequest
    * @return DeleteFsuActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuAction.ts.html |here} to see how to use DeleteFsuAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuAction.ts.html |here} to see how to use DeleteFsuAction API.
    */
   public async deleteFsuAction(
     deleteFsuActionRequest: requests.DeleteFsuActionRequest
@@ -1324,7 +1324,7 @@ export class FleetSoftwareUpdateClient {
    * @param DeleteFsuCollectionRequest
    * @return DeleteFsuCollectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuCollection.ts.html |here} to see how to use DeleteFsuCollection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuCollection.ts.html |here} to see how to use DeleteFsuCollection API.
    */
   public async deleteFsuCollection(
     deleteFsuCollectionRequest: requests.DeleteFsuCollectionRequest
@@ -1400,7 +1400,7 @@ export class FleetSoftwareUpdateClient {
    * @param DeleteFsuCollectionTargetRequest
    * @return DeleteFsuCollectionTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuCollectionTarget.ts.html |here} to see how to use DeleteFsuCollectionTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuCollectionTarget.ts.html |here} to see how to use DeleteFsuCollectionTarget API.
    */
   public async deleteFsuCollectionTarget(
     deleteFsuCollectionTargetRequest: requests.DeleteFsuCollectionTargetRequest
@@ -1475,7 +1475,7 @@ export class FleetSoftwareUpdateClient {
    * @param DeleteFsuCycleRequest
    * @return DeleteFsuCycleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuCycle.ts.html |here} to see how to use DeleteFsuCycle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuCycle.ts.html |here} to see how to use DeleteFsuCycle API.
    */
   public async deleteFsuCycle(
     deleteFsuCycleRequest: requests.DeleteFsuCycleRequest
@@ -1549,7 +1549,7 @@ export class FleetSoftwareUpdateClient {
    * @param DeleteFsuDiscoveryRequest
    * @return DeleteFsuDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuDiscovery.ts.html |here} to see how to use DeleteFsuDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuDiscovery.ts.html |here} to see how to use DeleteFsuDiscovery API.
    */
   public async deleteFsuDiscovery(
     deleteFsuDiscoveryRequest: requests.DeleteFsuDiscoveryRequest
@@ -1623,7 +1623,7 @@ export class FleetSoftwareUpdateClient {
    * @param DeleteFsuJobRequest
    * @return DeleteFsuJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuJob.ts.html |here} to see how to use DeleteFsuJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuJob.ts.html |here} to see how to use DeleteFsuJob API.
    */
   public async deleteFsuJob(
     deleteFsuJobRequest: requests.DeleteFsuJobRequest
@@ -1691,7 +1691,7 @@ export class FleetSoftwareUpdateClient {
    * @param GetFsuActionRequest
    * @return GetFsuActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuAction.ts.html |here} to see how to use GetFsuAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuAction.ts.html |here} to see how to use GetFsuAction API.
    */
   public async getFsuAction(
     getFsuActionRequest: requests.GetFsuActionRequest
@@ -1768,7 +1768,7 @@ export class FleetSoftwareUpdateClient {
    * @param GetFsuActionOutputContentRequest
    * @return GetFsuActionOutputContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuActionOutputContent.ts.html |here} to see how to use GetFsuActionOutputContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuActionOutputContent.ts.html |here} to see how to use GetFsuActionOutputContent API.
    */
   public async getFsuActionOutputContent(
     getFsuActionOutputContentRequest: requests.GetFsuActionOutputContentRequest
@@ -1840,7 +1840,7 @@ export class FleetSoftwareUpdateClient {
    * @param GetFsuCollectionRequest
    * @return GetFsuCollectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuCollection.ts.html |here} to see how to use GetFsuCollection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuCollection.ts.html |here} to see how to use GetFsuCollection API.
    */
   public async getFsuCollection(
     getFsuCollectionRequest: requests.GetFsuCollectionRequest
@@ -1917,7 +1917,7 @@ export class FleetSoftwareUpdateClient {
    * @param GetFsuCollectionTargetRequest
    * @return GetFsuCollectionTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuCollectionTarget.ts.html |here} to see how to use GetFsuCollectionTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuCollectionTarget.ts.html |here} to see how to use GetFsuCollectionTarget API.
    */
   public async getFsuCollectionTarget(
     getFsuCollectionTargetRequest: requests.GetFsuCollectionTargetRequest
@@ -1995,7 +1995,7 @@ export class FleetSoftwareUpdateClient {
    * @param GetFsuCycleRequest
    * @return GetFsuCycleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuCycle.ts.html |here} to see how to use GetFsuCycle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuCycle.ts.html |here} to see how to use GetFsuCycle API.
    */
   public async getFsuCycle(
     getFsuCycleRequest: requests.GetFsuCycleRequest
@@ -2071,7 +2071,7 @@ export class FleetSoftwareUpdateClient {
    * @param GetFsuDiscoveryRequest
    * @return GetFsuDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuDiscovery.ts.html |here} to see how to use GetFsuDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuDiscovery.ts.html |here} to see how to use GetFsuDiscovery API.
    */
   public async getFsuDiscovery(
     getFsuDiscoveryRequest: requests.GetFsuDiscoveryRequest
@@ -2148,7 +2148,7 @@ export class FleetSoftwareUpdateClient {
    * @param GetFsuJobRequest
    * @return GetFsuJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuJob.ts.html |here} to see how to use GetFsuJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuJob.ts.html |here} to see how to use GetFsuJob API.
    */
   public async getFsuJob(
     getFsuJobRequest: requests.GetFsuJobRequest
@@ -2224,7 +2224,7 @@ export class FleetSoftwareUpdateClient {
    * @param GetFsuJobOutputContentRequest
    * @return GetFsuJobOutputContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuJobOutputContent.ts.html |here} to see how to use GetFsuJobOutputContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuJobOutputContent.ts.html |here} to see how to use GetFsuJobOutputContent API.
    */
   public async getFsuJobOutputContent(
     getFsuJobOutputContentRequest: requests.GetFsuJobOutputContentRequest
@@ -2296,7 +2296,7 @@ export class FleetSoftwareUpdateClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2378,7 +2378,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListFsuActionsRequest
    * @return ListFsuActionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuActions.ts.html |here} to see how to use ListFsuActions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuActions.ts.html |here} to see how to use ListFsuActions API.
    */
   public async listFsuActions(
     listFsuActionsRequest: requests.ListFsuActionsRequest
@@ -2463,7 +2463,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListFsuCollectionTargetsRequest
    * @return ListFsuCollectionTargetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuCollectionTargets.ts.html |here} to see how to use ListFsuCollectionTargets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuCollectionTargets.ts.html |here} to see how to use ListFsuCollectionTargets API.
    */
   public async listFsuCollectionTargets(
     listFsuCollectionTargetsRequest: requests.ListFsuCollectionTargetsRequest
@@ -2548,7 +2548,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListFsuCollectionsRequest
    * @return ListFsuCollectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuCollections.ts.html |here} to see how to use ListFsuCollections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuCollections.ts.html |here} to see how to use ListFsuCollections API.
    */
   public async listFsuCollections(
     listFsuCollectionsRequest: requests.ListFsuCollectionsRequest
@@ -2632,7 +2632,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListFsuCyclesRequest
    * @return ListFsuCyclesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuCycles.ts.html |here} to see how to use ListFsuCycles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuCycles.ts.html |here} to see how to use ListFsuCycles API.
    */
   public async listFsuCycles(
     listFsuCyclesRequest: requests.ListFsuCyclesRequest
@@ -2718,7 +2718,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListFsuDiscoveriesRequest
    * @return ListFsuDiscoveriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuDiscoveries.ts.html |here} to see how to use ListFsuDiscoveries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuDiscoveries.ts.html |here} to see how to use ListFsuDiscoveries API.
    */
   public async listFsuDiscoveries(
     listFsuDiscoveriesRequest: requests.ListFsuDiscoveriesRequest
@@ -2801,7 +2801,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListFsuDiscoveryTargetsRequest
    * @return ListFsuDiscoveryTargetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuDiscoveryTargets.ts.html |here} to see how to use ListFsuDiscoveryTargets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuDiscoveryTargets.ts.html |here} to see how to use ListFsuDiscoveryTargets API.
    */
   public async listFsuDiscoveryTargets(
     listFsuDiscoveryTargetsRequest: requests.ListFsuDiscoveryTargetsRequest
@@ -2886,7 +2886,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListFsuJobOutputsRequest
    * @return ListFsuJobOutputsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuJobOutputs.ts.html |here} to see how to use ListFsuJobOutputs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuJobOutputs.ts.html |here} to see how to use ListFsuJobOutputs API.
    */
   public async listFsuJobOutputs(
     listFsuJobOutputsRequest: requests.ListFsuJobOutputsRequest
@@ -2966,7 +2966,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListFsuJobsRequest
    * @return ListFsuJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuJobs.ts.html |here} to see how to use ListFsuJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuJobs.ts.html |here} to see how to use ListFsuJobs API.
    */
   public async listFsuJobs(
     listFsuJobsRequest: requests.ListFsuJobsRequest
@@ -3048,7 +3048,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -3130,7 +3130,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -3212,7 +3212,7 @@ export class FleetSoftwareUpdateClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -3298,7 +3298,7 @@ export class FleetSoftwareUpdateClient {
    * @param RemoveFsuCollectionTargetsRequest
    * @return RemoveFsuCollectionTargetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/RemoveFsuCollectionTargets.ts.html |here} to see how to use RemoveFsuCollectionTargets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/RemoveFsuCollectionTargets.ts.html |here} to see how to use RemoveFsuCollectionTargets API.
    */
   public async removeFsuCollectionTargets(
     removeFsuCollectionTargetsRequest: requests.RemoveFsuCollectionTargetsRequest
@@ -3378,7 +3378,7 @@ export class FleetSoftwareUpdateClient {
    * @param ResumeFsuActionRequest
    * @return ResumeFsuActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ResumeFsuAction.ts.html |here} to see how to use ResumeFsuAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ResumeFsuAction.ts.html |here} to see how to use ResumeFsuAction API.
    */
   public async resumeFsuAction(
     resumeFsuActionRequest: requests.ResumeFsuActionRequest
@@ -3449,7 +3449,7 @@ export class FleetSoftwareUpdateClient {
    * @param RetryFsuJobRequest
    * @return RetryFsuJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/RetryFsuJob.ts.html |here} to see how to use RetryFsuJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/RetryFsuJob.ts.html |here} to see how to use RetryFsuJob API.
    */
   public async retryFsuJob(
     retryFsuJobRequest: requests.RetryFsuJobRequest
@@ -3518,7 +3518,7 @@ export class FleetSoftwareUpdateClient {
    * @param UpdateFsuActionRequest
    * @return UpdateFsuActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuAction.ts.html |here} to see how to use UpdateFsuAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuAction.ts.html |here} to see how to use UpdateFsuAction API.
    */
   public async updateFsuAction(
     updateFsuActionRequest: requests.UpdateFsuActionRequest
@@ -3597,7 +3597,7 @@ export class FleetSoftwareUpdateClient {
    * @param UpdateFsuCollectionRequest
    * @return UpdateFsuCollectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuCollection.ts.html |here} to see how to use UpdateFsuCollection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuCollection.ts.html |here} to see how to use UpdateFsuCollection API.
    */
   public async updateFsuCollection(
     updateFsuCollectionRequest: requests.UpdateFsuCollectionRequest
@@ -3676,7 +3676,7 @@ export class FleetSoftwareUpdateClient {
    * @param UpdateFsuCycleRequest
    * @return UpdateFsuCycleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuCycle.ts.html |here} to see how to use UpdateFsuCycle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuCycle.ts.html |here} to see how to use UpdateFsuCycle API.
    */
   public async updateFsuCycle(
     updateFsuCycleRequest: requests.UpdateFsuCycleRequest
@@ -3755,7 +3755,7 @@ export class FleetSoftwareUpdateClient {
    * @param UpdateFsuDiscoveryRequest
    * @return UpdateFsuDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuDiscovery.ts.html |here} to see how to use UpdateFsuDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuDiscovery.ts.html |here} to see how to use UpdateFsuDiscovery API.
    */
   public async updateFsuDiscovery(
     updateFsuDiscoveryRequest: requests.UpdateFsuDiscoveryRequest
@@ -3829,7 +3829,7 @@ export class FleetSoftwareUpdateClient {
    * @param UpdateFsuJobRequest
    * @return UpdateFsuJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuJob.ts.html |here} to see how to use UpdateFsuJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuJob.ts.html |here} to see how to use UpdateFsuJob API.
    */
   public async updateFsuJob(
     updateFsuJobRequest: requests.UpdateFsuJobRequest

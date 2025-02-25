@@ -245,7 +245,7 @@ export class AttachmentClient {
    * @param CreateAttachmentRequest
    * @return CreateAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/CreateAttachment.ts.html |here} to see how to use CreateAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/CreateAttachment.ts.html |here} to see how to use CreateAttachment API.
    */
   public async createAttachment(
     createAttachmentRequest: requests.CreateAttachmentRequest
@@ -326,7 +326,7 @@ export class AttachmentClient {
    * @param DeleteAttachmentRequest
    * @return DeleteAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/DeleteAttachment.ts.html |here} to see how to use DeleteAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/DeleteAttachment.ts.html |here} to see how to use DeleteAttachment API.
    */
   public async deleteAttachment(
     deleteAttachmentRequest: requests.DeleteAttachmentRequest
@@ -399,7 +399,7 @@ export class AttachmentClient {
    * @param GetAttachmentRequest
    * @return GetAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetAttachment.ts.html |here} to see how to use GetAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetAttachment.ts.html |here} to see how to use GetAttachment API.
    */
   public async getAttachment(
     getAttachmentRequest: requests.GetAttachmentRequest
@@ -475,7 +475,7 @@ export class AttachmentClient {
    * @param GetAttachmentContentRequest
    * @return GetAttachmentContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetAttachmentContent.ts.html |here} to see how to use GetAttachmentContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetAttachmentContent.ts.html |here} to see how to use GetAttachmentContent API.
    */
   public async getAttachmentContent(
     getAttachmentContentRequest: requests.GetAttachmentContentRequest
@@ -547,7 +547,7 @@ export class AttachmentClient {
    * @param ListAttachmentsRequest
    * @return ListAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/ListAttachments.ts.html |here} to see how to use ListAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/ListAttachments.ts.html |here} to see how to use ListAttachments API.
    */
   public async listAttachments(
     listAttachmentsRequest: requests.ListAttachmentsRequest
@@ -842,7 +842,7 @@ export class OfferClient {
    * @param CreateOfferRequest
    * @return CreateOfferResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/CreateOffer.ts.html |here} to see how to use CreateOffer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/CreateOffer.ts.html |here} to see how to use CreateOffer API.
    */
   public async createOffer(
     createOfferRequest: requests.CreateOfferRequest
@@ -921,7 +921,7 @@ export class OfferClient {
    * @param DeleteOfferRequest
    * @return DeleteOfferResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/DeleteOffer.ts.html |here} to see how to use DeleteOffer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/DeleteOffer.ts.html |here} to see how to use DeleteOffer API.
    */
   public async deleteOffer(
     deleteOfferRequest: requests.DeleteOfferRequest
@@ -993,7 +993,7 @@ export class OfferClient {
    * @param GetOfferRequest
    * @return GetOfferResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetOffer.ts.html |here} to see how to use GetOffer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetOffer.ts.html |here} to see how to use GetOffer API.
    */
   public async getOffer(
     getOfferRequest: requests.GetOfferRequest
@@ -1068,7 +1068,7 @@ export class OfferClient {
    * @param GetOfferInternalDetailRequest
    * @return GetOfferInternalDetailResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetOfferInternalDetail.ts.html |here} to see how to use GetOfferInternalDetail API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetOfferInternalDetail.ts.html |here} to see how to use GetOfferInternalDetail API.
    */
   public async getOfferInternalDetail(
     getOfferInternalDetailRequest: requests.GetOfferInternalDetailRequest
@@ -1144,7 +1144,7 @@ export class OfferClient {
    * @param ListOffersRequest
    * @return ListOffersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/ListOffers.ts.html |here} to see how to use ListOffers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/ListOffers.ts.html |here} to see how to use ListOffers API.
    */
   public async listOffers(
     listOffersRequest: requests.ListOffersRequest
@@ -1227,7 +1227,7 @@ export class OfferClient {
    * @param UpdateOfferRequest
    * @return UpdateOfferResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/UpdateOffer.ts.html |here} to see how to use UpdateOffer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/UpdateOffer.ts.html |here} to see how to use UpdateOffer API.
    */
   public async updateOffer(
     updateOfferRequest: requests.UpdateOfferRequest

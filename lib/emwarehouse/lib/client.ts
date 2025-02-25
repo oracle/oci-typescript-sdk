@@ -243,7 +243,7 @@ export class EmWarehouseClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -310,7 +310,7 @@ export class EmWarehouseClient {
    * @param ChangeEmWarehouseCompartmentRequest
    * @return ChangeEmWarehouseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ChangeEmWarehouseCompartment.ts.html |here} to see how to use ChangeEmWarehouseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ChangeEmWarehouseCompartment.ts.html |here} to see how to use ChangeEmWarehouseCompartment API.
    */
   public async changeEmWarehouseCompartment(
     changeEmWarehouseCompartmentRequest: requests.ChangeEmWarehouseCompartmentRequest
@@ -390,7 +390,7 @@ export class EmWarehouseClient {
    * @param CreateEmWarehouseRequest
    * @return CreateEmWarehouseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/CreateEmWarehouse.ts.html |here} to see how to use CreateEmWarehouse API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/CreateEmWarehouse.ts.html |here} to see how to use CreateEmWarehouse API.
    */
   public async createEmWarehouse(
     createEmWarehouseRequest: requests.CreateEmWarehouseRequest
@@ -465,7 +465,7 @@ export class EmWarehouseClient {
    * @param DeleteEmWarehouseRequest
    * @return DeleteEmWarehouseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/DeleteEmWarehouse.ts.html |here} to see how to use DeleteEmWarehouse API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/DeleteEmWarehouse.ts.html |here} to see how to use DeleteEmWarehouse API.
    */
   public async deleteEmWarehouse(
     deleteEmWarehouseRequest: requests.DeleteEmWarehouseRequest
@@ -537,7 +537,7 @@ export class EmWarehouseClient {
    * @param GetEmWarehouseRequest
    * @return GetEmWarehouseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/GetEmWarehouse.ts.html |here} to see how to use GetEmWarehouse API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/GetEmWarehouse.ts.html |here} to see how to use GetEmWarehouse API.
    */
   public async getEmWarehouse(
     getEmWarehouseRequest: requests.GetEmWarehouseRequest
@@ -612,7 +612,7 @@ export class EmWarehouseClient {
    * @param GetEmWarehouseResourceUsageRequest
    * @return GetEmWarehouseResourceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/GetEmWarehouseResourceUsage.ts.html |here} to see how to use GetEmWarehouseResourceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/GetEmWarehouseResourceUsage.ts.html |here} to see how to use GetEmWarehouseResourceUsage API.
    */
   public async getEmWarehouseResourceUsage(
     getEmWarehouseResourceUsageRequest: requests.GetEmWarehouseResourceUsageRequest
@@ -688,7 +688,7 @@ export class EmWarehouseClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -769,7 +769,7 @@ export class EmWarehouseClient {
    * @param ListEmWarehousesRequest
    * @return ListEmWarehousesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ListEmWarehouses.ts.html |here} to see how to use ListEmWarehouses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ListEmWarehouses.ts.html |here} to see how to use ListEmWarehouses API.
    */
   public async listEmWarehouses(
     listEmWarehousesRequest: requests.ListEmWarehousesRequest
@@ -852,7 +852,7 @@ export class EmWarehouseClient {
    * @param ListEtlRunsRequest
    * @return ListEtlRunsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ListEtlRuns.ts.html |here} to see how to use ListEtlRuns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ListEtlRuns.ts.html |here} to see how to use ListEtlRuns API.
    */
   public async listEtlRuns(
     listEtlRunsRequest: requests.ListEtlRunsRequest
@@ -935,7 +935,7 @@ export class EmWarehouseClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1017,7 +1017,7 @@ export class EmWarehouseClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1098,7 +1098,7 @@ export class EmWarehouseClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1180,7 +1180,7 @@ export class EmWarehouseClient {
    * @param UpdateEmWarehouseRequest
    * @return UpdateEmWarehouseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/UpdateEmWarehouse.ts.html |here} to see how to use UpdateEmWarehouse API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emwarehouse/UpdateEmWarehouse.ts.html |here} to see how to use UpdateEmWarehouse API.
    */
   public async updateEmWarehouse(
     updateEmWarehouseRequest: requests.UpdateEmWarehouseRequest

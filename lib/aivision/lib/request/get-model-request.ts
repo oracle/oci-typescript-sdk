@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/GetModel.ts.html |here} to see how to use GetModelRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/GetModel.ts.html |here} to see how to use GetModelRequest.
  */
 export interface GetModelRequest extends common.BaseRequest {
   /**

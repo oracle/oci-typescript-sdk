@@ -17,7 +17,7 @@ import common = require("oci-common");
 export interface ListSqlEndpointsResponse {
   /**
    * Retrieves the next page of results. When this header appears in the response,
-   * additional pages of results remain. See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * additional pages of results remain. See [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcNextPage": string;

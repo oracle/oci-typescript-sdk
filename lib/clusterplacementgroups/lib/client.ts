@@ -245,7 +245,7 @@ export class ClusterPlacementGroupsCPClient {
    * @param ActivateClusterPlacementGroupRequest
    * @return ActivateClusterPlacementGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ActivateClusterPlacementGroup.ts.html |here} to see how to use ActivateClusterPlacementGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ActivateClusterPlacementGroup.ts.html |here} to see how to use ActivateClusterPlacementGroup API.
    */
   public async activateClusterPlacementGroup(
     activateClusterPlacementGroupRequest: requests.ActivateClusterPlacementGroupRequest
@@ -325,7 +325,7 @@ export class ClusterPlacementGroupsCPClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -389,7 +389,7 @@ export class ClusterPlacementGroupsCPClient {
 
   /**
      * Moves a cluster placement group resource from one compartment to another in the same tenancy. For information about
-* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When provided, If-Match is checked against ETag values of the resource.
 * 
@@ -397,7 +397,7 @@ When provided, If-Match is checked against ETag values of the resource.
      * @param ChangeClusterPlacementGroupCompartmentRequest
      * @return ChangeClusterPlacementGroupCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ChangeClusterPlacementGroupCompartment.ts.html |here} to see how to use ChangeClusterPlacementGroupCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ChangeClusterPlacementGroupCompartment.ts.html |here} to see how to use ChangeClusterPlacementGroupCompartment API.
      */
   public async changeClusterPlacementGroupCompartment(
     changeClusterPlacementGroupCompartmentRequest: requests.ChangeClusterPlacementGroupCompartmentRequest
@@ -475,7 +475,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param CreateClusterPlacementGroupRequest
    * @return CreateClusterPlacementGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/CreateClusterPlacementGroup.ts.html |here} to see how to use CreateClusterPlacementGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/CreateClusterPlacementGroup.ts.html |here} to see how to use CreateClusterPlacementGroup API.
    */
   public async createClusterPlacementGroup(
     createClusterPlacementGroupRequest: requests.CreateClusterPlacementGroupRequest
@@ -573,7 +573,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param DeactivateClusterPlacementGroupRequest
    * @return DeactivateClusterPlacementGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/DeactivateClusterPlacementGroup.ts.html |here} to see how to use DeactivateClusterPlacementGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/DeactivateClusterPlacementGroup.ts.html |here} to see how to use DeactivateClusterPlacementGroup API.
    */
   public async deactivateClusterPlacementGroup(
     deactivateClusterPlacementGroupRequest: requests.DeactivateClusterPlacementGroupRequest
@@ -653,7 +653,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param DeleteClusterPlacementGroupRequest
    * @return DeleteClusterPlacementGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/DeleteClusterPlacementGroup.ts.html |here} to see how to use DeleteClusterPlacementGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/DeleteClusterPlacementGroup.ts.html |here} to see how to use DeleteClusterPlacementGroup API.
    */
   public async deleteClusterPlacementGroup(
     deleteClusterPlacementGroupRequest: requests.DeleteClusterPlacementGroupRequest
@@ -728,7 +728,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param GetClusterPlacementGroupRequest
    * @return GetClusterPlacementGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/GetClusterPlacementGroup.ts.html |here} to see how to use GetClusterPlacementGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/GetClusterPlacementGroup.ts.html |here} to see how to use GetClusterPlacementGroup API.
    */
   public async getClusterPlacementGroup(
     getClusterPlacementGroupRequest: requests.GetClusterPlacementGroupRequest
@@ -806,7 +806,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -888,7 +888,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param ListClusterPlacementGroupsRequest
    * @return ListClusterPlacementGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ListClusterPlacementGroups.ts.html |here} to see how to use ListClusterPlacementGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ListClusterPlacementGroups.ts.html |here} to see how to use ListClusterPlacementGroups API.
    */
   public async listClusterPlacementGroups(
     listClusterPlacementGroupsRequest: requests.ListClusterPlacementGroupsRequest
@@ -976,7 +976,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1058,7 +1058,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1140,7 +1140,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1223,7 +1223,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param UpdateClusterPlacementGroupRequest
    * @return UpdateClusterPlacementGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/UpdateClusterPlacementGroup.ts.html |here} to see how to use UpdateClusterPlacementGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/UpdateClusterPlacementGroup.ts.html |here} to see how to use UpdateClusterPlacementGroup API.
    */
   public async updateClusterPlacementGroup(
     updateClusterPlacementGroupRequest: requests.UpdateClusterPlacementGroupRequest

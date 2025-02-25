@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironmentStatus.ts.html |here} to see how to use GetFusionEnvironmentStatusRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironmentStatus.ts.html |here} to see how to use GetFusionEnvironmentStatusRequest.
  */
 export interface GetFusionEnvironmentStatusRequest extends common.BaseRequest {
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListRelatedEvents.ts.html |here} to see how to use ListRelatedEventsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListRelatedEvents.ts.html |here} to see how to use ListRelatedEventsRequest.
  */
 export interface ListRelatedEventsRequest extends common.BaseRequest {
   /**

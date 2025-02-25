@@ -6,9 +6,9 @@ OCI Generative AI Agents supports several ways to onboard your data and then all
 
 Use the Generative AI Agents API to create and manage agents, knowledge bases, data sources, endpoints, data ingestion jobs, and work requests.
 
-For creating and managing client chat sessions see the [Generative AI Agents Client API](#/EN/generative-ai-agents-client/latest/).
+For creating and managing client chat sessions see the {@link #eNGenerative-ai-agents-clientLatest(ENGenerative-ai-agents-clientLatestRequest) eNGenerative-ai-agents-clientLatest}.
 
-To learn more about the service, see the [Generative AI Agents documentation](/iaas/Content/generative-ai-agents/home.htm).
+To learn more about the service, see the [Generative AI Agents documentation](https://docs.oracle.com/iaas/Content/generative-ai-agents/home.htm).
 
  * OpenAPI spec version: 20240531
  * 
@@ -48,7 +48,7 @@ export interface UpdateAgentEndpointDetails {
   "sessionConfig"?: model.SessionConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -56,7 +56,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

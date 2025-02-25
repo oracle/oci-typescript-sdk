@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOAuth2ClientCredentials.ts.html |here} to see how to use SearchOAuth2ClientCredentialsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchOAuth2ClientCredentials.ts.html |here} to see how to use SearchOAuth2ClientCredentialsRequest.
  */
 export interface SearchOAuth2ClientCredentialsRequest extends common.BaseRequest {
   /**

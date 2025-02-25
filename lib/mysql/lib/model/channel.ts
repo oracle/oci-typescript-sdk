@@ -70,6 +70,12 @@ export interface Channel {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace Channel {

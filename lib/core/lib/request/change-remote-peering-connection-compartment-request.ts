@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeRemotePeeringConnectionCompartment.ts.html |here} to see how to use ChangeRemotePeeringConnectionCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeRemotePeeringConnectionCompartment.ts.html |here} to see how to use ChangeRemotePeeringConnectionCompartmentRequest.
  */
 export interface ChangeRemotePeeringConnectionCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the remote peering connection (RPC).
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the remote peering connection (RPC).
    */
   "remotePeeringConnectionId": string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSelfRegistrationProfile.ts.html |here} to see how to use PutSelfRegistrationProfileRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutSelfRegistrationProfile.ts.html |here} to see how to use PutSelfRegistrationProfileRequest.
  */
 export interface PutSelfRegistrationProfileRequest extends common.BaseRequest {
   /**

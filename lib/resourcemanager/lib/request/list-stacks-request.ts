@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListStacks.ts.html |here} to see how to use ListStacksRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListStacks.ts.html |here} to see how to use ListStacksRequest.
  */
 export interface ListStacksRequest extends common.BaseRequest {
   /**
@@ -25,12 +25,12 @@ export interface ListStacksRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A filter to return only resources that exist in the compartment, identified by [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * A filter to return only resources that exist in the compartment, identified by [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) on which to query for a stack.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) on which to query for a stack.
    *
    */
   "id"?: string;
@@ -38,7 +38,7 @@ export interface ListStacksRequest extends common.BaseRequest {
  * A filter that returns only those resources that match the specified
 * lifecycle state. The state value is case-insensitive.
 * For more information about stack lifecycle states, see
-* [Key Concepts](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__StackStates).
+* [Key Concepts](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__StackStates).
 * <p>
 Allowable values:
 * - CREATING
@@ -71,13 +71,13 @@ Allowable values:
   "sortOrder"?: ListStacksRequest.SortOrder;
   /**
    * The number of items returned in a paginated {@code List} call. For information about pagination, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
    * The value of the {@code opc-next-page} response header from the preceding {@code List} call.
-   * For information about pagination, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For information about pagination, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

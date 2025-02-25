@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListExports.ts.html |here} to see how to use ListExportsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListExports.ts.html |here} to see how to use ListExportsRequest.
  */
 export interface ListExportsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId"?: string;
   /**
@@ -28,7 +28,7 @@ export interface ListExportsRequest extends common.BaseRequest {
 * 1 is the minimum, 4096 is the maximum.
 * <p>
 For important details about how pagination works,
-* see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 500}
 * 
@@ -39,16 +39,16 @@ Example: {@code 500}
 * header from the previous \"List\" call.
 * <p>
 For important details about how pagination works,
-* see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * 
  */
   "page"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the export set.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the export set.
    */
   "exportSetId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the file system.
    */
   "fileSystemId"?: string;
   /**
@@ -58,7 +58,7 @@ For important details about how pagination works,
    */
   "lifecycleState"?: ListExportsRequest.LifecycleState;
   /**
-   * Filter results by [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Must be an OCID of the correct type for
+   * Filter results by [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Must be an OCID of the correct type for
    * the resouce type.
    *
    */

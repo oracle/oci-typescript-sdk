@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalPluggableDatabases.ts.html |here} to see how to use ListExternalPluggableDatabasesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalPluggableDatabases.ts.html |here} to see how to use ListExternalPluggableDatabasesRequest.
  */
 export interface ListExternalPluggableDatabasesRequest extends common.BaseRequest {
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId": string;
   /**
@@ -28,7 +28,7 @@ export interface ListExternalPluggableDatabasesRequest extends common.BaseReques
    */
   "opcRequestId"?: string;
   /**
-   * The ExternalContainerDatabase [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The ExternalContainerDatabase [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "externalContainerDatabaseId"?: string;
   /**

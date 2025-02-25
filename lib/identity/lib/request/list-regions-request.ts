@@ -15,6 +15,6 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListRegions.ts.html |here} to see how to use ListRegionsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/ListRegions.ts.html |here} to see how to use ListRegionsRequest.
  */
 export interface ListRegionsRequest extends common.BaseRequest {}

@@ -243,7 +243,7 @@ export class AIServiceDocumentClient {
    * @param AddModelLockRequest
    * @return AddModelLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/AddModelLock.ts.html |here} to see how to use AddModelLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/AddModelLock.ts.html |here} to see how to use AddModelLock API.
    */
   public async addModelLock(
     addModelLockRequest: requests.AddModelLockRequest
@@ -327,7 +327,7 @@ export class AIServiceDocumentClient {
    * @param AddProjectLockRequest
    * @return AddProjectLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/AddProjectLock.ts.html |here} to see how to use AddProjectLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/AddProjectLock.ts.html |here} to see how to use AddProjectLock API.
    */
   public async addProjectLock(
     addProjectLockRequest: requests.AddProjectLockRequest
@@ -412,7 +412,7 @@ export class AIServiceDocumentClient {
    * @param AnalyzeDocumentRequest
    * @return AnalyzeDocumentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/AnalyzeDocument.ts.html |here} to see how to use AnalyzeDocument API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/AnalyzeDocument.ts.html |here} to see how to use AnalyzeDocument API.
    */
   public async analyzeDocument(
     analyzeDocumentRequest: requests.AnalyzeDocumentRequest
@@ -503,7 +503,7 @@ export class AIServiceDocumentClient {
    * @param CancelProcessorJobRequest
    * @return CancelProcessorJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/CancelProcessorJob.ts.html |here} to see how to use CancelProcessorJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/CancelProcessorJob.ts.html |here} to see how to use CancelProcessorJob API.
    */
   public async cancelProcessorJob(
     cancelProcessorJobRequest: requests.CancelProcessorJobRequest
@@ -571,7 +571,7 @@ export class AIServiceDocumentClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -639,7 +639,7 @@ export class AIServiceDocumentClient {
    * @param ChangeModelCompartmentRequest
    * @return ChangeModelCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ChangeModelCompartment.ts.html |here} to see how to use ChangeModelCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ChangeModelCompartment.ts.html |here} to see how to use ChangeModelCompartment API.
    */
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
@@ -714,7 +714,7 @@ export class AIServiceDocumentClient {
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ChangeProjectCompartment.ts.html |here} to see how to use ChangeProjectCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ChangeProjectCompartment.ts.html |here} to see how to use ChangeProjectCompartment API.
    */
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
@@ -790,7 +790,7 @@ export class AIServiceDocumentClient {
    * @param CreateModelRequest
    * @return CreateModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/CreateModel.ts.html |here} to see how to use CreateModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/CreateModel.ts.html |here} to see how to use CreateModel API.
    */
   public async createModel(
     createModelRequest: requests.CreateModelRequest
@@ -885,7 +885,7 @@ export class AIServiceDocumentClient {
    * @param CreateProcessorJobRequest
    * @return CreateProcessorJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/CreateProcessorJob.ts.html |here} to see how to use CreateProcessorJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/CreateProcessorJob.ts.html |here} to see how to use CreateProcessorJob API.
    */
   public async createProcessorJob(
     createProcessorJobRequest: requests.CreateProcessorJobRequest
@@ -966,7 +966,7 @@ export class AIServiceDocumentClient {
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/CreateProject.ts.html |here} to see how to use CreateProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/CreateProject.ts.html |here} to see how to use CreateProject API.
    */
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
@@ -1060,7 +1060,7 @@ export class AIServiceDocumentClient {
    * @param DeleteModelRequest
    * @return DeleteModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/DeleteModel.ts.html |here} to see how to use DeleteModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/DeleteModel.ts.html |here} to see how to use DeleteModel API.
    */
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
@@ -1134,7 +1134,7 @@ export class AIServiceDocumentClient {
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/DeleteProject.ts.html |here} to see how to use DeleteProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/DeleteProject.ts.html |here} to see how to use DeleteProject API.
    */
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
@@ -1208,7 +1208,7 @@ export class AIServiceDocumentClient {
    * @param GetModelRequest
    * @return GetModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/GetModel.ts.html |here} to see how to use GetModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/GetModel.ts.html |here} to see how to use GetModel API.
    */
   public async getModel(
     getModelRequest: requests.GetModelRequest
@@ -1284,7 +1284,7 @@ export class AIServiceDocumentClient {
    * @param GetProcessorJobRequest
    * @return GetProcessorJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/GetProcessorJob.ts.html |here} to see how to use GetProcessorJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/GetProcessorJob.ts.html |here} to see how to use GetProcessorJob API.
    */
   public async getProcessorJob(
     getProcessorJobRequest: requests.GetProcessorJobRequest
@@ -1360,7 +1360,7 @@ export class AIServiceDocumentClient {
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/GetProject.ts.html |here} to see how to use GetProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/GetProject.ts.html |here} to see how to use GetProject API.
    */
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
@@ -1435,7 +1435,7 @@ export class AIServiceDocumentClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1516,7 +1516,7 @@ export class AIServiceDocumentClient {
    * @param ListModelsRequest
    * @return ListModelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ListModels.ts.html |here} to see how to use ListModels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ListModels.ts.html |here} to see how to use ListModels API.
    */
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
@@ -1600,7 +1600,7 @@ export class AIServiceDocumentClient {
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ListProjects.ts.html |here} to see how to use ListProjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ListProjects.ts.html |here} to see how to use ListProjects API.
    */
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
@@ -1683,7 +1683,7 @@ export class AIServiceDocumentClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1765,7 +1765,7 @@ export class AIServiceDocumentClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1847,7 +1847,7 @@ export class AIServiceDocumentClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1930,7 +1930,7 @@ export class AIServiceDocumentClient {
    * @param PatchModelRequest
    * @return PatchModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/PatchModel.ts.html |here} to see how to use PatchModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/PatchModel.ts.html |here} to see how to use PatchModel API.
    */
   public async patchModel(
     patchModelRequest: requests.PatchModelRequest
@@ -2016,7 +2016,7 @@ export class AIServiceDocumentClient {
    * @param RemoveModelLockRequest
    * @return RemoveModelLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/RemoveModelLock.ts.html |here} to see how to use RemoveModelLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/RemoveModelLock.ts.html |here} to see how to use RemoveModelLock API.
    */
   public async removeModelLock(
     removeModelLockRequest: requests.RemoveModelLockRequest
@@ -2101,7 +2101,7 @@ export class AIServiceDocumentClient {
    * @param RemoveProjectLockRequest
    * @return RemoveProjectLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/RemoveProjectLock.ts.html |here} to see how to use RemoveProjectLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/RemoveProjectLock.ts.html |here} to see how to use RemoveProjectLock API.
    */
   public async removeProjectLock(
     removeProjectLockRequest: requests.RemoveProjectLockRequest
@@ -2186,7 +2186,7 @@ export class AIServiceDocumentClient {
    * @param UpdateModelRequest
    * @return UpdateModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/UpdateModel.ts.html |here} to see how to use UpdateModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/UpdateModel.ts.html |here} to see how to use UpdateModel API.
    */
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
@@ -2265,7 +2265,7 @@ export class AIServiceDocumentClient {
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/UpdateProject.ts.html |here} to see how to use UpdateProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/UpdateProject.ts.html |here} to see how to use UpdateProject API.
    */
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest

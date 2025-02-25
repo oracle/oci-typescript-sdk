@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalContainerDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalContainerDatabaseManagementFeatureRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalContainerDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalContainerDatabaseManagementFeatureRequest.
  */
 export interface EnableExternalContainerDatabaseManagementFeatureRequest
   extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the external container database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the external container database.
    */
   "externalContainerDatabaseId": string;
   /**

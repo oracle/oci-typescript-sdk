@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DiscoverySchedule {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the discovery schedule.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the discovery schedule.
    */
   "id": string;
   /**
@@ -33,7 +33,7 @@ export interface DiscoverySchedule {
    */
   "executionRecurrences": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which the discovery schedule exists.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which the discovery schedule exists.
    */
   "compartmentId": string;
   /**

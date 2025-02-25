@@ -30,7 +30,7 @@ export interface ModelSummary {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)  for the model's compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)  for the model's compartment.
    */
   "compartmentId": string;
   /**
@@ -65,7 +65,7 @@ export interface ModelSummary {
    */
   "lifecycleDetails"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project to associate with the model.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project to associate with the model.
    */
   "projectId": string;
   /**

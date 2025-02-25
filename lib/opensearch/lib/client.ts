@@ -244,7 +244,7 @@ export class OpensearchClusterClient {
    * @param BackupOpensearchClusterRequest
    * @return BackupOpensearchClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/BackupOpensearchCluster.ts.html |here} to see how to use BackupOpensearchCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/BackupOpensearchCluster.ts.html |here} to see how to use BackupOpensearchCluster API.
    */
   public async backupOpensearchCluster(
     backupOpensearchClusterRequest: requests.BackupOpensearchClusterRequest
@@ -323,7 +323,7 @@ export class OpensearchClusterClient {
    * @param ConfigureOutboundClusterRequest
    * @return ConfigureOutboundClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ConfigureOutboundCluster.ts.html |here} to see how to use ConfigureOutboundCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ConfigureOutboundCluster.ts.html |here} to see how to use ConfigureOutboundCluster API.
    */
   public async configureOutboundCluster(
     configureOutboundClusterRequest: requests.ConfigureOutboundClusterRequest
@@ -403,7 +403,7 @@ export class OpensearchClusterClient {
    * @param CreateOpensearchClusterRequest
    * @return CreateOpensearchClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/CreateOpensearchCluster.ts.html |here} to see how to use CreateOpensearchCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/CreateOpensearchCluster.ts.html |here} to see how to use CreateOpensearchCluster API.
    */
   public async createOpensearchCluster(
     createOpensearchClusterRequest: requests.CreateOpensearchClusterRequest
@@ -479,7 +479,7 @@ export class OpensearchClusterClient {
    * @param DeleteOpensearchClusterRequest
    * @return DeleteOpensearchClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/DeleteOpensearchCluster.ts.html |here} to see how to use DeleteOpensearchCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/DeleteOpensearchCluster.ts.html |here} to see how to use DeleteOpensearchCluster API.
    */
   public async deleteOpensearchCluster(
     deleteOpensearchClusterRequest: requests.DeleteOpensearchClusterRequest
@@ -552,7 +552,7 @@ export class OpensearchClusterClient {
    * @param GetOpensearchClusterRequest
    * @return GetOpensearchClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/GetOpensearchCluster.ts.html |here} to see how to use GetOpensearchCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/GetOpensearchCluster.ts.html |here} to see how to use GetOpensearchCluster API.
    */
   public async getOpensearchCluster(
     getOpensearchClusterRequest: requests.GetOpensearchClusterRequest
@@ -628,7 +628,7 @@ export class OpensearchClusterClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -704,7 +704,7 @@ export class OpensearchClusterClient {
    * @param ListOpensearchClustersRequest
    * @return ListOpensearchClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListOpensearchClusters.ts.html |here} to see how to use ListOpensearchClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListOpensearchClusters.ts.html |here} to see how to use ListOpensearchClusters API.
    */
   public async listOpensearchClusters(
     listOpensearchClustersRequest: requests.ListOpensearchClustersRequest
@@ -788,7 +788,7 @@ export class OpensearchClusterClient {
    * @param ListOpensearchVersionsRequest
    * @return ListOpensearchVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListOpensearchVersions.ts.html |here} to see how to use ListOpensearchVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListOpensearchVersions.ts.html |here} to see how to use ListOpensearchVersions API.
    */
   public async listOpensearchVersions(
     listOpensearchVersionsRequest: requests.ListOpensearchVersionsRequest
@@ -866,7 +866,7 @@ export class OpensearchClusterClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -946,7 +946,7 @@ export class OpensearchClusterClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1026,7 +1026,7 @@ export class OpensearchClusterClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1106,7 +1106,7 @@ export class OpensearchClusterClient {
    * @param OpensearchClusterRestoreRequest
    * @return OpensearchClusterRestoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/OpensearchClusterRestore.ts.html |here} to see how to use OpensearchClusterRestore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/OpensearchClusterRestore.ts.html |here} to see how to use OpensearchClusterRestore API.
    */
   public async opensearchClusterRestore(
     opensearchClusterRestoreRequest: requests.OpensearchClusterRestoreRequest
@@ -1185,7 +1185,7 @@ export class OpensearchClusterClient {
    * @param ResizeOpensearchClusterHorizontalRequest
    * @return ResizeOpensearchClusterHorizontalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ResizeOpensearchClusterHorizontal.ts.html |here} to see how to use ResizeOpensearchClusterHorizontal API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ResizeOpensearchClusterHorizontal.ts.html |here} to see how to use ResizeOpensearchClusterHorizontal API.
    */
   public async resizeOpensearchClusterHorizontal(
     resizeOpensearchClusterHorizontalRequest: requests.ResizeOpensearchClusterHorizontalRequest
@@ -1266,7 +1266,7 @@ export class OpensearchClusterClient {
    * @param ResizeOpensearchClusterVerticalRequest
    * @return ResizeOpensearchClusterVerticalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ResizeOpensearchClusterVertical.ts.html |here} to see how to use ResizeOpensearchClusterVertical API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ResizeOpensearchClusterVertical.ts.html |here} to see how to use ResizeOpensearchClusterVertical API.
    */
   public async resizeOpensearchClusterVertical(
     resizeOpensearchClusterVerticalRequest: requests.ResizeOpensearchClusterVerticalRequest
@@ -1347,7 +1347,7 @@ export class OpensearchClusterClient {
    * @param UpdateOpensearchClusterRequest
    * @return UpdateOpensearchClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/UpdateOpensearchCluster.ts.html |here} to see how to use UpdateOpensearchCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/UpdateOpensearchCluster.ts.html |here} to see how to use UpdateOpensearchCluster API.
    */
   public async updateOpensearchCluster(
     updateOpensearchClusterRequest: requests.UpdateOpensearchClusterRequest
@@ -1425,7 +1425,7 @@ export class OpensearchClusterClient {
    * @param UpgradeOpenSearchClusterRequest
    * @return UpgradeOpenSearchClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/UpgradeOpenSearchCluster.ts.html |here} to see how to use UpgradeOpenSearchCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/UpgradeOpenSearchCluster.ts.html |here} to see how to use UpgradeOpenSearchCluster API.
    */
   public async upgradeOpenSearchCluster(
     upgradeOpenSearchClusterRequest: requests.UpgradeOpenSearchClusterRequest
@@ -1714,7 +1714,7 @@ export class OpensearchClusterBackupClient {
    * @param DeleteOpensearchClusterBackupRequest
    * @return DeleteOpensearchClusterBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/DeleteOpensearchClusterBackup.ts.html |here} to see how to use DeleteOpensearchClusterBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/DeleteOpensearchClusterBackup.ts.html |here} to see how to use DeleteOpensearchClusterBackup API.
    */
   public async deleteOpensearchClusterBackup(
     deleteOpensearchClusterBackupRequest: requests.DeleteOpensearchClusterBackupRequest
@@ -1789,7 +1789,7 @@ export class OpensearchClusterBackupClient {
    * @param GetOpensearchClusterBackupRequest
    * @return GetOpensearchClusterBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/GetOpensearchClusterBackup.ts.html |here} to see how to use GetOpensearchClusterBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/GetOpensearchClusterBackup.ts.html |here} to see how to use GetOpensearchClusterBackup API.
    */
   public async getOpensearchClusterBackup(
     getOpensearchClusterBackupRequest: requests.GetOpensearchClusterBackupRequest
@@ -1868,7 +1868,7 @@ export class OpensearchClusterBackupClient {
    * @param ListOpensearchClusterBackupsRequest
    * @return ListOpensearchClusterBackupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListOpensearchClusterBackups.ts.html |here} to see how to use ListOpensearchClusterBackups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListOpensearchClusterBackups.ts.html |here} to see how to use ListOpensearchClusterBackups API.
    */
   public async listOpensearchClusterBackups(
     listOpensearchClusterBackupsRequest: requests.ListOpensearchClusterBackupsRequest
@@ -1954,7 +1954,7 @@ export class OpensearchClusterBackupClient {
    * @param UpdateOpensearchClusterBackupRequest
    * @return UpdateOpensearchClusterBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/UpdateOpensearchClusterBackup.ts.html |here} to see how to use UpdateOpensearchClusterBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/UpdateOpensearchClusterBackup.ts.html |here} to see how to use UpdateOpensearchClusterBackup API.
    */
   public async updateOpensearchClusterBackup(
     updateOpensearchClusterBackupRequest: requests.UpdateOpensearchClusterBackupRequest

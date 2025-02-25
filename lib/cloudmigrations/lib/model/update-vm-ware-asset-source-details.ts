@@ -33,7 +33,7 @@ export interface UpdateVmWareAssetSourceDetails extends model.UpdateAssetSourceD
    */
   "areRealtimeMetricsCollected"?: boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the discovery schedule that is going to be assigned to an asset source.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the discovery schedule that is going to be assigned to an asset source.
    */
   "discoveryScheduleId"?: string;
 

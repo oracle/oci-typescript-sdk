@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface WorkRequestError {
   /**
    * A machine-usable code for the error that occurred. Error codes are listed at,
-   * https://docs.cloud.oracle.com/Content/API/References/apierrors.htm
+   * https://docs.oracle.com/iaas/Content/API/References/apierrors.htm
    *
    */
   "code": string;

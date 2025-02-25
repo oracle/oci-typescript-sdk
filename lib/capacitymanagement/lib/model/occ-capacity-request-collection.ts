@@ -1,6 +1,6 @@
 /**
  * OCI Control Center Capacity Management API
- * OCI Control Center (OCC) Capacity Management enables you to manage capacity requests in realms where OCI Control Center Capacity Management is available. For more information, see [OCI Control Center](/iaas/Content/control-center/home.htm).
+ * OCI Control Center (OCC) Capacity Management enables you to manage capacity requests in realms where OCI Control Center Capacity Management is available. For more information, see [OCI Control Center](https://docs.oracle.com/iaas/Content/control-center/home.htm).
  * OpenAPI spec version: 20231107
  *
  *

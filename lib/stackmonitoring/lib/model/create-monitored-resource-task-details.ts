@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateMonitoredResourceTaskDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment identifier.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment identifier.
    *
    */
   "compartmentId": string;

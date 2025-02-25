@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstances.ts.html |here} to see how to use ListManagedInstancesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListManagedInstances.ts.html |here} to see how to use ListManagedInstancesRequest.
  */
 export interface ListManagedInstancesRequest extends common.BaseRequest {
   /**
@@ -31,7 +31,7 @@ export interface ListManagedInstancesRequest extends common.BaseRequest {
    */
   "displayNameContains"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance. This filter returns resources associated with this managed instance.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance. This filter returns resources associated with this managed instance.
    */
   "managedInstanceId"?: string;
   /**
@@ -71,7 +71,7 @@ export interface ListManagedInstancesRequest extends common.BaseRequest {
    */
   "isAttachedToGroupOrLifecycleStage"?: boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source. This filter returns resources associated with this software source.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source. This filter returns resources associated with this software source.
    */
   "softwareSourceId"?: string;
   /**
@@ -102,7 +102,7 @@ Example: {@code ELSA-2020-5804}
    */
   "profile"?: Array<string>;
   /**
-   * A multi filter to return only managed instances that don't contain the given profile [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * A multi filter to return only managed instances that don't contain the given profile [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "profileNotEqualTo"?: Array<string>;
   /**
@@ -115,8 +115,28 @@ Example: {@code ELSA-2020-5804}
    */
   "isManagedByAutonomousLinux"?: boolean;
   /**
+   * A filter to return only managed instances with the specified version of osmh-agent running.
+   */
+  "agentVersion"?: string;
+  /**
+   * A filter to return resources that are associated with the specified management
+   * station [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "managementStation"?: Array<string>;
+  /**
+   * A filter to return resources that aren't associated with the specified management
+   * station [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "managementStationNotEqualTo"?: Array<string>;
+  /**
+   * A filter to return only managed instances that require a reboot to install updates.
+   */
+  "isRebootRequired"?: boolean;
+  /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 50}
 * 
@@ -124,7 +144,7 @@ Example: {@code 50}
   "limit"?: number;
   /**
  * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 3}
 * 

@@ -244,7 +244,7 @@ export class ShardedDatabaseServiceClient {
    * @param ChangePrivateEndpointCompartmentRequest
    * @return ChangePrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ChangePrivateEndpointCompartment.ts.html |here} to see how to use ChangePrivateEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ChangePrivateEndpointCompartment.ts.html |here} to see how to use ChangePrivateEndpointCompartment API.
    */
   public async changePrivateEndpointCompartment(
     changePrivateEndpointCompartmentRequest: requests.ChangePrivateEndpointCompartmentRequest
@@ -326,7 +326,7 @@ export class ShardedDatabaseServiceClient {
    * @param ChangeShardedDatabaseCompartmentRequest
    * @return ChangeShardedDatabaseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ChangeShardedDatabaseCompartment.ts.html |here} to see how to use ChangeShardedDatabaseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ChangeShardedDatabaseCompartment.ts.html |here} to see how to use ChangeShardedDatabaseCompartment API.
    */
   public async changeShardedDatabaseCompartment(
     changeShardedDatabaseCompartmentRequest: requests.ChangeShardedDatabaseCompartmentRequest
@@ -411,7 +411,7 @@ export class ShardedDatabaseServiceClient {
    * @param ConfigureShardedDatabaseGsmsRequest
    * @return ConfigureShardedDatabaseGsmsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ConfigureShardedDatabaseGsms.ts.html |here} to see how to use ConfigureShardedDatabaseGsms API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ConfigureShardedDatabaseGsms.ts.html |here} to see how to use ConfigureShardedDatabaseGsms API.
    */
   public async configureShardedDatabaseGsms(
     configureShardedDatabaseGsmsRequest: requests.ConfigureShardedDatabaseGsmsRequest
@@ -497,7 +497,7 @@ export class ShardedDatabaseServiceClient {
    * @param ConfigureShardingRequest
    * @return ConfigureShardingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ConfigureSharding.ts.html |here} to see how to use ConfigureSharding API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ConfigureSharding.ts.html |here} to see how to use ConfigureSharding API.
    */
   public async configureSharding(
     configureShardingRequest: requests.ConfigureShardingRequest
@@ -574,7 +574,7 @@ export class ShardedDatabaseServiceClient {
    * @param CreatePrivateEndpointRequest
    * @return CreatePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/CreatePrivateEndpoint.ts.html |here} to see how to use CreatePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/CreatePrivateEndpoint.ts.html |here} to see how to use CreatePrivateEndpoint API.
    */
   public async createPrivateEndpoint(
     createPrivateEndpointRequest: requests.CreatePrivateEndpointRequest
@@ -660,7 +660,7 @@ export class ShardedDatabaseServiceClient {
    * @param CreateShardedDatabaseRequest
    * @return CreateShardedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/CreateShardedDatabase.ts.html |here} to see how to use CreateShardedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/CreateShardedDatabase.ts.html |here} to see how to use CreateShardedDatabase API.
    */
   public async createShardedDatabase(
     createShardedDatabaseRequest: requests.CreateShardedDatabaseRequest
@@ -746,7 +746,7 @@ export class ShardedDatabaseServiceClient {
    * @param DeletePrivateEndpointRequest
    * @return DeletePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/DeletePrivateEndpoint.ts.html |here} to see how to use DeletePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/DeletePrivateEndpoint.ts.html |here} to see how to use DeletePrivateEndpoint API.
    */
   public async deletePrivateEndpoint(
     deletePrivateEndpointRequest: requests.DeletePrivateEndpointRequest
@@ -821,7 +821,7 @@ export class ShardedDatabaseServiceClient {
    * @param DeleteShardedDatabaseRequest
    * @return DeleteShardedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/DeleteShardedDatabase.ts.html |here} to see how to use DeleteShardedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/DeleteShardedDatabase.ts.html |here} to see how to use DeleteShardedDatabase API.
    */
   public async deleteShardedDatabase(
     deleteShardedDatabaseRequest: requests.DeleteShardedDatabaseRequest
@@ -899,7 +899,7 @@ export class ShardedDatabaseServiceClient {
    * @param DownloadGsmCertificateSigningRequestRequest
    * @return DownloadGsmCertificateSigningRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/DownloadGsmCertificateSigningRequest.ts.html |here} to see how to use DownloadGsmCertificateSigningRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/DownloadGsmCertificateSigningRequest.ts.html |here} to see how to use DownloadGsmCertificateSigningRequest API.
    */
   public async downloadGsmCertificateSigningRequest(
     downloadGsmCertificateSigningRequestRequest: requests.DownloadGsmCertificateSigningRequestRequest
@@ -990,7 +990,7 @@ export class ShardedDatabaseServiceClient {
    * @param FetchConnectionStringRequest
    * @return FetchConnectionStringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/FetchConnectionString.ts.html |here} to see how to use FetchConnectionString API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/FetchConnectionString.ts.html |here} to see how to use FetchConnectionString API.
    */
   public async fetchConnectionString(
     fetchConnectionStringRequest: requests.FetchConnectionStringRequest
@@ -1069,7 +1069,7 @@ export class ShardedDatabaseServiceClient {
    * @param FetchShardableCloudAutonomousVmClustersRequest
    * @return FetchShardableCloudAutonomousVmClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/FetchShardableCloudAutonomousVmClusters.ts.html |here} to see how to use FetchShardableCloudAutonomousVmClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/FetchShardableCloudAutonomousVmClusters.ts.html |here} to see how to use FetchShardableCloudAutonomousVmClusters API.
    */
   public async fetchShardableCloudAutonomousVmClusters(
     fetchShardableCloudAutonomousVmClustersRequest: requests.FetchShardableCloudAutonomousVmClustersRequest
@@ -1149,7 +1149,7 @@ export class ShardedDatabaseServiceClient {
    * @param GenerateGsmCertificateSigningRequestRequest
    * @return GenerateGsmCertificateSigningRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/GenerateGsmCertificateSigningRequest.ts.html |here} to see how to use GenerateGsmCertificateSigningRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/GenerateGsmCertificateSigningRequest.ts.html |here} to see how to use GenerateGsmCertificateSigningRequest API.
    */
   public async generateGsmCertificateSigningRequest(
     generateGsmCertificateSigningRequestRequest: requests.GenerateGsmCertificateSigningRequestRequest
@@ -1228,7 +1228,7 @@ export class ShardedDatabaseServiceClient {
    * @param GenerateWalletRequest
    * @return GenerateWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/GenerateWallet.ts.html |here} to see how to use GenerateWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/GenerateWallet.ts.html |here} to see how to use GenerateWallet API.
    */
   public async generateWallet(
     generateWalletRequest: requests.GenerateWalletRequest
@@ -1322,7 +1322,7 @@ export class ShardedDatabaseServiceClient {
    * @param GetPrivateEndpointRequest
    * @return GetPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/GetPrivateEndpoint.ts.html |here} to see how to use GetPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/GetPrivateEndpoint.ts.html |here} to see how to use GetPrivateEndpoint API.
    */
   public async getPrivateEndpoint(
     getPrivateEndpointRequest: requests.GetPrivateEndpointRequest
@@ -1400,7 +1400,7 @@ export class ShardedDatabaseServiceClient {
    * @param GetShardedDatabaseRequest
    * @return GetShardedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/GetShardedDatabase.ts.html |here} to see how to use GetShardedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/GetShardedDatabase.ts.html |here} to see how to use GetShardedDatabase API.
    */
   public async getShardedDatabase(
     getShardedDatabaseRequest: requests.GetShardedDatabaseRequest
@@ -1479,7 +1479,7 @@ export class ShardedDatabaseServiceClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1556,7 +1556,7 @@ export class ShardedDatabaseServiceClient {
    * @param ListPrivateEndpointsRequest
    * @return ListPrivateEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ListPrivateEndpoints.ts.html |here} to see how to use ListPrivateEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ListPrivateEndpoints.ts.html |here} to see how to use ListPrivateEndpoints API.
    */
   public async listPrivateEndpoints(
     listPrivateEndpointsRequest: requests.ListPrivateEndpointsRequest
@@ -1639,7 +1639,7 @@ export class ShardedDatabaseServiceClient {
    * @param ListShardedDatabasesRequest
    * @return ListShardedDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ListShardedDatabases.ts.html |here} to see how to use ListShardedDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ListShardedDatabases.ts.html |here} to see how to use ListShardedDatabases API.
    */
   public async listShardedDatabases(
     listShardedDatabasesRequest: requests.ListShardedDatabasesRequest
@@ -1722,7 +1722,7 @@ export class ShardedDatabaseServiceClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1804,7 +1804,7 @@ export class ShardedDatabaseServiceClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1886,7 +1886,7 @@ export class ShardedDatabaseServiceClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1972,7 +1972,7 @@ export class ShardedDatabaseServiceClient {
    * @param PatchShardedDatabaseRequest
    * @return PatchShardedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/PatchShardedDatabase.ts.html |here} to see how to use PatchShardedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/PatchShardedDatabase.ts.html |here} to see how to use PatchShardedDatabase API.
    */
   public async patchShardedDatabase(
     patchShardedDatabaseRequest: requests.PatchShardedDatabaseRequest
@@ -2051,7 +2051,7 @@ export class ShardedDatabaseServiceClient {
    * @param PrevalidateShardedDatabaseRequest
    * @return PrevalidateShardedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/PrevalidateShardedDatabase.ts.html |here} to see how to use PrevalidateShardedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/PrevalidateShardedDatabase.ts.html |here} to see how to use PrevalidateShardedDatabase API.
    */
   public async prevalidateShardedDatabase(
     prevalidateShardedDatabaseRequest: requests.PrevalidateShardedDatabaseRequest
@@ -2131,7 +2131,7 @@ export class ShardedDatabaseServiceClient {
    * @param ReinstateProxyInstanceRequest
    * @return ReinstateProxyInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ReinstateProxyInstance.ts.html |here} to see how to use ReinstateProxyInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ReinstateProxyInstance.ts.html |here} to see how to use ReinstateProxyInstance API.
    */
   public async reinstateProxyInstance(
     reinstateProxyInstanceRequest: requests.ReinstateProxyInstanceRequest
@@ -2205,7 +2205,7 @@ export class ShardedDatabaseServiceClient {
    * @param StartShardedDatabaseRequest
    * @return StartShardedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/StartShardedDatabase.ts.html |here} to see how to use StartShardedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/StartShardedDatabase.ts.html |here} to see how to use StartShardedDatabase API.
    */
   public async startShardedDatabase(
     startShardedDatabaseRequest: requests.StartShardedDatabaseRequest
@@ -2279,7 +2279,7 @@ export class ShardedDatabaseServiceClient {
    * @param StopShardedDatabaseRequest
    * @return StopShardedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/StopShardedDatabase.ts.html |here} to see how to use StopShardedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/StopShardedDatabase.ts.html |here} to see how to use StopShardedDatabase API.
    */
   public async stopShardedDatabase(
     stopShardedDatabaseRequest: requests.StopShardedDatabaseRequest
@@ -2354,7 +2354,7 @@ export class ShardedDatabaseServiceClient {
    * @param UpdatePrivateEndpointRequest
    * @return UpdatePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/UpdatePrivateEndpoint.ts.html |here} to see how to use UpdatePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/UpdatePrivateEndpoint.ts.html |here} to see how to use UpdatePrivateEndpoint API.
    */
   public async updatePrivateEndpoint(
     updatePrivateEndpointRequest: requests.UpdatePrivateEndpointRequest
@@ -2438,7 +2438,7 @@ export class ShardedDatabaseServiceClient {
    * @param UpdateShardedDatabaseRequest
    * @return UpdateShardedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/UpdateShardedDatabase.ts.html |here} to see how to use UpdateShardedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/UpdateShardedDatabase.ts.html |here} to see how to use UpdateShardedDatabase API.
    */
   public async updateShardedDatabase(
     updateShardedDatabaseRequest: requests.UpdateShardedDatabaseRequest
@@ -2523,7 +2523,7 @@ export class ShardedDatabaseServiceClient {
    * @param UploadSignedCertificateAndGenerateWalletRequest
    * @return UploadSignedCertificateAndGenerateWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/UploadSignedCertificateAndGenerateWallet.ts.html |here} to see how to use UploadSignedCertificateAndGenerateWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/UploadSignedCertificateAndGenerateWallet.ts.html |here} to see how to use UploadSignedCertificateAndGenerateWallet API.
    */
   public async uploadSignedCertificateAndGenerateWallet(
     uploadSignedCertificateAndGenerateWalletRequest: requests.UploadSignedCertificateAndGenerateWalletRequest
@@ -2606,7 +2606,7 @@ export class ShardedDatabaseServiceClient {
    * @param ValidateNetworkRequest
    * @return ValidateNetworkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ValidateNetwork.ts.html |here} to see how to use ValidateNetwork API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/globallydistributeddatabase/ValidateNetwork.ts.html |here} to see how to use ValidateNetwork API.
    */
   public async validateNetwork(
     validateNetworkRequest: requests.ValidateNetworkRequest

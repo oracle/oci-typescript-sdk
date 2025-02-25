@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetCloudVmClusterUpdateHistoryEntryRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetCloudVmClusterUpdateHistoryEntryRequest.
  */
 export interface GetCloudVmClusterUpdateHistoryEntryRequest extends common.BaseRequest {
   /**
-   * The cloud VM cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The cloud VM cluster [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "cloudVmClusterId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the maintenance update history entry.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the maintenance update history entry.
    */
   "updateHistoryEntryId": string;
   /**

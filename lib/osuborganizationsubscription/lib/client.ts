@@ -221,7 +221,7 @@ export class OrganizationSubscriptionClient {
    * @param ListOrganizationSubscriptionsRequest
    * @return ListOrganizationSubscriptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osuborganizationsubscription/ListOrganizationSubscriptions.ts.html |here} to see how to use ListOrganizationSubscriptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osuborganizationsubscription/ListOrganizationSubscriptions.ts.html |here} to see how to use ListOrganizationSubscriptions API.
    */
   public async listOrganizationSubscriptions(
     listOrganizationSubscriptionsRequest: requests.ListOrganizationSubscriptionsRequest

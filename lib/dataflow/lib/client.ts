@@ -245,7 +245,7 @@ export class DataFlowClient {
    * @param CascadingDeleteApplicationRequest
    * @return CascadingDeleteApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CascadingDeleteApplication.ts.html |here} to see how to use CascadingDeleteApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CascadingDeleteApplication.ts.html |here} to see how to use CascadingDeleteApplication API.
    */
   public async cascadingDeleteApplication(
     cascadingDeleteApplicationRequest: requests.CascadingDeleteApplicationRequest
@@ -321,7 +321,7 @@ export class DataFlowClient {
    * @param ChangeApplicationCompartmentRequest
    * @return ChangeApplicationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangeApplicationCompartment.ts.html |here} to see how to use ChangeApplicationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangeApplicationCompartment.ts.html |here} to see how to use ChangeApplicationCompartment API.
    */
   public async changeApplicationCompartment(
     changeApplicationCompartmentRequest: requests.ChangeApplicationCompartmentRequest
@@ -400,7 +400,7 @@ export class DataFlowClient {
    * @param ChangePoolCompartmentRequest
    * @return ChangePoolCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangePoolCompartment.ts.html |here} to see how to use ChangePoolCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangePoolCompartment.ts.html |here} to see how to use ChangePoolCompartment API.
    */
   public async changePoolCompartment(
     changePoolCompartmentRequest: requests.ChangePoolCompartmentRequest
@@ -475,7 +475,7 @@ export class DataFlowClient {
    * @param ChangePrivateEndpointCompartmentRequest
    * @return ChangePrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangePrivateEndpointCompartment.ts.html |here} to see how to use ChangePrivateEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangePrivateEndpointCompartment.ts.html |here} to see how to use ChangePrivateEndpointCompartment API.
    */
   public async changePrivateEndpointCompartment(
     changePrivateEndpointCompartmentRequest: requests.ChangePrivateEndpointCompartmentRequest
@@ -558,7 +558,7 @@ export class DataFlowClient {
    * @param ChangeRunCompartmentRequest
    * @return ChangeRunCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangeRunCompartment.ts.html |here} to see how to use ChangeRunCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangeRunCompartment.ts.html |here} to see how to use ChangeRunCompartment API.
    */
   public async changeRunCompartment(
     changeRunCompartmentRequest: requests.ChangeRunCompartmentRequest
@@ -632,7 +632,7 @@ export class DataFlowClient {
    * @param ChangeSqlEndpointCompartmentRequest
    * @return ChangeSqlEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangeSqlEndpointCompartment.ts.html |here} to see how to use ChangeSqlEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangeSqlEndpointCompartment.ts.html |here} to see how to use ChangeSqlEndpointCompartment API.
    */
   public async changeSqlEndpointCompartment(
     changeSqlEndpointCompartmentRequest: requests.ChangeSqlEndpointCompartmentRequest
@@ -713,7 +713,7 @@ export class DataFlowClient {
    * @param CreateApplicationRequest
    * @return CreateApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateApplication.ts.html |here} to see how to use CreateApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateApplication.ts.html |here} to see how to use CreateApplication API.
    */
   public async createApplication(
     createApplicationRequest: requests.CreateApplicationRequest
@@ -794,7 +794,7 @@ export class DataFlowClient {
    * @param CreatePoolRequest
    * @return CreatePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreatePool.ts.html |here} to see how to use CreatePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreatePool.ts.html |here} to see how to use CreatePool API.
    */
   public async createPool(
     createPoolRequest: requests.CreatePoolRequest
@@ -884,7 +884,7 @@ export class DataFlowClient {
    * @param CreatePrivateEndpointRequest
    * @return CreatePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreatePrivateEndpoint.ts.html |here} to see how to use CreatePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreatePrivateEndpoint.ts.html |here} to see how to use CreatePrivateEndpoint API.
    */
   public async createPrivateEndpoint(
     createPrivateEndpointRequest: requests.CreatePrivateEndpointRequest
@@ -974,7 +974,7 @@ export class DataFlowClient {
    * @param CreateRunRequest
    * @return CreateRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateRun.ts.html |here} to see how to use CreateRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateRun.ts.html |here} to see how to use CreateRun API.
    */
   public async createRun(
     createRunRequest: requests.CreateRunRequest
@@ -1055,7 +1055,7 @@ export class DataFlowClient {
    * @param CreateSqlEndpointRequest
    * @return CreateSqlEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateSqlEndpoint.ts.html |here} to see how to use CreateSqlEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateSqlEndpoint.ts.html |here} to see how to use CreateSqlEndpoint API.
    */
   public async createSqlEndpoint(
     createSqlEndpointRequest: requests.CreateSqlEndpointRequest
@@ -1140,7 +1140,7 @@ export class DataFlowClient {
    * @param CreateStatementRequest
    * @return CreateStatementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateStatement.ts.html |here} to see how to use CreateStatement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateStatement.ts.html |here} to see how to use CreateStatement API.
    */
   public async createStatement(
     createStatementRequest: requests.CreateStatementRequest
@@ -1222,7 +1222,7 @@ export class DataFlowClient {
    * @param DeleteApplicationRequest
    * @return DeleteApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeleteApplication.ts.html |here} to see how to use DeleteApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeleteApplication.ts.html |here} to see how to use DeleteApplication API.
    */
   public async deleteApplication(
     deleteApplicationRequest: requests.DeleteApplicationRequest
@@ -1291,7 +1291,7 @@ export class DataFlowClient {
    * @param DeletePoolRequest
    * @return DeletePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeletePool.ts.html |here} to see how to use DeletePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeletePool.ts.html |here} to see how to use DeletePool API.
    */
   public async deletePool(
     deletePoolRequest: requests.DeletePoolRequest
@@ -1360,7 +1360,7 @@ export class DataFlowClient {
    * @param DeletePrivateEndpointRequest
    * @return DeletePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeletePrivateEndpoint.ts.html |here} to see how to use DeletePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeletePrivateEndpoint.ts.html |here} to see how to use DeletePrivateEndpoint API.
    */
   public async deletePrivateEndpoint(
     deletePrivateEndpointRequest: requests.DeletePrivateEndpointRequest
@@ -1435,7 +1435,7 @@ export class DataFlowClient {
    * @param DeleteRunRequest
    * @return DeleteRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeleteRun.ts.html |here} to see how to use DeleteRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeleteRun.ts.html |here} to see how to use DeleteRun API.
    */
   public async deleteRun(
     deleteRunRequest: requests.DeleteRunRequest
@@ -1503,7 +1503,7 @@ export class DataFlowClient {
    * @param DeleteSqlEndpointRequest
    * @return DeleteSqlEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeleteSqlEndpoint.ts.html |here} to see how to use DeleteSqlEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeleteSqlEndpoint.ts.html |here} to see how to use DeleteSqlEndpoint API.
    */
   public async deleteSqlEndpoint(
     deleteSqlEndpointRequest: requests.DeleteSqlEndpointRequest
@@ -1577,7 +1577,7 @@ export class DataFlowClient {
    * @param DeleteStatementRequest
    * @return DeleteStatementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeleteStatement.ts.html |here} to see how to use DeleteStatement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeleteStatement.ts.html |here} to see how to use DeleteStatement API.
    */
   public async deleteStatement(
     deleteStatementRequest: requests.DeleteStatementRequest
@@ -1647,7 +1647,7 @@ export class DataFlowClient {
    * @param GetApplicationRequest
    * @return GetApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetApplication.ts.html |here} to see how to use GetApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetApplication.ts.html |here} to see how to use GetApplication API.
    */
   public async getApplication(
     getApplicationRequest: requests.GetApplicationRequest
@@ -1724,7 +1724,7 @@ export class DataFlowClient {
    * @param GetPoolRequest
    * @return GetPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetPool.ts.html |here} to see how to use GetPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetPool.ts.html |here} to see how to use GetPool API.
    */
   public async getPool(
     getPoolRequest: requests.GetPoolRequest
@@ -1801,7 +1801,7 @@ export class DataFlowClient {
    * @param GetPrivateEndpointRequest
    * @return GetPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetPrivateEndpoint.ts.html |here} to see how to use GetPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetPrivateEndpoint.ts.html |here} to see how to use GetPrivateEndpoint API.
    */
   public async getPrivateEndpoint(
     getPrivateEndpointRequest: requests.GetPrivateEndpointRequest
@@ -1878,7 +1878,7 @@ export class DataFlowClient {
    * @param GetRunRequest
    * @return GetRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetRun.ts.html |here} to see how to use GetRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetRun.ts.html |here} to see how to use GetRun API.
    */
   public async getRun(getRunRequest: requests.GetRunRequest): Promise<responses.GetRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#getRun.");
@@ -1952,7 +1952,7 @@ export class DataFlowClient {
    * @param GetRunLogRequest
    * @return GetRunLogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetRunLog.ts.html |here} to see how to use GetRunLog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetRunLog.ts.html |here} to see how to use GetRunLog API.
    */
   public async getRunLog(
     getRunLogRequest: requests.GetRunLogRequest
@@ -2052,7 +2052,7 @@ export class DataFlowClient {
    * @param GetSqlEndpointRequest
    * @return GetSqlEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetSqlEndpoint.ts.html |here} to see how to use GetSqlEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetSqlEndpoint.ts.html |here} to see how to use GetSqlEndpoint API.
    */
   public async getSqlEndpoint(
     getSqlEndpointRequest: requests.GetSqlEndpointRequest
@@ -2129,7 +2129,7 @@ export class DataFlowClient {
    * @param GetStatementRequest
    * @return GetStatementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetStatement.ts.html |here} to see how to use GetStatement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetStatement.ts.html |here} to see how to use GetStatement API.
    */
   public async getStatement(
     getStatementRequest: requests.GetStatementRequest
@@ -2207,7 +2207,7 @@ export class DataFlowClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2279,7 +2279,7 @@ export class DataFlowClient {
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListApplications.ts.html |here} to see how to use ListApplications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListApplications.ts.html |here} to see how to use ListApplications API.
    */
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
@@ -2421,7 +2421,7 @@ export class DataFlowClient {
    * @param ListPoolsRequest
    * @return ListPoolsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListPools.ts.html |here} to see how to use ListPools API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListPools.ts.html |here} to see how to use ListPools API.
    */
   public async listPools(
     listPoolsRequest: requests.ListPoolsRequest
@@ -2511,7 +2511,7 @@ export class DataFlowClient {
    * @param ListPrivateEndpointsRequest
    * @return ListPrivateEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListPrivateEndpoints.ts.html |here} to see how to use ListPrivateEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListPrivateEndpoints.ts.html |here} to see how to use ListPrivateEndpoints API.
    */
   public async listPrivateEndpoints(
     listPrivateEndpointsRequest: requests.ListPrivateEndpointsRequest
@@ -2601,7 +2601,7 @@ export class DataFlowClient {
    * @param ListRunLogsRequest
    * @return ListRunLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListRunLogs.ts.html |here} to see how to use ListRunLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListRunLogs.ts.html |here} to see how to use ListRunLogs API.
    */
   public async listRunLogs(
     listRunLogsRequest: requests.ListRunLogsRequest
@@ -2738,7 +2738,7 @@ export class DataFlowClient {
    * @param ListRunsRequest
    * @return ListRunsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListRuns.ts.html |here} to see how to use ListRuns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListRuns.ts.html |here} to see how to use ListRuns API.
    */
   public async listRuns(
     listRunsRequest: requests.ListRunsRequest
@@ -2883,7 +2883,7 @@ export class DataFlowClient {
    * @param ListSqlEndpointsRequest
    * @return ListSqlEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListSqlEndpoints.ts.html |here} to see how to use ListSqlEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListSqlEndpoints.ts.html |here} to see how to use ListSqlEndpoints API.
    */
   public async listSqlEndpoints(
     listSqlEndpointsRequest: requests.ListSqlEndpointsRequest
@@ -2967,7 +2967,7 @@ export class DataFlowClient {
    * @param ListStatementsRequest
    * @return ListStatementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListStatements.ts.html |here} to see how to use ListStatements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListStatements.ts.html |here} to see how to use ListStatements API.
    */
   public async listStatements(
     listStatementsRequest: requests.ListStatementsRequest
@@ -3055,7 +3055,7 @@ export class DataFlowClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -3140,7 +3140,7 @@ export class DataFlowClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -3225,7 +3225,7 @@ export class DataFlowClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -3309,7 +3309,7 @@ export class DataFlowClient {
    * @param StartPoolRequest
    * @return StartPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/StartPool.ts.html |here} to see how to use StartPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/StartPool.ts.html |here} to see how to use StartPool API.
    */
   public async startPool(
     startPoolRequest: requests.StartPoolRequest
@@ -3383,7 +3383,7 @@ export class DataFlowClient {
    * @param StartSqlEndpointRequest
    * @return StartSqlEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/StartSqlEndpoint.ts.html |here} to see how to use StartSqlEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/StartSqlEndpoint.ts.html |here} to see how to use StartSqlEndpoint API.
    */
   public async startSqlEndpoint(
     startSqlEndpointRequest: requests.StartSqlEndpointRequest
@@ -3458,7 +3458,7 @@ export class DataFlowClient {
    * @param StopPoolRequest
    * @return StopPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/StopPool.ts.html |here} to see how to use StopPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/StopPool.ts.html |here} to see how to use StopPool API.
    */
   public async stopPool(
     stopPoolRequest: requests.StopPoolRequest
@@ -3532,7 +3532,7 @@ export class DataFlowClient {
    * @param StopSqlEndpointRequest
    * @return StopSqlEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/StopSqlEndpoint.ts.html |here} to see how to use StopSqlEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/StopSqlEndpoint.ts.html |here} to see how to use StopSqlEndpoint API.
    */
   public async stopSqlEndpoint(
     stopSqlEndpointRequest: requests.StopSqlEndpointRequest
@@ -3607,7 +3607,7 @@ export class DataFlowClient {
    * @param UpdateApplicationRequest
    * @return UpdateApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdateApplication.ts.html |here} to see how to use UpdateApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdateApplication.ts.html |here} to see how to use UpdateApplication API.
    */
   public async updateApplication(
     updateApplicationRequest: requests.UpdateApplicationRequest
@@ -3692,7 +3692,7 @@ export class DataFlowClient {
    * @param UpdatePoolRequest
    * @return UpdatePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdatePool.ts.html |here} to see how to use UpdatePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdatePool.ts.html |here} to see how to use UpdatePool API.
    */
   public async updatePool(
     updatePoolRequest: requests.UpdatePoolRequest
@@ -3773,7 +3773,7 @@ export class DataFlowClient {
    * @param UpdatePrivateEndpointRequest
    * @return UpdatePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdatePrivateEndpoint.ts.html |here} to see how to use UpdatePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdatePrivateEndpoint.ts.html |here} to see how to use UpdatePrivateEndpoint API.
    */
   public async updatePrivateEndpoint(
     updatePrivateEndpointRequest: requests.UpdatePrivateEndpointRequest
@@ -3852,7 +3852,7 @@ export class DataFlowClient {
    * @param UpdateRunRequest
    * @return UpdateRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdateRun.ts.html |here} to see how to use UpdateRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdateRun.ts.html |here} to see how to use UpdateRun API.
    */
   public async updateRun(
     updateRunRequest: requests.UpdateRunRequest
@@ -3934,7 +3934,7 @@ export class DataFlowClient {
    * @param UpdateSqlEndpointRequest
    * @return UpdateSqlEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdateSqlEndpoint.ts.html |here} to see how to use UpdateSqlEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdateSqlEndpoint.ts.html |here} to see how to use UpdateSqlEndpoint API.
    */
   public async updateSqlEndpoint(
     updateSqlEndpointRequest: requests.UpdateSqlEndpointRequest

@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -22,12 +22,12 @@ import common = require("oci-common");
 * through that subnet. Each instance has a *primary VNIC* that is automatically
 * created and attached during launch. You can add *secondary VNICs* to an
 * instance after it's launched. For more information, see
-* [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
+* [Virtual Network Interface Cards (VNICs)](https://docs.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
 * <p>
 Each VNIC has a *primary private IP* that is automatically assigned during launch.
 * You can add *secondary private IPs* to a VNIC after it's created. For more
 * information, see {@link #createPrivateIp(CreatePrivateIpRequest) createPrivateIp} and
-* [IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
+* [IP Addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
 * <p>
 
 * If you are an Oracle Cloud VMware Solution customer, you will have secondary VNICs
@@ -37,7 +37,7 @@ Each VNIC has a *primary private IP* that is automatically assigned during launc
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface Vnic {
@@ -49,7 +49,7 @@ Example: {@code Uocm:PHX-AD-1}
     */
   "availabilityDomain": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the VNIC.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the VNIC.
    */
   "compartmentId": string;
   /**
@@ -79,14 +79,14 @@ Example: {@code Uocm:PHX-AD-1}
 * [RFC 1123](https://tools.ietf.org/html/rfc1123).
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 Example: {@code bminstance1}
 * 
     */
   "hostnameLabel"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC.
    */
   "id": string;
   /**
@@ -124,7 +124,7 @@ For more information about NSGs, see
   "nsgIds"?: Array<string>;
   /**
    * If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution (instead of
-   * belonging to a subnet), the {@code vlanId} is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN the VNIC is in. See
+   * belonging to a subnet), the {@code vlanId} is the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN the VNIC is in. See
    * {@link Vlan}. If the VNIC is instead in a subnet, {@code subnetId} has a value.
    *
    */
@@ -146,7 +146,7 @@ Example: {@code 10.0.3.3}
     * Whether the source/destination check is disabled on the VNIC.
 * Defaults to {@code false}, which means the check is performed. For information
 * about why you would skip the source/destination check, see
-* [Using a Private IP as a Route Target](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip).
+* [Using a Private IP as a Route Target](https://docs.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip).
 * <p>
 
 * If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution (instead of
@@ -158,7 +158,7 @@ Example: {@code true}
     */
   "skipSourceDestCheck"?: boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the VNIC is in.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the VNIC is in.
    */
   "subnetId"?: string;
   /**

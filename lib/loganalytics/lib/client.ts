@@ -244,7 +244,7 @@ export class LogAnalyticsClient {
    * @param AddEntityAssociationRequest
    * @return AddEntityAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AddEntityAssociation.ts.html |here} to see how to use AddEntityAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AddEntityAssociation.ts.html |here} to see how to use AddEntityAssociation API.
    */
   public async addEntityAssociation(
     addEntityAssociationRequest: requests.AddEntityAssociationRequest
@@ -322,7 +322,7 @@ export class LogAnalyticsClient {
    * @param AddSourceEventTypesRequest
    * @return AddSourceEventTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AddSourceEventTypes.ts.html |here} to see how to use AddSourceEventTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AddSourceEventTypes.ts.html |here} to see how to use AddSourceEventTypes API.
    */
   public async addSourceEventTypes(
     addSourceEventTypesRequest: requests.AddSourceEventTypesRequest
@@ -397,7 +397,7 @@ export class LogAnalyticsClient {
    * @param AppendLookupDataRequest
    * @return AppendLookupDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AppendLookupData.ts.html |here} to see how to use AppendLookupData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AppendLookupData.ts.html |here} to see how to use AppendLookupData API.
    */
   public async appendLookupData(
     appendLookupDataRequest: requests.AppendLookupDataRequest
@@ -478,7 +478,7 @@ export class LogAnalyticsClient {
    * @param AssignEncryptionKeyRequest
    * @return AssignEncryptionKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AssignEncryptionKey.ts.html |here} to see how to use AssignEncryptionKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AssignEncryptionKey.ts.html |here} to see how to use AssignEncryptionKey API.
    */
   public async assignEncryptionKey(
     assignEncryptionKeyRequest: requests.AssignEncryptionKeyRequest
@@ -563,7 +563,7 @@ export class LogAnalyticsClient {
    * @param BatchGetBasicInfoRequest
    * @return BatchGetBasicInfoResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/BatchGetBasicInfo.ts.html |here} to see how to use BatchGetBasicInfo API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/BatchGetBasicInfo.ts.html |here} to see how to use BatchGetBasicInfo API.
    */
   public async batchGetBasicInfo(
     batchGetBasicInfoRequest: requests.BatchGetBasicInfoRequest
@@ -655,7 +655,7 @@ export class LogAnalyticsClient {
    * @param CancelQueryWorkRequestRequest
    * @return CancelQueryWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CancelQueryWorkRequest.ts.html |here} to see how to use CancelQueryWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CancelQueryWorkRequest.ts.html |here} to see how to use CancelQueryWorkRequest API.
    */
   public async cancelQueryWorkRequest(
     cancelQueryWorkRequestRequest: requests.CancelQueryWorkRequestRequest
@@ -726,7 +726,7 @@ export class LogAnalyticsClient {
    * @param ChangeIngestTimeRuleCompartmentRequest
    * @return ChangeIngestTimeRuleCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeIngestTimeRuleCompartment.ts.html |here} to see how to use ChangeIngestTimeRuleCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeIngestTimeRuleCompartment.ts.html |here} to see how to use ChangeIngestTimeRuleCompartment API.
    */
   public async changeIngestTimeRuleCompartment(
     changeIngestTimeRuleCompartmentRequest: requests.ChangeIngestTimeRuleCompartmentRequest
@@ -803,7 +803,7 @@ export class LogAnalyticsClient {
    * @param ChangeLogAnalyticsEmBridgeCompartmentRequest
    * @return ChangeLogAnalyticsEmBridgeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeLogAnalyticsEmBridgeCompartment.ts.html |here} to see how to use ChangeLogAnalyticsEmBridgeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeLogAnalyticsEmBridgeCompartment.ts.html |here} to see how to use ChangeLogAnalyticsEmBridgeCompartment API.
    */
   public async changeLogAnalyticsEmBridgeCompartment(
     changeLogAnalyticsEmBridgeCompartmentRequest: requests.ChangeLogAnalyticsEmBridgeCompartmentRequest
@@ -883,7 +883,7 @@ export class LogAnalyticsClient {
    * @param ChangeLogAnalyticsEntityCompartmentRequest
    * @return ChangeLogAnalyticsEntityCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeLogAnalyticsEntityCompartment.ts.html |here} to see how to use ChangeLogAnalyticsEntityCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeLogAnalyticsEntityCompartment.ts.html |here} to see how to use ChangeLogAnalyticsEntityCompartment API.
    */
   public async changeLogAnalyticsEntityCompartment(
     changeLogAnalyticsEntityCompartmentRequest: requests.ChangeLogAnalyticsEntityCompartmentRequest
@@ -963,7 +963,7 @@ export class LogAnalyticsClient {
    * @param ChangeLogAnalyticsLogGroupCompartmentRequest
    * @return ChangeLogAnalyticsLogGroupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeLogAnalyticsLogGroupCompartment.ts.html |here} to see how to use ChangeLogAnalyticsLogGroupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeLogAnalyticsLogGroupCompartment.ts.html |here} to see how to use ChangeLogAnalyticsLogGroupCompartment API.
    */
   public async changeLogAnalyticsLogGroupCompartment(
     changeLogAnalyticsLogGroupCompartmentRequest: requests.ChangeLogAnalyticsLogGroupCompartmentRequest
@@ -1043,7 +1043,7 @@ export class LogAnalyticsClient {
    * @param ChangeLogAnalyticsObjectCollectionRuleCompartmentRequest
    * @return ChangeLogAnalyticsObjectCollectionRuleCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeLogAnalyticsObjectCollectionRuleCompartment.ts.html |here} to see how to use ChangeLogAnalyticsObjectCollectionRuleCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeLogAnalyticsObjectCollectionRuleCompartment.ts.html |here} to see how to use ChangeLogAnalyticsObjectCollectionRuleCompartment API.
    */
   public async changeLogAnalyticsObjectCollectionRuleCompartment(
     changeLogAnalyticsObjectCollectionRuleCompartmentRequest: requests.ChangeLogAnalyticsObjectCollectionRuleCompartmentRequest
@@ -1123,7 +1123,7 @@ export class LogAnalyticsClient {
    * @param ChangeScheduledTaskCompartmentRequest
    * @return ChangeScheduledTaskCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeScheduledTaskCompartment.ts.html |here} to see how to use ChangeScheduledTaskCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeScheduledTaskCompartment.ts.html |here} to see how to use ChangeScheduledTaskCompartment API.
    */
   public async changeScheduledTaskCompartment(
     changeScheduledTaskCompartmentRequest: requests.ChangeScheduledTaskCompartmentRequest
@@ -1202,7 +1202,7 @@ export class LogAnalyticsClient {
    * @param CleanRequest
    * @return CleanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Clean.ts.html |here} to see how to use Clean API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Clean.ts.html |here} to see how to use Clean API.
    */
   public async clean(cleanRequest: requests.CleanRequest): Promise<responses.CleanResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#clean.");
@@ -1273,7 +1273,7 @@ export class LogAnalyticsClient {
    * @param CompareContentRequest
    * @return CompareContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CompareContent.ts.html |here} to see how to use CompareContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CompareContent.ts.html |here} to see how to use CompareContent API.
    */
   public async compareContent(
     compareContentRequest: requests.CompareContentRequest
@@ -1350,7 +1350,7 @@ export class LogAnalyticsClient {
    * @param CreateIngestTimeRuleRequest
    * @return CreateIngestTimeRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateIngestTimeRule.ts.html |here} to see how to use CreateIngestTimeRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateIngestTimeRule.ts.html |here} to see how to use CreateIngestTimeRule API.
    */
   public async createIngestTimeRule(
     createIngestTimeRuleRequest: requests.CreateIngestTimeRuleRequest
@@ -1433,7 +1433,7 @@ export class LogAnalyticsClient {
    * @param CreateLogAnalyticsEmBridgeRequest
    * @return CreateLogAnalyticsEmBridgeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsEmBridge.ts.html |here} to see how to use CreateLogAnalyticsEmBridge API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsEmBridge.ts.html |here} to see how to use CreateLogAnalyticsEmBridge API.
    */
   public async createLogAnalyticsEmBridge(
     createLogAnalyticsEmBridgeRequest: requests.CreateLogAnalyticsEmBridgeRequest
@@ -1516,7 +1516,7 @@ export class LogAnalyticsClient {
    * @param CreateLogAnalyticsEntityRequest
    * @return CreateLogAnalyticsEntityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsEntity.ts.html |here} to see how to use CreateLogAnalyticsEntity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsEntity.ts.html |here} to see how to use CreateLogAnalyticsEntity API.
    */
   public async createLogAnalyticsEntity(
     createLogAnalyticsEntityRequest: requests.CreateLogAnalyticsEntityRequest
@@ -1599,7 +1599,7 @@ export class LogAnalyticsClient {
    * @param CreateLogAnalyticsEntityTypeRequest
    * @return CreateLogAnalyticsEntityTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsEntityType.ts.html |here} to see how to use CreateLogAnalyticsEntityType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsEntityType.ts.html |here} to see how to use CreateLogAnalyticsEntityType API.
    */
   public async createLogAnalyticsEntityType(
     createLogAnalyticsEntityTypeRequest: requests.CreateLogAnalyticsEntityTypeRequest
@@ -1674,7 +1674,7 @@ export class LogAnalyticsClient {
    * @param CreateLogAnalyticsLogGroupRequest
    * @return CreateLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsLogGroup.ts.html |here} to see how to use CreateLogAnalyticsLogGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsLogGroup.ts.html |here} to see how to use CreateLogAnalyticsLogGroup API.
    */
   public async createLogAnalyticsLogGroup(
     createLogAnalyticsLogGroupRequest: requests.CreateLogAnalyticsLogGroupRequest
@@ -1757,7 +1757,7 @@ export class LogAnalyticsClient {
    * @param CreateLogAnalyticsObjectCollectionRuleRequest
    * @return CreateLogAnalyticsObjectCollectionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsObjectCollectionRule.ts.html |here} to see how to use CreateLogAnalyticsObjectCollectionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateLogAnalyticsObjectCollectionRule.ts.html |here} to see how to use CreateLogAnalyticsObjectCollectionRule API.
    */
   public async createLogAnalyticsObjectCollectionRule(
     createLogAnalyticsObjectCollectionRuleRequest: requests.CreateLogAnalyticsObjectCollectionRuleRequest
@@ -1841,7 +1841,7 @@ export class LogAnalyticsClient {
    * @param CreateScheduledTaskRequest
    * @return CreateScheduledTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateScheduledTask.ts.html |here} to see how to use CreateScheduledTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateScheduledTask.ts.html |here} to see how to use CreateScheduledTask API.
    */
   public async createScheduledTask(
     createScheduledTaskRequest: requests.CreateScheduledTaskRequest
@@ -1924,7 +1924,7 @@ export class LogAnalyticsClient {
    * @param DeleteAssociationsRequest
    * @return DeleteAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteAssociations.ts.html |here} to see how to use DeleteAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteAssociations.ts.html |here} to see how to use DeleteAssociations API.
    */
   public async deleteAssociations(
     deleteAssociationsRequest: requests.DeleteAssociationsRequest
@@ -2003,7 +2003,7 @@ export class LogAnalyticsClient {
    * @param DeleteFieldRequest
    * @return DeleteFieldResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteField.ts.html |here} to see how to use DeleteField API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteField.ts.html |here} to see how to use DeleteField API.
    */
   public async deleteField(
     deleteFieldRequest: requests.DeleteFieldRequest
@@ -2074,7 +2074,7 @@ export class LogAnalyticsClient {
    * @param DeleteIngestTimeRuleRequest
    * @return DeleteIngestTimeRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteIngestTimeRule.ts.html |here} to see how to use DeleteIngestTimeRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteIngestTimeRule.ts.html |here} to see how to use DeleteIngestTimeRule API.
    */
   public async deleteIngestTimeRule(
     deleteIngestTimeRuleRequest: requests.DeleteIngestTimeRuleRequest
@@ -2145,7 +2145,7 @@ export class LogAnalyticsClient {
    * @param DeleteLabelRequest
    * @return DeleteLabelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLabel.ts.html |here} to see how to use DeleteLabel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLabel.ts.html |here} to see how to use DeleteLabel API.
    */
   public async deleteLabel(
     deleteLabelRequest: requests.DeleteLabelRequest
@@ -2215,7 +2215,7 @@ export class LogAnalyticsClient {
    * @param DeleteLogAnalyticsEmBridgeRequest
    * @return DeleteLogAnalyticsEmBridgeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsEmBridge.ts.html |here} to see how to use DeleteLogAnalyticsEmBridge API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsEmBridge.ts.html |here} to see how to use DeleteLogAnalyticsEmBridge API.
    */
   public async deleteLogAnalyticsEmBridge(
     deleteLogAnalyticsEmBridgeRequest: requests.DeleteLogAnalyticsEmBridgeRequest
@@ -2287,7 +2287,7 @@ export class LogAnalyticsClient {
    * @param DeleteLogAnalyticsEntityRequest
    * @return DeleteLogAnalyticsEntityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsEntity.ts.html |here} to see how to use DeleteLogAnalyticsEntity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsEntity.ts.html |here} to see how to use DeleteLogAnalyticsEntity API.
    */
   public async deleteLogAnalyticsEntity(
     deleteLogAnalyticsEntityRequest: requests.DeleteLogAnalyticsEntityRequest
@@ -2357,7 +2357,7 @@ export class LogAnalyticsClient {
    * @param DeleteLogAnalyticsEntityTypeRequest
    * @return DeleteLogAnalyticsEntityTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsEntityType.ts.html |here} to see how to use DeleteLogAnalyticsEntityType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsEntityType.ts.html |here} to see how to use DeleteLogAnalyticsEntityType API.
    */
   public async deleteLogAnalyticsEntityType(
     deleteLogAnalyticsEntityTypeRequest: requests.DeleteLogAnalyticsEntityTypeRequest
@@ -2428,7 +2428,7 @@ export class LogAnalyticsClient {
    * @param DeleteLogAnalyticsLogGroupRequest
    * @return DeleteLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsLogGroup.ts.html |here} to see how to use DeleteLogAnalyticsLogGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsLogGroup.ts.html |here} to see how to use DeleteLogAnalyticsLogGroup API.
    */
   public async deleteLogAnalyticsLogGroup(
     deleteLogAnalyticsLogGroupRequest: requests.DeleteLogAnalyticsLogGroupRequest
@@ -2500,7 +2500,7 @@ export class LogAnalyticsClient {
    * @param DeleteLogAnalyticsObjectCollectionRuleRequest
    * @return DeleteLogAnalyticsObjectCollectionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsObjectCollectionRule.ts.html |here} to see how to use DeleteLogAnalyticsObjectCollectionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLogAnalyticsObjectCollectionRule.ts.html |here} to see how to use DeleteLogAnalyticsObjectCollectionRule API.
    */
   public async deleteLogAnalyticsObjectCollectionRule(
     deleteLogAnalyticsObjectCollectionRuleRequest: requests.DeleteLogAnalyticsObjectCollectionRuleRequest
@@ -2575,7 +2575,7 @@ export class LogAnalyticsClient {
    * @param DeleteLookupRequest
    * @return DeleteLookupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLookup.ts.html |here} to see how to use DeleteLookup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteLookup.ts.html |here} to see how to use DeleteLookup API.
    */
   public async deleteLookup(
     deleteLookupRequest: requests.DeleteLookupRequest
@@ -2653,7 +2653,7 @@ export class LogAnalyticsClient {
    * @param DeleteParserRequest
    * @return DeleteParserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteParser.ts.html |here} to see how to use DeleteParser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteParser.ts.html |here} to see how to use DeleteParser API.
    */
   public async deleteParser(
     deleteParserRequest: requests.DeleteParserRequest
@@ -2723,7 +2723,7 @@ export class LogAnalyticsClient {
    * @param DeleteScheduledTaskRequest
    * @return DeleteScheduledTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteScheduledTask.ts.html |here} to see how to use DeleteScheduledTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteScheduledTask.ts.html |here} to see how to use DeleteScheduledTask API.
    */
   public async deleteScheduledTask(
     deleteScheduledTaskRequest: requests.DeleteScheduledTaskRequest
@@ -2793,7 +2793,7 @@ export class LogAnalyticsClient {
    * @param DeleteSourceRequest
    * @return DeleteSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteSource.ts.html |here} to see how to use DeleteSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteSource.ts.html |here} to see how to use DeleteSource API.
    */
   public async deleteSource(
     deleteSourceRequest: requests.DeleteSourceRequest
@@ -2865,7 +2865,7 @@ export class LogAnalyticsClient {
    * @param DeleteUploadRequest
    * @return DeleteUploadResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteUpload.ts.html |here} to see how to use DeleteUpload API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteUpload.ts.html |here} to see how to use DeleteUpload API.
    */
   public async deleteUpload(
     deleteUploadRequest: requests.DeleteUploadRequest
@@ -2946,7 +2946,7 @@ export class LogAnalyticsClient {
    * @param DeleteUploadFileRequest
    * @return DeleteUploadFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteUploadFile.ts.html |here} to see how to use DeleteUploadFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteUploadFile.ts.html |here} to see how to use DeleteUploadFile API.
    */
   public async deleteUploadFile(
     deleteUploadFileRequest: requests.DeleteUploadFileRequest
@@ -3026,7 +3026,7 @@ export class LogAnalyticsClient {
    * @param DeleteUploadWarningRequest
    * @return DeleteUploadWarningResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteUploadWarning.ts.html |here} to see how to use DeleteUploadWarning API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteUploadWarning.ts.html |here} to see how to use DeleteUploadWarning API.
    */
   public async deleteUploadWarning(
     deleteUploadWarningRequest: requests.DeleteUploadWarningRequest
@@ -3096,7 +3096,7 @@ export class LogAnalyticsClient {
    * @param DisableArchivingRequest
    * @return DisableArchivingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableArchiving.ts.html |here} to see how to use DisableArchiving API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableArchiving.ts.html |here} to see how to use DisableArchiving API.
    */
   public async disableArchiving(
     disableArchivingRequest: requests.DisableArchivingRequest
@@ -3176,7 +3176,7 @@ export class LogAnalyticsClient {
    * @param DisableAutoAssociationRequest
    * @return DisableAutoAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableAutoAssociation.ts.html |here} to see how to use DisableAutoAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableAutoAssociation.ts.html |here} to see how to use DisableAutoAssociation API.
    */
   public async disableAutoAssociation(
     disableAutoAssociationRequest: requests.DisableAutoAssociationRequest
@@ -3257,7 +3257,7 @@ export class LogAnalyticsClient {
    * @param DisableIngestTimeRuleRequest
    * @return DisableIngestTimeRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableIngestTimeRule.ts.html |here} to see how to use DisableIngestTimeRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableIngestTimeRule.ts.html |here} to see how to use DisableIngestTimeRule API.
    */
   public async disableIngestTimeRule(
     disableIngestTimeRuleRequest: requests.DisableIngestTimeRuleRequest
@@ -3334,7 +3334,7 @@ export class LogAnalyticsClient {
    * @param DisableSourceEventTypesRequest
    * @return DisableSourceEventTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableSourceEventTypes.ts.html |here} to see how to use DisableSourceEventTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableSourceEventTypes.ts.html |here} to see how to use DisableSourceEventTypes API.
    */
   public async disableSourceEventTypes(
     disableSourceEventTypesRequest: requests.DisableSourceEventTypesRequest
@@ -3410,7 +3410,7 @@ export class LogAnalyticsClient {
    * @param EnableArchivingRequest
    * @return EnableArchivingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableArchiving.ts.html |here} to see how to use EnableArchiving API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableArchiving.ts.html |here} to see how to use EnableArchiving API.
    */
   public async enableArchiving(
     enableArchivingRequest: requests.EnableArchivingRequest
@@ -3490,7 +3490,7 @@ export class LogAnalyticsClient {
    * @param EnableAutoAssociationRequest
    * @return EnableAutoAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableAutoAssociation.ts.html |here} to see how to use EnableAutoAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableAutoAssociation.ts.html |here} to see how to use EnableAutoAssociation API.
    */
   public async enableAutoAssociation(
     enableAutoAssociationRequest: requests.EnableAutoAssociationRequest
@@ -3571,7 +3571,7 @@ export class LogAnalyticsClient {
    * @param EnableIngestTimeRuleRequest
    * @return EnableIngestTimeRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableIngestTimeRule.ts.html |here} to see how to use EnableIngestTimeRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableIngestTimeRule.ts.html |here} to see how to use EnableIngestTimeRule API.
    */
   public async enableIngestTimeRule(
     enableIngestTimeRuleRequest: requests.EnableIngestTimeRuleRequest
@@ -3648,7 +3648,7 @@ export class LogAnalyticsClient {
    * @param EnableSourceEventTypesRequest
    * @return EnableSourceEventTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableSourceEventTypes.ts.html |here} to see how to use EnableSourceEventTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableSourceEventTypes.ts.html |here} to see how to use EnableSourceEventTypes API.
    */
   public async enableSourceEventTypes(
     enableSourceEventTypesRequest: requests.EnableSourceEventTypesRequest
@@ -3724,7 +3724,7 @@ export class LogAnalyticsClient {
    * @param EstimatePurgeDataSizeRequest
    * @return EstimatePurgeDataSizeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EstimatePurgeDataSize.ts.html |here} to see how to use EstimatePurgeDataSize API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EstimatePurgeDataSize.ts.html |here} to see how to use EstimatePurgeDataSize API.
    */
   public async estimatePurgeDataSize(
     estimatePurgeDataSizeRequest: requests.EstimatePurgeDataSizeRequest
@@ -3809,7 +3809,7 @@ export class LogAnalyticsClient {
    * @param EstimateRecallDataSizeRequest
    * @return EstimateRecallDataSizeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EstimateRecallDataSize.ts.html |here} to see how to use EstimateRecallDataSize API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EstimateRecallDataSize.ts.html |here} to see how to use EstimateRecallDataSize API.
    */
   public async estimateRecallDataSize(
     estimateRecallDataSizeRequest: requests.EstimateRecallDataSizeRequest
@@ -3887,7 +3887,7 @@ export class LogAnalyticsClient {
    * @param EstimateReleaseDataSizeRequest
    * @return EstimateReleaseDataSizeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EstimateReleaseDataSize.ts.html |here} to see how to use EstimateReleaseDataSize API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EstimateReleaseDataSize.ts.html |here} to see how to use EstimateReleaseDataSize API.
    */
   public async estimateReleaseDataSize(
     estimateReleaseDataSizeRequest: requests.EstimateReleaseDataSizeRequest
@@ -3965,7 +3965,7 @@ export class LogAnalyticsClient {
    * @param ExportCustomContentRequest
    * @return ExportCustomContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ExportCustomContent.ts.html |here} to see how to use ExportCustomContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ExportCustomContent.ts.html |here} to see how to use ExportCustomContent API.
    */
   public async exportCustomContent(
     exportCustomContentRequest: requests.ExportCustomContentRequest
@@ -4041,7 +4041,7 @@ export class LogAnalyticsClient {
    * @param ExportQueryResultRequest
    * @return ExportQueryResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ExportQueryResult.ts.html |here} to see how to use ExportQueryResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ExportQueryResult.ts.html |here} to see how to use ExportQueryResult API.
    */
   public async exportQueryResult(
     exportQueryResultRequest: requests.ExportQueryResultRequest
@@ -4118,7 +4118,7 @@ export class LogAnalyticsClient {
    * @param ExtractStructuredLogFieldPathsRequest
    * @return ExtractStructuredLogFieldPathsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ExtractStructuredLogFieldPaths.ts.html |here} to see how to use ExtractStructuredLogFieldPaths API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ExtractStructuredLogFieldPaths.ts.html |here} to see how to use ExtractStructuredLogFieldPaths API.
    */
   public async extractStructuredLogFieldPaths(
     extractStructuredLogFieldPathsRequest: requests.ExtractStructuredLogFieldPathsRequest
@@ -4199,7 +4199,7 @@ export class LogAnalyticsClient {
    * @param ExtractStructuredLogHeaderPathsRequest
    * @return ExtractStructuredLogHeaderPathsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ExtractStructuredLogHeaderPaths.ts.html |here} to see how to use ExtractStructuredLogHeaderPaths API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ExtractStructuredLogHeaderPaths.ts.html |here} to see how to use ExtractStructuredLogHeaderPaths API.
    */
   public async extractStructuredLogHeaderPaths(
     extractStructuredLogHeaderPathsRequest: requests.ExtractStructuredLogHeaderPathsRequest
@@ -4279,7 +4279,7 @@ export class LogAnalyticsClient {
    * @param FilterRequest
    * @return FilterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Filter.ts.html |here} to see how to use Filter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Filter.ts.html |here} to see how to use Filter API.
    */
   public async filter(filterRequest: requests.FilterRequest): Promise<responses.FilterResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#filter.");
@@ -4354,7 +4354,7 @@ export class LogAnalyticsClient {
    * @param GetAssociationSummaryRequest
    * @return GetAssociationSummaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetAssociationSummary.ts.html |here} to see how to use GetAssociationSummary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetAssociationSummary.ts.html |here} to see how to use GetAssociationSummary API.
    */
   public async getAssociationSummary(
     getAssociationSummaryRequest: requests.GetAssociationSummaryRequest
@@ -4429,7 +4429,7 @@ export class LogAnalyticsClient {
    * @param GetCategoryRequest
    * @return GetCategoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetCategory.ts.html |here} to see how to use GetCategory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetCategory.ts.html |here} to see how to use GetCategory API.
    */
   public async getCategory(
     getCategoryRequest: requests.GetCategoryRequest
@@ -4502,7 +4502,7 @@ export class LogAnalyticsClient {
    * @param GetColumnNamesRequest
    * @return GetColumnNamesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetColumnNames.ts.html |here} to see how to use GetColumnNames API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetColumnNames.ts.html |here} to see how to use GetColumnNames API.
    */
   public async getColumnNames(
     getColumnNamesRequest: requests.GetColumnNamesRequest
@@ -4577,7 +4577,7 @@ export class LogAnalyticsClient {
    * @param GetConfigWorkRequestRequest
    * @return GetConfigWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetConfigWorkRequest.ts.html |here} to see how to use GetConfigWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetConfigWorkRequest.ts.html |here} to see how to use GetConfigWorkRequest API.
    */
   public async getConfigWorkRequest(
     getConfigWorkRequestRequest: requests.GetConfigWorkRequestRequest
@@ -4651,7 +4651,7 @@ export class LogAnalyticsClient {
    * @param GetFieldRequest
    * @return GetFieldResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetField.ts.html |here} to see how to use GetField API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetField.ts.html |here} to see how to use GetField API.
    */
   public async getField(
     getFieldRequest: requests.GetFieldRequest
@@ -4729,7 +4729,7 @@ export class LogAnalyticsClient {
    * @param GetFieldsSummaryRequest
    * @return GetFieldsSummaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetFieldsSummary.ts.html |here} to see how to use GetFieldsSummary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetFieldsSummary.ts.html |here} to see how to use GetFieldsSummary API.
    */
   public async getFieldsSummary(
     getFieldsSummaryRequest: requests.GetFieldsSummaryRequest
@@ -4803,7 +4803,7 @@ export class LogAnalyticsClient {
    * @param GetIngestTimeRuleRequest
    * @return GetIngestTimeRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetIngestTimeRule.ts.html |here} to see how to use GetIngestTimeRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetIngestTimeRule.ts.html |here} to see how to use GetIngestTimeRule API.
    */
   public async getIngestTimeRule(
     getIngestTimeRuleRequest: requests.GetIngestTimeRuleRequest
@@ -4881,7 +4881,7 @@ export class LogAnalyticsClient {
    * @param GetLabelRequest
    * @return GetLabelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLabel.ts.html |here} to see how to use GetLabel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLabel.ts.html |here} to see how to use GetLabel API.
    */
   public async getLabel(
     getLabelRequest: requests.GetLabelRequest
@@ -4959,7 +4959,7 @@ export class LogAnalyticsClient {
    * @param GetLabelSummaryRequest
    * @return GetLabelSummaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLabelSummary.ts.html |here} to see how to use GetLabelSummary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLabelSummary.ts.html |here} to see how to use GetLabelSummary API.
    */
   public async getLabelSummary(
     getLabelSummaryRequest: requests.GetLabelSummaryRequest
@@ -5030,7 +5030,7 @@ export class LogAnalyticsClient {
    * @param GetLogAnalyticsEmBridgeRequest
    * @return GetLogAnalyticsEmBridgeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEmBridge.ts.html |here} to see how to use GetLogAnalyticsEmBridge API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEmBridge.ts.html |here} to see how to use GetLogAnalyticsEmBridge API.
    */
   public async getLogAnalyticsEmBridge(
     getLogAnalyticsEmBridgeRequest: requests.GetLogAnalyticsEmBridgeRequest
@@ -5108,7 +5108,7 @@ export class LogAnalyticsClient {
    * @param GetLogAnalyticsEmBridgeSummaryRequest
    * @return GetLogAnalyticsEmBridgeSummaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEmBridgeSummary.ts.html |here} to see how to use GetLogAnalyticsEmBridgeSummary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEmBridgeSummary.ts.html |here} to see how to use GetLogAnalyticsEmBridgeSummary API.
    */
   public async getLogAnalyticsEmBridgeSummary(
     getLogAnalyticsEmBridgeSummaryRequest: requests.GetLogAnalyticsEmBridgeSummaryRequest
@@ -5182,7 +5182,7 @@ export class LogAnalyticsClient {
    * @param GetLogAnalyticsEntitiesSummaryRequest
    * @return GetLogAnalyticsEntitiesSummaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEntitiesSummary.ts.html |here} to see how to use GetLogAnalyticsEntitiesSummary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEntitiesSummary.ts.html |here} to see how to use GetLogAnalyticsEntitiesSummary API.
    */
   public async getLogAnalyticsEntitiesSummary(
     getLogAnalyticsEntitiesSummaryRequest: requests.GetLogAnalyticsEntitiesSummaryRequest
@@ -5256,7 +5256,7 @@ export class LogAnalyticsClient {
    * @param GetLogAnalyticsEntityRequest
    * @return GetLogAnalyticsEntityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEntity.ts.html |here} to see how to use GetLogAnalyticsEntity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEntity.ts.html |here} to see how to use GetLogAnalyticsEntity API.
    */
   public async getLogAnalyticsEntity(
     getLogAnalyticsEntityRequest: requests.GetLogAnalyticsEntityRequest
@@ -5334,7 +5334,7 @@ export class LogAnalyticsClient {
    * @param GetLogAnalyticsEntityTypeRequest
    * @return GetLogAnalyticsEntityTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEntityType.ts.html |here} to see how to use GetLogAnalyticsEntityType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsEntityType.ts.html |here} to see how to use GetLogAnalyticsEntityType API.
    */
   public async getLogAnalyticsEntityType(
     getLogAnalyticsEntityTypeRequest: requests.GetLogAnalyticsEntityTypeRequest
@@ -5413,7 +5413,7 @@ export class LogAnalyticsClient {
    * @param GetLogAnalyticsLogGroupRequest
    * @return GetLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsLogGroup.ts.html |here} to see how to use GetLogAnalyticsLogGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsLogGroup.ts.html |here} to see how to use GetLogAnalyticsLogGroup API.
    */
   public async getLogAnalyticsLogGroup(
     getLogAnalyticsLogGroupRequest: requests.GetLogAnalyticsLogGroupRequest
@@ -5492,7 +5492,7 @@ export class LogAnalyticsClient {
    * @param GetLogAnalyticsLogGroupsSummaryRequest
    * @return GetLogAnalyticsLogGroupsSummaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsLogGroupsSummary.ts.html |here} to see how to use GetLogAnalyticsLogGroupsSummary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsLogGroupsSummary.ts.html |here} to see how to use GetLogAnalyticsLogGroupsSummary API.
    */
   public async getLogAnalyticsLogGroupsSummary(
     getLogAnalyticsLogGroupsSummaryRequest: requests.GetLogAnalyticsLogGroupsSummaryRequest
@@ -5566,7 +5566,7 @@ export class LogAnalyticsClient {
    * @param GetLogAnalyticsObjectCollectionRuleRequest
    * @return GetLogAnalyticsObjectCollectionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsObjectCollectionRule.ts.html |here} to see how to use GetLogAnalyticsObjectCollectionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsObjectCollectionRule.ts.html |here} to see how to use GetLogAnalyticsObjectCollectionRule API.
    */
   public async getLogAnalyticsObjectCollectionRule(
     getLogAnalyticsObjectCollectionRuleRequest: requests.GetLogAnalyticsObjectCollectionRuleRequest
@@ -5649,7 +5649,7 @@ export class LogAnalyticsClient {
    * @param GetLogSetsCountRequest
    * @return GetLogSetsCountResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogSetsCount.ts.html |here} to see how to use GetLogSetsCount API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogSetsCount.ts.html |here} to see how to use GetLogSetsCount API.
    */
   public async getLogSetsCount(
     getLogSetsCountRequest: requests.GetLogSetsCountRequest
@@ -5721,7 +5721,7 @@ export class LogAnalyticsClient {
    * @param GetLookupRequest
    * @return GetLookupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLookup.ts.html |here} to see how to use GetLookup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLookup.ts.html |here} to see how to use GetLookup API.
    */
   public async getLookup(
     getLookupRequest: requests.GetLookupRequest
@@ -5798,7 +5798,7 @@ export class LogAnalyticsClient {
    * @param GetLookupSummaryRequest
    * @return GetLookupSummaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLookupSummary.ts.html |here} to see how to use GetLookupSummary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLookupSummary.ts.html |here} to see how to use GetLookupSummary API.
    */
   public async getLookupSummary(
     getLookupSummaryRequest: requests.GetLookupSummaryRequest
@@ -5870,7 +5870,7 @@ export class LogAnalyticsClient {
    * @param GetNamespaceRequest
    * @return GetNamespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetNamespace.ts.html |here} to see how to use GetNamespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetNamespace.ts.html |here} to see how to use GetNamespace API.
    */
   public async getNamespace(
     getNamespaceRequest: requests.GetNamespaceRequest
@@ -5947,7 +5947,7 @@ export class LogAnalyticsClient {
    * @param GetParserRequest
    * @return GetParserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetParser.ts.html |here} to see how to use GetParser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetParser.ts.html |here} to see how to use GetParser API.
    */
   public async getParser(
     getParserRequest: requests.GetParserRequest
@@ -6025,7 +6025,7 @@ export class LogAnalyticsClient {
    * @param GetParserSummaryRequest
    * @return GetParserSummaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetParserSummary.ts.html |here} to see how to use GetParserSummary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetParserSummary.ts.html |here} to see how to use GetParserSummary API.
    */
   public async getParserSummary(
     getParserSummaryRequest: requests.GetParserSummaryRequest
@@ -6097,7 +6097,7 @@ export class LogAnalyticsClient {
    * @param GetPreferencesRequest
    * @return GetPreferencesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetPreferences.ts.html |here} to see how to use GetPreferences API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetPreferences.ts.html |here} to see how to use GetPreferences API.
    */
   public async getPreferences(
     getPreferencesRequest: requests.GetPreferencesRequest
@@ -6185,7 +6185,7 @@ export class LogAnalyticsClient {
    * @param GetQueryResultRequest
    * @return GetQueryResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetQueryResult.ts.html |here} to see how to use GetQueryResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetQueryResult.ts.html |here} to see how to use GetQueryResult API.
    */
   public async getQueryResult(
     getQueryResultRequest: requests.GetQueryResultRequest
@@ -6278,7 +6278,7 @@ export class LogAnalyticsClient {
    * @param GetQueryWorkRequestRequest
    * @return GetQueryWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetQueryWorkRequest.ts.html |here} to see how to use GetQueryWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetQueryWorkRequest.ts.html |here} to see how to use GetQueryWorkRequest API.
    */
   public async getQueryWorkRequest(
     getQueryWorkRequestRequest: requests.GetQueryWorkRequestRequest
@@ -6361,7 +6361,7 @@ export class LogAnalyticsClient {
    * @param GetRecallCountRequest
    * @return GetRecallCountResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetRecallCount.ts.html |here} to see how to use GetRecallCount API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetRecallCount.ts.html |here} to see how to use GetRecallCount API.
    */
   public async getRecallCount(
     getRecallCountRequest: requests.GetRecallCountRequest
@@ -6433,7 +6433,7 @@ export class LogAnalyticsClient {
    * @param GetRecalledDataSizeRequest
    * @return GetRecalledDataSizeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetRecalledDataSize.ts.html |here} to see how to use GetRecalledDataSize API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetRecalledDataSize.ts.html |here} to see how to use GetRecalledDataSize API.
    */
   public async getRecalledDataSize(
     getRecalledDataSizeRequest: requests.GetRecalledDataSizeRequest
@@ -6518,7 +6518,7 @@ export class LogAnalyticsClient {
    * @param GetRulesSummaryRequest
    * @return GetRulesSummaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetRulesSummary.ts.html |here} to see how to use GetRulesSummary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetRulesSummary.ts.html |here} to see how to use GetRulesSummary API.
    */
   public async getRulesSummary(
     getRulesSummaryRequest: requests.GetRulesSummaryRequest
@@ -6591,7 +6591,7 @@ export class LogAnalyticsClient {
    * @param GetScheduledTaskRequest
    * @return GetScheduledTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetScheduledTask.ts.html |here} to see how to use GetScheduledTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetScheduledTask.ts.html |here} to see how to use GetScheduledTask API.
    */
   public async getScheduledTask(
     getScheduledTaskRequest: requests.GetScheduledTaskRequest
@@ -6669,7 +6669,7 @@ export class LogAnalyticsClient {
    * @param GetSourceRequest
    * @return GetSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetSource.ts.html |here} to see how to use GetSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetSource.ts.html |here} to see how to use GetSource API.
    */
   public async getSource(
     getSourceRequest: requests.GetSourceRequest
@@ -6749,7 +6749,7 @@ export class LogAnalyticsClient {
    * @param GetSourceSummaryRequest
    * @return GetSourceSummaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetSourceSummary.ts.html |here} to see how to use GetSourceSummary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetSourceSummary.ts.html |here} to see how to use GetSourceSummary API.
    */
   public async getSourceSummary(
     getSourceSummaryRequest: requests.GetSourceSummaryRequest
@@ -6821,7 +6821,7 @@ export class LogAnalyticsClient {
    * @param GetStorageRequest
    * @return GetStorageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetStorage.ts.html |here} to see how to use GetStorage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetStorage.ts.html |here} to see how to use GetStorage API.
    */
   public async getStorage(
     getStorageRequest: requests.GetStorageRequest
@@ -6899,7 +6899,7 @@ export class LogAnalyticsClient {
    * @param GetStorageUsageRequest
    * @return GetStorageUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetStorageUsage.ts.html |here} to see how to use GetStorageUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetStorageUsage.ts.html |here} to see how to use GetStorageUsage API.
    */
   public async getStorageUsage(
     getStorageUsageRequest: requests.GetStorageUsageRequest
@@ -6972,7 +6972,7 @@ export class LogAnalyticsClient {
    * @param GetStorageWorkRequestRequest
    * @return GetStorageWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetStorageWorkRequest.ts.html |here} to see how to use GetStorageWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetStorageWorkRequest.ts.html |here} to see how to use GetStorageWorkRequest API.
    */
   public async getStorageWorkRequest(
     getStorageWorkRequestRequest: requests.GetStorageWorkRequestRequest
@@ -7056,7 +7056,7 @@ export class LogAnalyticsClient {
    * @param GetUnprocessedDataBucketRequest
    * @return GetUnprocessedDataBucketResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetUnprocessedDataBucket.ts.html |here} to see how to use GetUnprocessedDataBucket API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetUnprocessedDataBucket.ts.html |here} to see how to use GetUnprocessedDataBucket API.
    */
   public async getUnprocessedDataBucket(
     getUnprocessedDataBucketRequest: requests.GetUnprocessedDataBucketRequest
@@ -7128,7 +7128,7 @@ export class LogAnalyticsClient {
    * @param GetUploadRequest
    * @return GetUploadResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetUpload.ts.html |here} to see how to use GetUpload API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetUpload.ts.html |here} to see how to use GetUpload API.
    */
   public async getUpload(
     getUploadRequest: requests.GetUploadRequest
@@ -7205,7 +7205,7 @@ export class LogAnalyticsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -7283,7 +7283,7 @@ export class LogAnalyticsClient {
    * @param ImportCustomContentRequest
    * @return ImportCustomContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ImportCustomContent.ts.html |here} to see how to use ImportCustomContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ImportCustomContent.ts.html |here} to see how to use ImportCustomContent API.
    */
   public async importCustomContent(
     importCustomContentRequest: requests.ImportCustomContentRequest
@@ -7360,7 +7360,7 @@ export class LogAnalyticsClient {
    * @param ListAssociableEntitiesRequest
    * @return ListAssociableEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListAssociableEntities.ts.html |here} to see how to use ListAssociableEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListAssociableEntities.ts.html |here} to see how to use ListAssociableEntities API.
    */
   public async listAssociableEntities(
     listAssociableEntitiesRequest: requests.ListAssociableEntitiesRequest
@@ -7452,7 +7452,7 @@ export class LogAnalyticsClient {
    * @param ListAssociatedEntitiesRequest
    * @return ListAssociatedEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListAssociatedEntities.ts.html |here} to see how to use ListAssociatedEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListAssociatedEntities.ts.html |here} to see how to use ListAssociatedEntities API.
    */
   public async listAssociatedEntities(
     listAssociatedEntitiesRequest: requests.ListAssociatedEntitiesRequest
@@ -7544,7 +7544,7 @@ export class LogAnalyticsClient {
    * @param ListAutoAssociationsRequest
    * @return ListAutoAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListAutoAssociations.ts.html |here} to see how to use ListAutoAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListAutoAssociations.ts.html |here} to see how to use ListAutoAssociations API.
    */
   public async listAutoAssociations(
     listAutoAssociationsRequest: requests.ListAutoAssociationsRequest
@@ -7633,7 +7633,7 @@ export class LogAnalyticsClient {
    * @param ListCategoriesRequest
    * @return ListCategoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListCategories.ts.html |here} to see how to use ListCategories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListCategories.ts.html |here} to see how to use ListCategories API.
    */
   public async listCategories(
     listCategoriesRequest: requests.ListCategoriesRequest
@@ -7723,7 +7723,7 @@ export class LogAnalyticsClient {
    * @param ListConfigWorkRequestsRequest
    * @return ListConfigWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListConfigWorkRequests.ts.html |here} to see how to use ListConfigWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListConfigWorkRequests.ts.html |here} to see how to use ListConfigWorkRequests API.
    */
   public async listConfigWorkRequests(
     listConfigWorkRequestsRequest: requests.ListConfigWorkRequestsRequest
@@ -7811,7 +7811,7 @@ export class LogAnalyticsClient {
    * @param ListEffectivePropertiesRequest
    * @return ListEffectivePropertiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListEffectiveProperties.ts.html |here} to see how to use ListEffectiveProperties API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListEffectiveProperties.ts.html |here} to see how to use ListEffectiveProperties API.
    */
   public async listEffectiveProperties(
     listEffectivePropertiesRequest: requests.ListEffectivePropertiesRequest
@@ -7904,7 +7904,7 @@ export class LogAnalyticsClient {
    * @param ListEncryptionKeyInfoRequest
    * @return ListEncryptionKeyInfoResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListEncryptionKeyInfo.ts.html |here} to see how to use ListEncryptionKeyInfo API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListEncryptionKeyInfo.ts.html |here} to see how to use ListEncryptionKeyInfo API.
    */
   public async listEncryptionKeyInfo(
     listEncryptionKeyInfoRequest: requests.ListEncryptionKeyInfoRequest
@@ -7976,7 +7976,7 @@ export class LogAnalyticsClient {
    * @param ListEntityAssociationsRequest
    * @return ListEntityAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListEntityAssociations.ts.html |here} to see how to use ListEntityAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListEntityAssociations.ts.html |here} to see how to use ListEntityAssociations API.
    */
   public async listEntityAssociations(
     listEntityAssociationsRequest: requests.ListEntityAssociationsRequest
@@ -8062,7 +8062,7 @@ export class LogAnalyticsClient {
    * @param ListEntitySourceAssociationsRequest
    * @return ListEntitySourceAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListEntitySourceAssociations.ts.html |here} to see how to use ListEntitySourceAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListEntitySourceAssociations.ts.html |here} to see how to use ListEntitySourceAssociations API.
    */
   public async listEntitySourceAssociations(
     listEntitySourceAssociationsRequest: requests.ListEntitySourceAssociationsRequest
@@ -8156,7 +8156,7 @@ export class LogAnalyticsClient {
    * @param ListFieldsRequest
    * @return ListFieldsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListFields.ts.html |here} to see how to use ListFields API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListFields.ts.html |here} to see how to use ListFields API.
    */
   public async listFields(
     listFieldsRequest: requests.ListFieldsRequest
@@ -8251,7 +8251,7 @@ export class LogAnalyticsClient {
    * @param ListIngestTimeRulesRequest
    * @return ListIngestTimeRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListIngestTimeRules.ts.html |here} to see how to use ListIngestTimeRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListIngestTimeRules.ts.html |here} to see how to use ListIngestTimeRules API.
    */
   public async listIngestTimeRules(
     listIngestTimeRulesRequest: requests.ListIngestTimeRulesRequest
@@ -8344,7 +8344,7 @@ export class LogAnalyticsClient {
    * @param ListLabelPrioritiesRequest
    * @return ListLabelPrioritiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLabelPriorities.ts.html |here} to see how to use ListLabelPriorities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLabelPriorities.ts.html |here} to see how to use ListLabelPriorities API.
    */
   public async listLabelPriorities(
     listLabelPrioritiesRequest: requests.ListLabelPrioritiesRequest
@@ -8429,7 +8429,7 @@ export class LogAnalyticsClient {
    * @param ListLabelSourceDetailsRequest
    * @return ListLabelSourceDetailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLabelSourceDetails.ts.html |here} to see how to use ListLabelSourceDetails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLabelSourceDetails.ts.html |here} to see how to use ListLabelSourceDetails API.
    */
   public async listLabelSourceDetails(
     listLabelSourceDetailsRequest: requests.ListLabelSourceDetailsRequest
@@ -8518,7 +8518,7 @@ export class LogAnalyticsClient {
    * @param ListLabelsRequest
    * @return ListLabelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLabels.ts.html |here} to see how to use ListLabels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLabels.ts.html |here} to see how to use ListLabels API.
    */
   public async listLabels(
     listLabelsRequest: requests.ListLabelsRequest
@@ -8610,7 +8610,7 @@ export class LogAnalyticsClient {
    * @param ListLogAnalyticsEmBridgesRequest
    * @return ListLogAnalyticsEmBridgesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsEmBridges.ts.html |here} to see how to use ListLogAnalyticsEmBridges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsEmBridges.ts.html |here} to see how to use ListLogAnalyticsEmBridges API.
    */
   public async listLogAnalyticsEmBridges(
     listLogAnalyticsEmBridgesRequest: requests.ListLogAnalyticsEmBridgesRequest
@@ -8697,7 +8697,7 @@ export class LogAnalyticsClient {
    * @param ListLogAnalyticsEntitiesRequest
    * @return ListLogAnalyticsEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsEntities.ts.html |here} to see how to use ListLogAnalyticsEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsEntities.ts.html |here} to see how to use ListLogAnalyticsEntities API.
    */
   public async listLogAnalyticsEntities(
     listLogAnalyticsEntitiesRequest: requests.ListLogAnalyticsEntitiesRequest
@@ -8793,7 +8793,7 @@ export class LogAnalyticsClient {
    * @param ListLogAnalyticsEntityTopologyRequest
    * @return ListLogAnalyticsEntityTopologyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsEntityTopology.ts.html |here} to see how to use ListLogAnalyticsEntityTopology API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsEntityTopology.ts.html |here} to see how to use ListLogAnalyticsEntityTopology API.
    */
   public async listLogAnalyticsEntityTopology(
     listLogAnalyticsEntityTopologyRequest: requests.ListLogAnalyticsEntityTopologyRequest
@@ -8879,7 +8879,7 @@ export class LogAnalyticsClient {
    * @param ListLogAnalyticsEntityTypesRequest
    * @return ListLogAnalyticsEntityTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsEntityTypes.ts.html |here} to see how to use ListLogAnalyticsEntityTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsEntityTypes.ts.html |here} to see how to use ListLogAnalyticsEntityTypes API.
    */
   public async listLogAnalyticsEntityTypes(
     listLogAnalyticsEntityTypesRequest: requests.ListLogAnalyticsEntityTypesRequest
@@ -8966,7 +8966,7 @@ export class LogAnalyticsClient {
    * @param ListLogAnalyticsLogGroupsRequest
    * @return ListLogAnalyticsLogGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsLogGroups.ts.html |here} to see how to use ListLogAnalyticsLogGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsLogGroups.ts.html |here} to see how to use ListLogAnalyticsLogGroups API.
    */
   public async listLogAnalyticsLogGroups(
     listLogAnalyticsLogGroupsRequest: requests.ListLogAnalyticsLogGroupsRequest
@@ -9055,7 +9055,7 @@ export class LogAnalyticsClient {
    * @param ListLogAnalyticsObjectCollectionRulesRequest
    * @return ListLogAnalyticsObjectCollectionRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsObjectCollectionRules.ts.html |here} to see how to use ListLogAnalyticsObjectCollectionRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogAnalyticsObjectCollectionRules.ts.html |here} to see how to use ListLogAnalyticsObjectCollectionRules API.
    */
   public async listLogAnalyticsObjectCollectionRules(
     listLogAnalyticsObjectCollectionRulesRequest: requests.ListLogAnalyticsObjectCollectionRulesRequest
@@ -9143,7 +9143,7 @@ export class LogAnalyticsClient {
    * @param ListLogSetsRequest
    * @return ListLogSetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogSets.ts.html |here} to see how to use ListLogSets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLogSets.ts.html |here} to see how to use ListLogSets API.
    */
   public async listLogSets(
     listLogSetsRequest: requests.ListLogSetsRequest
@@ -9225,7 +9225,7 @@ export class LogAnalyticsClient {
    * @param ListLookupsRequest
    * @return ListLookupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLookups.ts.html |here} to see how to use ListLookups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLookups.ts.html |here} to see how to use ListLookups API.
    */
   public async listLookups(
     listLookupsRequest: requests.ListLookupsRequest
@@ -9318,7 +9318,7 @@ export class LogAnalyticsClient {
    * @param ListMetaSourceTypesRequest
    * @return ListMetaSourceTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListMetaSourceTypes.ts.html |here} to see how to use ListMetaSourceTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListMetaSourceTypes.ts.html |here} to see how to use ListMetaSourceTypes API.
    */
   public async listMetaSourceTypes(
     listMetaSourceTypesRequest: requests.ListMetaSourceTypesRequest
@@ -9406,7 +9406,7 @@ export class LogAnalyticsClient {
    * @param ListNamespacesRequest
    * @return ListNamespacesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListNamespaces.ts.html |here} to see how to use ListNamespaces API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListNamespaces.ts.html |here} to see how to use ListNamespaces API.
    */
   public async listNamespaces(
     listNamespacesRequest: requests.ListNamespacesRequest
@@ -9478,7 +9478,7 @@ export class LogAnalyticsClient {
    * @param ListOverlappingRecallsRequest
    * @return ListOverlappingRecallsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListOverlappingRecalls.ts.html |here} to see how to use ListOverlappingRecalls API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListOverlappingRecalls.ts.html |here} to see how to use ListOverlappingRecalls API.
    */
   public async listOverlappingRecalls(
     listOverlappingRecallsRequest: requests.ListOverlappingRecallsRequest
@@ -9568,7 +9568,7 @@ export class LogAnalyticsClient {
    * @param ListParserFunctionsRequest
    * @return ListParserFunctionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListParserFunctions.ts.html |here} to see how to use ListParserFunctions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListParserFunctions.ts.html |here} to see how to use ListParserFunctions API.
    */
   public async listParserFunctions(
     listParserFunctionsRequest: requests.ListParserFunctionsRequest
@@ -9656,7 +9656,7 @@ export class LogAnalyticsClient {
    * @param ListParserMetaPluginsRequest
    * @return ListParserMetaPluginsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListParserMetaPlugins.ts.html |here} to see how to use ListParserMetaPlugins API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListParserMetaPlugins.ts.html |here} to see how to use ListParserMetaPlugins API.
    */
   public async listParserMetaPlugins(
     listParserMetaPluginsRequest: requests.ListParserMetaPluginsRequest
@@ -9744,7 +9744,7 @@ export class LogAnalyticsClient {
    * @param ListParsersRequest
    * @return ListParsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListParsers.ts.html |here} to see how to use ListParsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListParsers.ts.html |here} to see how to use ListParsers API.
    */
   public async listParsers(
     listParsersRequest: requests.ListParsersRequest
@@ -9838,7 +9838,7 @@ export class LogAnalyticsClient {
    * @param ListPropertiesMetadataRequest
    * @return ListPropertiesMetadataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListPropertiesMetadata.ts.html |here} to see how to use ListPropertiesMetadata API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListPropertiesMetadata.ts.html |here} to see how to use ListPropertiesMetadata API.
    */
   public async listPropertiesMetadata(
     listPropertiesMetadataRequest: requests.ListPropertiesMetadataRequest
@@ -9929,7 +9929,7 @@ export class LogAnalyticsClient {
    * @param ListQueryWorkRequestsRequest
    * @return ListQueryWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListQueryWorkRequests.ts.html |here} to see how to use ListQueryWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListQueryWorkRequests.ts.html |here} to see how to use ListQueryWorkRequests API.
    */
   public async listQueryWorkRequests(
     listQueryWorkRequestsRequest: requests.ListQueryWorkRequestsRequest
@@ -10019,7 +10019,7 @@ export class LogAnalyticsClient {
    * @param ListRecalledDataRequest
    * @return ListRecalledDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListRecalledData.ts.html |here} to see how to use ListRecalledData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListRecalledData.ts.html |here} to see how to use ListRecalledData API.
    */
   public async listRecalledData(
     listRecalledDataRequest: requests.ListRecalledDataRequest
@@ -10110,7 +10110,7 @@ export class LogAnalyticsClient {
    * @param ListResourceCategoriesRequest
    * @return ListResourceCategoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListResourceCategories.ts.html |here} to see how to use ListResourceCategories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListResourceCategories.ts.html |here} to see how to use ListResourceCategories API.
    */
   public async listResourceCategories(
     listResourceCategoriesRequest: requests.ListResourceCategoriesRequest
@@ -10201,7 +10201,7 @@ export class LogAnalyticsClient {
    * @param ListRulesRequest
    * @return ListRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListRules.ts.html |here} to see how to use ListRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListRules.ts.html |here} to see how to use ListRules API.
    */
   public async listRules(
     listRulesRequest: requests.ListRulesRequest
@@ -10292,7 +10292,7 @@ export class LogAnalyticsClient {
    * @param ListScheduledTasksRequest
    * @return ListScheduledTasksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListScheduledTasks.ts.html |here} to see how to use ListScheduledTasks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListScheduledTasks.ts.html |here} to see how to use ListScheduledTasks API.
    */
   public async listScheduledTasks(
     listScheduledTasksRequest: requests.ListScheduledTasksRequest
@@ -10385,7 +10385,7 @@ export class LogAnalyticsClient {
    * @param ListSourceAssociationsRequest
    * @return ListSourceAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceAssociations.ts.html |here} to see how to use ListSourceAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceAssociations.ts.html |here} to see how to use ListSourceAssociations API.
    */
   public async listSourceAssociations(
     listSourceAssociationsRequest: requests.ListSourceAssociationsRequest
@@ -10478,7 +10478,7 @@ export class LogAnalyticsClient {
    * @param ListSourceEventTypesRequest
    * @return ListSourceEventTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceEventTypes.ts.html |here} to see how to use ListSourceEventTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceEventTypes.ts.html |here} to see how to use ListSourceEventTypes API.
    */
   public async listSourceEventTypes(
     listSourceEventTypesRequest: requests.ListSourceEventTypesRequest
@@ -10570,7 +10570,7 @@ export class LogAnalyticsClient {
    * @param ListSourceExtendedFieldDefinitionsRequest
    * @return ListSourceExtendedFieldDefinitionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceExtendedFieldDefinitions.ts.html |here} to see how to use ListSourceExtendedFieldDefinitions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceExtendedFieldDefinitions.ts.html |here} to see how to use ListSourceExtendedFieldDefinitions API.
    */
   public async listSourceExtendedFieldDefinitions(
     listSourceExtendedFieldDefinitionsRequest: requests.ListSourceExtendedFieldDefinitionsRequest
@@ -10659,7 +10659,7 @@ export class LogAnalyticsClient {
    * @param ListSourceLabelOperatorsRequest
    * @return ListSourceLabelOperatorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceLabelOperators.ts.html |here} to see how to use ListSourceLabelOperators API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceLabelOperators.ts.html |here} to see how to use ListSourceLabelOperators API.
    */
   public async listSourceLabelOperators(
     listSourceLabelOperatorsRequest: requests.ListSourceLabelOperatorsRequest
@@ -10747,7 +10747,7 @@ export class LogAnalyticsClient {
    * @param ListSourceMetaFunctionsRequest
    * @return ListSourceMetaFunctionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceMetaFunctions.ts.html |here} to see how to use ListSourceMetaFunctions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourceMetaFunctions.ts.html |here} to see how to use ListSourceMetaFunctions API.
    */
   public async listSourceMetaFunctions(
     listSourceMetaFunctionsRequest: requests.ListSourceMetaFunctionsRequest
@@ -10835,7 +10835,7 @@ export class LogAnalyticsClient {
    * @param ListSourcePatternsRequest
    * @return ListSourcePatternsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourcePatterns.ts.html |here} to see how to use ListSourcePatterns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSourcePatterns.ts.html |here} to see how to use ListSourcePatterns API.
    */
   public async listSourcePatterns(
     listSourcePatternsRequest: requests.ListSourcePatternsRequest
@@ -10924,7 +10924,7 @@ export class LogAnalyticsClient {
    * @param ListSourcesRequest
    * @return ListSourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSources.ts.html |here} to see how to use ListSources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSources.ts.html |here} to see how to use ListSources API.
    */
   public async listSources(
     listSourcesRequest: requests.ListSourcesRequest
@@ -11019,7 +11019,7 @@ export class LogAnalyticsClient {
    * @param ListStorageWorkRequestErrorsRequest
    * @return ListStorageWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListStorageWorkRequestErrors.ts.html |here} to see how to use ListStorageWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListStorageWorkRequestErrors.ts.html |here} to see how to use ListStorageWorkRequestErrors API.
    */
   public async listStorageWorkRequestErrors(
     listStorageWorkRequestErrorsRequest: requests.ListStorageWorkRequestErrorsRequest
@@ -11109,7 +11109,7 @@ export class LogAnalyticsClient {
    * @param ListStorageWorkRequestsRequest
    * @return ListStorageWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListStorageWorkRequests.ts.html |here} to see how to use ListStorageWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListStorageWorkRequests.ts.html |here} to see how to use ListStorageWorkRequests API.
    */
   public async listStorageWorkRequests(
     listStorageWorkRequestsRequest: requests.ListStorageWorkRequestsRequest
@@ -11203,7 +11203,7 @@ export class LogAnalyticsClient {
    * @param ListSupportedCharEncodingsRequest
    * @return ListSupportedCharEncodingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSupportedCharEncodings.ts.html |here} to see how to use ListSupportedCharEncodings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSupportedCharEncodings.ts.html |here} to see how to use ListSupportedCharEncodings API.
    */
   public async listSupportedCharEncodings(
     listSupportedCharEncodingsRequest: requests.ListSupportedCharEncodingsRequest
@@ -11288,7 +11288,7 @@ export class LogAnalyticsClient {
    * @param ListSupportedTimezonesRequest
    * @return ListSupportedTimezonesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSupportedTimezones.ts.html |here} to see how to use ListSupportedTimezones API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListSupportedTimezones.ts.html |here} to see how to use ListSupportedTimezones API.
    */
   public async listSupportedTimezones(
     listSupportedTimezonesRequest: requests.ListSupportedTimezonesRequest
@@ -11373,7 +11373,7 @@ export class LogAnalyticsClient {
    * @param ListUploadFilesRequest
    * @return ListUploadFilesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListUploadFiles.ts.html |here} to see how to use ListUploadFiles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListUploadFiles.ts.html |here} to see how to use ListUploadFiles API.
    */
   public async listUploadFiles(
     listUploadFilesRequest: requests.ListUploadFilesRequest
@@ -11457,7 +11457,7 @@ export class LogAnalyticsClient {
    * @param ListUploadWarningsRequest
    * @return ListUploadWarningsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListUploadWarnings.ts.html |here} to see how to use ListUploadWarnings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListUploadWarnings.ts.html |here} to see how to use ListUploadWarnings API.
    */
   public async listUploadWarnings(
     listUploadWarningsRequest: requests.ListUploadWarningsRequest
@@ -11539,7 +11539,7 @@ export class LogAnalyticsClient {
    * @param ListUploadsRequest
    * @return ListUploadsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListUploads.ts.html |here} to see how to use ListUploads API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListUploads.ts.html |here} to see how to use ListUploads API.
    */
   public async listUploads(
     listUploadsRequest: requests.ListUploadsRequest
@@ -11629,7 +11629,7 @@ export class LogAnalyticsClient {
    * @param ListWarningsRequest
    * @return ListWarningsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListWarnings.ts.html |here} to see how to use ListWarnings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListWarnings.ts.html |here} to see how to use ListWarnings API.
    */
   public async listWarnings(
     listWarningsRequest: requests.ListWarningsRequest
@@ -11727,7 +11727,7 @@ export class LogAnalyticsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -11809,7 +11809,7 @@ export class LogAnalyticsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -11890,7 +11890,7 @@ export class LogAnalyticsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -11970,7 +11970,7 @@ export class LogAnalyticsClient {
    * @param OffboardNamespaceRequest
    * @return OffboardNamespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/OffboardNamespace.ts.html |here} to see how to use OffboardNamespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/OffboardNamespace.ts.html |here} to see how to use OffboardNamespace API.
    */
   public async offboardNamespace(
     offboardNamespaceRequest: requests.OffboardNamespaceRequest
@@ -12044,7 +12044,7 @@ export class LogAnalyticsClient {
    * @param OnboardNamespaceRequest
    * @return OnboardNamespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/OnboardNamespace.ts.html |here} to see how to use OnboardNamespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/OnboardNamespace.ts.html |here} to see how to use OnboardNamespace API.
    */
   public async onboardNamespace(
     onboardNamespaceRequest: requests.OnboardNamespaceRequest
@@ -12117,7 +12117,7 @@ export class LogAnalyticsClient {
    * @param ParseQueryRequest
    * @return ParseQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ParseQuery.ts.html |here} to see how to use ParseQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ParseQuery.ts.html |here} to see how to use ParseQuery API.
    */
   public async parseQuery(
     parseQueryRequest: requests.ParseQueryRequest
@@ -12194,7 +12194,7 @@ export class LogAnalyticsClient {
    * @param PauseScheduledTaskRequest
    * @return PauseScheduledTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/PauseScheduledTask.ts.html |here} to see how to use PauseScheduledTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/PauseScheduledTask.ts.html |here} to see how to use PauseScheduledTask API.
    */
   public async pauseScheduledTask(
     pauseScheduledTaskRequest: requests.PauseScheduledTaskRequest
@@ -12274,7 +12274,7 @@ export class LogAnalyticsClient {
    * @param PurgeStorageDataRequest
    * @return PurgeStorageDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/PurgeStorageData.ts.html |here} to see how to use PurgeStorageData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/PurgeStorageData.ts.html |here} to see how to use PurgeStorageData API.
    */
   public async purgeStorageData(
     purgeStorageDataRequest: requests.PurgeStorageDataRequest
@@ -12358,7 +12358,7 @@ export class LogAnalyticsClient {
    * @param PutQueryWorkRequestBackgroundRequest
    * @return PutQueryWorkRequestBackgroundResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/PutQueryWorkRequestBackground.ts.html |here} to see how to use PutQueryWorkRequestBackground API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/PutQueryWorkRequestBackground.ts.html |here} to see how to use PutQueryWorkRequestBackground API.
    */
   public async putQueryWorkRequestBackground(
     putQueryWorkRequestBackgroundRequest: requests.PutQueryWorkRequestBackgroundRequest
@@ -12438,7 +12438,7 @@ export class LogAnalyticsClient {
    * @param QueryRequest
    * @return QueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Query.ts.html |here} to see how to use Query API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Query.ts.html |here} to see how to use Query API.
    */
   public async query(queryRequest: requests.QueryRequest): Promise<responses.QueryResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#query.");
@@ -12536,7 +12536,7 @@ export class LogAnalyticsClient {
    * @param RecallArchivedDataRequest
    * @return RecallArchivedDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RecallArchivedData.ts.html |here} to see how to use RecallArchivedData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RecallArchivedData.ts.html |here} to see how to use RecallArchivedData API.
    */
   public async recallArchivedData(
     recallArchivedDataRequest: requests.RecallArchivedDataRequest
@@ -12630,7 +12630,7 @@ export class LogAnalyticsClient {
    * @param RegisterLookupRequest
    * @return RegisterLookupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RegisterLookup.ts.html |here} to see how to use RegisterLookup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RegisterLookup.ts.html |here} to see how to use RegisterLookup API.
    */
   public async registerLookup(
     registerLookupRequest: requests.RegisterLookupRequest
@@ -12716,7 +12716,7 @@ export class LogAnalyticsClient {
    * @param ReleaseRecalledDataRequest
    * @return ReleaseRecalledDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ReleaseRecalledData.ts.html |here} to see how to use ReleaseRecalledData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ReleaseRecalledData.ts.html |here} to see how to use ReleaseRecalledData API.
    */
   public async releaseRecalledData(
     releaseRecalledDataRequest: requests.ReleaseRecalledDataRequest
@@ -12800,7 +12800,7 @@ export class LogAnalyticsClient {
    * @param RemoveEntityAssociationsRequest
    * @return RemoveEntityAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemoveEntityAssociations.ts.html |here} to see how to use RemoveEntityAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemoveEntityAssociations.ts.html |here} to see how to use RemoveEntityAssociations API.
    */
   public async removeEntityAssociations(
     removeEntityAssociationsRequest: requests.RemoveEntityAssociationsRequest
@@ -12878,7 +12878,7 @@ export class LogAnalyticsClient {
    * @param RemovePreferencesRequest
    * @return RemovePreferencesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemovePreferences.ts.html |here} to see how to use RemovePreferences API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemovePreferences.ts.html |here} to see how to use RemovePreferences API.
    */
   public async removePreferences(
     removePreferencesRequest: requests.RemovePreferencesRequest
@@ -12952,7 +12952,7 @@ export class LogAnalyticsClient {
    * @param RemoveResourceCategoriesRequest
    * @return RemoveResourceCategoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemoveResourceCategories.ts.html |here} to see how to use RemoveResourceCategories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemoveResourceCategories.ts.html |here} to see how to use RemoveResourceCategories API.
    */
   public async removeResourceCategories(
     removeResourceCategoriesRequest: requests.RemoveResourceCategoriesRequest
@@ -13026,7 +13026,7 @@ export class LogAnalyticsClient {
    * @param RemoveSourceEventTypesRequest
    * @return RemoveSourceEventTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemoveSourceEventTypes.ts.html |here} to see how to use RemoveSourceEventTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/RemoveSourceEventTypes.ts.html |here} to see how to use RemoveSourceEventTypes API.
    */
   public async removeSourceEventTypes(
     removeSourceEventTypesRequest: requests.RemoveSourceEventTypesRequest
@@ -13102,7 +13102,7 @@ export class LogAnalyticsClient {
    * @param ResumeScheduledTaskRequest
    * @return ResumeScheduledTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ResumeScheduledTask.ts.html |here} to see how to use ResumeScheduledTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ResumeScheduledTask.ts.html |here} to see how to use ResumeScheduledTask API.
    */
   public async resumeScheduledTask(
     resumeScheduledTaskRequest: requests.ResumeScheduledTaskRequest
@@ -13183,7 +13183,7 @@ export class LogAnalyticsClient {
    * @param RunRequest
    * @return RunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Run.ts.html |here} to see how to use Run API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Run.ts.html |here} to see how to use Run API.
    */
   public async run(runRequest: requests.RunRequest): Promise<responses.RunResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#run.");
@@ -13256,7 +13256,7 @@ export class LogAnalyticsClient {
    * @param SetUnprocessedDataBucketRequest
    * @return SetUnprocessedDataBucketResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/SetUnprocessedDataBucket.ts.html |here} to see how to use SetUnprocessedDataBucket API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/SetUnprocessedDataBucket.ts.html |here} to see how to use SetUnprocessedDataBucket API.
    */
   public async setUnprocessedDataBucket(
     setUnprocessedDataBucketRequest: requests.SetUnprocessedDataBucketRequest
@@ -13331,7 +13331,7 @@ export class LogAnalyticsClient {
    * @param SuggestRequest
    * @return SuggestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Suggest.ts.html |here} to see how to use Suggest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Suggest.ts.html |here} to see how to use Suggest API.
    */
   public async suggest(
     suggestRequest: requests.SuggestRequest
@@ -13408,7 +13408,7 @@ export class LogAnalyticsClient {
    * @param SuppressWarningRequest
    * @return SuppressWarningResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/SuppressWarning.ts.html |here} to see how to use SuppressWarning API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/SuppressWarning.ts.html |here} to see how to use SuppressWarning API.
    */
   public async suppressWarning(
     suppressWarningRequest: requests.SuppressWarningRequest
@@ -13484,7 +13484,7 @@ export class LogAnalyticsClient {
    * @param TestParserRequest
    * @return TestParserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/TestParser.ts.html |here} to see how to use TestParser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/TestParser.ts.html |here} to see how to use TestParser API.
    */
   public async testParser(
     testParserRequest: requests.TestParserRequest
@@ -13565,7 +13565,7 @@ export class LogAnalyticsClient {
    * @param UnsuppressWarningRequest
    * @return UnsuppressWarningResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UnsuppressWarning.ts.html |here} to see how to use UnsuppressWarning API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UnsuppressWarning.ts.html |here} to see how to use UnsuppressWarning API.
    */
   public async unsuppressWarning(
     unsuppressWarningRequest: requests.UnsuppressWarningRequest
@@ -13641,7 +13641,7 @@ export class LogAnalyticsClient {
    * @param UpdateIngestTimeRuleRequest
    * @return UpdateIngestTimeRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateIngestTimeRule.ts.html |here} to see how to use UpdateIngestTimeRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateIngestTimeRule.ts.html |here} to see how to use UpdateIngestTimeRule API.
    */
   public async updateIngestTimeRule(
     updateIngestTimeRuleRequest: requests.UpdateIngestTimeRuleRequest
@@ -13725,7 +13725,7 @@ export class LogAnalyticsClient {
    * @param UpdateLogAnalyticsEmBridgeRequest
    * @return UpdateLogAnalyticsEmBridgeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsEmBridge.ts.html |here} to see how to use UpdateLogAnalyticsEmBridge API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsEmBridge.ts.html |here} to see how to use UpdateLogAnalyticsEmBridge API.
    */
   public async updateLogAnalyticsEmBridge(
     updateLogAnalyticsEmBridgeRequest: requests.UpdateLogAnalyticsEmBridgeRequest
@@ -13809,7 +13809,7 @@ export class LogAnalyticsClient {
    * @param UpdateLogAnalyticsEntityRequest
    * @return UpdateLogAnalyticsEntityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsEntity.ts.html |here} to see how to use UpdateLogAnalyticsEntity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsEntity.ts.html |here} to see how to use UpdateLogAnalyticsEntity API.
    */
   public async updateLogAnalyticsEntity(
     updateLogAnalyticsEntityRequest: requests.UpdateLogAnalyticsEntityRequest
@@ -13893,7 +13893,7 @@ export class LogAnalyticsClient {
    * @param UpdateLogAnalyticsEntityTypeRequest
    * @return UpdateLogAnalyticsEntityTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsEntityType.ts.html |here} to see how to use UpdateLogAnalyticsEntityType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsEntityType.ts.html |here} to see how to use UpdateLogAnalyticsEntityType API.
    */
   public async updateLogAnalyticsEntityType(
     updateLogAnalyticsEntityTypeRequest: requests.UpdateLogAnalyticsEntityTypeRequest
@@ -13969,7 +13969,7 @@ export class LogAnalyticsClient {
    * @param UpdateLogAnalyticsLogGroupRequest
    * @return UpdateLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsLogGroup.ts.html |here} to see how to use UpdateLogAnalyticsLogGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsLogGroup.ts.html |here} to see how to use UpdateLogAnalyticsLogGroup API.
    */
   public async updateLogAnalyticsLogGroup(
     updateLogAnalyticsLogGroupRequest: requests.UpdateLogAnalyticsLogGroupRequest
@@ -14053,7 +14053,7 @@ export class LogAnalyticsClient {
    * @param UpdateLogAnalyticsObjectCollectionRuleRequest
    * @return UpdateLogAnalyticsObjectCollectionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsObjectCollectionRule.ts.html |here} to see how to use UpdateLogAnalyticsObjectCollectionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLogAnalyticsObjectCollectionRule.ts.html |here} to see how to use UpdateLogAnalyticsObjectCollectionRule API.
    */
   public async updateLogAnalyticsObjectCollectionRule(
     updateLogAnalyticsObjectCollectionRuleRequest: requests.UpdateLogAnalyticsObjectCollectionRuleRequest
@@ -14142,7 +14142,7 @@ export class LogAnalyticsClient {
    * @param UpdateLookupRequest
    * @return UpdateLookupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLookup.ts.html |here} to see how to use UpdateLookup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLookup.ts.html |here} to see how to use UpdateLookup API.
    */
   public async updateLookup(
     updateLookupRequest: requests.UpdateLookupRequest
@@ -14227,7 +14227,7 @@ export class LogAnalyticsClient {
    * @param UpdateLookupDataRequest
    * @return UpdateLookupDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLookupData.ts.html |here} to see how to use UpdateLookupData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateLookupData.ts.html |here} to see how to use UpdateLookupData API.
    */
   public async updateLookupData(
     updateLookupDataRequest: requests.UpdateLookupDataRequest
@@ -14308,7 +14308,7 @@ export class LogAnalyticsClient {
    * @param UpdatePreferencesRequest
    * @return UpdatePreferencesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdatePreferences.ts.html |here} to see how to use UpdatePreferences API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdatePreferences.ts.html |here} to see how to use UpdatePreferences API.
    */
   public async updatePreferences(
     updatePreferencesRequest: requests.UpdatePreferencesRequest
@@ -14382,7 +14382,7 @@ export class LogAnalyticsClient {
    * @param UpdateResourceCategoriesRequest
    * @return UpdateResourceCategoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateResourceCategories.ts.html |here} to see how to use UpdateResourceCategories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateResourceCategories.ts.html |here} to see how to use UpdateResourceCategories API.
    */
   public async updateResourceCategories(
     updateResourceCategoriesRequest: requests.UpdateResourceCategoriesRequest
@@ -14455,7 +14455,7 @@ export class LogAnalyticsClient {
    * @param UpdateScheduledTaskRequest
    * @return UpdateScheduledTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateScheduledTask.ts.html |here} to see how to use UpdateScheduledTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateScheduledTask.ts.html |here} to see how to use UpdateScheduledTask API.
    */
   public async updateScheduledTask(
     updateScheduledTaskRequest: requests.UpdateScheduledTaskRequest
@@ -14539,7 +14539,7 @@ export class LogAnalyticsClient {
    * @param UpdateStorageRequest
    * @return UpdateStorageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateStorage.ts.html |here} to see how to use UpdateStorage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateStorage.ts.html |here} to see how to use UpdateStorage API.
    */
   public async updateStorage(
     updateStorageRequest: requests.UpdateStorageRequest
@@ -14622,7 +14622,7 @@ export class LogAnalyticsClient {
    * @param UploadDiscoveryDataRequest
    * @return UploadDiscoveryDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UploadDiscoveryData.ts.html |here} to see how to use UploadDiscoveryData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UploadDiscoveryData.ts.html |here} to see how to use UploadDiscoveryData API.
    */
   public async uploadDiscoveryData(
     uploadDiscoveryDataRequest: requests.UploadDiscoveryDataRequest
@@ -14710,7 +14710,7 @@ export class LogAnalyticsClient {
    * @param UploadLogEventsFileRequest
    * @return UploadLogEventsFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UploadLogEventsFile.ts.html |here} to see how to use UploadLogEventsFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UploadLogEventsFile.ts.html |here} to see how to use UploadLogEventsFile API.
    */
   public async uploadLogEventsFile(
     uploadLogEventsFileRequest: requests.UploadLogEventsFileRequest
@@ -14798,7 +14798,7 @@ export class LogAnalyticsClient {
    * @param UploadLogFileRequest
    * @return UploadLogFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UploadLogFile.ts.html |here} to see how to use UploadLogFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UploadLogFile.ts.html |here} to see how to use UploadLogFile API.
    */
   public async uploadLogFile(
     uploadLogFileRequest: requests.UploadLogFileRequest
@@ -14898,7 +14898,7 @@ export class LogAnalyticsClient {
    * @param UpsertAssociationsRequest
    * @return UpsertAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertAssociations.ts.html |here} to see how to use UpsertAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertAssociations.ts.html |here} to see how to use UpsertAssociations API.
    */
   public async upsertAssociations(
     upsertAssociationsRequest: requests.UpsertAssociationsRequest
@@ -14979,7 +14979,7 @@ export class LogAnalyticsClient {
    * @param UpsertFieldRequest
    * @return UpsertFieldResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertField.ts.html |here} to see how to use UpsertField API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertField.ts.html |here} to see how to use UpsertField API.
    */
   public async upsertField(
     upsertFieldRequest: requests.UpsertFieldRequest
@@ -15063,7 +15063,7 @@ export class LogAnalyticsClient {
    * @param UpsertLabelRequest
    * @return UpsertLabelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertLabel.ts.html |here} to see how to use UpsertLabel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertLabel.ts.html |here} to see how to use UpsertLabel API.
    */
   public async upsertLabel(
     upsertLabelRequest: requests.UpsertLabelRequest
@@ -15147,7 +15147,7 @@ export class LogAnalyticsClient {
    * @param UpsertParserRequest
    * @return UpsertParserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertParser.ts.html |here} to see how to use UpsertParser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertParser.ts.html |here} to see how to use UpsertParser API.
    */
   public async upsertParser(
     upsertParserRequest: requests.UpsertParserRequest
@@ -15231,7 +15231,7 @@ export class LogAnalyticsClient {
    * @param UpsertSourceRequest
    * @return UpsertSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertSource.ts.html |here} to see how to use UpsertSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpsertSource.ts.html |here} to see how to use UpsertSource API.
    */
   public async upsertSource(
     upsertSourceRequest: requests.UpsertSourceRequest
@@ -15319,7 +15319,7 @@ export class LogAnalyticsClient {
    * @param ValidateAssociationParametersRequest
    * @return ValidateAssociationParametersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateAssociationParameters.ts.html |here} to see how to use ValidateAssociationParameters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateAssociationParameters.ts.html |here} to see how to use ValidateAssociationParameters API.
    */
   public async validateAssociationParameters(
     validateAssociationParametersRequest: requests.ValidateAssociationParametersRequest
@@ -15408,7 +15408,7 @@ export class LogAnalyticsClient {
    * @param ValidateEndpointRequest
    * @return ValidateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateEndpoint.ts.html |here} to see how to use ValidateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateEndpoint.ts.html |here} to see how to use ValidateEndpoint API.
    */
   public async validateEndpoint(
     validateEndpointRequest: requests.ValidateEndpointRequest
@@ -15484,7 +15484,7 @@ export class LogAnalyticsClient {
    * @param ValidateFileRequest
    * @return ValidateFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateFile.ts.html |here} to see how to use ValidateFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateFile.ts.html |here} to see how to use ValidateFile API.
    */
   public async validateFile(
     validateFileRequest: requests.ValidateFileRequest
@@ -15563,7 +15563,7 @@ export class LogAnalyticsClient {
    * @param ValidateLabelConditionRequest
    * @return ValidateLabelConditionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateLabelCondition.ts.html |here} to see how to use ValidateLabelCondition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateLabelCondition.ts.html |here} to see how to use ValidateLabelCondition API.
    */
   public async validateLabelCondition(
     validateLabelConditionRequest: requests.ValidateLabelConditionRequest
@@ -15641,7 +15641,7 @@ export class LogAnalyticsClient {
    * @param ValidateSourceRequest
    * @return ValidateSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateSource.ts.html |here} to see how to use ValidateSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateSource.ts.html |here} to see how to use ValidateSource API.
    */
   public async validateSource(
     validateSourceRequest: requests.ValidateSourceRequest
@@ -15723,7 +15723,7 @@ export class LogAnalyticsClient {
    * @param ValidateSourceExtendedFieldDetailsRequest
    * @return ValidateSourceExtendedFieldDetailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateSourceExtendedFieldDetails.ts.html |here} to see how to use ValidateSourceExtendedFieldDetails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateSourceExtendedFieldDetails.ts.html |here} to see how to use ValidateSourceExtendedFieldDetails API.
    */
   public async validateSourceExtendedFieldDetails(
     validateSourceExtendedFieldDetailsRequest: requests.ValidateSourceExtendedFieldDetailsRequest
@@ -15801,7 +15801,7 @@ export class LogAnalyticsClient {
    * @param ValidateSourceMappingRequest
    * @return ValidateSourceMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateSourceMapping.ts.html |here} to see how to use ValidateSourceMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateSourceMapping.ts.html |here} to see how to use ValidateSourceMapping API.
    */
   public async validateSourceMapping(
     validateSourceMappingRequest: requests.ValidateSourceMappingRequest
@@ -15881,7 +15881,7 @@ export class LogAnalyticsClient {
    * @param VerifyRequest
    * @return VerifyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Verify.ts.html |here} to see how to use Verify API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/Verify.ts.html |here} to see how to use Verify API.
    */
   public async verify(verifyRequest: requests.VerifyRequest): Promise<responses.VerifyResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#verify.");

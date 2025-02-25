@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabases.ts.html |here} to see how to use ListAutonomousDatabasesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabases.ts.html |here} to see how to use ListAutonomousDatabasesRequest.
  */
 export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId": string;
   /**
-   * The Autonomous Container Database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Autonomous Container Database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousContainerDatabaseId"?: string;
   /**
@@ -96,7 +96,7 @@ export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
    */
   "isResourcePoolLeader"?: boolean;
   /**
-   * The database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the resourcepool Leader Autonomous Database.
+   * The database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resourcepool Leader Autonomous Database.
    */
   "resourcePoolLeaderId"?: string;
 }

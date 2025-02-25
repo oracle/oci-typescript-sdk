@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTaskFindings.ts.html |here} to see how to use ListSqlTuningAdvisorTaskFindingsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTaskFindings.ts.html |here} to see how to use ListSqlTuningAdvisorTaskFindingsRequest.
  */
 export interface ListSqlTuningAdvisorTaskFindingsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Managed Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Managed Database.
    */
   "managedDatabaseId": string;
   /**
-   * The SQL tuning task identifier. This is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The SQL tuning task identifier. This is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "sqlTuningAdvisorTaskId": number;
   /**

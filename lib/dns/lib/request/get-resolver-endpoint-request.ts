@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolverEndpoint.ts.html |here} to see how to use GetResolverEndpointRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolverEndpoint.ts.html |here} to see how to use GetResolverEndpointRequest.
  */
 export interface GetResolverEndpointRequest extends common.BaseRequest {
   /**

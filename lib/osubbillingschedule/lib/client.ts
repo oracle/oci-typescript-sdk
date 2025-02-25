@@ -221,7 +221,7 @@ export class BillingScheduleClient {
    * @param ListBillingSchedulesRequest
    * @return ListBillingSchedulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubbillingschedule/ListBillingSchedules.ts.html |here} to see how to use ListBillingSchedules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubbillingschedule/ListBillingSchedules.ts.html |here} to see how to use ListBillingSchedules API.
    */
   public async listBillingSchedules(
     listBillingSchedulesRequest: requests.ListBillingSchedulesRequest

@@ -245,7 +245,7 @@ export class DataIntegrationClient {
    * @param ChangeCompartmentRequest
    * @return ChangeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ChangeCompartment.ts.html |here} to see how to use ChangeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ChangeCompartment.ts.html |here} to see how to use ChangeCompartment API.
    */
   public async changeCompartment(
     changeCompartmentRequest: requests.ChangeCompartmentRequest
@@ -326,7 +326,7 @@ export class DataIntegrationClient {
    * @param ChangeDisApplicationCompartmentRequest
    * @return ChangeDisApplicationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ChangeDisApplicationCompartment.ts.html |here} to see how to use ChangeDisApplicationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ChangeDisApplicationCompartment.ts.html |here} to see how to use ChangeDisApplicationCompartment API.
    */
   public async changeDisApplicationCompartment(
     changeDisApplicationCompartmentRequest: requests.ChangeDisApplicationCompartmentRequest
@@ -409,7 +409,7 @@ export class DataIntegrationClient {
    * @param CreateApplicationRequest
    * @return CreateApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateApplication.ts.html |here} to see how to use CreateApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateApplication.ts.html |here} to see how to use CreateApplication API.
    */
   public async createApplication(
     createApplicationRequest: requests.CreateApplicationRequest
@@ -492,7 +492,7 @@ export class DataIntegrationClient {
    * @param CreateApplicationDetailedDescriptionRequest
    * @return CreateApplicationDetailedDescriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateApplicationDetailedDescription.ts.html |here} to see how to use CreateApplicationDetailedDescription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateApplicationDetailedDescription.ts.html |here} to see how to use CreateApplicationDetailedDescription API.
    */
   public async createApplicationDetailedDescription(
     createApplicationDetailedDescriptionRequest: requests.CreateApplicationDetailedDescriptionRequest
@@ -578,7 +578,7 @@ export class DataIntegrationClient {
    * @param CreateConnectionRequest
    * @return CreateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateConnection.ts.html |here} to see how to use CreateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateConnection.ts.html |here} to see how to use CreateConnection API.
    */
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
@@ -660,7 +660,7 @@ export class DataIntegrationClient {
    * @param CreateConnectionValidationRequest
    * @return CreateConnectionValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateConnectionValidation.ts.html |here} to see how to use CreateConnectionValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateConnectionValidation.ts.html |here} to see how to use CreateConnectionValidation API.
    */
   public async createConnectionValidation(
     createConnectionValidationRequest: requests.CreateConnectionValidationRequest
@@ -744,7 +744,7 @@ export class DataIntegrationClient {
    * @param CreateCopyObjectRequestRequest
    * @return CreateCopyObjectRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateCopyObjectRequest.ts.html |here} to see how to use CreateCopyObjectRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateCopyObjectRequest.ts.html |here} to see how to use CreateCopyObjectRequest API.
    */
   public async createCopyObjectRequest(
     createCopyObjectRequestRequest: requests.CreateCopyObjectRequestRequest
@@ -831,7 +831,7 @@ export class DataIntegrationClient {
    * @param CreateDataAssetRequest
    * @return CreateDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDataAsset.ts.html |here} to see how to use CreateDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDataAsset.ts.html |here} to see how to use CreateDataAsset API.
    */
   public async createDataAsset(
     createDataAssetRequest: requests.CreateDataAssetRequest
@@ -914,7 +914,7 @@ export class DataIntegrationClient {
    * @param CreateDataFlowRequest
    * @return CreateDataFlowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDataFlow.ts.html |here} to see how to use CreateDataFlow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDataFlow.ts.html |here} to see how to use CreateDataFlow API.
    */
   public async createDataFlow(
     createDataFlowRequest: requests.CreateDataFlowRequest
@@ -997,7 +997,7 @@ export class DataIntegrationClient {
    * @param CreateDataFlowValidationRequest
    * @return CreateDataFlowValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDataFlowValidation.ts.html |here} to see how to use CreateDataFlowValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDataFlowValidation.ts.html |here} to see how to use CreateDataFlowValidation API.
    */
   public async createDataFlowValidation(
     createDataFlowValidationRequest: requests.CreateDataFlowValidationRequest
@@ -1081,7 +1081,7 @@ export class DataIntegrationClient {
    * @param CreateDisApplicationRequest
    * @return CreateDisApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDisApplication.ts.html |here} to see how to use CreateDisApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDisApplication.ts.html |here} to see how to use CreateDisApplication API.
    */
   public async createDisApplication(
     createDisApplicationRequest: requests.CreateDisApplicationRequest
@@ -1164,7 +1164,7 @@ export class DataIntegrationClient {
    * @param CreateDisApplicationDetailedDescriptionRequest
    * @return CreateDisApplicationDetailedDescriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDisApplicationDetailedDescription.ts.html |here} to see how to use CreateDisApplicationDetailedDescription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateDisApplicationDetailedDescription.ts.html |here} to see how to use CreateDisApplicationDetailedDescription API.
    */
   public async createDisApplicationDetailedDescription(
     createDisApplicationDetailedDescriptionRequest: requests.CreateDisApplicationDetailedDescriptionRequest
@@ -1250,7 +1250,7 @@ export class DataIntegrationClient {
    * @param CreateEntityShapeRequest
    * @return CreateEntityShapeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateEntityShape.ts.html |here} to see how to use CreateEntityShape API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateEntityShape.ts.html |here} to see how to use CreateEntityShape API.
    */
   public async createEntityShape(
     createEntityShapeRequest: requests.CreateEntityShapeRequest
@@ -1332,7 +1332,7 @@ export class DataIntegrationClient {
    * @param CreateExportRequestRequest
    * @return CreateExportRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateExportRequest.ts.html |here} to see how to use CreateExportRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateExportRequest.ts.html |here} to see how to use CreateExportRequest API.
    */
   public async createExportRequest(
     createExportRequestRequest: requests.CreateExportRequestRequest
@@ -1419,7 +1419,7 @@ export class DataIntegrationClient {
    * @param CreateExternalPublicationRequest
    * @return CreateExternalPublicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateExternalPublication.ts.html |here} to see how to use CreateExternalPublication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateExternalPublication.ts.html |here} to see how to use CreateExternalPublication API.
    */
   public async createExternalPublication(
     createExternalPublicationRequest: requests.CreateExternalPublicationRequest
@@ -1503,7 +1503,7 @@ export class DataIntegrationClient {
    * @param CreateExternalPublicationValidationRequest
    * @return CreateExternalPublicationValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateExternalPublicationValidation.ts.html |here} to see how to use CreateExternalPublicationValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateExternalPublicationValidation.ts.html |here} to see how to use CreateExternalPublicationValidation API.
    */
   public async createExternalPublicationValidation(
     createExternalPublicationValidationRequest: requests.CreateExternalPublicationValidationRequest
@@ -1591,7 +1591,7 @@ export class DataIntegrationClient {
    * @param CreateFolderRequest
    * @return CreateFolderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateFolder.ts.html |here} to see how to use CreateFolder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateFolder.ts.html |here} to see how to use CreateFolder API.
    */
   public async createFolder(
     createFolderRequest: requests.CreateFolderRequest
@@ -1675,7 +1675,7 @@ export class DataIntegrationClient {
    * @param CreateFunctionLibraryRequest
    * @return CreateFunctionLibraryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateFunctionLibrary.ts.html |here} to see how to use CreateFunctionLibrary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateFunctionLibrary.ts.html |here} to see how to use CreateFunctionLibrary API.
    */
   public async createFunctionLibrary(
     createFunctionLibraryRequest: requests.CreateFunctionLibraryRequest
@@ -1758,7 +1758,7 @@ export class DataIntegrationClient {
    * @param CreateImportRequestRequest
    * @return CreateImportRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateImportRequest.ts.html |here} to see how to use CreateImportRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateImportRequest.ts.html |here} to see how to use CreateImportRequest API.
    */
   public async createImportRequest(
     createImportRequestRequest: requests.CreateImportRequestRequest
@@ -1845,7 +1845,7 @@ export class DataIntegrationClient {
    * @param CreatePatchRequest
    * @return CreatePatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreatePatch.ts.html |here} to see how to use CreatePatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreatePatch.ts.html |here} to see how to use CreatePatch API.
    */
   public async createPatch(
     createPatchRequest: requests.CreatePatchRequest
@@ -1929,7 +1929,7 @@ export class DataIntegrationClient {
    * @param CreatePipelineRequest
    * @return CreatePipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreatePipeline.ts.html |here} to see how to use CreatePipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreatePipeline.ts.html |here} to see how to use CreatePipeline API.
    */
   public async createPipeline(
     createPipelineRequest: requests.CreatePipelineRequest
@@ -2012,7 +2012,7 @@ export class DataIntegrationClient {
    * @param CreatePipelineValidationRequest
    * @return CreatePipelineValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreatePipelineValidation.ts.html |here} to see how to use CreatePipelineValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreatePipelineValidation.ts.html |here} to see how to use CreatePipelineValidation API.
    */
   public async createPipelineValidation(
     createPipelineValidationRequest: requests.CreatePipelineValidationRequest
@@ -2096,7 +2096,7 @@ export class DataIntegrationClient {
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateProject.ts.html |here} to see how to use CreateProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateProject.ts.html |here} to see how to use CreateProject API.
    */
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
@@ -2178,7 +2178,7 @@ export class DataIntegrationClient {
    * @param CreateScheduleRequest
    * @return CreateScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateSchedule.ts.html |here} to see how to use CreateSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateSchedule.ts.html |here} to see how to use CreateSchedule API.
    */
   public async createSchedule(
     createScheduleRequest: requests.CreateScheduleRequest
@@ -2262,7 +2262,7 @@ export class DataIntegrationClient {
    * @param CreateTaskRequest
    * @return CreateTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTask.ts.html |here} to see how to use CreateTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTask.ts.html |here} to see how to use CreateTask API.
    */
   public async createTask(
     createTaskRequest: requests.CreateTaskRequest
@@ -2344,7 +2344,7 @@ export class DataIntegrationClient {
    * @param CreateTaskRunRequest
    * @return CreateTaskRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTaskRun.ts.html |here} to see how to use CreateTaskRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTaskRun.ts.html |here} to see how to use CreateTaskRun API.
    */
   public async createTaskRun(
     createTaskRunRequest: requests.CreateTaskRunRequest
@@ -2427,7 +2427,7 @@ export class DataIntegrationClient {
    * @param CreateTaskScheduleRequest
    * @return CreateTaskScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTaskSchedule.ts.html |here} to see how to use CreateTaskSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTaskSchedule.ts.html |here} to see how to use CreateTaskSchedule API.
    */
   public async createTaskSchedule(
     createTaskScheduleRequest: requests.CreateTaskScheduleRequest
@@ -2511,7 +2511,7 @@ export class DataIntegrationClient {
    * @param CreateTaskValidationRequest
    * @return CreateTaskValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTaskValidation.ts.html |here} to see how to use CreateTaskValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTaskValidation.ts.html |here} to see how to use CreateTaskValidation API.
    */
   public async createTaskValidation(
     createTaskValidationRequest: requests.CreateTaskValidationRequest
@@ -2595,7 +2595,7 @@ export class DataIntegrationClient {
    * @param CreateUserDefinedFunctionRequest
    * @return CreateUserDefinedFunctionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateUserDefinedFunction.ts.html |here} to see how to use CreateUserDefinedFunction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateUserDefinedFunction.ts.html |here} to see how to use CreateUserDefinedFunction API.
    */
   public async createUserDefinedFunction(
     createUserDefinedFunctionRequest: requests.CreateUserDefinedFunctionRequest
@@ -2679,7 +2679,7 @@ export class DataIntegrationClient {
    * @param CreateUserDefinedFunctionValidationRequest
    * @return CreateUserDefinedFunctionValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateUserDefinedFunctionValidation.ts.html |here} to see how to use CreateUserDefinedFunctionValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateUserDefinedFunctionValidation.ts.html |here} to see how to use CreateUserDefinedFunctionValidation API.
    */
   public async createUserDefinedFunctionValidation(
     createUserDefinedFunctionValidationRequest: requests.CreateUserDefinedFunctionValidationRequest
@@ -2765,7 +2765,7 @@ export class DataIntegrationClient {
    * @param CreateWorkspaceRequest
    * @return CreateWorkspaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateWorkspace.ts.html |here} to see how to use CreateWorkspace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateWorkspace.ts.html |here} to see how to use CreateWorkspace API.
    */
   public async createWorkspace(
     createWorkspaceRequest: requests.CreateWorkspaceRequest
@@ -2841,7 +2841,7 @@ export class DataIntegrationClient {
    * @param DeleteApplicationRequest
    * @return DeleteApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteApplication.ts.html |here} to see how to use DeleteApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteApplication.ts.html |here} to see how to use DeleteApplication API.
    */
   public async deleteApplication(
     deleteApplicationRequest: requests.DeleteApplicationRequest
@@ -2911,7 +2911,7 @@ export class DataIntegrationClient {
    * @param DeleteApplicationDetailedDescriptionRequest
    * @return DeleteApplicationDetailedDescriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteApplicationDetailedDescription.ts.html |here} to see how to use DeleteApplicationDetailedDescription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteApplicationDetailedDescription.ts.html |here} to see how to use DeleteApplicationDetailedDescription API.
    */
   public async deleteApplicationDetailedDescription(
     deleteApplicationDetailedDescriptionRequest: requests.DeleteApplicationDetailedDescriptionRequest
@@ -2983,7 +2983,7 @@ export class DataIntegrationClient {
    * @param DeleteConnectionRequest
    * @return DeleteConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
    */
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
@@ -3052,7 +3052,7 @@ export class DataIntegrationClient {
    * @param DeleteConnectionValidationRequest
    * @return DeleteConnectionValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteConnectionValidation.ts.html |here} to see how to use DeleteConnectionValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteConnectionValidation.ts.html |here} to see how to use DeleteConnectionValidation API.
    */
   public async deleteConnectionValidation(
     deleteConnectionValidationRequest: requests.DeleteConnectionValidationRequest
@@ -3122,7 +3122,7 @@ export class DataIntegrationClient {
    * @param DeleteCopyObjectRequestRequest
    * @return DeleteCopyObjectRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteCopyObjectRequest.ts.html |here} to see how to use DeleteCopyObjectRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteCopyObjectRequest.ts.html |here} to see how to use DeleteCopyObjectRequest API.
    */
   public async deleteCopyObjectRequest(
     deleteCopyObjectRequestRequest: requests.DeleteCopyObjectRequestRequest
@@ -3192,7 +3192,7 @@ export class DataIntegrationClient {
    * @param DeleteDataAssetRequest
    * @return DeleteDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDataAsset.ts.html |here} to see how to use DeleteDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDataAsset.ts.html |here} to see how to use DeleteDataAsset API.
    */
   public async deleteDataAsset(
     deleteDataAssetRequest: requests.DeleteDataAssetRequest
@@ -3261,7 +3261,7 @@ export class DataIntegrationClient {
    * @param DeleteDataFlowRequest
    * @return DeleteDataFlowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDataFlow.ts.html |here} to see how to use DeleteDataFlow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDataFlow.ts.html |here} to see how to use DeleteDataFlow API.
    */
   public async deleteDataFlow(
     deleteDataFlowRequest: requests.DeleteDataFlowRequest
@@ -3330,7 +3330,7 @@ export class DataIntegrationClient {
    * @param DeleteDataFlowValidationRequest
    * @return DeleteDataFlowValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDataFlowValidation.ts.html |here} to see how to use DeleteDataFlowValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDataFlowValidation.ts.html |here} to see how to use DeleteDataFlowValidation API.
    */
   public async deleteDataFlowValidation(
     deleteDataFlowValidationRequest: requests.DeleteDataFlowValidationRequest
@@ -3400,7 +3400,7 @@ export class DataIntegrationClient {
    * @param DeleteDisApplicationRequest
    * @return DeleteDisApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDisApplication.ts.html |here} to see how to use DeleteDisApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDisApplication.ts.html |here} to see how to use DeleteDisApplication API.
    */
   public async deleteDisApplication(
     deleteDisApplicationRequest: requests.DeleteDisApplicationRequest
@@ -3470,7 +3470,7 @@ export class DataIntegrationClient {
    * @param DeleteDisApplicationDetailedDescriptionRequest
    * @return DeleteDisApplicationDetailedDescriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDisApplicationDetailedDescription.ts.html |here} to see how to use DeleteDisApplicationDetailedDescription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteDisApplicationDetailedDescription.ts.html |here} to see how to use DeleteDisApplicationDetailedDescription API.
    */
   public async deleteDisApplicationDetailedDescription(
     deleteDisApplicationDetailedDescriptionRequest: requests.DeleteDisApplicationDetailedDescriptionRequest
@@ -3543,7 +3543,7 @@ export class DataIntegrationClient {
    * @param DeleteExportRequestRequest
    * @return DeleteExportRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteExportRequest.ts.html |here} to see how to use DeleteExportRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteExportRequest.ts.html |here} to see how to use DeleteExportRequest API.
    */
   public async deleteExportRequest(
     deleteExportRequestRequest: requests.DeleteExportRequestRequest
@@ -3613,7 +3613,7 @@ export class DataIntegrationClient {
    * @param DeleteExternalPublicationRequest
    * @return DeleteExternalPublicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteExternalPublication.ts.html |here} to see how to use DeleteExternalPublication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteExternalPublication.ts.html |here} to see how to use DeleteExternalPublication API.
    */
   public async deleteExternalPublication(
     deleteExternalPublicationRequest: requests.DeleteExternalPublicationRequest
@@ -3686,7 +3686,7 @@ export class DataIntegrationClient {
    * @param DeleteExternalPublicationValidationRequest
    * @return DeleteExternalPublicationValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteExternalPublicationValidation.ts.html |here} to see how to use DeleteExternalPublicationValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteExternalPublicationValidation.ts.html |here} to see how to use DeleteExternalPublicationValidation API.
    */
   public async deleteExternalPublicationValidation(
     deleteExternalPublicationValidationRequest: requests.DeleteExternalPublicationValidationRequest
@@ -3761,7 +3761,7 @@ export class DataIntegrationClient {
    * @param DeleteFolderRequest
    * @return DeleteFolderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteFolder.ts.html |here} to see how to use DeleteFolder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteFolder.ts.html |here} to see how to use DeleteFolder API.
    */
   public async deleteFolder(
     deleteFolderRequest: requests.DeleteFolderRequest
@@ -3830,7 +3830,7 @@ export class DataIntegrationClient {
    * @param DeleteFunctionLibraryRequest
    * @return DeleteFunctionLibraryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteFunctionLibrary.ts.html |here} to see how to use DeleteFunctionLibrary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteFunctionLibrary.ts.html |here} to see how to use DeleteFunctionLibrary API.
    */
   public async deleteFunctionLibrary(
     deleteFunctionLibraryRequest: requests.DeleteFunctionLibraryRequest
@@ -3901,7 +3901,7 @@ export class DataIntegrationClient {
    * @param DeleteImportRequestRequest
    * @return DeleteImportRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteImportRequest.ts.html |here} to see how to use DeleteImportRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteImportRequest.ts.html |here} to see how to use DeleteImportRequest API.
    */
   public async deleteImportRequest(
     deleteImportRequestRequest: requests.DeleteImportRequestRequest
@@ -3971,7 +3971,7 @@ export class DataIntegrationClient {
    * @param DeletePatchRequest
    * @return DeletePatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeletePatch.ts.html |here} to see how to use DeletePatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeletePatch.ts.html |here} to see how to use DeletePatch API.
    */
   public async deletePatch(
     deletePatchRequest: requests.DeletePatchRequest
@@ -4041,7 +4041,7 @@ export class DataIntegrationClient {
    * @param DeletePipelineRequest
    * @return DeletePipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeletePipeline.ts.html |here} to see how to use DeletePipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeletePipeline.ts.html |here} to see how to use DeletePipeline API.
    */
   public async deletePipeline(
     deletePipelineRequest: requests.DeletePipelineRequest
@@ -4110,7 +4110,7 @@ export class DataIntegrationClient {
    * @param DeletePipelineValidationRequest
    * @return DeletePipelineValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeletePipelineValidation.ts.html |here} to see how to use DeletePipelineValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeletePipelineValidation.ts.html |here} to see how to use DeletePipelineValidation API.
    */
   public async deletePipelineValidation(
     deletePipelineValidationRequest: requests.DeletePipelineValidationRequest
@@ -4180,7 +4180,7 @@ export class DataIntegrationClient {
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteProject.ts.html |here} to see how to use DeleteProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteProject.ts.html |here} to see how to use DeleteProject API.
    */
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
@@ -4249,7 +4249,7 @@ export class DataIntegrationClient {
    * @param DeleteScheduleRequest
    * @return DeleteScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteSchedule.ts.html |here} to see how to use DeleteSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteSchedule.ts.html |here} to see how to use DeleteSchedule API.
    */
   public async deleteSchedule(
     deleteScheduleRequest: requests.DeleteScheduleRequest
@@ -4319,7 +4319,7 @@ export class DataIntegrationClient {
    * @param DeleteTaskRequest
    * @return DeleteTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteTask.ts.html |here} to see how to use DeleteTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteTask.ts.html |here} to see how to use DeleteTask API.
    */
   public async deleteTask(
     deleteTaskRequest: requests.DeleteTaskRequest
@@ -4388,7 +4388,7 @@ export class DataIntegrationClient {
    * @param DeleteTaskRunRequest
    * @return DeleteTaskRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteTaskRun.ts.html |here} to see how to use DeleteTaskRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteTaskRun.ts.html |here} to see how to use DeleteTaskRun API.
    */
   public async deleteTaskRun(
     deleteTaskRunRequest: requests.DeleteTaskRunRequest
@@ -4458,7 +4458,7 @@ export class DataIntegrationClient {
    * @param DeleteTaskScheduleRequest
    * @return DeleteTaskScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteTaskSchedule.ts.html |here} to see how to use DeleteTaskSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteTaskSchedule.ts.html |here} to see how to use DeleteTaskSchedule API.
    */
   public async deleteTaskSchedule(
     deleteTaskScheduleRequest: requests.DeleteTaskScheduleRequest
@@ -4531,7 +4531,7 @@ export class DataIntegrationClient {
    * @param DeleteTaskValidationRequest
    * @return DeleteTaskValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteTaskValidation.ts.html |here} to see how to use DeleteTaskValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteTaskValidation.ts.html |here} to see how to use DeleteTaskValidation API.
    */
   public async deleteTaskValidation(
     deleteTaskValidationRequest: requests.DeleteTaskValidationRequest
@@ -4601,7 +4601,7 @@ export class DataIntegrationClient {
    * @param DeleteUserDefinedFunctionRequest
    * @return DeleteUserDefinedFunctionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteUserDefinedFunction.ts.html |here} to see how to use DeleteUserDefinedFunction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteUserDefinedFunction.ts.html |here} to see how to use DeleteUserDefinedFunction API.
    */
   public async deleteUserDefinedFunction(
     deleteUserDefinedFunctionRequest: requests.DeleteUserDefinedFunctionRequest
@@ -4671,7 +4671,7 @@ export class DataIntegrationClient {
    * @param DeleteUserDefinedFunctionValidationRequest
    * @return DeleteUserDefinedFunctionValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteUserDefinedFunctionValidation.ts.html |here} to see how to use DeleteUserDefinedFunctionValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteUserDefinedFunctionValidation.ts.html |here} to see how to use DeleteUserDefinedFunctionValidation API.
    */
   public async deleteUserDefinedFunctionValidation(
     deleteUserDefinedFunctionValidationRequest: requests.DeleteUserDefinedFunctionValidationRequest
@@ -4745,7 +4745,7 @@ export class DataIntegrationClient {
    * @param DeleteWorkspaceRequest
    * @return DeleteWorkspaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteWorkspace.ts.html |here} to see how to use DeleteWorkspace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteWorkspace.ts.html |here} to see how to use DeleteWorkspace API.
    */
   public async deleteWorkspace(
     deleteWorkspaceRequest: requests.DeleteWorkspaceRequest
@@ -4821,7 +4821,7 @@ export class DataIntegrationClient {
    * @param GetApplicationRequest
    * @return GetApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetApplication.ts.html |here} to see how to use GetApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetApplication.ts.html |here} to see how to use GetApplication API.
    */
   public async getApplication(
     getApplicationRequest: requests.GetApplicationRequest
@@ -4898,7 +4898,7 @@ export class DataIntegrationClient {
    * @param GetApplicationDetailedDescriptionRequest
    * @return GetApplicationDetailedDescriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetApplicationDetailedDescription.ts.html |here} to see how to use GetApplicationDetailedDescription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetApplicationDetailedDescription.ts.html |here} to see how to use GetApplicationDetailedDescription API.
    */
   public async getApplicationDetailedDescription(
     getApplicationDetailedDescriptionRequest: requests.GetApplicationDetailedDescriptionRequest
@@ -4979,7 +4979,7 @@ export class DataIntegrationClient {
    * @param GetCompositeStateRequest
    * @return GetCompositeStateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetCompositeState.ts.html |here} to see how to use GetCompositeState API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetCompositeState.ts.html |here} to see how to use GetCompositeState API.
    */
   public async getCompositeState(
     getCompositeStateRequest: requests.GetCompositeStateRequest
@@ -5054,7 +5054,7 @@ export class DataIntegrationClient {
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetConnection.ts.html |here} to see how to use GetConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetConnection.ts.html |here} to see how to use GetConnection API.
    */
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
@@ -5131,7 +5131,7 @@ export class DataIntegrationClient {
    * @param GetConnectionValidationRequest
    * @return GetConnectionValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetConnectionValidation.ts.html |here} to see how to use GetConnectionValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetConnectionValidation.ts.html |here} to see how to use GetConnectionValidation API.
    */
   public async getConnectionValidation(
     getConnectionValidationRequest: requests.GetConnectionValidationRequest
@@ -5210,7 +5210,7 @@ export class DataIntegrationClient {
    * @param GetCopyObjectRequestRequest
    * @return GetCopyObjectRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetCopyObjectRequest.ts.html |here} to see how to use GetCopyObjectRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetCopyObjectRequest.ts.html |here} to see how to use GetCopyObjectRequest API.
    */
   public async getCopyObjectRequest(
     getCopyObjectRequestRequest: requests.GetCopyObjectRequestRequest
@@ -5290,7 +5290,7 @@ export class DataIntegrationClient {
    * @param GetCountStatisticRequest
    * @return GetCountStatisticResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetCountStatistic.ts.html |here} to see how to use GetCountStatistic API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetCountStatistic.ts.html |here} to see how to use GetCountStatistic API.
    */
   public async getCountStatistic(
     getCountStatisticRequest: requests.GetCountStatisticRequest
@@ -5368,7 +5368,7 @@ export class DataIntegrationClient {
    * @param GetDataAssetRequest
    * @return GetDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDataAsset.ts.html |here} to see how to use GetDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDataAsset.ts.html |here} to see how to use GetDataAsset API.
    */
   public async getDataAsset(
     getDataAssetRequest: requests.GetDataAssetRequest
@@ -5445,7 +5445,7 @@ export class DataIntegrationClient {
    * @param GetDataEntityRequest
    * @return GetDataEntityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDataEntity.ts.html |here} to see how to use GetDataEntity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDataEntity.ts.html |here} to see how to use GetDataEntity API.
    */
   public async getDataEntity(
     getDataEntityRequest: requests.GetDataEntityRequest
@@ -5520,7 +5520,7 @@ export class DataIntegrationClient {
    * @param GetDataFlowRequest
    * @return GetDataFlowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDataFlow.ts.html |here} to see how to use GetDataFlow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDataFlow.ts.html |here} to see how to use GetDataFlow API.
    */
   public async getDataFlow(
     getDataFlowRequest: requests.GetDataFlowRequest
@@ -5599,7 +5599,7 @@ export class DataIntegrationClient {
    * @param GetDataFlowValidationRequest
    * @return GetDataFlowValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDataFlowValidation.ts.html |here} to see how to use GetDataFlowValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDataFlowValidation.ts.html |here} to see how to use GetDataFlowValidation API.
    */
   public async getDataFlowValidation(
     getDataFlowValidationRequest: requests.GetDataFlowValidationRequest
@@ -5677,7 +5677,7 @@ export class DataIntegrationClient {
    * @param GetDependentObjectRequest
    * @return GetDependentObjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDependentObject.ts.html |here} to see how to use GetDependentObject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDependentObject.ts.html |here} to see how to use GetDependentObject API.
    */
   public async getDependentObject(
     getDependentObjectRequest: requests.GetDependentObjectRequest
@@ -5757,7 +5757,7 @@ export class DataIntegrationClient {
    * @param GetDisApplicationRequest
    * @return GetDisApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDisApplication.ts.html |here} to see how to use GetDisApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDisApplication.ts.html |here} to see how to use GetDisApplication API.
    */
   public async getDisApplication(
     getDisApplicationRequest: requests.GetDisApplicationRequest
@@ -5835,7 +5835,7 @@ export class DataIntegrationClient {
    * @param GetDisApplicationDetailedDescriptionRequest
    * @return GetDisApplicationDetailedDescriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDisApplicationDetailedDescription.ts.html |here} to see how to use GetDisApplicationDetailedDescription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetDisApplicationDetailedDescription.ts.html |here} to see how to use GetDisApplicationDetailedDescription API.
    */
   public async getDisApplicationDetailedDescription(
     getDisApplicationDetailedDescriptionRequest: requests.GetDisApplicationDetailedDescriptionRequest
@@ -5916,7 +5916,7 @@ export class DataIntegrationClient {
    * @param GetExportRequestRequest
    * @return GetExportRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetExportRequest.ts.html |here} to see how to use GetExportRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetExportRequest.ts.html |here} to see how to use GetExportRequest API.
    */
   public async getExportRequest(
     getExportRequestRequest: requests.GetExportRequestRequest
@@ -5993,7 +5993,7 @@ export class DataIntegrationClient {
    * @param GetExternalPublicationRequest
    * @return GetExternalPublicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetExternalPublication.ts.html |here} to see how to use GetExternalPublication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetExternalPublication.ts.html |here} to see how to use GetExternalPublication API.
    */
   public async getExternalPublication(
     getExternalPublicationRequest: requests.GetExternalPublicationRequest
@@ -6073,7 +6073,7 @@ export class DataIntegrationClient {
    * @param GetExternalPublicationValidationRequest
    * @return GetExternalPublicationValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetExternalPublicationValidation.ts.html |here} to see how to use GetExternalPublicationValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetExternalPublicationValidation.ts.html |here} to see how to use GetExternalPublicationValidation API.
    */
   public async getExternalPublicationValidation(
     getExternalPublicationValidationRequest: requests.GetExternalPublicationValidationRequest
@@ -6156,7 +6156,7 @@ export class DataIntegrationClient {
    * @param GetFolderRequest
    * @return GetFolderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetFolder.ts.html |here} to see how to use GetFolder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetFolder.ts.html |here} to see how to use GetFolder API.
    */
   public async getFolder(
     getFolderRequest: requests.GetFolderRequest
@@ -6235,7 +6235,7 @@ export class DataIntegrationClient {
    * @param GetFunctionLibraryRequest
    * @return GetFunctionLibraryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetFunctionLibrary.ts.html |here} to see how to use GetFunctionLibrary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetFunctionLibrary.ts.html |here} to see how to use GetFunctionLibrary API.
    */
   public async getFunctionLibrary(
     getFunctionLibraryRequest: requests.GetFunctionLibraryRequest
@@ -6316,7 +6316,7 @@ export class DataIntegrationClient {
    * @param GetImportRequestRequest
    * @return GetImportRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetImportRequest.ts.html |here} to see how to use GetImportRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetImportRequest.ts.html |here} to see how to use GetImportRequest API.
    */
   public async getImportRequest(
     getImportRequestRequest: requests.GetImportRequestRequest
@@ -6396,7 +6396,7 @@ export class DataIntegrationClient {
    * @param GetPatchRequest
    * @return GetPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPatch.ts.html |here} to see how to use GetPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPatch.ts.html |here} to see how to use GetPatch API.
    */
   public async getPatch(
     getPatchRequest: requests.GetPatchRequest
@@ -6474,7 +6474,7 @@ export class DataIntegrationClient {
    * @param GetPipelineRequest
    * @return GetPipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPipeline.ts.html |here} to see how to use GetPipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPipeline.ts.html |here} to see how to use GetPipeline API.
    */
   public async getPipeline(
     getPipelineRequest: requests.GetPipelineRequest
@@ -6553,7 +6553,7 @@ export class DataIntegrationClient {
    * @param GetPipelineValidationRequest
    * @return GetPipelineValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPipelineValidation.ts.html |here} to see how to use GetPipelineValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPipelineValidation.ts.html |here} to see how to use GetPipelineValidation API.
    */
   public async getPipelineValidation(
     getPipelineValidationRequest: requests.GetPipelineValidationRequest
@@ -6631,7 +6631,7 @@ export class DataIntegrationClient {
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetProject.ts.html |here} to see how to use GetProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetProject.ts.html |here} to see how to use GetProject API.
    */
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
@@ -6710,7 +6710,7 @@ export class DataIntegrationClient {
    * @param GetPublishedObjectRequest
    * @return GetPublishedObjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPublishedObject.ts.html |here} to see how to use GetPublishedObject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetPublishedObject.ts.html |here} to see how to use GetPublishedObject API.
    */
   public async getPublishedObject(
     getPublishedObjectRequest: requests.GetPublishedObjectRequest
@@ -6792,7 +6792,7 @@ export class DataIntegrationClient {
    * @param GetReferenceRequest
    * @return GetReferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetReference.ts.html |here} to see how to use GetReference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetReference.ts.html |here} to see how to use GetReference API.
    */
   public async getReference(
     getReferenceRequest: requests.GetReferenceRequest
@@ -6870,7 +6870,7 @@ export class DataIntegrationClient {
    * @param GetRuntimeOperatorRequest
    * @return GetRuntimeOperatorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetRuntimeOperator.ts.html |here} to see how to use GetRuntimeOperator API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetRuntimeOperator.ts.html |here} to see how to use GetRuntimeOperator API.
    */
   public async getRuntimeOperator(
     getRuntimeOperatorRequest: requests.GetRuntimeOperatorRequest
@@ -6951,7 +6951,7 @@ export class DataIntegrationClient {
    * @param GetRuntimePipelineRequest
    * @return GetRuntimePipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetRuntimePipeline.ts.html |here} to see how to use GetRuntimePipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetRuntimePipeline.ts.html |here} to see how to use GetRuntimePipeline API.
    */
   public async getRuntimePipeline(
     getRuntimePipelineRequest: requests.GetRuntimePipelineRequest
@@ -7033,7 +7033,7 @@ export class DataIntegrationClient {
    * @param GetScheduleRequest
    * @return GetScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetSchedule.ts.html |here} to see how to use GetSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetSchedule.ts.html |here} to see how to use GetSchedule API.
    */
   public async getSchedule(
     getScheduleRequest: requests.GetScheduleRequest
@@ -7111,7 +7111,7 @@ export class DataIntegrationClient {
    * @param GetSchemaRequest
    * @return GetSchemaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetSchema.ts.html |here} to see how to use GetSchema API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetSchema.ts.html |here} to see how to use GetSchema API.
    */
   public async getSchema(
     getSchemaRequest: requests.GetSchemaRequest
@@ -7184,7 +7184,7 @@ export class DataIntegrationClient {
    * @param GetTaskRequest
    * @return GetTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTask.ts.html |here} to see how to use GetTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTask.ts.html |here} to see how to use GetTask API.
    */
   public async getTask(
     getTaskRequest: requests.GetTaskRequest
@@ -7263,7 +7263,7 @@ export class DataIntegrationClient {
    * @param GetTaskRunRequest
    * @return GetTaskRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTaskRun.ts.html |here} to see how to use GetTaskRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTaskRun.ts.html |here} to see how to use GetTaskRun API.
    */
   public async getTaskRun(
     getTaskRunRequest: requests.GetTaskRunRequest
@@ -7341,7 +7341,7 @@ export class DataIntegrationClient {
    * @param GetTaskScheduleRequest
    * @return GetTaskScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTaskSchedule.ts.html |here} to see how to use GetTaskSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTaskSchedule.ts.html |here} to see how to use GetTaskSchedule API.
    */
   public async getTaskSchedule(
     getTaskScheduleRequest: requests.GetTaskScheduleRequest
@@ -7421,7 +7421,7 @@ export class DataIntegrationClient {
    * @param GetTaskValidationRequest
    * @return GetTaskValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTaskValidation.ts.html |here} to see how to use GetTaskValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTaskValidation.ts.html |here} to see how to use GetTaskValidation API.
    */
   public async getTaskValidation(
     getTaskValidationRequest: requests.GetTaskValidationRequest
@@ -7499,7 +7499,7 @@ export class DataIntegrationClient {
    * @param GetTemplateRequest
    * @return GetTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTemplate.ts.html |here} to see how to use GetTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetTemplate.ts.html |here} to see how to use GetTemplate API.
    */
   public async getTemplate(
     getTemplateRequest: requests.GetTemplateRequest
@@ -7571,7 +7571,7 @@ export class DataIntegrationClient {
    * @param GetUserDefinedFunctionRequest
    * @return GetUserDefinedFunctionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetUserDefinedFunction.ts.html |here} to see how to use GetUserDefinedFunction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetUserDefinedFunction.ts.html |here} to see how to use GetUserDefinedFunction API.
    */
   public async getUserDefinedFunction(
     getUserDefinedFunctionRequest: requests.GetUserDefinedFunctionRequest
@@ -7649,7 +7649,7 @@ export class DataIntegrationClient {
    * @param GetUserDefinedFunctionValidationRequest
    * @return GetUserDefinedFunctionValidationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetUserDefinedFunctionValidation.ts.html |here} to see how to use GetUserDefinedFunctionValidation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetUserDefinedFunctionValidation.ts.html |here} to see how to use GetUserDefinedFunctionValidation API.
    */
   public async getUserDefinedFunctionValidation(
     getUserDefinedFunctionValidationRequest: requests.GetUserDefinedFunctionValidationRequest
@@ -7731,7 +7731,7 @@ export class DataIntegrationClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -7812,7 +7812,7 @@ export class DataIntegrationClient {
    * @param GetWorkspaceRequest
    * @return GetWorkspaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetWorkspace.ts.html |here} to see how to use GetWorkspace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetWorkspace.ts.html |here} to see how to use GetWorkspace API.
    */
   public async getWorkspace(
     getWorkspaceRequest: requests.GetWorkspaceRequest
@@ -7888,7 +7888,7 @@ export class DataIntegrationClient {
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListApplications.ts.html |here} to see how to use ListApplications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListApplications.ts.html |here} to see how to use ListApplications API.
    */
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
@@ -7983,7 +7983,7 @@ export class DataIntegrationClient {
    * @param ListConnectionValidationsRequest
    * @return ListConnectionValidationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListConnectionValidations.ts.html |here} to see how to use ListConnectionValidations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListConnectionValidations.ts.html |here} to see how to use ListConnectionValidations API.
    */
   public async listConnectionValidations(
     listConnectionValidationsRequest: requests.ListConnectionValidationsRequest
@@ -8079,7 +8079,7 @@ export class DataIntegrationClient {
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListConnections.ts.html |here} to see how to use ListConnections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListConnections.ts.html |here} to see how to use ListConnections API.
    */
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
@@ -8175,7 +8175,7 @@ export class DataIntegrationClient {
    * @param ListCopyObjectRequestsRequest
    * @return ListCopyObjectRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListCopyObjectRequests.ts.html |here} to see how to use ListCopyObjectRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListCopyObjectRequests.ts.html |here} to see how to use ListCopyObjectRequests API.
    */
   public async listCopyObjectRequests(
     listCopyObjectRequestsRequest: requests.ListCopyObjectRequestsRequest
@@ -8263,7 +8263,7 @@ export class DataIntegrationClient {
    * @param ListDataAssetsRequest
    * @return ListDataAssetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDataAssets.ts.html |here} to see how to use ListDataAssets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDataAssets.ts.html |here} to see how to use ListDataAssets API.
    */
   public async listDataAssets(
     listDataAssetsRequest: requests.ListDataAssetsRequest
@@ -8358,7 +8358,7 @@ export class DataIntegrationClient {
    * @param ListDataEntitiesRequest
    * @return ListDataEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDataEntities.ts.html |here} to see how to use ListDataEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDataEntities.ts.html |here} to see how to use ListDataEntities API.
    */
   public async listDataEntities(
     listDataEntitiesRequest: requests.ListDataEntitiesRequest
@@ -8458,7 +8458,7 @@ export class DataIntegrationClient {
    * @param ListDataFlowValidationsRequest
    * @return ListDataFlowValidationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDataFlowValidations.ts.html |here} to see how to use ListDataFlowValidations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDataFlowValidations.ts.html |here} to see how to use ListDataFlowValidations API.
    */
   public async listDataFlowValidations(
     listDataFlowValidationsRequest: requests.ListDataFlowValidationsRequest
@@ -8555,7 +8555,7 @@ export class DataIntegrationClient {
    * @param ListDataFlowsRequest
    * @return ListDataFlowsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDataFlows.ts.html |here} to see how to use ListDataFlows API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDataFlows.ts.html |here} to see how to use ListDataFlows API.
    */
   public async listDataFlows(
     listDataFlowsRequest: requests.ListDataFlowsRequest
@@ -8650,7 +8650,7 @@ export class DataIntegrationClient {
    * @param ListDependentObjectsRequest
    * @return ListDependentObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDependentObjects.ts.html |here} to see how to use ListDependentObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDependentObjects.ts.html |here} to see how to use ListDependentObjects API.
    */
   public async listDependentObjects(
     listDependentObjectsRequest: requests.ListDependentObjectsRequest
@@ -8750,7 +8750,7 @@ export class DataIntegrationClient {
    * @param ListDisApplicationTaskRunLineagesRequest
    * @return ListDisApplicationTaskRunLineagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDisApplicationTaskRunLineages.ts.html |here} to see how to use ListDisApplicationTaskRunLineages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDisApplicationTaskRunLineages.ts.html |here} to see how to use ListDisApplicationTaskRunLineages API.
    */
   public async listDisApplicationTaskRunLineages(
     listDisApplicationTaskRunLineagesRequest: requests.ListDisApplicationTaskRunLineagesRequest
@@ -8843,7 +8843,7 @@ export class DataIntegrationClient {
    * @param ListDisApplicationsRequest
    * @return ListDisApplicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDisApplications.ts.html |here} to see how to use ListDisApplications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDisApplications.ts.html |here} to see how to use ListDisApplications API.
    */
   public async listDisApplications(
     listDisApplicationsRequest: requests.ListDisApplicationsRequest
@@ -8941,7 +8941,7 @@ export class DataIntegrationClient {
    * @param ListExportRequestsRequest
    * @return ListExportRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListExportRequests.ts.html |here} to see how to use ListExportRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListExportRequests.ts.html |here} to see how to use ListExportRequests API.
    */
   public async listExportRequests(
     listExportRequestsRequest: requests.ListExportRequestsRequest
@@ -9029,7 +9029,7 @@ export class DataIntegrationClient {
    * @param ListExternalPublicationValidationsRequest
    * @return ListExternalPublicationValidationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListExternalPublicationValidations.ts.html |here} to see how to use ListExternalPublicationValidations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListExternalPublicationValidations.ts.html |here} to see how to use ListExternalPublicationValidations API.
    */
   public async listExternalPublicationValidations(
     listExternalPublicationValidationsRequest: requests.ListExternalPublicationValidationsRequest
@@ -9127,7 +9127,7 @@ export class DataIntegrationClient {
    * @param ListExternalPublicationsRequest
    * @return ListExternalPublicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListExternalPublications.ts.html |here} to see how to use ListExternalPublications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListExternalPublications.ts.html |here} to see how to use ListExternalPublications API.
    */
   public async listExternalPublications(
     listExternalPublicationsRequest: requests.ListExternalPublicationsRequest
@@ -9223,7 +9223,7 @@ export class DataIntegrationClient {
    * @param ListFoldersRequest
    * @return ListFoldersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListFolders.ts.html |here} to see how to use ListFolders API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListFolders.ts.html |here} to see how to use ListFolders API.
    */
   public async listFolders(
     listFoldersRequest: requests.ListFoldersRequest
@@ -9320,7 +9320,7 @@ export class DataIntegrationClient {
    * @param ListFunctionLibrariesRequest
    * @return ListFunctionLibrariesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListFunctionLibraries.ts.html |here} to see how to use ListFunctionLibraries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListFunctionLibraries.ts.html |here} to see how to use ListFunctionLibraries API.
    */
   public async listFunctionLibraries(
     listFunctionLibrariesRequest: requests.ListFunctionLibrariesRequest
@@ -9417,7 +9417,7 @@ export class DataIntegrationClient {
    * @param ListImportRequestsRequest
    * @return ListImportRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListImportRequests.ts.html |here} to see how to use ListImportRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListImportRequests.ts.html |here} to see how to use ListImportRequests API.
    */
   public async listImportRequests(
     listImportRequestsRequest: requests.ListImportRequestsRequest
@@ -9504,7 +9504,7 @@ export class DataIntegrationClient {
    * @param ListPatchChangesRequest
    * @return ListPatchChangesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPatchChanges.ts.html |here} to see how to use ListPatchChanges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPatchChanges.ts.html |here} to see how to use ListPatchChanges API.
    */
   public async listPatchChanges(
     listPatchChangesRequest: requests.ListPatchChangesRequest
@@ -9599,7 +9599,7 @@ export class DataIntegrationClient {
    * @param ListPatchesRequest
    * @return ListPatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPatches.ts.html |here} to see how to use ListPatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPatches.ts.html |here} to see how to use ListPatches API.
    */
   public async listPatches(
     listPatchesRequest: requests.ListPatchesRequest
@@ -9694,7 +9694,7 @@ export class DataIntegrationClient {
    * @param ListPipelineValidationsRequest
    * @return ListPipelineValidationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPipelineValidations.ts.html |here} to see how to use ListPipelineValidations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPipelineValidations.ts.html |here} to see how to use ListPipelineValidations API.
    */
   public async listPipelineValidations(
     listPipelineValidationsRequest: requests.ListPipelineValidationsRequest
@@ -9791,7 +9791,7 @@ export class DataIntegrationClient {
    * @param ListPipelinesRequest
    * @return ListPipelinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPipelines.ts.html |here} to see how to use ListPipelines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPipelines.ts.html |here} to see how to use ListPipelines API.
    */
   public async listPipelines(
     listPipelinesRequest: requests.ListPipelinesRequest
@@ -9887,7 +9887,7 @@ export class DataIntegrationClient {
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListProjects.ts.html |here} to see how to use ListProjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListProjects.ts.html |here} to see how to use ListProjects API.
    */
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
@@ -9982,7 +9982,7 @@ export class DataIntegrationClient {
    * @param ListPublishedObjectsRequest
    * @return ListPublishedObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPublishedObjects.ts.html |here} to see how to use ListPublishedObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListPublishedObjects.ts.html |here} to see how to use ListPublishedObjects API.
    */
   public async listPublishedObjects(
     listPublishedObjectsRequest: requests.ListPublishedObjectsRequest
@@ -10082,7 +10082,7 @@ export class DataIntegrationClient {
    * @param ListReferencesRequest
    * @return ListReferencesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListReferences.ts.html |here} to see how to use ListReferences API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListReferences.ts.html |here} to see how to use ListReferences API.
    */
   public async listReferences(
     listReferencesRequest: requests.ListReferencesRequest
@@ -10181,7 +10181,7 @@ export class DataIntegrationClient {
    * @param ListRuntimeOperatorsRequest
    * @return ListRuntimeOperatorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListRuntimeOperators.ts.html |here} to see how to use ListRuntimeOperators API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListRuntimeOperators.ts.html |here} to see how to use ListRuntimeOperators API.
    */
   public async listRuntimeOperators(
     listRuntimeOperatorsRequest: requests.ListRuntimeOperatorsRequest
@@ -10272,7 +10272,7 @@ export class DataIntegrationClient {
    * @param ListRuntimePipelinesRequest
    * @return ListRuntimePipelinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListRuntimePipelines.ts.html |here} to see how to use ListRuntimePipelines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListRuntimePipelines.ts.html |here} to see how to use ListRuntimePipelines API.
    */
   public async listRuntimePipelines(
     listRuntimePipelinesRequest: requests.ListRuntimePipelinesRequest
@@ -10363,7 +10363,7 @@ export class DataIntegrationClient {
    * @param ListSchedulesRequest
    * @return ListSchedulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListSchedules.ts.html |here} to see how to use ListSchedules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListSchedules.ts.html |here} to see how to use ListSchedules API.
    */
   public async listSchedules(
     listSchedulesRequest: requests.ListSchedulesRequest
@@ -10459,7 +10459,7 @@ export class DataIntegrationClient {
    * @param ListSchemasRequest
    * @return ListSchemasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListSchemas.ts.html |here} to see how to use ListSchemas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListSchemas.ts.html |here} to see how to use ListSchemas API.
    */
   public async listSchemas(
     listSchemasRequest: requests.ListSchemasRequest
@@ -10557,7 +10557,7 @@ export class DataIntegrationClient {
    * @param ListTaskRunLineagesRequest
    * @return ListTaskRunLineagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskRunLineages.ts.html |here} to see how to use ListTaskRunLineages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskRunLineages.ts.html |here} to see how to use ListTaskRunLineages API.
    */
   public async listTaskRunLineages(
     listTaskRunLineagesRequest: requests.ListTaskRunLineagesRequest
@@ -10646,7 +10646,7 @@ export class DataIntegrationClient {
    * @param ListTaskRunLogsRequest
    * @return ListTaskRunLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskRunLogs.ts.html |here} to see how to use ListTaskRunLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskRunLogs.ts.html |here} to see how to use ListTaskRunLogs API.
    */
   public async listTaskRunLogs(
     listTaskRunLogsRequest: requests.ListTaskRunLogsRequest
@@ -10791,7 +10791,7 @@ export class DataIntegrationClient {
    * @param ListTaskRunsRequest
    * @return ListTaskRunsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskRuns.ts.html |here} to see how to use ListTaskRuns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskRuns.ts.html |here} to see how to use ListTaskRuns API.
    */
   public async listTaskRuns(
     listTaskRunsRequest: requests.ListTaskRunsRequest
@@ -10892,7 +10892,7 @@ export class DataIntegrationClient {
    * @param ListTaskSchedulesRequest
    * @return ListTaskSchedulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskSchedules.ts.html |here} to see how to use ListTaskSchedules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskSchedules.ts.html |here} to see how to use ListTaskSchedules API.
    */
   public async listTaskSchedules(
     listTaskSchedulesRequest: requests.ListTaskSchedulesRequest
@@ -10991,7 +10991,7 @@ export class DataIntegrationClient {
    * @param ListTaskValidationsRequest
    * @return ListTaskValidationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskValidations.ts.html |here} to see how to use ListTaskValidations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskValidations.ts.html |here} to see how to use ListTaskValidations API.
    */
   public async listTaskValidations(
     listTaskValidationsRequest: requests.ListTaskValidationsRequest
@@ -11088,7 +11088,7 @@ export class DataIntegrationClient {
    * @param ListTasksRequest
    * @return ListTasksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTasks.ts.html |here} to see how to use ListTasks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTasks.ts.html |here} to see how to use ListTasks API.
    */
   public async listTasks(
     listTasksRequest: requests.ListTasksRequest
@@ -11185,7 +11185,7 @@ export class DataIntegrationClient {
    * @param ListTemplatesRequest
    * @return ListTemplatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTemplates.ts.html |here} to see how to use ListTemplates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTemplates.ts.html |here} to see how to use ListTemplates API.
    */
   public async listTemplates(
     listTemplatesRequest: requests.ListTemplatesRequest
@@ -11279,7 +11279,7 @@ export class DataIntegrationClient {
    * @param ListUserDefinedFunctionValidationsRequest
    * @return ListUserDefinedFunctionValidationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListUserDefinedFunctionValidations.ts.html |here} to see how to use ListUserDefinedFunctionValidations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListUserDefinedFunctionValidations.ts.html |here} to see how to use ListUserDefinedFunctionValidations API.
    */
   public async listUserDefinedFunctionValidations(
     listUserDefinedFunctionValidationsRequest: requests.ListUserDefinedFunctionValidationsRequest
@@ -11378,7 +11378,7 @@ export class DataIntegrationClient {
    * @param ListUserDefinedFunctionsRequest
    * @return ListUserDefinedFunctionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListUserDefinedFunctions.ts.html |here} to see how to use ListUserDefinedFunctions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListUserDefinedFunctions.ts.html |here} to see how to use ListUserDefinedFunctions API.
    */
   public async listUserDefinedFunctions(
     listUserDefinedFunctionsRequest: requests.ListUserDefinedFunctionsRequest
@@ -11475,7 +11475,7 @@ export class DataIntegrationClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -11610,7 +11610,7 @@ export class DataIntegrationClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -11745,7 +11745,7 @@ export class DataIntegrationClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -11880,7 +11880,7 @@ export class DataIntegrationClient {
    * @param ListWorkspacesRequest
    * @return ListWorkspacesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListWorkspaces.ts.html |here} to see how to use ListWorkspaces API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListWorkspaces.ts.html |here} to see how to use ListWorkspaces API.
    */
   public async listWorkspaces(
     listWorkspacesRequest: requests.ListWorkspacesRequest
@@ -12015,7 +12015,7 @@ export class DataIntegrationClient {
    * @param StartWorkspaceRequest
    * @return StartWorkspaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/StartWorkspace.ts.html |here} to see how to use StartWorkspace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/StartWorkspace.ts.html |here} to see how to use StartWorkspace API.
    */
   public async startWorkspace(
     startWorkspaceRequest: requests.StartWorkspaceRequest
@@ -12090,7 +12090,7 @@ export class DataIntegrationClient {
    * @param StopWorkspaceRequest
    * @return StopWorkspaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/StopWorkspace.ts.html |here} to see how to use StopWorkspace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/StopWorkspace.ts.html |here} to see how to use StopWorkspace API.
    */
   public async stopWorkspace(
     stopWorkspaceRequest: requests.StopWorkspaceRequest
@@ -12167,7 +12167,7 @@ export class DataIntegrationClient {
    * @param UpdateApplicationRequest
    * @return UpdateApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateApplication.ts.html |here} to see how to use UpdateApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateApplication.ts.html |here} to see how to use UpdateApplication API.
    */
   public async updateApplication(
     updateApplicationRequest: requests.UpdateApplicationRequest
@@ -12251,7 +12251,7 @@ export class DataIntegrationClient {
    * @param UpdateApplicationDetailedDescriptionRequest
    * @return UpdateApplicationDetailedDescriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateApplicationDetailedDescription.ts.html |here} to see how to use UpdateApplicationDetailedDescription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateApplicationDetailedDescription.ts.html |here} to see how to use UpdateApplicationDetailedDescription API.
    */
   public async updateApplicationDetailedDescription(
     updateApplicationDetailedDescriptionRequest: requests.UpdateApplicationDetailedDescriptionRequest
@@ -12337,7 +12337,7 @@ export class DataIntegrationClient {
    * @param UpdateConnectionRequest
    * @return UpdateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
    */
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
@@ -12420,7 +12420,7 @@ export class DataIntegrationClient {
    * @param UpdateCopyObjectRequestRequest
    * @return UpdateCopyObjectRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateCopyObjectRequest.ts.html |here} to see how to use UpdateCopyObjectRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateCopyObjectRequest.ts.html |here} to see how to use UpdateCopyObjectRequest API.
    */
   public async updateCopyObjectRequest(
     updateCopyObjectRequestRequest: requests.UpdateCopyObjectRequestRequest
@@ -12504,7 +12504,7 @@ export class DataIntegrationClient {
    * @param UpdateDataAssetRequest
    * @return UpdateDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateDataAsset.ts.html |here} to see how to use UpdateDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateDataAsset.ts.html |here} to see how to use UpdateDataAsset API.
    */
   public async updateDataAsset(
     updateDataAssetRequest: requests.UpdateDataAssetRequest
@@ -12587,7 +12587,7 @@ export class DataIntegrationClient {
    * @param UpdateDataFlowRequest
    * @return UpdateDataFlowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateDataFlow.ts.html |here} to see how to use UpdateDataFlow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateDataFlow.ts.html |here} to see how to use UpdateDataFlow API.
    */
   public async updateDataFlow(
     updateDataFlowRequest: requests.UpdateDataFlowRequest
@@ -12670,7 +12670,7 @@ export class DataIntegrationClient {
    * @param UpdateDisApplicationRequest
    * @return UpdateDisApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateDisApplication.ts.html |here} to see how to use UpdateDisApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateDisApplication.ts.html |here} to see how to use UpdateDisApplication API.
    */
   public async updateDisApplication(
     updateDisApplicationRequest: requests.UpdateDisApplicationRequest
@@ -12754,7 +12754,7 @@ export class DataIntegrationClient {
    * @param UpdateDisApplicationDetailedDescriptionRequest
    * @return UpdateDisApplicationDetailedDescriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateDisApplicationDetailedDescription.ts.html |here} to see how to use UpdateDisApplicationDetailedDescription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateDisApplicationDetailedDescription.ts.html |here} to see how to use UpdateDisApplicationDetailedDescription API.
    */
   public async updateDisApplicationDetailedDescription(
     updateDisApplicationDetailedDescriptionRequest: requests.UpdateDisApplicationDetailedDescriptionRequest
@@ -12840,7 +12840,7 @@ export class DataIntegrationClient {
    * @param UpdateExportRequestRequest
    * @return UpdateExportRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateExportRequest.ts.html |here} to see how to use UpdateExportRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateExportRequest.ts.html |here} to see how to use UpdateExportRequest API.
    */
   public async updateExportRequest(
     updateExportRequestRequest: requests.UpdateExportRequestRequest
@@ -12924,7 +12924,7 @@ export class DataIntegrationClient {
    * @param UpdateExternalPublicationRequest
    * @return UpdateExternalPublicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateExternalPublication.ts.html |here} to see how to use UpdateExternalPublication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateExternalPublication.ts.html |here} to see how to use UpdateExternalPublication API.
    */
   public async updateExternalPublication(
     updateExternalPublicationRequest: requests.UpdateExternalPublicationRequest
@@ -13010,7 +13010,7 @@ export class DataIntegrationClient {
    * @param UpdateFolderRequest
    * @return UpdateFolderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateFolder.ts.html |here} to see how to use UpdateFolder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateFolder.ts.html |here} to see how to use UpdateFolder API.
    */
   public async updateFolder(
     updateFolderRequest: requests.UpdateFolderRequest
@@ -13093,7 +13093,7 @@ export class DataIntegrationClient {
    * @param UpdateFunctionLibraryRequest
    * @return UpdateFunctionLibraryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateFunctionLibrary.ts.html |here} to see how to use UpdateFunctionLibrary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateFunctionLibrary.ts.html |here} to see how to use UpdateFunctionLibrary API.
    */
   public async updateFunctionLibrary(
     updateFunctionLibraryRequest: requests.UpdateFunctionLibraryRequest
@@ -13177,7 +13177,7 @@ export class DataIntegrationClient {
    * @param UpdateImportRequestRequest
    * @return UpdateImportRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateImportRequest.ts.html |here} to see how to use UpdateImportRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateImportRequest.ts.html |here} to see how to use UpdateImportRequest API.
    */
   public async updateImportRequest(
     updateImportRequestRequest: requests.UpdateImportRequestRequest
@@ -13261,7 +13261,7 @@ export class DataIntegrationClient {
    * @param UpdatePipelineRequest
    * @return UpdatePipelineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdatePipeline.ts.html |here} to see how to use UpdatePipeline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdatePipeline.ts.html |here} to see how to use UpdatePipeline API.
    */
   public async updatePipeline(
     updatePipelineRequest: requests.UpdatePipelineRequest
@@ -13344,7 +13344,7 @@ export class DataIntegrationClient {
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateProject.ts.html |here} to see how to use UpdateProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateProject.ts.html |here} to see how to use UpdateProject API.
    */
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest
@@ -13427,7 +13427,7 @@ export class DataIntegrationClient {
    * @param UpdateReferenceRequest
    * @return UpdateReferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateReference.ts.html |here} to see how to use UpdateReference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateReference.ts.html |here} to see how to use UpdateReference API.
    */
   public async updateReference(
     updateReferenceRequest: requests.UpdateReferenceRequest
@@ -13512,7 +13512,7 @@ export class DataIntegrationClient {
    * @param UpdateScheduleRequest
    * @return UpdateScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateSchedule.ts.html |here} to see how to use UpdateSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateSchedule.ts.html |here} to see how to use UpdateSchedule API.
    */
   public async updateSchedule(
     updateScheduleRequest: requests.UpdateScheduleRequest
@@ -13596,7 +13596,7 @@ export class DataIntegrationClient {
    * @param UpdateTaskRequest
    * @return UpdateTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateTask.ts.html |here} to see how to use UpdateTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateTask.ts.html |here} to see how to use UpdateTask API.
    */
   public async updateTask(
     updateTaskRequest: requests.UpdateTaskRequest
@@ -13679,7 +13679,7 @@ export class DataIntegrationClient {
    * @param UpdateTaskRunRequest
    * @return UpdateTaskRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateTaskRun.ts.html |here} to see how to use UpdateTaskRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateTaskRun.ts.html |here} to see how to use UpdateTaskRun API.
    */
   public async updateTaskRun(
     updateTaskRunRequest: requests.UpdateTaskRunRequest
@@ -13763,7 +13763,7 @@ export class DataIntegrationClient {
    * @param UpdateTaskScheduleRequest
    * @return UpdateTaskScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateTaskSchedule.ts.html |here} to see how to use UpdateTaskSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateTaskSchedule.ts.html |here} to see how to use UpdateTaskSchedule API.
    */
   public async updateTaskSchedule(
     updateTaskScheduleRequest: requests.UpdateTaskScheduleRequest
@@ -13849,7 +13849,7 @@ export class DataIntegrationClient {
    * @param UpdateUserDefinedFunctionRequest
    * @return UpdateUserDefinedFunctionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateUserDefinedFunction.ts.html |here} to see how to use UpdateUserDefinedFunction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateUserDefinedFunction.ts.html |here} to see how to use UpdateUserDefinedFunction API.
    */
   public async updateUserDefinedFunction(
     updateUserDefinedFunctionRequest: requests.UpdateUserDefinedFunctionRequest
@@ -13933,7 +13933,7 @@ export class DataIntegrationClient {
    * @param UpdateWorkspaceRequest
    * @return UpdateWorkspaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateWorkspace.ts.html |here} to see how to use UpdateWorkspace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateWorkspace.ts.html |here} to see how to use UpdateWorkspace API.
    */
   public async updateWorkspace(
     updateWorkspaceRequest: requests.UpdateWorkspaceRequest

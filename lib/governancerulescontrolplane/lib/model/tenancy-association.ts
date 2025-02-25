@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface TenancyAssociation extends model.Association {
   /**
-   * The Oracle ID ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the tenancy to which the governance rule will be applied as part of this tenancy inclusion criterion.
+   * The Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the tenancy to which the governance rule will be applied as part of this tenancy inclusion criterion.
    */
   "tenancyId": string;
 

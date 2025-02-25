@@ -30,7 +30,7 @@ export interface NotebookSessionConfigurationDetails {
    */
   "blockStorageSizeInGBs"?: number;
   /**
-   * A notebook session instance is provided with a VNIC for network access.  This specifies the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet to create a VNIC in.  The subnet should be in a VCN with a NAT gateway for egress to the internet.
+   * A notebook session instance is provided with a VNIC for network access.  This specifies the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet to create a VNIC in.  The subnet should be in a VCN with a NAT gateway for egress to the internet.
    *
    */
   "subnetId": string;

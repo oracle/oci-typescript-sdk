@@ -2,7 +2,7 @@
  * API Gateway API
  * API for the API Gateway service. Use this API to manage gateways, deployments, and related items.
 For more information, see
-[Overview of API Gateway](/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm).
+[Overview of API Gateway](https://docs.oracle.com/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm).
 
  * OpenAPI spec version: 20190501
  * 
@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface EntitlementTarget {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a deployment
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a deployment
    * resource.
    *
    */

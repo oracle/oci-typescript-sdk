@@ -246,7 +246,7 @@ export class AnomalyDetectionClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -315,7 +315,7 @@ export class AnomalyDetectionClient {
    * @param ChangeAiPrivateEndpointCompartmentRequest
    * @return ChangeAiPrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeAiPrivateEndpointCompartment.ts.html |here} to see how to use ChangeAiPrivateEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeAiPrivateEndpointCompartment.ts.html |here} to see how to use ChangeAiPrivateEndpointCompartment API.
    */
   public async changeAiPrivateEndpointCompartment(
     changeAiPrivateEndpointCompartmentRequest: requests.ChangeAiPrivateEndpointCompartmentRequest
@@ -397,7 +397,7 @@ export class AnomalyDetectionClient {
    * @param ChangeDataAssetCompartmentRequest
    * @return ChangeDataAssetCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeDataAssetCompartment.ts.html |here} to see how to use ChangeDataAssetCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeDataAssetCompartment.ts.html |here} to see how to use ChangeDataAssetCompartment API.
    */
   public async changeDataAssetCompartment(
     changeDataAssetCompartmentRequest: requests.ChangeDataAssetCompartmentRequest
@@ -481,7 +481,7 @@ export class AnomalyDetectionClient {
    * @param ChangeDetectAnomalyJobCompartmentRequest
    * @return ChangeDetectAnomalyJobCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeDetectAnomalyJobCompartment.ts.html |here} to see how to use ChangeDetectAnomalyJobCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeDetectAnomalyJobCompartment.ts.html |here} to see how to use ChangeDetectAnomalyJobCompartment API.
    */
   public async changeDetectAnomalyJobCompartment(
     changeDetectAnomalyJobCompartmentRequest: requests.ChangeDetectAnomalyJobCompartmentRequest
@@ -557,7 +557,7 @@ export class AnomalyDetectionClient {
    * @param ChangeModelCompartmentRequest
    * @return ChangeModelCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeModelCompartment.ts.html |here} to see how to use ChangeModelCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeModelCompartment.ts.html |here} to see how to use ChangeModelCompartment API.
    */
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
@@ -632,7 +632,7 @@ export class AnomalyDetectionClient {
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeProjectCompartment.ts.html |here} to see how to use ChangeProjectCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeProjectCompartment.ts.html |here} to see how to use ChangeProjectCompartment API.
    */
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
@@ -707,7 +707,7 @@ export class AnomalyDetectionClient {
    * @param CreateAiPrivateEndpointRequest
    * @return CreateAiPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateAiPrivateEndpoint.ts.html |here} to see how to use CreateAiPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateAiPrivateEndpoint.ts.html |here} to see how to use CreateAiPrivateEndpoint API.
    */
   public async createAiPrivateEndpoint(
     createAiPrivateEndpointRequest: requests.CreateAiPrivateEndpointRequest
@@ -785,7 +785,7 @@ export class AnomalyDetectionClient {
    * @param CreateDataAssetRequest
    * @return CreateDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateDataAsset.ts.html |here} to see how to use CreateDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateDataAsset.ts.html |here} to see how to use CreateDataAsset API.
    */
   public async createDataAsset(
     createDataAssetRequest: requests.CreateDataAssetRequest
@@ -865,7 +865,7 @@ export class AnomalyDetectionClient {
    * @param CreateDetectAnomalyJobRequest
    * @return CreateDetectAnomalyJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateDetectAnomalyJob.ts.html |here} to see how to use CreateDetectAnomalyJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateDetectAnomalyJob.ts.html |here} to see how to use CreateDetectAnomalyJob API.
    */
   public async createDetectAnomalyJob(
     createDetectAnomalyJobRequest: requests.CreateDetectAnomalyJobRequest
@@ -947,7 +947,7 @@ export class AnomalyDetectionClient {
    * @param CreateModelRequest
    * @return CreateModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateModel.ts.html |here} to see how to use CreateModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateModel.ts.html |here} to see how to use CreateModel API.
    */
   public async createModel(
     createModelRequest: requests.CreateModelRequest
@@ -1038,7 +1038,7 @@ export class AnomalyDetectionClient {
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateProject.ts.html |here} to see how to use CreateProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateProject.ts.html |here} to see how to use CreateProject API.
    */
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
@@ -1118,7 +1118,7 @@ export class AnomalyDetectionClient {
    * @param DeleteAiPrivateEndpointRequest
    * @return DeleteAiPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteAiPrivateEndpoint.ts.html |here} to see how to use DeleteAiPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteAiPrivateEndpoint.ts.html |here} to see how to use DeleteAiPrivateEndpoint API.
    */
   public async deleteAiPrivateEndpoint(
     deleteAiPrivateEndpointRequest: requests.DeleteAiPrivateEndpointRequest
@@ -1192,7 +1192,7 @@ export class AnomalyDetectionClient {
    * @param DeleteDataAssetRequest
    * @return DeleteDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteDataAsset.ts.html |here} to see how to use DeleteDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteDataAsset.ts.html |here} to see how to use DeleteDataAsset API.
    */
   public async deleteDataAsset(
     deleteDataAssetRequest: requests.DeleteDataAssetRequest
@@ -1260,7 +1260,7 @@ export class AnomalyDetectionClient {
    * @param DeleteDetectAnomalyJobRequest
    * @return DeleteDetectAnomalyJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteDetectAnomalyJob.ts.html |here} to see how to use DeleteDetectAnomalyJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteDetectAnomalyJob.ts.html |here} to see how to use DeleteDetectAnomalyJob API.
    */
   public async deleteDetectAnomalyJob(
     deleteDetectAnomalyJobRequest: requests.DeleteDetectAnomalyJobRequest
@@ -1329,7 +1329,7 @@ export class AnomalyDetectionClient {
    * @param DeleteModelRequest
    * @return DeleteModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteModel.ts.html |here} to see how to use DeleteModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteModel.ts.html |here} to see how to use DeleteModel API.
    */
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
@@ -1402,7 +1402,7 @@ export class AnomalyDetectionClient {
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteProject.ts.html |here} to see how to use DeleteProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteProject.ts.html |here} to see how to use DeleteProject API.
    */
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
@@ -1475,7 +1475,7 @@ export class AnomalyDetectionClient {
    * @param DetectAnomaliesRequest
    * @return DetectAnomaliesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DetectAnomalies.ts.html |here} to see how to use DetectAnomalies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DetectAnomalies.ts.html |here} to see how to use DetectAnomalies API.
    */
   public async detectAnomalies(
     detectAnomaliesRequest: requests.DetectAnomaliesRequest
@@ -1551,7 +1551,7 @@ export class AnomalyDetectionClient {
    * @param GetAiPrivateEndpointRequest
    * @return GetAiPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetAiPrivateEndpoint.ts.html |here} to see how to use GetAiPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetAiPrivateEndpoint.ts.html |here} to see how to use GetAiPrivateEndpoint API.
    */
   public async getAiPrivateEndpoint(
     getAiPrivateEndpointRequest: requests.GetAiPrivateEndpointRequest
@@ -1628,7 +1628,7 @@ export class AnomalyDetectionClient {
    * @param GetDataAssetRequest
    * @return GetDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetDataAsset.ts.html |here} to see how to use GetDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetDataAsset.ts.html |here} to see how to use GetDataAsset API.
    */
   public async getDataAsset(
     getDataAssetRequest: requests.GetDataAssetRequest
@@ -1704,7 +1704,7 @@ export class AnomalyDetectionClient {
    * @param GetDetectAnomalyJobRequest
    * @return GetDetectAnomalyJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetDetectAnomalyJob.ts.html |here} to see how to use GetDetectAnomalyJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetDetectAnomalyJob.ts.html |here} to see how to use GetDetectAnomalyJob API.
    */
   public async getDetectAnomalyJob(
     getDetectAnomalyJobRequest: requests.GetDetectAnomalyJobRequest
@@ -1781,7 +1781,7 @@ export class AnomalyDetectionClient {
    * @param GetModelRequest
    * @return GetModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetModel.ts.html |here} to see how to use GetModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetModel.ts.html |here} to see how to use GetModel API.
    */
   public async getModel(
     getModelRequest: requests.GetModelRequest
@@ -1857,7 +1857,7 @@ export class AnomalyDetectionClient {
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetProject.ts.html |here} to see how to use GetProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetProject.ts.html |here} to see how to use GetProject API.
    */
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
@@ -1933,7 +1933,7 @@ export class AnomalyDetectionClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2015,7 +2015,7 @@ export class AnomalyDetectionClient {
    * @param ListAiPrivateEndpointsRequest
    * @return ListAiPrivateEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListAiPrivateEndpoints.ts.html |here} to see how to use ListAiPrivateEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListAiPrivateEndpoints.ts.html |here} to see how to use ListAiPrivateEndpoints API.
    */
   public async listAiPrivateEndpoints(
     listAiPrivateEndpointsRequest: requests.ListAiPrivateEndpointsRequest
@@ -2100,7 +2100,7 @@ export class AnomalyDetectionClient {
    * @param ListDataAssetsRequest
    * @return ListDataAssetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListDataAssets.ts.html |here} to see how to use ListDataAssets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListDataAssets.ts.html |here} to see how to use ListDataAssets API.
    */
   public async listDataAssets(
     listDataAssetsRequest: requests.ListDataAssetsRequest
@@ -2184,7 +2184,7 @@ export class AnomalyDetectionClient {
    * @param ListDetectAnomalyJobsRequest
    * @return ListDetectAnomalyJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListDetectAnomalyJobs.ts.html |here} to see how to use ListDetectAnomalyJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListDetectAnomalyJobs.ts.html |here} to see how to use ListDetectAnomalyJobs API.
    */
   public async listDetectAnomalyJobs(
     listDetectAnomalyJobsRequest: requests.ListDetectAnomalyJobsRequest
@@ -2276,7 +2276,7 @@ export class AnomalyDetectionClient {
    * @param ListModelsRequest
    * @return ListModelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListModels.ts.html |here} to see how to use ListModels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListModels.ts.html |here} to see how to use ListModels API.
    */
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
@@ -2360,7 +2360,7 @@ export class AnomalyDetectionClient {
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListProjects.ts.html |here} to see how to use ListProjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListProjects.ts.html |here} to see how to use ListProjects API.
    */
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
@@ -2443,7 +2443,7 @@ export class AnomalyDetectionClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2524,7 +2524,7 @@ export class AnomalyDetectionClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2605,7 +2605,7 @@ export class AnomalyDetectionClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2685,7 +2685,7 @@ export class AnomalyDetectionClient {
    * @param UpdateAiPrivateEndpointRequest
    * @return UpdateAiPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateAiPrivateEndpoint.ts.html |here} to see how to use UpdateAiPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateAiPrivateEndpoint.ts.html |here} to see how to use UpdateAiPrivateEndpoint API.
    */
   public async updateAiPrivateEndpoint(
     updateAiPrivateEndpointRequest: requests.UpdateAiPrivateEndpointRequest
@@ -2764,7 +2764,7 @@ export class AnomalyDetectionClient {
    * @param UpdateDataAssetRequest
    * @return UpdateDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateDataAsset.ts.html |here} to see how to use UpdateDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateDataAsset.ts.html |here} to see how to use UpdateDataAsset API.
    */
   public async updateDataAsset(
     updateDataAssetRequest: requests.UpdateDataAssetRequest
@@ -2846,7 +2846,7 @@ export class AnomalyDetectionClient {
    * @param UpdateDetectAnomalyJobRequest
    * @return UpdateDetectAnomalyJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateDetectAnomalyJob.ts.html |here} to see how to use UpdateDetectAnomalyJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateDetectAnomalyJob.ts.html |here} to see how to use UpdateDetectAnomalyJob API.
    */
   public async updateDetectAnomalyJob(
     updateDetectAnomalyJobRequest: requests.UpdateDetectAnomalyJobRequest
@@ -2929,7 +2929,7 @@ export class AnomalyDetectionClient {
    * @param UpdateModelRequest
    * @return UpdateModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateModel.ts.html |here} to see how to use UpdateModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateModel.ts.html |here} to see how to use UpdateModel API.
    */
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
@@ -3007,7 +3007,7 @@ export class AnomalyDetectionClient {
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateProject.ts.html |here} to see how to use UpdateProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateProject.ts.html |here} to see how to use UpdateProject API.
    */
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest

@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The object that defines a vendor software source. A software source is a collection of packages. For more information, see [Managing Software Sources](https://docs.cloud.oracle.com/iaas/osmh/doc/software-sources.htm).
+ * The object that defines a vendor software source. A software source is a collection of packages. For more information, see [Managing Software Sources](https://docs.oracle.com/iaas/osmh/doc/software-sources.htm).
  */
 export interface VendorSoftwareSource extends model.SoftwareSource {
   /**
@@ -25,7 +25,7 @@ export interface VendorSoftwareSource extends model.SoftwareSource {
    */
   "vendorName": model.VendorName;
   /**
-   * This property applies only to replicated vendor software sources. This is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the vendor software source in the root compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the vendor software source in the root compartment. This property applies only to replicated vendor software sources.
    */
   "originSoftwareSourceId"?: string;
   /**

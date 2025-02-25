@@ -3,7 +3,7 @@
  * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
 Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
+[the Resource Manager documentation](https://docs.oracle.com/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -22,22 +22,22 @@ import common = require("oci-common");
  * The properties of a job.
  * A job performs the actions that are defined in your Terraform configuration.
  * For instructions on managing jobs, see
- * [Managing Jobs](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/jobs.htm).
+ * [Managing Jobs](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/jobs.htm).
  * For more information about jobs, see
- * [Key Concepts](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__jobdefinition).
+ * [Key Concepts](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__jobdefinition).
  *
  */
 export interface Job {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the job.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the job.
    */
   "id"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the stack that is associated with the job.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the stack that is associated with the job.
    */
   "stackId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which the job's associated stack resides.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which the job's associated stack resides.
    */
   "compartmentId"?: string;
   /**
@@ -53,7 +53,7 @@ export interface Job {
    * [Terraform Registry](https://registry.terraform.io/browse/providers) and allows
    * {@link #customTerraformProvider(CustomTerraformProviderRequest) customTerraformProvider}.
    * For more information about stack sourcing of third-party Terraform providers, see
-   * [Third-party Provider Configuration](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager.htm#third-party-providers).
+   * [Third-party Provider Configuration](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager.htm#third-party-providers).
    *
    */
   "isThirdPartyProviderExperienceEnabled"?: boolean;
@@ -74,7 +74,7 @@ export interface Job {
   "applyJobPlanResolution"?: model.ApplyJobPlanResolution;
   /**
    * Deprecated. Use the property {@code executionPlanJobId} in {@code jobOperationDetails} instead.
-   * The plan job [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that was used (if this was an apply job and was not auto-approved).
+   * The plan job [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that was used (if this was an apply job and was not auto-approved).
    *
    */
   "resolvedPlanJobId"?: string;
@@ -95,7 +95,7 @@ export interface Job {
   /**
    * Current state of the specified job.
    * For more information about job lifecycle states in Resource Manager, see
-   * [Key Concepts](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__JobStates).
+   * [Key Concepts](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__JobStates).
    *
    */
   "lifecycleState"?: Job.LifecycleState;
@@ -107,7 +107,7 @@ export interface Job {
    * Required when using a zip Terraform configuration ({@code configSourceType} value of {@code ZIP_UPLOAD}) that contains folders.
    * Ignored for the {@code configSourceType} value of {@code COMPARTMENT_CONFIG_SOURCE}.
    * For more information about required and recommended file structure, see
-   * [File Structure (Terraform Configurations for Resource Manager)](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager.htm#filestructure).
+   * [File Structure (Terraform Configurations for Resource Manager)](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager.htm#filestructure).
    *
    */
   "workingDirectory"?: string;
@@ -128,14 +128,14 @@ export interface Job {
     | model.ObjectStorageConfigSourceRecord;
   /**
    * Free-form tags associated with this resource. Each tag is a key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */

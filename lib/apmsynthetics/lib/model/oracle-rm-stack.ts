@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface OracleRMStack extends model.DvpStackDetails {
   /**
-   * Stack [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Resource Manager stack for dedicated vantage point.
+   * Stack [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Resource Manager stack for dedicated vantage point.
    */
   "dvpStackId": string;
   /**
-   * Stream [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Resource Manager stack for dedicated vantage point.
+   * Stream [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Resource Manager stack for dedicated vantage point.
    */
   "dvpStreamId": string;
 

@@ -22,6 +22,10 @@ export interface PipelineContainerStepDetails extends model.PipelineStepDetails 
   "stepInfrastructureConfigurationDetails"?: model.PipelineInfrastructureConfigurationDetails;
   "stepContainerConfigurationDetails": model.PipelineOcirContainerConfigurationDetails;
   /**
+   * The storage mount details to mount to the instance running the pipeline step.
+   */
+  "stepStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  /**
    * A flag to indicate whether the artifact has been uploaded for this step or not.
    */
   "isArtifactUploaded"?: boolean;
@@ -45,6 +49,11 @@ export namespace PipelineContainerStepDetails {
           ? model.PipelineContainerConfigurationDetails.getJsonObj(
               obj.stepContainerConfigurationDetails
             )
+          : undefined,
+        "stepStorageMountConfigurationDetailsList": obj.stepStorageMountConfigurationDetailsList
+          ? obj.stepStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -70,6 +79,11 @@ export namespace PipelineContainerStepDetails {
           ? model.PipelineContainerConfigurationDetails.getDeserializedJsonObj(
               obj.stepContainerConfigurationDetails
             )
+          : undefined,
+        "stepStorageMountConfigurationDetailsList": obj.stepStorageMountConfigurationDetailsList
+          ? obj.stepStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

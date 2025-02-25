@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudVmClusterCompartment.ts.html |here} to see how to use ChangeCloudVmClusterCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudVmClusterCompartment.ts.html |here} to see how to use ChangeCloudVmClusterCompartmentRequest.
  */
 export interface ChangeCloudVmClusterCompartmentRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ChangeCloudVmClusterCompartmentRequest extends common.BaseReque
    */
   "changeCloudVmClusterCompartmentDetails": model.ChangeCloudVmClusterCompartmentDetails;
   /**
-   * The cloud VM cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The cloud VM cluster [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "cloudVmClusterId": string;
   /**

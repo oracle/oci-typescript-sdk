@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/UpdateRoverEntitlement.ts.html |here} to see how to use UpdateRoverEntitlementRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/UpdateRoverEntitlement.ts.html |here} to see how to use UpdateRoverEntitlementRequest.
  */
 export interface UpdateRoverEntitlementRequest extends common.BaseRequest {
   /**

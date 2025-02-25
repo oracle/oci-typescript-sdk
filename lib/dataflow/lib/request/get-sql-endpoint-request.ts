@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetSqlEndpoint.ts.html |here} to see how to use GetSqlEndpointRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetSqlEndpoint.ts.html |here} to see how to use GetSqlEndpointRequest.
  */
 export interface GetSqlEndpointRequest extends common.BaseRequest {
   /**

@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface SearchMonitoredResourcesDetails {
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Compartment Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId": string;
   /**
-   * Multiple compartment identifiers [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Multiple compartment identifiers [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentIds"?: Array<string>;
@@ -61,7 +61,7 @@ export interface SearchMonitoredResourcesDetails {
    */
   "hostName"?: string;
   /**
-   * External resource is any OCI resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * External resource is any OCI resource identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    * which is not a Stack Monitoring service resource.
    * Currently supports only following resource types - Container database, non-container database,
    * pluggable database and OCI compute instance.

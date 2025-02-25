@@ -251,7 +251,7 @@ export class DelegateAccessControlClient {
    * @param ApproveDelegatedResourceAccessRequestRequest
    * @return ApproveDelegatedResourceAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ApproveDelegatedResourceAccessRequest.ts.html |here} to see how to use ApproveDelegatedResourceAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ApproveDelegatedResourceAccessRequest.ts.html |here} to see how to use ApproveDelegatedResourceAccessRequest API.
    */
   public async approveDelegatedResourceAccessRequest(
     approveDelegatedResourceAccessRequestRequest: requests.ApproveDelegatedResourceAccessRequestRequest
@@ -334,7 +334,7 @@ export class DelegateAccessControlClient {
    * @param ChangeDelegationControlCompartmentRequest
    * @return ChangeDelegationControlCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ChangeDelegationControlCompartment.ts.html |here} to see how to use ChangeDelegationControlCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ChangeDelegationControlCompartment.ts.html |here} to see how to use ChangeDelegationControlCompartment API.
    */
   public async changeDelegationControlCompartment(
     changeDelegationControlCompartmentRequest: requests.ChangeDelegationControlCompartmentRequest
@@ -416,7 +416,7 @@ export class DelegateAccessControlClient {
    * @param ChangeDelegationSubscriptionCompartmentRequest
    * @return ChangeDelegationSubscriptionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ChangeDelegationSubscriptionCompartment.ts.html |here} to see how to use ChangeDelegationSubscriptionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ChangeDelegationSubscriptionCompartment.ts.html |here} to see how to use ChangeDelegationSubscriptionCompartment API.
    */
   public async changeDelegationSubscriptionCompartment(
     changeDelegationSubscriptionCompartmentRequest: requests.ChangeDelegationSubscriptionCompartmentRequest
@@ -499,7 +499,7 @@ export class DelegateAccessControlClient {
    * @param CreateDelegationControlRequest
    * @return CreateDelegationControlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/CreateDelegationControl.ts.html |here} to see how to use CreateDelegationControl API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/CreateDelegationControl.ts.html |here} to see how to use CreateDelegationControl API.
    */
   public async createDelegationControl(
     createDelegationControlRequest: requests.CreateDelegationControlRequest
@@ -595,7 +595,7 @@ export class DelegateAccessControlClient {
    * @param CreateDelegationSubscriptionRequest
    * @return CreateDelegationSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/CreateDelegationSubscription.ts.html |here} to see how to use CreateDelegationSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/CreateDelegationSubscription.ts.html |here} to see how to use CreateDelegationSubscription API.
    */
   public async createDelegationSubscription(
     createDelegationSubscriptionRequest: requests.CreateDelegationSubscriptionRequest
@@ -697,7 +697,7 @@ export class DelegateAccessControlClient {
    * @param DeleteDelegationControlRequest
    * @return DeleteDelegationControlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/DeleteDelegationControl.ts.html |here} to see how to use DeleteDelegationControl API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/DeleteDelegationControl.ts.html |here} to see how to use DeleteDelegationControl API.
    */
   public async deleteDelegationControl(
     deleteDelegationControlRequest: requests.DeleteDelegationControlRequest
@@ -772,7 +772,7 @@ export class DelegateAccessControlClient {
    * @param DeleteDelegationSubscriptionRequest
    * @return DeleteDelegationSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/DeleteDelegationSubscription.ts.html |here} to see how to use DeleteDelegationSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/DeleteDelegationSubscription.ts.html |here} to see how to use DeleteDelegationSubscription API.
    */
   public async deleteDelegationSubscription(
     deleteDelegationSubscriptionRequest: requests.DeleteDelegationSubscriptionRequest
@@ -847,7 +847,7 @@ export class DelegateAccessControlClient {
    * @param GetDelegatedResourceAccessRequestRequest
    * @return GetDelegatedResourceAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetDelegatedResourceAccessRequest.ts.html |here} to see how to use GetDelegatedResourceAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetDelegatedResourceAccessRequest.ts.html |here} to see how to use GetDelegatedResourceAccessRequest API.
    */
   public async getDelegatedResourceAccessRequest(
     getDelegatedResourceAccessRequestRequest: requests.GetDelegatedResourceAccessRequestRequest
@@ -926,7 +926,7 @@ export class DelegateAccessControlClient {
    * @param GetDelegatedResourceAccessRequestAuditLogReportRequest
    * @return GetDelegatedResourceAccessRequestAuditLogReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetDelegatedResourceAccessRequestAuditLogReport.ts.html |here} to see how to use GetDelegatedResourceAccessRequestAuditLogReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetDelegatedResourceAccessRequestAuditLogReport.ts.html |here} to see how to use GetDelegatedResourceAccessRequestAuditLogReport API.
    */
   public async getDelegatedResourceAccessRequestAuditLogReport(
     getDelegatedResourceAccessRequestAuditLogReportRequest: requests.GetDelegatedResourceAccessRequestAuditLogReportRequest
@@ -1004,7 +1004,7 @@ export class DelegateAccessControlClient {
    * @param GetDelegationControlRequest
    * @return GetDelegationControlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetDelegationControl.ts.html |here} to see how to use GetDelegationControl API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetDelegationControl.ts.html |here} to see how to use GetDelegationControl API.
    */
   public async getDelegationControl(
     getDelegationControlRequest: requests.GetDelegationControlRequest
@@ -1080,7 +1080,7 @@ export class DelegateAccessControlClient {
    * @param GetDelegationSubscriptionRequest
    * @return GetDelegationSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetDelegationSubscription.ts.html |here} to see how to use GetDelegationSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetDelegationSubscription.ts.html |here} to see how to use GetDelegationSubscription API.
    */
   public async getDelegationSubscription(
     getDelegationSubscriptionRequest: requests.GetDelegationSubscriptionRequest
@@ -1156,7 +1156,7 @@ export class DelegateAccessControlClient {
    * @param GetServiceProviderRequest
    * @return GetServiceProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetServiceProvider.ts.html |here} to see how to use GetServiceProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetServiceProvider.ts.html |here} to see how to use GetServiceProvider API.
    */
   public async getServiceProvider(
     getServiceProviderRequest: requests.GetServiceProviderRequest
@@ -1232,7 +1232,7 @@ export class DelegateAccessControlClient {
    * @param GetServiceProviderActionRequest
    * @return GetServiceProviderActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetServiceProviderAction.ts.html |here} to see how to use GetServiceProviderAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetServiceProviderAction.ts.html |here} to see how to use GetServiceProviderAction API.
    */
   public async getServiceProviderAction(
     getServiceProviderActionRequest: requests.GetServiceProviderActionRequest
@@ -1309,7 +1309,7 @@ export class DelegateAccessControlClient {
    * @param ListDelegatedResourceAccessRequestHistoriesRequest
    * @return ListDelegatedResourceAccessRequestHistoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListDelegatedResourceAccessRequestHistories.ts.html |here} to see how to use ListDelegatedResourceAccessRequestHistories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListDelegatedResourceAccessRequestHistories.ts.html |here} to see how to use ListDelegatedResourceAccessRequestHistories API.
    */
   public async listDelegatedResourceAccessRequestHistories(
     listDelegatedResourceAccessRequestHistoriesRequest: requests.ListDelegatedResourceAccessRequestHistoriesRequest
@@ -1394,7 +1394,7 @@ export class DelegateAccessControlClient {
    * @param ListDelegatedResourceAccessRequestsRequest
    * @return ListDelegatedResourceAccessRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListDelegatedResourceAccessRequests.ts.html |here} to see how to use ListDelegatedResourceAccessRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListDelegatedResourceAccessRequests.ts.html |here} to see how to use ListDelegatedResourceAccessRequests API.
    */
   public async listDelegatedResourceAccessRequests(
     listDelegatedResourceAccessRequestsRequest: requests.ListDelegatedResourceAccessRequestsRequest
@@ -1483,7 +1483,7 @@ export class DelegateAccessControlClient {
    * @param ListDelegationControlResourcesRequest
    * @return ListDelegationControlResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListDelegationControlResources.ts.html |here} to see how to use ListDelegationControlResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListDelegationControlResources.ts.html |here} to see how to use ListDelegationControlResources API.
    */
   public async listDelegationControlResources(
     listDelegationControlResourcesRequest: requests.ListDelegationControlResourcesRequest
@@ -1565,7 +1565,7 @@ export class DelegateAccessControlClient {
    * @param ListDelegationControlsRequest
    * @return ListDelegationControlsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListDelegationControls.ts.html |here} to see how to use ListDelegationControls API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListDelegationControls.ts.html |here} to see how to use ListDelegationControls API.
    */
   public async listDelegationControls(
     listDelegationControlsRequest: requests.ListDelegationControlsRequest
@@ -1650,7 +1650,7 @@ export class DelegateAccessControlClient {
    * @param ListDelegationSubscriptionsRequest
    * @return ListDelegationSubscriptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListDelegationSubscriptions.ts.html |here} to see how to use ListDelegationSubscriptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListDelegationSubscriptions.ts.html |here} to see how to use ListDelegationSubscriptions API.
    */
   public async listDelegationSubscriptions(
     listDelegationSubscriptionsRequest: requests.ListDelegationSubscriptionsRequest
@@ -1735,7 +1735,7 @@ export class DelegateAccessControlClient {
    * @param ListServiceProviderActionsRequest
    * @return ListServiceProviderActionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListServiceProviderActions.ts.html |here} to see how to use ListServiceProviderActions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListServiceProviderActions.ts.html |here} to see how to use ListServiceProviderActions API.
    */
   public async listServiceProviderActions(
     listServiceProviderActionsRequest: requests.ListServiceProviderActionsRequest
@@ -1822,7 +1822,7 @@ export class DelegateAccessControlClient {
    * @param ListServiceProviderInteractionsRequest
    * @return ListServiceProviderInteractionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListServiceProviderInteractions.ts.html |here} to see how to use ListServiceProviderInteractions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListServiceProviderInteractions.ts.html |here} to see how to use ListServiceProviderInteractions API.
    */
   public async listServiceProviderInteractions(
     listServiceProviderInteractionsRequest: requests.ListServiceProviderInteractionsRequest
@@ -1906,7 +1906,7 @@ export class DelegateAccessControlClient {
    * @param ListServiceProvidersRequest
    * @return ListServiceProvidersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListServiceProviders.ts.html |here} to see how to use ListServiceProviders API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListServiceProviders.ts.html |here} to see how to use ListServiceProviders API.
    */
   public async listServiceProviders(
     listServiceProvidersRequest: requests.ListServiceProvidersRequest
@@ -1991,7 +1991,7 @@ export class DelegateAccessControlClient {
    * @param RejectDelegatedResourceAccessRequestRequest
    * @return RejectDelegatedResourceAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/RejectDelegatedResourceAccessRequest.ts.html |here} to see how to use RejectDelegatedResourceAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/RejectDelegatedResourceAccessRequest.ts.html |here} to see how to use RejectDelegatedResourceAccessRequest API.
    */
   public async rejectDelegatedResourceAccessRequest(
     rejectDelegatedResourceAccessRequestRequest: requests.RejectDelegatedResourceAccessRequestRequest
@@ -2074,7 +2074,7 @@ export class DelegateAccessControlClient {
    * @param RevokeDelegatedResourceAccessRequestRequest
    * @return RevokeDelegatedResourceAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/RevokeDelegatedResourceAccessRequest.ts.html |here} to see how to use RevokeDelegatedResourceAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/RevokeDelegatedResourceAccessRequest.ts.html |here} to see how to use RevokeDelegatedResourceAccessRequest API.
    */
   public async revokeDelegatedResourceAccessRequest(
     revokeDelegatedResourceAccessRequestRequest: requests.RevokeDelegatedResourceAccessRequestRequest
@@ -2157,7 +2157,7 @@ export class DelegateAccessControlClient {
    * @param ServiceProviderInteractionRequestRequest
    * @return ServiceProviderInteractionRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ServiceProviderInteractionRequest.ts.html |here} to see how to use ServiceProviderInteractionRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ServiceProviderInteractionRequest.ts.html |here} to see how to use ServiceProviderInteractionRequest API.
    */
   public async serviceProviderInteractionRequest(
     serviceProviderInteractionRequestRequest: requests.ServiceProviderInteractionRequestRequest
@@ -2236,7 +2236,7 @@ export class DelegateAccessControlClient {
    * @param UpdateDelegationControlRequest
    * @return UpdateDelegationControlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/UpdateDelegationControl.ts.html |here} to see how to use UpdateDelegationControl API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/UpdateDelegationControl.ts.html |here} to see how to use UpdateDelegationControl API.
    */
   public async updateDelegationControl(
     updateDelegationControlRequest: requests.UpdateDelegationControlRequest
@@ -2329,7 +2329,7 @@ export class DelegateAccessControlClient {
    * @param UpdateDelegationSubscriptionRequest
    * @return UpdateDelegationSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/UpdateDelegationSubscription.ts.html |here} to see how to use UpdateDelegationSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/UpdateDelegationSubscription.ts.html |here} to see how to use UpdateDelegationSubscription API.
    */
   public async updateDelegationSubscription(
     updateDelegationSubscriptionRequest: requests.UpdateDelegationSubscriptionRequest
@@ -2632,7 +2632,7 @@ export class WorkRequestClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2713,7 +2713,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2795,7 +2795,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2876,7 +2876,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest

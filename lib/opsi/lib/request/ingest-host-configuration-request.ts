@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestHostConfiguration.ts.html |here} to see how to use IngestHostConfigurationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestHostConfiguration.ts.html |here} to see how to use IngestHostConfigurationRequest.
  */
 export interface IngestHostConfigurationRequest extends common.BaseRequest {
   /**
-   * Required [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host insight resource.
+   * Required [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host insight resource.
    *
    */
   "id": string;

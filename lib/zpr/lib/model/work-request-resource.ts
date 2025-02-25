@@ -1,6 +1,6 @@
 /**
  * Zero Trust Packet Routing Control Plane API
- * Use the Zero Trust Packet Routing Control Plane API to manage ZPR configuration and policy. See the [Zero Trust Packet Routing](/iaas/Content/zero-trust-packet-routing/home.htm) documentation for more information.
+ * Use the Zero Trust Packet Routing Control Plane API to manage ZPR configuration and policy. See the [Zero Trust Packet Routing](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/home.htm) documentation for more information.
  * OpenAPI spec version: 20240301
  *
  *
@@ -31,7 +31,7 @@ export interface WorkRequestResource {
    */
   "actionType": model.ActionType;
   /**
-   * An [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) or other unique identifier for the resource.
+   * An [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) or other unique identifier for the resource.
    */
   "identifier": string;
   /**

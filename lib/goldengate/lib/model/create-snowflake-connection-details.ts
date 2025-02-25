@@ -48,7 +48,7 @@ export interface CreateSnowflakeConnectionDetails extends model.CreateConnection
    */
   "password"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
    * The password Oracle GoldenGate uses to connect the associated system of the given technology.
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
    * If secretId is used plaintext field must not be provided.
@@ -63,7 +63,7 @@ export interface CreateSnowflakeConnectionDetails extends model.CreateConnection
    */
   "privateKeyFile"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the private key file (PEM file) corresponding to the API key of the fingerprint.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the private key file (PEM file) corresponding to the API key of the fingerprint.
    * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm
    * Note: When provided, 'privateKeyFile' field must not be provided.
    *
@@ -76,7 +76,7 @@ export interface CreateSnowflakeConnectionDetails extends model.CreateConnection
    */
   "privateKeyPassphrase"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the password for the private key file.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret that stores the password for the private key file.
    * Note: When provided, 'privateKeyPassphrase' field must not be provided.
    *
    */

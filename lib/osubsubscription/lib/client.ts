@@ -220,7 +220,7 @@ export class CommitmentClient {
    * @param GetCommitmentRequest
    * @return GetCommitmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubsubscription/GetCommitment.ts.html |here} to see how to use GetCommitment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubsubscription/GetCommitment.ts.html |here} to see how to use GetCommitment API.
    */
   public async getCommitment(
     getCommitmentRequest: requests.GetCommitmentRequest
@@ -293,7 +293,7 @@ export class CommitmentClient {
    * @param ListCommitmentsRequest
    * @return ListCommitmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubsubscription/ListCommitments.ts.html |here} to see how to use ListCommitments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubsubscription/ListCommitments.ts.html |here} to see how to use ListCommitments API.
    */
   public async listCommitments(
     listCommitmentsRequest: requests.ListCommitmentsRequest
@@ -613,7 +613,7 @@ export class RatecardClient {
    * @param ListRateCardsRequest
    * @return ListRateCardsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubsubscription/ListRateCards.ts.html |here} to see how to use ListRateCards API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubsubscription/ListRateCards.ts.html |here} to see how to use ListRateCards API.
    */
   public async listRateCards(
     listRateCardsRequest: requests.ListRateCardsRequest
@@ -937,7 +937,7 @@ export class SubscriptionClient {
    * @param ListSubscriptionsRequest
    * @return ListSubscriptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubsubscription/ListSubscriptions.ts.html |here} to see how to use ListSubscriptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubsubscription/ListSubscriptions.ts.html |here} to see how to use ListSubscriptions API.
    */
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest

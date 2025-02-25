@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateCustomizationDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the job.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the job.
    */
   "compartmentId": string;
   /**

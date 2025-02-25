@@ -1,7 +1,7 @@
 /**
  * PGSQL Control Plane API
  * Use the OCI Database with PostgreSQL API to manage resources such as database systems, database nodes, backups, and configurations. 
-For information, see the user guide documentation for the [service](/iaas/Content/postgresql/home.htm).
+For information, see the user guide documentation for the [service](https://docs.oracle.com/iaas/Content/postgresql/home.htm).
 
  * OpenAPI spec version: 20220915
  * 
@@ -244,7 +244,7 @@ export class PostgresqlClient {
    * @param ChangeBackupCompartmentRequest
    * @return ChangeBackupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ChangeBackupCompartment.ts.html |here} to see how to use ChangeBackupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ChangeBackupCompartment.ts.html |here} to see how to use ChangeBackupCompartment API.
    */
   public async changeBackupCompartment(
     changeBackupCompartmentRequest: requests.ChangeBackupCompartmentRequest
@@ -323,7 +323,7 @@ export class PostgresqlClient {
    * @param ChangeConfigurationCompartmentRequest
    * @return ChangeConfigurationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ChangeConfigurationCompartment.ts.html |here} to see how to use ChangeConfigurationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ChangeConfigurationCompartment.ts.html |here} to see how to use ChangeConfigurationCompartment API.
    */
   public async changeConfigurationCompartment(
     changeConfigurationCompartmentRequest: requests.ChangeConfigurationCompartmentRequest
@@ -397,7 +397,7 @@ export class PostgresqlClient {
    * @param ChangeDbSystemCompartmentRequest
    * @return ChangeDbSystemCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ChangeDbSystemCompartment.ts.html |here} to see how to use ChangeDbSystemCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ChangeDbSystemCompartment.ts.html |here} to see how to use ChangeDbSystemCompartment API.
    */
   public async changeDbSystemCompartment(
     changeDbSystemCompartmentRequest: requests.ChangeDbSystemCompartmentRequest
@@ -477,7 +477,7 @@ export class PostgresqlClient {
    * @param CreateBackupRequest
    * @return CreateBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/CreateBackup.ts.html |here} to see how to use CreateBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/CreateBackup.ts.html |here} to see how to use CreateBackup API.
    */
   public async createBackup(
     createBackupRequest: requests.CreateBackupRequest
@@ -553,7 +553,7 @@ export class PostgresqlClient {
    * @param CreateConfigurationRequest
    * @return CreateConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/CreateConfiguration.ts.html |here} to see how to use CreateConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/CreateConfiguration.ts.html |here} to see how to use CreateConfiguration API.
    */
   public async createConfiguration(
     createConfigurationRequest: requests.CreateConfigurationRequest
@@ -633,7 +633,7 @@ export class PostgresqlClient {
    * @param CreateDbSystemRequest
    * @return CreateDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/CreateDbSystem.ts.html |here} to see how to use CreateDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/CreateDbSystem.ts.html |here} to see how to use CreateDbSystem API.
    */
   public async createDbSystem(
     createDbSystemRequest: requests.CreateDbSystemRequest
@@ -717,7 +717,7 @@ export class PostgresqlClient {
    * @param DeleteBackupRequest
    * @return DeleteBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/DeleteBackup.ts.html |here} to see how to use DeleteBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/DeleteBackup.ts.html |here} to see how to use DeleteBackup API.
    */
   public async deleteBackup(
     deleteBackupRequest: requests.DeleteBackupRequest
@@ -789,7 +789,7 @@ export class PostgresqlClient {
    * @param DeleteConfigurationRequest
    * @return DeleteConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/DeleteConfiguration.ts.html |here} to see how to use DeleteConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/DeleteConfiguration.ts.html |here} to see how to use DeleteConfiguration API.
    */
   public async deleteConfiguration(
     deleteConfigurationRequest: requests.DeleteConfigurationRequest
@@ -856,7 +856,7 @@ export class PostgresqlClient {
    * @param DeleteDbSystemRequest
    * @return DeleteDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/DeleteDbSystem.ts.html |here} to see how to use DeleteDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/DeleteDbSystem.ts.html |here} to see how to use DeleteDbSystem API.
    */
   public async deleteDbSystem(
     deleteDbSystemRequest: requests.DeleteDbSystemRequest
@@ -928,7 +928,7 @@ export class PostgresqlClient {
    * @param FailoverDbSystemRequest
    * @return FailoverDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/FailoverDbSystem.ts.html |here} to see how to use FailoverDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/FailoverDbSystem.ts.html |here} to see how to use FailoverDbSystem API.
    */
   public async failoverDbSystem(
     failoverDbSystemRequest: requests.FailoverDbSystemRequest
@@ -1006,7 +1006,7 @@ export class PostgresqlClient {
    * @param GetBackupRequest
    * @return GetBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetBackup.ts.html |here} to see how to use GetBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetBackup.ts.html |here} to see how to use GetBackup API.
    */
   public async getBackup(
     getBackupRequest: requests.GetBackupRequest
@@ -1081,7 +1081,7 @@ export class PostgresqlClient {
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
    */
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
@@ -1156,7 +1156,7 @@ export class PostgresqlClient {
    * @param GetConnectionDetailsRequest
    * @return GetConnectionDetailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetConnectionDetails.ts.html |here} to see how to use GetConnectionDetails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetConnectionDetails.ts.html |here} to see how to use GetConnectionDetails API.
    */
   public async getConnectionDetails(
     getConnectionDetailsRequest: requests.GetConnectionDetailsRequest
@@ -1231,7 +1231,7 @@ export class PostgresqlClient {
    * @param GetDbSystemRequest
    * @return GetDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetDbSystem.ts.html |here} to see how to use GetDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetDbSystem.ts.html |here} to see how to use GetDbSystem API.
    */
   public async getDbSystem(
     getDbSystemRequest: requests.GetDbSystemRequest
@@ -1308,7 +1308,7 @@ export class PostgresqlClient {
    * @param GetDefaultConfigurationRequest
    * @return GetDefaultConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetDefaultConfiguration.ts.html |here} to see how to use GetDefaultConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetDefaultConfiguration.ts.html |here} to see how to use GetDefaultConfiguration API.
    */
   public async getDefaultConfiguration(
     getDefaultConfigurationRequest: requests.GetDefaultConfigurationRequest
@@ -1384,7 +1384,7 @@ export class PostgresqlClient {
    * @param GetPrimaryDbInstanceRequest
    * @return GetPrimaryDbInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetPrimaryDbInstance.ts.html |here} to see how to use GetPrimaryDbInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetPrimaryDbInstance.ts.html |here} to see how to use GetPrimaryDbInstance API.
    */
   public async getPrimaryDbInstance(
     getPrimaryDbInstanceRequest: requests.GetPrimaryDbInstanceRequest
@@ -1459,7 +1459,7 @@ export class PostgresqlClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1540,7 +1540,7 @@ export class PostgresqlClient {
    * @param ListBackupsRequest
    * @return ListBackupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListBackups.ts.html |here} to see how to use ListBackups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListBackups.ts.html |here} to see how to use ListBackups API.
    */
   public async listBackups(
     listBackupsRequest: requests.ListBackupsRequest
@@ -1626,7 +1626,7 @@ export class PostgresqlClient {
    * @param ListConfigurationsRequest
    * @return ListConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListConfigurations.ts.html |here} to see how to use ListConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListConfigurations.ts.html |here} to see how to use ListConfigurations API.
    */
   public async listConfigurations(
     listConfigurationsRequest: requests.ListConfigurationsRequest
@@ -1711,7 +1711,7 @@ export class PostgresqlClient {
    * @param ListDbSystemsRequest
    * @return ListDbSystemsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListDbSystems.ts.html |here} to see how to use ListDbSystems API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListDbSystems.ts.html |here} to see how to use ListDbSystems API.
    */
   public async listDbSystems(
     listDbSystemsRequest: requests.ListDbSystemsRequest
@@ -1794,7 +1794,7 @@ export class PostgresqlClient {
    * @param ListDefaultConfigurationsRequest
    * @return ListDefaultConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListDefaultConfigurations.ts.html |here} to see how to use ListDefaultConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListDefaultConfigurations.ts.html |here} to see how to use ListDefaultConfigurations API.
    */
   public async listDefaultConfigurations(
     listDefaultConfigurationsRequest: requests.ListDefaultConfigurationsRequest
@@ -1878,7 +1878,7 @@ export class PostgresqlClient {
    * @param ListShapesRequest
    * @return ListShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListShapes.ts.html |here} to see how to use ListShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListShapes.ts.html |here} to see how to use ListShapes API.
    */
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
@@ -1959,7 +1959,7 @@ export class PostgresqlClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2040,7 +2040,7 @@ export class PostgresqlClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2121,7 +2121,7 @@ export class PostgresqlClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2203,7 +2203,7 @@ export class PostgresqlClient {
    * @param PatchDbSystemRequest
    * @return PatchDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/PatchDbSystem.ts.html |here} to see how to use PatchDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/PatchDbSystem.ts.html |here} to see how to use PatchDbSystem API.
    */
   public async patchDbSystem(
     patchDbSystemRequest: requests.PatchDbSystemRequest
@@ -2280,7 +2280,7 @@ export class PostgresqlClient {
    * @param ResetMasterUserPasswordRequest
    * @return ResetMasterUserPasswordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ResetMasterUserPassword.ts.html |here} to see how to use ResetMasterUserPassword API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ResetMasterUserPassword.ts.html |here} to see how to use ResetMasterUserPassword API.
    */
   public async resetMasterUserPassword(
     resetMasterUserPasswordRequest: requests.ResetMasterUserPasswordRequest
@@ -2359,7 +2359,7 @@ export class PostgresqlClient {
    * @param RestartDbInstanceInDbSystemRequest
    * @return RestartDbInstanceInDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/RestartDbInstanceInDbSystem.ts.html |here} to see how to use RestartDbInstanceInDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/RestartDbInstanceInDbSystem.ts.html |here} to see how to use RestartDbInstanceInDbSystem API.
    */
   public async restartDbInstanceInDbSystem(
     restartDbInstanceInDbSystemRequest: requests.RestartDbInstanceInDbSystemRequest
@@ -2438,7 +2438,7 @@ export class PostgresqlClient {
    * @param RestoreDbSystemRequest
    * @return RestoreDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/RestoreDbSystem.ts.html |here} to see how to use RestoreDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/RestoreDbSystem.ts.html |here} to see how to use RestoreDbSystem API.
    */
   public async restoreDbSystem(
     restoreDbSystemRequest: requests.RestoreDbSystemRequest
@@ -2516,7 +2516,7 @@ export class PostgresqlClient {
    * @param UpdateBackupRequest
    * @return UpdateBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/UpdateBackup.ts.html |here} to see how to use UpdateBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/UpdateBackup.ts.html |here} to see how to use UpdateBackup API.
    */
   public async updateBackup(
     updateBackupRequest: requests.UpdateBackupRequest
@@ -2598,7 +2598,7 @@ export class PostgresqlClient {
    * @param UpdateConfigurationRequest
    * @return UpdateConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
    */
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest
@@ -2680,7 +2680,7 @@ export class PostgresqlClient {
    * @param UpdateDbSystemRequest
    * @return UpdateDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/UpdateDbSystem.ts.html |here} to see how to use UpdateDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/UpdateDbSystem.ts.html |here} to see how to use UpdateDbSystem API.
    */
   public async updateDbSystem(
     updateDbSystemRequest: requests.UpdateDbSystemRequest
@@ -2758,7 +2758,7 @@ export class PostgresqlClient {
    * @param UpdateDbSystemDbInstanceRequest
    * @return UpdateDbSystemDbInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/UpdateDbSystemDbInstance.ts.html |here} to see how to use UpdateDbSystemDbInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/UpdateDbSystemDbInstance.ts.html |here} to see how to use UpdateDbSystemDbInstance API.
    */
   public async updateDbSystemDbInstance(
     updateDbSystemDbInstanceRequest: requests.UpdateDbSystemDbInstanceRequest

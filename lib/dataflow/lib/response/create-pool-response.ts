@@ -17,7 +17,7 @@ import common = require("oci-common");
 export interface CreatePoolResponse {
   /**
    * For optimistic concurrency control.
-   * See [ETags for Optimistic Concurrency Control](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#eleven).
+   * See [ETags for Optimistic Concurrency Control](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#eleven).
    *
    */
   "etag": string;

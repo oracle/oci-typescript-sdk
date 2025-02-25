@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListWorkRequests.ts.html |here} to see how to use ListWorkRequestsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListWorkRequests.ts.html |here} to see how to use ListWorkRequestsRequest.
  */
 export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
@@ -29,7 +29,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "status"?: model.OperationStatus;
   /**
-   * <b>Filter</b> results by [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm). Must be an OCID of the correct type for the resource type.
+   * <b>Filter</b> results by [OCID](https://docs.oracle.com/iaas/Content/API/Concepts/identifiers.htm). Must be an OCID of the correct type for the resource type.
    *
    */
   "id"?: string;
@@ -41,7 +41,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * For list pagination. The value of the {@code opc-next-page} or {@code opc-previous-page} response header from the previous \"List\" call.
-   * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

@@ -1,6 +1,6 @@
 /**
  * Security Attribute API
- * Use the Security Attributes API to manage security attributes and security attribute namespaces. For more information, see the documentation for [Security Attributes](/iaas/Content/zero-trust-packet-routing/managing-security-attributes.htm) and [Security Attribute Nampespaces](/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
+ * Use the Security Attributes API to manage security attributes and security attribute namespaces. For more information, see the documentation for [Security Attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attributes.htm) and [Security Attribute Nampespaces](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
  * OpenAPI spec version: 20240815
  *
  *
@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
  * A security attribute that belongs to a specific security attribute namespace. Security attributes must be created in a tenancy before
  * a user can apply them to resources.
- * For more information, see [Managing Security Attributes](https://docs.cloud.oracle.com/Content/zero-trust-packet-routing/managing-security-attributes.htm).
+ * For more information, see [Managing Security Attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attributes.htm).
  * <p>
  **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values
  * using the API.
@@ -57,7 +57,7 @@ export interface SecurityAttribute {
   "type"?: string;
   /**
    * Indicates whether the security attribute is retired.
-   * See [Managing Security Attribute Namespaces](https://docs.cloud.oracle.com/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
+   * See [Managing Security Attribute Namespaces](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
    *
    */
   "isRetired": boolean;

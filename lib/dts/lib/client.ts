@@ -249,7 +249,7 @@ export class ApplianceExportJobClient {
    * @param ChangeApplianceExportJobCompartmentRequest
    * @return ChangeApplianceExportJobCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ChangeApplianceExportJobCompartment.ts.html |here} to see how to use ChangeApplianceExportJobCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ChangeApplianceExportJobCompartment.ts.html |here} to see how to use ChangeApplianceExportJobCompartment API.
    */
   public async changeApplianceExportJobCompartment(
     changeApplianceExportJobCompartmentRequest: requests.ChangeApplianceExportJobCompartmentRequest
@@ -325,7 +325,7 @@ export class ApplianceExportJobClient {
    * @param CreateApplianceExportJobRequest
    * @return CreateApplianceExportJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateApplianceExportJob.ts.html |here} to see how to use CreateApplianceExportJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateApplianceExportJob.ts.html |here} to see how to use CreateApplianceExportJob API.
    */
   public async createApplianceExportJob(
     createApplianceExportJobRequest: requests.CreateApplianceExportJobRequest
@@ -405,7 +405,7 @@ export class ApplianceExportJobClient {
    * @param DeleteApplianceExportJobRequest
    * @return DeleteApplianceExportJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DeleteApplianceExportJob.ts.html |here} to see how to use DeleteApplianceExportJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DeleteApplianceExportJob.ts.html |here} to see how to use DeleteApplianceExportJob API.
    */
   public async deleteApplianceExportJob(
     deleteApplianceExportJobRequest: requests.DeleteApplianceExportJobRequest
@@ -474,7 +474,7 @@ export class ApplianceExportJobClient {
    * @param GetApplianceExportJobRequest
    * @return GetApplianceExportJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetApplianceExportJob.ts.html |here} to see how to use GetApplianceExportJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetApplianceExportJob.ts.html |here} to see how to use GetApplianceExportJob API.
    */
   public async getApplianceExportJob(
     getApplianceExportJobRequest: requests.GetApplianceExportJobRequest
@@ -550,7 +550,7 @@ export class ApplianceExportJobClient {
    * @param ListApplianceExportJobsRequest
    * @return ListApplianceExportJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListApplianceExportJobs.ts.html |here} to see how to use ListApplianceExportJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListApplianceExportJobs.ts.html |here} to see how to use ListApplianceExportJobs API.
    */
   public async listApplianceExportJobs(
     listApplianceExportJobsRequest: requests.ListApplianceExportJobsRequest
@@ -682,7 +682,7 @@ export class ApplianceExportJobClient {
    * @param UpdateApplianceExportJobRequest
    * @return UpdateApplianceExportJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/UpdateApplianceExportJob.ts.html |here} to see how to use UpdateApplianceExportJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/UpdateApplianceExportJob.ts.html |here} to see how to use UpdateApplianceExportJob API.
    */
   public async updateApplianceExportJob(
     updateApplianceExportJobRequest: requests.UpdateApplianceExportJobRequest
@@ -949,7 +949,7 @@ export class ShippingVendorsClient {
    * @param ListShippingVendorsRequest
    * @return ListShippingVendorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListShippingVendors.ts.html |here} to see how to use ListShippingVendors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListShippingVendors.ts.html |here} to see how to use ListShippingVendors API.
    */
   public async listShippingVendors(
     listShippingVendorsRequest: requests.ListShippingVendorsRequest
@@ -1226,7 +1226,7 @@ export class TransferApplianceClient {
    * @param CreateTransferApplianceRequest
    * @return CreateTransferApplianceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferAppliance.ts.html |here} to see how to use CreateTransferAppliance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferAppliance.ts.html |here} to see how to use CreateTransferAppliance API.
    */
   public async createTransferAppliance(
     createTransferApplianceRequest: requests.CreateTransferApplianceRequest
@@ -1307,7 +1307,7 @@ export class TransferApplianceClient {
    * @param CreateTransferApplianceAdminCredentialsRequest
    * @return CreateTransferApplianceAdminCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferApplianceAdminCredentials.ts.html |here} to see how to use CreateTransferApplianceAdminCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferApplianceAdminCredentials.ts.html |here} to see how to use CreateTransferApplianceAdminCredentials API.
    */
   public async createTransferApplianceAdminCredentials(
     createTransferApplianceAdminCredentialsRequest: requests.CreateTransferApplianceAdminCredentialsRequest
@@ -1392,7 +1392,7 @@ export class TransferApplianceClient {
    * @param DeleteTransferApplianceRequest
    * @return DeleteTransferApplianceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DeleteTransferAppliance.ts.html |here} to see how to use DeleteTransferAppliance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DeleteTransferAppliance.ts.html |here} to see how to use DeleteTransferAppliance API.
    */
   public async deleteTransferAppliance(
     deleteTransferApplianceRequest: requests.DeleteTransferApplianceRequest
@@ -1460,7 +1460,7 @@ export class TransferApplianceClient {
    * @param GetTransferApplianceRequest
    * @return GetTransferApplianceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferAppliance.ts.html |here} to see how to use GetTransferAppliance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferAppliance.ts.html |here} to see how to use GetTransferAppliance API.
    */
   public async getTransferAppliance(
     getTransferApplianceRequest: requests.GetTransferApplianceRequest
@@ -1536,7 +1536,7 @@ export class TransferApplianceClient {
    * @param GetTransferApplianceCertificateAuthorityCertificateRequest
    * @return GetTransferApplianceCertificateAuthorityCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferApplianceCertificateAuthorityCertificate.ts.html |here} to see how to use GetTransferApplianceCertificateAuthorityCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferApplianceCertificateAuthorityCertificate.ts.html |here} to see how to use GetTransferApplianceCertificateAuthorityCertificate API.
    */
   public async getTransferApplianceCertificateAuthorityCertificate(
     getTransferApplianceCertificateAuthorityCertificateRequest: requests.GetTransferApplianceCertificateAuthorityCertificateRequest
@@ -1616,7 +1616,7 @@ export class TransferApplianceClient {
    * @param GetTransferApplianceEncryptionPassphraseRequest
    * @return GetTransferApplianceEncryptionPassphraseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferApplianceEncryptionPassphrase.ts.html |here} to see how to use GetTransferApplianceEncryptionPassphrase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferApplianceEncryptionPassphrase.ts.html |here} to see how to use GetTransferApplianceEncryptionPassphrase API.
    */
   public async getTransferApplianceEncryptionPassphrase(
     getTransferApplianceEncryptionPassphraseRequest: requests.GetTransferApplianceEncryptionPassphraseRequest
@@ -1695,7 +1695,7 @@ export class TransferApplianceClient {
    * @param ListTransferAppliancesRequest
    * @return ListTransferAppliancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListTransferAppliances.ts.html |here} to see how to use ListTransferAppliances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListTransferAppliances.ts.html |here} to see how to use ListTransferAppliances API.
    */
   public async listTransferAppliances(
     listTransferAppliancesRequest: requests.ListTransferAppliancesRequest
@@ -1767,7 +1767,7 @@ export class TransferApplianceClient {
    * @param UpdateTransferApplianceRequest
    * @return UpdateTransferApplianceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/UpdateTransferAppliance.ts.html |here} to see how to use UpdateTransferAppliance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/UpdateTransferAppliance.ts.html |here} to see how to use UpdateTransferAppliance API.
    */
   public async updateTransferAppliance(
     updateTransferApplianceRequest: requests.UpdateTransferApplianceRequest
@@ -2059,7 +2059,7 @@ export class TransferApplianceEntitlementClient {
    * @param CreateTransferApplianceEntitlementRequest
    * @return CreateTransferApplianceEntitlementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferApplianceEntitlement.ts.html |here} to see how to use CreateTransferApplianceEntitlement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferApplianceEntitlement.ts.html |here} to see how to use CreateTransferApplianceEntitlement API.
    */
   public async createTransferApplianceEntitlement(
     createTransferApplianceEntitlementRequest: requests.CreateTransferApplianceEntitlementRequest
@@ -2141,7 +2141,7 @@ export class TransferApplianceEntitlementClient {
    * @param GetTransferApplianceEntitlementRequest
    * @return GetTransferApplianceEntitlementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferApplianceEntitlement.ts.html |here} to see how to use GetTransferApplianceEntitlement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferApplianceEntitlement.ts.html |here} to see how to use GetTransferApplianceEntitlement API.
    */
   public async getTransferApplianceEntitlement(
     getTransferApplianceEntitlementRequest: requests.GetTransferApplianceEntitlementRequest
@@ -2215,7 +2215,7 @@ export class TransferApplianceEntitlementClient {
    * @param ListTransferApplianceEntitlementRequest
    * @return ListTransferApplianceEntitlementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListTransferApplianceEntitlement.ts.html |here} to see how to use ListTransferApplianceEntitlement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListTransferApplianceEntitlement.ts.html |here} to see how to use ListTransferApplianceEntitlement API.
    */
   public async listTransferApplianceEntitlement(
     listTransferApplianceEntitlementRequest: requests.ListTransferApplianceEntitlementRequest
@@ -2499,7 +2499,7 @@ export class TransferDeviceClient {
    * @param CreateTransferDeviceRequest
    * @return CreateTransferDeviceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferDevice.ts.html |here} to see how to use CreateTransferDevice API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferDevice.ts.html |here} to see how to use CreateTransferDevice API.
    */
   public async createTransferDevice(
     createTransferDeviceRequest: requests.CreateTransferDeviceRequest
@@ -2580,7 +2580,7 @@ export class TransferDeviceClient {
    * @param DeleteTransferDeviceRequest
    * @return DeleteTransferDeviceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DeleteTransferDevice.ts.html |here} to see how to use DeleteTransferDevice API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DeleteTransferDevice.ts.html |here} to see how to use DeleteTransferDevice API.
    */
   public async deleteTransferDevice(
     deleteTransferDeviceRequest: requests.DeleteTransferDeviceRequest
@@ -2648,7 +2648,7 @@ export class TransferDeviceClient {
    * @param GetTransferDeviceRequest
    * @return GetTransferDeviceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferDevice.ts.html |here} to see how to use GetTransferDevice API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferDevice.ts.html |here} to see how to use GetTransferDevice API.
    */
   public async getTransferDevice(
     getTransferDeviceRequest: requests.GetTransferDeviceRequest
@@ -2723,7 +2723,7 @@ export class TransferDeviceClient {
    * @param ListTransferDevicesRequest
    * @return ListTransferDevicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListTransferDevices.ts.html |here} to see how to use ListTransferDevices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListTransferDevices.ts.html |here} to see how to use ListTransferDevices API.
    */
   public async listTransferDevices(
     listTransferDevicesRequest: requests.ListTransferDevicesRequest
@@ -2796,7 +2796,7 @@ export class TransferDeviceClient {
    * @param UpdateTransferDeviceRequest
    * @return UpdateTransferDeviceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/UpdateTransferDevice.ts.html |here} to see how to use UpdateTransferDevice API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/UpdateTransferDevice.ts.html |here} to see how to use UpdateTransferDevice API.
    */
   public async updateTransferDevice(
     updateTransferDeviceRequest: requests.UpdateTransferDeviceRequest
@@ -3087,7 +3087,7 @@ export class TransferJobClient {
    * @param ChangeTransferJobCompartmentRequest
    * @return ChangeTransferJobCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ChangeTransferJobCompartment.ts.html |here} to see how to use ChangeTransferJobCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ChangeTransferJobCompartment.ts.html |here} to see how to use ChangeTransferJobCompartment API.
    */
   public async changeTransferJobCompartment(
     changeTransferJobCompartmentRequest: requests.ChangeTransferJobCompartmentRequest
@@ -3166,7 +3166,7 @@ export class TransferJobClient {
    * @param CreateTransferJobRequest
    * @return CreateTransferJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferJob.ts.html |here} to see how to use CreateTransferJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferJob.ts.html |here} to see how to use CreateTransferJob API.
    */
   public async createTransferJob(
     createTransferJobRequest: requests.CreateTransferJobRequest
@@ -3245,7 +3245,7 @@ export class TransferJobClient {
    * @param DeleteTransferJobRequest
    * @return DeleteTransferJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DeleteTransferJob.ts.html |here} to see how to use DeleteTransferJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DeleteTransferJob.ts.html |here} to see how to use DeleteTransferJob API.
    */
   public async deleteTransferJob(
     deleteTransferJobRequest: requests.DeleteTransferJobRequest
@@ -3312,7 +3312,7 @@ export class TransferJobClient {
    * @param GetTransferJobRequest
    * @return GetTransferJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferJob.ts.html |here} to see how to use GetTransferJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferJob.ts.html |here} to see how to use GetTransferJob API.
    */
   public async getTransferJob(
     getTransferJobRequest: requests.GetTransferJobRequest
@@ -3387,7 +3387,7 @@ export class TransferJobClient {
    * @param ListTransferJobsRequest
    * @return ListTransferJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListTransferJobs.ts.html |here} to see how to use ListTransferJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListTransferJobs.ts.html |here} to see how to use ListTransferJobs API.
    */
   public async listTransferJobs(
     listTransferJobsRequest: requests.ListTransferJobsRequest
@@ -3518,7 +3518,7 @@ export class TransferJobClient {
    * @param UpdateTransferJobRequest
    * @return UpdateTransferJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/UpdateTransferJob.ts.html |here} to see how to use UpdateTransferJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/UpdateTransferJob.ts.html |here} to see how to use UpdateTransferJob API.
    */
   public async updateTransferJob(
     updateTransferJobRequest: requests.UpdateTransferJobRequest
@@ -3808,7 +3808,7 @@ export class TransferPackageClient {
    * @param AttachDevicesToTransferPackageRequest
    * @return AttachDevicesToTransferPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/AttachDevicesToTransferPackage.ts.html |here} to see how to use AttachDevicesToTransferPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/AttachDevicesToTransferPackage.ts.html |here} to see how to use AttachDevicesToTransferPackage API.
    */
   public async attachDevicesToTransferPackage(
     attachDevicesToTransferPackageRequest: requests.AttachDevicesToTransferPackageRequest
@@ -3886,7 +3886,7 @@ export class TransferPackageClient {
    * @param CreateTransferPackageRequest
    * @return CreateTransferPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferPackage.ts.html |here} to see how to use CreateTransferPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/CreateTransferPackage.ts.html |here} to see how to use CreateTransferPackage API.
    */
   public async createTransferPackage(
     createTransferPackageRequest: requests.CreateTransferPackageRequest
@@ -3967,7 +3967,7 @@ export class TransferPackageClient {
    * @param DeleteTransferPackageRequest
    * @return DeleteTransferPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DeleteTransferPackage.ts.html |here} to see how to use DeleteTransferPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DeleteTransferPackage.ts.html |here} to see how to use DeleteTransferPackage API.
    */
   public async deleteTransferPackage(
     deleteTransferPackageRequest: requests.DeleteTransferPackageRequest
@@ -4035,7 +4035,7 @@ export class TransferPackageClient {
    * @param DetachDevicesFromTransferPackageRequest
    * @return DetachDevicesFromTransferPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DetachDevicesFromTransferPackage.ts.html |here} to see how to use DetachDevicesFromTransferPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/DetachDevicesFromTransferPackage.ts.html |here} to see how to use DetachDevicesFromTransferPackage API.
    */
   public async detachDevicesFromTransferPackage(
     detachDevicesFromTransferPackageRequest: requests.DetachDevicesFromTransferPackageRequest
@@ -4115,7 +4115,7 @@ export class TransferPackageClient {
    * @param GetTransferPackageRequest
    * @return GetTransferPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferPackage.ts.html |here} to see how to use GetTransferPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/GetTransferPackage.ts.html |here} to see how to use GetTransferPackage API.
    */
   public async getTransferPackage(
     getTransferPackageRequest: requests.GetTransferPackageRequest
@@ -4191,7 +4191,7 @@ export class TransferPackageClient {
    * @param ListTransferPackagesRequest
    * @return ListTransferPackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListTransferPackages.ts.html |here} to see how to use ListTransferPackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/ListTransferPackages.ts.html |here} to see how to use ListTransferPackages API.
    */
   public async listTransferPackages(
     listTransferPackagesRequest: requests.ListTransferPackagesRequest
@@ -4264,7 +4264,7 @@ export class TransferPackageClient {
    * @param UpdateTransferPackageRequest
    * @return UpdateTransferPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/UpdateTransferPackage.ts.html |here} to see how to use UpdateTransferPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dts/UpdateTransferPackage.ts.html |here} to see how to use UpdateTransferPackage API.
    */
   public async updateTransferPackage(
     updateTransferPackageRequest: requests.UpdateTransferPackageRequest

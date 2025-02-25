@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListLogSavedSearches.ts.html |here} to see how to use ListLogSavedSearchesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ListLogSavedSearches.ts.html |here} to see how to use ListLogSavedSearchesRequest.
  */
 export interface ListLogSavedSearchesRequest extends common.BaseRequest {
   /**
@@ -35,7 +35,7 @@ export interface ListLogSavedSearchesRequest extends common.BaseRequest {
   "name"?: string;
   /**
    * For list pagination. The value of the {@code opc-next-page} or {@code opc-previous-page} response header from the previous \"List\" call.
-   * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

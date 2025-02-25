@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaInstanceAttachment.ts.html |here} to see how to use DeleteOdaInstanceAttachmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaInstanceAttachment.ts.html |here} to see how to use DeleteOdaInstanceAttachmentRequest.
  */
 export interface DeleteOdaInstanceAttachmentRequest extends common.BaseRequest {
   /**

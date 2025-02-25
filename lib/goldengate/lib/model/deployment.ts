@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface Deployment {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the deployment being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the deployment being referenced.
    *
    */
   "id": string;
@@ -36,12 +36,12 @@ export interface Deployment {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
    *
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the backup being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup being referenced.
    *
    */
   "deploymentBackupId"?: string;
@@ -98,21 +98,21 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    */
   "isHealthy"?: boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet of the deployment's private endpoint.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet of the deployment's private endpoint.
    * The subnet must be a private subnet. For backward compatibility, public subnets are allowed until May 31 2025,
    * after which the private subnet will be enforced.
    *
    */
   "subnetId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a public subnet in the customer tenancy.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a public subnet in the customer tenancy.
    * Can be provided only for public deployments. If provided, the loadbalancer will be created in this subnet instead of the service tenancy.
    * For backward compatibility, this is an optional property. It will become mandatory for public deployments after October 1, 2024.
    *
    */
   "loadBalancerSubnetId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the loadbalancer in the customer's subnet.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the loadbalancer in the customer's subnet.
    * The loadbalancer of the public deployment created in the customer subnet.
    *
    */
@@ -177,7 +177,7 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
   /**
     * The system tags associated with this resource, if any. The system tags are set by Oracle
 * Cloud Infrastructure services. Each key is predefined and scoped to namespaces.  For more
-* information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {orcl-cloud: {free-tier-retain: true}}}
 * 

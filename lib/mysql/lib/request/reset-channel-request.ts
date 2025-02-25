@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ResetChannel.ts.html |here} to see how to use ResetChannelRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ResetChannel.ts.html |here} to see how to use ResetChannelRequest.
  */
 export interface ResetChannelRequest extends common.BaseRequest {
   /**
-   * The Channel [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Channel [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "channelId": string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateRouteTable.ts.html |here} to see how to use CreateRouteTableRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateRouteTable.ts.html |here} to see how to use CreateRouteTableRequest.
  */
 export interface CreateRouteTableRequest extends common.BaseRequest {
   /**

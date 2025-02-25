@@ -55,7 +55,7 @@ Additionally, each rule must include two placeholder variables that are updated 
 
 * The example contains two {@code SecRules} each having distinct regex expression to match the {@code Cookie} header value during the second input analysis phase.
 * <p>
-For more information about custom protection rules, see [Custom Protection Rules](https://docs.cloud.oracle.com/Content/WAF/Tasks/customprotectionrules.htm).
+For more information about custom protection rules, see [Custom Protection Rules](https://docs.oracle.com/iaas/Content/WAF/Tasks/customprotectionrules.htm).
 * <p>
 For more information about ModSecurity syntax, see [Making Rules: The Basic Syntax](https://www.modsecurity.org/CRS/Documentation/making.html).
 * <p>
@@ -64,7 +64,7 @@ For more information about ModSecurity's open source WAF rules, see [Mod Securit
   "template"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -72,7 +72,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

@@ -34,7 +34,7 @@ export interface UpdateEndpointDetails {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the model to associate with the endpoint.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the model to associate with the endpoint.
    */
   "modelId"?: string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeUnifiedAgentConfigurationCompartment.ts.html |here} to see how to use ChangeUnifiedAgentConfigurationCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/logging/ChangeUnifiedAgentConfigurationCompartment.ts.html |here} to see how to use ChangeUnifiedAgentConfigurationCompartmentRequest.
  */
 export interface ChangeUnifiedAgentConfigurationCompartmentRequest extends common.BaseRequest {
   /**

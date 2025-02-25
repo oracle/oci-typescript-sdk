@@ -242,7 +242,7 @@ export class OpaInstanceClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -309,7 +309,7 @@ export class OpaInstanceClient {
    * @param ChangeOpaInstanceCompartmentRequest
    * @return ChangeOpaInstanceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/ChangeOpaInstanceCompartment.ts.html |here} to see how to use ChangeOpaInstanceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/ChangeOpaInstanceCompartment.ts.html |here} to see how to use ChangeOpaInstanceCompartment API.
    */
   public async changeOpaInstanceCompartment(
     changeOpaInstanceCompartmentRequest: requests.ChangeOpaInstanceCompartmentRequest
@@ -388,7 +388,7 @@ export class OpaInstanceClient {
    * @param CreateOpaInstanceRequest
    * @return CreateOpaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/CreateOpaInstance.ts.html |here} to see how to use CreateOpaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/CreateOpaInstance.ts.html |here} to see how to use CreateOpaInstance API.
    */
   public async createOpaInstance(
     createOpaInstanceRequest: requests.CreateOpaInstanceRequest
@@ -463,7 +463,7 @@ export class OpaInstanceClient {
    * @param DeleteOpaInstanceRequest
    * @return DeleteOpaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/DeleteOpaInstance.ts.html |here} to see how to use DeleteOpaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/DeleteOpaInstance.ts.html |here} to see how to use DeleteOpaInstance API.
    */
   public async deleteOpaInstance(
     deleteOpaInstanceRequest: requests.DeleteOpaInstanceRequest
@@ -535,7 +535,7 @@ export class OpaInstanceClient {
    * @param GetOpaInstanceRequest
    * @return GetOpaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/GetOpaInstance.ts.html |here} to see how to use GetOpaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/GetOpaInstance.ts.html |here} to see how to use GetOpaInstance API.
    */
   public async getOpaInstance(
     getOpaInstanceRequest: requests.GetOpaInstanceRequest
@@ -610,7 +610,7 @@ export class OpaInstanceClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -691,7 +691,7 @@ export class OpaInstanceClient {
    * @param ListOpaInstancesRequest
    * @return ListOpaInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/ListOpaInstances.ts.html |here} to see how to use ListOpaInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/ListOpaInstances.ts.html |here} to see how to use ListOpaInstances API.
    */
   public async listOpaInstances(
     listOpaInstancesRequest: requests.ListOpaInstancesRequest
@@ -774,7 +774,7 @@ export class OpaInstanceClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -856,7 +856,7 @@ export class OpaInstanceClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -937,7 +937,7 @@ export class OpaInstanceClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1019,7 +1019,7 @@ export class OpaInstanceClient {
    * @param StartOpaInstanceRequest
    * @return StartOpaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/StartOpaInstance.ts.html |here} to see how to use StartOpaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/StartOpaInstance.ts.html |here} to see how to use StartOpaInstance API.
    */
   public async startOpaInstance(
     startOpaInstanceRequest: requests.StartOpaInstanceRequest
@@ -1091,7 +1091,7 @@ export class OpaInstanceClient {
    * @param StopOpaInstanceRequest
    * @return StopOpaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/StopOpaInstance.ts.html |here} to see how to use StopOpaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/StopOpaInstance.ts.html |here} to see how to use StopOpaInstance API.
    */
   public async stopOpaInstance(
     stopOpaInstanceRequest: requests.StopOpaInstanceRequest
@@ -1163,7 +1163,7 @@ export class OpaInstanceClient {
    * @param UpdateOpaInstanceRequest
    * @return UpdateOpaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/UpdateOpaInstance.ts.html |here} to see how to use UpdateOpaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opa/UpdateOpaInstance.ts.html |here} to see how to use UpdateOpaInstance API.
    */
   public async updateOpaInstance(
     updateOpaInstanceRequest: requests.UpdateOpaInstanceRequest

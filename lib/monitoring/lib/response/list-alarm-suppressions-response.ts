@@ -24,14 +24,14 @@ export interface ListAlarmSuppressionsResponse {
   /**
    * For list pagination. When this header appears in the response, next page of results remains.
    * For important details about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcNextPage": string;
   /**
    * For list pagination. When this header appears in the response, previous pages of results remains.
    * For important details about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcPreviousPage": string;

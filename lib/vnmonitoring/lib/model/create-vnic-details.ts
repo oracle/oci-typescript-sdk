@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -20,7 +20,7 @@ import common = require("oci-common");
  * Contains properties for a VNIC. You use this object when creating the
  * primary VNIC during instance launch or when creating a secondary VNIC.
  * For more information about VNICs, see
- * [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
+ * [Virtual Network Interface Cards (VNICs)](https://docs.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
  *
  */
 export interface CreateVnicDetails {
@@ -35,14 +35,14 @@ export interface CreateVnicDetails {
 * <p>
 **Note:** This public IP address is associated with the primary private IP
 * on the VNIC. For more information, see
-* [IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
+* [IP Addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
 * <p>
 **Note:** There's a limit to the number of {@link PublicIp}
 * a VNIC or instance can have. If you try to create a secondary VNIC
 * with an assigned public IP for an instance that has already
 * reached its public IP limit, an error is returned. For information
 * about the public IP limits, see
-* [Public IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
+* [Public IP Addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
 * <p>
 Example: {@code false}
 * <p>
@@ -91,7 +91,7 @@ If you specify a {@code hostnameLabel}, then {@code assignPrivateDnsRecord} must
 * {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp}.
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 When launching an instance, use this {@code hostnameLabel} instead
 * of the deprecated {@code hostnameLabel} in
@@ -139,7 +139,7 @@ Example: {@code 10.0.3.3}
     * Whether the source/destination check is disabled on the VNIC.
 * Defaults to {@code false}, which means the check is performed. For information
 * about why you would skip the source/destination check, see
-* [Using a Private IP as a Route Target](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip).
+* [Using a Private IP as a Route Target](https://docs.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip).
 * <p>
 
 * If you specify a {@code vlanId}, the {@code skipSourceDestCheck} cannot be specified because the
@@ -151,7 +151,7 @@ Example: {@code true}
     */
   "skipSourceDestCheck"?: boolean;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet to create the VNIC in. When launching an instance,
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet to create the VNIC in. When launching an instance,
 * use this {@code subnetId} instead of the deprecated {@code subnetId} in
 * {@link #launchInstanceDetails(LaunchInstanceDetailsRequest) launchInstanceDetails}.
 * At least one of them is required; if you provide both, the values must match.
@@ -164,7 +164,7 @@ If you are an Oracle Cloud VMware Solution customer and creating a secondary
   "subnetId"?: string;
   /**
     * Provide this attribute only if you are an Oracle Cloud VMware Solution
-* customer and creating a secondary VNIC in a VLAN. The value is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN.
+* customer and creating a secondary VNIC in a VLAN. The value is the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN.
 * See {@link Vlan}.
 * <p>
 Provide a {@code vlanId} instead of a {@code subnetId}. If you provide both a

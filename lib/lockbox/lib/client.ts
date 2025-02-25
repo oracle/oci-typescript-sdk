@@ -246,7 +246,7 @@ export class LockboxClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -313,7 +313,7 @@ export class LockboxClient {
    * @param ChangeApprovalTemplateCompartmentRequest
    * @return ChangeApprovalTemplateCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ChangeApprovalTemplateCompartment.ts.html |here} to see how to use ChangeApprovalTemplateCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ChangeApprovalTemplateCompartment.ts.html |here} to see how to use ChangeApprovalTemplateCompartment API.
    */
   public async changeApprovalTemplateCompartment(
     changeApprovalTemplateCompartmentRequest: requests.ChangeApprovalTemplateCompartmentRequest
@@ -387,7 +387,7 @@ export class LockboxClient {
    * @param ChangeLockboxCompartmentRequest
    * @return ChangeLockboxCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ChangeLockboxCompartment.ts.html |here} to see how to use ChangeLockboxCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ChangeLockboxCompartment.ts.html |here} to see how to use ChangeLockboxCompartment API.
    */
   public async changeLockboxCompartment(
     changeLockboxCompartmentRequest: requests.ChangeLockboxCompartmentRequest
@@ -461,7 +461,7 @@ export class LockboxClient {
    * @param CreateAccessRequestRequest
    * @return CreateAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/CreateAccessRequest.ts.html |here} to see how to use CreateAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/CreateAccessRequest.ts.html |here} to see how to use CreateAccessRequest API.
    */
   public async createAccessRequest(
     createAccessRequestRequest: requests.CreateAccessRequestRequest
@@ -551,7 +551,7 @@ export class LockboxClient {
    * @param CreateApprovalTemplateRequest
    * @return CreateApprovalTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/CreateApprovalTemplate.ts.html |here} to see how to use CreateApprovalTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/CreateApprovalTemplate.ts.html |here} to see how to use CreateApprovalTemplate API.
    */
   public async createApprovalTemplate(
     createApprovalTemplateRequest: requests.CreateApprovalTemplateRequest
@@ -636,7 +636,7 @@ export class LockboxClient {
    * @param CreateLockboxRequest
    * @return CreateLockboxResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/CreateLockbox.ts.html |here} to see how to use CreateLockbox API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/CreateLockbox.ts.html |here} to see how to use CreateLockbox API.
    */
   public async createLockbox(
     createLockboxRequest: requests.CreateLockboxRequest
@@ -720,7 +720,7 @@ export class LockboxClient {
    * @param DeleteApprovalTemplateRequest
    * @return DeleteApprovalTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/DeleteApprovalTemplate.ts.html |here} to see how to use DeleteApprovalTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/DeleteApprovalTemplate.ts.html |here} to see how to use DeleteApprovalTemplate API.
    */
   public async deleteApprovalTemplate(
     deleteApprovalTemplateRequest: requests.DeleteApprovalTemplateRequest
@@ -787,7 +787,7 @@ export class LockboxClient {
    * @param DeleteLockboxRequest
    * @return DeleteLockboxResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/DeleteLockbox.ts.html |here} to see how to use DeleteLockbox API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/DeleteLockbox.ts.html |here} to see how to use DeleteLockbox API.
    */
   public async deleteLockbox(
     deleteLockboxRequest: requests.DeleteLockboxRequest
@@ -856,7 +856,7 @@ export class LockboxClient {
    * @param ExportAccessRequestsRequest
    * @return ExportAccessRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ExportAccessRequests.ts.html |here} to see how to use ExportAccessRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ExportAccessRequests.ts.html |here} to see how to use ExportAccessRequests API.
    */
   public async exportAccessRequests(
     exportAccessRequestsRequest: requests.ExportAccessRequestsRequest
@@ -946,7 +946,7 @@ export class LockboxClient {
    * @param GetAccessMaterialsRequest
    * @return GetAccessMaterialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetAccessMaterials.ts.html |here} to see how to use GetAccessMaterials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetAccessMaterials.ts.html |here} to see how to use GetAccessMaterials API.
    */
   public async getAccessMaterials(
     getAccessMaterialsRequest: requests.GetAccessMaterialsRequest
@@ -1016,7 +1016,7 @@ export class LockboxClient {
    * @param GetAccessRequestRequest
    * @return GetAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetAccessRequest.ts.html |here} to see how to use GetAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetAccessRequest.ts.html |here} to see how to use GetAccessRequest API.
    */
   public async getAccessRequest(
     getAccessRequestRequest: requests.GetAccessRequestRequest
@@ -1091,7 +1091,7 @@ export class LockboxClient {
    * @param GetAccessRequestInternalRequest
    * @return GetAccessRequestInternalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetAccessRequestInternal.ts.html |here} to see how to use GetAccessRequestInternal API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetAccessRequestInternal.ts.html |here} to see how to use GetAccessRequestInternal API.
    */
   public async getAccessRequestInternal(
     getAccessRequestInternalRequest: requests.GetAccessRequestInternalRequest
@@ -1166,7 +1166,7 @@ export class LockboxClient {
    * @param GetApprovalTemplateRequest
    * @return GetApprovalTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetApprovalTemplate.ts.html |here} to see how to use GetApprovalTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetApprovalTemplate.ts.html |here} to see how to use GetApprovalTemplate API.
    */
   public async getApprovalTemplate(
     getApprovalTemplateRequest: requests.GetApprovalTemplateRequest
@@ -1241,7 +1241,7 @@ export class LockboxClient {
    * @param GetLockboxRequest
    * @return GetLockboxResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetLockbox.ts.html |here} to see how to use GetLockbox API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetLockbox.ts.html |here} to see how to use GetLockbox API.
    */
   public async getLockbox(
     getLockboxRequest: requests.GetLockboxRequest
@@ -1316,7 +1316,7 @@ export class LockboxClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1396,7 +1396,7 @@ export class LockboxClient {
    * @param HandleAccessRequestRequest
    * @return HandleAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/HandleAccessRequest.ts.html |here} to see how to use HandleAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/HandleAccessRequest.ts.html |here} to see how to use HandleAccessRequest API.
    */
   public async handleAccessRequest(
     handleAccessRequestRequest: requests.HandleAccessRequestRequest
@@ -1475,7 +1475,7 @@ export class LockboxClient {
    * @param ListAccessRequestsRequest
    * @return ListAccessRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListAccessRequests.ts.html |here} to see how to use ListAccessRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListAccessRequests.ts.html |here} to see how to use ListAccessRequests API.
    */
   public async listAccessRequests(
     listAccessRequestsRequest: requests.ListAccessRequestsRequest
@@ -1563,7 +1563,7 @@ export class LockboxClient {
    * @param ListApprovalTemplatesRequest
    * @return ListApprovalTemplatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListApprovalTemplates.ts.html |here} to see how to use ListApprovalTemplates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListApprovalTemplates.ts.html |here} to see how to use ListApprovalTemplates API.
    */
   public async listApprovalTemplates(
     listApprovalTemplatesRequest: requests.ListApprovalTemplatesRequest
@@ -1646,7 +1646,7 @@ export class LockboxClient {
    * @param ListLockboxesRequest
    * @return ListLockboxesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListLockboxes.ts.html |here} to see how to use ListLockboxes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListLockboxes.ts.html |here} to see how to use ListLockboxes API.
    */
   public async listLockboxes(
     listLockboxesRequest: requests.ListLockboxesRequest
@@ -1732,7 +1732,7 @@ export class LockboxClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1813,7 +1813,7 @@ export class LockboxClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1894,7 +1894,7 @@ export class LockboxClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1976,7 +1976,7 @@ export class LockboxClient {
    * @param UpdateApprovalTemplateRequest
    * @return UpdateApprovalTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/UpdateApprovalTemplate.ts.html |here} to see how to use UpdateApprovalTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/UpdateApprovalTemplate.ts.html |here} to see how to use UpdateApprovalTemplate API.
    */
   public async updateApprovalTemplate(
     updateApprovalTemplateRequest: requests.UpdateApprovalTemplateRequest
@@ -2057,7 +2057,7 @@ export class LockboxClient {
    * @param UpdateLockboxRequest
    * @return UpdateLockboxResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/UpdateLockbox.ts.html |here} to see how to use UpdateLockbox API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lockbox/UpdateLockbox.ts.html |here} to see how to use UpdateLockbox API.
    */
   public async updateLockbox(
     updateLockboxRequest: requests.UpdateLockboxRequest

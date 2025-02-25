@@ -29,7 +29,7 @@ export interface ListWorkRequestsResponse {
 * GET request to get the next batch of work requests. Repeat this process to retrieve the entire list of work
 * requests.
 * <p>
-For more details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+For more details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * 
      */
   "opcNextPage": string;

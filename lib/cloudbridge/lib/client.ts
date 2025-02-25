@@ -245,7 +245,7 @@ export class CommonClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -312,7 +312,7 @@ export class CommonClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -393,7 +393,7 @@ export class CommonClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -474,7 +474,7 @@ export class CommonClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -555,7 +555,7 @@ export class CommonClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -845,7 +845,7 @@ export class DiscoveryClient {
    * @param ChangeAssetSourceCompartmentRequest
    * @return ChangeAssetSourceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeAssetSourceCompartment.ts.html |here} to see how to use ChangeAssetSourceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeAssetSourceCompartment.ts.html |here} to see how to use ChangeAssetSourceCompartment API.
    */
   public async changeAssetSourceCompartment(
     changeAssetSourceCompartmentRequest: requests.ChangeAssetSourceCompartmentRequest
@@ -919,7 +919,7 @@ export class DiscoveryClient {
    * @param ChangeDiscoveryScheduleCompartmentRequest
    * @return ChangeDiscoveryScheduleCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeDiscoveryScheduleCompartment.ts.html |here} to see how to use ChangeDiscoveryScheduleCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeDiscoveryScheduleCompartment.ts.html |here} to see how to use ChangeDiscoveryScheduleCompartment API.
    */
   public async changeDiscoveryScheduleCompartment(
     changeDiscoveryScheduleCompartmentRequest: requests.ChangeDiscoveryScheduleCompartmentRequest
@@ -994,7 +994,7 @@ export class DiscoveryClient {
    * @param CreateAssetSourceRequest
    * @return CreateAssetSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateAssetSource.ts.html |here} to see how to use CreateAssetSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateAssetSource.ts.html |here} to see how to use CreateAssetSource API.
    */
   public async createAssetSource(
     createAssetSourceRequest: requests.CreateAssetSourceRequest
@@ -1083,7 +1083,7 @@ export class DiscoveryClient {
    * @param CreateDiscoveryScheduleRequest
    * @return CreateDiscoveryScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateDiscoverySchedule.ts.html |here} to see how to use CreateDiscoverySchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateDiscoverySchedule.ts.html |here} to see how to use CreateDiscoverySchedule API.
    */
   public async createDiscoverySchedule(
     createDiscoveryScheduleRequest: requests.CreateDiscoveryScheduleRequest
@@ -1163,7 +1163,7 @@ export class DiscoveryClient {
    * @param DeleteAssetSourceRequest
    * @return DeleteAssetSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteAssetSource.ts.html |here} to see how to use DeleteAssetSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteAssetSource.ts.html |here} to see how to use DeleteAssetSource API.
    */
   public async deleteAssetSource(
     deleteAssetSourceRequest: requests.DeleteAssetSourceRequest
@@ -1235,7 +1235,7 @@ export class DiscoveryClient {
    * @param DeleteDiscoveryScheduleRequest
    * @return DeleteDiscoveryScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteDiscoverySchedule.ts.html |here} to see how to use DeleteDiscoverySchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteDiscoverySchedule.ts.html |here} to see how to use DeleteDiscoverySchedule API.
    */
   public async deleteDiscoverySchedule(
     deleteDiscoveryScheduleRequest: requests.DeleteDiscoveryScheduleRequest
@@ -1303,7 +1303,7 @@ export class DiscoveryClient {
    * @param GetAssetSourceRequest
    * @return GetAssetSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetAssetSource.ts.html |here} to see how to use GetAssetSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetAssetSource.ts.html |here} to see how to use GetAssetSource API.
    */
   public async getAssetSource(
     getAssetSourceRequest: requests.GetAssetSourceRequest
@@ -1378,7 +1378,7 @@ export class DiscoveryClient {
    * @param GetDiscoveryScheduleRequest
    * @return GetDiscoveryScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetDiscoverySchedule.ts.html |here} to see how to use GetDiscoverySchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetDiscoverySchedule.ts.html |here} to see how to use GetDiscoverySchedule API.
    */
   public async getDiscoverySchedule(
     getDiscoveryScheduleRequest: requests.GetDiscoveryScheduleRequest
@@ -1453,7 +1453,7 @@ export class DiscoveryClient {
    * @param ListAssetSourceConnectionsRequest
    * @return ListAssetSourceConnectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListAssetSourceConnections.ts.html |here} to see how to use ListAssetSourceConnections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListAssetSourceConnections.ts.html |here} to see how to use ListAssetSourceConnections API.
    */
   public async listAssetSourceConnections(
     listAssetSourceConnectionsRequest: requests.ListAssetSourceConnectionsRequest
@@ -1533,7 +1533,7 @@ export class DiscoveryClient {
    * @param ListAssetSourcesRequest
    * @return ListAssetSourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListAssetSources.ts.html |here} to see how to use ListAssetSources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListAssetSources.ts.html |here} to see how to use ListAssetSources API.
    */
   public async listAssetSources(
     listAssetSourcesRequest: requests.ListAssetSourcesRequest
@@ -1615,7 +1615,7 @@ export class DiscoveryClient {
    * @param ListDiscoverySchedulesRequest
    * @return ListDiscoverySchedulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListDiscoverySchedules.ts.html |here} to see how to use ListDiscoverySchedules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListDiscoverySchedules.ts.html |here} to see how to use ListDiscoverySchedules API.
    */
   public async listDiscoverySchedules(
     listDiscoverySchedulesRequest: requests.ListDiscoverySchedulesRequest
@@ -1698,7 +1698,7 @@ export class DiscoveryClient {
    * @param ListSupportedCloudRegionsRequest
    * @return ListSupportedCloudRegionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListSupportedCloudRegions.ts.html |here} to see how to use ListSupportedCloudRegions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListSupportedCloudRegions.ts.html |here} to see how to use ListSupportedCloudRegions API.
    */
   public async listSupportedCloudRegions(
     listSupportedCloudRegionsRequest: requests.ListSupportedCloudRegionsRequest
@@ -1779,7 +1779,7 @@ export class DiscoveryClient {
    * @param RefreshAssetSourceRequest
    * @return RefreshAssetSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/RefreshAssetSource.ts.html |here} to see how to use RefreshAssetSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/RefreshAssetSource.ts.html |here} to see how to use RefreshAssetSource API.
    */
   public async refreshAssetSource(
     refreshAssetSourceRequest: requests.RefreshAssetSourceRequest
@@ -1851,7 +1851,7 @@ export class DiscoveryClient {
    * @param UpdateAssetSourceRequest
    * @return UpdateAssetSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateAssetSource.ts.html |here} to see how to use UpdateAssetSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateAssetSource.ts.html |here} to see how to use UpdateAssetSource API.
    */
   public async updateAssetSource(
     updateAssetSourceRequest: requests.UpdateAssetSourceRequest
@@ -1928,7 +1928,7 @@ export class DiscoveryClient {
    * @param UpdateDiscoveryScheduleRequest
    * @return UpdateDiscoveryScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateDiscoverySchedule.ts.html |here} to see how to use UpdateDiscoverySchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateDiscoverySchedule.ts.html |here} to see how to use UpdateDiscoverySchedule API.
    */
   public async updateDiscoverySchedule(
     updateDiscoveryScheduleRequest: requests.UpdateDiscoveryScheduleRequest
@@ -2220,7 +2220,7 @@ export class InventoryClient {
    * @param AnalyzeAssetsRequest
    * @return AnalyzeAssetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/AnalyzeAssets.ts.html |here} to see how to use AnalyzeAssets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/AnalyzeAssets.ts.html |here} to see how to use AnalyzeAssets API.
    */
   public async analyzeAssets(
     analyzeAssetsRequest: requests.AnalyzeAssetsRequest
@@ -2305,7 +2305,7 @@ export class InventoryClient {
    * @param ChangeAssetCompartmentRequest
    * @return ChangeAssetCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeAssetCompartment.ts.html |here} to see how to use ChangeAssetCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeAssetCompartment.ts.html |here} to see how to use ChangeAssetCompartment API.
    */
   public async changeAssetCompartment(
     changeAssetCompartmentRequest: requests.ChangeAssetCompartmentRequest
@@ -2378,7 +2378,7 @@ export class InventoryClient {
    * @param ChangeAssetTagsRequest
    * @return ChangeAssetTagsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeAssetTags.ts.html |here} to see how to use ChangeAssetTags API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeAssetTags.ts.html |here} to see how to use ChangeAssetTags API.
    */
   public async changeAssetTags(
     changeAssetTagsRequest: requests.ChangeAssetTagsRequest
@@ -2460,7 +2460,7 @@ export class InventoryClient {
    * @param CreateAssetRequest
    * @return CreateAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateAsset.ts.html |here} to see how to use CreateAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateAsset.ts.html |here} to see how to use CreateAsset API.
    */
   public async createAsset(
     createAssetRequest: requests.CreateAssetRequest
@@ -2539,7 +2539,7 @@ export class InventoryClient {
    * @param CreateInventoryRequest
    * @return CreateInventoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateInventory.ts.html |here} to see how to use CreateInventory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateInventory.ts.html |here} to see how to use CreateInventory API.
    */
   public async createInventory(
     createInventoryRequest: requests.CreateInventoryRequest
@@ -2614,7 +2614,7 @@ export class InventoryClient {
    * @param DeleteAssetRequest
    * @return DeleteAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteAsset.ts.html |here} to see how to use DeleteAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteAsset.ts.html |here} to see how to use DeleteAsset API.
    */
   public async deleteAsset(
     deleteAssetRequest: requests.DeleteAssetRequest
@@ -2681,7 +2681,7 @@ export class InventoryClient {
    * @param DeleteInventoryRequest
    * @return DeleteInventoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteInventory.ts.html |here} to see how to use DeleteInventory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteInventory.ts.html |here} to see how to use DeleteInventory API.
    */
   public async deleteInventory(
     deleteInventoryRequest: requests.DeleteInventoryRequest
@@ -2753,7 +2753,7 @@ export class InventoryClient {
    * @param GetAssetRequest
    * @return GetAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetAsset.ts.html |here} to see how to use GetAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetAsset.ts.html |here} to see how to use GetAsset API.
    */
   public async getAsset(
     getAssetRequest: requests.GetAssetRequest
@@ -2828,7 +2828,7 @@ export class InventoryClient {
    * @param GetInventoryRequest
    * @return GetInventoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetInventory.ts.html |here} to see how to use GetInventory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetInventory.ts.html |here} to see how to use GetInventory API.
    */
   public async getInventory(
     getInventoryRequest: requests.GetInventoryRequest
@@ -2908,7 +2908,7 @@ export class InventoryClient {
    * @param ImportInventoryRequest
    * @return ImportInventoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ImportInventory.ts.html |here} to see how to use ImportInventory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ImportInventory.ts.html |here} to see how to use ImportInventory API.
    */
   public async importInventory(
     importInventoryRequest: requests.ImportInventoryRequest
@@ -2986,7 +2986,7 @@ export class InventoryClient {
    * @param ListAssetsRequest
    * @return ListAssetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListAssets.ts.html |here} to see how to use ListAssets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListAssets.ts.html |here} to see how to use ListAssets API.
    */
   public async listAssets(
     listAssetsRequest: requests.ListAssetsRequest
@@ -3072,7 +3072,7 @@ export class InventoryClient {
    * @param ListHistoricalMetricsRequest
    * @return ListHistoricalMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListHistoricalMetrics.ts.html |here} to see how to use ListHistoricalMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListHistoricalMetrics.ts.html |here} to see how to use ListHistoricalMetrics API.
    */
   public async listHistoricalMetrics(
     listHistoricalMetricsRequest: requests.ListHistoricalMetricsRequest
@@ -3153,7 +3153,7 @@ export class InventoryClient {
    * @param ListInventoriesRequest
    * @return ListInventoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListInventories.ts.html |here} to see how to use ListInventories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListInventories.ts.html |here} to see how to use ListInventories API.
    */
   public async listInventories(
     listInventoriesRequest: requests.ListInventoriesRequest
@@ -3233,7 +3233,7 @@ export class InventoryClient {
    * @param SubmitHistoricalMetricsRequest
    * @return SubmitHistoricalMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/SubmitHistoricalMetrics.ts.html |here} to see how to use SubmitHistoricalMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/SubmitHistoricalMetrics.ts.html |here} to see how to use SubmitHistoricalMetrics API.
    */
   public async submitHistoricalMetrics(
     submitHistoricalMetricsRequest: requests.SubmitHistoricalMetricsRequest
@@ -3315,7 +3315,7 @@ export class InventoryClient {
    * @param UpdateAssetRequest
    * @return UpdateAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateAsset.ts.html |here} to see how to use UpdateAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateAsset.ts.html |here} to see how to use UpdateAsset API.
    */
   public async updateAsset(
     updateAssetRequest: requests.UpdateAssetRequest
@@ -3396,7 +3396,7 @@ export class InventoryClient {
    * @param UpdateInventoryRequest
    * @return UpdateInventoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateInventory.ts.html |here} to see how to use UpdateInventory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateInventory.ts.html |here} to see how to use UpdateInventory API.
    */
   public async updateInventory(
     updateInventoryRequest: requests.UpdateInventoryRequest
@@ -3685,7 +3685,7 @@ export class OcbAgentSvcClient {
    * @param AddAgentDependencyRequest
    * @return AddAgentDependencyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/AddAgentDependency.ts.html |here} to see how to use AddAgentDependency API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/AddAgentDependency.ts.html |here} to see how to use AddAgentDependency API.
    */
   public async addAgentDependency(
     addAgentDependencyRequest: requests.AddAgentDependencyRequest
@@ -3767,7 +3767,7 @@ export class OcbAgentSvcClient {
    * @param ChangeAgentCompartmentRequest
    * @return ChangeAgentCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeAgentCompartment.ts.html |here} to see how to use ChangeAgentCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeAgentCompartment.ts.html |here} to see how to use ChangeAgentCompartment API.
    */
   public async changeAgentCompartment(
     changeAgentCompartmentRequest: requests.ChangeAgentCompartmentRequest
@@ -3846,7 +3846,7 @@ export class OcbAgentSvcClient {
    * @param ChangeAgentDependencyCompartmentRequest
    * @return ChangeAgentDependencyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeAgentDependencyCompartment.ts.html |here} to see how to use ChangeAgentDependencyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeAgentDependencyCompartment.ts.html |here} to see how to use ChangeAgentDependencyCompartment API.
    */
   public async changeAgentDependencyCompartment(
     changeAgentDependencyCompartmentRequest: requests.ChangeAgentDependencyCompartmentRequest
@@ -3920,7 +3920,7 @@ export class OcbAgentSvcClient {
    * @param ChangeEnvironmentCompartmentRequest
    * @return ChangeEnvironmentCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeEnvironmentCompartment.ts.html |here} to see how to use ChangeEnvironmentCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ChangeEnvironmentCompartment.ts.html |here} to see how to use ChangeEnvironmentCompartment API.
    */
   public async changeEnvironmentCompartment(
     changeEnvironmentCompartmentRequest: requests.ChangeEnvironmentCompartmentRequest
@@ -4000,7 +4000,7 @@ export class OcbAgentSvcClient {
    * @param CreateAgentRequest
    * @return CreateAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateAgent.ts.html |here} to see how to use CreateAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateAgent.ts.html |here} to see how to use CreateAgent API.
    */
   public async createAgent(
     createAgentRequest: requests.CreateAgentRequest
@@ -4080,7 +4080,7 @@ export class OcbAgentSvcClient {
    * @param CreateAgentDependencyRequest
    * @return CreateAgentDependencyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateAgentDependency.ts.html |here} to see how to use CreateAgentDependency API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateAgentDependency.ts.html |here} to see how to use CreateAgentDependency API.
    */
   public async createAgentDependency(
     createAgentDependencyRequest: requests.CreateAgentDependencyRequest
@@ -4166,7 +4166,7 @@ export class OcbAgentSvcClient {
    * @param CreateEnvironmentRequest
    * @return CreateEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateEnvironment.ts.html |here} to see how to use CreateEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/CreateEnvironment.ts.html |here} to see how to use CreateEnvironment API.
    */
   public async createEnvironment(
     createEnvironmentRequest: requests.CreateEnvironmentRequest
@@ -4245,7 +4245,7 @@ export class OcbAgentSvcClient {
    * @param DeleteAgentRequest
    * @return DeleteAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteAgent.ts.html |here} to see how to use DeleteAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteAgent.ts.html |here} to see how to use DeleteAgent API.
    */
   public async deleteAgent(
     deleteAgentRequest: requests.DeleteAgentRequest
@@ -4313,7 +4313,7 @@ export class OcbAgentSvcClient {
    * @param DeleteAgentDependencyRequest
    * @return DeleteAgentDependencyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteAgentDependency.ts.html |here} to see how to use DeleteAgentDependency API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteAgentDependency.ts.html |here} to see how to use DeleteAgentDependency API.
    */
   public async deleteAgentDependency(
     deleteAgentDependencyRequest: requests.DeleteAgentDependencyRequest
@@ -4381,7 +4381,7 @@ export class OcbAgentSvcClient {
    * @param DeleteEnvironmentRequest
    * @return DeleteEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteEnvironment.ts.html |here} to see how to use DeleteEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteEnvironment.ts.html |here} to see how to use DeleteEnvironment API.
    */
   public async deleteEnvironment(
     deleteEnvironmentRequest: requests.DeleteEnvironmentRequest
@@ -4448,7 +4448,7 @@ export class OcbAgentSvcClient {
    * @param GetAgentRequest
    * @return GetAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetAgent.ts.html |here} to see how to use GetAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetAgent.ts.html |here} to see how to use GetAgent API.
    */
   public async getAgent(
     getAgentRequest: requests.GetAgentRequest
@@ -4523,7 +4523,7 @@ export class OcbAgentSvcClient {
    * @param GetAgentDependencyRequest
    * @return GetAgentDependencyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetAgentDependency.ts.html |here} to see how to use GetAgentDependency API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetAgentDependency.ts.html |here} to see how to use GetAgentDependency API.
    */
   public async getAgentDependency(
     getAgentDependencyRequest: requests.GetAgentDependencyRequest
@@ -4598,7 +4598,7 @@ export class OcbAgentSvcClient {
    * @param GetEnvironmentRequest
    * @return GetEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetEnvironment.ts.html |here} to see how to use GetEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetEnvironment.ts.html |here} to see how to use GetEnvironment API.
    */
   public async getEnvironment(
     getEnvironmentRequest: requests.GetEnvironmentRequest
@@ -4673,7 +4673,7 @@ export class OcbAgentSvcClient {
    * @param GetPluginRequest
    * @return GetPluginResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetPlugin.ts.html |here} to see how to use GetPlugin API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/GetPlugin.ts.html |here} to see how to use GetPlugin API.
    */
   public async getPlugin(
     getPluginRequest: requests.GetPluginRequest
@@ -4750,7 +4750,7 @@ export class OcbAgentSvcClient {
    * @param ListAgentDependenciesRequest
    * @return ListAgentDependenciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListAgentDependencies.ts.html |here} to see how to use ListAgentDependencies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListAgentDependencies.ts.html |here} to see how to use ListAgentDependencies API.
    */
   public async listAgentDependencies(
     listAgentDependenciesRequest: requests.ListAgentDependenciesRequest
@@ -4835,7 +4835,7 @@ export class OcbAgentSvcClient {
    * @param ListAgentsRequest
    * @return ListAgentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListAgents.ts.html |here} to see how to use ListAgents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListAgents.ts.html |here} to see how to use ListAgents API.
    */
   public async listAgents(
     listAgentsRequest: requests.ListAgentsRequest
@@ -4919,7 +4919,7 @@ export class OcbAgentSvcClient {
    * @param ListApplianceImagesRequest
    * @return ListApplianceImagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListApplianceImages.ts.html |here} to see how to use ListApplianceImages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListApplianceImages.ts.html |here} to see how to use ListApplianceImages API.
    */
   public async listApplianceImages(
     listApplianceImagesRequest: requests.ListApplianceImagesRequest
@@ -5000,7 +5000,7 @@ export class OcbAgentSvcClient {
    * @param ListEnvironmentsRequest
    * @return ListEnvironmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListEnvironments.ts.html |here} to see how to use ListEnvironments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/ListEnvironments.ts.html |here} to see how to use ListEnvironments API.
    */
   public async listEnvironments(
     listEnvironmentsRequest: requests.ListEnvironmentsRequest
@@ -5082,7 +5082,7 @@ export class OcbAgentSvcClient {
    * @param RemoveAgentDependencyRequest
    * @return RemoveAgentDependencyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/RemoveAgentDependency.ts.html |here} to see how to use RemoveAgentDependency API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/RemoveAgentDependency.ts.html |here} to see how to use RemoveAgentDependency API.
    */
   public async removeAgentDependency(
     removeAgentDependencyRequest: requests.RemoveAgentDependencyRequest
@@ -5165,7 +5165,7 @@ export class OcbAgentSvcClient {
    * @param UpdateAgentRequest
    * @return UpdateAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateAgent.ts.html |here} to see how to use UpdateAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateAgent.ts.html |here} to see how to use UpdateAgent API.
    */
   public async updateAgent(
     updateAgentRequest: requests.UpdateAgentRequest
@@ -5247,7 +5247,7 @@ export class OcbAgentSvcClient {
    * @param UpdateAgentDependencyRequest
    * @return UpdateAgentDependencyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateAgentDependency.ts.html |here} to see how to use UpdateAgentDependency API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateAgentDependency.ts.html |here} to see how to use UpdateAgentDependency API.
    */
   public async updateAgentDependency(
     updateAgentDependencyRequest: requests.UpdateAgentDependencyRequest
@@ -5326,7 +5326,7 @@ export class OcbAgentSvcClient {
    * @param UpdateEnvironmentRequest
    * @return UpdateEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateEnvironment.ts.html |here} to see how to use UpdateEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateEnvironment.ts.html |here} to see how to use UpdateEnvironment API.
    */
   public async updateEnvironment(
     updateEnvironmentRequest: requests.UpdateEnvironmentRequest
@@ -5408,7 +5408,7 @@ export class OcbAgentSvcClient {
    * @param UpdatePluginRequest
    * @return UpdatePluginResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdatePlugin.ts.html |here} to see how to use UpdatePlugin API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdatePlugin.ts.html |here} to see how to use UpdatePlugin API.
    */
   public async updatePlugin(
     updatePluginRequest: requests.UpdatePluginRequest

@@ -39,7 +39,7 @@ export interface ImportDeploymentWalletDetails {
    */
   "walletBackupSecretName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment, where the secret will be created in.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment, where the secret will be created in.
    *
    */
   "walletBackupSecretCompartmentId"?: string;

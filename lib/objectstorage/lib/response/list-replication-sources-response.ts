@@ -32,7 +32,7 @@ export interface ListReplicationSourcesResponse {
 * policies to get. Include the header's value as the {@code page} parameter in the subsequent GET request to get the
 * next batch of policies. Repeat this process to retrieve the entire list of sources.
 * <p>
-For more details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+For more details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * 
      */
   "opcNextPage": string;

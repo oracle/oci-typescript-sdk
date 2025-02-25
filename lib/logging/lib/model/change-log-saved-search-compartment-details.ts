@@ -3,7 +3,7 @@
  * Use the Logging Management API to create, read, list, update, move and delete
 log groups, log objects, log saved searches, and agent configurations.
 
-For more information, see [Logging Overview](/iaas/Content/Logging/Concepts/loggingoverview.htm).
+For more information, see [Logging Overview](https://docs.oracle.com/iaas/Content/Logging/Concepts/loggingoverview.htm).
 
  * OpenAPI spec version: 20200531
  * 
@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface ChangeLogSavedSearchCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment into which the resource should be moved.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment into which the resource should be moved.
    *
    */
   "compartmentId": string;

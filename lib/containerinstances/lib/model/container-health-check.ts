@@ -87,11 +87,6 @@ export namespace ContainerHealthCheck {
             <model.ContainerHttpHealthCheck>(<object>jsonObj),
             true
           );
-        case "COMMAND":
-          return model.ContainerCommandHealthCheck.getJsonObj(
-            <model.ContainerCommandHealthCheck>(<object>jsonObj),
-            true
-          );
         default:
           if (common.LOG.logger)
             common.LOG.logger.info(`Unknown value for: ${obj.healthCheckType}`);
@@ -112,11 +107,6 @@ export namespace ContainerHealthCheck {
         case "HTTP":
           return model.ContainerHttpHealthCheck.getDeserializedJsonObj(
             <model.ContainerHttpHealthCheck>(<object>jsonObj),
-            true
-          );
-        case "COMMAND":
-          return model.ContainerCommandHealthCheck.getDeserializedJsonObj(
-            <model.ContainerCommandHealthCheck>(<object>jsonObj),
             true
           );
         default:

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudAutonomousVmCluster.ts.html |here} to see how to use CreateCloudAutonomousVmClusterRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudAutonomousVmCluster.ts.html |here} to see how to use CreateCloudAutonomousVmClusterRequest.
  */
 export interface CreateCloudAutonomousVmClusterRequest extends common.BaseRequest {
   /**

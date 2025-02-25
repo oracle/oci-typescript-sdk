@@ -244,7 +244,7 @@ export class DataLabelingClient {
    * @param CreateAnnotationRequest
    * @return CreateAnnotationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/CreateAnnotation.ts.html |here} to see how to use CreateAnnotation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/CreateAnnotation.ts.html |here} to see how to use CreateAnnotation API.
    */
   public async createAnnotation(
     createAnnotationRequest: requests.CreateAnnotationRequest
@@ -325,7 +325,7 @@ export class DataLabelingClient {
    * @param CreateRecordRequest
    * @return CreateRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/CreateRecord.ts.html |here} to see how to use CreateRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/CreateRecord.ts.html |here} to see how to use CreateRecord API.
    */
   public async createRecord(
     createRecordRequest: requests.CreateRecordRequest
@@ -406,7 +406,7 @@ export class DataLabelingClient {
    * @param DeleteAnnotationRequest
    * @return DeleteAnnotationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/DeleteAnnotation.ts.html |here} to see how to use DeleteAnnotation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/DeleteAnnotation.ts.html |here} to see how to use DeleteAnnotation API.
    */
   public async deleteAnnotation(
     deleteAnnotationRequest: requests.DeleteAnnotationRequest
@@ -475,7 +475,7 @@ export class DataLabelingClient {
    * @param DeleteRecordRequest
    * @return DeleteRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/DeleteRecord.ts.html |here} to see how to use DeleteRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/DeleteRecord.ts.html |here} to see how to use DeleteRecord API.
    */
   public async deleteRecord(
     deleteRecordRequest: requests.DeleteRecordRequest
@@ -544,7 +544,7 @@ export class DataLabelingClient {
    * @param GetAnnotationRequest
    * @return GetAnnotationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/GetAnnotation.ts.html |here} to see how to use GetAnnotation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/GetAnnotation.ts.html |here} to see how to use GetAnnotation API.
    */
   public async getAnnotation(
     getAnnotationRequest: requests.GetAnnotationRequest
@@ -620,7 +620,7 @@ export class DataLabelingClient {
    * @param GetDatasetRequest
    * @return GetDatasetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/GetDataset.ts.html |here} to see how to use GetDataset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/GetDataset.ts.html |here} to see how to use GetDataset API.
    */
   public async getDataset(
     getDatasetRequest: requests.GetDatasetRequest
@@ -697,7 +697,7 @@ export class DataLabelingClient {
    * @param GetRecordRequest
    * @return GetRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/GetRecord.ts.html |here} to see how to use GetRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/GetRecord.ts.html |here} to see how to use GetRecord API.
    */
   public async getRecord(
     getRecordRequest: requests.GetRecordRequest
@@ -774,7 +774,7 @@ export class DataLabelingClient {
    * @param GetRecordContentRequest
    * @return GetRecordContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/GetRecordContent.ts.html |here} to see how to use GetRecordContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/GetRecordContent.ts.html |here} to see how to use GetRecordContent API.
    */
   public async getRecordContent(
     getRecordContentRequest: requests.GetRecordContentRequest
@@ -872,7 +872,7 @@ export class DataLabelingClient {
    * @param GetRecordPreviewContentRequest
    * @return GetRecordPreviewContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/GetRecordPreviewContent.ts.html |here} to see how to use GetRecordPreviewContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/GetRecordPreviewContent.ts.html |here} to see how to use GetRecordPreviewContent API.
    */
   public async getRecordPreviewContent(
     getRecordPreviewContentRequest: requests.GetRecordPreviewContentRequest
@@ -971,7 +971,7 @@ export class DataLabelingClient {
    * @param ListAnnotationsRequest
    * @return ListAnnotationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/ListAnnotations.ts.html |here} to see how to use ListAnnotations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/ListAnnotations.ts.html |here} to see how to use ListAnnotations API.
    */
   public async listAnnotations(
     listAnnotationsRequest: requests.ListAnnotationsRequest
@@ -1059,7 +1059,7 @@ export class DataLabelingClient {
    * @param ListRecordsRequest
    * @return ListRecordsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/ListRecords.ts.html |here} to see how to use ListRecords API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/ListRecords.ts.html |here} to see how to use ListRecords API.
    */
   public async listRecords(
     listRecordsRequest: requests.ListRecordsRequest
@@ -1146,7 +1146,7 @@ export class DataLabelingClient {
    * @param SummarizeAnnotationAnalyticsRequest
    * @return SummarizeAnnotationAnalyticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/SummarizeAnnotationAnalytics.ts.html |here} to see how to use SummarizeAnnotationAnalytics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/SummarizeAnnotationAnalytics.ts.html |here} to see how to use SummarizeAnnotationAnalytics API.
    */
   public async summarizeAnnotationAnalytics(
     summarizeAnnotationAnalyticsRequest: requests.SummarizeAnnotationAnalyticsRequest
@@ -1232,7 +1232,7 @@ export class DataLabelingClient {
    * @param SummarizeRecordAnalyticsRequest
    * @return SummarizeRecordAnalyticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/SummarizeRecordAnalytics.ts.html |here} to see how to use SummarizeRecordAnalytics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/SummarizeRecordAnalytics.ts.html |here} to see how to use SummarizeRecordAnalytics API.
    */
   public async summarizeRecordAnalytics(
     summarizeRecordAnalyticsRequest: requests.SummarizeRecordAnalyticsRequest
@@ -1317,7 +1317,7 @@ export class DataLabelingClient {
    * @param UpdateAnnotationRequest
    * @return UpdateAnnotationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/UpdateAnnotation.ts.html |here} to see how to use UpdateAnnotation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/UpdateAnnotation.ts.html |here} to see how to use UpdateAnnotation API.
    */
   public async updateAnnotation(
     updateAnnotationRequest: requests.UpdateAnnotationRequest
@@ -1400,7 +1400,7 @@ export class DataLabelingClient {
    * @param UpdateRecordRequest
    * @return UpdateRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/UpdateRecord.ts.html |here} to see how to use UpdateRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservicedataplane/UpdateRecord.ts.html |here} to see how to use UpdateRecord API.
    */
   public async updateRecord(
     updateRecordRequest: requests.UpdateRecordRequest

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ChangePrivateEndpointCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the resource to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the resource to.
    *
    */
   "compartmentId": string;

@@ -15,17 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemanagerproxy/ListServiceEnvironments.ts.html |here} to see how to use ListServiceEnvironmentsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemanagerproxy/ListServiceEnvironments.ts.html |here} to see how to use ListServiceEnvironmentsRequest.
  */
 export interface ListServiceEnvironmentsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) for the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the compartment.
    */
   "compartmentId": string;
   /**
    * The unique identifier associated with the service environment.
    * <p>
-   **Note:** Not an [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   **Note:** Not an [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "serviceEnvironmentId"?: string;

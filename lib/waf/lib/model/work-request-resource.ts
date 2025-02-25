@@ -33,7 +33,7 @@ export interface WorkRequestResource {
    */
   "actionType": WorkRequestResource.ActionType;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the resource the WorkRequest affects.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource the WorkRequest affects.
    */
   "identifier": string;
   /**

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerRepository.ts.html |here} to see how to use UpdateContainerRepositoryRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerRepository.ts.html |here} to see how to use UpdateContainerRepositoryRequest.
  */
 export interface UpdateContainerRepositoryRequest extends common.BaseRequest {
   /**
- * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container repository.
+ * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container repository.
 * <p>
 Example: {@code ocid1.containerrepo.oc1..exampleuniqueID}
 * 

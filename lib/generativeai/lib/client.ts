@@ -2,11 +2,11 @@
  * Generative AI Service Management API
  * OCI Generative AI is a fully managed service that provides a set of state-of-the-art, customizable large language models (LLMs) that cover a wide range of use cases for text generation, summarization, and text embeddings. 
 
-Use the Generative AI service management API to create and manage [dedicated AI clusters](#/en/generative-ai/latest/DedicatedAiCluster/), [endpoints](#/en/generative-ai/latest/Endpoint/), [custom models](#/en/generative-ai/latest/Model/), and [work requests](#/en/generative-ai/latest/WorkRequest/) in the Generative AI service. For example, create a custom model by fine-tuning an out-of-the-box model using your own data, on a fine-tuning dedicated AI cluster. Then, create a hosting dedicated AI cluster with an endpoint to host your custom model. 
+Use the Generative AI service management API to create and manage {@link DedicatedAiCluster}, {@link Endpoint}, {@link Model}, and {@link WorkRequest} in the Generative AI service. For example, create a custom model by fine-tuning an out-of-the-box model using your own data, on a fine-tuning dedicated AI cluster. Then, create a hosting dedicated AI cluster with an endpoint to host your custom model. 
 
-To access your custom model endpoints, or to try the out-of-the-box models to generate text, summarize, and create text embeddings see the [Generative AI Inference API](/iaas/api/#/en/generative-ai-inference/latest/).
+To access your custom model endpoints, or to try the out-of-the-box models to generate text, summarize, and create text embeddings see the [Generative AI Inference API](https://docs.oracle.com/iaas/api/#/en/generative-ai-inference/latest/).
 
-To learn more about the service, see the [Generative AI documentation](/iaas/Content/generative-ai/home.htm).
+To learn more about the service, see the [Generative AI documentation](https://docs.oracle.com/iaas/Content/generative-ai/home.htm).
 
  * OpenAPI spec version: 20231130
  * 
@@ -245,12 +245,12 @@ export class GenerativeAiClient {
   }
 
   /**
-   * Moves a dedicated AI cluster into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Moves a dedicated AI cluster into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDedicatedAiClusterCompartmentRequest
    * @return ChangeDedicatedAiClusterCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeDedicatedAiClusterCompartment.ts.html |here} to see how to use ChangeDedicatedAiClusterCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeDedicatedAiClusterCompartment.ts.html |here} to see how to use ChangeDedicatedAiClusterCompartment API.
    */
   public async changeDedicatedAiClusterCompartment(
     changeDedicatedAiClusterCompartmentRequest: requests.ChangeDedicatedAiClusterCompartmentRequest
@@ -321,12 +321,12 @@ export class GenerativeAiClient {
   }
 
   /**
-   * Moves an endpoint into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Moves an endpoint into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeEndpointCompartmentRequest
    * @return ChangeEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeEndpointCompartment.ts.html |here} to see how to use ChangeEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeEndpointCompartment.ts.html |here} to see how to use ChangeEndpointCompartment API.
    */
   public async changeEndpointCompartment(
     changeEndpointCompartmentRequest: requests.ChangeEndpointCompartmentRequest
@@ -395,12 +395,12 @@ export class GenerativeAiClient {
   }
 
   /**
-   * Moves a custom model into a different compartment. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Moves a custom model into a different compartment. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeModelCompartmentRequest
    * @return ChangeModelCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeModelCompartment.ts.html |here} to see how to use ChangeModelCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeModelCompartment.ts.html |here} to see how to use ChangeModelCompartment API.
    */
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
@@ -474,7 +474,7 @@ export class GenerativeAiClient {
    * @param CreateDedicatedAiClusterRequest
    * @return CreateDedicatedAiClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateDedicatedAiCluster.ts.html |here} to see how to use CreateDedicatedAiCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateDedicatedAiCluster.ts.html |here} to see how to use CreateDedicatedAiCluster API.
    */
   public async createDedicatedAiCluster(
     createDedicatedAiClusterRequest: requests.CreateDedicatedAiClusterRequest
@@ -562,7 +562,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
      * @param CreateEndpointRequest
      * @return CreateEndpointResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateEndpoint.ts.html |here} to see how to use CreateEndpoint API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateEndpoint.ts.html |here} to see how to use CreateEndpoint API.
      */
   public async createEndpoint(
     createEndpointRequest: requests.CreateEndpointRequest
@@ -649,7 +649,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
      * @param CreateModelRequest
      * @return CreateModelResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateModel.ts.html |here} to see how to use CreateModel API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateModel.ts.html |here} to see how to use CreateModel API.
      */
   public async createModel(
     createModelRequest: requests.CreateModelRequest
@@ -736,7 +736,7 @@ You can only delete clusters without attached resources. Before you delete a hos
      * @param DeleteDedicatedAiClusterRequest
      * @return DeleteDedicatedAiClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteDedicatedAiCluster.ts.html |here} to see how to use DeleteDedicatedAiCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteDedicatedAiCluster.ts.html |here} to see how to use DeleteDedicatedAiCluster API.
      */
   public async deleteDedicatedAiCluster(
     deleteDedicatedAiClusterRequest: requests.DeleteDedicatedAiClusterRequest
@@ -809,7 +809,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param DeleteEndpointRequest
    * @return DeleteEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteEndpoint.ts.html |here} to see how to use DeleteEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteEndpoint.ts.html |here} to see how to use DeleteEndpoint API.
    */
   public async deleteEndpoint(
     deleteEndpointRequest: requests.DeleteEndpointRequest
@@ -881,7 +881,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param DeleteModelRequest
    * @return DeleteModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteModel.ts.html |here} to see how to use DeleteModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteModel.ts.html |here} to see how to use DeleteModel API.
    */
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
@@ -953,7 +953,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param GetDedicatedAiClusterRequest
    * @return GetDedicatedAiClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetDedicatedAiCluster.ts.html |here} to see how to use GetDedicatedAiCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetDedicatedAiCluster.ts.html |here} to see how to use GetDedicatedAiCluster API.
    */
   public async getDedicatedAiCluster(
     getDedicatedAiClusterRequest: requests.GetDedicatedAiClusterRequest
@@ -1029,7 +1029,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param GetEndpointRequest
    * @return GetEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetEndpoint.ts.html |here} to see how to use GetEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetEndpoint.ts.html |here} to see how to use GetEndpoint API.
    */
   public async getEndpoint(
     getEndpointRequest: requests.GetEndpointRequest
@@ -1104,7 +1104,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param GetModelRequest
    * @return GetModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetModel.ts.html |here} to see how to use GetModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetModel.ts.html |here} to see how to use GetModel API.
    */
   public async getModel(
     getModelRequest: requests.GetModelRequest
@@ -1179,7 +1179,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1259,7 +1259,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param ListDedicatedAiClustersRequest
    * @return ListDedicatedAiClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListDedicatedAiClusters.ts.html |here} to see how to use ListDedicatedAiClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListDedicatedAiClusters.ts.html |here} to see how to use ListDedicatedAiClusters API.
    */
   public async listDedicatedAiClusters(
     listDedicatedAiClustersRequest: requests.ListDedicatedAiClustersRequest
@@ -1342,7 +1342,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param ListEndpointsRequest
    * @return ListEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListEndpoints.ts.html |here} to see how to use ListEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListEndpoints.ts.html |here} to see how to use ListEndpoints API.
    */
   public async listEndpoints(
     listEndpointsRequest: requests.ListEndpointsRequest
@@ -1424,7 +1424,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param ListModelsRequest
    * @return ListModelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListModels.ts.html |here} to see how to use ListModels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListModels.ts.html |here} to see how to use ListModels API.
    */
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
@@ -1508,7 +1508,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1589,7 +1589,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1669,7 +1669,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1751,7 +1751,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param UpdateDedicatedAiClusterRequest
    * @return UpdateDedicatedAiClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateDedicatedAiCluster.ts.html |here} to see how to use UpdateDedicatedAiCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateDedicatedAiCluster.ts.html |here} to see how to use UpdateDedicatedAiCluster API.
    */
   public async updateDedicatedAiCluster(
     updateDedicatedAiClusterRequest: requests.UpdateDedicatedAiClusterRequest
@@ -1838,7 +1838,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param UpdateEndpointRequest
    * @return UpdateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateEndpoint.ts.html |here} to see how to use UpdateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateEndpoint.ts.html |here} to see how to use UpdateEndpoint API.
    */
   public async updateEndpoint(
     updateEndpointRequest: requests.UpdateEndpointRequest
@@ -1924,7 +1924,7 @@ You can only delete clusters without attached resources. Before you delete a hos
    * @param UpdateModelRequest
    * @return UpdateModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateModel.ts.html |here} to see how to use UpdateModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateModel.ts.html |here} to see how to use UpdateModel API.
    */
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest

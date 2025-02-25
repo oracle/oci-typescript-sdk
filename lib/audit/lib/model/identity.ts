@@ -1,7 +1,7 @@
 /**
  * Audit API
  * API for the Audit Service. Use this API for compliance monitoring in your tenancy.
-For more information, see [Overview of Audit](/iaas/Content/Audit/Concepts/auditoverview.htm).
+For more information, see [Overview of Audit](https://docs.oracle.com/iaas/Content/Audit/Concepts/auditoverview.htm).
 
 **Tip**: This API is good for queries, but not bulk-export operations.
 
@@ -31,7 +31,7 @@ Example: {@code ExampleName}
     */
   "principalName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the principal.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the principal.
    *
    */
   "principalId"?: string;
@@ -48,13 +48,13 @@ Example: {@code natv}
    */
   "callerName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the caller. The caller that made a
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the caller. The caller that made a
    * request on behalf of the prinicpal.
    *
    */
   "callerId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the tenant.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tenant.
    *
    */
   "tenantId"?: string;

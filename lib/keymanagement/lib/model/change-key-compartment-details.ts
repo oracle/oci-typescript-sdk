@@ -1,6 +1,6 @@
 /**
  * Vault Key Management API
- * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ChangeKeyCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that you want to move the key to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that you want to move the key to.
    */
   "compartmentId": string;
 }

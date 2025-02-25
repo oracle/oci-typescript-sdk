@@ -57,7 +57,7 @@ export interface FsuCycle {
    */
   "nextActionToExecute"?: Array<model.NextActionToExecuteDetails>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the latest Action
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the latest Action
    * in the Exadata Fleet Update Cycle.
    *
    */

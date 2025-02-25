@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListCryptoAnalysisResults.ts.html |here} to see how to use ListCryptoAnalysisResultsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListCryptoAnalysisResults.ts.html |here} to see how to use ListCryptoAnalysisResultsRequest.
  */
 export interface ListCryptoAnalysisResultsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Fleet.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Fleet.
    */
   "fleetId": string;
   /**
@@ -31,7 +31,7 @@ export interface ListCryptoAnalysisResultsRequest extends common.BaseRequest {
    */
   "managedInstanceId"?: string;
   /**
-   * The host [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the managed instance.
+   * The host [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance.
    */
   "hostName"?: string;
   /**

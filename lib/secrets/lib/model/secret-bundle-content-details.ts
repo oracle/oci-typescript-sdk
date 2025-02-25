@@ -1,6 +1,6 @@
 /**
  * Vault Secret Retrieval API
- * Use the Secret Retrieval API to retrieve secrets and secret versions from vaults. For more information, see [Managing Secrets](/Content/KeyManagement/Tasks/managingsecrets.htm).
+ * Use the Secret Retrieval API to retrieve secrets and secret versions from vaults. For more information, see [Managing Secrets](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingsecrets.htm).
  * OpenAPI spec version: 20190301
  *
  *

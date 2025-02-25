@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteSubnet.ts.html |here} to see how to use DeleteSubnetRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteSubnet.ts.html |here} to see how to use DeleteSubnetRequest.
  */
 export interface DeleteSubnetRequest extends common.BaseRequest {
   /**
-   * Specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet.
+   * Specify the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet.
    */
   "subnetId": string;
   /**

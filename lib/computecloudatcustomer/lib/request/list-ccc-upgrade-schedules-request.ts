@@ -15,17 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ListCccUpgradeSchedules.ts.html |here} to see how to use ListCccUpgradeSchedulesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ListCccUpgradeSchedules.ts.html |here} to see how to use ListCccUpgradeSchedulesRequest.
  */
 export interface ListCccUpgradeSchedulesRequest extends common.BaseRequest {
   /**
    * Compute Cloud@Customer upgrade schedule
-   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "cccUpgradeScheduleId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to
    * list resources.
    *
    */
@@ -78,7 +78,7 @@ export interface ListCccUpgradeSchedulesRequest extends common.BaseRequest {
    */
   "sortBy"?: ListCccUpgradeSchedulesRequest.SortBy;
   /**
-   * The client request [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for tracing.
+   * The client request [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for tracing.
    *
    */
   "opcRequestId"?: string;

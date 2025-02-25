@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemPatch.ts.html |here} to see how to use GetDbSystemPatchRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemPatch.ts.html |here} to see how to use GetDbSystemPatchRequest.
  */
 export interface GetDbSystemPatchRequest extends common.BaseRequest {
   /**
-   * The DB system [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The DB system [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "dbSystemId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the patch.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the patch.
    */
   "patchId": string;
 }

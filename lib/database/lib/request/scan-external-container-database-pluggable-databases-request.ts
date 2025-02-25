@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ScanExternalContainerDatabasePluggableDatabases.ts.html |here} to see how to use ScanExternalContainerDatabasePluggableDatabasesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ScanExternalContainerDatabasePluggableDatabases.ts.html |here} to see how to use ScanExternalContainerDatabasePluggableDatabasesRequest.
  */
 export interface ScanExternalContainerDatabasePluggableDatabasesRequest extends common.BaseRequest {
   /**
-   * The ExternalContainerDatabase [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The ExternalContainerDatabase [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "externalContainerDatabaseId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
    * external database connector resource ({@code ExternalDatabaseConnectorId}).
    *
    */

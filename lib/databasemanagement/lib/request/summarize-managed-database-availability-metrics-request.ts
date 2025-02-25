@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeManagedDatabaseAvailabilityMetrics.ts.html |here} to see how to use SummarizeManagedDatabaseAvailabilityMetricsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeManagedDatabaseAvailabilityMetrics.ts.html |here} to see how to use SummarizeManagedDatabaseAvailabilityMetricsRequest.
  */
 export interface SummarizeManagedDatabaseAvailabilityMetricsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Managed Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Managed Database.
    */
   "managedDatabaseId": string;
   /**

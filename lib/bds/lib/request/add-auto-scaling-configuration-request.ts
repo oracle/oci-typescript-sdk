@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddAutoScalingConfiguration.ts.html |here} to see how to use AddAutoScalingConfigurationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddAutoScalingConfiguration.ts.html |here} to see how to use AddAutoScalingConfigurationRequest.
  */
 export interface AddAutoScalingConfigurationRequest extends common.BaseRequest {
   /**

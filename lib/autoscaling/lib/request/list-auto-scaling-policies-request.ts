@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/ListAutoScalingPolicies.ts.html |here} to see how to use ListAutoScalingPoliciesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/ListAutoScalingPolicies.ts.html |here} to see how to use ListAutoScalingPoliciesRequest.
  */
 export interface ListAutoScalingPoliciesRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the autoscaling configuration.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the autoscaling configuration.
    */
   "autoScalingConfigurationId": string;
   /**
@@ -33,13 +33,13 @@ export interface ListAutoScalingPoliciesRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * For list pagination. The maximum number of items to return in a paginated \"List\" call. For important details
-   * about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
    * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call. For important
-   * details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

@@ -2,7 +2,7 @@
  * Database Management API
  * Use the Database Management API to monitor and manage resources such as
 Oracle Databases, MySQL Databases, and External Database Systems. 
-For more information, see [Database Management](/iaas/database-management/home.htm).
+For more information, see [Database Management](https://docs.oracle.com/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -30,15 +30,15 @@ export interface JobExecution {
    */
   "name": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which the parent job resides.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which the parent job resides.
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Managed Database Group where the parent job has to be executed.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Managed Database Group where the parent job has to be executed.
    */
   "managedDatabaseGroupId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Managed Database associated with the job execution.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Managed Database associated with the job execution.
    */
   "managedDatabaseId": string;
   /**
@@ -66,7 +66,7 @@ export interface JobExecution {
    */
   "workloadType"?: model.WorkloadType;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the parent job.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the parent job.
    */
   "jobId": string;
   /**

@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface WebAppAccelerationLoadBalancer extends model.WebAppAcceleration {
   /**
-   * LoadBalancer [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) to which the WebAppAccelerationPolicy is attached to.
+   * LoadBalancer [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) to which the WebAppAccelerationPolicy is attached to.
    */
   "loadBalancerId": string;
 

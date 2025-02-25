@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarmSuppression.ts.html |here} to see how to use GetAlarmSuppressionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarmSuppression.ts.html |here} to see how to use GetAlarmSuppressionRequest.
  */
 export interface GetAlarmSuppressionRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the alarm suppression.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the alarm suppression.
    */
   "alarmSuppressionId": string;
   /**

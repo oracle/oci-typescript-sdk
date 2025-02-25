@@ -1,6 +1,6 @@
 /**
  * Usage Proxy API
- * Use the Usage Proxy API to list Oracle Support Rewards, view related detailed usage information, and manage users who redeem rewards. For more information, see [Oracle Support Rewards Overview](/iaas/Content/Billing/Concepts/supportrewardsoverview.htm).
+ * Use the Usage Proxy API to list Oracle Support Rewards, view related detailed usage information, and manage users who redeem rewards. For more information, see [Oracle Support Rewards Overview](https://docs.oracle.com/iaas/Content/Billing/Concepts/supportrewardsoverview.htm).
  * OpenAPI spec version: 20190111
  *
  *
@@ -219,7 +219,7 @@ export class ResourcesClient {
    * @param ListResourceQuotaRequest
    * @return ListResourceQuotaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListResourceQuota.ts.html |here} to see how to use ListResourceQuota API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListResourceQuota.ts.html |here} to see how to use ListResourceQuota API.
    */
   public async listResourceQuota(
     listResourceQuotaRequest: requests.ListResourceQuotaRequest
@@ -303,7 +303,7 @@ export class ResourcesClient {
    * @param ListResourcesRequest
    * @return ListResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListResources.ts.html |here} to see how to use ListResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListResources.ts.html |here} to see how to use ListResources API.
    */
   public async listResources(
     listResourcesRequest: requests.ListResourcesRequest
@@ -570,7 +570,7 @@ export class RewardsClient {
    * @param CreateRedeemableUserRequest
    * @return CreateRedeemableUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/CreateRedeemableUser.ts.html |here} to see how to use CreateRedeemableUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/CreateRedeemableUser.ts.html |here} to see how to use CreateRedeemableUser API.
    */
   public async createRedeemableUser(
     createRedeemableUserRequest: requests.CreateRedeemableUserRequest
@@ -657,7 +657,7 @@ export class RewardsClient {
    * @param DeleteRedeemableUserRequest
    * @return DeleteRedeemableUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/DeleteRedeemableUser.ts.html |here} to see how to use DeleteRedeemableUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/DeleteRedeemableUser.ts.html |here} to see how to use DeleteRedeemableUser API.
    */
   public async deleteRedeemableUser(
     deleteRedeemableUserRequest: requests.DeleteRedeemableUserRequest
@@ -729,7 +729,7 @@ export class RewardsClient {
    * @param ListProductsRequest
    * @return ListProductsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListProducts.ts.html |here} to see how to use ListProducts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListProducts.ts.html |here} to see how to use ListProducts API.
    */
   public async listProducts(
     listProductsRequest: requests.ListProductsRequest
@@ -814,7 +814,7 @@ export class RewardsClient {
    * @param ListRedeemableUsersRequest
    * @return ListRedeemableUsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListRedeemableUsers.ts.html |here} to see how to use ListRedeemableUsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListRedeemableUsers.ts.html |here} to see how to use ListRedeemableUsers API.
    */
   public async listRedeemableUsers(
     listRedeemableUsersRequest: requests.ListRedeemableUsersRequest
@@ -897,7 +897,7 @@ export class RewardsClient {
    * @param ListRedemptionsRequest
    * @return ListRedemptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListRedemptions.ts.html |here} to see how to use ListRedemptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListRedemptions.ts.html |here} to see how to use ListRedemptions API.
    */
   public async listRedemptions(
     listRedemptionsRequest: requests.ListRedemptionsRequest
@@ -982,7 +982,7 @@ export class RewardsClient {
    * @param ListRewardsRequest
    * @return ListRewardsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListRewards.ts.html |here} to see how to use ListRewards API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListRewards.ts.html |here} to see how to use ListRewards API.
    */
   public async listRewards(
     listRewardsRequest: requests.ListRewardsRequest
@@ -1240,7 +1240,7 @@ export class UsagelimitsClient {
    * @param ListUsageLimitsRequest
    * @return ListUsageLimitsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListUsageLimits.ts.html |here} to see how to use ListUsageLimits API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListUsageLimits.ts.html |here} to see how to use ListUsageLimits API.
    */
   public async listUsageLimits(
     listUsageLimitsRequest: requests.ListUsageLimitsRequest

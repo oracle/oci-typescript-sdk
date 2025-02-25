@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/CreateAcceptedAgreement.ts.html |here} to see how to use CreateAcceptedAgreementRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/CreateAcceptedAgreement.ts.html |here} to see how to use CreateAcceptedAgreementRequest.
  */
 export interface CreateAcceptedAgreementRequest extends common.BaseRequest {
   /**

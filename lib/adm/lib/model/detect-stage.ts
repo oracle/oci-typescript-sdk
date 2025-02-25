@@ -1,6 +1,6 @@
 /**
  * Application Dependency Management API
- * Use the Application Dependency Management API to create knowledge bases and vulnerability audits.  For more information, see [ADM](/Content/application-dependency-management/home.htm).
+ * Use the Application Dependency Management API to create knowledge bases and vulnerability audits.  For more information, see [ADM](https://docs.oracle.com/iaas/Content/application-dependency-management/home.htm).
  * OpenAPI spec version: 20220421
  *
  *
@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface DetectStage extends model.RemediationRunStage {
   /**
-   * The Oracle Cloud identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the vulnerability audit.
+   * The Oracle Cloud identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the vulnerability audit.
    */
   "auditId"?: string;
 

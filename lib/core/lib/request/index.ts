@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -716,6 +716,8 @@ import * as GetVnicRequest from "./get-vnic-request";
 export import GetVnicRequest = GetVnicRequest.GetVnicRequest;
 import * as GetVtapRequest from "./get-vtap-request";
 export import GetVtapRequest = GetVtapRequest.GetVtapRequest;
+import * as Ipv6VnicDetachRequest from "./ipv6-vnic-detach-request";
+export import Ipv6VnicDetachRequest = Ipv6VnicDetachRequest.Ipv6VnicDetachRequest;
 import * as ListAllowedPeerRegionsForRemotePeeringRequest from "./list-allowed-peer-regions-for-remote-peering-request";
 export import ListAllowedPeerRegionsForRemotePeeringRequest = ListAllowedPeerRegionsForRemotePeeringRequest.ListAllowedPeerRegionsForRemotePeeringRequest;
 import * as ListByoasnsRequest from "./list-byoasns-request";
@@ -816,6 +818,8 @@ import * as ListVtapsRequest from "./list-vtaps-request";
 export import ListVtapsRequest = ListVtapsRequest.ListVtapsRequest;
 import * as ModifyVcnCidrRequest from "./modify-vcn-cidr-request";
 export import ModifyVcnCidrRequest = ModifyVcnCidrRequest.ModifyVcnCidrRequest;
+import * as PrivateIpVnicDetachRequest from "./private-ip-vnic-detach-request";
+export import PrivateIpVnicDetachRequest = PrivateIpVnicDetachRequest.PrivateIpVnicDetachRequest;
 import * as RemoveDrgRouteDistributionStatementsRequest from "./remove-drg-route-distribution-statements-request";
 export import RemoveDrgRouteDistributionStatementsRequest = RemoveDrgRouteDistributionStatementsRequest.RemoveDrgRouteDistributionStatementsRequest;
 import * as RemoveDrgRouteRulesRequest from "./remove-drg-route-rules-request";

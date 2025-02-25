@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrorsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrorsRequest.
  */
 export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
   /**
@@ -35,7 +35,7 @@ Example: {@code ocid1.workrequest.oc1..uniqueID}
 * header from the previous \"List\" call.
 * <p>
 For important details about how pagination works,
-* see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * 
  */
   "page"?: string;
@@ -45,7 +45,7 @@ For important details about how pagination works,
 * 1 is the minimum, 1000 is the maximum.
 * <p>
 For important details about how pagination works,
-* see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 100}
 * 

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GenerateAgentInstallerConfigurationDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the management agent install key for which to generate the configuration file.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management agent install key for which to generate the configuration file.
    */
   "installKeyId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the fleet for which to generate the configuration file.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the fleet for which to generate the configuration file.
    */
   "fleetId": string;
 }

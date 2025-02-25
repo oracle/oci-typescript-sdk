@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ListWorkRequests.ts.html |here} to see how to use ListWorkRequestsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/clusterplacementgroups/ListWorkRequests.ts.html |here} to see how to use ListWorkRequestsRequest.
  */
 export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
-   * A filter to return only the resources that match the specified compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * A filter to return only the resources that match the specified compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId"?: string;

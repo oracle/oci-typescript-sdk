@@ -1,6 +1,6 @@
 /**
  * Vault Secret Retrieval API
- * Use the Secret Retrieval API to retrieve secrets and secret versions from vaults. For more information, see [Managing Secrets](/Content/KeyManagement/Tasks/managingsecrets.htm).
+ * Use the Secret Retrieval API to retrieve secrets and secret versions from vaults. For more information, see [Managing Secrets](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingsecrets.htm).
  * OpenAPI spec version: 20190301
  *
  *
@@ -221,7 +221,7 @@ export class SecretsClient {
    * @param GetSecretBundleRequest
    * @return GetSecretBundleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/GetSecretBundle.ts.html |here} to see how to use GetSecretBundle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/GetSecretBundle.ts.html |here} to see how to use GetSecretBundle API.
    */
   public async getSecretBundle(
     getSecretBundleRequest: requests.GetSecretBundleRequest
@@ -303,7 +303,7 @@ export class SecretsClient {
    * @param GetSecretBundleByNameRequest
    * @return GetSecretBundleByNameResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/GetSecretBundleByName.ts.html |here} to see how to use GetSecretBundleByName API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/GetSecretBundleByName.ts.html |here} to see how to use GetSecretBundleByName API.
    */
   public async getSecretBundleByName(
     getSecretBundleByNameRequest: requests.GetSecretBundleByNameRequest
@@ -378,7 +378,7 @@ export class SecretsClient {
    * @param ListSecretBundleVersionsRequest
    * @return ListSecretBundleVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/ListSecretBundleVersions.ts.html |here} to see how to use ListSecretBundleVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/secrets/ListSecretBundleVersions.ts.html |here} to see how to use ListSecretBundleVersions API.
    */
   public async listSecretBundleVersions(
     listSecretBundleVersionsRequest: requests.ListSecretBundleVersionsRequest

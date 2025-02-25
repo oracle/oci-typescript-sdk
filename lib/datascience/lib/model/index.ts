@@ -200,6 +200,8 @@ import * as PipelineConfigurationDetails from "./pipeline-configuration-details"
 export import PipelineConfigurationDetails = PipelineConfigurationDetails.PipelineConfigurationDetails;
 import * as PipelineContainerConfigurationDetails from "./pipeline-container-configuration-details";
 export import PipelineContainerConfigurationDetails = PipelineContainerConfigurationDetails.PipelineContainerConfigurationDetails;
+import * as PipelineDataflowConfigurationDetails from "./pipeline-dataflow-configuration-details";
+export import PipelineDataflowConfigurationDetails = PipelineDataflowConfigurationDetails.PipelineDataflowConfigurationDetails;
 import * as PipelineInfrastructureConfigurationDetails from "./pipeline-infrastructure-configuration-details";
 export import PipelineInfrastructureConfigurationDetails = PipelineInfrastructureConfigurationDetails.PipelineInfrastructureConfigurationDetails;
 import * as PipelineLifecycleState from "./pipeline-lifecycle-state";
@@ -365,6 +367,12 @@ import * as PipelineCustomScriptStepRun from "./pipeline-custom-script-step-run"
 export import PipelineCustomScriptStepRun = PipelineCustomScriptStepRun.PipelineCustomScriptStepRun;
 import * as PipelineCustomScriptStepUpdateDetails from "./pipeline-custom-script-step-update-details";
 export import PipelineCustomScriptStepUpdateDetails = PipelineCustomScriptStepUpdateDetails.PipelineCustomScriptStepUpdateDetails;
+import * as PipelineDataflowStepDetails from "./pipeline-dataflow-step-details";
+export import PipelineDataflowStepDetails = PipelineDataflowStepDetails.PipelineDataflowStepDetails;
+import * as PipelineDataflowStepRun from "./pipeline-dataflow-step-run";
+export import PipelineDataflowStepRun = PipelineDataflowStepRun.PipelineDataflowStepRun;
+import * as PipelineDataflowStepUpdateDetails from "./pipeline-dataflow-step-update-details";
+export import PipelineDataflowStepUpdateDetails = PipelineDataflowStepUpdateDetails.PipelineDataflowStepUpdateDetails;
 import * as PipelineDefaultConfigurationDetails from "./pipeline-default-configuration-details";
 export import PipelineDefaultConfigurationDetails = PipelineDefaultConfigurationDetails.PipelineDefaultConfigurationDetails;
 import * as PipelineMLJobStepDetails from "./pipeline-ml-job-step-details";

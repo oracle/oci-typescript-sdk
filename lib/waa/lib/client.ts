@@ -248,7 +248,7 @@ export class WaaClient {
    * @param ChangeWebAppAccelerationCompartmentRequest
    * @return ChangeWebAppAccelerationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ChangeWebAppAccelerationCompartment.ts.html |here} to see how to use ChangeWebAppAccelerationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ChangeWebAppAccelerationCompartment.ts.html |here} to see how to use ChangeWebAppAccelerationCompartment API.
    */
   public async changeWebAppAccelerationCompartment(
     changeWebAppAccelerationCompartmentRequest: requests.ChangeWebAppAccelerationCompartmentRequest
@@ -328,7 +328,7 @@ export class WaaClient {
    * @param ChangeWebAppAccelerationPolicyCompartmentRequest
    * @return ChangeWebAppAccelerationPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ChangeWebAppAccelerationPolicyCompartment.ts.html |here} to see how to use ChangeWebAppAccelerationPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ChangeWebAppAccelerationPolicyCompartment.ts.html |here} to see how to use ChangeWebAppAccelerationPolicyCompartment API.
    */
   public async changeWebAppAccelerationPolicyCompartment(
     changeWebAppAccelerationPolicyCompartmentRequest: requests.ChangeWebAppAccelerationPolicyCompartmentRequest
@@ -408,7 +408,7 @@ export class WaaClient {
    * @param CreateWebAppAccelerationRequest
    * @return CreateWebAppAccelerationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/CreateWebAppAcceleration.ts.html |here} to see how to use CreateWebAppAcceleration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/CreateWebAppAcceleration.ts.html |here} to see how to use CreateWebAppAcceleration API.
    */
   public async createWebAppAcceleration(
     createWebAppAccelerationRequest: requests.CreateWebAppAccelerationRequest
@@ -503,7 +503,7 @@ export class WaaClient {
    * @param CreateWebAppAccelerationPolicyRequest
    * @return CreateWebAppAccelerationPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/CreateWebAppAccelerationPolicy.ts.html |here} to see how to use CreateWebAppAccelerationPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/CreateWebAppAccelerationPolicy.ts.html |here} to see how to use CreateWebAppAccelerationPolicy API.
    */
   public async createWebAppAccelerationPolicy(
     createWebAppAccelerationPolicyRequest: requests.CreateWebAppAccelerationPolicyRequest
@@ -598,7 +598,7 @@ export class WaaClient {
    * @param DeleteWebAppAccelerationRequest
    * @return DeleteWebAppAccelerationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/DeleteWebAppAcceleration.ts.html |here} to see how to use DeleteWebAppAcceleration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/DeleteWebAppAcceleration.ts.html |here} to see how to use DeleteWebAppAcceleration API.
    */
   public async deleteWebAppAcceleration(
     deleteWebAppAccelerationRequest: requests.DeleteWebAppAccelerationRequest
@@ -670,7 +670,7 @@ export class WaaClient {
    * @param DeleteWebAppAccelerationPolicyRequest
    * @return DeleteWebAppAccelerationPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/DeleteWebAppAccelerationPolicy.ts.html |here} to see how to use DeleteWebAppAccelerationPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/DeleteWebAppAccelerationPolicy.ts.html |here} to see how to use DeleteWebAppAccelerationPolicy API.
    */
   public async deleteWebAppAccelerationPolicy(
     deleteWebAppAccelerationPolicyRequest: requests.DeleteWebAppAccelerationPolicyRequest
@@ -744,7 +744,7 @@ export class WaaClient {
    * @param GetWebAppAccelerationRequest
    * @return GetWebAppAccelerationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/GetWebAppAcceleration.ts.html |here} to see how to use GetWebAppAcceleration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/GetWebAppAcceleration.ts.html |here} to see how to use GetWebAppAcceleration API.
    */
   public async getWebAppAcceleration(
     getWebAppAccelerationRequest: requests.GetWebAppAccelerationRequest
@@ -819,7 +819,7 @@ export class WaaClient {
    * @param GetWebAppAccelerationPolicyRequest
    * @return GetWebAppAccelerationPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/GetWebAppAccelerationPolicy.ts.html |here} to see how to use GetWebAppAccelerationPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/GetWebAppAccelerationPolicy.ts.html |here} to see how to use GetWebAppAccelerationPolicy API.
    */
   public async getWebAppAccelerationPolicy(
     getWebAppAccelerationPolicyRequest: requests.GetWebAppAccelerationPolicyRequest
@@ -895,7 +895,7 @@ export class WaaClient {
    * @param ListWebAppAccelerationPoliciesRequest
    * @return ListWebAppAccelerationPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ListWebAppAccelerationPolicies.ts.html |here} to see how to use ListWebAppAccelerationPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ListWebAppAccelerationPolicies.ts.html |here} to see how to use ListWebAppAccelerationPolicies API.
    */
   public async listWebAppAccelerationPolicies(
     listWebAppAccelerationPoliciesRequest: requests.ListWebAppAccelerationPoliciesRequest
@@ -979,7 +979,7 @@ export class WaaClient {
    * @param ListWebAppAccelerationsRequest
    * @return ListWebAppAccelerationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ListWebAppAccelerations.ts.html |here} to see how to use ListWebAppAccelerations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ListWebAppAccelerations.ts.html |here} to see how to use ListWebAppAccelerations API.
    */
   public async listWebAppAccelerations(
     listWebAppAccelerationsRequest: requests.ListWebAppAccelerationsRequest
@@ -1064,7 +1064,7 @@ export class WaaClient {
    * @param PurgeWebAppAccelerationCacheRequest
    * @return PurgeWebAppAccelerationCacheResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/PurgeWebAppAccelerationCache.ts.html |here} to see how to use PurgeWebAppAccelerationCache API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/PurgeWebAppAccelerationCache.ts.html |here} to see how to use PurgeWebAppAccelerationCache API.
    */
   public async purgeWebAppAccelerationCache(
     purgeWebAppAccelerationCacheRequest: requests.PurgeWebAppAccelerationCacheRequest
@@ -1140,7 +1140,7 @@ export class WaaClient {
    * @param UpdateWebAppAccelerationRequest
    * @return UpdateWebAppAccelerationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/UpdateWebAppAcceleration.ts.html |here} to see how to use UpdateWebAppAcceleration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/UpdateWebAppAcceleration.ts.html |here} to see how to use UpdateWebAppAcceleration API.
    */
   public async updateWebAppAcceleration(
     updateWebAppAccelerationRequest: requests.UpdateWebAppAccelerationRequest
@@ -1217,7 +1217,7 @@ export class WaaClient {
    * @param UpdateWebAppAccelerationPolicyRequest
    * @return UpdateWebAppAccelerationPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/UpdateWebAppAccelerationPolicy.ts.html |here} to see how to use UpdateWebAppAccelerationPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/UpdateWebAppAccelerationPolicy.ts.html |here} to see how to use UpdateWebAppAccelerationPolicy API.
    */
   public async updateWebAppAccelerationPolicy(
     updateWebAppAccelerationPolicyRequest: requests.UpdateWebAppAccelerationPolicyRequest
@@ -1504,7 +1504,7 @@ export class WorkRequestClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1580,7 +1580,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1660,7 +1660,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1739,7 +1739,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waa/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest

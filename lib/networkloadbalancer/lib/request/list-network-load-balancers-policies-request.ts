@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListNetworkLoadBalancersPolicies.ts.html |here} to see how to use ListNetworkLoadBalancersPoliciesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListNetworkLoadBalancersPolicies.ts.html |here} to see how to use ListNetworkLoadBalancersPoliciesRequest.
  */
 export interface ListNetworkLoadBalancersPoliciesRequest extends common.BaseRequest {
   /**
@@ -26,14 +26,14 @@ export interface ListNetworkLoadBalancersPoliciesRequest extends common.BaseRequ
   "opcRequestId"?: string;
   /**
    * For list pagination. The maximum number of results per page or items to return, in a paginated \"List\" call.
-   * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
    * The page token representing the page from which to start retrieving results.
    * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
-   * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

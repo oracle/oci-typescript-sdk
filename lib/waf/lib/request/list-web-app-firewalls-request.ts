@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWebAppFirewalls.ts.html |here} to see how to use ListWebAppFirewallsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWebAppFirewalls.ts.html |here} to see how to use ListWebAppFirewallsRequest.
  */
 export interface ListWebAppFirewallsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
-   * A filter to return only the WebAppFirewall with the given [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * A filter to return only the WebAppFirewall with the given [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "id"?: string;
   /**
-   * A filter to return only the WebAppFirewall with the given [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of related WebAppFirewallPolicy.
+   * A filter to return only the WebAppFirewall with the given [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of related WebAppFirewallPolicy.
    *
    */
   "webAppFirewallPolicyId"?: string;

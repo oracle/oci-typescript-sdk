@@ -24,7 +24,7 @@ export interface PrivateApplication {
    */
   "lifecycleState": PrivateApplication.LifecycleState;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where the private application resides.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where the private application resides.
    *
    */
   "compartmentId": string;

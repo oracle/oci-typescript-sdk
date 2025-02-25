@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateMigration.ts.html |here} to see how to use UpdateMigrationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateMigration.ts.html |here} to see how to use UpdateMigrationRequest.
  */
 export interface UpdateMigrationRequest extends common.BaseRequest {
   /**

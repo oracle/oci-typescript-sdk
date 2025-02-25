@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsConnections.ts.html |here} to see how to use ListDatabaseToolsConnectionsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsConnections.ts.html |here} to see how to use ListDatabaseToolsConnectionsRequest.
  */
 export interface ListDatabaseToolsConnectionsRequest extends common.BaseRequest {
   /**

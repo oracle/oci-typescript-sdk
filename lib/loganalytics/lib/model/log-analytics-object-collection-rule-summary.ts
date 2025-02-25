@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsObjectCollectionRuleSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this rule.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this rule.
    */
   "id": string;
   /**
@@ -35,7 +35,7 @@ export interface LogAnalyticsObjectCollectionRuleSummary {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to which this rule belongs.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to which this rule belongs.
    */
   "compartmentId": string;
   /**

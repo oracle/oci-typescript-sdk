@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](https://docs.oracle.com/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeFusionEnvironmentFamilyCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment into which the resource should be moved.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment into which the resource should be moved.
    *
    */
   "compartmentId": string;

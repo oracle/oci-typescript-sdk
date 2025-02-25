@@ -1,7 +1,7 @@
 /**
  * Events API
  * API for the Events Service. Use this API to manage rules and actions that create automation 
-in your tenancy. For more information, see [Overview of Events](/iaas/Content/Events/Concepts/eventsoverview.htm).
+in your tenancy. For more information, see [Overview of Events](https://docs.oracle.com/iaas/Content/Events/Concepts/eventsoverview.htm).
 
  * OpenAPI spec version: 20181201
  * 
@@ -18,12 +18,12 @@ import common = require("oci-common");
 
 /**
  * The summary details of rules for Events. For more information, see
- * [Managing Rules for Events](https://docs.cloud.oracle.com/iaas/Content/Events/Task/managingrules.htm).
+ * [Managing Rules for Events](https://docs.oracle.com/iaas/Content/Events/Task/managingrules.htm).
  *
  */
 export interface RuleSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this rule.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this rule.
    *
    */
   "id": string;
@@ -50,27 +50,27 @@ Example: {@code \"This rule sends a notification upon completion of DbaaS backup
 * all events with two curly brackets: {@code {}} 
 * <p>
   For more examples, see 
-* [Matching Events with Filters](https://docs.cloud.oracle.com/iaas/Content/Events/Concepts/filterevents.htm).       
+* [Matching Events with Filters](https://docs.oracle.com/iaas/Content/Events/Concepts/filterevents.htm).       
 * * For a condition with fields to match an event, the event must contain all the field names 
 * listed in the condition. Field names must appear in the condition with the same nesting 
 * structure used in the event. 
 * <p>
   For a list of reference events, see 
-* [Services that Produce Events](https://docs.cloud.oracle.com/iaas/Content/Events/Reference/eventsproducers.htm).       
+* [Services that Produce Events](https://docs.oracle.com/iaas/Content/Events/Reference/eventsproducers.htm).       
 * * Rules apply to events in the compartment in which you create them and any child compartments. 
 * This means that a condition specified by a rule only matches events emitted from resources in 
 * the compartment or any of its child compartments. 
 * * Wildcard matching is supported with the asterisk (*) character. 
 * <p>
   For examples of wildcard matching, see 
-* [Matching Events with Filters](https://docs.cloud.oracle.com/iaas/Content/Events/Concepts/filterevents.htm)
+* [Matching Events with Filters](https://docs.oracle.com/iaas/Content/Events/Concepts/filterevents.htm)
 * <p>
 Example: {@code \\\"eventType\\\": \\\"com.oraclecloud.databaseservice.autonomous.database.backup.end\\\"}
 * 
     */
   "condition": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to which this rule belongs.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to which this rule belongs.
    *
    */
   "compartmentId": string;
@@ -91,14 +91,14 @@ Example: {@code 2018-09-12T22:47:12.613Z}
   "timeCreated": Date;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. Exists for cross-compatibility only.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
   /**
-    * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+    * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

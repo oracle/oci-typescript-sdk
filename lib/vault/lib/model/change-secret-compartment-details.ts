@@ -1,6 +1,6 @@
 /**
  * Vault Secret Management API
- * Use the Secret Management API to manage secrets and secret versions. For more information, see [Managing Secrets](/Content/KeyManagement/Tasks/managingsecrets.htm).
+ * Use the Secret Management API to manage secrets and secret versions. For more information, see [Managing Secrets](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingsecrets.htm).
  * OpenAPI spec version: 20180608
  *
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeSecretCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
    * into which the resource should be moved.
    *
    */

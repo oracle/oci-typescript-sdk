@@ -59,6 +59,11 @@ export namespace PipelineStepDetails {
             <model.PipelineMLJobStepDetails>(<object>jsonObj),
             true
           );
+        case "DATAFLOW":
+          return model.PipelineDataflowStepDetails.getJsonObj(
+            <model.PipelineDataflowStepDetails>(<object>jsonObj),
+            true
+          );
         case "CUSTOM_SCRIPT":
           return model.PipelineCustomScriptStepDetails.getJsonObj(
             <model.PipelineCustomScriptStepDetails>(<object>jsonObj),
@@ -92,6 +97,11 @@ export namespace PipelineStepDetails {
         case "ML_JOB":
           return model.PipelineMLJobStepDetails.getDeserializedJsonObj(
             <model.PipelineMLJobStepDetails>(<object>jsonObj),
+            true
+          );
+        case "DATAFLOW":
+          return model.PipelineDataflowStepDetails.getDeserializedJsonObj(
+            <model.PipelineDataflowStepDetails>(<object>jsonObj),
             true
           );
         case "CUSTOM_SCRIPT":

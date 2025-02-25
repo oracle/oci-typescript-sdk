@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateProfile.ts.html |here} to see how to use CreateProfileRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/CreateProfile.ts.html |here} to see how to use CreateProfileRequest.
  */
 export interface CreateProfileRequest extends common.BaseRequest {
   /**
@@ -23,6 +23,7 @@ export interface CreateProfileRequest extends common.BaseRequest {
    */
   "createProfileDetails":
     | model.CreateGroupProfileDetails
+    | model.CreateWindowsStandAloneProfileDetails
     | model.CreateStationProfileDetails
     | model.CreateSoftwareSourceProfileDetails
     | model.CreateLifecycleProfileDetails;

@@ -2,7 +2,7 @@
  * Database Management API
  * Use the Database Management API to monitor and manage resources such as
 Oracle Databases, MySQL Databases, and External Database Systems. 
-For more information, see [Database Management](/iaas/database-management/home.htm).
+For more information, see [Database Management](https://docs.oracle.com/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface AwrDbSummary {
   /**
-   * The internal ID of the database. The internal ID of the database is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The internal ID of the database. The internal ID of the database is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * It can be retrieved from the following endpoint:
    * /managedDatabases/{managedDatabaseId}/awrDbs
    *
@@ -61,14 +61,14 @@ export interface AwrDbSummary {
    */
   "timeLatestSnapshotEnd"?: Date;
   /**
-   * The ID of the earliest snapshot. The snapshot ID is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The ID of the earliest snapshot. The snapshot ID is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * It can be retrieved from the following endpoint:
    * /managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbSnapshots
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "firstSnapshotId"?: number;
   /**
-   * The ID of the latest snapshot. The snapshot ID is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The ID of the latest snapshot. The snapshot ID is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * It can be retrieved from the following endpoint:
    * /managedDatabases/{managedDatabaseId}/awrDbs/{awrDbId}/awrDbSnapshots
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -83,7 +83,7 @@ export interface AwrDbSummary {
    */
   "snapshotIntervalInMin"?: number;
   /**
-   * ID of the database container. The database container ID is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * ID of the database container. The database container ID is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * It can be retrieved from the following endpoint:
    * /managedDatabases/{managedDatabaseId}/awrDbSnapshotRanges
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

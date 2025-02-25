@@ -239,13 +239,13 @@ export class OccDemandSignalClient {
 
   /**
    * Moves a OccDemandSignal into a different compartment within the same tenancy. For information about moving resources between
-   * compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeOccDemandSignalCompartmentRequest
    * @return ChangeOccDemandSignalCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/ChangeOccDemandSignalCompartment.ts.html |here} to see how to use ChangeOccDemandSignalCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/ChangeOccDemandSignalCompartment.ts.html |here} to see how to use ChangeOccDemandSignalCompartment API.
    */
   public async changeOccDemandSignalCompartment(
     changeOccDemandSignalCompartmentRequest: requests.ChangeOccDemandSignalCompartmentRequest
@@ -326,7 +326,7 @@ export class OccDemandSignalClient {
    * @param CreateOccDemandSignalRequest
    * @return CreateOccDemandSignalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/CreateOccDemandSignal.ts.html |here} to see how to use CreateOccDemandSignal API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/CreateOccDemandSignal.ts.html |here} to see how to use CreateOccDemandSignal API.
    */
   public async createOccDemandSignal(
     createOccDemandSignalRequest: requests.CreateOccDemandSignalRequest
@@ -411,7 +411,7 @@ export class OccDemandSignalClient {
    * @param DeleteOccDemandSignalRequest
    * @return DeleteOccDemandSignalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/DeleteOccDemandSignal.ts.html |here} to see how to use DeleteOccDemandSignal API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/DeleteOccDemandSignal.ts.html |here} to see how to use DeleteOccDemandSignal API.
    */
   public async deleteOccDemandSignal(
     deleteOccDemandSignalRequest: requests.DeleteOccDemandSignalRequest
@@ -484,7 +484,7 @@ export class OccDemandSignalClient {
    * @param GetOccDemandSignalRequest
    * @return GetOccDemandSignalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/GetOccDemandSignal.ts.html |here} to see how to use GetOccDemandSignal API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/GetOccDemandSignal.ts.html |here} to see how to use GetOccDemandSignal API.
    */
   public async getOccDemandSignal(
     getOccDemandSignalRequest: requests.GetOccDemandSignalRequest
@@ -561,7 +561,7 @@ export class OccDemandSignalClient {
    * @param ListOccDemandSignalsRequest
    * @return ListOccDemandSignalsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/ListOccDemandSignals.ts.html |here} to see how to use ListOccDemandSignals API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/ListOccDemandSignals.ts.html |here} to see how to use ListOccDemandSignals API.
    */
   public async listOccDemandSignals(
     listOccDemandSignalsRequest: requests.ListOccDemandSignalsRequest
@@ -644,7 +644,7 @@ export class OccDemandSignalClient {
    * @param PatchOccDemandSignalRequest
    * @return PatchOccDemandSignalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/PatchOccDemandSignal.ts.html |here} to see how to use PatchOccDemandSignal API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/PatchOccDemandSignal.ts.html |here} to see how to use PatchOccDemandSignal API.
    */
   public async patchOccDemandSignal(
     patchOccDemandSignalRequest: requests.PatchOccDemandSignalRequest
@@ -731,7 +731,7 @@ export class OccDemandSignalClient {
    * @param UpdateOccDemandSignalRequest
    * @return UpdateOccDemandSignalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/UpdateOccDemandSignal.ts.html |here} to see how to use UpdateOccDemandSignal API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/UpdateOccDemandSignal.ts.html |here} to see how to use UpdateOccDemandSignal API.
    */
   public async updateOccDemandSignal(
     updateOccDemandSignalRequest: requests.UpdateOccDemandSignalRequest

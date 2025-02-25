@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerImage.ts.html |here} to see how to use GetContainerImageRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerImage.ts.html |here} to see how to use GetContainerImageRequest.
  */
 export interface GetContainerImageRequest extends common.BaseRequest {
   /**
- * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container image.
+ * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container image.
 * <p>
 Example: {@code ocid1.containerimage.oc1..exampleuniqueID}
 * 

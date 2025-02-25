@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ChangeManagedInstanceGroupCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
    * compartment into which the resource should be moved.
    *
    */

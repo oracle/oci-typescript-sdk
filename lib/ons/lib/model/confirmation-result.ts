@@ -1,7 +1,7 @@
 /**
  * Notifications API
  * Use the Notifications API to broadcast messages to distributed components by topic, using a publish-subscribe pattern.
-For information about managing topics, subscriptions, and messages, see [Notifications Overview](/iaas/Content/Notification/Concepts/notificationoverview.htm).
+For information about managing topics, subscriptions, and messages, see [Notifications Overview](https://docs.oracle.com/iaas/Content/Notification/Concepts/notificationoverview.htm).
 
  * OpenAPI spec version: 20181201
  * 
@@ -19,7 +19,7 @@ import common = require("oci-common");
 /**
  * The confirmation details for the specified subscription.
  * For information about confirming subscriptions, see
- * [To confirm a subscription](https://docs.cloud.oracle.com/iaas/Content/Notification/Tasks/managingtopicsandsubscriptions.htm#confirmSub).
+ * [To confirm a subscription](https://docs.oracle.com/iaas/Content/Notification/Tasks/managingtopicsandsubscriptions.htm#confirmSub).
  *
  */
 export interface ConfirmationResult {
@@ -29,7 +29,7 @@ export interface ConfirmationResult {
    */
   "topicName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the topic associated with the specified subscription.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the topic associated with the specified subscription.
    *
    */
   "topicId": string;
@@ -48,7 +48,7 @@ export interface ConfirmationResult {
    */
   "message": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription specified in the request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription specified in the request.
    */
   "subscriptionId": string;
 }

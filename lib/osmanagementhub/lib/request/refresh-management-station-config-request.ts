@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RefreshManagementStationConfig.ts.html |here} to see how to use RefreshManagementStationConfigRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/RefreshManagementStationConfig.ts.html |here} to see how to use RefreshManagementStationConfigRequest.
  */
 export interface RefreshManagementStationConfigRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station.
    */
   "managementStationId": string;
   /**

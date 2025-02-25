@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeProtectedDatabaseCompartment.ts.html |here} to see how to use ChangeProtectedDatabaseCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ChangeProtectedDatabaseCompartment.ts.html |here} to see how to use ChangeProtectedDatabaseCompartmentRequest.
  */
 export interface ChangeProtectedDatabaseCompartmentRequest extends common.BaseRequest {
   /**

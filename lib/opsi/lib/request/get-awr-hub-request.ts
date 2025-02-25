@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHub.ts.html |here} to see how to use GetAwrHubRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHub.ts.html |here} to see how to use GetAwrHubRequest.
  */
 export interface GetAwrHubRequest extends common.BaseRequest {
   /**

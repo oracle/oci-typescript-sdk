@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetObject.ts.html |here} to see how to use GetObjectRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetObject.ts.html |here} to see how to use GetObjectRequest.
  */
 export interface GetObjectRequest extends common.BaseRequest {
   /**
@@ -64,21 +64,21 @@ export interface GetObjectRequest extends common.BaseRequest {
   "range"?: common.Range;
   /**
    * The optional header that specifies \"AES256\" as the encryption algorithm. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.oracle.com/iaas/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSseCustomerAlgorithm"?: string;
   /**
    * The optional header that specifies the base64-encoded 256-bit encryption key to use to encrypt or
    * decrypt the data. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.oracle.com/iaas/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSseCustomerKey"?: string;
   /**
    * The optional header that specifies the base64-encoded SHA256 hash of the encryption key. This
    * value is used to check the integrity of the encryption key. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.oracle.com/iaas/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSseCustomerKeySha256"?: string;

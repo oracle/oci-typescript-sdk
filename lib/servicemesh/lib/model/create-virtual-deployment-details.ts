@@ -47,7 +47,7 @@ Example: {@code This is my new resource}
   "listeners"?: Array<model.VirtualDeploymentListener>;
   "accessLogging"?: model.AccessLoggingConfiguration;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    *
    */
   "compartmentId": string;

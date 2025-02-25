@@ -1,7 +1,7 @@
 /**
  * File Storage API
  * Use the File Storage service API to manage file systems, mount targets, and snapshots.
-For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+For more information, see [Overview of File Storage](https://docs.oracle.com/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -28,7 +28,7 @@ Example: {@code Uocm:PHX-AD-1}
     */
   "availabilityDomain": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which to create the mount target.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to create the mount target.
    */
   "compartmentId": string;
   /**
@@ -48,16 +48,16 @@ Example: {@code My mount target}
 * with [RFC 952](https://tools.ietf.org/html/rfc952)
 * and [RFC 1123](https://tools.ietf.org/html/rfc1123).
 * <p>
-Note: This attribute value is stored in the [PrivateIp](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/20160918/PrivateIp/) resource,
+Note: This attribute value is stored in the [PrivateIp](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/20160918/PrivateIp/) resource,
 * not in the {@code mountTarget} resource.
 * To update the {@code hostnameLabel}, use {@code GetMountTarget} to obtain the
-* [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the mount target's
+* [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the mount target's
 * private IPs ({@code privateIpIds}). Then, you can use
-* [UpdatePrivateIp](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/20160918/PrivateIp/UpdatePrivateIp)
+* [UpdatePrivateIp](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/20160918/PrivateIp/UpdatePrivateIp)
 * to update the {@code hostnameLabel} value.
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 Example: {@code files-1}
 * 
@@ -73,7 +73,7 @@ Example: {@code 10.0.3.3}
     */
   "ipAddress"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet in which to create the mount target.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet in which to create the mount target.
    *
    */
   "subnetId": string;
@@ -83,10 +83,10 @@ Example: {@code 10.0.3.3}
   "idmapType"?: string;
   "ldapIdmap"?: model.CreateLdapIdmapDetails;
   /**
-   * A list of Network Security Group [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) associated with this mount target.
+   * A list of Network Security Group [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) associated with this mount target.
    * A maximum of 5 is allowed.
    * Setting this to an empty array after the list is created removes the mount target from all NSGs.
-   * For more information about NSGs, see [Security Rules](https://docs.cloud.oracle.com/Content/Network/Concepts/securityrules.htm).
+   * For more information about NSGs, see [Security Rules](https://docs.oracle.com/iaas/Content/Network/Concepts/securityrules.htm).
    *
    */
   "nsgIds"?: Array<string>;
@@ -94,14 +94,14 @@ Example: {@code 10.0.3.3}
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */

@@ -1,7 +1,7 @@
 /**
  * Load Balancing API
  * API for the Load Balancing service. Use this API to manage load balancers, backend sets, and related items. For more
-information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/balanceoverview.htm).
+information, see [Overview of Load Balancing](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).
 
  * OpenAPI spec version: 20170115
  * 
@@ -81,7 +81,7 @@ If isRequestIdEnabled is false then this field is ignored.
   "requestIdHeader"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -89,7 +89,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
@@ -101,7 +101,7 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\":\"42\",\"mode\":\"audit\", \"usagetype\" : \"zpr\"}}}}
 * 
     */
-  "zprTags"?: { [key: string]: { [key: string]: any } };
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace UpdateLoadBalancerDetails {

@@ -1,7 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
  * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
-For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+For more information, see [Oracle Cloud VMware Solution](https://docs.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20230701
  * 
@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* An [Oracle Cloud VMware Solution](https://docs.cloud.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm) Cluster contains the resources required for a
+* An [Oracle Cloud VMware Solution](https://docs.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm) Cluster contains the resources required for a
 * functional VMware environment. Instances in a Cluster
 * (see {@link EsxiHost}) run in a virtual cloud network (VCN)
 * and are preconfigured with VMware and storage. Use the vCenter utility to manage
@@ -30,7 +30,7 @@ The Cluster uses a single management subnet for provisioning the Cluster. It als
 */
 export interface Cluster {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Cluster.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cluster.
    *
    */
   "id": string;
@@ -95,13 +95,13 @@ Therefore, if you upgrade the existing ESXi hosts in the Cluster to use a newer
     */
   "esxiSoftwareVersion"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that
    * contains the Cluster.
    *
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the SDDC that the
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the SDDC that the
    * Cluster belongs to.
    *
    */
@@ -168,7 +168,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "isShieldedInstanceEnabled"?: boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Capacity Reservation.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Capacity Reservation.
    *
    */
   "capacityReservationId"?: string;
@@ -184,7 +184,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   "vsphereType": model.VsphereTypes;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -192,7 +192,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags": { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

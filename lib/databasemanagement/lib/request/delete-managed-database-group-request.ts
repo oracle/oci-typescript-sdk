@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteManagedDatabaseGroup.ts.html |here} to see how to use DeleteManagedDatabaseGroupRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteManagedDatabaseGroup.ts.html |here} to see how to use DeleteManagedDatabaseGroupRequest.
  */
 export interface DeleteManagedDatabaseGroupRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Managed Database Group.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Managed Database Group.
    */
   "managedDatabaseGroupId": string;
   /**

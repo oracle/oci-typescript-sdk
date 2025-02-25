@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingPlan.ts.html |here} to see how to use CreateSchedulingPlanRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingPlan.ts.html |here} to see how to use CreateSchedulingPlanRequest.
  */
 export interface CreateSchedulingPlanRequest extends common.BaseRequest {
   /**

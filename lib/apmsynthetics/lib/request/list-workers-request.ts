@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListWorkers.ts.html |here} to see how to use ListWorkersRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListWorkers.ts.html |here} to see how to use ListWorkersRequest.
  */
 export interface ListWorkersRequest extends common.BaseRequest {
   /**
@@ -34,7 +34,7 @@ export interface ListWorkersRequest extends common.BaseRequest {
   /**
  * The maximum number of results per page, or items to return in a paginated
 * \"List\" call. For information on how pagination works, see
-* [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 50}
 * 

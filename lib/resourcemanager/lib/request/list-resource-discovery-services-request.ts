@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListResourceDiscoveryServices.ts.html |here} to see how to use ListResourceDiscoveryServicesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListResourceDiscoveryServices.ts.html |here} to see how to use ListResourceDiscoveryServicesRequest.
  */
 export interface ListResourceDiscoveryServicesRequest extends common.BaseRequest {
   /**
@@ -25,7 +25,7 @@ export interface ListResourceDiscoveryServicesRequest extends common.BaseRequest
    */
   "opcRequestId"?: string;
   /**
-   * A filter to return only resources that exist in the compartment, identified by [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * A filter to return only resources that exist in the compartment, identified by [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId"?: string;

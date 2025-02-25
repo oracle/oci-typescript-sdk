@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateTermRelationship.ts.html |here} to see how to use UpdateTermRelationshipRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateTermRelationship.ts.html |here} to see how to use UpdateTermRelationshipRequest.
  */
 export interface UpdateTermRelationshipRequest extends common.BaseRequest {
   /**

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/DeleteHttpRedirect.ts.html |here} to see how to use DeleteHttpRedirectRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waas/DeleteHttpRedirect.ts.html |here} to see how to use DeleteHttpRedirectRequest.
  */
 export interface DeleteHttpRedirectRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the HTTP Redirect.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the HTTP Redirect.
    */
   "httpRedirectId": string;
   /**

@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -38,11 +38,17 @@ export interface ScheduledJobOperation {
   "manageModuleStreamsDetails"?: model.ManageModuleStreamsInScheduledJobDetails;
   "switchModuleStreamsDetails"?: model.ModuleStreamDetails;
   /**
-   * The software source [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The software source [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * This parameter only applies when the scheduled job is for attaching or detaching software sources.
    *
    */
   "softwareSourceIds"?: Array<string>;
+  /**
+   * The number of minutes the service waits for the reboot to complete. If the instance doesn't reboot within the
+   * timeout, the service marks the reboot job as failed.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "rebootTimeoutInMins"?: number;
 }
 
 export namespace ScheduledJobOperation {

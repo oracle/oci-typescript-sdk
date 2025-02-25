@@ -2,7 +2,7 @@
  * Connector Hub API
  * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Connector Hub, see
-[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+[the Connector Hub documentation](https://docs.oracle.com/iaas/Content/connector-hub/home.htm).
 Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
@@ -21,7 +21,7 @@ import common = require("oci-common");
 /**
  * The Monitoring source.
  * For configuration instructions, see
- * [Creating a Connector with a Monitoring Source](https://docs.cloud.oracle.com/iaas/Content/connector-hub/create-service-connector-monitoring-source.htm).
+ * [Creating a Connector with a Monitoring Source](https://docs.oracle.com/iaas/Content/connector-hub/create-service-connector-monitoring-source.htm).
  *
  */
 export interface MonitoringSourceDetails extends model.SourceDetails {

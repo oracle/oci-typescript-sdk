@@ -2,7 +2,7 @@
  * Health Checks API
  * API for the Health Checks service. Use this API to manage endpoint probes and monitors.
 For more information, see
-[Overview of the Health Checks Service](/iaas/Content/HealthChecks/Concepts/healthchecks.htm).
+[Overview of the Health Checks Service](https://docs.oracle.com/iaas/Content/HealthChecks/Concepts/healthchecks.htm).
 
  * OpenAPI spec version: 20180501
  * 
@@ -61,14 +61,14 @@ export interface HttpMonitorSummary {
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no
    * predefined name, type, or namespace.  For more information,
-   * see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */

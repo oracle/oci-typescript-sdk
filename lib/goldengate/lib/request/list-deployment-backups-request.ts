@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentBackups.ts.html |here} to see how to use ListDeploymentBackupsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentBackups.ts.html |here} to see how to use ListDeploymentBackupsRequest.
  */
 export interface ListDeploymentBackupsRequest extends common.BaseRequest {
   /**
@@ -27,7 +27,7 @@ export interface ListDeploymentBackupsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the deployment in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the deployment in which to list resources.
    *
    */
   "deploymentId"?: string;

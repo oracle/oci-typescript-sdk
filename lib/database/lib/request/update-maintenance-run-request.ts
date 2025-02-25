@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateMaintenanceRun.ts.html |here} to see how to use UpdateMaintenanceRunRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateMaintenanceRun.ts.html |here} to see how to use UpdateMaintenanceRunRequest.
  */
 export interface UpdateMaintenanceRunRequest extends common.BaseRequest {
   /**

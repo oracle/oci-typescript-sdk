@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateNetworkFirewallPolicy.ts.html |here} to see how to use CreateNetworkFirewallPolicyRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateNetworkFirewallPolicy.ts.html |here} to see how to use CreateNetworkFirewallPolicyRequest.
  */
 export interface CreateNetworkFirewallPolicyRequest extends common.BaseRequest {
   /**

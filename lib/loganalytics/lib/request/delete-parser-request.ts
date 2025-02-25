@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteParser.ts.html |here} to see how to use DeleteParserRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteParser.ts.html |here} to see how to use DeleteParserRequest.
  */
 export interface DeleteParserRequest extends common.BaseRequest {
   /**

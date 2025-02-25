@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DisassociateMonitoredResourcesDetails {
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Compartment Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId": string;
@@ -29,12 +29,12 @@ export interface DisassociateMonitoredResourcesDetails {
    */
   "associationType"?: string;
   /**
-   * Source Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Source Monitored Resource Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "sourceResourceId"?: string;
   /**
-   * Destination Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Destination Monitored Resource Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "destinationResourceId"?: string;

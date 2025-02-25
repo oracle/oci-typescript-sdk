@@ -27,12 +27,12 @@ export interface CreateAnnouncementSubscriptionDetails {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the announcement subscription.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the announcement subscription.
    *
    */
   "compartmentId": string;
   /**
-   * The OCID of the Notifications service topic that is the target for publishing announcements that match the configured announcement subscription. The caller of the operation needs the ONS_TOPIC_PUBLISH permission for the targeted Notifications service topic. For more information about Notifications permissions, see [Details for Notifications](https://docs.cloud.oracle.com/Content/Identity/policyreference/notificationpolicyreference.htm).
+   * The OCID of the Notifications service topic that is the target for publishing announcements that match the configured announcement subscription. The caller of the operation needs the ONS_TOPIC_PUBLISH permission for the targeted Notifications service topic. For more information about Notifications permissions, see [Details for Notifications](https://docs.oracle.com/iaas/Content/Identity/policyreference/notificationpolicyreference.htm).
    *
    */
   "onsTopicId": string;

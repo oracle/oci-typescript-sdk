@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousPatch.ts.html |here} to see how to use GetAutonomousPatchRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousPatch.ts.html |here} to see how to use GetAutonomousPatchRequest.
  */
 export interface GetAutonomousPatchRequest extends common.BaseRequest {
   /**
-   * The autonomous patch [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The autonomous patch [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousPatchId": string;
 }

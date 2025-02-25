@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](https://docs.oracle.com/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -244,7 +244,7 @@ export class FusionApplicationsClient {
    * @param ChangeFusionEnvironmentCompartmentRequest
    * @return ChangeFusionEnvironmentCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ChangeFusionEnvironmentCompartment.ts.html |here} to see how to use ChangeFusionEnvironmentCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ChangeFusionEnvironmentCompartment.ts.html |here} to see how to use ChangeFusionEnvironmentCompartment API.
    */
   public async changeFusionEnvironmentCompartment(
     changeFusionEnvironmentCompartmentRequest: requests.ChangeFusionEnvironmentCompartmentRequest
@@ -327,7 +327,7 @@ export class FusionApplicationsClient {
    * @param ChangeFusionEnvironmentFamilyCompartmentRequest
    * @return ChangeFusionEnvironmentFamilyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ChangeFusionEnvironmentFamilyCompartment.ts.html |here} to see how to use ChangeFusionEnvironmentFamilyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ChangeFusionEnvironmentFamilyCompartment.ts.html |here} to see how to use ChangeFusionEnvironmentFamilyCompartment API.
    */
   public async changeFusionEnvironmentFamilyCompartment(
     changeFusionEnvironmentFamilyCompartmentRequest: requests.ChangeFusionEnvironmentFamilyCompartmentRequest
@@ -410,7 +410,7 @@ export class FusionApplicationsClient {
    * @param CreateDataMaskingActivityRequest
    * @return CreateDataMaskingActivityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateDataMaskingActivity.ts.html |here} to see how to use CreateDataMaskingActivity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateDataMaskingActivity.ts.html |here} to see how to use CreateDataMaskingActivity API.
    */
   public async createDataMaskingActivity(
     createDataMaskingActivityRequest: requests.CreateDataMaskingActivityRequest
@@ -489,7 +489,7 @@ export class FusionApplicationsClient {
    * @param CreateFusionEnvironmentRequest
    * @return CreateFusionEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateFusionEnvironment.ts.html |here} to see how to use CreateFusionEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateFusionEnvironment.ts.html |here} to see how to use CreateFusionEnvironment API.
    */
   public async createFusionEnvironment(
     createFusionEnvironmentRequest: requests.CreateFusionEnvironmentRequest
@@ -565,7 +565,7 @@ export class FusionApplicationsClient {
    * @param CreateFusionEnvironmentAdminUserRequest
    * @return CreateFusionEnvironmentAdminUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateFusionEnvironmentAdminUser.ts.html |here} to see how to use CreateFusionEnvironmentAdminUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateFusionEnvironmentAdminUser.ts.html |here} to see how to use CreateFusionEnvironmentAdminUser API.
    */
   public async createFusionEnvironmentAdminUser(
     createFusionEnvironmentAdminUserRequest: requests.CreateFusionEnvironmentAdminUserRequest
@@ -646,7 +646,7 @@ export class FusionApplicationsClient {
    * @param CreateFusionEnvironmentFamilyRequest
    * @return CreateFusionEnvironmentFamilyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateFusionEnvironmentFamily.ts.html |here} to see how to use CreateFusionEnvironmentFamily API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateFusionEnvironmentFamily.ts.html |here} to see how to use CreateFusionEnvironmentFamily API.
    */
   public async createFusionEnvironmentFamily(
     createFusionEnvironmentFamilyRequest: requests.CreateFusionEnvironmentFamilyRequest
@@ -725,7 +725,7 @@ export class FusionApplicationsClient {
    * @param CreateRefreshActivityRequest
    * @return CreateRefreshActivityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateRefreshActivity.ts.html |here} to see how to use CreateRefreshActivity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateRefreshActivity.ts.html |here} to see how to use CreateRefreshActivity API.
    */
   public async createRefreshActivity(
     createRefreshActivityRequest: requests.CreateRefreshActivityRequest
@@ -804,7 +804,7 @@ export class FusionApplicationsClient {
    * @param CreateServiceAttachmentRequest
    * @return CreateServiceAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateServiceAttachment.ts.html |here} to see how to use CreateServiceAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateServiceAttachment.ts.html |here} to see how to use CreateServiceAttachment API.
    */
   public async createServiceAttachment(
     createServiceAttachmentRequest: requests.CreateServiceAttachmentRequest
@@ -882,7 +882,7 @@ export class FusionApplicationsClient {
    * @param DeleteFusionEnvironmentRequest
    * @return DeleteFusionEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteFusionEnvironment.ts.html |here} to see how to use DeleteFusionEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteFusionEnvironment.ts.html |here} to see how to use DeleteFusionEnvironment API.
    */
   public async deleteFusionEnvironment(
     deleteFusionEnvironmentRequest: requests.DeleteFusionEnvironmentRequest
@@ -955,7 +955,7 @@ export class FusionApplicationsClient {
    * @param DeleteFusionEnvironmentAdminUserRequest
    * @return DeleteFusionEnvironmentAdminUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteFusionEnvironmentAdminUser.ts.html |here} to see how to use DeleteFusionEnvironmentAdminUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteFusionEnvironmentAdminUser.ts.html |here} to see how to use DeleteFusionEnvironmentAdminUser API.
    */
   public async deleteFusionEnvironmentAdminUser(
     deleteFusionEnvironmentAdminUserRequest: requests.DeleteFusionEnvironmentAdminUserRequest
@@ -1031,7 +1031,7 @@ export class FusionApplicationsClient {
    * @param DeleteFusionEnvironmentFamilyRequest
    * @return DeleteFusionEnvironmentFamilyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteFusionEnvironmentFamily.ts.html |here} to see how to use DeleteFusionEnvironmentFamily API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteFusionEnvironmentFamily.ts.html |here} to see how to use DeleteFusionEnvironmentFamily API.
    */
   public async deleteFusionEnvironmentFamily(
     deleteFusionEnvironmentFamilyRequest: requests.DeleteFusionEnvironmentFamilyRequest
@@ -1106,7 +1106,7 @@ export class FusionApplicationsClient {
    * @param DeleteRefreshActivityRequest
    * @return DeleteRefreshActivityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteRefreshActivity.ts.html |here} to see how to use DeleteRefreshActivity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteRefreshActivity.ts.html |here} to see how to use DeleteRefreshActivity API.
    */
   public async deleteRefreshActivity(
     deleteRefreshActivityRequest: requests.DeleteRefreshActivityRequest
@@ -1180,7 +1180,7 @@ export class FusionApplicationsClient {
    * @param DeleteServiceAttachmentRequest
    * @return DeleteServiceAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteServiceAttachment.ts.html |here} to see how to use DeleteServiceAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteServiceAttachment.ts.html |here} to see how to use DeleteServiceAttachment API.
    */
   public async deleteServiceAttachment(
     deleteServiceAttachmentRequest: requests.DeleteServiceAttachmentRequest
@@ -1255,7 +1255,7 @@ export class FusionApplicationsClient {
    * @param GenerateExtractDetailsRequest
    * @return GenerateExtractDetailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GenerateExtractDetails.ts.html |here} to see how to use GenerateExtractDetails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GenerateExtractDetails.ts.html |here} to see how to use GenerateExtractDetails API.
    */
   public async generateExtractDetails(
     generateExtractDetailsRequest: requests.GenerateExtractDetailsRequest
@@ -1326,7 +1326,7 @@ export class FusionApplicationsClient {
    * @param GetDataMaskingActivityRequest
    * @return GetDataMaskingActivityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetDataMaskingActivity.ts.html |here} to see how to use GetDataMaskingActivity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetDataMaskingActivity.ts.html |here} to see how to use GetDataMaskingActivity API.
    */
   public async getDataMaskingActivity(
     getDataMaskingActivityRequest: requests.GetDataMaskingActivityRequest
@@ -1404,7 +1404,7 @@ export class FusionApplicationsClient {
    * @param GetFusionEnvironmentRequest
    * @return GetFusionEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironment.ts.html |here} to see how to use GetFusionEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironment.ts.html |here} to see how to use GetFusionEnvironment API.
    */
   public async getFusionEnvironment(
     getFusionEnvironmentRequest: requests.GetFusionEnvironmentRequest
@@ -1480,7 +1480,7 @@ export class FusionApplicationsClient {
    * @param GetFusionEnvironmentFamilyRequest
    * @return GetFusionEnvironmentFamilyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironmentFamily.ts.html |here} to see how to use GetFusionEnvironmentFamily API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironmentFamily.ts.html |here} to see how to use GetFusionEnvironmentFamily API.
    */
   public async getFusionEnvironmentFamily(
     getFusionEnvironmentFamilyRequest: requests.GetFusionEnvironmentFamilyRequest
@@ -1556,7 +1556,7 @@ export class FusionApplicationsClient {
    * @param GetFusionEnvironmentFamilyLimitsAndUsageRequest
    * @return GetFusionEnvironmentFamilyLimitsAndUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironmentFamilyLimitsAndUsage.ts.html |here} to see how to use GetFusionEnvironmentFamilyLimitsAndUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironmentFamilyLimitsAndUsage.ts.html |here} to see how to use GetFusionEnvironmentFamilyLimitsAndUsage API.
    */
   public async getFusionEnvironmentFamilyLimitsAndUsage(
     getFusionEnvironmentFamilyLimitsAndUsageRequest: requests.GetFusionEnvironmentFamilyLimitsAndUsageRequest
@@ -1635,7 +1635,7 @@ export class FusionApplicationsClient {
    * @param GetFusionEnvironmentFamilySubscriptionDetailRequest
    * @return GetFusionEnvironmentFamilySubscriptionDetailResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironmentFamilySubscriptionDetail.ts.html |here} to see how to use GetFusionEnvironmentFamilySubscriptionDetail API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironmentFamilySubscriptionDetail.ts.html |here} to see how to use GetFusionEnvironmentFamilySubscriptionDetail API.
    */
   public async getFusionEnvironmentFamilySubscriptionDetail(
     getFusionEnvironmentFamilySubscriptionDetailRequest: requests.GetFusionEnvironmentFamilySubscriptionDetailRequest
@@ -1714,7 +1714,7 @@ export class FusionApplicationsClient {
    * @param GetFusionEnvironmentStatusRequest
    * @return GetFusionEnvironmentStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironmentStatus.ts.html |here} to see how to use GetFusionEnvironmentStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetFusionEnvironmentStatus.ts.html |here} to see how to use GetFusionEnvironmentStatus API.
    */
   public async getFusionEnvironmentStatus(
     getFusionEnvironmentStatusRequest: requests.GetFusionEnvironmentStatusRequest
@@ -1785,7 +1785,7 @@ export class FusionApplicationsClient {
    * @param GetRefreshActivityRequest
    * @return GetRefreshActivityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetRefreshActivity.ts.html |here} to see how to use GetRefreshActivity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetRefreshActivity.ts.html |here} to see how to use GetRefreshActivity API.
    */
   public async getRefreshActivity(
     getRefreshActivityRequest: requests.GetRefreshActivityRequest
@@ -1862,7 +1862,7 @@ export class FusionApplicationsClient {
    * @param GetScheduledActivityRequest
    * @return GetScheduledActivityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetScheduledActivity.ts.html |here} to see how to use GetScheduledActivity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetScheduledActivity.ts.html |here} to see how to use GetScheduledActivity API.
    */
   public async getScheduledActivity(
     getScheduledActivityRequest: requests.GetScheduledActivityRequest
@@ -1939,7 +1939,7 @@ export class FusionApplicationsClient {
    * @param GetServiceAttachmentRequest
    * @return GetServiceAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetServiceAttachment.ts.html |here} to see how to use GetServiceAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetServiceAttachment.ts.html |here} to see how to use GetServiceAttachment API.
    */
   public async getServiceAttachment(
     getServiceAttachmentRequest: requests.GetServiceAttachmentRequest
@@ -2016,7 +2016,7 @@ export class FusionApplicationsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2093,7 +2093,7 @@ export class FusionApplicationsClient {
    * @param InitiateExtractRequest
    * @return InitiateExtractResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/InitiateExtract.ts.html |here} to see how to use InitiateExtract API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/InitiateExtract.ts.html |here} to see how to use InitiateExtract API.
    */
   public async initiateExtract(
     initiateExtractRequest: requests.InitiateExtractRequest
@@ -2165,7 +2165,7 @@ export class FusionApplicationsClient {
    * @param ListAdminUsersRequest
    * @return ListAdminUsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListAdminUsers.ts.html |here} to see how to use ListAdminUsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListAdminUsers.ts.html |here} to see how to use ListAdminUsers API.
    */
   public async listAdminUsers(
     listAdminUsersRequest: requests.ListAdminUsersRequest
@@ -2242,7 +2242,7 @@ export class FusionApplicationsClient {
    * @param ListDataMaskingActivitiesRequest
    * @return ListDataMaskingActivitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListDataMaskingActivities.ts.html |here} to see how to use ListDataMaskingActivities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListDataMaskingActivities.ts.html |here} to see how to use ListDataMaskingActivities API.
    */
   public async listDataMaskingActivities(
     listDataMaskingActivitiesRequest: requests.ListDataMaskingActivitiesRequest
@@ -2325,7 +2325,7 @@ export class FusionApplicationsClient {
    * @param ListFusionEnvironmentFamiliesRequest
    * @return ListFusionEnvironmentFamiliesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListFusionEnvironmentFamilies.ts.html |here} to see how to use ListFusionEnvironmentFamilies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListFusionEnvironmentFamilies.ts.html |here} to see how to use ListFusionEnvironmentFamilies API.
    */
   public async listFusionEnvironmentFamilies(
     listFusionEnvironmentFamiliesRequest: requests.ListFusionEnvironmentFamiliesRequest
@@ -2411,7 +2411,7 @@ export class FusionApplicationsClient {
    * @param ListFusionEnvironmentsRequest
    * @return ListFusionEnvironmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListFusionEnvironments.ts.html |here} to see how to use ListFusionEnvironments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListFusionEnvironments.ts.html |here} to see how to use ListFusionEnvironments API.
    */
   public async listFusionEnvironments(
     listFusionEnvironmentsRequest: requests.ListFusionEnvironmentsRequest
@@ -2495,7 +2495,7 @@ export class FusionApplicationsClient {
    * @param ListRefreshActivitiesRequest
    * @return ListRefreshActivitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListRefreshActivities.ts.html |here} to see how to use ListRefreshActivities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListRefreshActivities.ts.html |here} to see how to use ListRefreshActivities API.
    */
   public async listRefreshActivities(
     listRefreshActivitiesRequest: requests.ListRefreshActivitiesRequest
@@ -2583,7 +2583,7 @@ export class FusionApplicationsClient {
    * @param ListScheduledActivitiesRequest
    * @return ListScheduledActivitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListScheduledActivities.ts.html |here} to see how to use ListScheduledActivities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListScheduledActivities.ts.html |here} to see how to use ListScheduledActivities API.
    */
   public async listScheduledActivities(
     listScheduledActivitiesRequest: requests.ListScheduledActivitiesRequest
@@ -2675,7 +2675,7 @@ export class FusionApplicationsClient {
    * @param ListServiceAttachmentsRequest
    * @return ListServiceAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListServiceAttachments.ts.html |here} to see how to use ListServiceAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListServiceAttachments.ts.html |here} to see how to use ListServiceAttachments API.
    */
   public async listServiceAttachments(
     listServiceAttachmentsRequest: requests.ListServiceAttachmentsRequest
@@ -2759,7 +2759,7 @@ export class FusionApplicationsClient {
    * @param ListTimeAvailableForRefreshesRequest
    * @return ListTimeAvailableForRefreshesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListTimeAvailableForRefreshes.ts.html |here} to see how to use ListTimeAvailableForRefreshes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListTimeAvailableForRefreshes.ts.html |here} to see how to use ListTimeAvailableForRefreshes API.
    */
   public async listTimeAvailableForRefreshes(
     listTimeAvailableForRefreshesRequest: requests.ListTimeAvailableForRefreshesRequest
@@ -2843,7 +2843,7 @@ export class FusionApplicationsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2925,7 +2925,7 @@ export class FusionApplicationsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -3007,7 +3007,7 @@ export class FusionApplicationsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -3089,7 +3089,7 @@ export class FusionApplicationsClient {
    * @param ResetFusionEnvironmentPasswordRequest
    * @return ResetFusionEnvironmentPasswordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ResetFusionEnvironmentPassword.ts.html |here} to see how to use ResetFusionEnvironmentPassword API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ResetFusionEnvironmentPassword.ts.html |here} to see how to use ResetFusionEnvironmentPassword API.
    */
   public async resetFusionEnvironmentPassword(
     resetFusionEnvironmentPasswordRequest: requests.ResetFusionEnvironmentPasswordRequest
@@ -3172,7 +3172,7 @@ export class FusionApplicationsClient {
    * @param UpdateFusionEnvironmentRequest
    * @return UpdateFusionEnvironmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateFusionEnvironment.ts.html |here} to see how to use UpdateFusionEnvironment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateFusionEnvironment.ts.html |here} to see how to use UpdateFusionEnvironment API.
    */
   public async updateFusionEnvironment(
     updateFusionEnvironmentRequest: requests.UpdateFusionEnvironmentRequest
@@ -3250,7 +3250,7 @@ export class FusionApplicationsClient {
    * @param UpdateFusionEnvironmentFamilyRequest
    * @return UpdateFusionEnvironmentFamilyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateFusionEnvironmentFamily.ts.html |here} to see how to use UpdateFusionEnvironmentFamily API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateFusionEnvironmentFamily.ts.html |here} to see how to use UpdateFusionEnvironmentFamily API.
    */
   public async updateFusionEnvironmentFamily(
     updateFusionEnvironmentFamilyRequest: requests.UpdateFusionEnvironmentFamilyRequest
@@ -3331,7 +3331,7 @@ export class FusionApplicationsClient {
    * @param UpdateRefreshActivityRequest
    * @return UpdateRefreshActivityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateRefreshActivity.ts.html |here} to see how to use UpdateRefreshActivity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateRefreshActivity.ts.html |here} to see how to use UpdateRefreshActivity API.
    */
   public async updateRefreshActivity(
     updateRefreshActivityRequest: requests.UpdateRefreshActivityRequest
@@ -3415,7 +3415,7 @@ export class FusionApplicationsClient {
    * @param VerifyServiceAttachmentRequest
    * @return VerifyServiceAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/VerifyServiceAttachment.ts.html |here} to see how to use VerifyServiceAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/VerifyServiceAttachment.ts.html |here} to see how to use VerifyServiceAttachment API.
    */
   public async verifyServiceAttachment(
     verifyServiceAttachmentRequest: requests.VerifyServiceAttachmentRequest

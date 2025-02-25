@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceAgentCommandExecutions.ts.html |here} to see how to use ListInstanceAgentCommandExecutionsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceAgentCommandExecutions.ts.html |here} to see how to use ListInstanceAgentCommandExecutionsRequest.
  */
 export interface ListInstanceAgentCommandExecutionsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the instance.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance.
    */
   "instanceId": string;
   /**
@@ -35,14 +35,14 @@ export interface ListInstanceAgentCommandExecutionsRequest extends common.BaseRe
   /**
    * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
    * For list pagination. The maximum number of results per page, or items to return in a paginated
    * \"List\" call. For important details about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;

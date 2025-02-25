@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableExadataInsight.ts.html |here} to see how to use EnableExadataInsightRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableExadataInsight.ts.html |here} to see how to use EnableExadataInsightRequest.
  */
 export interface EnableExadataInsightRequest extends common.BaseRequest {
   /**

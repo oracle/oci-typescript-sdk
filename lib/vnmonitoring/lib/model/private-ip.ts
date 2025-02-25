@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -30,7 +30,7 @@ Each instance has a *primary private IP* that is automatically created and
 * <p>
 You can add *secondary private IPs* to a VNIC after it's created. For more
 * information, see the {@code privateIp} operations and also
-* [IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
+* [IP Addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
 * <p>
 **Note:** Only
 * {@link #listPrivateIps(ListPrivateIpsRequest) listPrivateIps} and
@@ -50,7 +50,7 @@ You can add *secondary private IPs* to a VNIC after it's created. For more
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface PrivateIp {
@@ -63,7 +63,7 @@ Example: {@code Uocm:PHX-AD-1}
     */
   "availabilityDomain"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the private IP.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the private IP.
    */
   "compartmentId"?: string;
   /**
@@ -93,14 +93,14 @@ Example: {@code Uocm:PHX-AD-1}
 * [RFC 1123](https://tools.ietf.org/html/rfc1123).
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 Example: {@code bminstance1}
 * 
     */
   "hostnameLabel"?: string;
   /**
-   * The private IP's Oracle ID ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
+   * The private IP's Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
    */
   "id"?: string;
   /**
@@ -125,13 +125,13 @@ Example: {@code true}
   "isPrimary"?: boolean;
   /**
    * Applicable only if the {@code PrivateIp} object is being used with a VLAN as part of
-   * the Oracle Cloud VMware Solution. The {@code vlanId} is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN. See
+   * the Oracle Cloud VMware Solution. The {@code vlanId} is the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN. See
    * {@link Vlan}.
    *
    */
   "vlanId"?: string;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the VNIC is in.
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the VNIC is in.
 * <p>
 However, if the {@code PrivateIp} object is being used with a VLAN as part of
 * the Oracle Cloud VMware Solution, the {@code subnetId} is null.
@@ -146,7 +146,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeCreated"?: Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC the private IP is assigned to. The VNIC and private IP
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC the private IP is assigned to. The VNIC and private IP
    * must be in the same subnet.
    * However, if the {@code PrivateIp} object is being used with a VLAN as part of
    * the Oracle Cloud VMware Solution, the {@code vnicId} is null.

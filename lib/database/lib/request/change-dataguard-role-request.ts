@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDataguardRole.ts.html |here} to see how to use ChangeDataguardRoleRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDataguardRole.ts.html |here} to see how to use ChangeDataguardRoleRequest.
  */
 export interface ChangeDataguardRoleRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ChangeDataguardRoleRequest extends common.BaseRequest {
    */
   "changeDataguardRoleDetails": model.ChangeDataguardRoleDetails;
   /**
-   * The Autonomous Container Database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Autonomous Container Database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousContainerDatabaseId": string;
   /**

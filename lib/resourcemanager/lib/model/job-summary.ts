@@ -3,7 +3,7 @@
  * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
 Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
+[the Resource Manager documentation](https://docs.oracle.com/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -23,15 +23,15 @@ import common = require("oci-common");
  */
 export interface JobSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the job.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the job.
    */
   "id"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the stack that is associated with the specified job.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the stack that is associated with the specified job.
    */
   "stackId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where the stack of the associated job resides.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where the stack of the associated job resides.
    */
   "compartmentId"?: string;
   /**
@@ -52,7 +52,7 @@ export interface JobSummary {
   "applyJobPlanResolution"?: model.ApplyJobPlanResolution;
   /**
    * Deprecated. Use the property {@code executionPlanJobId} in {@code jobOperationDetails} instead.
-   * The plan job [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that was used (if this was an apply job and was not auto-approved).
+   * The plan job [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that was used (if this was an apply job and was not auto-approved).
    *
    */
   "resolvedPlanJobId"?: string;
@@ -73,7 +73,7 @@ export interface JobSummary {
   /**
     * Current state of the specified job.
 * For more information about job lifecycle states in Resource Manager, see
-* [Key Concepts](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__JobStates).
+* [Key Concepts](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__JobStates).
 * <p>
 Allowable values:
 * - ACCEPTED
@@ -87,14 +87,14 @@ Allowable values:
   "lifecycleState"?: string;
   /**
    * Free-form tags associated with this resource. Each tag is a key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */

@@ -246,7 +246,7 @@ export class ManagementClient {
    * @param BulkCreateSkillEntitiesRequest
    * @return BulkCreateSkillEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/BulkCreateSkillEntities.ts.html |here} to see how to use BulkCreateSkillEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/BulkCreateSkillEntities.ts.html |here} to see how to use BulkCreateSkillEntities API.
    */
   public async bulkCreateSkillEntities(
     bulkCreateSkillEntitiesRequest: requests.BulkCreateSkillEntitiesRequest
@@ -327,7 +327,7 @@ export class ManagementClient {
    * @param CascadingDeleteSkillCustomEntitiesRequest
    * @return CascadingDeleteSkillCustomEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CascadingDeleteSkillCustomEntities.ts.html |here} to see how to use CascadingDeleteSkillCustomEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CascadingDeleteSkillCustomEntities.ts.html |here} to see how to use CascadingDeleteSkillCustomEntities API.
    */
   public async cascadingDeleteSkillCustomEntities(
     cascadingDeleteSkillCustomEntitiesRequest: requests.CascadingDeleteSkillCustomEntitiesRequest
@@ -408,7 +408,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
      * @param ChangeOdaPrivateEndpointCompartmentRequest
      * @return ChangeOdaPrivateEndpointCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ChangeOdaPrivateEndpointCompartment.ts.html |here} to see how to use ChangeOdaPrivateEndpointCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ChangeOdaPrivateEndpointCompartment.ts.html |here} to see how to use ChangeOdaPrivateEndpointCompartment API.
      */
   public async changeOdaPrivateEndpointCompartment(
     changeOdaPrivateEndpointCompartmentRequest: requests.ChangeOdaPrivateEndpointCompartmentRequest
@@ -489,7 +489,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
    * @param ConfigureDigitalAssistantParametersRequest
    * @return ConfigureDigitalAssistantParametersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ConfigureDigitalAssistantParameters.ts.html |here} to see how to use ConfigureDigitalAssistantParameters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ConfigureDigitalAssistantParameters.ts.html |here} to see how to use ConfigureDigitalAssistantParameters API.
    */
   public async configureDigitalAssistantParameters(
     configureDigitalAssistantParametersRequest: requests.ConfigureDigitalAssistantParametersRequest
@@ -563,7 +563,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
    * @param CreateAuthenticationProviderRequest
    * @return CreateAuthenticationProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateAuthenticationProvider.ts.html |here} to see how to use CreateAuthenticationProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateAuthenticationProvider.ts.html |here} to see how to use CreateAuthenticationProvider API.
    */
   public async createAuthenticationProvider(
     createAuthenticationProviderRequest: requests.CreateAuthenticationProviderRequest
@@ -652,7 +652,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
    * @param CreateChannelRequest
    * @return CreateChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateChannel.ts.html |here} to see how to use CreateChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateChannel.ts.html |here} to see how to use CreateChannel API.
    */
   public async createChannel(
     createChannelRequest: requests.CreateChannelRequest
@@ -740,7 +740,7 @@ To monitor the status of the job, take the `opc-work-request-id` response header
    * @param CreateDigitalAssistantRequest
    * @return CreateDigitalAssistantResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateDigitalAssistant.ts.html |here} to see how to use CreateDigitalAssistant API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateDigitalAssistant.ts.html |here} to see how to use CreateDigitalAssistant API.
    */
   public async createDigitalAssistant(
     createDigitalAssistantRequest: requests.CreateDigitalAssistantRequest
@@ -823,7 +823,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
      * @param CreateOdaPrivateEndpointRequest
      * @return CreateOdaPrivateEndpointResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpoint.ts.html |here} to see how to use CreateOdaPrivateEndpoint API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpoint.ts.html |here} to see how to use CreateOdaPrivateEndpoint API.
      */
   public async createOdaPrivateEndpoint(
     createOdaPrivateEndpointRequest: requests.CreateOdaPrivateEndpointRequest
@@ -917,7 +917,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
      * @param CreateOdaPrivateEndpointAttachmentRequest
      * @return CreateOdaPrivateEndpointAttachmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpointAttachment.ts.html |here} to see how to use CreateOdaPrivateEndpointAttachment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpointAttachment.ts.html |here} to see how to use CreateOdaPrivateEndpointAttachment API.
      */
   public async createOdaPrivateEndpointAttachment(
     createOdaPrivateEndpointAttachmentRequest: requests.CreateOdaPrivateEndpointAttachmentRequest
@@ -1011,7 +1011,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
      * @param CreateOdaPrivateEndpointScanProxyRequest
      * @return CreateOdaPrivateEndpointScanProxyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpointScanProxy.ts.html |here} to see how to use CreateOdaPrivateEndpointScanProxy API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpointScanProxy.ts.html |here} to see how to use CreateOdaPrivateEndpointScanProxy API.
      */
   public async createOdaPrivateEndpointScanProxy(
     createOdaPrivateEndpointScanProxyRequest: requests.CreateOdaPrivateEndpointScanProxyRequest
@@ -1104,7 +1104,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param CreateSkillRequest
    * @return CreateSkillResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateSkill.ts.html |here} to see how to use CreateSkill API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateSkill.ts.html |here} to see how to use CreateSkill API.
    */
   public async createSkill(
     createSkillRequest: requests.CreateSkillRequest
@@ -1183,7 +1183,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param CreateSkillParameterRequest
    * @return CreateSkillParameterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateSkillParameter.ts.html |here} to see how to use CreateSkillParameter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateSkillParameter.ts.html |here} to see how to use CreateSkillParameter API.
    */
   public async createSkillParameter(
     createSkillParameterRequest: requests.CreateSkillParameterRequest
@@ -1272,7 +1272,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param CreateTranslatorRequest
    * @return CreateTranslatorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateTranslator.ts.html |here} to see how to use CreateTranslator API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateTranslator.ts.html |here} to see how to use CreateTranslator API.
    */
   public async createTranslator(
     createTranslatorRequest: requests.CreateTranslatorRequest
@@ -1359,7 +1359,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteAuthenticationProviderRequest
    * @return DeleteAuthenticationProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteAuthenticationProvider.ts.html |here} to see how to use DeleteAuthenticationProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteAuthenticationProvider.ts.html |here} to see how to use DeleteAuthenticationProvider API.
    */
   public async deleteAuthenticationProvider(
     deleteAuthenticationProviderRequest: requests.DeleteAuthenticationProviderRequest
@@ -1429,7 +1429,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteChannelRequest
    * @return DeleteChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteChannel.ts.html |here} to see how to use DeleteChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteChannel.ts.html |here} to see how to use DeleteChannel API.
    */
   public async deleteChannel(
     deleteChannelRequest: requests.DeleteChannelRequest
@@ -1499,7 +1499,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteDigitalAssistantRequest
    * @return DeleteDigitalAssistantResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteDigitalAssistant.ts.html |here} to see how to use DeleteDigitalAssistant API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteDigitalAssistant.ts.html |here} to see how to use DeleteDigitalAssistant API.
    */
   public async deleteDigitalAssistant(
     deleteDigitalAssistantRequest: requests.DeleteDigitalAssistantRequest
@@ -1570,7 +1570,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteOdaPrivateEndpointRequest
    * @return DeleteOdaPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaPrivateEndpoint.ts.html |here} to see how to use DeleteOdaPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaPrivateEndpoint.ts.html |here} to see how to use DeleteOdaPrivateEndpoint API.
    */
   public async deleteOdaPrivateEndpoint(
     deleteOdaPrivateEndpointRequest: requests.DeleteOdaPrivateEndpointRequest
@@ -1645,7 +1645,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteOdaPrivateEndpointAttachmentRequest
    * @return DeleteOdaPrivateEndpointAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaPrivateEndpointAttachment.ts.html |here} to see how to use DeleteOdaPrivateEndpointAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaPrivateEndpointAttachment.ts.html |here} to see how to use DeleteOdaPrivateEndpointAttachment API.
    */
   public async deleteOdaPrivateEndpointAttachment(
     deleteOdaPrivateEndpointAttachmentRequest: requests.DeleteOdaPrivateEndpointAttachmentRequest
@@ -1721,7 +1721,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteOdaPrivateEndpointScanProxyRequest
    * @return DeleteOdaPrivateEndpointScanProxyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaPrivateEndpointScanProxy.ts.html |here} to see how to use DeleteOdaPrivateEndpointScanProxy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaPrivateEndpointScanProxy.ts.html |here} to see how to use DeleteOdaPrivateEndpointScanProxy API.
    */
   public async deleteOdaPrivateEndpointScanProxy(
     deleteOdaPrivateEndpointScanProxyRequest: requests.DeleteOdaPrivateEndpointScanProxyRequest
@@ -1799,7 +1799,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteSkillRequest
    * @return DeleteSkillResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteSkill.ts.html |here} to see how to use DeleteSkill API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteSkill.ts.html |here} to see how to use DeleteSkill API.
    */
   public async deleteSkill(
     deleteSkillRequest: requests.DeleteSkillRequest
@@ -1869,7 +1869,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteSkillParameterRequest
    * @return DeleteSkillParameterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteSkillParameter.ts.html |here} to see how to use DeleteSkillParameter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteSkillParameter.ts.html |here} to see how to use DeleteSkillParameter API.
    */
   public async deleteSkillParameter(
     deleteSkillParameterRequest: requests.DeleteSkillParameterRequest
@@ -1939,7 +1939,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteTranslatorRequest
    * @return DeleteTranslatorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteTranslator.ts.html |here} to see how to use DeleteTranslator API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteTranslator.ts.html |here} to see how to use DeleteTranslator API.
    */
   public async deleteTranslator(
     deleteTranslatorRequest: requests.DeleteTranslatorRequest
@@ -2008,7 +2008,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param ExportDigitalAssistantRequest
    * @return ExportDigitalAssistantResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ExportDigitalAssistant.ts.html |here} to see how to use ExportDigitalAssistant API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ExportDigitalAssistant.ts.html |here} to see how to use ExportDigitalAssistant API.
    */
   public async exportDigitalAssistant(
     exportDigitalAssistantRequest: requests.ExportDigitalAssistantRequest
@@ -2087,7 +2087,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param ExportSkillRequest
    * @return ExportSkillResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ExportSkill.ts.html |here} to see how to use ExportSkill API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ExportSkill.ts.html |here} to see how to use ExportSkill API.
    */
   public async exportSkill(
     exportSkillRequest: requests.ExportSkillRequest
@@ -2165,7 +2165,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetAuthenticationProviderRequest
    * @return GetAuthenticationProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetAuthenticationProvider.ts.html |here} to see how to use GetAuthenticationProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetAuthenticationProvider.ts.html |here} to see how to use GetAuthenticationProvider API.
    */
   public async getAuthenticationProvider(
     getAuthenticationProviderRequest: requests.GetAuthenticationProviderRequest
@@ -2244,7 +2244,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetChannelRequest
    * @return GetChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetChannel.ts.html |here} to see how to use GetChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetChannel.ts.html |here} to see how to use GetChannel API.
    */
   public async getChannel(
     getChannelRequest: requests.GetChannelRequest
@@ -2322,7 +2322,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetDigitalAssistantRequest
    * @return GetDigitalAssistantResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetDigitalAssistant.ts.html |here} to see how to use GetDigitalAssistant API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetDigitalAssistant.ts.html |here} to see how to use GetDigitalAssistant API.
    */
   public async getDigitalAssistant(
     getDigitalAssistantRequest: requests.GetDigitalAssistantRequest
@@ -2400,7 +2400,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetDigitalAssistantParameterRequest
    * @return GetDigitalAssistantParameterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetDigitalAssistantParameter.ts.html |here} to see how to use GetDigitalAssistantParameter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetDigitalAssistantParameter.ts.html |here} to see how to use GetDigitalAssistantParameter API.
    */
   public async getDigitalAssistantParameter(
     getDigitalAssistantParameterRequest: requests.GetDigitalAssistantParameterRequest
@@ -2481,7 +2481,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetOdaPrivateEndpointRequest
    * @return GetOdaPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaPrivateEndpoint.ts.html |here} to see how to use GetOdaPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaPrivateEndpoint.ts.html |here} to see how to use GetOdaPrivateEndpoint API.
    */
   public async getOdaPrivateEndpoint(
     getOdaPrivateEndpointRequest: requests.GetOdaPrivateEndpointRequest
@@ -2557,7 +2557,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetOdaPrivateEndpointAttachmentRequest
    * @return GetOdaPrivateEndpointAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaPrivateEndpointAttachment.ts.html |here} to see how to use GetOdaPrivateEndpointAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaPrivateEndpointAttachment.ts.html |here} to see how to use GetOdaPrivateEndpointAttachment API.
    */
   public async getOdaPrivateEndpointAttachment(
     getOdaPrivateEndpointAttachmentRequest: requests.GetOdaPrivateEndpointAttachmentRequest
@@ -2635,7 +2635,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetOdaPrivateEndpointScanProxyRequest
    * @return GetOdaPrivateEndpointScanProxyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaPrivateEndpointScanProxy.ts.html |here} to see how to use GetOdaPrivateEndpointScanProxy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaPrivateEndpointScanProxy.ts.html |here} to see how to use GetOdaPrivateEndpointScanProxy API.
    */
   public async getOdaPrivateEndpointScanProxy(
     getOdaPrivateEndpointScanProxyRequest: requests.GetOdaPrivateEndpointScanProxyRequest
@@ -2715,7 +2715,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetSkillRequest
    * @return GetSkillResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetSkill.ts.html |here} to see how to use GetSkill API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetSkill.ts.html |here} to see how to use GetSkill API.
    */
   public async getSkill(
     getSkillRequest: requests.GetSkillRequest
@@ -2793,7 +2793,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetSkillParameterRequest
    * @return GetSkillParameterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetSkillParameter.ts.html |here} to see how to use GetSkillParameter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetSkillParameter.ts.html |here} to see how to use GetSkillParameter API.
    */
   public async getSkillParameter(
     getSkillParameterRequest: requests.GetSkillParameterRequest
@@ -2872,7 +2872,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetTranslatorRequest
    * @return GetTranslatorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetTranslator.ts.html |here} to see how to use GetTranslator API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetTranslator.ts.html |here} to see how to use GetTranslator API.
    */
   public async getTranslator(
     getTranslatorRequest: requests.GetTranslatorRequest
@@ -2950,7 +2950,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param ImportBotRequest
    * @return ImportBotResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ImportBot.ts.html |here} to see how to use ImportBot API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ImportBot.ts.html |here} to see how to use ImportBot API.
    */
   public async importBot(
     importBotRequest: requests.ImportBotRequest
@@ -3033,7 +3033,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListAuthenticationProvidersRequest
      * @return ListAuthenticationProvidersResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListAuthenticationProviders.ts.html |here} to see how to use ListAuthenticationProviders API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListAuthenticationProviders.ts.html |here} to see how to use ListAuthenticationProviders API.
      */
   public async listAuthenticationProviders(
     listAuthenticationProvidersRequest: requests.ListAuthenticationProvidersRequest
@@ -3129,7 +3129,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListChannelsRequest
      * @return ListChannelsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListChannels.ts.html |here} to see how to use ListChannels API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListChannels.ts.html |here} to see how to use ListChannels API.
      */
   public async listChannels(
     listChannelsRequest: requests.ListChannelsRequest
@@ -3225,7 +3225,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListDigitalAssistantParametersRequest
      * @return ListDigitalAssistantParametersResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListDigitalAssistantParameters.ts.html |here} to see how to use ListDigitalAssistantParameters API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListDigitalAssistantParameters.ts.html |here} to see how to use ListDigitalAssistantParameters API.
      */
   public async listDigitalAssistantParameters(
     listDigitalAssistantParametersRequest: requests.ListDigitalAssistantParametersRequest
@@ -3320,7 +3320,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListDigitalAssistantsRequest
      * @return ListDigitalAssistantsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListDigitalAssistants.ts.html |here} to see how to use ListDigitalAssistants API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListDigitalAssistants.ts.html |here} to see how to use ListDigitalAssistants API.
      */
   public async listDigitalAssistants(
     listDigitalAssistantsRequest: requests.ListDigitalAssistantsRequest
@@ -3419,7 +3419,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListOdaPrivateEndpointAttachmentsRequest
      * @return ListOdaPrivateEndpointAttachmentsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaPrivateEndpointAttachments.ts.html |here} to see how to use ListOdaPrivateEndpointAttachments API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaPrivateEndpointAttachments.ts.html |here} to see how to use ListOdaPrivateEndpointAttachments API.
      */
   public async listOdaPrivateEndpointAttachments(
     listOdaPrivateEndpointAttachmentsRequest: requests.ListOdaPrivateEndpointAttachmentsRequest
@@ -3513,7 +3513,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListOdaPrivateEndpointScanProxiesRequest
      * @return ListOdaPrivateEndpointScanProxiesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaPrivateEndpointScanProxies.ts.html |here} to see how to use ListOdaPrivateEndpointScanProxies API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaPrivateEndpointScanProxies.ts.html |here} to see how to use ListOdaPrivateEndpointScanProxies API.
      */
   public async listOdaPrivateEndpointScanProxies(
     listOdaPrivateEndpointScanProxiesRequest: requests.ListOdaPrivateEndpointScanProxiesRequest
@@ -3607,7 +3607,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListOdaPrivateEndpointsRequest
      * @return ListOdaPrivateEndpointsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaPrivateEndpoints.ts.html |here} to see how to use ListOdaPrivateEndpoints API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaPrivateEndpoints.ts.html |here} to see how to use ListOdaPrivateEndpoints API.
      */
   public async listOdaPrivateEndpoints(
     listOdaPrivateEndpointsRequest: requests.ListOdaPrivateEndpointsRequest
@@ -3700,7 +3700,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListSkillParametersRequest
      * @return ListSkillParametersResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListSkillParameters.ts.html |here} to see how to use ListSkillParameters API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListSkillParameters.ts.html |here} to see how to use ListSkillParameters API.
      */
   public async listSkillParameters(
     listSkillParametersRequest: requests.ListSkillParametersRequest
@@ -3794,7 +3794,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListSkillsRequest
      * @return ListSkillsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListSkills.ts.html |here} to see how to use ListSkills API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListSkills.ts.html |here} to see how to use ListSkills API.
      */
   public async listSkills(
     listSkillsRequest: requests.ListSkillsRequest
@@ -3893,7 +3893,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListTranslatorsRequest
      * @return ListTranslatorsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListTranslators.ts.html |here} to see how to use ListTranslators API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListTranslators.ts.html |here} to see how to use ListTranslators API.
      */
   public async listTranslators(
     listTranslatorsRequest: requests.ListTranslatorsRequest
@@ -3985,7 +3985,7 @@ If the `opc-next-page` header appears in the response, then
    * @param PublishDigitalAssistantRequest
    * @return PublishDigitalAssistantResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/PublishDigitalAssistant.ts.html |here} to see how to use PublishDigitalAssistant API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/PublishDigitalAssistant.ts.html |here} to see how to use PublishDigitalAssistant API.
    */
   public async publishDigitalAssistant(
     publishDigitalAssistantRequest: requests.PublishDigitalAssistantRequest
@@ -4066,7 +4066,7 @@ If the `opc-next-page` header appears in the response, then
    * @param PublishSkillRequest
    * @return PublishSkillResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/PublishSkill.ts.html |here} to see how to use PublishSkill API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/PublishSkill.ts.html |here} to see how to use PublishSkill API.
    */
   public async publishSkill(
     publishSkillRequest: requests.PublishSkillRequest
@@ -4147,7 +4147,7 @@ If the `opc-next-page` header appears in the response, then
    * @param RotateChannelKeysRequest
    * @return RotateChannelKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/RotateChannelKeys.ts.html |here} to see how to use RotateChannelKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/RotateChannelKeys.ts.html |here} to see how to use RotateChannelKeys API.
    */
   public async rotateChannelKeys(
     rotateChannelKeysRequest: requests.RotateChannelKeysRequest
@@ -4226,7 +4226,7 @@ If the `opc-next-page` header appears in the response, then
    * @param StartChannelRequest
    * @return StartChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/StartChannel.ts.html |here} to see how to use StartChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/StartChannel.ts.html |here} to see how to use StartChannel API.
    */
   public async startChannel(
     startChannelRequest: requests.StartChannelRequest
@@ -4305,7 +4305,7 @@ If the `opc-next-page` header appears in the response, then
    * @param StopChannelRequest
    * @return StopChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/StopChannel.ts.html |here} to see how to use StopChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/StopChannel.ts.html |here} to see how to use StopChannel API.
    */
   public async stopChannel(
     stopChannelRequest: requests.StopChannelRequest
@@ -4383,7 +4383,7 @@ If the `opc-next-page` header appears in the response, then
    * @param TrainSkillRequest
    * @return TrainSkillResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/TrainSkill.ts.html |here} to see how to use TrainSkill API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/TrainSkill.ts.html |here} to see how to use TrainSkill API.
    */
   public async trainSkill(
     trainSkillRequest: requests.TrainSkillRequest
@@ -4463,7 +4463,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateAuthenticationProviderRequest
    * @return UpdateAuthenticationProviderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateAuthenticationProvider.ts.html |here} to see how to use UpdateAuthenticationProvider API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateAuthenticationProvider.ts.html |here} to see how to use UpdateAuthenticationProvider API.
    */
   public async updateAuthenticationProvider(
     updateAuthenticationProviderRequest: requests.UpdateAuthenticationProviderRequest
@@ -4547,7 +4547,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateChannelRequest
    * @return UpdateChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateChannel.ts.html |here} to see how to use UpdateChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateChannel.ts.html |here} to see how to use UpdateChannel API.
    */
   public async updateChannel(
     updateChannelRequest: requests.UpdateChannelRequest
@@ -4630,7 +4630,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateDigitalAssistantRequest
    * @return UpdateDigitalAssistantResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateDigitalAssistant.ts.html |here} to see how to use UpdateDigitalAssistant API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateDigitalAssistant.ts.html |here} to see how to use UpdateDigitalAssistant API.
    */
   public async updateDigitalAssistant(
     updateDigitalAssistantRequest: requests.UpdateDigitalAssistantRequest
@@ -4714,7 +4714,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateDigitalAssistantParameterRequest
    * @return UpdateDigitalAssistantParameterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateDigitalAssistantParameter.ts.html |here} to see how to use UpdateDigitalAssistantParameter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateDigitalAssistantParameter.ts.html |here} to see how to use UpdateDigitalAssistantParameter API.
    */
   public async updateDigitalAssistantParameter(
     updateDigitalAssistantParameterRequest: requests.UpdateDigitalAssistantParameterRequest
@@ -4800,7 +4800,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateOdaPrivateEndpointRequest
    * @return UpdateOdaPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateOdaPrivateEndpoint.ts.html |here} to see how to use UpdateOdaPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateOdaPrivateEndpoint.ts.html |here} to see how to use UpdateOdaPrivateEndpoint API.
    */
   public async updateOdaPrivateEndpoint(
     updateOdaPrivateEndpointRequest: requests.UpdateOdaPrivateEndpointRequest
@@ -4879,7 +4879,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateSkillRequest
    * @return UpdateSkillResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateSkill.ts.html |here} to see how to use UpdateSkill API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateSkill.ts.html |here} to see how to use UpdateSkill API.
    */
   public async updateSkill(
     updateSkillRequest: requests.UpdateSkillRequest
@@ -4962,7 +4962,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateSkillParameterRequest
    * @return UpdateSkillParameterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateSkillParameter.ts.html |here} to see how to use UpdateSkillParameter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateSkillParameter.ts.html |here} to see how to use UpdateSkillParameter API.
    */
   public async updateSkillParameter(
     updateSkillParameterRequest: requests.UpdateSkillParameterRequest
@@ -5046,7 +5046,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateTranslatorRequest
    * @return UpdateTranslatorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateTranslator.ts.html |here} to see how to use UpdateTranslator API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateTranslator.ts.html |here} to see how to use UpdateTranslator API.
    */
   public async updateTranslator(
     updateTranslatorRequest: requests.UpdateTranslatorRequest
@@ -5340,7 +5340,7 @@ export class OdaClient {
    * @param ChangeOdaInstanceCompartmentRequest
    * @return ChangeOdaInstanceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ChangeOdaInstanceCompartment.ts.html |here} to see how to use ChangeOdaInstanceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ChangeOdaInstanceCompartment.ts.html |here} to see how to use ChangeOdaInstanceCompartment API.
    */
   public async changeOdaInstanceCompartment(
     changeOdaInstanceCompartmentRequest: requests.ChangeOdaInstanceCompartmentRequest
@@ -5423,7 +5423,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
      * @param CreateOdaInstanceRequest
      * @return CreateOdaInstanceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaInstance.ts.html |here} to see how to use CreateOdaInstance API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaInstance.ts.html |here} to see how to use CreateOdaInstance API.
      */
   public async createOdaInstance(
     createOdaInstanceRequest: requests.CreateOdaInstanceRequest
@@ -5516,7 +5516,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
      * @param CreateOdaInstanceAttachmentRequest
      * @return CreateOdaInstanceAttachmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaInstanceAttachment.ts.html |here} to see how to use CreateOdaInstanceAttachment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaInstanceAttachment.ts.html |here} to see how to use CreateOdaInstanceAttachment API.
      */
   public async createOdaInstanceAttachment(
     createOdaInstanceAttachmentRequest: requests.CreateOdaInstanceAttachmentRequest
@@ -5595,7 +5595,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteOdaInstanceRequest
    * @return DeleteOdaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaInstance.ts.html |here} to see how to use DeleteOdaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaInstance.ts.html |here} to see how to use DeleteOdaInstance API.
    */
   public async deleteOdaInstance(
     deleteOdaInstanceRequest: requests.DeleteOdaInstanceRequest
@@ -5670,7 +5670,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param DeleteOdaInstanceAttachmentRequest
    * @return DeleteOdaInstanceAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaInstanceAttachment.ts.html |here} to see how to use DeleteOdaInstanceAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaInstanceAttachment.ts.html |here} to see how to use DeleteOdaInstanceAttachment API.
    */
   public async deleteOdaInstanceAttachment(
     deleteOdaInstanceAttachmentRequest: requests.DeleteOdaInstanceAttachmentRequest
@@ -5744,7 +5744,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetOdaInstanceRequest
    * @return GetOdaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaInstance.ts.html |here} to see how to use GetOdaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaInstance.ts.html |here} to see how to use GetOdaInstance API.
    */
   public async getOdaInstance(
     getOdaInstanceRequest: requests.GetOdaInstanceRequest
@@ -5820,7 +5820,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetOdaInstanceAttachmentRequest
    * @return GetOdaInstanceAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaInstanceAttachment.ts.html |here} to see how to use GetOdaInstanceAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaInstanceAttachment.ts.html |here} to see how to use GetOdaInstanceAttachment API.
    */
   public async getOdaInstanceAttachment(
     getOdaInstanceAttachmentRequest: requests.GetOdaInstanceAttachmentRequest
@@ -5903,7 +5903,7 @@ You can use this operation to monitor the status of jobs that you
      * @param GetWorkRequestRequest
      * @return GetWorkRequestResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
      */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -5980,7 +5980,7 @@ You can use this operation to monitor the status of jobs that you
    * @param ListOdaInstanceAttachmentsRequest
    * @return ListOdaInstanceAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaInstanceAttachments.ts.html |here} to see how to use ListOdaInstanceAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaInstanceAttachments.ts.html |here} to see how to use ListOdaInstanceAttachments API.
    */
   public async listOdaInstanceAttachments(
     listOdaInstanceAttachmentsRequest: requests.ListOdaInstanceAttachmentsRequest
@@ -6074,7 +6074,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListOdaInstancesRequest
      * @return ListOdaInstancesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaInstances.ts.html |here} to see how to use ListOdaInstances API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaInstances.ts.html |here} to see how to use ListOdaInstances API.
      */
   public async listOdaInstances(
     listOdaInstancesRequest: requests.ListOdaInstancesRequest
@@ -6218,7 +6218,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListWorkRequestErrorsRequest
      * @return ListWorkRequestErrorsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
      */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -6361,7 +6361,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListWorkRequestLogsRequest
      * @return ListWorkRequestLogsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
      */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -6504,7 +6504,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListWorkRequestsRequest
      * @return ListWorkRequestsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
      */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -6645,7 +6645,7 @@ If the `opc-next-page` header appears in the response, then
    * @param StartOdaInstanceRequest
    * @return StartOdaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/StartOdaInstance.ts.html |here} to see how to use StartOdaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/StartOdaInstance.ts.html |here} to see how to use StartOdaInstance API.
    */
   public async startOdaInstance(
     startOdaInstanceRequest: requests.StartOdaInstanceRequest
@@ -6722,7 +6722,7 @@ If the `opc-next-page` header appears in the response, then
    * @param StopOdaInstanceRequest
    * @return StopOdaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/StopOdaInstance.ts.html |here} to see how to use StopOdaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/StopOdaInstance.ts.html |here} to see how to use StopOdaInstance API.
    */
   public async stopOdaInstance(
     stopOdaInstanceRequest: requests.StopOdaInstanceRequest
@@ -6796,7 +6796,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateOdaInstanceRequest
    * @return UpdateOdaInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateOdaInstance.ts.html |here} to see how to use UpdateOdaInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateOdaInstance.ts.html |here} to see how to use UpdateOdaInstance API.
    */
   public async updateOdaInstance(
     updateOdaInstanceRequest: requests.UpdateOdaInstanceRequest
@@ -6878,7 +6878,7 @@ If the `opc-next-page` header appears in the response, then
    * @param UpdateOdaInstanceAttachmentRequest
    * @return UpdateOdaInstanceAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateOdaInstanceAttachment.ts.html |here} to see how to use UpdateOdaInstanceAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateOdaInstanceAttachment.ts.html |here} to see how to use UpdateOdaInstanceAttachment API.
    */
   public async updateOdaInstanceAttachment(
     updateOdaInstanceAttachmentRequest: requests.UpdateOdaInstanceAttachmentRequest
@@ -7146,7 +7146,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
      * @param CreateImportedPackageRequest
      * @return CreateImportedPackageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateImportedPackage.ts.html |here} to see how to use CreateImportedPackage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateImportedPackage.ts.html |here} to see how to use CreateImportedPackage API.
      */
   public async createImportedPackage(
     createImportedPackageRequest: requests.CreateImportedPackageRequest
@@ -7241,7 +7241,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
      * @param DeleteImportedPackageRequest
      * @return DeleteImportedPackageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteImportedPackage.ts.html |here} to see how to use DeleteImportedPackage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteImportedPackage.ts.html |here} to see how to use DeleteImportedPackage API.
      */
   public async deleteImportedPackage(
     deleteImportedPackageRequest: requests.DeleteImportedPackageRequest
@@ -7317,7 +7317,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetImportedPackageRequest
    * @return GetImportedPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetImportedPackage.ts.html |here} to see how to use GetImportedPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetImportedPackage.ts.html |here} to see how to use GetImportedPackage API.
    */
   public async getImportedPackage(
     getImportedPackageRequest: requests.GetImportedPackageRequest
@@ -7395,7 +7395,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param GetPackageRequest
    * @return GetPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetPackage.ts.html |here} to see how to use GetPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetPackage.ts.html |here} to see how to use GetPackage API.
    */
   public async getPackage(
     getPackageRequest: requests.GetPackageRequest
@@ -7468,7 +7468,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
    * @param ListImportedPackagesRequest
    * @return ListImportedPackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListImportedPackages.ts.html |here} to see how to use ListImportedPackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListImportedPackages.ts.html |here} to see how to use ListImportedPackages API.
    */
   public async listImportedPackages(
     listImportedPackagesRequest: requests.ListImportedPackagesRequest
@@ -7616,7 +7616,7 @@ If the `opc-next-page` header appears in the response, then
      * @param ListPackagesRequest
      * @return ListPackagesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListPackages.ts.html |here} to see how to use ListPackages API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListPackages.ts.html |here} to see how to use ListPackages API.
      */
   public async listPackages(
     listPackagesRequest: requests.ListPackagesRequest
@@ -7762,7 +7762,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
      * @param UpdateImportedPackageRequest
      * @return UpdateImportedPackageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateImportedPackage.ts.html |here} to see how to use UpdateImportedPackage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateImportedPackage.ts.html |here} to see how to use UpdateImportedPackage API.
      */
   public async updateImportedPackage(
     updateImportedPackageRequest: requests.UpdateImportedPackageRequest

@@ -223,7 +223,7 @@ export class LimitsClient {
    * @param GetResourceAvailabilityRequest
    * @return GetResourceAvailabilityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/GetResourceAvailability.ts.html |here} to see how to use GetResourceAvailability API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/GetResourceAvailability.ts.html |here} to see how to use GetResourceAvailability API.
    */
   public async getResourceAvailability(
     getResourceAvailabilityRequest: requests.GetResourceAvailabilityRequest
@@ -302,7 +302,7 @@ export class LimitsClient {
    * @param ListLimitDefinitionsRequest
    * @return ListLimitDefinitionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/ListLimitDefinitions.ts.html |here} to see how to use ListLimitDefinitions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/ListLimitDefinitions.ts.html |here} to see how to use ListLimitDefinitions API.
    */
   public async listLimitDefinitions(
     listLimitDefinitionsRequest: requests.ListLimitDefinitionsRequest
@@ -438,7 +438,7 @@ export class LimitsClient {
    * @param ListLimitValuesRequest
    * @return ListLimitValuesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/ListLimitValues.ts.html |here} to see how to use ListLimitValues API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/ListLimitValues.ts.html |here} to see how to use ListLimitValues API.
    */
   public async listLimitValues(
     listLimitValuesRequest: requests.ListLimitValuesRequest
@@ -577,7 +577,7 @@ export class LimitsClient {
    * @param ListServicesRequest
    * @return ListServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/ListServices.ts.html |here} to see how to use ListServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/ListServices.ts.html |here} to see how to use ListServices API.
    */
   public async listServices(
     listServicesRequest: requests.ListServicesRequest
@@ -917,7 +917,7 @@ export class QuotasClient {
    * @param AddQuotaLockRequest
    * @return AddQuotaLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/AddQuotaLock.ts.html |here} to see how to use AddQuotaLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/AddQuotaLock.ts.html |here} to see how to use AddQuotaLock API.
    */
   public async addQuotaLock(
     addQuotaLockRequest: requests.AddQuotaLockRequest
@@ -999,7 +999,7 @@ export class QuotasClient {
    * @param CreateQuotaRequest
    * @return CreateQuotaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/CreateQuota.ts.html |here} to see how to use CreateQuota API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/CreateQuota.ts.html |here} to see how to use CreateQuota API.
    */
   public async createQuota(
     createQuotaRequest: requests.CreateQuotaRequest
@@ -1079,7 +1079,7 @@ export class QuotasClient {
    * @param DeleteQuotaRequest
    * @return DeleteQuotaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/DeleteQuota.ts.html |here} to see how to use DeleteQuota API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/DeleteQuota.ts.html |here} to see how to use DeleteQuota API.
    */
   public async deleteQuota(
     deleteQuotaRequest: requests.DeleteQuotaRequest
@@ -1149,7 +1149,7 @@ export class QuotasClient {
    * @param GetQuotaRequest
    * @return GetQuotaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/GetQuota.ts.html |here} to see how to use GetQuota API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/GetQuota.ts.html |here} to see how to use GetQuota API.
    */
   public async getQuota(
     getQuotaRequest: requests.GetQuotaRequest
@@ -1224,7 +1224,7 @@ export class QuotasClient {
    * @param ListQuotasRequest
    * @return ListQuotasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/ListQuotas.ts.html |here} to see how to use ListQuotas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/ListQuotas.ts.html |here} to see how to use ListQuotas API.
    */
   public async listQuotas(
     listQuotasRequest: requests.ListQuotasRequest
@@ -1358,7 +1358,7 @@ export class QuotasClient {
    * @param RemoveQuotaLockRequest
    * @return RemoveQuotaLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/RemoveQuotaLock.ts.html |here} to see how to use RemoveQuotaLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/RemoveQuotaLock.ts.html |here} to see how to use RemoveQuotaLock API.
    */
   public async removeQuotaLock(
     removeQuotaLockRequest: requests.RemoveQuotaLockRequest
@@ -1440,7 +1440,7 @@ export class QuotasClient {
    * @param UpdateQuotaRequest
    * @return UpdateQuotaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/UpdateQuota.ts.html |here} to see how to use UpdateQuota API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/UpdateQuota.ts.html |here} to see how to use UpdateQuota API.
    */
   public async updateQuota(
     updateQuotaRequest: requests.UpdateQuotaRequest

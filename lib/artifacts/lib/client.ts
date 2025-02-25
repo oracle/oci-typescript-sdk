@@ -1,6 +1,6 @@
 /**
  * Artifacts and Container Images API
- * API covering the Artifacts and [Registry](/iaas/Content/Registry/Concepts/registryoverview.htm) services.
+ * API covering the Artifacts and [Registry](https://docs.oracle.com/iaas/Content/Registry/Concepts/registryoverview.htm) services.
 Use this API to manage resources such as generic artifacts and container images.
 
  * OpenAPI spec version: 20160918
@@ -241,13 +241,13 @@ export class ArtifactsClient {
   /**
    * Moves a container repository into a different compartment within the same tenancy. For information about moving
    * resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeContainerRepositoryCompartmentRequest
    * @return ChangeContainerRepositoryCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ChangeContainerRepositoryCompartment.ts.html |here} to see how to use ChangeContainerRepositoryCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ChangeContainerRepositoryCompartment.ts.html |here} to see how to use ChangeContainerRepositoryCompartment API.
    */
   public async changeContainerRepositoryCompartment(
     changeContainerRepositoryCompartmentRequest: requests.ChangeContainerRepositoryCompartmentRequest
@@ -319,13 +319,13 @@ export class ArtifactsClient {
   /**
    * Moves a repository into a different compartment within the same tenancy. For information about moving
    * resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeRepositoryCompartmentRequest
    * @return ChangeRepositoryCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ChangeRepositoryCompartment.ts.html |here} to see how to use ChangeRepositoryCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ChangeRepositoryCompartment.ts.html |here} to see how to use ChangeRepositoryCompartment API.
    */
   public async changeRepositoryCompartment(
     changeRepositoryCompartmentRequest: requests.ChangeRepositoryCompartmentRequest
@@ -400,7 +400,7 @@ export class ArtifactsClient {
    * @param CreateContainerImageSignatureRequest
    * @return CreateContainerImageSignatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/CreateContainerImageSignature.ts.html |here} to see how to use CreateContainerImageSignature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/CreateContainerImageSignature.ts.html |here} to see how to use CreateContainerImageSignature API.
    */
   public async createContainerImageSignature(
     createContainerImageSignatureRequest: requests.CreateContainerImageSignatureRequest
@@ -482,7 +482,7 @@ export class ArtifactsClient {
    * @param CreateContainerRepositoryRequest
    * @return CreateContainerRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/CreateContainerRepository.ts.html |here} to see how to use CreateContainerRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/CreateContainerRepository.ts.html |here} to see how to use CreateContainerRepository API.
    */
   public async createContainerRepository(
     createContainerRepositoryRequest: requests.CreateContainerRepositoryRequest
@@ -563,7 +563,7 @@ export class ArtifactsClient {
    * @param CreateRepositoryRequest
    * @return CreateRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/CreateRepository.ts.html |here} to see how to use CreateRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/CreateRepository.ts.html |here} to see how to use CreateRepository API.
    */
   public async createRepository(
     createRepositoryRequest: requests.CreateRepositoryRequest
@@ -643,7 +643,7 @@ export class ArtifactsClient {
    * @param DeleteContainerImageRequest
    * @return DeleteContainerImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteContainerImage.ts.html |here} to see how to use DeleteContainerImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteContainerImage.ts.html |here} to see how to use DeleteContainerImage API.
    */
   public async deleteContainerImage(
     deleteContainerImageRequest: requests.DeleteContainerImageRequest
@@ -711,7 +711,7 @@ export class ArtifactsClient {
    * @param DeleteContainerImageSignatureRequest
    * @return DeleteContainerImageSignatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteContainerImageSignature.ts.html |here} to see how to use DeleteContainerImageSignature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteContainerImageSignature.ts.html |here} to see how to use DeleteContainerImageSignature API.
    */
   public async deleteContainerImageSignature(
     deleteContainerImageSignatureRequest: requests.DeleteContainerImageSignatureRequest
@@ -780,7 +780,7 @@ export class ArtifactsClient {
    * @param DeleteContainerRepositoryRequest
    * @return DeleteContainerRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteContainerRepository.ts.html |here} to see how to use DeleteContainerRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteContainerRepository.ts.html |here} to see how to use DeleteContainerRepository API.
    */
   public async deleteContainerRepository(
     deleteContainerRepositoryRequest: requests.DeleteContainerRepositoryRequest
@@ -844,12 +844,12 @@ export class ArtifactsClient {
   }
 
   /**
-   * Deletes an artifact with a specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Deletes an artifact with a specified [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteGenericArtifactRequest
    * @return DeleteGenericArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteGenericArtifact.ts.html |here} to see how to use DeleteGenericArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteGenericArtifact.ts.html |here} to see how to use DeleteGenericArtifact API.
    */
   public async deleteGenericArtifact(
     deleteGenericArtifactRequest: requests.DeleteGenericArtifactRequest
@@ -917,7 +917,7 @@ export class ArtifactsClient {
    * @param DeleteGenericArtifactByPathRequest
    * @return DeleteGenericArtifactByPathResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteGenericArtifactByPath.ts.html |here} to see how to use DeleteGenericArtifactByPath API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteGenericArtifactByPath.ts.html |here} to see how to use DeleteGenericArtifactByPath API.
    */
   public async deleteGenericArtifactByPath(
     deleteGenericArtifactByPathRequest: requests.DeleteGenericArtifactByPathRequest
@@ -988,7 +988,7 @@ export class ArtifactsClient {
    * @param DeleteRepositoryRequest
    * @return DeleteRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteRepository.ts.html |here} to see how to use DeleteRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/DeleteRepository.ts.html |here} to see how to use DeleteRepository API.
    */
   public async deleteRepository(
     deleteRepositoryRequest: requests.DeleteRepositoryRequest
@@ -1056,7 +1056,7 @@ export class ArtifactsClient {
    * @param GetContainerConfigurationRequest
    * @return GetContainerConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerConfiguration.ts.html |here} to see how to use GetContainerConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerConfiguration.ts.html |here} to see how to use GetContainerConfiguration API.
    */
   public async getContainerConfiguration(
     getContainerConfigurationRequest: requests.GetContainerConfigurationRequest
@@ -1133,7 +1133,7 @@ export class ArtifactsClient {
    * @param GetContainerImageRequest
    * @return GetContainerImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerImage.ts.html |here} to see how to use GetContainerImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerImage.ts.html |here} to see how to use GetContainerImage API.
    */
   public async getContainerImage(
     getContainerImageRequest: requests.GetContainerImageRequest
@@ -1209,7 +1209,7 @@ export class ArtifactsClient {
    * @param GetContainerImageSignatureRequest
    * @return GetContainerImageSignatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerImageSignature.ts.html |here} to see how to use GetContainerImageSignature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerImageSignature.ts.html |here} to see how to use GetContainerImageSignature API.
    */
   public async getContainerImageSignature(
     getContainerImageSignatureRequest: requests.GetContainerImageSignatureRequest
@@ -1286,7 +1286,7 @@ export class ArtifactsClient {
    * @param GetContainerRepositoryRequest
    * @return GetContainerRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerRepository.ts.html |here} to see how to use GetContainerRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetContainerRepository.ts.html |here} to see how to use GetContainerRepository API.
    */
   public async getContainerRepository(
     getContainerRepositoryRequest: requests.GetContainerRepositoryRequest
@@ -1357,12 +1357,12 @@ export class ArtifactsClient {
   }
 
   /**
-   * Gets information about an artifact with a specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Gets information about an artifact with a specified [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetGenericArtifactRequest
    * @return GetGenericArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetGenericArtifact.ts.html |here} to see how to use GetGenericArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetGenericArtifact.ts.html |here} to see how to use GetGenericArtifact API.
    */
   public async getGenericArtifact(
     getGenericArtifactRequest: requests.GetGenericArtifactRequest
@@ -1438,7 +1438,7 @@ export class ArtifactsClient {
    * @param GetGenericArtifactByPathRequest
    * @return GetGenericArtifactByPathResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetGenericArtifactByPath.ts.html |here} to see how to use GetGenericArtifactByPath API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetGenericArtifactByPath.ts.html |here} to see how to use GetGenericArtifactByPath API.
    */
   public async getGenericArtifactByPath(
     getGenericArtifactByPathRequest: requests.GetGenericArtifactByPathRequest
@@ -1517,7 +1517,7 @@ export class ArtifactsClient {
    * @param GetRepositoryRequest
    * @return GetRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetRepository.ts.html |here} to see how to use GetRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/GetRepository.ts.html |here} to see how to use GetRepository API.
    */
   public async getRepository(
     getRepositoryRequest: requests.GetRepositoryRequest
@@ -1593,7 +1593,7 @@ export class ArtifactsClient {
    * @param ListContainerImageSignaturesRequest
    * @return ListContainerImageSignaturesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListContainerImageSignatures.ts.html |here} to see how to use ListContainerImageSignatures API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListContainerImageSignatures.ts.html |here} to see how to use ListContainerImageSignatures API.
    */
   public async listContainerImageSignatures(
     listContainerImageSignaturesRequest: requests.ListContainerImageSignaturesRequest
@@ -1683,7 +1683,7 @@ export class ArtifactsClient {
    * @param ListContainerImagesRequest
    * @return ListContainerImagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListContainerImages.ts.html |here} to see how to use ListContainerImages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListContainerImages.ts.html |here} to see how to use ListContainerImages API.
    */
   public async listContainerImages(
     listContainerImagesRequest: requests.ListContainerImagesRequest
@@ -1771,7 +1771,7 @@ export class ArtifactsClient {
    * @param ListContainerRepositoriesRequest
    * @return ListContainerRepositoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListContainerRepositories.ts.html |here} to see how to use ListContainerRepositories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListContainerRepositories.ts.html |here} to see how to use ListContainerRepositories API.
    */
   public async listContainerRepositories(
     listContainerRepositoriesRequest: requests.ListContainerRepositoriesRequest
@@ -1857,7 +1857,7 @@ export class ArtifactsClient {
    * @param ListGenericArtifactsRequest
    * @return ListGenericArtifactsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListGenericArtifacts.ts.html |here} to see how to use ListGenericArtifacts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListGenericArtifacts.ts.html |here} to see how to use ListGenericArtifacts API.
    */
   public async listGenericArtifacts(
     listGenericArtifactsRequest: requests.ListGenericArtifactsRequest
@@ -1944,7 +1944,7 @@ export class ArtifactsClient {
    * @param ListRepositoriesRequest
    * @return ListRepositoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListRepositories.ts.html |here} to see how to use ListRepositories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/ListRepositories.ts.html |here} to see how to use ListRepositories API.
    */
   public async listRepositories(
     listRepositoriesRequest: requests.ListRepositoriesRequest
@@ -2028,7 +2028,7 @@ export class ArtifactsClient {
    * @param RemoveContainerVersionRequest
    * @return RemoveContainerVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/RemoveContainerVersion.ts.html |here} to see how to use RemoveContainerVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/RemoveContainerVersion.ts.html |here} to see how to use RemoveContainerVersion API.
    */
   public async removeContainerVersion(
     removeContainerVersionRequest: requests.RemoveContainerVersionRequest
@@ -2111,7 +2111,7 @@ export class ArtifactsClient {
    * @param RestoreContainerImageRequest
    * @return RestoreContainerImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/RestoreContainerImage.ts.html |here} to see how to use RestoreContainerImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/RestoreContainerImage.ts.html |here} to see how to use RestoreContainerImage API.
    */
   public async restoreContainerImage(
     restoreContainerImageRequest: requests.RestoreContainerImageRequest
@@ -2194,7 +2194,7 @@ export class ArtifactsClient {
    * @param UpdateContainerConfigurationRequest
    * @return UpdateContainerConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerConfiguration.ts.html |here} to see how to use UpdateContainerConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerConfiguration.ts.html |here} to see how to use UpdateContainerConfiguration API.
    */
   public async updateContainerConfiguration(
     updateContainerConfigurationRequest: requests.UpdateContainerConfigurationRequest
@@ -2277,7 +2277,7 @@ export class ArtifactsClient {
    * @param UpdateContainerImageRequest
    * @return UpdateContainerImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerImage.ts.html |here} to see how to use UpdateContainerImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerImage.ts.html |here} to see how to use UpdateContainerImage API.
    */
   public async updateContainerImage(
     updateContainerImageRequest: requests.UpdateContainerImageRequest
@@ -2359,7 +2359,7 @@ export class ArtifactsClient {
    * @param UpdateContainerImageSignatureRequest
    * @return UpdateContainerImageSignatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerImageSignature.ts.html |here} to see how to use UpdateContainerImageSignature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerImageSignature.ts.html |here} to see how to use UpdateContainerImageSignature API.
    */
   public async updateContainerImageSignature(
     updateContainerImageSignatureRequest: requests.UpdateContainerImageSignatureRequest
@@ -2442,7 +2442,7 @@ export class ArtifactsClient {
    * @param UpdateContainerRepositoryRequest
    * @return UpdateContainerRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerRepository.ts.html |here} to see how to use UpdateContainerRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerRepository.ts.html |here} to see how to use UpdateContainerRepository API.
    */
   public async updateContainerRepository(
     updateContainerRepositoryRequest: requests.UpdateContainerRepositoryRequest
@@ -2520,12 +2520,12 @@ export class ArtifactsClient {
   }
 
   /**
-   * Updates the artifact with the specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). You can only update the tags of an artifact.
+   * Updates the artifact with the specified [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). You can only update the tags of an artifact.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateGenericArtifactRequest
    * @return UpdateGenericArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateGenericArtifact.ts.html |here} to see how to use UpdateGenericArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateGenericArtifact.ts.html |here} to see how to use UpdateGenericArtifact API.
    */
   public async updateGenericArtifact(
     updateGenericArtifactRequest: requests.UpdateGenericArtifactRequest
@@ -2607,7 +2607,7 @@ export class ArtifactsClient {
    * @param UpdateGenericArtifactByPathRequest
    * @return UpdateGenericArtifactByPathResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateGenericArtifactByPath.ts.html |here} to see how to use UpdateGenericArtifactByPath API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateGenericArtifactByPath.ts.html |here} to see how to use UpdateGenericArtifactByPath API.
    */
   public async updateGenericArtifactByPath(
     updateGenericArtifactByPathRequest: requests.UpdateGenericArtifactByPathRequest
@@ -2692,7 +2692,7 @@ export class ArtifactsClient {
    * @param UpdateRepositoryRequest
    * @return UpdateRepositoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateRepository.ts.html |here} to see how to use UpdateRepository API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateRepository.ts.html |here} to see how to use UpdateRepository API.
    */
   public async updateRepository(
     updateRepositoryRequest: requests.UpdateRepositoryRequest

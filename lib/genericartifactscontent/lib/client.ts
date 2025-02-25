@@ -221,7 +221,7 @@ export class GenericArtifactsContentClient {
    * @param GetGenericArtifactContentRequest
    * @return GetGenericArtifactContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/genericartifactscontent/GetGenericArtifactContent.ts.html |here} to see how to use GetGenericArtifactContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/genericartifactscontent/GetGenericArtifactContent.ts.html |here} to see how to use GetGenericArtifactContent API.
    */
   public async getGenericArtifactContent(
     getGenericArtifactContentRequest: requests.GetGenericArtifactContentRequest
@@ -300,7 +300,7 @@ export class GenericArtifactsContentClient {
    * @param GetGenericArtifactContentByPathRequest
    * @return GetGenericArtifactContentByPathResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/genericartifactscontent/GetGenericArtifactContentByPath.ts.html |here} to see how to use GetGenericArtifactContentByPath API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/genericartifactscontent/GetGenericArtifactContentByPath.ts.html |here} to see how to use GetGenericArtifactContentByPath API.
    */
   public async getGenericArtifactContentByPath(
     getGenericArtifactContentByPathRequest: requests.GetGenericArtifactContentByPathRequest
@@ -382,7 +382,7 @@ export class GenericArtifactsContentClient {
    * @param PutGenericArtifactContentByPathRequest
    * @return PutGenericArtifactContentByPathResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/genericartifactscontent/PutGenericArtifactContentByPath.ts.html |here} to see how to use PutGenericArtifactContentByPath API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/genericartifactscontent/PutGenericArtifactContentByPath.ts.html |here} to see how to use PutGenericArtifactContentByPath API.
    */
   public async putGenericArtifactContentByPath(
     putGenericArtifactContentByPathRequest: requests.PutGenericArtifactContentByPathRequest

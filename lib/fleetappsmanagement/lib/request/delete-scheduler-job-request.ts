@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteSchedulerJob.ts.html |here} to see how to use DeleteSchedulerJobRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/DeleteSchedulerJob.ts.html |here} to see how to use DeleteSchedulerJobRequest.
  */
 export interface DeleteSchedulerJobRequest extends common.BaseRequest {
   /**

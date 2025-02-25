@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateGovernanceRuleDetails {
   /**
-   * The Oracle ID ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the root compartment containing the governance rule.
+   * The Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the root compartment containing the governance rule.
    */
   "compartmentId": string;
   /**
@@ -46,7 +46,7 @@ Example: {@code TEMPLATE}
   "creationOption": model.CreationOption;
   "template": model.TagTemplate | model.QuotaTemplate | model.AllowedRegionsTemplate;
   /**
-   * The Oracle ID ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the resource, which was used as a template to create this governance rule.
+   * The Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the resource, which was used as a template to create this governance rule.
    */
   "relatedResourceId"?: string;
   /**

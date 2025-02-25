@@ -246,7 +246,7 @@ export class VbInstanceClient {
    * @param ChangeVbInstanceCompartmentRequest
    * @return ChangeVbInstanceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ChangeVbInstanceCompartment.ts.html |here} to see how to use ChangeVbInstanceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ChangeVbInstanceCompartment.ts.html |here} to see how to use ChangeVbInstanceCompartment API.
    */
   public async changeVbInstanceCompartment(
     changeVbInstanceCompartmentRequest: requests.ChangeVbInstanceCompartmentRequest
@@ -327,7 +327,7 @@ export class VbInstanceClient {
    * @param CreateVbInstanceRequest
    * @return CreateVbInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/CreateVbInstance.ts.html |here} to see how to use CreateVbInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/CreateVbInstance.ts.html |here} to see how to use CreateVbInstance API.
    */
   public async createVbInstance(
     createVbInstanceRequest: requests.CreateVbInstanceRequest
@@ -403,7 +403,7 @@ export class VbInstanceClient {
    * @param DeleteVbInstanceRequest
    * @return DeleteVbInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/DeleteVbInstance.ts.html |here} to see how to use DeleteVbInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/DeleteVbInstance.ts.html |here} to see how to use DeleteVbInstance API.
    */
   public async deleteVbInstance(
     deleteVbInstanceRequest: requests.DeleteVbInstanceRequest
@@ -476,7 +476,7 @@ export class VbInstanceClient {
    * @param GetVbInstanceRequest
    * @return GetVbInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/GetVbInstance.ts.html |here} to see how to use GetVbInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/GetVbInstance.ts.html |here} to see how to use GetVbInstance API.
    */
   public async getVbInstance(
     getVbInstanceRequest: requests.GetVbInstanceRequest
@@ -552,7 +552,7 @@ export class VbInstanceClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -634,7 +634,7 @@ export class VbInstanceClient {
    * @param ListVbInstancesRequest
    * @return ListVbInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ListVbInstances.ts.html |here} to see how to use ListVbInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ListVbInstances.ts.html |here} to see how to use ListVbInstances API.
    */
   public async listVbInstances(
     listVbInstancesRequest: requests.ListVbInstancesRequest
@@ -721,7 +721,7 @@ export class VbInstanceClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -806,7 +806,7 @@ export class VbInstanceClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -892,7 +892,7 @@ export class VbInstanceClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -979,7 +979,7 @@ export class VbInstanceClient {
    * @param ReconfigurePrivateEndpointVbInstanceRequest
    * @return ReconfigurePrivateEndpointVbInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ReconfigurePrivateEndpointVbInstance.ts.html |here} to see how to use ReconfigurePrivateEndpointVbInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/ReconfigurePrivateEndpointVbInstance.ts.html |here} to see how to use ReconfigurePrivateEndpointVbInstance API.
    */
   public async reconfigurePrivateEndpointVbInstance(
     reconfigurePrivateEndpointVbInstanceRequest: requests.ReconfigurePrivateEndpointVbInstanceRequest
@@ -1054,7 +1054,7 @@ export class VbInstanceClient {
    * @param RequestSummarizedApplicationsRequest
    * @return RequestSummarizedApplicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/RequestSummarizedApplications.ts.html |here} to see how to use RequestSummarizedApplications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/RequestSummarizedApplications.ts.html |here} to see how to use RequestSummarizedApplications API.
    */
   public async requestSummarizedApplications(
     requestSummarizedApplicationsRequest: requests.RequestSummarizedApplicationsRequest
@@ -1140,7 +1140,7 @@ export class VbInstanceClient {
    * @param StartVbInstanceRequest
    * @return StartVbInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/StartVbInstance.ts.html |here} to see how to use StartVbInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/StartVbInstance.ts.html |here} to see how to use StartVbInstance API.
    */
   public async startVbInstance(
     startVbInstanceRequest: requests.StartVbInstanceRequest
@@ -1216,7 +1216,7 @@ export class VbInstanceClient {
    * @param StopVbInstanceRequest
    * @return StopVbInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/StopVbInstance.ts.html |here} to see how to use StopVbInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/StopVbInstance.ts.html |here} to see how to use StopVbInstance API.
    */
   public async stopVbInstance(
     stopVbInstanceRequest: requests.StopVbInstanceRequest
@@ -1290,7 +1290,7 @@ export class VbInstanceClient {
    * @param UpdateVbInstanceRequest
    * @return UpdateVbInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/UpdateVbInstance.ts.html |here} to see how to use UpdateVbInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/visualbuilder/UpdateVbInstance.ts.html |here} to see how to use UpdateVbInstance API.
    */
   public async updateVbInstance(
     updateVbInstanceRequest: requests.UpdateVbInstanceRequest

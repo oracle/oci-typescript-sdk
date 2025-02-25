@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SwitchModuleStreamOnManagedInstanceGroup.ts.html |here} to see how to use SwitchModuleStreamOnManagedInstanceGroupRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/SwitchModuleStreamOnManagedInstanceGroup.ts.html |here} to see how to use SwitchModuleStreamOnManagedInstanceGroupRequest.
  */
 export interface SwitchModuleStreamOnManagedInstanceGroupRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group.
    */
   "managedInstanceGroupId": string;
   /**

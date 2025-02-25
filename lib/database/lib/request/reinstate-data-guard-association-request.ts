@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateDataGuardAssociation.ts.html |here} to see how to use ReinstateDataGuardAssociationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateDataGuardAssociation.ts.html |here} to see how to use ReinstateDataGuardAssociationRequest.
  */
 export interface ReinstateDataGuardAssociationRequest extends common.BaseRequest {
   /**
-   * The database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "databaseId": string;
   /**
-   * The Data Guard association's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Data Guard association's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "dataGuardAssociationId": string;
   /**

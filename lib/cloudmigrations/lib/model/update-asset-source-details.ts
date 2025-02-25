@@ -25,7 +25,7 @@ export interface UpdateAssetSourceDetails {
    */
   "displayName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that is going to be used to create assets.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that is going to be used to create assets.
    */
   "assetsCompartmentId"?: string;
   /**

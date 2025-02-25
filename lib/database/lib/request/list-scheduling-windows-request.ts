@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingWindows.ts.html |here} to see how to use ListSchedulingWindowsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingWindows.ts.html |here} to see how to use ListSchedulingWindowsRequest.
  */
 export interface ListSchedulingWindowsRequest extends common.BaseRequest {
   /**
-   * The Scheduling Policy [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Scheduling Policy [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "schedulingPolicyId": string;
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId"?: string;
   /**

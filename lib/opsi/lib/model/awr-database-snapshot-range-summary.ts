@@ -2,7 +2,7 @@
  * Ops Insights API
  * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.oracle.com/iaas/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface AwrDatabaseSnapshotRangeSummary {
   /**
-   * The internal ID of the database. The internal ID of the database is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The internal ID of the database. The internal ID of the database is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * It can be retrieved from the following endpoint:
    * /awrHubs/{awrHubId}/awrDatabases
    *
@@ -49,14 +49,14 @@ export interface AwrDatabaseSnapshotRangeSummary {
    */
   "timeLatestSnapshotEnd"?: Date;
   /**
-   * The ID of the earliest snapshot. The snapshot identifier is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The ID of the earliest snapshot. The snapshot identifier is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * It can be retrieved from the following endpoint:
    * /awrHubs/{awrHubId}/awrDatabaseSnapshots
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "firstSnapshotIdentifier"?: number;
   /**
-   * The ID of the latest snapshot. The snapshot identifier is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The ID of the latest snapshot. The snapshot identifier is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * It can be retrieved from the following endpoint:
    * /awrHubs/{awrHubId}/awrDatabaseSnapshots
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

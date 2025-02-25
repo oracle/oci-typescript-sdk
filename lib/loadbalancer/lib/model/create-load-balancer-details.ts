@@ -1,7 +1,7 @@
 /**
  * Load Balancing API
  * API for the Load Balancing service. Use this API to manage load balancers, backend sets, and related items. For more
-information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/balanceoverview.htm).
+information, see [Overview of Load Balancing](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).
 
  * OpenAPI spec version: 20170115
  * 
@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface CreateLoadBalancerDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which to create the load balancer.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to create the load balancer.
    */
   "compartmentId": string;
   /**
@@ -59,8 +59,8 @@ If \"true\", the service assigns a private IP address to the load balancer.
 If \"false\", the service assigns a public IP address to the load balancer.
 * <p>
 A public load balancer is accessible from the internet, depending on your VCN's
-* [security list rules](https://docs.cloud.oracle.com/Content/Network/Concepts/securitylists.htm). For more information about public and
-* private load balancers, see [How Load Balancing Works](https://docs.cloud.oracle.com/Content/Balance/Concepts/balanceoverview.htm#how-load-balancing-works).
+* [security list rules](https://docs.oracle.com/iaas/Content/Network/Concepts/securitylists.htm). For more information about public and
+* private load balancers, see [How Load Balancing Works](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm#how-load-balancing-works).
 * <p>
 Example: {@code true}
 * 
@@ -135,7 +135,7 @@ If this field is not set or is set to \"\" then this field defaults to X-Request
   "hostnames"?: { [key: string]: model.HostnameDetails };
   "backendSets"?: { [key: string]: model.BackendSetDetails };
   /**
-    * An array of NSG [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) associated with this load balancer.
+    * An array of NSG [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) associated with this load balancer.
 * <p>
 During the load balancer's creation, the service adds the new load balancer to the specified NSGs.
 * <p>
@@ -151,7 +151,7 @@ Example: {@code [\"ocid1.nsg.oc1.phx.unique_ID\"]}
     */
   "networkSecurityGroupIds"?: Array<string>;
   /**
-   * An array of subnet [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * An array of subnet [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "subnetIds": Array<string>;
   "certificates"?: { [key: string]: model.CertificateDetails };
@@ -159,7 +159,7 @@ Example: {@code [\"ocid1.nsg.oc1.phx.unique_ID\"]}
   "pathRouteSets"?: { [key: string]: model.PathRouteSetDetails };
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -167,7 +167,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
@@ -179,7 +179,7 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\":\"42\",\"mode\":\"audit\", \"usagetype\" : \"zpr\"}}}}
 * 
     */
-  "zprTags"?: { [key: string]: { [key: string]: any } };
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
   "ruleSets"?: { [key: string]: model.RuleSetDetails };
 }
 

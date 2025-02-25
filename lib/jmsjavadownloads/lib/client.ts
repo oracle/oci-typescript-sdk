@@ -242,7 +242,7 @@ export class JavaDownloadClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -311,7 +311,7 @@ export class JavaDownloadClient {
    * @param CreateJavaDownloadReportRequest
    * @return CreateJavaDownloadReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/CreateJavaDownloadReport.ts.html |here} to see how to use CreateJavaDownloadReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/CreateJavaDownloadReport.ts.html |here} to see how to use CreateJavaDownloadReport API.
    */
   public async createJavaDownloadReport(
     createJavaDownloadReportRequest: requests.CreateJavaDownloadReportRequest
@@ -389,7 +389,7 @@ export class JavaDownloadClient {
    * @param CreateJavaDownloadTokenRequest
    * @return CreateJavaDownloadTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/CreateJavaDownloadToken.ts.html |here} to see how to use CreateJavaDownloadToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/CreateJavaDownloadToken.ts.html |here} to see how to use CreateJavaDownloadToken API.
    */
   public async createJavaDownloadToken(
     createJavaDownloadTokenRequest: requests.CreateJavaDownloadTokenRequest
@@ -475,7 +475,7 @@ export class JavaDownloadClient {
    * @param CreateJavaLicenseAcceptanceRecordRequest
    * @return CreateJavaLicenseAcceptanceRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/CreateJavaLicenseAcceptanceRecord.ts.html |here} to see how to use CreateJavaLicenseAcceptanceRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/CreateJavaLicenseAcceptanceRecord.ts.html |here} to see how to use CreateJavaLicenseAcceptanceRecord API.
    */
   public async createJavaLicenseAcceptanceRecord(
     createJavaLicenseAcceptanceRecordRequest: requests.CreateJavaLicenseAcceptanceRecordRequest
@@ -555,7 +555,7 @@ export class JavaDownloadClient {
    * @param DeleteJavaDownloadReportRequest
    * @return DeleteJavaDownloadReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/DeleteJavaDownloadReport.ts.html |here} to see how to use DeleteJavaDownloadReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/DeleteJavaDownloadReport.ts.html |here} to see how to use DeleteJavaDownloadReport API.
    */
   public async deleteJavaDownloadReport(
     deleteJavaDownloadReportRequest: requests.DeleteJavaDownloadReportRequest
@@ -628,7 +628,7 @@ export class JavaDownloadClient {
    * @param DeleteJavaDownloadTokenRequest
    * @return DeleteJavaDownloadTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/DeleteJavaDownloadToken.ts.html |here} to see how to use DeleteJavaDownloadToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/DeleteJavaDownloadToken.ts.html |here} to see how to use DeleteJavaDownloadToken API.
    */
   public async deleteJavaDownloadToken(
     deleteJavaDownloadTokenRequest: requests.DeleteJavaDownloadTokenRequest
@@ -702,7 +702,7 @@ export class JavaDownloadClient {
    * @param DeleteJavaLicenseAcceptanceRecordRequest
    * @return DeleteJavaLicenseAcceptanceRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/DeleteJavaLicenseAcceptanceRecord.ts.html |here} to see how to use DeleteJavaLicenseAcceptanceRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/DeleteJavaLicenseAcceptanceRecord.ts.html |here} to see how to use DeleteJavaLicenseAcceptanceRecord API.
    */
   public async deleteJavaLicenseAcceptanceRecord(
     deleteJavaLicenseAcceptanceRecordRequest: requests.DeleteJavaLicenseAcceptanceRecordRequest
@@ -777,7 +777,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
      * @param GenerateArtifactDownloadUrlRequest
      * @return GenerateArtifactDownloadUrlResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GenerateArtifactDownloadUrl.ts.html |here} to see how to use GenerateArtifactDownloadUrl API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GenerateArtifactDownloadUrl.ts.html |here} to see how to use GenerateArtifactDownloadUrl API.
      */
   public async generateArtifactDownloadUrl(
     generateArtifactDownloadUrlRequest: requests.GenerateArtifactDownloadUrlRequest
@@ -851,7 +851,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param GetJavaDownloadReportRequest
    * @return GetJavaDownloadReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetJavaDownloadReport.ts.html |here} to see how to use GetJavaDownloadReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetJavaDownloadReport.ts.html |here} to see how to use GetJavaDownloadReport API.
    */
   public async getJavaDownloadReport(
     getJavaDownloadReportRequest: requests.GetJavaDownloadReportRequest
@@ -927,7 +927,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param GetJavaDownloadReportContentRequest
    * @return GetJavaDownloadReportContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetJavaDownloadReportContent.ts.html |here} to see how to use GetJavaDownloadReportContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetJavaDownloadReportContent.ts.html |here} to see how to use GetJavaDownloadReportContent API.
    */
   public async getJavaDownloadReportContent(
     getJavaDownloadReportContentRequest: requests.GetJavaDownloadReportContentRequest
@@ -1003,7 +1003,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param GetJavaDownloadTokenRequest
    * @return GetJavaDownloadTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetJavaDownloadToken.ts.html |here} to see how to use GetJavaDownloadToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetJavaDownloadToken.ts.html |here} to see how to use GetJavaDownloadToken API.
    */
   public async getJavaDownloadToken(
     getJavaDownloadTokenRequest: requests.GetJavaDownloadTokenRequest
@@ -1080,7 +1080,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param GetJavaLicenseRequest
    * @return GetJavaLicenseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetJavaLicense.ts.html |here} to see how to use GetJavaLicense API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetJavaLicense.ts.html |here} to see how to use GetJavaLicense API.
    */
   public async getJavaLicense(
     getJavaLicenseRequest: requests.GetJavaLicenseRequest
@@ -1151,7 +1151,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param GetJavaLicenseAcceptanceRecordRequest
    * @return GetJavaLicenseAcceptanceRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetJavaLicenseAcceptanceRecord.ts.html |here} to see how to use GetJavaLicenseAcceptanceRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetJavaLicenseAcceptanceRecord.ts.html |here} to see how to use GetJavaLicenseAcceptanceRecord API.
    */
   public async getJavaLicenseAcceptanceRecord(
     getJavaLicenseAcceptanceRecordRequest: requests.GetJavaLicenseAcceptanceRecordRequest
@@ -1228,7 +1228,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1311,7 +1311,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param ListJavaDownloadRecordsRequest
    * @return ListJavaDownloadRecordsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListJavaDownloadRecords.ts.html |here} to see how to use ListJavaDownloadRecords API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListJavaDownloadRecords.ts.html |here} to see how to use ListJavaDownloadRecords API.
    */
   public async listJavaDownloadRecords(
     listJavaDownloadRecordsRequest: requests.ListJavaDownloadRecordsRequest
@@ -1399,7 +1399,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param ListJavaDownloadReportsRequest
    * @return ListJavaDownloadReportsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListJavaDownloadReports.ts.html |here} to see how to use ListJavaDownloadReports API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListJavaDownloadReports.ts.html |here} to see how to use ListJavaDownloadReports API.
    */
   public async listJavaDownloadReports(
     listJavaDownloadReportsRequest: requests.ListJavaDownloadReportsRequest
@@ -1483,7 +1483,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param ListJavaDownloadTokensRequest
    * @return ListJavaDownloadTokensResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListJavaDownloadTokens.ts.html |here} to see how to use ListJavaDownloadTokens API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListJavaDownloadTokens.ts.html |here} to see how to use ListJavaDownloadTokens API.
    */
   public async listJavaDownloadTokens(
     listJavaDownloadTokensRequest: requests.ListJavaDownloadTokensRequest
@@ -1570,7 +1570,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param ListJavaLicenseAcceptanceRecordsRequest
    * @return ListJavaLicenseAcceptanceRecordsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListJavaLicenseAcceptanceRecords.ts.html |here} to see how to use ListJavaLicenseAcceptanceRecords API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListJavaLicenseAcceptanceRecords.ts.html |here} to see how to use ListJavaLicenseAcceptanceRecords API.
    */
   public async listJavaLicenseAcceptanceRecords(
     listJavaLicenseAcceptanceRecordsRequest: requests.ListJavaLicenseAcceptanceRecordsRequest
@@ -1655,7 +1655,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param ListJavaLicensesRequest
    * @return ListJavaLicensesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListJavaLicenses.ts.html |here} to see how to use ListJavaLicenses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListJavaLicenses.ts.html |here} to see how to use ListJavaLicenses API.
    */
   public async listJavaLicenses(
     listJavaLicensesRequest: requests.ListJavaLicensesRequest
@@ -1736,7 +1736,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1818,7 +1818,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1899,7 +1899,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1982,7 +1982,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param RequestSummarizedJavaDownloadCountsRequest
    * @return RequestSummarizedJavaDownloadCountsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/RequestSummarizedJavaDownloadCounts.ts.html |here} to see how to use RequestSummarizedJavaDownloadCounts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/RequestSummarizedJavaDownloadCounts.ts.html |here} to see how to use RequestSummarizedJavaDownloadCounts API.
    */
   public async requestSummarizedJavaDownloadCounts(
     requestSummarizedJavaDownloadCountsRequest: requests.RequestSummarizedJavaDownloadCountsRequest
@@ -2063,7 +2063,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param UpdateJavaDownloadTokenRequest
    * @return UpdateJavaDownloadTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/UpdateJavaDownloadToken.ts.html |here} to see how to use UpdateJavaDownloadToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/UpdateJavaDownloadToken.ts.html |here} to see how to use UpdateJavaDownloadToken API.
    */
   public async updateJavaDownloadToken(
     updateJavaDownloadTokenRequest: requests.UpdateJavaDownloadTokenRequest
@@ -2142,7 +2142,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
    * @param UpdateJavaLicenseAcceptanceRecordRequest
    * @return UpdateJavaLicenseAcceptanceRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/UpdateJavaLicenseAcceptanceRecord.ts.html |here} to see how to use UpdateJavaLicenseAcceptanceRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/UpdateJavaLicenseAcceptanceRecord.ts.html |here} to see how to use UpdateJavaLicenseAcceptanceRecord API.
    */
   public async updateJavaLicenseAcceptanceRecord(
     updateJavaLicenseAcceptanceRecordRequest: requests.UpdateJavaLicenseAcceptanceRecordRequest

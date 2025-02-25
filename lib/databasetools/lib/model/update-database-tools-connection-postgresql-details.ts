@@ -40,7 +40,7 @@ export interface UpdateDatabaseToolsConnectionPostgresqlDetails
    */
   "keyStores"?: Array<model.DatabaseToolsKeyStorePostgresqlDetails>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DatabaseToolsPrivateEndpoint used to access the database in the Customer VCN.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DatabaseToolsPrivateEndpoint used to access the database in the Customer VCN.
    */
   "privateEndpointId"?: string;
 

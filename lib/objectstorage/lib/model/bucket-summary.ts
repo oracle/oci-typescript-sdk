@@ -1,8 +1,8 @@
 /**
  * Object Storage Service API
  * Use Object Storage and Archive Storage APIs to manage buckets, objects, and related resources.
-For more information, see [Overview of Object Storage](/Content/Object/Concepts/objectstorageoverview.htm) and
-[Overview of Archive Storage](/Content/Archive/Concepts/archivestorageoverview.htm).
+For more information, see [Overview of Object Storage](https://docs.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) and
+[Overview of Archive Storage](https://docs.oracle.com/iaas/Content/Archive/Concepts/archivestorageoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: opc_casper_users_us_grp@oracle.com
@@ -20,7 +20,7 @@ import common = require("oci-common");
 /**
  * To use any of the API operations, you must be authorized in an IAM policy. If you are not authorized,
  * talk to an administrator. If you are an administrator who needs to write policies to give users access, see
- * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+ * [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
  *
  */
 export interface BucketSummary {
@@ -39,7 +39,7 @@ export interface BucketSummary {
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the user who created the bucket.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the user who created the bucket.
    */
   "createdBy": string;
   /**
@@ -52,14 +52,14 @@ export interface BucketSummary {
   "etag": string;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */

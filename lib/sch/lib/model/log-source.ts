@@ -2,7 +2,7 @@
  * Connector Hub API
  * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Connector Hub, see
-[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+[the Connector Hub documentation](https://docs.oracle.com/iaas/Content/connector-hub/home.htm).
 Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
@@ -24,19 +24,19 @@ import common = require("oci-common");
  */
 export interface LogSource {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the log source.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the log source.
    *
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the log group.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the log group.
    * Note: For the Notifications target, only _Audit is allowed.
    * Example OCID for _Audit log group: ocid1.tenancy.oc1..exampleuniqueid/_Audit
    *
    */
   "logGroupId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the log.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the log.
    *
    */
   "logId"?: string;

@@ -2,7 +2,7 @@
  * Kubernetes Engine API
  * API for the Kubernetes Engine service (also known as the Container Engine for Kubernetes service). Use this API to build, deploy,
 and manage cloud-native applications. For more information, see
-[Overview of Kubernetes Engine](/iaas/Content/ContEng/Concepts/contengoverview.htm).
+[Overview of Kubernetes Engine](https://docs.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm).
 
  * OpenAPI spec version: 20180222
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface AddonError {
   /**
-   * A short error code that defines the upstream error, meant for programmatic parsing. See [API Errors](https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm).
+   * A short error code that defines the upstream error, meant for programmatic parsing. See [API Errors](https://docs.oracle.com/iaas/Content/API/References/apierrors.htm).
    */
   "code"?: string;
   /**

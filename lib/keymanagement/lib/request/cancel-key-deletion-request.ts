@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelKeyDeletion.ts.html |here} to see how to use CancelKeyDeletionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/CancelKeyDeletion.ts.html |here} to see how to use CancelKeyDeletionRequest.
  */
 export interface CancelKeyDeletionRequest extends common.BaseRequest {
   /**

@@ -23,7 +23,7 @@ export interface DatabaseToolsRelatedResourcePostgresql {
    */
   "entityType": model.RelatedResourceEntityTypePostgresql;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the related resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the related resource.
    */
   "identifier": string;
 }

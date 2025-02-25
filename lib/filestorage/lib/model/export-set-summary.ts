@@ -1,7 +1,7 @@
 /**
  * File Storage API
  * Use the File Storage service API to manage file systems, mount targets, and snapshots.
-For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+For more information, see [Overview of File Storage](https://docs.oracle.com/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -30,7 +30,7 @@ Example: {@code Uocm:PHX-AD-1}
     */
   "availabilityDomain"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the export set.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the export set.
    */
   "compartmentId": string;
   /**
@@ -42,7 +42,7 @@ Example: {@code My export set}
     */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the export set.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the export set.
    */
   "id": string;
   /**
@@ -58,7 +58,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeCreated": Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the virtual cloud network (VCN) the export set is in.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the virtual cloud network (VCN) the export set is in.
    */
   "vcnId": string;
 }

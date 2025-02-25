@@ -1,6 +1,6 @@
 /**
  * Artifacts and Container Images API
- * API covering the Artifacts and [Registry](/iaas/Content/Registry/Concepts/registryoverview.htm) services.
+ * API covering the Artifacts and [Registry](https://docs.oracle.com/iaas/Content/Registry/Concepts/registryoverview.htm) services.
 Use this API to manage resources such as generic artifacts and container images.
 
  * OpenAPI spec version: 20160918
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ChangeContainerRepositoryCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment into which to move the resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment into which to move the resource.
    *
    */
   "compartmentId": string;

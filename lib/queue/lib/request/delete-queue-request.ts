@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/DeleteQueue.ts.html |here} to see how to use DeleteQueueRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/DeleteQueue.ts.html |here} to see how to use DeleteQueueRequest.
  */
 export interface DeleteQueueRequest extends common.BaseRequest {
   /**

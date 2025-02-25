@@ -1,7 +1,7 @@
 /**
  * Application Performance Monitoring Control Plane API
  * Use the Application Performance Monitoring Control Plane API to perform operations such as creating, updating,
-deleting and listing APM domains and monitoring the progress of these operations using the work request APIs. For more information, see [Application Performance Monitoring](/iaas/application-performance-monitoring/index.html).
+deleting and listing APM domains and monitoring the progress of these operations using the work request APIs. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -245,7 +245,7 @@ export class ApmDomainClient {
    * @param ChangeApmDomainCompartmentRequest
    * @return ChangeApmDomainCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ChangeApmDomainCompartment.ts.html |here} to see how to use ChangeApmDomainCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ChangeApmDomainCompartment.ts.html |here} to see how to use ChangeApmDomainCompartment API.
    */
   public async changeApmDomainCompartment(
     changeApmDomainCompartmentRequest: requests.ChangeApmDomainCompartmentRequest
@@ -326,7 +326,7 @@ export class ApmDomainClient {
    * @param CreateApmDomainRequest
    * @return CreateApmDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/CreateApmDomain.ts.html |here} to see how to use CreateApmDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/CreateApmDomain.ts.html |here} to see how to use CreateApmDomain API.
    */
   public async createApmDomain(
     createApmDomainRequest: requests.CreateApmDomainRequest
@@ -405,7 +405,7 @@ export class ApmDomainClient {
    * @param DeleteApmDomainRequest
    * @return DeleteApmDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/DeleteApmDomain.ts.html |here} to see how to use DeleteApmDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/DeleteApmDomain.ts.html |here} to see how to use DeleteApmDomain API.
    */
   public async deleteApmDomain(
     deleteApmDomainRequest: requests.DeleteApmDomainRequest
@@ -480,7 +480,7 @@ export class ApmDomainClient {
    * @param GenerateDataKeysRequest
    * @return GenerateDataKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/GenerateDataKeys.ts.html |here} to see how to use GenerateDataKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/GenerateDataKeys.ts.html |here} to see how to use GenerateDataKeys API.
    */
   public async generateDataKeys(
     generateDataKeysRequest: requests.GenerateDataKeysRequest
@@ -558,7 +558,7 @@ export class ApmDomainClient {
    * @param GetApmDomainRequest
    * @return GetApmDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/GetApmDomain.ts.html |here} to see how to use GetApmDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/GetApmDomain.ts.html |here} to see how to use GetApmDomain API.
    */
   public async getApmDomain(
     getApmDomainRequest: requests.GetApmDomainRequest
@@ -634,7 +634,7 @@ export class ApmDomainClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -716,7 +716,7 @@ export class ApmDomainClient {
    * @param ListApmDomainWorkRequestsRequest
    * @return ListApmDomainWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListApmDomainWorkRequests.ts.html |here} to see how to use ListApmDomainWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListApmDomainWorkRequests.ts.html |here} to see how to use ListApmDomainWorkRequests API.
    */
   public async listApmDomainWorkRequests(
     listApmDomainWorkRequestsRequest: requests.ListApmDomainWorkRequestsRequest
@@ -849,7 +849,7 @@ export class ApmDomainClient {
    * @param ListApmDomainsRequest
    * @return ListApmDomainsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListApmDomains.ts.html |here} to see how to use ListApmDomains API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListApmDomains.ts.html |here} to see how to use ListApmDomains API.
    */
   public async listApmDomains(
     listApmDomainsRequest: requests.ListApmDomainsRequest
@@ -985,7 +985,7 @@ export class ApmDomainClient {
    * @param ListDataKeysRequest
    * @return ListDataKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListDataKeys.ts.html |here} to see how to use ListDataKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListDataKeys.ts.html |here} to see how to use ListDataKeys API.
    */
   public async listDataKeys(
     listDataKeysRequest: requests.ListDataKeysRequest
@@ -1059,7 +1059,7 @@ export class ApmDomainClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1191,7 +1191,7 @@ export class ApmDomainClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1323,7 +1323,7 @@ export class ApmDomainClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1455,7 +1455,7 @@ export class ApmDomainClient {
    * @param RemoveDataKeysRequest
    * @return RemoveDataKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/RemoveDataKeys.ts.html |here} to see how to use RemoveDataKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/RemoveDataKeys.ts.html |here} to see how to use RemoveDataKeys API.
    */
   public async removeDataKeys(
     removeDataKeysRequest: requests.RemoveDataKeysRequest
@@ -1533,7 +1533,7 @@ export class ApmDomainClient {
    * @param UpdateApmDomainRequest
    * @return UpdateApmDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/UpdateApmDomain.ts.html |here} to see how to use UpdateApmDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmcontrolplane/UpdateApmDomain.ts.html |here} to see how to use UpdateApmDomain API.
    */
   public async updateApmDomain(
     updateApmDomainRequest: requests.UpdateApmDomainRequest

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListEvents.ts.html |here} to see how to use ListEventsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListEvents.ts.html |here} to see how to use ListEventsRequest.
  */
 export interface ListEventsRequest extends common.BaseRequest {
   /**
@@ -27,7 +27,7 @@ export interface ListEventsRequest extends common.BaseRequest {
    */
   "eventSummaryContains"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the event.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the event.
    */
   "id"?: string;
   /**
@@ -44,7 +44,7 @@ export interface ListEventsRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource. This filter returns resources associated with the specified resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource. This filter returns resources associated with the specified resource.
    */
   "resourceId"?: string;
   /**
@@ -53,7 +53,7 @@ export interface ListEventsRequest extends common.BaseRequest {
   "type"?: Array<model.EventType>;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 50}
 * 
@@ -61,7 +61,7 @@ Example: {@code 50}
   "limit"?: number;
   /**
  * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 3}
 * 

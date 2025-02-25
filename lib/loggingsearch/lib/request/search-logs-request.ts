@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loggingsearch/SearchLogs.ts.html |here} to see how to use SearchLogsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loggingsearch/SearchLogs.ts.html |here} to see how to use SearchLogsRequest.
  */
 export interface SearchLogsRequest extends common.BaseRequest {
   /**
@@ -36,7 +36,7 @@ export interface SearchLogsRequest extends common.BaseRequest {
   "limit"?: number;
   /**
    * For list pagination. The value of the opc-next-page response header from the previous \"Search\" call.
-   * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
+   * For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -17,45 +17,54 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of a Mirror
+ * Provides summary information for a software source mirror.
  */
 export interface MirrorSummary {
   /**
-   * OCID of a software source
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source.
    */
   "id": string;
   /**
-   * Display name of the mirror
+   * Display name of the mirror.
    */
   "displayName"?: string;
   /**
-   * Type of the mirror
+   * Type of software source.
    */
   "type"?: model.MirrorType;
   /**
-   * The OS family the Software Source belongs to
+   * The OS family of the software source.
    */
   "osFamily"?: model.OsFamily;
   /**
-   * The architecture type supported by the Software Source
+   * The architecture type supported by the software source.
    */
   "archType"?: model.ArchType;
   /**
-   * Current state of the mirror
+   * Current state of the software source mirror.
    */
   "state": model.MirrorState;
   /**
-   * A decimal number representing the completness percentage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A decimal number representing the percentage of the software source that has been synced. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentage": number;
   /**
-   * Timestamp of the last time the mirror was sync
+   * Time that the software source was last synced (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
+   *
    */
   "timeLastSynced": Date;
   /**
    * The current log from the management station plugin.
    */
   "log": string;
+  /**
+   * The number of packages within the mirrored software source. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "packageCount": number;
+  /**
+   * The size the mirrored software source in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "size": number;
 }
 
 export namespace MirrorSummary {

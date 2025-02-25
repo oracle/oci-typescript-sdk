@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseTopWaitEvents.ts.html |here} to see how to use SummarizeAwrDatabaseTopWaitEventsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseTopWaitEvents.ts.html |here} to see how to use SummarizeAwrDatabaseTopWaitEventsRequest.
  */
 export interface SummarizeAwrDatabaseTopWaitEventsRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface SummarizeAwrDatabaseTopWaitEventsRequest extends common.BaseReq
    */
   "awrHubId": string;
   /**
-   * The internal ID of the database. The internal ID of the database is not the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The internal ID of the database. The internal ID of the database is not the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * It can be retrieved from the following endpoint:
    * /awrHubs/{awrHubId}/awrDatabases
    *

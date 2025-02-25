@@ -246,7 +246,7 @@ export class AppmgmtControlClient {
    * @param ActivateMonitoringPluginRequest
    * @return ActivateMonitoringPluginResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/ActivateMonitoringPlugin.ts.html |here} to see how to use ActivateMonitoringPlugin API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/ActivateMonitoringPlugin.ts.html |here} to see how to use ActivateMonitoringPlugin API.
    */
   public async activateMonitoringPlugin(
     activateMonitoringPluginRequest: requests.ActivateMonitoringPluginRequest
@@ -320,7 +320,7 @@ export class AppmgmtControlClient {
    * @param GetMonitoredInstanceRequest
    * @return GetMonitoredInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/GetMonitoredInstance.ts.html |here} to see how to use GetMonitoredInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/GetMonitoredInstance.ts.html |here} to see how to use GetMonitoredInstance API.
    */
   public async getMonitoredInstance(
     getMonitoredInstanceRequest: requests.GetMonitoredInstanceRequest
@@ -397,7 +397,7 @@ export class AppmgmtControlClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -474,7 +474,7 @@ export class AppmgmtControlClient {
    * @param ListMonitoredInstancesRequest
    * @return ListMonitoredInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/ListMonitoredInstances.ts.html |here} to see how to use ListMonitoredInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/ListMonitoredInstances.ts.html |here} to see how to use ListMonitoredInstances API.
    */
   public async listMonitoredInstances(
     listMonitoredInstancesRequest: requests.ListMonitoredInstancesRequest
@@ -557,7 +557,7 @@ export class AppmgmtControlClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -638,7 +638,7 @@ export class AppmgmtControlClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -719,7 +719,7 @@ export class AppmgmtControlClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -799,7 +799,7 @@ export class AppmgmtControlClient {
    * @param PublishTopProcessesMetricsRequest
    * @return PublishTopProcessesMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/PublishTopProcessesMetrics.ts.html |here} to see how to use PublishTopProcessesMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/appmgmtcontrol/PublishTopProcessesMetrics.ts.html |here} to see how to use PublishTopProcessesMetrics API.
    */
   public async publishTopProcessesMetrics(
     publishTopProcessesMetricsRequest: requests.PublishTopProcessesMetricsRequest

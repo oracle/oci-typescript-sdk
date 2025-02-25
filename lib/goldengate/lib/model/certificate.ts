@@ -26,7 +26,7 @@ export interface Certificate {
    */
   "key": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the deployment being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the deployment being referenced.
    *
    */
   "deploymentId": string;

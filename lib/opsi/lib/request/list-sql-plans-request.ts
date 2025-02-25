@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlPlans.ts.html |here} to see how to use ListSqlPlansRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlPlans.ts.html |here} to see how to use ListSqlPlansRequest.
  */
 export interface ListSqlPlansRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
@@ -35,19 +35,19 @@ export interface ListSqlPlansRequest extends common.BaseRequest {
    */
   "planHash": Array<number>;
   /**
-   * Optional [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
+   * Optional [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
    *
    */
   "databaseId"?: string;
   /**
-   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database insight resource.
    *
    */
   "id"?: string;
   /**
    * For list pagination. The value of the {@code opc-next-page} response header from
    * the previous \"List\" call. For important details about how pagination works,
-   * see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
+   * see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

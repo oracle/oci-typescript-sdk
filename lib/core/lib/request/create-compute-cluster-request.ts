@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCluster.ts.html |here} to see how to use CreateComputeClusterRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCluster.ts.html |here} to see how to use CreateComputeClusterRequest.
  */
 export interface CreateComputeClusterRequest extends common.BaseRequest {
   /**
- * The data for creating a [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm). A compute cluster
+ * The data for creating a [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm). A compute cluster
 * is an empty remote direct memory access (RDMA) network group.
 * <p>
 After the compute cluster is created, you can use the compute cluster's OCID with the

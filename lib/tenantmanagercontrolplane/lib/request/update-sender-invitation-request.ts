@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateSenderInvitation.ts.html |here} to see how to use UpdateSenderInvitationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateSenderInvitation.ts.html |here} to see how to use UpdateSenderInvitationRequest.
  */
 export interface UpdateSenderInvitationRequest extends common.BaseRequest {
   /**

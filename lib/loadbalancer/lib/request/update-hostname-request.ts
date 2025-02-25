@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateHostname.ts.html |here} to see how to use UpdateHostnameRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateHostname.ts.html |here} to see how to use UpdateHostnameRequest.
  */
 export interface UpdateHostnameRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface UpdateHostnameRequest extends common.BaseRequest {
    */
   "updateHostnameDetails": model.UpdateHostnameDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the load balancer associated with the virtual hostname
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the load balancer associated with the virtual hostname
    * to update.
    *
    */

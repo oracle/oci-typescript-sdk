@@ -2,7 +2,7 @@
  * Ops Insights API
  * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.oracle.com/iaas/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -246,7 +246,7 @@ export class OperationsInsightsClient {
    * @param AddExadataInsightMembersRequest
    * @return AddExadataInsightMembersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/AddExadataInsightMembers.ts.html |here} to see how to use AddExadataInsightMembers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/AddExadataInsightMembers.ts.html |here} to see how to use AddExadataInsightMembers API.
    */
   public async addExadataInsightMembers(
     addExadataInsightMembersRequest: requests.AddExadataInsightMembersRequest
@@ -325,7 +325,7 @@ export class OperationsInsightsClient {
    * @param ChangeAutonomousDatabaseInsightAdvancedFeaturesRequest
    * @return ChangeAutonomousDatabaseInsightAdvancedFeaturesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeAutonomousDatabaseInsightAdvancedFeatures.ts.html |here} to see how to use ChangeAutonomousDatabaseInsightAdvancedFeatures API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeAutonomousDatabaseInsightAdvancedFeatures.ts.html |here} to see how to use ChangeAutonomousDatabaseInsightAdvancedFeatures API.
    */
   public async changeAutonomousDatabaseInsightAdvancedFeatures(
     changeAutonomousDatabaseInsightAdvancedFeaturesRequest: requests.ChangeAutonomousDatabaseInsightAdvancedFeaturesRequest
@@ -408,7 +408,7 @@ export class OperationsInsightsClient {
    * @param ChangeAwrHubSourceCompartmentRequest
    * @return ChangeAwrHubSourceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeAwrHubSourceCompartment.ts.html |here} to see how to use ChangeAwrHubSourceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeAwrHubSourceCompartment.ts.html |here} to see how to use ChangeAwrHubSourceCompartment API.
    */
   public async changeAwrHubSourceCompartment(
     changeAwrHubSourceCompartmentRequest: requests.ChangeAwrHubSourceCompartmentRequest
@@ -489,7 +489,7 @@ export class OperationsInsightsClient {
    * @param ChangeDatabaseInsightCompartmentRequest
    * @return ChangeDatabaseInsightCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeDatabaseInsightCompartment.ts.html |here} to see how to use ChangeDatabaseInsightCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeDatabaseInsightCompartment.ts.html |here} to see how to use ChangeDatabaseInsightCompartment API.
    */
   public async changeDatabaseInsightCompartment(
     changeDatabaseInsightCompartmentRequest: requests.ChangeDatabaseInsightCompartmentRequest
@@ -570,7 +570,7 @@ export class OperationsInsightsClient {
    * @param ChangeEnterpriseManagerBridgeCompartmentRequest
    * @return ChangeEnterpriseManagerBridgeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeEnterpriseManagerBridgeCompartment.ts.html |here} to see how to use ChangeEnterpriseManagerBridgeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeEnterpriseManagerBridgeCompartment.ts.html |here} to see how to use ChangeEnterpriseManagerBridgeCompartment API.
    */
   public async changeEnterpriseManagerBridgeCompartment(
     changeEnterpriseManagerBridgeCompartmentRequest: requests.ChangeEnterpriseManagerBridgeCompartmentRequest
@@ -651,7 +651,7 @@ export class OperationsInsightsClient {
    * @param ChangeExadataInsightCompartmentRequest
    * @return ChangeExadataInsightCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeExadataInsightCompartment.ts.html |here} to see how to use ChangeExadataInsightCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeExadataInsightCompartment.ts.html |here} to see how to use ChangeExadataInsightCompartment API.
    */
   public async changeExadataInsightCompartment(
     changeExadataInsightCompartmentRequest: requests.ChangeExadataInsightCompartmentRequest
@@ -732,7 +732,7 @@ export class OperationsInsightsClient {
    * @param ChangeExternalMysqlDatabaseInsightConnectionRequest
    * @return ChangeExternalMysqlDatabaseInsightConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeExternalMysqlDatabaseInsightConnection.ts.html |here} to see how to use ChangeExternalMysqlDatabaseInsightConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeExternalMysqlDatabaseInsightConnection.ts.html |here} to see how to use ChangeExternalMysqlDatabaseInsightConnection API.
    */
   public async changeExternalMysqlDatabaseInsightConnection(
     changeExternalMysqlDatabaseInsightConnectionRequest: requests.ChangeExternalMysqlDatabaseInsightConnectionRequest
@@ -814,7 +814,7 @@ export class OperationsInsightsClient {
    * @param ChangeHostInsightCompartmentRequest
    * @return ChangeHostInsightCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeHostInsightCompartment.ts.html |here} to see how to use ChangeHostInsightCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeHostInsightCompartment.ts.html |here} to see how to use ChangeHostInsightCompartment API.
    */
   public async changeHostInsightCompartment(
     changeHostInsightCompartmentRequest: requests.ChangeHostInsightCompartmentRequest
@@ -893,7 +893,7 @@ export class OperationsInsightsClient {
    * @param ChangeMacsManagedCloudDatabaseInsightConnectionRequest
    * @return ChangeMacsManagedCloudDatabaseInsightConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeMacsManagedCloudDatabaseInsightConnection.ts.html |here} to see how to use ChangeMacsManagedCloudDatabaseInsightConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeMacsManagedCloudDatabaseInsightConnection.ts.html |here} to see how to use ChangeMacsManagedCloudDatabaseInsightConnection API.
    */
   public async changeMacsManagedCloudDatabaseInsightConnection(
     changeMacsManagedCloudDatabaseInsightConnectionRequest: requests.ChangeMacsManagedCloudDatabaseInsightConnectionRequest
@@ -976,7 +976,7 @@ export class OperationsInsightsClient {
    * @param ChangeNewsReportCompartmentRequest
    * @return ChangeNewsReportCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeNewsReportCompartment.ts.html |here} to see how to use ChangeNewsReportCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeNewsReportCompartment.ts.html |here} to see how to use ChangeNewsReportCompartment API.
    */
   public async changeNewsReportCompartment(
     changeNewsReportCompartmentRequest: requests.ChangeNewsReportCompartmentRequest
@@ -1055,7 +1055,7 @@ export class OperationsInsightsClient {
    * @param ChangeOperationsInsightsPrivateEndpointCompartmentRequest
    * @return ChangeOperationsInsightsPrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeOperationsInsightsPrivateEndpointCompartment.ts.html |here} to see how to use ChangeOperationsInsightsPrivateEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeOperationsInsightsPrivateEndpointCompartment.ts.html |here} to see how to use ChangeOperationsInsightsPrivateEndpointCompartment API.
    */
   public async changeOperationsInsightsPrivateEndpointCompartment(
     changeOperationsInsightsPrivateEndpointCompartmentRequest: requests.ChangeOperationsInsightsPrivateEndpointCompartmentRequest
@@ -1138,7 +1138,7 @@ export class OperationsInsightsClient {
    * @param ChangeOperationsInsightsWarehouseCompartmentRequest
    * @return ChangeOperationsInsightsWarehouseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeOperationsInsightsWarehouseCompartment.ts.html |here} to see how to use ChangeOperationsInsightsWarehouseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeOperationsInsightsWarehouseCompartment.ts.html |here} to see how to use ChangeOperationsInsightsWarehouseCompartment API.
    */
   public async changeOperationsInsightsWarehouseCompartment(
     changeOperationsInsightsWarehouseCompartmentRequest: requests.ChangeOperationsInsightsWarehouseCompartmentRequest
@@ -1221,7 +1221,7 @@ export class OperationsInsightsClient {
    * @param ChangeOpsiConfigurationCompartmentRequest
    * @return ChangeOpsiConfigurationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeOpsiConfigurationCompartment.ts.html |here} to see how to use ChangeOpsiConfigurationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeOpsiConfigurationCompartment.ts.html |here} to see how to use ChangeOpsiConfigurationCompartment API.
    */
   public async changeOpsiConfigurationCompartment(
     changeOpsiConfigurationCompartmentRequest: requests.ChangeOpsiConfigurationCompartmentRequest
@@ -1302,7 +1302,7 @@ export class OperationsInsightsClient {
    * @param ChangePeComanagedDatabaseInsightRequest
    * @return ChangePeComanagedDatabaseInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangePeComanagedDatabaseInsight.ts.html |here} to see how to use ChangePeComanagedDatabaseInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangePeComanagedDatabaseInsight.ts.html |here} to see how to use ChangePeComanagedDatabaseInsight API.
    */
   public async changePeComanagedDatabaseInsight(
     changePeComanagedDatabaseInsightRequest: requests.ChangePeComanagedDatabaseInsightRequest
@@ -1385,7 +1385,7 @@ export class OperationsInsightsClient {
    * @param CreateAwrHubRequest
    * @return CreateAwrHubResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateAwrHub.ts.html |here} to see how to use CreateAwrHub API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateAwrHub.ts.html |here} to see how to use CreateAwrHub API.
    */
   public async createAwrHub(
     createAwrHubRequest: requests.CreateAwrHubRequest
@@ -1480,7 +1480,7 @@ export class OperationsInsightsClient {
    * @param CreateAwrHubSourceRequest
    * @return CreateAwrHubSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateAwrHubSource.ts.html |here} to see how to use CreateAwrHubSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateAwrHubSource.ts.html |here} to see how to use CreateAwrHubSource API.
    */
   public async createAwrHubSource(
     createAwrHubSourceRequest: requests.CreateAwrHubSourceRequest
@@ -1566,7 +1566,7 @@ export class OperationsInsightsClient {
    * @param CreateDatabaseInsightRequest
    * @return CreateDatabaseInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateDatabaseInsight.ts.html |here} to see how to use CreateDatabaseInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateDatabaseInsight.ts.html |here} to see how to use CreateDatabaseInsight API.
    */
   public async createDatabaseInsight(
     createDatabaseInsightRequest: requests.CreateDatabaseInsightRequest
@@ -1662,7 +1662,7 @@ export class OperationsInsightsClient {
    * @param CreateEnterpriseManagerBridgeRequest
    * @return CreateEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateEnterpriseManagerBridge.ts.html |here} to see how to use CreateEnterpriseManagerBridge API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateEnterpriseManagerBridge.ts.html |here} to see how to use CreateEnterpriseManagerBridge API.
    */
   public async createEnterpriseManagerBridge(
     createEnterpriseManagerBridgeRequest: requests.CreateEnterpriseManagerBridgeRequest
@@ -1760,7 +1760,7 @@ export class OperationsInsightsClient {
    * @param CreateExadataInsightRequest
    * @return CreateExadataInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateExadataInsight.ts.html |here} to see how to use CreateExadataInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateExadataInsight.ts.html |here} to see how to use CreateExadataInsight API.
    */
   public async createExadataInsight(
     createExadataInsightRequest: requests.CreateExadataInsightRequest
@@ -1856,7 +1856,7 @@ export class OperationsInsightsClient {
    * @param CreateHostInsightRequest
    * @return CreateHostInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateHostInsight.ts.html |here} to see how to use CreateHostInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateHostInsight.ts.html |here} to see how to use CreateHostInsight API.
    */
   public async createHostInsight(
     createHostInsightRequest: requests.CreateHostInsightRequest
@@ -1952,7 +1952,7 @@ export class OperationsInsightsClient {
    * @param CreateNewsReportRequest
    * @return CreateNewsReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateNewsReport.ts.html |here} to see how to use CreateNewsReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateNewsReport.ts.html |here} to see how to use CreateNewsReport API.
    */
   public async createNewsReport(
     createNewsReportRequest: requests.CreateNewsReportRequest
@@ -2049,7 +2049,7 @@ export class OperationsInsightsClient {
    * @param CreateOperationsInsightsPrivateEndpointRequest
    * @return CreateOperationsInsightsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use CreateOperationsInsightsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use CreateOperationsInsightsPrivateEndpoint API.
    */
   public async createOperationsInsightsPrivateEndpoint(
     createOperationsInsightsPrivateEndpointRequest: requests.CreateOperationsInsightsPrivateEndpointRequest
@@ -2149,7 +2149,7 @@ export class OperationsInsightsClient {
    * @param CreateOperationsInsightsWarehouseRequest
    * @return CreateOperationsInsightsWarehouseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOperationsInsightsWarehouse.ts.html |here} to see how to use CreateOperationsInsightsWarehouse API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOperationsInsightsWarehouse.ts.html |here} to see how to use CreateOperationsInsightsWarehouse API.
    */
   public async createOperationsInsightsWarehouse(
     createOperationsInsightsWarehouseRequest: requests.CreateOperationsInsightsWarehouseRequest
@@ -2248,7 +2248,7 @@ export class OperationsInsightsClient {
    * @param CreateOperationsInsightsWarehouseUserRequest
    * @return CreateOperationsInsightsWarehouseUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOperationsInsightsWarehouseUser.ts.html |here} to see how to use CreateOperationsInsightsWarehouseUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOperationsInsightsWarehouseUser.ts.html |here} to see how to use CreateOperationsInsightsWarehouseUser API.
    */
   public async createOperationsInsightsWarehouseUser(
     createOperationsInsightsWarehouseUserRequest: requests.CreateOperationsInsightsWarehouseUserRequest
@@ -2346,7 +2346,7 @@ export class OperationsInsightsClient {
    * @param CreateOpsiConfigurationRequest
    * @return CreateOpsiConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOpsiConfiguration.ts.html |here} to see how to use CreateOpsiConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOpsiConfiguration.ts.html |here} to see how to use CreateOpsiConfiguration API.
    */
   public async createOpsiConfiguration(
     createOpsiConfigurationRequest: requests.CreateOpsiConfigurationRequest
@@ -2436,7 +2436,7 @@ export class OperationsInsightsClient {
    * @param DeleteAwrHubRequest
    * @return DeleteAwrHubResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteAwrHub.ts.html |here} to see how to use DeleteAwrHub API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteAwrHub.ts.html |here} to see how to use DeleteAwrHub API.
    */
   public async deleteAwrHub(
     deleteAwrHubRequest: requests.DeleteAwrHubRequest
@@ -2508,7 +2508,7 @@ export class OperationsInsightsClient {
    * @param DeleteAwrHubObjectRequest
    * @return DeleteAwrHubObjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteAwrHubObject.ts.html |here} to see how to use DeleteAwrHubObject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteAwrHubObject.ts.html |here} to see how to use DeleteAwrHubObject API.
    */
   public async deleteAwrHubObject(
     deleteAwrHubObjectRequest: requests.DeleteAwrHubObjectRequest
@@ -2597,7 +2597,7 @@ export class OperationsInsightsClient {
    * @param DeleteAwrHubSourceRequest
    * @return DeleteAwrHubSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteAwrHubSource.ts.html |here} to see how to use DeleteAwrHubSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteAwrHubSource.ts.html |here} to see how to use DeleteAwrHubSource API.
    */
   public async deleteAwrHubSource(
     deleteAwrHubSourceRequest: requests.DeleteAwrHubSourceRequest
@@ -2670,7 +2670,7 @@ export class OperationsInsightsClient {
    * @param DeleteDatabaseInsightRequest
    * @return DeleteDatabaseInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteDatabaseInsight.ts.html |here} to see how to use DeleteDatabaseInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteDatabaseInsight.ts.html |here} to see how to use DeleteDatabaseInsight API.
    */
   public async deleteDatabaseInsight(
     deleteDatabaseInsightRequest: requests.DeleteDatabaseInsightRequest
@@ -2743,7 +2743,7 @@ export class OperationsInsightsClient {
    * @param DeleteEnterpriseManagerBridgeRequest
    * @return DeleteEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteEnterpriseManagerBridge.ts.html |here} to see how to use DeleteEnterpriseManagerBridge API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteEnterpriseManagerBridge.ts.html |here} to see how to use DeleteEnterpriseManagerBridge API.
    */
   public async deleteEnterpriseManagerBridge(
     deleteEnterpriseManagerBridgeRequest: requests.DeleteEnterpriseManagerBridgeRequest
@@ -2818,7 +2818,7 @@ export class OperationsInsightsClient {
    * @param DeleteExadataInsightRequest
    * @return DeleteExadataInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteExadataInsight.ts.html |here} to see how to use DeleteExadataInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteExadataInsight.ts.html |here} to see how to use DeleteExadataInsight API.
    */
   public async deleteExadataInsight(
     deleteExadataInsightRequest: requests.DeleteExadataInsightRequest
@@ -2891,7 +2891,7 @@ export class OperationsInsightsClient {
    * @param DeleteHostInsightRequest
    * @return DeleteHostInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteHostInsight.ts.html |here} to see how to use DeleteHostInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteHostInsight.ts.html |here} to see how to use DeleteHostInsight API.
    */
   public async deleteHostInsight(
     deleteHostInsightRequest: requests.DeleteHostInsightRequest
@@ -2964,7 +2964,7 @@ export class OperationsInsightsClient {
    * @param DeleteNewsReportRequest
    * @return DeleteNewsReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteNewsReport.ts.html |here} to see how to use DeleteNewsReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteNewsReport.ts.html |here} to see how to use DeleteNewsReport API.
    */
   public async deleteNewsReport(
     deleteNewsReportRequest: requests.DeleteNewsReportRequest
@@ -3037,7 +3037,7 @@ export class OperationsInsightsClient {
    * @param DeleteOperationsInsightsPrivateEndpointRequest
    * @return DeleteOperationsInsightsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use DeleteOperationsInsightsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use DeleteOperationsInsightsPrivateEndpoint API.
    */
   public async deleteOperationsInsightsPrivateEndpoint(
     deleteOperationsInsightsPrivateEndpointRequest: requests.DeleteOperationsInsightsPrivateEndpointRequest
@@ -3117,7 +3117,7 @@ export class OperationsInsightsClient {
    * @param DeleteOperationsInsightsWarehouseRequest
    * @return DeleteOperationsInsightsWarehouseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOperationsInsightsWarehouse.ts.html |here} to see how to use DeleteOperationsInsightsWarehouse API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOperationsInsightsWarehouse.ts.html |here} to see how to use DeleteOperationsInsightsWarehouse API.
    */
   public async deleteOperationsInsightsWarehouse(
     deleteOperationsInsightsWarehouseRequest: requests.DeleteOperationsInsightsWarehouseRequest
@@ -3193,7 +3193,7 @@ export class OperationsInsightsClient {
    * @param DeleteOperationsInsightsWarehouseUserRequest
    * @return DeleteOperationsInsightsWarehouseUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOperationsInsightsWarehouseUser.ts.html |here} to see how to use DeleteOperationsInsightsWarehouseUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOperationsInsightsWarehouseUser.ts.html |here} to see how to use DeleteOperationsInsightsWarehouseUser API.
    */
   public async deleteOperationsInsightsWarehouseUser(
     deleteOperationsInsightsWarehouseUserRequest: requests.DeleteOperationsInsightsWarehouseUserRequest
@@ -3269,7 +3269,7 @@ export class OperationsInsightsClient {
    * @param DeleteOpsiConfigurationRequest
    * @return DeleteOpsiConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOpsiConfiguration.ts.html |here} to see how to use DeleteOpsiConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOpsiConfiguration.ts.html |here} to see how to use DeleteOpsiConfiguration API.
    */
   public async deleteOpsiConfiguration(
     deleteOpsiConfigurationRequest: requests.DeleteOpsiConfigurationRequest
@@ -3342,7 +3342,7 @@ export class OperationsInsightsClient {
    * @param DisableAutonomousDatabaseInsightAdvancedFeaturesRequest
    * @return DisableAutonomousDatabaseInsightAdvancedFeaturesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableAutonomousDatabaseInsightAdvancedFeatures.ts.html |here} to see how to use DisableAutonomousDatabaseInsightAdvancedFeatures API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableAutonomousDatabaseInsightAdvancedFeatures.ts.html |here} to see how to use DisableAutonomousDatabaseInsightAdvancedFeatures API.
    */
   public async disableAutonomousDatabaseInsightAdvancedFeatures(
     disableAutonomousDatabaseInsightAdvancedFeaturesRequest: requests.DisableAutonomousDatabaseInsightAdvancedFeaturesRequest
@@ -3420,7 +3420,7 @@ export class OperationsInsightsClient {
    * @param DisableAwrHubSourceRequest
    * @return DisableAwrHubSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableAwrHubSource.ts.html |here} to see how to use DisableAwrHubSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableAwrHubSource.ts.html |here} to see how to use DisableAwrHubSource API.
    */
   public async disableAwrHubSource(
     disableAwrHubSourceRequest: requests.DisableAwrHubSourceRequest
@@ -3494,7 +3494,7 @@ export class OperationsInsightsClient {
    * @param DisableDatabaseInsightRequest
    * @return DisableDatabaseInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableDatabaseInsight.ts.html |here} to see how to use DisableDatabaseInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableDatabaseInsight.ts.html |here} to see how to use DisableDatabaseInsight API.
    */
   public async disableDatabaseInsight(
     disableDatabaseInsightRequest: requests.DisableDatabaseInsightRequest
@@ -3568,7 +3568,7 @@ export class OperationsInsightsClient {
    * @param DisableExadataInsightRequest
    * @return DisableExadataInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableExadataInsight.ts.html |here} to see how to use DisableExadataInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableExadataInsight.ts.html |here} to see how to use DisableExadataInsight API.
    */
   public async disableExadataInsight(
     disableExadataInsightRequest: requests.DisableExadataInsightRequest
@@ -3642,7 +3642,7 @@ export class OperationsInsightsClient {
    * @param DisableHostInsightRequest
    * @return DisableHostInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableHostInsight.ts.html |here} to see how to use DisableHostInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableHostInsight.ts.html |here} to see how to use DisableHostInsight API.
    */
   public async disableHostInsight(
     disableHostInsightRequest: requests.DisableHostInsightRequest
@@ -3716,7 +3716,7 @@ export class OperationsInsightsClient {
    * @param DownloadOperationsInsightsWarehouseWalletRequest
    * @return DownloadOperationsInsightsWarehouseWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DownloadOperationsInsightsWarehouseWallet.ts.html |here} to see how to use DownloadOperationsInsightsWarehouseWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DownloadOperationsInsightsWarehouseWallet.ts.html |here} to see how to use DownloadOperationsInsightsWarehouseWallet API.
    */
   public async downloadOperationsInsightsWarehouseWallet(
     downloadOperationsInsightsWarehouseWalletRequest: requests.DownloadOperationsInsightsWarehouseWalletRequest
@@ -3812,7 +3812,7 @@ export class OperationsInsightsClient {
    * @param EnableAutonomousDatabaseInsightAdvancedFeaturesRequest
    * @return EnableAutonomousDatabaseInsightAdvancedFeaturesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableAutonomousDatabaseInsightAdvancedFeatures.ts.html |here} to see how to use EnableAutonomousDatabaseInsightAdvancedFeatures API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableAutonomousDatabaseInsightAdvancedFeatures.ts.html |here} to see how to use EnableAutonomousDatabaseInsightAdvancedFeatures API.
    */
   public async enableAutonomousDatabaseInsightAdvancedFeatures(
     enableAutonomousDatabaseInsightAdvancedFeaturesRequest: requests.EnableAutonomousDatabaseInsightAdvancedFeaturesRequest
@@ -3895,7 +3895,7 @@ export class OperationsInsightsClient {
    * @param EnableAwrHubSourceRequest
    * @return EnableAwrHubSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableAwrHubSource.ts.html |here} to see how to use EnableAwrHubSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableAwrHubSource.ts.html |here} to see how to use EnableAwrHubSource API.
    */
   public async enableAwrHubSource(
     enableAwrHubSourceRequest: requests.EnableAwrHubSourceRequest
@@ -3969,7 +3969,7 @@ export class OperationsInsightsClient {
    * @param EnableDatabaseInsightRequest
    * @return EnableDatabaseInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableDatabaseInsight.ts.html |here} to see how to use EnableDatabaseInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableDatabaseInsight.ts.html |here} to see how to use EnableDatabaseInsight API.
    */
   public async enableDatabaseInsight(
     enableDatabaseInsightRequest: requests.EnableDatabaseInsightRequest
@@ -4048,7 +4048,7 @@ export class OperationsInsightsClient {
    * @param EnableExadataInsightRequest
    * @return EnableExadataInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableExadataInsight.ts.html |here} to see how to use EnableExadataInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableExadataInsight.ts.html |here} to see how to use EnableExadataInsight API.
    */
   public async enableExadataInsight(
     enableExadataInsightRequest: requests.EnableExadataInsightRequest
@@ -4127,7 +4127,7 @@ export class OperationsInsightsClient {
    * @param EnableHostInsightRequest
    * @return EnableHostInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableHostInsight.ts.html |here} to see how to use EnableHostInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableHostInsight.ts.html |here} to see how to use EnableHostInsight API.
    */
   public async enableHostInsight(
     enableHostInsightRequest: requests.EnableHostInsightRequest
@@ -4207,7 +4207,7 @@ export class OperationsInsightsClient {
    * @param GetAwrDatabaseReportRequest
    * @return GetAwrDatabaseReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrDatabaseReport.ts.html |here} to see how to use GetAwrDatabaseReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrDatabaseReport.ts.html |here} to see how to use GetAwrDatabaseReport API.
    */
   public async getAwrDatabaseReport(
     getAwrDatabaseReportRequest: requests.GetAwrDatabaseReportRequest
@@ -4290,7 +4290,7 @@ export class OperationsInsightsClient {
    * @param GetAwrDatabaseSqlReportRequest
    * @return GetAwrDatabaseSqlReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrDatabaseSqlReport.ts.html |here} to see how to use GetAwrDatabaseSqlReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrDatabaseSqlReport.ts.html |here} to see how to use GetAwrDatabaseSqlReport API.
    */
   public async getAwrDatabaseSqlReport(
     getAwrDatabaseSqlReportRequest: requests.GetAwrDatabaseSqlReportRequest
@@ -4372,7 +4372,7 @@ export class OperationsInsightsClient {
    * @param GetAwrHubRequest
    * @return GetAwrHubResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHub.ts.html |here} to see how to use GetAwrHub API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHub.ts.html |here} to see how to use GetAwrHub API.
    */
   public async getAwrHub(
     getAwrHubRequest: requests.GetAwrHubRequest
@@ -4447,7 +4447,7 @@ export class OperationsInsightsClient {
    * @param GetAwrHubObjectRequest
    * @return GetAwrHubObjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHubObject.ts.html |here} to see how to use GetAwrHubObject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHubObject.ts.html |here} to see how to use GetAwrHubObject API.
    */
   public async getAwrHubObject(
     getAwrHubObjectRequest: requests.GetAwrHubObjectRequest
@@ -4612,7 +4612,7 @@ export class OperationsInsightsClient {
    * @param GetAwrHubSourceRequest
    * @return GetAwrHubSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHubSource.ts.html |here} to see how to use GetAwrHubSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrHubSource.ts.html |here} to see how to use GetAwrHubSource API.
    */
   public async getAwrHubSource(
     getAwrHubSourceRequest: requests.GetAwrHubSourceRequest
@@ -4690,7 +4690,7 @@ export class OperationsInsightsClient {
    * @param GetAwrReportRequest
    * @return GetAwrReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrReport.ts.html |here} to see how to use GetAwrReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrReport.ts.html |here} to see how to use GetAwrReport API.
    */
   public async getAwrReport(
     getAwrReportRequest: requests.GetAwrReportRequest
@@ -4770,7 +4770,7 @@ export class OperationsInsightsClient {
    * @param GetDatabaseInsightRequest
    * @return GetDatabaseInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetDatabaseInsight.ts.html |here} to see how to use GetDatabaseInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetDatabaseInsight.ts.html |here} to see how to use GetDatabaseInsight API.
    */
   public async getDatabaseInsight(
     getDatabaseInsightRequest: requests.GetDatabaseInsightRequest
@@ -4846,7 +4846,7 @@ export class OperationsInsightsClient {
    * @param GetEnterpriseManagerBridgeRequest
    * @return GetEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetEnterpriseManagerBridge.ts.html |here} to see how to use GetEnterpriseManagerBridge API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetEnterpriseManagerBridge.ts.html |here} to see how to use GetEnterpriseManagerBridge API.
    */
   public async getEnterpriseManagerBridge(
     getEnterpriseManagerBridgeRequest: requests.GetEnterpriseManagerBridgeRequest
@@ -4922,7 +4922,7 @@ export class OperationsInsightsClient {
    * @param GetExadataInsightRequest
    * @return GetExadataInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetExadataInsight.ts.html |here} to see how to use GetExadataInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetExadataInsight.ts.html |here} to see how to use GetExadataInsight API.
    */
   public async getExadataInsight(
     getExadataInsightRequest: requests.GetExadataInsightRequest
@@ -4998,7 +4998,7 @@ export class OperationsInsightsClient {
    * @param GetHostInsightRequest
    * @return GetHostInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetHostInsight.ts.html |here} to see how to use GetHostInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetHostInsight.ts.html |here} to see how to use GetHostInsight API.
    */
   public async getHostInsight(
     getHostInsightRequest: requests.GetHostInsightRequest
@@ -5074,7 +5074,7 @@ export class OperationsInsightsClient {
    * @param GetNewsReportRequest
    * @return GetNewsReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetNewsReport.ts.html |here} to see how to use GetNewsReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetNewsReport.ts.html |here} to see how to use GetNewsReport API.
    */
   public async getNewsReport(
     getNewsReportRequest: requests.GetNewsReportRequest
@@ -5149,7 +5149,7 @@ export class OperationsInsightsClient {
    * @param GetOperationsInsightsPrivateEndpointRequest
    * @return GetOperationsInsightsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use GetOperationsInsightsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use GetOperationsInsightsPrivateEndpoint API.
    */
   public async getOperationsInsightsPrivateEndpoint(
     getOperationsInsightsPrivateEndpointRequest: requests.GetOperationsInsightsPrivateEndpointRequest
@@ -5230,7 +5230,7 @@ export class OperationsInsightsClient {
    * @param GetOperationsInsightsWarehouseRequest
    * @return GetOperationsInsightsWarehouseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOperationsInsightsWarehouse.ts.html |here} to see how to use GetOperationsInsightsWarehouse API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOperationsInsightsWarehouse.ts.html |here} to see how to use GetOperationsInsightsWarehouse API.
    */
   public async getOperationsInsightsWarehouse(
     getOperationsInsightsWarehouseRequest: requests.GetOperationsInsightsWarehouseRequest
@@ -5309,7 +5309,7 @@ export class OperationsInsightsClient {
    * @param GetOperationsInsightsWarehouseUserRequest
    * @return GetOperationsInsightsWarehouseUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOperationsInsightsWarehouseUser.ts.html |here} to see how to use GetOperationsInsightsWarehouseUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOperationsInsightsWarehouseUser.ts.html |here} to see how to use GetOperationsInsightsWarehouseUser API.
    */
   public async getOperationsInsightsWarehouseUser(
     getOperationsInsightsWarehouseUserRequest: requests.GetOperationsInsightsWarehouseUserRequest
@@ -5391,7 +5391,7 @@ export class OperationsInsightsClient {
    * @param GetOpsiConfigurationRequest
    * @return GetOpsiConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOpsiConfiguration.ts.html |here} to see how to use GetOpsiConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOpsiConfiguration.ts.html |here} to see how to use GetOpsiConfiguration API.
    */
   public async getOpsiConfiguration(
     getOpsiConfigurationRequest: requests.GetOpsiConfigurationRequest
@@ -5472,7 +5472,7 @@ export class OperationsInsightsClient {
    * @param GetOpsiDataObjectRequest
    * @return GetOpsiDataObjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOpsiDataObject.ts.html |here} to see how to use GetOpsiDataObject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOpsiDataObject.ts.html |here} to see how to use GetOpsiDataObject API.
    */
   public async getOpsiDataObject(
     getOpsiDataObjectRequest: requests.GetOpsiDataObjectRequest
@@ -5545,7 +5545,7 @@ export class OperationsInsightsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -5627,7 +5627,7 @@ export class OperationsInsightsClient {
    * @param HeadAwrHubObjectRequest
    * @return HeadAwrHubObjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/HeadAwrHubObject.ts.html |here} to see how to use HeadAwrHubObject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/HeadAwrHubObject.ts.html |here} to see how to use HeadAwrHubObject API.
    */
   public async headAwrHubObject(
     headAwrHubObjectRequest: requests.HeadAwrHubObjectRequest
@@ -5780,7 +5780,7 @@ export class OperationsInsightsClient {
    * @param IngestAddmReportsRequest
    * @return IngestAddmReportsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestAddmReports.ts.html |here} to see how to use IngestAddmReports API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestAddmReports.ts.html |here} to see how to use IngestAddmReports API.
    */
   public async ingestAddmReports(
     ingestAddmReportsRequest: requests.IngestAddmReportsRequest
@@ -5864,7 +5864,7 @@ export class OperationsInsightsClient {
    * @param IngestDatabaseConfigurationRequest
    * @return IngestDatabaseConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestDatabaseConfiguration.ts.html |here} to see how to use IngestDatabaseConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestDatabaseConfiguration.ts.html |here} to see how to use IngestDatabaseConfiguration API.
    */
   public async ingestDatabaseConfiguration(
     ingestDatabaseConfigurationRequest: requests.IngestDatabaseConfigurationRequest
@@ -5948,7 +5948,7 @@ export class OperationsInsightsClient {
    * @param IngestHostConfigurationRequest
    * @return IngestHostConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestHostConfiguration.ts.html |here} to see how to use IngestHostConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestHostConfiguration.ts.html |here} to see how to use IngestHostConfiguration API.
    */
   public async ingestHostConfiguration(
     ingestHostConfigurationRequest: requests.IngestHostConfigurationRequest
@@ -6031,7 +6031,7 @@ export class OperationsInsightsClient {
    * @param IngestHostMetricsRequest
    * @return IngestHostMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestHostMetrics.ts.html |here} to see how to use IngestHostMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestHostMetrics.ts.html |here} to see how to use IngestHostMetrics API.
    */
   public async ingestHostMetrics(
     ingestHostMetricsRequest: requests.IngestHostMetricsRequest
@@ -6116,7 +6116,7 @@ export class OperationsInsightsClient {
    * @param IngestMySqlSqlStatsRequest
    * @return IngestMySqlSqlStatsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestMySqlSqlStats.ts.html |here} to see how to use IngestMySqlSqlStats API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestMySqlSqlStats.ts.html |here} to see how to use IngestMySqlSqlStats API.
    */
   public async ingestMySqlSqlStats(
     ingestMySqlSqlStatsRequest: requests.IngestMySqlSqlStatsRequest
@@ -6203,7 +6203,7 @@ export class OperationsInsightsClient {
    * @param IngestMySqlSqlTextRequest
    * @return IngestMySqlSqlTextResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestMySqlSqlText.ts.html |here} to see how to use IngestMySqlSqlText API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestMySqlSqlText.ts.html |here} to see how to use IngestMySqlSqlText API.
    */
   public async ingestMySqlSqlText(
     ingestMySqlSqlTextRequest: requests.IngestMySqlSqlTextRequest
@@ -6290,7 +6290,7 @@ export class OperationsInsightsClient {
    * @param IngestSqlBucketRequest
    * @return IngestSqlBucketResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlBucket.ts.html |here} to see how to use IngestSqlBucket API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlBucket.ts.html |here} to see how to use IngestSqlBucket API.
    */
   public async ingestSqlBucket(
     ingestSqlBucketRequest: requests.IngestSqlBucketRequest
@@ -6377,7 +6377,7 @@ export class OperationsInsightsClient {
    * @param IngestSqlPlanLinesRequest
    * @return IngestSqlPlanLinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlPlanLines.ts.html |here} to see how to use IngestSqlPlanLines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlPlanLines.ts.html |here} to see how to use IngestSqlPlanLines API.
    */
   public async ingestSqlPlanLines(
     ingestSqlPlanLinesRequest: requests.IngestSqlPlanLinesRequest
@@ -6464,7 +6464,7 @@ export class OperationsInsightsClient {
    * @param IngestSqlStatsRequest
    * @return IngestSqlStatsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlStats.ts.html |here} to see how to use IngestSqlStats API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlStats.ts.html |here} to see how to use IngestSqlStats API.
    */
   public async ingestSqlStats(
     ingestSqlStatsRequest: requests.IngestSqlStatsRequest
@@ -6551,7 +6551,7 @@ export class OperationsInsightsClient {
    * @param IngestSqlTextRequest
    * @return IngestSqlTextResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlText.ts.html |here} to see how to use IngestSqlText API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestSqlText.ts.html |here} to see how to use IngestSqlText API.
    */
   public async ingestSqlText(
     ingestSqlTextRequest: requests.IngestSqlTextRequest
@@ -6636,7 +6636,7 @@ export class OperationsInsightsClient {
    * @param ListAddmDbFindingCategoriesRequest
    * @return ListAddmDbFindingCategoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbFindingCategories.ts.html |here} to see how to use ListAddmDbFindingCategories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbFindingCategories.ts.html |here} to see how to use ListAddmDbFindingCategories API.
    */
   public async listAddmDbFindingCategories(
     listAddmDbFindingCategoriesRequest: requests.ListAddmDbFindingCategoriesRequest
@@ -6724,7 +6724,7 @@ export class OperationsInsightsClient {
    * @param ListAddmDbFindingsTimeSeriesRequest
    * @return ListAddmDbFindingsTimeSeriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbFindingsTimeSeries.ts.html |here} to see how to use ListAddmDbFindingsTimeSeries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbFindingsTimeSeries.ts.html |here} to see how to use ListAddmDbFindingsTimeSeries API.
    */
   public async listAddmDbFindingsTimeSeries(
     listAddmDbFindingsTimeSeriesRequest: requests.ListAddmDbFindingsTimeSeriesRequest
@@ -6816,7 +6816,7 @@ export class OperationsInsightsClient {
    * @param ListAddmDbParameterCategoriesRequest
    * @return ListAddmDbParameterCategoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbParameterCategories.ts.html |here} to see how to use ListAddmDbParameterCategories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbParameterCategories.ts.html |here} to see how to use ListAddmDbParameterCategories API.
    */
   public async listAddmDbParameterCategories(
     listAddmDbParameterCategoriesRequest: requests.ListAddmDbParameterCategoriesRequest
@@ -6906,7 +6906,7 @@ export class OperationsInsightsClient {
    * @param ListAddmDbRecommendationCategoriesRequest
    * @return ListAddmDbRecommendationCategoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbRecommendationCategories.ts.html |here} to see how to use ListAddmDbRecommendationCategories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbRecommendationCategories.ts.html |here} to see how to use ListAddmDbRecommendationCategories API.
    */
   public async listAddmDbRecommendationCategories(
     listAddmDbRecommendationCategoriesRequest: requests.ListAddmDbRecommendationCategoriesRequest
@@ -6996,7 +6996,7 @@ export class OperationsInsightsClient {
    * @param ListAddmDbRecommendationsTimeSeriesRequest
    * @return ListAddmDbRecommendationsTimeSeriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbRecommendationsTimeSeries.ts.html |here} to see how to use ListAddmDbRecommendationsTimeSeries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbRecommendationsTimeSeries.ts.html |here} to see how to use ListAddmDbRecommendationsTimeSeries API.
    */
   public async listAddmDbRecommendationsTimeSeries(
     listAddmDbRecommendationsTimeSeriesRequest: requests.ListAddmDbRecommendationsTimeSeriesRequest
@@ -7094,7 +7094,7 @@ export class OperationsInsightsClient {
    * @param ListAddmDbsRequest
    * @return ListAddmDbsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbs.ts.html |here} to see how to use ListAddmDbs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbs.ts.html |here} to see how to use ListAddmDbs API.
    */
   public async listAddmDbs(
     listAddmDbsRequest: requests.ListAddmDbsRequest
@@ -7183,7 +7183,7 @@ export class OperationsInsightsClient {
    * @param ListAwrDatabaseSnapshotsRequest
    * @return ListAwrDatabaseSnapshotsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrDatabaseSnapshots.ts.html |here} to see how to use ListAwrDatabaseSnapshots API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrDatabaseSnapshots.ts.html |here} to see how to use ListAwrDatabaseSnapshots API.
    */
   public async listAwrDatabaseSnapshots(
     listAwrDatabaseSnapshotsRequest: requests.ListAwrDatabaseSnapshotsRequest
@@ -7273,7 +7273,7 @@ export class OperationsInsightsClient {
    * @param ListAwrDatabasesRequest
    * @return ListAwrDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrDatabases.ts.html |here} to see how to use ListAwrDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrDatabases.ts.html |here} to see how to use ListAwrDatabases API.
    */
   public async listAwrDatabases(
     listAwrDatabasesRequest: requests.ListAwrDatabasesRequest
@@ -7358,7 +7358,7 @@ export class OperationsInsightsClient {
    * @param ListAwrHubObjectsRequest
    * @return ListAwrHubObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrHubObjects.ts.html |here} to see how to use ListAwrHubObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrHubObjects.ts.html |here} to see how to use ListAwrHubObjects API.
    */
   public async listAwrHubObjects(
     listAwrHubObjectsRequest: requests.ListAwrHubObjectsRequest
@@ -7448,7 +7448,7 @@ export class OperationsInsightsClient {
    * @param ListAwrHubSourcesRequest
    * @return ListAwrHubSourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrHubSources.ts.html |here} to see how to use ListAwrHubSources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrHubSources.ts.html |here} to see how to use ListAwrHubSources API.
    */
   public async listAwrHubSources(
     listAwrHubSourcesRequest: requests.ListAwrHubSourcesRequest
@@ -7535,7 +7535,7 @@ export class OperationsInsightsClient {
    * @param ListAwrHubsRequest
    * @return ListAwrHubsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrHubs.ts.html |here} to see how to use ListAwrHubs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrHubs.ts.html |here} to see how to use ListAwrHubs API.
    */
   public async listAwrHubs(
     listAwrHubsRequest: requests.ListAwrHubsRequest
@@ -7620,7 +7620,7 @@ export class OperationsInsightsClient {
    * @param ListAwrSnapshotsRequest
    * @return ListAwrSnapshotsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrSnapshots.ts.html |here} to see how to use ListAwrSnapshots API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrSnapshots.ts.html |here} to see how to use ListAwrSnapshots API.
    */
   public async listAwrSnapshots(
     listAwrSnapshotsRequest: requests.ListAwrSnapshotsRequest
@@ -7706,7 +7706,7 @@ export class OperationsInsightsClient {
    * @param ListDatabaseConfigurationsRequest
    * @return ListDatabaseConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListDatabaseConfigurations.ts.html |here} to see how to use ListDatabaseConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListDatabaseConfigurations.ts.html |here} to see how to use ListDatabaseConfigurations API.
    */
   public async listDatabaseConfigurations(
     listDatabaseConfigurationsRequest: requests.ListDatabaseConfigurationsRequest
@@ -7806,7 +7806,7 @@ export class OperationsInsightsClient {
    * @param ListDatabaseInsightsRequest
    * @return ListDatabaseInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListDatabaseInsights.ts.html |here} to see how to use ListDatabaseInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListDatabaseInsights.ts.html |here} to see how to use ListDatabaseInsights API.
    */
   public async listDatabaseInsights(
     listDatabaseInsightsRequest: requests.ListDatabaseInsightsRequest
@@ -7903,7 +7903,7 @@ export class OperationsInsightsClient {
    * @param ListEnterpriseManagerBridgesRequest
    * @return ListEnterpriseManagerBridgesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListEnterpriseManagerBridges.ts.html |here} to see how to use ListEnterpriseManagerBridges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListEnterpriseManagerBridges.ts.html |here} to see how to use ListEnterpriseManagerBridges API.
    */
   public async listEnterpriseManagerBridges(
     listEnterpriseManagerBridgesRequest: requests.ListEnterpriseManagerBridgesRequest
@@ -7987,7 +7987,7 @@ export class OperationsInsightsClient {
    * @param ListExadataConfigurationsRequest
    * @return ListExadataConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListExadataConfigurations.ts.html |here} to see how to use ListExadataConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListExadataConfigurations.ts.html |here} to see how to use ListExadataConfigurations API.
    */
   public async listExadataConfigurations(
     listExadataConfigurationsRequest: requests.ListExadataConfigurationsRequest
@@ -8081,7 +8081,7 @@ export class OperationsInsightsClient {
    * @param ListExadataInsightsRequest
    * @return ListExadataInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListExadataInsights.ts.html |here} to see how to use ListExadataInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListExadataInsights.ts.html |here} to see how to use ListExadataInsights API.
    */
   public async listExadataInsights(
     listExadataInsightsRequest: requests.ListExadataInsightsRequest
@@ -8174,7 +8174,7 @@ export class OperationsInsightsClient {
    * @param ListHostConfigurationsRequest
    * @return ListHostConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListHostConfigurations.ts.html |here} to see how to use ListHostConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListHostConfigurations.ts.html |here} to see how to use ListHostConfigurations API.
    */
   public async listHostConfigurations(
     listHostConfigurationsRequest: requests.ListHostConfigurationsRequest
@@ -8274,7 +8274,7 @@ export class OperationsInsightsClient {
    * @param ListHostInsightsRequest
    * @return ListHostInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListHostInsights.ts.html |here} to see how to use ListHostInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListHostInsights.ts.html |here} to see how to use ListHostInsights API.
    */
   public async listHostInsights(
     listHostInsightsRequest: requests.ListHostInsightsRequest
@@ -8368,7 +8368,7 @@ export class OperationsInsightsClient {
    * @param ListHostedEntitiesRequest
    * @return ListHostedEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListHostedEntities.ts.html |here} to see how to use ListHostedEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListHostedEntities.ts.html |here} to see how to use ListHostedEntities API.
    */
   public async listHostedEntities(
     listHostedEntitiesRequest: requests.ListHostedEntitiesRequest
@@ -8462,7 +8462,7 @@ export class OperationsInsightsClient {
    * @param ListImportableAgentEntitiesRequest
    * @return ListImportableAgentEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListImportableAgentEntities.ts.html |here} to see how to use ListImportableAgentEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListImportableAgentEntities.ts.html |here} to see how to use ListImportableAgentEntities API.
    */
   public async listImportableAgentEntities(
     listImportableAgentEntitiesRequest: requests.ListImportableAgentEntitiesRequest
@@ -8549,7 +8549,7 @@ export class OperationsInsightsClient {
    * @param ListImportableComputeEntitiesRequest
    * @return ListImportableComputeEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListImportableComputeEntities.ts.html |here} to see how to use ListImportableComputeEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListImportableComputeEntities.ts.html |here} to see how to use ListImportableComputeEntities API.
    */
   public async listImportableComputeEntities(
     listImportableComputeEntitiesRequest: requests.ListImportableComputeEntitiesRequest
@@ -8632,7 +8632,7 @@ export class OperationsInsightsClient {
    * @param ListImportableEnterpriseManagerEntitiesRequest
    * @return ListImportableEnterpriseManagerEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListImportableEnterpriseManagerEntities.ts.html |here} to see how to use ListImportableEnterpriseManagerEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListImportableEnterpriseManagerEntities.ts.html |here} to see how to use ListImportableEnterpriseManagerEntities API.
    */
   public async listImportableEnterpriseManagerEntities(
     listImportableEnterpriseManagerEntitiesRequest: requests.ListImportableEnterpriseManagerEntitiesRequest
@@ -8722,7 +8722,7 @@ export class OperationsInsightsClient {
    * @param ListNewsReportsRequest
    * @return ListNewsReportsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListNewsReports.ts.html |here} to see how to use ListNewsReports API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListNewsReports.ts.html |here} to see how to use ListNewsReports API.
    */
   public async listNewsReports(
     listNewsReportsRequest: requests.ListNewsReportsRequest
@@ -8811,7 +8811,7 @@ export class OperationsInsightsClient {
    * @param ListOperationsInsightsPrivateEndpointsRequest
    * @return ListOperationsInsightsPrivateEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOperationsInsightsPrivateEndpoints.ts.html |here} to see how to use ListOperationsInsightsPrivateEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOperationsInsightsPrivateEndpoints.ts.html |here} to see how to use ListOperationsInsightsPrivateEndpoints API.
    */
   public async listOperationsInsightsPrivateEndpoints(
     listOperationsInsightsPrivateEndpointsRequest: requests.ListOperationsInsightsPrivateEndpointsRequest
@@ -8900,7 +8900,7 @@ export class OperationsInsightsClient {
    * @param ListOperationsInsightsWarehouseUsersRequest
    * @return ListOperationsInsightsWarehouseUsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOperationsInsightsWarehouseUsers.ts.html |here} to see how to use ListOperationsInsightsWarehouseUsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOperationsInsightsWarehouseUsers.ts.html |here} to see how to use ListOperationsInsightsWarehouseUsers API.
    */
   public async listOperationsInsightsWarehouseUsers(
     listOperationsInsightsWarehouseUsersRequest: requests.ListOperationsInsightsWarehouseUsersRequest
@@ -8989,7 +8989,7 @@ export class OperationsInsightsClient {
    * @param ListOperationsInsightsWarehousesRequest
    * @return ListOperationsInsightsWarehousesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOperationsInsightsWarehouses.ts.html |here} to see how to use ListOperationsInsightsWarehouses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOperationsInsightsWarehouses.ts.html |here} to see how to use ListOperationsInsightsWarehouses API.
    */
   public async listOperationsInsightsWarehouses(
     listOperationsInsightsWarehousesRequest: requests.ListOperationsInsightsWarehousesRequest
@@ -9075,7 +9075,7 @@ export class OperationsInsightsClient {
    * @param ListOpsiConfigurationsRequest
    * @return ListOpsiConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOpsiConfigurations.ts.html |here} to see how to use ListOpsiConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOpsiConfigurations.ts.html |here} to see how to use ListOpsiConfigurations API.
    */
   public async listOpsiConfigurations(
     listOpsiConfigurationsRequest: requests.ListOpsiConfigurationsRequest
@@ -9159,7 +9159,7 @@ export class OperationsInsightsClient {
    * @param ListOpsiDataObjectsRequest
    * @return ListOpsiDataObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOpsiDataObjects.ts.html |here} to see how to use ListOpsiDataObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOpsiDataObjects.ts.html |here} to see how to use ListOpsiDataObjects API.
    */
   public async listOpsiDataObjects(
     listOpsiDataObjectsRequest: requests.ListOpsiDataObjectsRequest
@@ -9245,7 +9245,7 @@ export class OperationsInsightsClient {
    * @param ListSqlPlansRequest
    * @return ListSqlPlansResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlPlans.ts.html |here} to see how to use ListSqlPlans API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlPlans.ts.html |here} to see how to use ListSqlPlans API.
    */
   public async listSqlPlans(
     listSqlPlansRequest: requests.ListSqlPlansRequest
@@ -9327,7 +9327,7 @@ export class OperationsInsightsClient {
    * @param ListSqlSearchesRequest
    * @return ListSqlSearchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlSearches.ts.html |here} to see how to use ListSqlSearches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlSearches.ts.html |here} to see how to use ListSqlSearches API.
    */
   public async listSqlSearches(
     listSqlSearchesRequest: requests.ListSqlSearchesRequest
@@ -9414,7 +9414,7 @@ export class OperationsInsightsClient {
    * @param ListSqlTextsRequest
    * @return ListSqlTextsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlTexts.ts.html |here} to see how to use ListSqlTexts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListSqlTexts.ts.html |here} to see how to use ListSqlTexts API.
    */
   public async listSqlTexts(
     listSqlTextsRequest: requests.ListSqlTextsRequest
@@ -9499,7 +9499,7 @@ export class OperationsInsightsClient {
    * @param ListWarehouseDataObjectsRequest
    * @return ListWarehouseDataObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWarehouseDataObjects.ts.html |here} to see how to use ListWarehouseDataObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWarehouseDataObjects.ts.html |here} to see how to use ListWarehouseDataObjects API.
    */
   public async listWarehouseDataObjects(
     listWarehouseDataObjectsRequest: requests.ListWarehouseDataObjectsRequest
@@ -9586,7 +9586,7 @@ export class OperationsInsightsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -9668,7 +9668,7 @@ export class OperationsInsightsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -9750,7 +9750,7 @@ export class OperationsInsightsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -9835,7 +9835,7 @@ export class OperationsInsightsClient {
    * @param PutAwrHubObjectRequest
    * @return PutAwrHubObjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/PutAwrHubObject.ts.html |here} to see how to use PutAwrHubObject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/PutAwrHubObject.ts.html |here} to see how to use PutAwrHubObject API.
    */
   public async putAwrHubObject(
     putAwrHubObjectRequest: requests.PutAwrHubObjectRequest
@@ -9928,7 +9928,7 @@ export class OperationsInsightsClient {
    * @param QueryOpsiDataObjectDataRequest
    * @return QueryOpsiDataObjectDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/QueryOpsiDataObjectData.ts.html |here} to see how to use QueryOpsiDataObjectData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/QueryOpsiDataObjectData.ts.html |here} to see how to use QueryOpsiDataObjectData API.
    */
   public async queryOpsiDataObjectData(
     queryOpsiDataObjectDataRequest: requests.QueryOpsiDataObjectDataRequest
@@ -10013,7 +10013,7 @@ export class OperationsInsightsClient {
    * @param QueryWarehouseDataObjectDataRequest
    * @return QueryWarehouseDataObjectDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/QueryWarehouseDataObjectData.ts.html |here} to see how to use QueryWarehouseDataObjectData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/QueryWarehouseDataObjectData.ts.html |here} to see how to use QueryWarehouseDataObjectData API.
    */
   public async queryWarehouseDataObjectData(
     queryWarehouseDataObjectDataRequest: requests.QueryWarehouseDataObjectDataRequest
@@ -10098,7 +10098,7 @@ export class OperationsInsightsClient {
    * @param RotateOperationsInsightsWarehouseWalletRequest
    * @return RotateOperationsInsightsWarehouseWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/RotateOperationsInsightsWarehouseWallet.ts.html |here} to see how to use RotateOperationsInsightsWarehouseWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/RotateOperationsInsightsWarehouseWallet.ts.html |here} to see how to use RotateOperationsInsightsWarehouseWallet API.
    */
   public async rotateOperationsInsightsWarehouseWallet(
     rotateOperationsInsightsWarehouseWalletRequest: requests.RotateOperationsInsightsWarehouseWalletRequest
@@ -10176,7 +10176,7 @@ export class OperationsInsightsClient {
    * @param SummarizeAddmDbFindingsRequest
    * @return SummarizeAddmDbFindingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbFindings.ts.html |here} to see how to use SummarizeAddmDbFindings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbFindings.ts.html |here} to see how to use SummarizeAddmDbFindings API.
    */
   public async summarizeAddmDbFindings(
     summarizeAddmDbFindingsRequest: requests.SummarizeAddmDbFindingsRequest
@@ -10270,7 +10270,7 @@ export class OperationsInsightsClient {
    * @param SummarizeAddmDbParameterChangesRequest
    * @return SummarizeAddmDbParameterChangesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbParameterChanges.ts.html |here} to see how to use SummarizeAddmDbParameterChanges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbParameterChanges.ts.html |here} to see how to use SummarizeAddmDbParameterChanges API.
    */
   public async summarizeAddmDbParameterChanges(
     summarizeAddmDbParameterChangesRequest: requests.SummarizeAddmDbParameterChangesRequest
@@ -10368,7 +10368,7 @@ export class OperationsInsightsClient {
    * @param SummarizeAddmDbParametersRequest
    * @return SummarizeAddmDbParametersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbParameters.ts.html |here} to see how to use SummarizeAddmDbParameters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbParameters.ts.html |here} to see how to use SummarizeAddmDbParameters API.
    */
   public async summarizeAddmDbParameters(
     summarizeAddmDbParametersRequest: requests.SummarizeAddmDbParametersRequest
@@ -10464,7 +10464,7 @@ export class OperationsInsightsClient {
    * @param SummarizeAddmDbRecommendationsRequest
    * @return SummarizeAddmDbRecommendationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbRecommendations.ts.html |here} to see how to use SummarizeAddmDbRecommendations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbRecommendations.ts.html |here} to see how to use SummarizeAddmDbRecommendations API.
    */
   public async summarizeAddmDbRecommendations(
     summarizeAddmDbRecommendationsRequest: requests.SummarizeAddmDbRecommendationsRequest
@@ -10563,7 +10563,7 @@ export class OperationsInsightsClient {
    * @param SummarizeAddmDbSchemaObjectsRequest
    * @return SummarizeAddmDbSchemaObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbSchemaObjects.ts.html |here} to see how to use SummarizeAddmDbSchemaObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbSchemaObjects.ts.html |here} to see how to use SummarizeAddmDbSchemaObjects API.
    */
   public async summarizeAddmDbSchemaObjects(
     summarizeAddmDbSchemaObjectsRequest: requests.SummarizeAddmDbSchemaObjectsRequest
@@ -10652,7 +10652,7 @@ export class OperationsInsightsClient {
    * @param SummarizeAddmDbSqlStatementsRequest
    * @return SummarizeAddmDbSqlStatementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbSqlStatements.ts.html |here} to see how to use SummarizeAddmDbSqlStatements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbSqlStatements.ts.html |here} to see how to use SummarizeAddmDbSqlStatements API.
    */
   public async summarizeAddmDbSqlStatements(
     summarizeAddmDbSqlStatementsRequest: requests.SummarizeAddmDbSqlStatementsRequest
@@ -10745,7 +10745,7 @@ export class OperationsInsightsClient {
    * @param SummarizeAwrDatabaseCpuUsagesRequest
    * @return SummarizeAwrDatabaseCpuUsagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseCpuUsages.ts.html |here} to see how to use SummarizeAwrDatabaseCpuUsages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseCpuUsages.ts.html |here} to see how to use SummarizeAwrDatabaseCpuUsages API.
    */
   public async summarizeAwrDatabaseCpuUsages(
     summarizeAwrDatabaseCpuUsagesRequest: requests.SummarizeAwrDatabaseCpuUsagesRequest
@@ -10839,7 +10839,7 @@ export class OperationsInsightsClient {
    * @param SummarizeAwrDatabaseMetricsRequest
    * @return SummarizeAwrDatabaseMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseMetrics.ts.html |here} to see how to use SummarizeAwrDatabaseMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseMetrics.ts.html |here} to see how to use SummarizeAwrDatabaseMetrics API.
    */
   public async summarizeAwrDatabaseMetrics(
     summarizeAwrDatabaseMetricsRequest: requests.SummarizeAwrDatabaseMetricsRequest
@@ -10934,7 +10934,7 @@ export class OperationsInsightsClient {
    * @param SummarizeAwrDatabaseParameterChangesRequest
    * @return SummarizeAwrDatabaseParameterChangesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseParameterChanges.ts.html |here} to see how to use SummarizeAwrDatabaseParameterChanges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseParameterChanges.ts.html |here} to see how to use SummarizeAwrDatabaseParameterChanges API.
    */
   public async summarizeAwrDatabaseParameterChanges(
     summarizeAwrDatabaseParameterChangesRequest: requests.SummarizeAwrDatabaseParameterChangesRequest
@@ -11039,7 +11039,7 @@ Note that this API does not return information on the number of times each datab
      * @param SummarizeAwrDatabaseParametersRequest
      * @return SummarizeAwrDatabaseParametersResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseParameters.ts.html |here} to see how to use SummarizeAwrDatabaseParameters API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseParameters.ts.html |here} to see how to use SummarizeAwrDatabaseParameters API.
      */
   public async summarizeAwrDatabaseParameters(
     summarizeAwrDatabaseParametersRequest: requests.SummarizeAwrDatabaseParametersRequest
@@ -11137,7 +11137,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrDatabaseSnapshotRangesRequest
    * @return SummarizeAwrDatabaseSnapshotRangesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseSnapshotRanges.ts.html |here} to see how to use SummarizeAwrDatabaseSnapshotRanges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseSnapshotRanges.ts.html |here} to see how to use SummarizeAwrDatabaseSnapshotRanges API.
    */
   public async summarizeAwrDatabaseSnapshotRanges(
     summarizeAwrDatabaseSnapshotRangesRequest: requests.SummarizeAwrDatabaseSnapshotRangesRequest
@@ -11225,7 +11225,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrDatabaseSysstatsRequest
    * @return SummarizeAwrDatabaseSysstatsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseSysstats.ts.html |here} to see how to use SummarizeAwrDatabaseSysstats API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseSysstats.ts.html |here} to see how to use SummarizeAwrDatabaseSysstats API.
    */
   public async summarizeAwrDatabaseSysstats(
     summarizeAwrDatabaseSysstatsRequest: requests.SummarizeAwrDatabaseSysstatsRequest
@@ -11317,7 +11317,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrDatabaseTopWaitEventsRequest
    * @return SummarizeAwrDatabaseTopWaitEventsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseTopWaitEvents.ts.html |here} to see how to use SummarizeAwrDatabaseTopWaitEvents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseTopWaitEvents.ts.html |here} to see how to use SummarizeAwrDatabaseTopWaitEvents API.
    */
   public async summarizeAwrDatabaseTopWaitEvents(
     summarizeAwrDatabaseTopWaitEventsRequest: requests.SummarizeAwrDatabaseTopWaitEventsRequest
@@ -11410,7 +11410,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrDatabaseWaitEventBucketsRequest
    * @return SummarizeAwrDatabaseWaitEventBucketsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseWaitEventBuckets.ts.html |here} to see how to use SummarizeAwrDatabaseWaitEventBuckets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseWaitEventBuckets.ts.html |here} to see how to use SummarizeAwrDatabaseWaitEventBuckets API.
    */
   public async summarizeAwrDatabaseWaitEventBuckets(
     summarizeAwrDatabaseWaitEventBucketsRequest: requests.SummarizeAwrDatabaseWaitEventBucketsRequest
@@ -11508,7 +11508,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrDatabaseWaitEventsRequest
    * @return SummarizeAwrDatabaseWaitEventsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseWaitEvents.ts.html |here} to see how to use SummarizeAwrDatabaseWaitEvents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseWaitEvents.ts.html |here} to see how to use SummarizeAwrDatabaseWaitEvents API.
    */
   public async summarizeAwrDatabaseWaitEvents(
     summarizeAwrDatabaseWaitEventsRequest: requests.SummarizeAwrDatabaseWaitEventsRequest
@@ -11603,7 +11603,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrSourcesSummariesRequest
    * @return SummarizeAwrSourcesSummariesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrSourcesSummaries.ts.html |here} to see how to use SummarizeAwrSourcesSummaries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrSourcesSummaries.ts.html |here} to see how to use SummarizeAwrSourcesSummaries API.
    */
   public async summarizeAwrSourcesSummaries(
     summarizeAwrSourcesSummariesRequest: requests.SummarizeAwrSourcesSummariesRequest
@@ -11688,7 +11688,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeConfigurationItemsRequest
    * @return SummarizeConfigurationItemsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeConfigurationItems.ts.html |here} to see how to use SummarizeConfigurationItems API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeConfigurationItems.ts.html |here} to see how to use SummarizeConfigurationItems API.
    */
   public async summarizeConfigurationItems(
     summarizeConfigurationItemsRequest: requests.SummarizeConfigurationItemsRequest
@@ -11774,7 +11774,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeDatabaseInsightResourceCapacityTrendRequest
    * @return SummarizeDatabaseInsightResourceCapacityTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceCapacityTrend.ts.html |here} to see how to use SummarizeDatabaseInsightResourceCapacityTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceCapacityTrend.ts.html |here} to see how to use SummarizeDatabaseInsightResourceCapacityTrend API.
    */
   public async summarizeDatabaseInsightResourceCapacityTrend(
     summarizeDatabaseInsightResourceCapacityTrendRequest: requests.SummarizeDatabaseInsightResourceCapacityTrendRequest
@@ -11883,7 +11883,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeDatabaseInsightResourceForecastTrendRequest
    * @return SummarizeDatabaseInsightResourceForecastTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceForecastTrend.ts.html |here} to see how to use SummarizeDatabaseInsightResourceForecastTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceForecastTrend.ts.html |here} to see how to use SummarizeDatabaseInsightResourceForecastTrend API.
    */
   public async summarizeDatabaseInsightResourceForecastTrend(
     summarizeDatabaseInsightResourceForecastTrendRequest: requests.SummarizeDatabaseInsightResourceForecastTrendRequest
@@ -11994,7 +11994,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeDatabaseInsightResourceStatisticsRequest
    * @return SummarizeDatabaseInsightResourceStatisticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceStatistics.ts.html |here} to see how to use SummarizeDatabaseInsightResourceStatistics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceStatistics.ts.html |here} to see how to use SummarizeDatabaseInsightResourceStatistics API.
    */
   public async summarizeDatabaseInsightResourceStatistics(
     summarizeDatabaseInsightResourceStatisticsRequest: requests.SummarizeDatabaseInsightResourceStatisticsRequest
@@ -12107,7 +12107,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeDatabaseInsightResourceUsageRequest
    * @return SummarizeDatabaseInsightResourceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceUsage.ts.html |here} to see how to use SummarizeDatabaseInsightResourceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceUsage.ts.html |here} to see how to use SummarizeDatabaseInsightResourceUsage API.
    */
   public async summarizeDatabaseInsightResourceUsage(
     summarizeDatabaseInsightResourceUsageRequest: requests.SummarizeDatabaseInsightResourceUsageRequest
@@ -12208,7 +12208,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeDatabaseInsightResourceUsageTrendRequest
    * @return SummarizeDatabaseInsightResourceUsageTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceUsageTrend.ts.html |here} to see how to use SummarizeDatabaseInsightResourceUsageTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceUsageTrend.ts.html |here} to see how to use SummarizeDatabaseInsightResourceUsageTrend API.
    */
   public async summarizeDatabaseInsightResourceUsageTrend(
     summarizeDatabaseInsightResourceUsageTrendRequest: requests.SummarizeDatabaseInsightResourceUsageTrendRequest
@@ -12311,7 +12311,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeDatabaseInsightResourceUtilizationInsightRequest
    * @return SummarizeDatabaseInsightResourceUtilizationInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceUtilizationInsight.ts.html |here} to see how to use SummarizeDatabaseInsightResourceUtilizationInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightResourceUtilizationInsight.ts.html |here} to see how to use SummarizeDatabaseInsightResourceUtilizationInsight API.
    */
   public async summarizeDatabaseInsightResourceUtilizationInsight(
     summarizeDatabaseInsightResourceUtilizationInsightRequest: requests.SummarizeDatabaseInsightResourceUtilizationInsightRequest
@@ -12424,7 +12424,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeDatabaseInsightTablespaceUsageTrendRequest
    * @return SummarizeDatabaseInsightTablespaceUsageTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightTablespaceUsageTrend.ts.html |here} to see how to use SummarizeDatabaseInsightTablespaceUsageTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeDatabaseInsightTablespaceUsageTrend.ts.html |here} to see how to use SummarizeDatabaseInsightTablespaceUsageTrend API.
    */
   public async summarizeDatabaseInsightTablespaceUsageTrend(
     summarizeDatabaseInsightTablespaceUsageTrendRequest: requests.SummarizeDatabaseInsightTablespaceUsageTrendRequest
@@ -12518,7 +12518,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExadataInsightResourceCapacityTrendRequest
    * @return SummarizeExadataInsightResourceCapacityTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceCapacityTrend.ts.html |here} to see how to use SummarizeExadataInsightResourceCapacityTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceCapacityTrend.ts.html |here} to see how to use SummarizeExadataInsightResourceCapacityTrend API.
    */
   public async summarizeExadataInsightResourceCapacityTrend(
     summarizeExadataInsightResourceCapacityTrendRequest: requests.SummarizeExadataInsightResourceCapacityTrendRequest
@@ -12618,7 +12618,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExadataInsightResourceCapacityTrendAggregatedRequest
    * @return SummarizeExadataInsightResourceCapacityTrendAggregatedResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceCapacityTrendAggregated.ts.html |here} to see how to use SummarizeExadataInsightResourceCapacityTrendAggregated API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceCapacityTrendAggregated.ts.html |here} to see how to use SummarizeExadataInsightResourceCapacityTrendAggregated API.
    */
   public async summarizeExadataInsightResourceCapacityTrendAggregated(
     summarizeExadataInsightResourceCapacityTrendAggregatedRequest: requests.SummarizeExadataInsightResourceCapacityTrendAggregatedRequest
@@ -12733,7 +12733,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExadataInsightResourceForecastTrendRequest
    * @return SummarizeExadataInsightResourceForecastTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceForecastTrend.ts.html |here} to see how to use SummarizeExadataInsightResourceForecastTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceForecastTrend.ts.html |here} to see how to use SummarizeExadataInsightResourceForecastTrend API.
    */
   public async summarizeExadataInsightResourceForecastTrend(
     summarizeExadataInsightResourceForecastTrendRequest: requests.SummarizeExadataInsightResourceForecastTrendRequest
@@ -12836,7 +12836,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExadataInsightResourceForecastTrendAggregatedRequest
    * @return SummarizeExadataInsightResourceForecastTrendAggregatedResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceForecastTrendAggregated.ts.html |here} to see how to use SummarizeExadataInsightResourceForecastTrendAggregated API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceForecastTrendAggregated.ts.html |here} to see how to use SummarizeExadataInsightResourceForecastTrendAggregated API.
    */
   public async summarizeExadataInsightResourceForecastTrendAggregated(
     summarizeExadataInsightResourceForecastTrendAggregatedRequest: requests.SummarizeExadataInsightResourceForecastTrendAggregatedRequest
@@ -12952,7 +12952,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExadataInsightResourceStatisticsRequest
    * @return SummarizeExadataInsightResourceStatisticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceStatistics.ts.html |here} to see how to use SummarizeExadataInsightResourceStatistics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceStatistics.ts.html |here} to see how to use SummarizeExadataInsightResourceStatistics API.
    */
   public async summarizeExadataInsightResourceStatistics(
     summarizeExadataInsightResourceStatisticsRequest: requests.SummarizeExadataInsightResourceStatisticsRequest
@@ -13054,7 +13054,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExadataInsightResourceUsageRequest
    * @return SummarizeExadataInsightResourceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceUsage.ts.html |here} to see how to use SummarizeExadataInsightResourceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceUsage.ts.html |here} to see how to use SummarizeExadataInsightResourceUsage API.
    */
   public async summarizeExadataInsightResourceUsage(
     summarizeExadataInsightResourceUsageRequest: requests.SummarizeExadataInsightResourceUsageRequest
@@ -13157,7 +13157,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExadataInsightResourceUsageAggregatedRequest
    * @return SummarizeExadataInsightResourceUsageAggregatedResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceUsageAggregated.ts.html |here} to see how to use SummarizeExadataInsightResourceUsageAggregated API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceUsageAggregated.ts.html |here} to see how to use SummarizeExadataInsightResourceUsageAggregated API.
    */
   public async summarizeExadataInsightResourceUsageAggregated(
     summarizeExadataInsightResourceUsageAggregatedRequest: requests.SummarizeExadataInsightResourceUsageAggregatedRequest
@@ -13253,7 +13253,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExadataInsightResourceUtilizationInsightRequest
    * @return SummarizeExadataInsightResourceUtilizationInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceUtilizationInsight.ts.html |here} to see how to use SummarizeExadataInsightResourceUtilizationInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataInsightResourceUtilizationInsight.ts.html |here} to see how to use SummarizeExadataInsightResourceUtilizationInsight API.
    */
   public async summarizeExadataInsightResourceUtilizationInsight(
     summarizeExadataInsightResourceUtilizationInsightRequest: requests.SummarizeExadataInsightResourceUtilizationInsightRequest
@@ -13363,7 +13363,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExadataMembersRequest
    * @return SummarizeExadataMembersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataMembers.ts.html |here} to see how to use SummarizeExadataMembers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeExadataMembers.ts.html |here} to see how to use SummarizeExadataMembers API.
    */
   public async summarizeExadataMembers(
     summarizeExadataMembersRequest: requests.SummarizeExadataMembersRequest
@@ -13450,7 +13450,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightDiskStatisticsRequest
    * @return SummarizeHostInsightDiskStatisticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightDiskStatistics.ts.html |here} to see how to use SummarizeHostInsightDiskStatistics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightDiskStatistics.ts.html |here} to see how to use SummarizeHostInsightDiskStatistics API.
    */
   public async summarizeHostInsightDiskStatistics(
     summarizeHostInsightDiskStatisticsRequest: requests.SummarizeHostInsightDiskStatisticsRequest
@@ -13536,7 +13536,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightHostRecommendationRequest
    * @return SummarizeHostInsightHostRecommendationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightHostRecommendation.ts.html |here} to see how to use SummarizeHostInsightHostRecommendation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightHostRecommendation.ts.html |here} to see how to use SummarizeHostInsightHostRecommendation API.
    */
   public async summarizeHostInsightHostRecommendation(
     summarizeHostInsightHostRecommendationRequest: requests.SummarizeHostInsightHostRecommendationRequest
@@ -13623,7 +13623,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightIoUsageTrendRequest
    * @return SummarizeHostInsightIoUsageTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightIoUsageTrend.ts.html |here} to see how to use SummarizeHostInsightIoUsageTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightIoUsageTrend.ts.html |here} to see how to use SummarizeHostInsightIoUsageTrend API.
    */
   public async summarizeHostInsightIoUsageTrend(
     summarizeHostInsightIoUsageTrendRequest: requests.SummarizeHostInsightIoUsageTrendRequest
@@ -13711,7 +13711,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightNetworkUsageTrendRequest
    * @return SummarizeHostInsightNetworkUsageTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightNetworkUsageTrend.ts.html |here} to see how to use SummarizeHostInsightNetworkUsageTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightNetworkUsageTrend.ts.html |here} to see how to use SummarizeHostInsightNetworkUsageTrend API.
    */
   public async summarizeHostInsightNetworkUsageTrend(
     summarizeHostInsightNetworkUsageTrendRequest: requests.SummarizeHostInsightNetworkUsageTrendRequest
@@ -13801,7 +13801,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightResourceCapacityTrendRequest
    * @return SummarizeHostInsightResourceCapacityTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceCapacityTrend.ts.html |here} to see how to use SummarizeHostInsightResourceCapacityTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceCapacityTrend.ts.html |here} to see how to use SummarizeHostInsightResourceCapacityTrend API.
    */
   public async summarizeHostInsightResourceCapacityTrend(
     summarizeHostInsightResourceCapacityTrendRequest: requests.SummarizeHostInsightResourceCapacityTrendRequest
@@ -13906,7 +13906,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightResourceForecastTrendRequest
    * @return SummarizeHostInsightResourceForecastTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceForecastTrend.ts.html |here} to see how to use SummarizeHostInsightResourceForecastTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceForecastTrend.ts.html |here} to see how to use SummarizeHostInsightResourceForecastTrend API.
    */
   public async summarizeHostInsightResourceForecastTrend(
     summarizeHostInsightResourceForecastTrendRequest: requests.SummarizeHostInsightResourceForecastTrendRequest
@@ -14011,7 +14011,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightResourceStatisticsRequest
    * @return SummarizeHostInsightResourceStatisticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceStatistics.ts.html |here} to see how to use SummarizeHostInsightResourceStatistics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceStatistics.ts.html |here} to see how to use SummarizeHostInsightResourceStatistics API.
    */
   public async summarizeHostInsightResourceStatistics(
     summarizeHostInsightResourceStatisticsRequest: requests.SummarizeHostInsightResourceStatisticsRequest
@@ -14121,7 +14121,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightResourceUsageRequest
    * @return SummarizeHostInsightResourceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUsage.ts.html |here} to see how to use SummarizeHostInsightResourceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUsage.ts.html |here} to see how to use SummarizeHostInsightResourceUsage API.
    */
   public async summarizeHostInsightResourceUsage(
     summarizeHostInsightResourceUsageRequest: requests.SummarizeHostInsightResourceUsageRequest
@@ -14215,7 +14215,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightResourceUsageTrendRequest
    * @return SummarizeHostInsightResourceUsageTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUsageTrend.ts.html |here} to see how to use SummarizeHostInsightResourceUsageTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUsageTrend.ts.html |here} to see how to use SummarizeHostInsightResourceUsageTrend API.
    */
   public async summarizeHostInsightResourceUsageTrend(
     summarizeHostInsightResourceUsageTrendRequest: requests.SummarizeHostInsightResourceUsageTrendRequest
@@ -14315,7 +14315,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightResourceUtilizationInsightRequest
    * @return SummarizeHostInsightResourceUtilizationInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUtilizationInsight.ts.html |here} to see how to use SummarizeHostInsightResourceUtilizationInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightResourceUtilizationInsight.ts.html |here} to see how to use SummarizeHostInsightResourceUtilizationInsight API.
    */
   public async summarizeHostInsightResourceUtilizationInsight(
     summarizeHostInsightResourceUtilizationInsightRequest: requests.SummarizeHostInsightResourceUtilizationInsightRequest
@@ -14413,7 +14413,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightStorageUsageTrendRequest
    * @return SummarizeHostInsightStorageUsageTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightStorageUsageTrend.ts.html |here} to see how to use SummarizeHostInsightStorageUsageTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightStorageUsageTrend.ts.html |here} to see how to use SummarizeHostInsightStorageUsageTrend API.
    */
   public async summarizeHostInsightStorageUsageTrend(
     summarizeHostInsightStorageUsageTrendRequest: requests.SummarizeHostInsightStorageUsageTrendRequest
@@ -14503,7 +14503,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightTopProcessesUsageRequest
    * @return SummarizeHostInsightTopProcessesUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightTopProcessesUsage.ts.html |here} to see how to use SummarizeHostInsightTopProcessesUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightTopProcessesUsage.ts.html |here} to see how to use SummarizeHostInsightTopProcessesUsage API.
    */
   public async summarizeHostInsightTopProcessesUsage(
     summarizeHostInsightTopProcessesUsageRequest: requests.SummarizeHostInsightTopProcessesUsageRequest
@@ -14596,7 +14596,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeHostInsightTopProcessesUsageTrendRequest
    * @return SummarizeHostInsightTopProcessesUsageTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightTopProcessesUsageTrend.ts.html |here} to see how to use SummarizeHostInsightTopProcessesUsageTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightTopProcessesUsageTrend.ts.html |here} to see how to use SummarizeHostInsightTopProcessesUsageTrend API.
    */
   public async summarizeHostInsightTopProcessesUsageTrend(
     summarizeHostInsightTopProcessesUsageTrendRequest: requests.SummarizeHostInsightTopProcessesUsageTrendRequest
@@ -14689,7 +14689,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeOperationsInsightsWarehouseResourceUsageRequest
    * @return SummarizeOperationsInsightsWarehouseResourceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeOperationsInsightsWarehouseResourceUsage.ts.html |here} to see how to use SummarizeOperationsInsightsWarehouseResourceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeOperationsInsightsWarehouseResourceUsage.ts.html |here} to see how to use SummarizeOperationsInsightsWarehouseResourceUsage API.
    */
   public async summarizeOperationsInsightsWarehouseResourceUsage(
     summarizeOperationsInsightsWarehouseResourceUsageRequest: requests.SummarizeOperationsInsightsWarehouseResourceUsageRequest
@@ -14770,7 +14770,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeSqlInsightsRequest
    * @return SummarizeSqlInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlInsights.ts.html |here} to see how to use SummarizeSqlInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlInsights.ts.html |here} to see how to use SummarizeSqlInsights API.
    */
   public async summarizeSqlInsights(
     summarizeSqlInsightsRequest: requests.SummarizeSqlInsightsRequest
@@ -14865,7 +14865,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeSqlPlanInsightsRequest
    * @return SummarizeSqlPlanInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlPlanInsights.ts.html |here} to see how to use SummarizeSqlPlanInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlPlanInsights.ts.html |here} to see how to use SummarizeSqlPlanInsights API.
    */
   public async summarizeSqlPlanInsights(
     summarizeSqlPlanInsightsRequest: requests.SummarizeSqlPlanInsightsRequest
@@ -14950,7 +14950,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeSqlResponseTimeDistributionsRequest
    * @return SummarizeSqlResponseTimeDistributionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlResponseTimeDistributions.ts.html |here} to see how to use SummarizeSqlResponseTimeDistributions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlResponseTimeDistributions.ts.html |here} to see how to use SummarizeSqlResponseTimeDistributions API.
    */
   public async summarizeSqlResponseTimeDistributions(
     summarizeSqlResponseTimeDistributionsRequest: requests.SummarizeSqlResponseTimeDistributionsRequest
@@ -15037,7 +15037,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeSqlStatisticsRequest
    * @return SummarizeSqlStatisticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlStatistics.ts.html |here} to see how to use SummarizeSqlStatistics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlStatistics.ts.html |here} to see how to use SummarizeSqlStatistics API.
    */
   public async summarizeSqlStatistics(
     summarizeSqlStatisticsRequest: requests.SummarizeSqlStatisticsRequest
@@ -15137,7 +15137,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeSqlStatisticsTimeSeriesRequest
    * @return SummarizeSqlStatisticsTimeSeriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlStatisticsTimeSeries.ts.html |here} to see how to use SummarizeSqlStatisticsTimeSeries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlStatisticsTimeSeries.ts.html |here} to see how to use SummarizeSqlStatisticsTimeSeries API.
    */
   public async summarizeSqlStatisticsTimeSeries(
     summarizeSqlStatisticsTimeSeriesRequest: requests.SummarizeSqlStatisticsTimeSeriesRequest
@@ -15233,7 +15233,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeSqlStatisticsTimeSeriesByPlanRequest
    * @return SummarizeSqlStatisticsTimeSeriesByPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlStatisticsTimeSeriesByPlan.ts.html |here} to see how to use SummarizeSqlStatisticsTimeSeriesByPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeSqlStatisticsTimeSeriesByPlan.ts.html |here} to see how to use SummarizeSqlStatisticsTimeSeriesByPlan API.
    */
   public async summarizeSqlStatisticsTimeSeriesByPlan(
     summarizeSqlStatisticsTimeSeriesByPlanRequest: requests.SummarizeSqlStatisticsTimeSeriesByPlanRequest
@@ -15318,7 +15318,7 @@ Note that this API does not return information on the number of times each datab
    * @param TestMacsManagedCloudDatabaseInsightConnectionRequest
    * @return TestMacsManagedCloudDatabaseInsightConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/TestMacsManagedCloudDatabaseInsightConnection.ts.html |here} to see how to use TestMacsManagedCloudDatabaseInsightConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/TestMacsManagedCloudDatabaseInsightConnection.ts.html |here} to see how to use TestMacsManagedCloudDatabaseInsightConnection API.
    */
   public async testMacsManagedCloudDatabaseInsightConnection(
     testMacsManagedCloudDatabaseInsightConnectionRequest: requests.TestMacsManagedCloudDatabaseInsightConnectionRequest
@@ -15399,7 +15399,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateAwrHubRequest
    * @return UpdateAwrHubResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateAwrHub.ts.html |here} to see how to use UpdateAwrHub API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateAwrHub.ts.html |here} to see how to use UpdateAwrHub API.
    */
   public async updateAwrHub(
     updateAwrHubRequest: requests.UpdateAwrHubRequest
@@ -15476,7 +15476,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateAwrHubSourceRequest
    * @return UpdateAwrHubSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateAwrHubSource.ts.html |here} to see how to use UpdateAwrHubSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateAwrHubSource.ts.html |here} to see how to use UpdateAwrHubSource API.
    */
   public async updateAwrHubSource(
     updateAwrHubSourceRequest: requests.UpdateAwrHubSourceRequest
@@ -15554,7 +15554,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateDatabaseInsightRequest
    * @return UpdateDatabaseInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateDatabaseInsight.ts.html |here} to see how to use UpdateDatabaseInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateDatabaseInsight.ts.html |here} to see how to use UpdateDatabaseInsight API.
    */
   public async updateDatabaseInsight(
     updateDatabaseInsightRequest: requests.UpdateDatabaseInsightRequest
@@ -15632,7 +15632,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateEnterpriseManagerBridgeRequest
    * @return UpdateEnterpriseManagerBridgeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateEnterpriseManagerBridge.ts.html |here} to see how to use UpdateEnterpriseManagerBridge API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateEnterpriseManagerBridge.ts.html |here} to see how to use UpdateEnterpriseManagerBridge API.
    */
   public async updateEnterpriseManagerBridge(
     updateEnterpriseManagerBridgeRequest: requests.UpdateEnterpriseManagerBridgeRequest
@@ -15712,7 +15712,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExadataInsightRequest
    * @return UpdateExadataInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateExadataInsight.ts.html |here} to see how to use UpdateExadataInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateExadataInsight.ts.html |here} to see how to use UpdateExadataInsight API.
    */
   public async updateExadataInsight(
     updateExadataInsightRequest: requests.UpdateExadataInsightRequest
@@ -15790,7 +15790,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateHostInsightRequest
    * @return UpdateHostInsightResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateHostInsight.ts.html |here} to see how to use UpdateHostInsight API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateHostInsight.ts.html |here} to see how to use UpdateHostInsight API.
    */
   public async updateHostInsight(
     updateHostInsightRequest: requests.UpdateHostInsightRequest
@@ -15868,7 +15868,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateNewsReportRequest
    * @return UpdateNewsReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateNewsReport.ts.html |here} to see how to use UpdateNewsReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateNewsReport.ts.html |here} to see how to use UpdateNewsReport API.
    */
   public async updateNewsReport(
     updateNewsReportRequest: requests.UpdateNewsReportRequest
@@ -15946,7 +15946,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateOperationsInsightsPrivateEndpointRequest
    * @return UpdateOperationsInsightsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use UpdateOperationsInsightsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsPrivateEndpoint.ts.html |here} to see how to use UpdateOperationsInsightsPrivateEndpoint API.
    */
   public async updateOperationsInsightsPrivateEndpoint(
     updateOperationsInsightsPrivateEndpointRequest: requests.UpdateOperationsInsightsPrivateEndpointRequest
@@ -16029,7 +16029,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateOperationsInsightsWarehouseRequest
    * @return UpdateOperationsInsightsWarehouseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsWarehouse.ts.html |here} to see how to use UpdateOperationsInsightsWarehouse API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsWarehouse.ts.html |here} to see how to use UpdateOperationsInsightsWarehouse API.
    */
   public async updateOperationsInsightsWarehouse(
     updateOperationsInsightsWarehouseRequest: requests.UpdateOperationsInsightsWarehouseRequest
@@ -16110,7 +16110,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateOperationsInsightsWarehouseUserRequest
    * @return UpdateOperationsInsightsWarehouseUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsWarehouseUser.ts.html |here} to see how to use UpdateOperationsInsightsWarehouseUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOperationsInsightsWarehouseUser.ts.html |here} to see how to use UpdateOperationsInsightsWarehouseUser API.
    */
   public async updateOperationsInsightsWarehouseUser(
     updateOperationsInsightsWarehouseUserRequest: requests.UpdateOperationsInsightsWarehouseUserRequest
@@ -16191,7 +16191,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateOpsiConfigurationRequest
    * @return UpdateOpsiConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOpsiConfiguration.ts.html |here} to see how to use UpdateOpsiConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOpsiConfiguration.ts.html |here} to see how to use UpdateOpsiConfiguration API.
    */
   public async updateOpsiConfiguration(
     updateOpsiConfigurationRequest: requests.UpdateOpsiConfigurationRequest

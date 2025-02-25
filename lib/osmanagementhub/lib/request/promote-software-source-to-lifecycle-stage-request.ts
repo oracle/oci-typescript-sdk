@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/PromoteSoftwareSourceToLifecycleStage.ts.html |here} to see how to use PromoteSoftwareSourceToLifecycleStageRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/PromoteSoftwareSourceToLifecycleStage.ts.html |here} to see how to use PromoteSoftwareSourceToLifecycleStageRequest.
  */
 export interface PromoteSoftwareSourceToLifecycleStageRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle stage.
    */
   "lifecycleStageId": string;
   /**
@@ -27,7 +27,7 @@ export interface PromoteSoftwareSourceToLifecycleStageRequest extends common.Bas
    */
   "promoteSoftwareSourceToLifecycleStageDetails": model.PromoteSoftwareSourceToLifecycleStageDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source. This filter returns resources associated with this software source.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source. This filter returns resources associated with this software source.
    */
   "softwareSourceId"?: string;
   /**

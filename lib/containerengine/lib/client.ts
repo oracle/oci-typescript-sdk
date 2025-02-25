@@ -2,7 +2,7 @@
  * Kubernetes Engine API
  * API for the Kubernetes Engine service (also known as the Container Engine for Kubernetes service). Use this API to build, deploy,
 and manage cloud-native applications. For more information, see
-[Overview of Kubernetes Engine](/iaas/Content/ContEng/Concepts/contengoverview.htm).
+[Overview of Kubernetes Engine](https://docs.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm).
 
  * OpenAPI spec version: 20180222
  * 
@@ -247,7 +247,7 @@ export class ContainerEngineClient {
    * @param ClusterMigrateToNativeVcnRequest
    * @return ClusterMigrateToNativeVcnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ClusterMigrateToNativeVcn.ts.html |here} to see how to use ClusterMigrateToNativeVcn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ClusterMigrateToNativeVcn.ts.html |here} to see how to use ClusterMigrateToNativeVcn API.
    */
   public async clusterMigrateToNativeVcn(
     clusterMigrateToNativeVcnRequest: requests.ClusterMigrateToNativeVcnRequest
@@ -325,7 +325,7 @@ export class ContainerEngineClient {
    * @param CompleteCredentialRotationRequest
    * @return CompleteCredentialRotationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CompleteCredentialRotation.ts.html |here} to see how to use CompleteCredentialRotation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CompleteCredentialRotation.ts.html |here} to see how to use CompleteCredentialRotation API.
    */
   public async completeCredentialRotation(
     completeCredentialRotationRequest: requests.CompleteCredentialRotationRequest
@@ -399,7 +399,7 @@ export class ContainerEngineClient {
    * @param CreateClusterRequest
    * @return CreateClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateCluster.ts.html |here} to see how to use CreateCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateCluster.ts.html |here} to see how to use CreateCluster API.
    */
   public async createCluster(
     createClusterRequest: requests.CreateClusterRequest
@@ -474,7 +474,7 @@ export class ContainerEngineClient {
    * @param CreateKubeconfigRequest
    * @return CreateKubeconfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateKubeconfig.ts.html |here} to see how to use CreateKubeconfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateKubeconfig.ts.html |here} to see how to use CreateKubeconfig API.
    */
   public async createKubeconfig(
     createKubeconfigRequest: requests.CreateKubeconfigRequest
@@ -549,7 +549,7 @@ export class ContainerEngineClient {
    * @param CreateNodePoolRequest
    * @return CreateNodePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateNodePool.ts.html |here} to see how to use CreateNodePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateNodePool.ts.html |here} to see how to use CreateNodePool API.
    */
   public async createNodePool(
     createNodePoolRequest: requests.CreateNodePoolRequest
@@ -624,7 +624,7 @@ export class ContainerEngineClient {
    * @param CreateVirtualNodePoolRequest
    * @return CreateVirtualNodePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateVirtualNodePool.ts.html |here} to see how to use CreateVirtualNodePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateVirtualNodePool.ts.html |here} to see how to use CreateVirtualNodePool API.
    */
   public async createVirtualNodePool(
     createVirtualNodePoolRequest: requests.CreateVirtualNodePoolRequest
@@ -700,7 +700,7 @@ export class ContainerEngineClient {
    * @param CreateWorkloadMappingRequest
    * @return CreateWorkloadMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateWorkloadMapping.ts.html |here} to see how to use CreateWorkloadMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateWorkloadMapping.ts.html |here} to see how to use CreateWorkloadMapping API.
    */
   public async createWorkloadMapping(
     createWorkloadMappingRequest: requests.CreateWorkloadMappingRequest
@@ -782,7 +782,7 @@ export class ContainerEngineClient {
    * @param DeleteClusterRequest
    * @return DeleteClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteCluster.ts.html |here} to see how to use DeleteCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteCluster.ts.html |here} to see how to use DeleteCluster API.
    */
   public async deleteCluster(
     deleteClusterRequest: requests.DeleteClusterRequest
@@ -854,7 +854,7 @@ export class ContainerEngineClient {
    * @param DeleteNodeRequest
    * @return DeleteNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteNode.ts.html |here} to see how to use DeleteNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteNode.ts.html |here} to see how to use DeleteNode API.
    */
   public async deleteNode(
     deleteNodeRequest: requests.DeleteNodeRequest
@@ -932,7 +932,7 @@ export class ContainerEngineClient {
    * @param DeleteNodePoolRequest
    * @return DeleteNodePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteNodePool.ts.html |here} to see how to use DeleteNodePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteNodePool.ts.html |here} to see how to use DeleteNodePool API.
    */
   public async deleteNodePool(
     deleteNodePoolRequest: requests.DeleteNodePoolRequest
@@ -1008,7 +1008,7 @@ export class ContainerEngineClient {
    * @param DeleteVirtualNodePoolRequest
    * @return DeleteVirtualNodePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteVirtualNodePool.ts.html |here} to see how to use DeleteVirtualNodePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteVirtualNodePool.ts.html |here} to see how to use DeleteVirtualNodePool API.
    */
   public async deleteVirtualNodePool(
     deleteVirtualNodePoolRequest: requests.DeleteVirtualNodePoolRequest
@@ -1086,7 +1086,7 @@ export class ContainerEngineClient {
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
    */
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
@@ -1154,7 +1154,7 @@ export class ContainerEngineClient {
    * @param DeleteWorkloadMappingRequest
    * @return DeleteWorkloadMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteWorkloadMapping.ts.html |here} to see how to use DeleteWorkloadMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteWorkloadMapping.ts.html |here} to see how to use DeleteWorkloadMapping API.
    */
   public async deleteWorkloadMapping(
     deleteWorkloadMappingRequest: requests.DeleteWorkloadMappingRequest
@@ -1223,7 +1223,7 @@ export class ContainerEngineClient {
    * @param DisableAddonRequest
    * @return DisableAddonResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DisableAddon.ts.html |here} to see how to use DisableAddon API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DisableAddon.ts.html |here} to see how to use DisableAddon API.
    */
   public async disableAddon(
     disableAddonRequest: requests.DisableAddonRequest
@@ -1298,7 +1298,7 @@ export class ContainerEngineClient {
    * @param GetAddonRequest
    * @return GetAddonResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetAddon.ts.html |here} to see how to use GetAddon API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetAddon.ts.html |here} to see how to use GetAddon API.
    */
   public async getAddon(
     getAddonRequest: requests.GetAddonRequest
@@ -1374,7 +1374,7 @@ export class ContainerEngineClient {
    * @param GetClusterRequest
    * @return GetClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetCluster.ts.html |here} to see how to use GetCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetCluster.ts.html |here} to see how to use GetCluster API.
    */
   public async getCluster(
     getClusterRequest: requests.GetClusterRequest
@@ -1449,7 +1449,7 @@ export class ContainerEngineClient {
    * @param GetClusterMigrateToNativeVcnStatusRequest
    * @return GetClusterMigrateToNativeVcnStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetClusterMigrateToNativeVcnStatus.ts.html |here} to see how to use GetClusterMigrateToNativeVcnStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetClusterMigrateToNativeVcnStatus.ts.html |here} to see how to use GetClusterMigrateToNativeVcnStatus API.
    */
   public async getClusterMigrateToNativeVcnStatus(
     getClusterMigrateToNativeVcnStatusRequest: requests.GetClusterMigrateToNativeVcnStatusRequest
@@ -1527,7 +1527,7 @@ export class ContainerEngineClient {
    * @param GetClusterOptionsRequest
    * @return GetClusterOptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetClusterOptions.ts.html |here} to see how to use GetClusterOptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetClusterOptions.ts.html |here} to see how to use GetClusterOptions API.
    */
   public async getClusterOptions(
     getClusterOptionsRequest: requests.GetClusterOptionsRequest
@@ -1600,7 +1600,7 @@ export class ContainerEngineClient {
    * @param GetCredentialRotationStatusRequest
    * @return GetCredentialRotationStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetCredentialRotationStatus.ts.html |here} to see how to use GetCredentialRotationStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetCredentialRotationStatus.ts.html |here} to see how to use GetCredentialRotationStatus API.
    */
   public async getCredentialRotationStatus(
     getCredentialRotationStatusRequest: requests.GetCredentialRotationStatusRequest
@@ -1676,7 +1676,7 @@ export class ContainerEngineClient {
    * @param GetNodePoolRequest
    * @return GetNodePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetNodePool.ts.html |here} to see how to use GetNodePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetNodePool.ts.html |here} to see how to use GetNodePool API.
    */
   public async getNodePool(
     getNodePoolRequest: requests.GetNodePoolRequest
@@ -1751,7 +1751,7 @@ export class ContainerEngineClient {
    * @param GetNodePoolOptionsRequest
    * @return GetNodePoolOptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetNodePoolOptions.ts.html |here} to see how to use GetNodePoolOptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetNodePoolOptions.ts.html |here} to see how to use GetNodePoolOptions API.
    */
   public async getNodePoolOptions(
     getNodePoolOptionsRequest: requests.GetNodePoolOptionsRequest
@@ -1824,7 +1824,7 @@ export class ContainerEngineClient {
    * @param GetVirtualNodeRequest
    * @return GetVirtualNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetVirtualNode.ts.html |here} to see how to use GetVirtualNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetVirtualNode.ts.html |here} to see how to use GetVirtualNode API.
    */
   public async getVirtualNode(
     getVirtualNodeRequest: requests.GetVirtualNodeRequest
@@ -1900,7 +1900,7 @@ export class ContainerEngineClient {
    * @param GetVirtualNodePoolRequest
    * @return GetVirtualNodePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetVirtualNodePool.ts.html |here} to see how to use GetVirtualNodePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetVirtualNodePool.ts.html |here} to see how to use GetVirtualNodePool API.
    */
   public async getVirtualNodePool(
     getVirtualNodePoolRequest: requests.GetVirtualNodePoolRequest
@@ -1976,7 +1976,7 @@ export class ContainerEngineClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2056,7 +2056,7 @@ export class ContainerEngineClient {
    * @param GetWorkloadMappingRequest
    * @return GetWorkloadMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetWorkloadMapping.ts.html |here} to see how to use GetWorkloadMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetWorkloadMapping.ts.html |here} to see how to use GetWorkloadMapping API.
    */
   public async getWorkloadMapping(
     getWorkloadMappingRequest: requests.GetWorkloadMappingRequest
@@ -2133,7 +2133,7 @@ export class ContainerEngineClient {
    * @param InstallAddonRequest
    * @return InstallAddonResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/InstallAddon.ts.html |here} to see how to use InstallAddon API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/InstallAddon.ts.html |here} to see how to use InstallAddon API.
    */
   public async installAddon(
     installAddonRequest: requests.InstallAddonRequest
@@ -2211,7 +2211,7 @@ export class ContainerEngineClient {
    * @param ListAddonOptionsRequest
    * @return ListAddonOptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListAddonOptions.ts.html |here} to see how to use ListAddonOptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListAddonOptions.ts.html |here} to see how to use ListAddonOptions API.
    */
   public async listAddonOptions(
     listAddonOptionsRequest: requests.ListAddonOptionsRequest
@@ -2343,7 +2343,7 @@ export class ContainerEngineClient {
    * @param ListAddonsRequest
    * @return ListAddonsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListAddons.ts.html |here} to see how to use ListAddons API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListAddons.ts.html |here} to see how to use ListAddons API.
    */
   public async listAddons(
     listAddonsRequest: requests.ListAddonsRequest
@@ -2475,7 +2475,7 @@ export class ContainerEngineClient {
    * @param ListClustersRequest
    * @return ListClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListClusters.ts.html |here} to see how to use ListClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListClusters.ts.html |here} to see how to use ListClusters API.
    */
   public async listClusters(
     listClustersRequest: requests.ListClustersRequest
@@ -2608,7 +2608,7 @@ export class ContainerEngineClient {
    * @param ListNodePoolsRequest
    * @return ListNodePoolsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListNodePools.ts.html |here} to see how to use ListNodePools API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListNodePools.ts.html |here} to see how to use ListNodePools API.
    */
   public async listNodePools(
     listNodePoolsRequest: requests.ListNodePoolsRequest
@@ -2742,7 +2742,7 @@ export class ContainerEngineClient {
    * @param ListPodShapesRequest
    * @return ListPodShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListPodShapes.ts.html |here} to see how to use ListPodShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListPodShapes.ts.html |here} to see how to use ListPodShapes API.
    */
   public async listPodShapes(
     listPodShapesRequest: requests.ListPodShapesRequest
@@ -2875,7 +2875,7 @@ export class ContainerEngineClient {
    * @param ListVirtualNodePoolsRequest
    * @return ListVirtualNodePoolsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListVirtualNodePools.ts.html |here} to see how to use ListVirtualNodePools API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListVirtualNodePools.ts.html |here} to see how to use ListVirtualNodePools API.
    */
   public async listVirtualNodePools(
     listVirtualNodePoolsRequest: requests.ListVirtualNodePoolsRequest
@@ -3010,7 +3010,7 @@ export class ContainerEngineClient {
    * @param ListVirtualNodesRequest
    * @return ListVirtualNodesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListVirtualNodes.ts.html |here} to see how to use ListVirtualNodes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListVirtualNodes.ts.html |here} to see how to use ListVirtualNodes API.
    */
   public async listVirtualNodes(
     listVirtualNodesRequest: requests.ListVirtualNodesRequest
@@ -3143,7 +3143,7 @@ export class ContainerEngineClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -3216,7 +3216,7 @@ export class ContainerEngineClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -3289,7 +3289,7 @@ export class ContainerEngineClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -3424,7 +3424,7 @@ export class ContainerEngineClient {
    * @param ListWorkloadMappingsRequest
    * @return ListWorkloadMappingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkloadMappings.ts.html |here} to see how to use ListWorkloadMappings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkloadMappings.ts.html |here} to see how to use ListWorkloadMappings API.
    */
   public async listWorkloadMappings(
     listWorkloadMappingsRequest: requests.ListWorkloadMappingsRequest
@@ -3557,7 +3557,7 @@ export class ContainerEngineClient {
    * @param StartCredentialRotationRequest
    * @return StartCredentialRotationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/StartCredentialRotation.ts.html |here} to see how to use StartCredentialRotation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/StartCredentialRotation.ts.html |here} to see how to use StartCredentialRotation API.
    */
   public async startCredentialRotation(
     startCredentialRotationRequest: requests.StartCredentialRotationRequest
@@ -3636,7 +3636,7 @@ export class ContainerEngineClient {
    * @param UpdateAddonRequest
    * @return UpdateAddonResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateAddon.ts.html |here} to see how to use UpdateAddon API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateAddon.ts.html |here} to see how to use UpdateAddon API.
    */
   public async updateAddon(
     updateAddonRequest: requests.UpdateAddonRequest
@@ -3714,7 +3714,7 @@ export class ContainerEngineClient {
    * @param UpdateClusterRequest
    * @return UpdateClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateCluster.ts.html |here} to see how to use UpdateCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateCluster.ts.html |here} to see how to use UpdateCluster API.
    */
   public async updateCluster(
     updateClusterRequest: requests.UpdateClusterRequest
@@ -3791,7 +3791,7 @@ export class ContainerEngineClient {
    * @param UpdateClusterEndpointConfigRequest
    * @return UpdateClusterEndpointConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateClusterEndpointConfig.ts.html |here} to see how to use UpdateClusterEndpointConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateClusterEndpointConfig.ts.html |here} to see how to use UpdateClusterEndpointConfig API.
    */
   public async updateClusterEndpointConfig(
     updateClusterEndpointConfigRequest: requests.UpdateClusterEndpointConfigRequest
@@ -3869,7 +3869,7 @@ export class ContainerEngineClient {
    * @param UpdateNodePoolRequest
    * @return UpdateNodePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateNodePool.ts.html |here} to see how to use UpdateNodePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateNodePool.ts.html |here} to see how to use UpdateNodePool API.
    */
   public async updateNodePool(
     updateNodePoolRequest: requests.UpdateNodePoolRequest
@@ -3950,7 +3950,7 @@ export class ContainerEngineClient {
    * @param UpdateVirtualNodePoolRequest
    * @return UpdateVirtualNodePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateVirtualNodePool.ts.html |here} to see how to use UpdateVirtualNodePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateVirtualNodePool.ts.html |here} to see how to use UpdateVirtualNodePool API.
    */
   public async updateVirtualNodePool(
     updateVirtualNodePoolRequest: requests.UpdateVirtualNodePoolRequest
@@ -4028,7 +4028,7 @@ export class ContainerEngineClient {
    * @param UpdateWorkloadMappingRequest
    * @return UpdateWorkloadMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateWorkloadMapping.ts.html |here} to see how to use UpdateWorkloadMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateWorkloadMapping.ts.html |here} to see how to use UpdateWorkloadMapping API.
    */
   public async updateWorkloadMapping(
     updateWorkloadMappingRequest: requests.UpdateWorkloadMappingRequest

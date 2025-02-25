@@ -61,7 +61,7 @@ The management plugins are controlled by this parameter and the per-plugin
 To get a list of available plugins, use the
 * {@link #listInstanceagentAvailablePlugins(ListInstanceagentAvailablePluginsRequest) listInstanceagentAvailablePlugins}
 * operation in the Oracle Cloud Agent API. For more information about the available plugins, see
-* [Managing Plugins with Oracle Cloud Agent](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/manage-plugins.htm).
+* [Managing Plugins with Oracle Cloud Agent](https://docs.oracle.com/iaas/Content/Compute/Tasks/manage-plugins.htm).
 * 
     */
   "areAllPluginsDisabled"?: boolean;

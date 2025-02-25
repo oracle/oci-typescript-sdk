@@ -246,7 +246,7 @@ export class BdsClient {
    * @param ActivateBdsMetastoreConfigurationRequest
    * @return ActivateBdsMetastoreConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ActivateBdsMetastoreConfiguration.ts.html |here} to see how to use ActivateBdsMetastoreConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ActivateBdsMetastoreConfiguration.ts.html |here} to see how to use ActivateBdsMetastoreConfiguration API.
    */
   public async activateBdsMetastoreConfiguration(
     activateBdsMetastoreConfigurationRequest: requests.ActivateBdsMetastoreConfigurationRequest
@@ -327,7 +327,7 @@ export class BdsClient {
    * @param ActivateIamUserSyncConfigurationRequest
    * @return ActivateIamUserSyncConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ActivateIamUserSyncConfiguration.ts.html |here} to see how to use ActivateIamUserSyncConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ActivateIamUserSyncConfiguration.ts.html |here} to see how to use ActivateIamUserSyncConfiguration API.
    */
   public async activateIamUserSyncConfiguration(
     activateIamUserSyncConfigurationRequest: requests.ActivateIamUserSyncConfigurationRequest
@@ -409,7 +409,7 @@ export class BdsClient {
    * @param ActivateUpstConfigurationRequest
    * @return ActivateUpstConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ActivateUpstConfiguration.ts.html |here} to see how to use ActivateUpstConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ActivateUpstConfiguration.ts.html |here} to see how to use ActivateUpstConfiguration API.
    */
   public async activateUpstConfiguration(
     activateUpstConfigurationRequest: requests.ActivateUpstConfigurationRequest
@@ -491,7 +491,7 @@ export class BdsClient {
    * @param AddAutoScalingConfigurationRequest
    * @return AddAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddAutoScalingConfiguration.ts.html |here} to see how to use AddAutoScalingConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddAutoScalingConfiguration.ts.html |here} to see how to use AddAutoScalingConfiguration API.
    */
   public async addAutoScalingConfiguration(
     addAutoScalingConfigurationRequest: requests.AddAutoScalingConfigurationRequest
@@ -571,7 +571,7 @@ export class BdsClient {
    * @param AddBlockStorageRequest
    * @return AddBlockStorageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddBlockStorage.ts.html |here} to see how to use AddBlockStorage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddBlockStorage.ts.html |here} to see how to use AddBlockStorage API.
    */
   public async addBlockStorage(
     addBlockStorageRequest: requests.AddBlockStorageRequest
@@ -651,7 +651,7 @@ export class BdsClient {
    * @param AddCloudSqlRequest
    * @return AddCloudSqlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddCloudSql.ts.html |here} to see how to use AddCloudSql API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddCloudSql.ts.html |here} to see how to use AddCloudSql API.
    */
   public async addCloudSql(
     addCloudSqlRequest: requests.AddCloudSqlRequest
@@ -731,7 +731,7 @@ export class BdsClient {
    * @param AddKafkaRequest
    * @return AddKafkaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddKafka.ts.html |here} to see how to use AddKafka API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddKafka.ts.html |here} to see how to use AddKafka API.
    */
   public async addKafka(
     addKafkaRequest: requests.AddKafkaRequest
@@ -811,7 +811,7 @@ export class BdsClient {
    * @param AddMasterNodesRequest
    * @return AddMasterNodesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddMasterNodes.ts.html |here} to see how to use AddMasterNodes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddMasterNodes.ts.html |here} to see how to use AddMasterNodes API.
    */
   public async addMasterNodes(
     addMasterNodesRequest: requests.AddMasterNodesRequest
@@ -891,7 +891,7 @@ export class BdsClient {
    * @param AddUtilityNodesRequest
    * @return AddUtilityNodesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddUtilityNodes.ts.html |here} to see how to use AddUtilityNodes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddUtilityNodes.ts.html |here} to see how to use AddUtilityNodes API.
    */
   public async addUtilityNodes(
     addUtilityNodesRequest: requests.AddUtilityNodesRequest
@@ -971,7 +971,7 @@ export class BdsClient {
    * @param AddWorkerNodesRequest
    * @return AddWorkerNodesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddWorkerNodes.ts.html |here} to see how to use AddWorkerNodes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddWorkerNodes.ts.html |here} to see how to use AddWorkerNodes API.
    */
   public async addWorkerNodes(
     addWorkerNodesRequest: requests.AddWorkerNodesRequest
@@ -1051,7 +1051,7 @@ export class BdsClient {
    * @param BackupNodeRequest
    * @return BackupNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/BackupNode.ts.html |here} to see how to use BackupNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/BackupNode.ts.html |here} to see how to use BackupNode API.
    */
   public async backupNode(
     backupNodeRequest: requests.BackupNodeRequest
@@ -1131,7 +1131,7 @@ export class BdsClient {
    * @param CertificateServiceInfoRequest
    * @return CertificateServiceInfoResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CertificateServiceInfo.ts.html |here} to see how to use CertificateServiceInfo API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CertificateServiceInfo.ts.html |here} to see how to use CertificateServiceInfo API.
    */
   public async certificateServiceInfo(
     certificateServiceInfoRequest: requests.CertificateServiceInfoRequest
@@ -1215,7 +1215,7 @@ export class BdsClient {
    * @param ChangeBdsInstanceCompartmentRequest
    * @return ChangeBdsInstanceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ChangeBdsInstanceCompartment.ts.html |here} to see how to use ChangeBdsInstanceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ChangeBdsInstanceCompartment.ts.html |here} to see how to use ChangeBdsInstanceCompartment API.
    */
   public async changeBdsInstanceCompartment(
     changeBdsInstanceCompartmentRequest: requests.ChangeBdsInstanceCompartmentRequest
@@ -1295,7 +1295,7 @@ export class BdsClient {
    * @param ChangeShapeRequest
    * @return ChangeShapeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ChangeShape.ts.html |here} to see how to use ChangeShape API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ChangeShape.ts.html |here} to see how to use ChangeShape API.
    */
   public async changeShape(
     changeShapeRequest: requests.ChangeShapeRequest
@@ -1375,7 +1375,7 @@ export class BdsClient {
    * @param CreateBdsApiKeyRequest
    * @return CreateBdsApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsApiKey.ts.html |here} to see how to use CreateBdsApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsApiKey.ts.html |here} to see how to use CreateBdsApiKey API.
    */
   public async createBdsApiKey(
     createBdsApiKeyRequest: requests.CreateBdsApiKeyRequest
@@ -1454,7 +1454,7 @@ export class BdsClient {
    * @param CreateBdsInstanceRequest
    * @return CreateBdsInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsInstance.ts.html |here} to see how to use CreateBdsInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsInstance.ts.html |here} to see how to use CreateBdsInstance API.
    */
   public async createBdsInstance(
     createBdsInstanceRequest: requests.CreateBdsInstanceRequest
@@ -1531,7 +1531,7 @@ export class BdsClient {
    * @param CreateBdsMetastoreConfigurationRequest
    * @return CreateBdsMetastoreConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsMetastoreConfiguration.ts.html |here} to see how to use CreateBdsMetastoreConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsMetastoreConfiguration.ts.html |here} to see how to use CreateBdsMetastoreConfiguration API.
    */
   public async createBdsMetastoreConfiguration(
     createBdsMetastoreConfigurationRequest: requests.CreateBdsMetastoreConfigurationRequest
@@ -1610,7 +1610,7 @@ export class BdsClient {
    * @param CreateIdentityConfigurationRequest
    * @return CreateIdentityConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateIdentityConfiguration.ts.html |here} to see how to use CreateIdentityConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateIdentityConfiguration.ts.html |here} to see how to use CreateIdentityConfiguration API.
    */
   public async createIdentityConfiguration(
     createIdentityConfigurationRequest: requests.CreateIdentityConfigurationRequest
@@ -1689,7 +1689,7 @@ export class BdsClient {
    * @param CreateNodeBackupConfigurationRequest
    * @return CreateNodeBackupConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateNodeBackupConfiguration.ts.html |here} to see how to use CreateNodeBackupConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateNodeBackupConfiguration.ts.html |here} to see how to use CreateNodeBackupConfiguration API.
    */
   public async createNodeBackupConfiguration(
     createNodeBackupConfigurationRequest: requests.CreateNodeBackupConfigurationRequest
@@ -1769,7 +1769,7 @@ export class BdsClient {
    * @param CreateNodeReplaceConfigurationRequest
    * @return CreateNodeReplaceConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateNodeReplaceConfiguration.ts.html |here} to see how to use CreateNodeReplaceConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateNodeReplaceConfiguration.ts.html |here} to see how to use CreateNodeReplaceConfiguration API.
    */
   public async createNodeReplaceConfiguration(
     createNodeReplaceConfigurationRequest: requests.CreateNodeReplaceConfigurationRequest
@@ -1849,7 +1849,7 @@ export class BdsClient {
    * @param CreateResourcePrincipalConfigurationRequest
    * @return CreateResourcePrincipalConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateResourcePrincipalConfiguration.ts.html |here} to see how to use CreateResourcePrincipalConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateResourcePrincipalConfiguration.ts.html |here} to see how to use CreateResourcePrincipalConfiguration API.
    */
   public async createResourcePrincipalConfiguration(
     createResourcePrincipalConfigurationRequest: requests.CreateResourcePrincipalConfigurationRequest
@@ -1928,7 +1928,7 @@ export class BdsClient {
    * @param DeactivateIamUserSyncConfigurationRequest
    * @return DeactivateIamUserSyncConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeactivateIamUserSyncConfiguration.ts.html |here} to see how to use DeactivateIamUserSyncConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeactivateIamUserSyncConfiguration.ts.html |here} to see how to use DeactivateIamUserSyncConfiguration API.
    */
   public async deactivateIamUserSyncConfiguration(
     deactivateIamUserSyncConfigurationRequest: requests.DeactivateIamUserSyncConfigurationRequest
@@ -2010,7 +2010,7 @@ export class BdsClient {
    * @param DeactivateUpstConfigurationRequest
    * @return DeactivateUpstConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeactivateUpstConfiguration.ts.html |here} to see how to use DeactivateUpstConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeactivateUpstConfiguration.ts.html |here} to see how to use DeactivateUpstConfiguration API.
    */
   public async deactivateUpstConfiguration(
     deactivateUpstConfigurationRequest: requests.DeactivateUpstConfigurationRequest
@@ -2091,7 +2091,7 @@ export class BdsClient {
    * @param DeleteBdsApiKeyRequest
    * @return DeleteBdsApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsApiKey.ts.html |here} to see how to use DeleteBdsApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsApiKey.ts.html |here} to see how to use DeleteBdsApiKey API.
    */
   public async deleteBdsApiKey(
     deleteBdsApiKeyRequest: requests.DeleteBdsApiKeyRequest
@@ -2165,7 +2165,7 @@ export class BdsClient {
    * @param DeleteBdsInstanceRequest
    * @return DeleteBdsInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsInstance.ts.html |here} to see how to use DeleteBdsInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsInstance.ts.html |here} to see how to use DeleteBdsInstance API.
    */
   public async deleteBdsInstance(
     deleteBdsInstanceRequest: requests.DeleteBdsInstanceRequest
@@ -2238,7 +2238,7 @@ export class BdsClient {
    * @param DeleteBdsMetastoreConfigurationRequest
    * @return DeleteBdsMetastoreConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsMetastoreConfiguration.ts.html |here} to see how to use DeleteBdsMetastoreConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsMetastoreConfiguration.ts.html |here} to see how to use DeleteBdsMetastoreConfiguration API.
    */
   public async deleteBdsMetastoreConfiguration(
     deleteBdsMetastoreConfigurationRequest: requests.DeleteBdsMetastoreConfigurationRequest
@@ -2313,7 +2313,7 @@ export class BdsClient {
    * @param DeleteIdentityConfigurationRequest
    * @return DeleteIdentityConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteIdentityConfiguration.ts.html |here} to see how to use DeleteIdentityConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteIdentityConfiguration.ts.html |here} to see how to use DeleteIdentityConfiguration API.
    */
   public async deleteIdentityConfiguration(
     deleteIdentityConfigurationRequest: requests.DeleteIdentityConfigurationRequest
@@ -2387,7 +2387,7 @@ export class BdsClient {
    * @param DeleteNodeBackupRequest
    * @return DeleteNodeBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteNodeBackup.ts.html |here} to see how to use DeleteNodeBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteNodeBackup.ts.html |here} to see how to use DeleteNodeBackup API.
    */
   public async deleteNodeBackup(
     deleteNodeBackupRequest: requests.DeleteNodeBackupRequest
@@ -2461,7 +2461,7 @@ export class BdsClient {
    * @param DeleteNodeBackupConfigurationRequest
    * @return DeleteNodeBackupConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteNodeBackupConfiguration.ts.html |here} to see how to use DeleteNodeBackupConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteNodeBackupConfiguration.ts.html |here} to see how to use DeleteNodeBackupConfiguration API.
    */
   public async deleteNodeBackupConfiguration(
     deleteNodeBackupConfigurationRequest: requests.DeleteNodeBackupConfigurationRequest
@@ -2537,7 +2537,7 @@ export class BdsClient {
    * @param DisableCertificateRequest
    * @return DisableCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DisableCertificate.ts.html |here} to see how to use DisableCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DisableCertificate.ts.html |here} to see how to use DisableCertificate API.
    */
   public async disableCertificate(
     disableCertificateRequest: requests.DisableCertificateRequest
@@ -2617,7 +2617,7 @@ export class BdsClient {
    * @param EnableCertificateRequest
    * @return EnableCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/EnableCertificate.ts.html |here} to see how to use EnableCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/EnableCertificate.ts.html |here} to see how to use EnableCertificate API.
    */
   public async enableCertificate(
     enableCertificateRequest: requests.EnableCertificateRequest
@@ -2697,7 +2697,7 @@ export class BdsClient {
    * @param ExecuteBootstrapScriptRequest
    * @return ExecuteBootstrapScriptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ExecuteBootstrapScript.ts.html |here} to see how to use ExecuteBootstrapScript API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ExecuteBootstrapScript.ts.html |here} to see how to use ExecuteBootstrapScript API.
    */
   public async executeBootstrapScript(
     executeBootstrapScriptRequest: requests.ExecuteBootstrapScriptRequest
@@ -2777,7 +2777,7 @@ export class BdsClient {
    * @param ForceRefreshResourcePrincipalRequest
    * @return ForceRefreshResourcePrincipalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ForceRefreshResourcePrincipal.ts.html |here} to see how to use ForceRefreshResourcePrincipal API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ForceRefreshResourcePrincipal.ts.html |here} to see how to use ForceRefreshResourcePrincipal API.
    */
   public async forceRefreshResourcePrincipal(
     forceRefreshResourcePrincipalRequest: requests.ForceRefreshResourcePrincipalRequest
@@ -2861,7 +2861,7 @@ export class BdsClient {
    * @param GetAutoScalingConfigurationRequest
    * @return GetAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetAutoScalingConfiguration.ts.html |here} to see how to use GetAutoScalingConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetAutoScalingConfiguration.ts.html |here} to see how to use GetAutoScalingConfiguration API.
    */
   public async getAutoScalingConfiguration(
     getAutoScalingConfigurationRequest: requests.GetAutoScalingConfigurationRequest
@@ -2938,7 +2938,7 @@ export class BdsClient {
    * @param GetBdsApiKeyRequest
    * @return GetBdsApiKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsApiKey.ts.html |here} to see how to use GetBdsApiKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsApiKey.ts.html |here} to see how to use GetBdsApiKey API.
    */
   public async getBdsApiKey(
     getBdsApiKeyRequest: requests.GetBdsApiKeyRequest
@@ -3015,7 +3015,7 @@ export class BdsClient {
    * @param GetBdsInstanceRequest
    * @return GetBdsInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsInstance.ts.html |here} to see how to use GetBdsInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsInstance.ts.html |here} to see how to use GetBdsInstance API.
    */
   public async getBdsInstance(
     getBdsInstanceRequest: requests.GetBdsInstanceRequest
@@ -3091,7 +3091,7 @@ export class BdsClient {
    * @param GetBdsMetastoreConfigurationRequest
    * @return GetBdsMetastoreConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsMetastoreConfiguration.ts.html |here} to see how to use GetBdsMetastoreConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsMetastoreConfiguration.ts.html |here} to see how to use GetBdsMetastoreConfiguration API.
    */
   public async getBdsMetastoreConfiguration(
     getBdsMetastoreConfigurationRequest: requests.GetBdsMetastoreConfigurationRequest
@@ -3168,7 +3168,7 @@ export class BdsClient {
    * @param GetIdentityConfigurationRequest
    * @return GetIdentityConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetIdentityConfiguration.ts.html |here} to see how to use GetIdentityConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetIdentityConfiguration.ts.html |here} to see how to use GetIdentityConfiguration API.
    */
   public async getIdentityConfiguration(
     getIdentityConfigurationRequest: requests.GetIdentityConfigurationRequest
@@ -3251,7 +3251,7 @@ export class BdsClient {
    * @param GetNodeBackupRequest
    * @return GetNodeBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetNodeBackup.ts.html |here} to see how to use GetNodeBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetNodeBackup.ts.html |here} to see how to use GetNodeBackup API.
    */
   public async getNodeBackup(
     getNodeBackupRequest: requests.GetNodeBackupRequest
@@ -3329,7 +3329,7 @@ export class BdsClient {
    * @param GetNodeBackupConfigurationRequest
    * @return GetNodeBackupConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetNodeBackupConfiguration.ts.html |here} to see how to use GetNodeBackupConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetNodeBackupConfiguration.ts.html |here} to see how to use GetNodeBackupConfiguration API.
    */
   public async getNodeBackupConfiguration(
     getNodeBackupConfigurationRequest: requests.GetNodeBackupConfigurationRequest
@@ -3407,7 +3407,7 @@ export class BdsClient {
    * @param GetNodeReplaceConfigurationRequest
    * @return GetNodeReplaceConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetNodeReplaceConfiguration.ts.html |here} to see how to use GetNodeReplaceConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetNodeReplaceConfiguration.ts.html |here} to see how to use GetNodeReplaceConfiguration API.
    */
   public async getNodeReplaceConfiguration(
     getNodeReplaceConfigurationRequest: requests.GetNodeReplaceConfigurationRequest
@@ -3484,7 +3484,7 @@ export class BdsClient {
    * @param GetOsPatchDetailsRequest
    * @return GetOsPatchDetailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetOsPatchDetails.ts.html |here} to see how to use GetOsPatchDetails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetOsPatchDetails.ts.html |here} to see how to use GetOsPatchDetails API.
    */
   public async getOsPatchDetails(
     getOsPatchDetailsRequest: requests.GetOsPatchDetailsRequest
@@ -3565,7 +3565,7 @@ export class BdsClient {
    * @param GetResourcePrincipalConfigurationRequest
    * @return GetResourcePrincipalConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetResourcePrincipalConfiguration.ts.html |here} to see how to use GetResourcePrincipalConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetResourcePrincipalConfiguration.ts.html |here} to see how to use GetResourcePrincipalConfiguration API.
    */
   public async getResourcePrincipalConfiguration(
     getResourcePrincipalConfigurationRequest: requests.GetResourcePrincipalConfigurationRequest
@@ -3645,7 +3645,7 @@ export class BdsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -3722,7 +3722,7 @@ export class BdsClient {
    * @param InstallOsPatchRequest
    * @return InstallOsPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/InstallOsPatch.ts.html |here} to see how to use InstallOsPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/InstallOsPatch.ts.html |here} to see how to use InstallOsPatch API.
    */
   public async installOsPatch(
     installOsPatchRequest: requests.InstallOsPatchRequest
@@ -3802,7 +3802,7 @@ export class BdsClient {
    * @param InstallPatchRequest
    * @return InstallPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/InstallPatch.ts.html |here} to see how to use InstallPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/InstallPatch.ts.html |here} to see how to use InstallPatch API.
    */
   public async installPatch(
     installPatchRequest: requests.InstallPatchRequest
@@ -3882,7 +3882,7 @@ export class BdsClient {
    * @param ListAutoScalingConfigurationsRequest
    * @return ListAutoScalingConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListAutoScalingConfigurations.ts.html |here} to see how to use ListAutoScalingConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListAutoScalingConfigurations.ts.html |here} to see how to use ListAutoScalingConfigurations API.
    */
   public async listAutoScalingConfigurations(
     listAutoScalingConfigurationsRequest: requests.ListAutoScalingConfigurationsRequest
@@ -4020,7 +4020,7 @@ export class BdsClient {
    * @param ListBdsApiKeysRequest
    * @return ListBdsApiKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsApiKeys.ts.html |here} to see how to use ListBdsApiKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsApiKeys.ts.html |here} to see how to use ListBdsApiKeys API.
    */
   public async listBdsApiKeys(
     listBdsApiKeysRequest: requests.ListBdsApiKeysRequest
@@ -4157,7 +4157,7 @@ export class BdsClient {
    * @param ListBdsClusterVersionsRequest
    * @return ListBdsClusterVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsClusterVersions.ts.html |here} to see how to use ListBdsClusterVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsClusterVersions.ts.html |here} to see how to use ListBdsClusterVersions API.
    */
   public async listBdsClusterVersions(
     listBdsClusterVersionsRequest: requests.ListBdsClusterVersionsRequest
@@ -4289,7 +4289,7 @@ export class BdsClient {
    * @param ListBdsInstancesRequest
    * @return ListBdsInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsInstances.ts.html |here} to see how to use ListBdsInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsInstances.ts.html |here} to see how to use ListBdsInstances API.
    */
   public async listBdsInstances(
     listBdsInstancesRequest: requests.ListBdsInstancesRequest
@@ -4424,7 +4424,7 @@ export class BdsClient {
    * @param ListBdsMetastoreConfigurationsRequest
    * @return ListBdsMetastoreConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsMetastoreConfigurations.ts.html |here} to see how to use ListBdsMetastoreConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsMetastoreConfigurations.ts.html |here} to see how to use ListBdsMetastoreConfigurations API.
    */
   public async listBdsMetastoreConfigurations(
     listBdsMetastoreConfigurationsRequest: requests.ListBdsMetastoreConfigurationsRequest
@@ -4564,7 +4564,7 @@ export class BdsClient {
    * @param ListIdentityConfigurationsRequest
    * @return ListIdentityConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListIdentityConfigurations.ts.html |here} to see how to use ListIdentityConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListIdentityConfigurations.ts.html |here} to see how to use ListIdentityConfigurations API.
    */
   public async listIdentityConfigurations(
     listIdentityConfigurationsRequest: requests.ListIdentityConfigurationsRequest
@@ -4701,7 +4701,7 @@ export class BdsClient {
    * @param ListNodeBackupConfigurationsRequest
    * @return ListNodeBackupConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListNodeBackupConfigurations.ts.html |here} to see how to use ListNodeBackupConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListNodeBackupConfigurations.ts.html |here} to see how to use ListNodeBackupConfigurations API.
    */
   public async listNodeBackupConfigurations(
     listNodeBackupConfigurationsRequest: requests.ListNodeBackupConfigurationsRequest
@@ -4837,7 +4837,7 @@ export class BdsClient {
    * @param ListNodeBackupsRequest
    * @return ListNodeBackupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListNodeBackups.ts.html |here} to see how to use ListNodeBackups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListNodeBackups.ts.html |here} to see how to use ListNodeBackups API.
    */
   public async listNodeBackups(
     listNodeBackupsRequest: requests.ListNodeBackupsRequest
@@ -4974,7 +4974,7 @@ export class BdsClient {
    * @param ListNodeReplaceConfigurationsRequest
    * @return ListNodeReplaceConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListNodeReplaceConfigurations.ts.html |here} to see how to use ListNodeReplaceConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListNodeReplaceConfigurations.ts.html |here} to see how to use ListNodeReplaceConfigurations API.
    */
   public async listNodeReplaceConfigurations(
     listNodeReplaceConfigurationsRequest: requests.ListNodeReplaceConfigurationsRequest
@@ -5110,7 +5110,7 @@ export class BdsClient {
    * @param ListOsPatchesRequest
    * @return ListOsPatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListOsPatches.ts.html |here} to see how to use ListOsPatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListOsPatches.ts.html |here} to see how to use ListOsPatches API.
    */
   public async listOsPatches(
     listOsPatchesRequest: requests.ListOsPatchesRequest
@@ -5251,7 +5251,7 @@ export class BdsClient {
    * @param ListPatchHistoriesRequest
    * @return ListPatchHistoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListPatchHistories.ts.html |here} to see how to use ListPatchHistories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListPatchHistories.ts.html |here} to see how to use ListPatchHistories API.
    */
   public async listPatchHistories(
     listPatchHistoriesRequest: requests.ListPatchHistoriesRequest
@@ -5388,7 +5388,7 @@ export class BdsClient {
    * @param ListPatchesRequest
    * @return ListPatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListPatches.ts.html |here} to see how to use ListPatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListPatches.ts.html |here} to see how to use ListPatches API.
    */
   public async listPatches(
     listPatchesRequest: requests.ListPatchesRequest
@@ -5520,7 +5520,7 @@ export class BdsClient {
    * @param ListResourcePrincipalConfigurationsRequest
    * @return ListResourcePrincipalConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListResourcePrincipalConfigurations.ts.html |here} to see how to use ListResourcePrincipalConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListResourcePrincipalConfigurations.ts.html |here} to see how to use ListResourcePrincipalConfigurations API.
    */
   public async listResourcePrincipalConfigurations(
     listResourcePrincipalConfigurationsRequest: requests.ListResourcePrincipalConfigurationsRequest
@@ -5657,7 +5657,7 @@ export class BdsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -5791,7 +5791,7 @@ export class BdsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -5925,7 +5925,7 @@ export class BdsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -6058,7 +6058,7 @@ export class BdsClient {
    * @param RefreshConfidentialApplicationRequest
    * @return RefreshConfidentialApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RefreshConfidentialApplication.ts.html |here} to see how to use RefreshConfidentialApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RefreshConfidentialApplication.ts.html |here} to see how to use RefreshConfidentialApplication API.
    */
   public async refreshConfidentialApplication(
     refreshConfidentialApplicationRequest: requests.RefreshConfidentialApplicationRequest
@@ -6140,7 +6140,7 @@ export class BdsClient {
    * @param RefreshUpstTokenExchangeKeytabRequest
    * @return RefreshUpstTokenExchangeKeytabResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RefreshUpstTokenExchangeKeytab.ts.html |here} to see how to use RefreshUpstTokenExchangeKeytab API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RefreshUpstTokenExchangeKeytab.ts.html |here} to see how to use RefreshUpstTokenExchangeKeytab API.
    */
   public async refreshUpstTokenExchangeKeytab(
     refreshUpstTokenExchangeKeytabRequest: requests.RefreshUpstTokenExchangeKeytabRequest
@@ -6223,7 +6223,7 @@ export class BdsClient {
    * @param RemoveAutoScalingConfigurationRequest
    * @return RemoveAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveAutoScalingConfiguration.ts.html |here} to see how to use RemoveAutoScalingConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveAutoScalingConfiguration.ts.html |here} to see how to use RemoveAutoScalingConfiguration API.
    */
   public async removeAutoScalingConfiguration(
     removeAutoScalingConfigurationRequest: requests.RemoveAutoScalingConfigurationRequest
@@ -6307,7 +6307,7 @@ export class BdsClient {
    * @param RemoveCloudSqlRequest
    * @return RemoveCloudSqlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveCloudSql.ts.html |here} to see how to use RemoveCloudSql API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveCloudSql.ts.html |here} to see how to use RemoveCloudSql API.
    */
   public async removeCloudSql(
     removeCloudSqlRequest: requests.RemoveCloudSqlRequest
@@ -6387,7 +6387,7 @@ export class BdsClient {
    * @param RemoveKafkaRequest
    * @return RemoveKafkaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveKafka.ts.html |here} to see how to use RemoveKafka API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveKafka.ts.html |here} to see how to use RemoveKafka API.
    */
   public async removeKafka(
     removeKafkaRequest: requests.RemoveKafkaRequest
@@ -6467,7 +6467,7 @@ export class BdsClient {
    * @param RemoveNodeRequest
    * @return RemoveNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveNode.ts.html |here} to see how to use RemoveNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveNode.ts.html |here} to see how to use RemoveNode API.
    */
   public async removeNode(
     removeNodeRequest: requests.RemoveNodeRequest
@@ -6546,7 +6546,7 @@ export class BdsClient {
    * @param RemoveNodeReplaceConfigurationRequest
    * @return RemoveNodeReplaceConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveNodeReplaceConfiguration.ts.html |here} to see how to use RemoveNodeReplaceConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveNodeReplaceConfiguration.ts.html |here} to see how to use RemoveNodeReplaceConfiguration API.
    */
   public async removeNodeReplaceConfiguration(
     removeNodeReplaceConfigurationRequest: requests.RemoveNodeReplaceConfigurationRequest
@@ -6630,7 +6630,7 @@ export class BdsClient {
    * @param RemoveResourcePrincipalConfigurationRequest
    * @return RemoveResourcePrincipalConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveResourcePrincipalConfiguration.ts.html |here} to see how to use RemoveResourcePrincipalConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveResourcePrincipalConfiguration.ts.html |here} to see how to use RemoveResourcePrincipalConfiguration API.
    */
   public async removeResourcePrincipalConfiguration(
     removeResourcePrincipalConfigurationRequest: requests.RemoveResourcePrincipalConfigurationRequest
@@ -6713,7 +6713,7 @@ export class BdsClient {
    * @param RenewCertificateRequest
    * @return RenewCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RenewCertificate.ts.html |here} to see how to use RenewCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RenewCertificate.ts.html |here} to see how to use RenewCertificate API.
    */
   public async renewCertificate(
     renewCertificateRequest: requests.RenewCertificateRequest
@@ -6793,7 +6793,7 @@ export class BdsClient {
    * @param ReplaceNodeRequest
    * @return ReplaceNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ReplaceNode.ts.html |here} to see how to use ReplaceNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ReplaceNode.ts.html |here} to see how to use ReplaceNode API.
    */
   public async replaceNode(
     replaceNodeRequest: requests.ReplaceNodeRequest
@@ -6873,7 +6873,7 @@ export class BdsClient {
    * @param RestartNodeRequest
    * @return RestartNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RestartNode.ts.html |here} to see how to use RestartNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RestartNode.ts.html |here} to see how to use RestartNode API.
    */
   public async restartNode(
     restartNodeRequest: requests.RestartNodeRequest
@@ -6953,7 +6953,7 @@ export class BdsClient {
    * @param StartBdsInstanceRequest
    * @return StartBdsInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/StartBdsInstance.ts.html |here} to see how to use StartBdsInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/StartBdsInstance.ts.html |here} to see how to use StartBdsInstance API.
    */
   public async startBdsInstance(
     startBdsInstanceRequest: requests.StartBdsInstanceRequest
@@ -7032,7 +7032,7 @@ export class BdsClient {
    * @param StopBdsInstanceRequest
    * @return StopBdsInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/StopBdsInstance.ts.html |here} to see how to use StopBdsInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/StopBdsInstance.ts.html |here} to see how to use StopBdsInstance API.
    */
   public async stopBdsInstance(
     stopBdsInstanceRequest: requests.StopBdsInstanceRequest
@@ -7111,7 +7111,7 @@ export class BdsClient {
    * @param TestBdsMetastoreConfigurationRequest
    * @return TestBdsMetastoreConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/TestBdsMetastoreConfiguration.ts.html |here} to see how to use TestBdsMetastoreConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/TestBdsMetastoreConfiguration.ts.html |here} to see how to use TestBdsMetastoreConfiguration API.
    */
   public async testBdsMetastoreConfiguration(
     testBdsMetastoreConfigurationRequest: requests.TestBdsMetastoreConfigurationRequest
@@ -7191,7 +7191,7 @@ export class BdsClient {
    * @param TestBdsObjectStorageConnectionRequest
    * @return TestBdsObjectStorageConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/TestBdsObjectStorageConnection.ts.html |here} to see how to use TestBdsObjectStorageConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/TestBdsObjectStorageConnection.ts.html |here} to see how to use TestBdsObjectStorageConnection API.
    */
   public async testBdsObjectStorageConnection(
     testBdsObjectStorageConnectionRequest: requests.TestBdsObjectStorageConnectionRequest
@@ -7271,7 +7271,7 @@ export class BdsClient {
    * @param UpdateAutoScalingConfigurationRequest
    * @return UpdateAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateAutoScalingConfiguration.ts.html |here} to see how to use UpdateAutoScalingConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateAutoScalingConfiguration.ts.html |here} to see how to use UpdateAutoScalingConfiguration API.
    */
   public async updateAutoScalingConfiguration(
     updateAutoScalingConfigurationRequest: requests.UpdateAutoScalingConfigurationRequest
@@ -7353,7 +7353,7 @@ export class BdsClient {
    * @param UpdateBdsInstanceRequest
    * @return UpdateBdsInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateBdsInstance.ts.html |here} to see how to use UpdateBdsInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateBdsInstance.ts.html |here} to see how to use UpdateBdsInstance API.
    */
   public async updateBdsInstance(
     updateBdsInstanceRequest: requests.UpdateBdsInstanceRequest
@@ -7431,7 +7431,7 @@ export class BdsClient {
    * @param UpdateBdsMetastoreConfigurationRequest
    * @return UpdateBdsMetastoreConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateBdsMetastoreConfiguration.ts.html |here} to see how to use UpdateBdsMetastoreConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateBdsMetastoreConfiguration.ts.html |here} to see how to use UpdateBdsMetastoreConfiguration API.
    */
   public async updateBdsMetastoreConfiguration(
     updateBdsMetastoreConfigurationRequest: requests.UpdateBdsMetastoreConfigurationRequest
@@ -7511,7 +7511,7 @@ export class BdsClient {
    * @param UpdateIdentityConfigurationRequest
    * @return UpdateIdentityConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateIdentityConfiguration.ts.html |here} to see how to use UpdateIdentityConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateIdentityConfiguration.ts.html |here} to see how to use UpdateIdentityConfiguration API.
    */
   public async updateIdentityConfiguration(
     updateIdentityConfigurationRequest: requests.UpdateIdentityConfigurationRequest
@@ -7592,7 +7592,7 @@ export class BdsClient {
    * @param UpdateNodeBackupConfigurationRequest
    * @return UpdateNodeBackupConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateNodeBackupConfiguration.ts.html |here} to see how to use UpdateNodeBackupConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateNodeBackupConfiguration.ts.html |here} to see how to use UpdateNodeBackupConfiguration API.
    */
   public async updateNodeBackupConfiguration(
     updateNodeBackupConfigurationRequest: requests.UpdateNodeBackupConfigurationRequest
@@ -7674,7 +7674,7 @@ export class BdsClient {
    * @param UpdateNodeReplaceConfigurationRequest
    * @return UpdateNodeReplaceConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateNodeReplaceConfiguration.ts.html |here} to see how to use UpdateNodeReplaceConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateNodeReplaceConfiguration.ts.html |here} to see how to use UpdateNodeReplaceConfiguration API.
    */
   public async updateNodeReplaceConfiguration(
     updateNodeReplaceConfigurationRequest: requests.UpdateNodeReplaceConfigurationRequest
@@ -7757,7 +7757,7 @@ export class BdsClient {
    * @param UpdateResourcePrincipalConfigurationRequest
    * @return UpdateResourcePrincipalConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateResourcePrincipalConfiguration.ts.html |here} to see how to use UpdateResourcePrincipalConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateResourcePrincipalConfiguration.ts.html |here} to see how to use UpdateResourcePrincipalConfiguration API.
    */
   public async updateResourcePrincipalConfiguration(
     updateResourcePrincipalConfigurationRequest: requests.UpdateResourcePrincipalConfigurationRequest

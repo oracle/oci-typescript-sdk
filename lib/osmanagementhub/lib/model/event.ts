@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface Event {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the event.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the event.
    */
   "id": string;
   /**
@@ -32,7 +32,7 @@ export interface Event {
    */
   "eventSummary": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
@@ -40,7 +40,7 @@ export interface Event {
    */
   "eventDetails"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance or resource where the event occurred.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance or resource where the event occurred.
    */
   "resourceId"?: string;
   "systemDetails"?: model.SystemDetails;
@@ -77,14 +77,14 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   "isManagedByAutonomousLinux"?: boolean;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags": { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -145,6 +145,10 @@ export namespace Event {
           );
         case "KERNEL_CRASH":
           return model.KernelCrashEvent.getJsonObj(<model.KernelCrashEvent>(<object>jsonObj), true);
+        case "SYSADMIN":
+          return model.SysadminEvent.getJsonObj(<model.SysadminEvent>(<object>jsonObj), true);
+        case "REBOOT":
+          return model.RebootEvent.getJsonObj(<model.RebootEvent>(<object>jsonObj), true);
         case "EXPLOIT_ATTEMPT":
           return model.ExploitAttemptEvent.getJsonObj(
             <model.ExploitAttemptEvent>(<object>jsonObj),
@@ -198,6 +202,16 @@ export namespace Event {
         case "KERNEL_CRASH":
           return model.KernelCrashEvent.getDeserializedJsonObj(
             <model.KernelCrashEvent>(<object>jsonObj),
+            true
+          );
+        case "SYSADMIN":
+          return model.SysadminEvent.getDeserializedJsonObj(
+            <model.SysadminEvent>(<object>jsonObj),
+            true
+          );
+        case "REBOOT":
+          return model.RebootEvent.getDeserializedJsonObj(
+            <model.RebootEvent>(<object>jsonObj),
             true
           );
         case "EXPLOIT_ATTEMPT":

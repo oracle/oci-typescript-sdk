@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetReachableIp.ts.html |here} to see how to use GetReachableIpRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetReachableIp.ts.html |here} to see how to use GetReachableIpRequest.
  */
 export interface GetReachableIpRequest extends common.BaseRequest {
   /**
@@ -24,7 +24,7 @@ export interface GetReachableIpRequest extends common.BaseRequest {
    */
   "privateIp": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private endpoint.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private endpoint.
    */
   "privateEndpointId": string;
   /**

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListExadbVmClusterUpdateHistoryEntriesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListExadbVmClusterUpdateHistoryEntriesRequest.
  */
 export interface ListExadbVmClusterUpdateHistoryEntriesRequest extends common.BaseRequest {
   /**
-   * The Exadata VM cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) on Exascale Infrastructure.
+   * The Exadata VM cluster [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) on Exascale Infrastructure.
    */
   "exadbVmClusterId": string;
   /**

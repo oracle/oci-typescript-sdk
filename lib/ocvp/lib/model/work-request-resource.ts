@@ -1,7 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
  * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
-For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+For more information, see [Oracle Cloud VMware Solution](https://docs.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20230701
  * 
@@ -33,7 +33,7 @@ export interface WorkRequestResource {
    */
   "actionType": model.ActionTypes;
   /**
-   * An [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) or other unique identifier
+   * An [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) or other unique identifier
    * for the resource.
    *
    */

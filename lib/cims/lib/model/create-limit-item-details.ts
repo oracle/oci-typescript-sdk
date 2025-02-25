@@ -1,7 +1,7 @@
 /**
  * Support Management API
  * Use the Support Management API to manage support requests.
-For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+For more information, see [Getting Help and Contacting Support](https://docs.oracle.com/iaas/Content/GSG/Tasks/contactingsupport.htm).
 **Note**: Before you can create service requests with this API,
 complete user registration at My Oracle Cloud Support 
 and then ask your tenancy administrator to provide you authorization for the related user groups.
@@ -21,7 +21,7 @@ import common = require("oci-common");
 
 /**
  * Details about the service limit increase request. Avoid entering confidential information.
- * For information about {@code LIMIT} support tickets, see [Creating a Service Limit Increase Request](https://docs.cloud.oracle.com/iaas/Content/GSG/support/create-incident-limit.htm).
+ * For information about {@code LIMIT} support tickets, see [Creating a Service Limit Increase Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-limit.htm).
  *
  */
 export interface CreateLimitItemDetails extends model.CreateItemDetails {

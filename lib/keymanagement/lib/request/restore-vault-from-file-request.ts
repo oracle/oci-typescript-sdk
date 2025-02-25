@@ -16,7 +16,7 @@ import common = require("oci-common");
 import stream = require("stream");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/RestoreVaultFromFile.ts.html |here} to see how to use RestoreVaultFromFileRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/RestoreVaultFromFile.ts.html |here} to see how to use RestoreVaultFromFileRequest.
  */
 export interface RestoreVaultFromFileRequest extends common.BaseRequest {
   /**

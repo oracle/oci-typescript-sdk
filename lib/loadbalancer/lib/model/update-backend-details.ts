@@ -1,7 +1,7 @@
 /**
  * Load Balancing API
  * API for the Load Balancing service. Use this API to manage load balancers, backend sets, and related items. For more
-information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/balanceoverview.htm).
+information, see [Overview of Load Balancing](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).
 
  * OpenAPI spec version: 20170115
  * 
@@ -25,7 +25,7 @@ export interface UpdateBackendDetails {
 * proportion of incoming traffic. For example, a server weighted '3' receives 3 times the number of new connections
 * as a server weighted '1'.
 * For more information on load balancing policies, see
-* [How Load Balancing Policies Work](https://docs.cloud.oracle.com/Content/Balance/Reference/lbpolicies.htm).
+* [How Load Balancing Policies Work](https://docs.oracle.com/iaas/Content/Balance/Reference/lbpolicies.htm).
 * <p>
 Example: {@code 3}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

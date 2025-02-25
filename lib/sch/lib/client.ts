@@ -2,7 +2,7 @@
  * Connector Hub API
  * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Connector Hub, see
-[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+[the Connector Hub documentation](https://docs.oracle.com/iaas/Content/connector-hub/home.htm).
 Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
@@ -249,7 +249,7 @@ export class ConnectorPluginsClient {
    * @param GetConnectorPluginRequest
    * @return GetConnectorPluginResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/GetConnectorPlugin.ts.html |here} to see how to use GetConnectorPlugin API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/GetConnectorPlugin.ts.html |here} to see how to use GetConnectorPlugin API.
    */
   public async getConnectorPlugin(
     getConnectorPluginRequest: requests.GetConnectorPluginRequest
@@ -321,7 +321,7 @@ export class ConnectorPluginsClient {
    * @param ListConnectorPluginsRequest
    * @return ListConnectorPluginsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListConnectorPlugins.ts.html |here} to see how to use ListConnectorPlugins API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListConnectorPlugins.ts.html |here} to see how to use ListConnectorPlugins API.
    */
   public async listConnectorPlugins(
     listConnectorPluginsRequest: requests.ListConnectorPluginsRequest
@@ -618,13 +618,13 @@ After you send your request, the connector's state is temporarily
 * UPDATING. When the state changes to ACTIVE, data begins transferring from the
 * source service to the target service.
 * For more information, see
-* [Activating a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/activate-service-connector.htm).
+* [Activating a Connector](https://docs.oracle.com/iaas/Content/connector-hub/activate-service-connector.htm).
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ActivateServiceConnectorRequest
      * @return ActivateServiceConnectorResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ActivateServiceConnector.ts.html |here} to see how to use ActivateServiceConnector API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ActivateServiceConnector.ts.html |here} to see how to use ActivateServiceConnector API.
      */
   public async activateServiceConnector(
     activateServiceConnectorRequest: requests.ActivateServiceConnectorRequest
@@ -695,7 +695,7 @@ After you send your request, the connector's state is temporarily
   /**
      * Moves a connector into a different compartment within the same tenancy.
 * For more information, see
-* [Moving a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/change-compartment-service-connector.htm).
+* [Moving a Connector](https://docs.oracle.com/iaas/Content/connector-hub/change-compartment-service-connector.htm).
 * <p>
 When provided, If-Match is checked against ETag values of the resource.
 * 
@@ -703,7 +703,7 @@ When provided, If-Match is checked against ETag values of the resource.
      * @param ChangeServiceConnectorCompartmentRequest
      * @return ChangeServiceConnectorCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ChangeServiceConnectorCompartment.ts.html |here} to see how to use ChangeServiceConnectorCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ChangeServiceConnectorCompartment.ts.html |here} to see how to use ChangeServiceConnectorCompartment API.
      */
   public async changeServiceConnectorCompartment(
     changeServiceConnectorCompartmentRequest: requests.ChangeServiceConnectorCompartmentRequest
@@ -782,28 +782,28 @@ When provided, If-Match is checked against ETag values of the resource.
 * A connector is a logically defined flow for moving data from
 * a source service to a destination service in Oracle Cloud Infrastructure.
 * For more information, see
-* [Creating a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/create-service-connector.htm).
+* [Creating a Connector](https://docs.oracle.com/iaas/Content/connector-hub/create-service-connector.htm).
 * For general information about connectors, see
-* [Overview of Connector Hub](https://docs.cloud.oracle.com/iaas/Content/connector-hub/overview.htm).
+* [Overview of Connector Hub](https://docs.oracle.com/iaas/Content/connector-hub/overview.htm).
 * <p>
 For purposes of access control, you must provide the
-* [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where
+* [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where
 * you want the connector to reside. Notice that the connector
 * doesn't have to be in the same compartment as the source or target services.
 * For information about access control and compartments, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * <p>
 After you send your request, the new connector's state is temporarily
 * CREATING. When the state changes to ACTIVE, data begins transferring from the
 * source service to the target service. For instructions on deactivating and
 * activating connectors, see
-* [Activating a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/activate-service-connector.htm).
+* [Activating a Connector](https://docs.oracle.com/iaas/Content/connector-hub/activate-service-connector.htm).
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateServiceConnectorRequest
      * @return CreateServiceConnectorResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/CreateServiceConnector.ts.html |here} to see how to use CreateServiceConnector API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/CreateServiceConnector.ts.html |here} to see how to use CreateServiceConnector API.
      */
   public async createServiceConnector(
     createServiceConnectorRequest: requests.CreateServiceConnectorRequest
@@ -879,13 +879,13 @@ After you send your request, the new connector's state is temporarily
 After you send your request, the connector's state is temporarily
 * UPDATING and any data transfer stops. The state then changes to INACTIVE.
 * For more information, see
-* [Deactivating a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/deactivate-service-connector.htm).
+* [Deactivating a Connector](https://docs.oracle.com/iaas/Content/connector-hub/deactivate-service-connector.htm).
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeactivateServiceConnectorRequest
      * @return DeactivateServiceConnectorResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/DeactivateServiceConnector.ts.html |here} to see how to use DeactivateServiceConnector API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/DeactivateServiceConnector.ts.html |here} to see how to use DeactivateServiceConnector API.
      */
   public async deactivateServiceConnector(
     deactivateServiceConnectorRequest: requests.DeactivateServiceConnectorRequest
@@ -956,7 +956,7 @@ After you send your request, the connector's state is temporarily
   /**
      * Deletes the specified connector.
 * For more information, see
-* [Deleting a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/delete-service-connector.htm).
+* [Deleting a Connector](https://docs.oracle.com/iaas/Content/connector-hub/delete-service-connector.htm).
 * <p>
 After you send your request, the connector's state is temporarily
 * DELETING and any data transfer stops. The state then changes to DELETED.
@@ -965,7 +965,7 @@ After you send your request, the connector's state is temporarily
      * @param DeleteServiceConnectorRequest
      * @return DeleteServiceConnectorResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/DeleteServiceConnector.ts.html |here} to see how to use DeleteServiceConnector API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/DeleteServiceConnector.ts.html |here} to see how to use DeleteServiceConnector API.
      */
   public async deleteServiceConnector(
     deleteServiceConnectorRequest: requests.DeleteServiceConnectorRequest
@@ -1035,13 +1035,13 @@ After you send your request, the connector's state is temporarily
   /**
    * Gets the specified connector's configuration information.
    * For more information, see
-   * [Getting a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/get-service-connector.htm).
+   * [Getting a Connector](https://docs.oracle.com/iaas/Content/connector-hub/get-service-connector.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetServiceConnectorRequest
    * @return GetServiceConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/GetServiceConnector.ts.html |here} to see how to use GetServiceConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/GetServiceConnector.ts.html |here} to see how to use GetServiceConnector API.
    */
   public async getServiceConnector(
     getServiceConnectorRequest: requests.GetServiceConnectorRequest
@@ -1114,13 +1114,13 @@ After you send your request, the connector's state is temporarily
   /**
    * Gets the details of the specified work request.
    * For more information, see
-   * [Getting a Work Request's Details](https://docs.cloud.oracle.com/iaas/Content/connector-hub/get-work-request.htm).
+   * [Getting a Work Request's Details](https://docs.oracle.com/iaas/Content/connector-hub/get-work-request.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1192,13 +1192,13 @@ After you send your request, the connector's state is temporarily
   /**
    * Lists connectors in the specified compartment.
    * For more information, see
-   * [Listing Connectors](https://docs.cloud.oracle.com/iaas/Content/connector-hub/list-service-connector.htm).
+   * [Listing Connectors](https://docs.oracle.com/iaas/Content/connector-hub/list-service-connector.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListServiceConnectorsRequest
    * @return ListServiceConnectorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListServiceConnectors.ts.html |here} to see how to use ListServiceConnectors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListServiceConnectors.ts.html |here} to see how to use ListServiceConnectors API.
    */
   public async listServiceConnectors(
     listServiceConnectorsRequest: requests.ListServiceConnectorsRequest
@@ -1282,13 +1282,13 @@ After you send your request, the connector's state is temporarily
   /**
    * Lists work request errors for the specified work request. Results are paginated.
    * For more information, see
-   * [Listing Work Request Errors](https://docs.cloud.oracle.com/iaas/Content/connector-hub/list-work-request-error.htm).
+   * [Listing Work Request Errors](https://docs.oracle.com/iaas/Content/connector-hub/list-work-request-error.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1369,13 +1369,13 @@ After you send your request, the connector's state is temporarily
   /**
    * Lists logs for the specified work request. Results are paginated.
    * For more information, see
-   * [Listing Work Request Log Entries](https://docs.cloud.oracle.com/iaas/Content/connector-hub/list-work-request-log-entry.htm).
+   * [Listing Work Request Log Entries](https://docs.oracle.com/iaas/Content/connector-hub/list-work-request-log-entry.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1456,13 +1456,13 @@ After you send your request, the connector's state is temporarily
   /**
    * Lists the work requests in the specified compartment.
    * For more information, see
-   * [Listing Work Requests](https://docs.cloud.oracle.com/iaas/Content/connector-hub/list-work-request.htm).
+   * [Listing Work Requests](https://docs.oracle.com/iaas/Content/connector-hub/list-work-request.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1542,7 +1542,7 @@ After you send your request, the connector's state is temporarily
   /**
      * Updates the configuration information for the specified connector.
 * For more information, see
-* [Updating a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/update-service-connector.htm).
+* [Updating a Connector](https://docs.oracle.com/iaas/Content/connector-hub/update-service-connector.htm).
 * <p>
 After you send your request, the connector's state is temporarily
 * UPDATING and any data transfer pauses. The state then changes back to its
@@ -1552,7 +1552,7 @@ After you send your request, the connector's state is temporarily
      * @param UpdateServiceConnectorRequest
      * @return UpdateServiceConnectorResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/UpdateServiceConnector.ts.html |here} to see how to use UpdateServiceConnector API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/UpdateServiceConnector.ts.html |here} to see how to use UpdateServiceConnector API.
      */
   public async updateServiceConnector(
     updateServiceConnectorRequest: requests.UpdateServiceConnectorRequest

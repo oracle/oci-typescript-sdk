@@ -2,7 +2,7 @@
  * Connector Hub API
  * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Connector Hub, see
-[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+[the Connector Hub documentation](https://docs.oracle.com/iaas/Content/connector-hub/home.htm).
 Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
@@ -22,12 +22,12 @@ import common = require("oci-common");
  * The Functions task.
  * Batch input for a function can be limited by either size or time. The first limit reached determines the boundary of the batch.
  * For configuration instructions, see
- * [Creating a Connector](https://docs.cloud.oracle.com/iaas/Content/connector-hub/create-service-connector.htm).
+ * [Creating a Connector](https://docs.oracle.com/iaas/Content/connector-hub/create-service-connector.htm).
  *
  */
 export interface FunctionTaskDetails extends model.TaskDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the function to be used as a task.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the function to be used as a task.
    *
    */
   "functionId": string;

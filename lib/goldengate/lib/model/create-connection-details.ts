@@ -31,7 +31,7 @@ export interface CreateConnectionDetails {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
    *
    */
   "compartmentId": string;
@@ -73,7 +73,7 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    */
   "nsgIds"?: Array<string>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the target subnet of the dedicated connection.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target subnet of the dedicated connection.
    *
    */
   "subnetId"?: string;

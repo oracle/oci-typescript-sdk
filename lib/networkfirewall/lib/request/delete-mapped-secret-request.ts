@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteMappedSecret.ts.html |here} to see how to use DeleteMappedSecretRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteMappedSecret.ts.html |here} to see how to use DeleteMappedSecretRequest.
  */
 export interface DeleteMappedSecretRequest extends common.BaseRequest {
   /**

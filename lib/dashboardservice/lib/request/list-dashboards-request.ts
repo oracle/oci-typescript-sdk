@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ListDashboards.ts.html |here} to see how to use ListDashboardsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ListDashboards.ts.html |here} to see how to use ListDashboardsRequest.
  */
 export interface ListDashboardsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dashboard group that the dashboard belongs to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dashboard group that the dashboard belongs to.
    */
   "dashboardGroupId": string;
   /**
@@ -31,7 +31,7 @@ export interface ListDashboardsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dashboard.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dashboard.
    */
   "id"?: string;
   /**

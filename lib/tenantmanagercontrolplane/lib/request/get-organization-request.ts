@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrganization.ts.html |here} to see how to use GetOrganizationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrganization.ts.html |here} to see how to use GetOrganizationRequest.
  */
 export interface GetOrganizationRequest extends common.BaseRequest {
   /**

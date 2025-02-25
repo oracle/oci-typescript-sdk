@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -243,7 +243,7 @@ export class UsageapiClient {
    * @param CreateCustomTableRequest
    * @return CreateCustomTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateCustomTable.ts.html |here} to see how to use CreateCustomTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateCustomTable.ts.html |here} to see how to use CreateCustomTable API.
    */
   public async createCustomTable(
     createCustomTableRequest: requests.CreateCustomTableRequest
@@ -324,7 +324,7 @@ export class UsageapiClient {
    * @param CreateEmailRecipientsGroupRequest
    * @return CreateEmailRecipientsGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateEmailRecipientsGroup.ts.html |here} to see how to use CreateEmailRecipientsGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateEmailRecipientsGroup.ts.html |here} to see how to use CreateEmailRecipientsGroup API.
    */
   public async createEmailRecipientsGroup(
     createEmailRecipientsGroupRequest: requests.CreateEmailRecipientsGroupRequest
@@ -408,7 +408,7 @@ export class UsageapiClient {
    * @param CreateQueryRequest
    * @return CreateQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateQuery.ts.html |here} to see how to use CreateQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateQuery.ts.html |here} to see how to use CreateQuery API.
    */
   public async createQuery(
     createQueryRequest: requests.CreateQueryRequest
@@ -489,7 +489,7 @@ export class UsageapiClient {
    * @param CreateScheduleRequest
    * @return CreateScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateSchedule.ts.html |here} to see how to use CreateSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateSchedule.ts.html |here} to see how to use CreateSchedule API.
    */
   public async createSchedule(
     createScheduleRequest: requests.CreateScheduleRequest
@@ -570,7 +570,7 @@ export class UsageapiClient {
    * @param CreateUsageCarbonEmissionsQueryRequest
    * @return CreateUsageCarbonEmissionsQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateUsageCarbonEmissionsQuery.ts.html |here} to see how to use CreateUsageCarbonEmissionsQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/CreateUsageCarbonEmissionsQuery.ts.html |here} to see how to use CreateUsageCarbonEmissionsQuery API.
    */
   public async createUsageCarbonEmissionsQuery(
     createUsageCarbonEmissionsQueryRequest: requests.CreateUsageCarbonEmissionsQueryRequest
@@ -652,7 +652,7 @@ export class UsageapiClient {
    * @param DeleteCustomTableRequest
    * @return DeleteCustomTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteCustomTable.ts.html |here} to see how to use DeleteCustomTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteCustomTable.ts.html |here} to see how to use DeleteCustomTable API.
    */
   public async deleteCustomTable(
     deleteCustomTableRequest: requests.DeleteCustomTableRequest
@@ -721,7 +721,7 @@ export class UsageapiClient {
    * @param DeleteEmailRecipientsGroupRequest
    * @return DeleteEmailRecipientsGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteEmailRecipientsGroup.ts.html |here} to see how to use DeleteEmailRecipientsGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteEmailRecipientsGroup.ts.html |here} to see how to use DeleteEmailRecipientsGroup API.
    */
   public async deleteEmailRecipientsGroup(
     deleteEmailRecipientsGroupRequest: requests.DeleteEmailRecipientsGroupRequest
@@ -794,7 +794,7 @@ export class UsageapiClient {
    * @param DeleteQueryRequest
    * @return DeleteQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteQuery.ts.html |here} to see how to use DeleteQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteQuery.ts.html |here} to see how to use DeleteQuery API.
    */
   public async deleteQuery(
     deleteQueryRequest: requests.DeleteQueryRequest
@@ -863,7 +863,7 @@ export class UsageapiClient {
    * @param DeleteScheduleRequest
    * @return DeleteScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteSchedule.ts.html |here} to see how to use DeleteSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteSchedule.ts.html |here} to see how to use DeleteSchedule API.
    */
   public async deleteSchedule(
     deleteScheduleRequest: requests.DeleteScheduleRequest
@@ -932,7 +932,7 @@ export class UsageapiClient {
    * @param DeleteUsageCarbonEmissionsQueryRequest
    * @return DeleteUsageCarbonEmissionsQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteUsageCarbonEmissionsQuery.ts.html |here} to see how to use DeleteUsageCarbonEmissionsQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/DeleteUsageCarbonEmissionsQuery.ts.html |here} to see how to use DeleteUsageCarbonEmissionsQuery API.
    */
   public async deleteUsageCarbonEmissionsQuery(
     deleteUsageCarbonEmissionsQueryRequest: requests.DeleteUsageCarbonEmissionsQueryRequest
@@ -1003,7 +1003,7 @@ export class UsageapiClient {
    * @param GetCustomTableRequest
    * @return GetCustomTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetCustomTable.ts.html |here} to see how to use GetCustomTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetCustomTable.ts.html |here} to see how to use GetCustomTable API.
    */
   public async getCustomTable(
     getCustomTableRequest: requests.GetCustomTableRequest
@@ -1080,7 +1080,7 @@ export class UsageapiClient {
    * @param GetEmailRecipientsGroupRequest
    * @return GetEmailRecipientsGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetEmailRecipientsGroup.ts.html |here} to see how to use GetEmailRecipientsGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetEmailRecipientsGroup.ts.html |here} to see how to use GetEmailRecipientsGroup API.
    */
   public async getEmailRecipientsGroup(
     getEmailRecipientsGroupRequest: requests.GetEmailRecipientsGroupRequest
@@ -1160,7 +1160,7 @@ export class UsageapiClient {
    * @param GetQueryRequest
    * @return GetQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetQuery.ts.html |here} to see how to use GetQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetQuery.ts.html |here} to see how to use GetQuery API.
    */
   public async getQuery(
     getQueryRequest: requests.GetQueryRequest
@@ -1236,7 +1236,7 @@ export class UsageapiClient {
    * @param GetScheduleRequest
    * @return GetScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetSchedule.ts.html |here} to see how to use GetSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetSchedule.ts.html |here} to see how to use GetSchedule API.
    */
   public async getSchedule(
     getScheduleRequest: requests.GetScheduleRequest
@@ -1313,7 +1313,7 @@ export class UsageapiClient {
    * @param GetScheduledRunRequest
    * @return GetScheduledRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetScheduledRun.ts.html |here} to see how to use GetScheduledRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetScheduledRun.ts.html |here} to see how to use GetScheduledRun API.
    */
   public async getScheduledRun(
     getScheduledRunRequest: requests.GetScheduledRunRequest
@@ -1390,7 +1390,7 @@ export class UsageapiClient {
    * @param GetUsageCarbonEmissionsQueryRequest
    * @return GetUsageCarbonEmissionsQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetUsageCarbonEmissionsQuery.ts.html |here} to see how to use GetUsageCarbonEmissionsQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/GetUsageCarbonEmissionsQuery.ts.html |here} to see how to use GetUsageCarbonEmissionsQuery API.
    */
   public async getUsageCarbonEmissionsQuery(
     getUsageCarbonEmissionsQueryRequest: requests.GetUsageCarbonEmissionsQueryRequest
@@ -1469,7 +1469,7 @@ export class UsageapiClient {
    * @param ListCustomTablesRequest
    * @return ListCustomTablesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListCustomTables.ts.html |here} to see how to use ListCustomTables API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListCustomTables.ts.html |here} to see how to use ListCustomTables API.
    */
   public async listCustomTables(
     listCustomTablesRequest: requests.ListCustomTablesRequest
@@ -1551,7 +1551,7 @@ export class UsageapiClient {
    * @param ListEmailRecipientsGroupsRequest
    * @return ListEmailRecipientsGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListEmailRecipientsGroups.ts.html |here} to see how to use ListEmailRecipientsGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListEmailRecipientsGroups.ts.html |here} to see how to use ListEmailRecipientsGroups API.
    */
   public async listEmailRecipientsGroups(
     listEmailRecipientsGroupsRequest: requests.ListEmailRecipientsGroupsRequest
@@ -1636,7 +1636,7 @@ export class UsageapiClient {
    * @param ListQueriesRequest
    * @return ListQueriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListQueries.ts.html |here} to see how to use ListQueries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListQueries.ts.html |here} to see how to use ListQueries API.
    */
   public async listQueries(
     listQueriesRequest: requests.ListQueriesRequest
@@ -1717,7 +1717,7 @@ export class UsageapiClient {
    * @param ListScheduledRunsRequest
    * @return ListScheduledRunsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListScheduledRuns.ts.html |here} to see how to use ListScheduledRuns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListScheduledRuns.ts.html |here} to see how to use ListScheduledRuns API.
    */
   public async listScheduledRuns(
     listScheduledRunsRequest: requests.ListScheduledRunsRequest
@@ -1798,7 +1798,7 @@ export class UsageapiClient {
    * @param ListSchedulesRequest
    * @return ListSchedulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListSchedules.ts.html |here} to see how to use ListSchedules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListSchedules.ts.html |here} to see how to use ListSchedules API.
    */
   public async listSchedules(
     listSchedulesRequest: requests.ListSchedulesRequest
@@ -1880,7 +1880,7 @@ export class UsageapiClient {
    * @param ListUsageCarbonEmissionsQueriesRequest
    * @return ListUsageCarbonEmissionsQueriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListUsageCarbonEmissionsQueries.ts.html |here} to see how to use ListUsageCarbonEmissionsQueries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/ListUsageCarbonEmissionsQueries.ts.html |here} to see how to use ListUsageCarbonEmissionsQueries API.
    */
   public async listUsageCarbonEmissionsQueries(
     listUsageCarbonEmissionsQueriesRequest: requests.ListUsageCarbonEmissionsQueriesRequest
@@ -1962,7 +1962,7 @@ export class UsageapiClient {
    * @param RequestAverageCarbonEmissionRequest
    * @return RequestAverageCarbonEmissionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestAverageCarbonEmission.ts.html |here} to see how to use RequestAverageCarbonEmission API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestAverageCarbonEmission.ts.html |here} to see how to use RequestAverageCarbonEmission API.
    */
   public async requestAverageCarbonEmission(
     requestAverageCarbonEmissionRequest: requests.RequestAverageCarbonEmissionRequest
@@ -2040,7 +2040,7 @@ export class UsageapiClient {
    * @param RequestCleanEnergyUsageRequest
    * @return RequestCleanEnergyUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestCleanEnergyUsage.ts.html |here} to see how to use RequestCleanEnergyUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestCleanEnergyUsage.ts.html |here} to see how to use RequestCleanEnergyUsage API.
    */
   public async requestCleanEnergyUsage(
     requestCleanEnergyUsageRequest: requests.RequestCleanEnergyUsageRequest
@@ -2119,7 +2119,7 @@ export class UsageapiClient {
    * @param RequestSummarizedConfigurationsRequest
    * @return RequestSummarizedConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestSummarizedConfigurations.ts.html |here} to see how to use RequestSummarizedConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestSummarizedConfigurations.ts.html |here} to see how to use RequestSummarizedConfigurations API.
    */
   public async requestSummarizedConfigurations(
     requestSummarizedConfigurationsRequest: requests.RequestSummarizedConfigurationsRequest
@@ -2192,7 +2192,7 @@ export class UsageapiClient {
    * @param RequestSummarizedUsagesRequest
    * @return RequestSummarizedUsagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestSummarizedUsages.ts.html |here} to see how to use RequestSummarizedUsages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestSummarizedUsages.ts.html |here} to see how to use RequestSummarizedUsages API.
    */
   public async requestSummarizedUsages(
     requestSummarizedUsagesRequest: requests.RequestSummarizedUsagesRequest
@@ -2275,7 +2275,7 @@ export class UsageapiClient {
    * @param RequestUsageCarbonEmissionConfigRequest
    * @return RequestUsageCarbonEmissionConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestUsageCarbonEmissionConfig.ts.html |here} to see how to use RequestUsageCarbonEmissionConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestUsageCarbonEmissionConfig.ts.html |here} to see how to use RequestUsageCarbonEmissionConfig API.
    */
   public async requestUsageCarbonEmissionConfig(
     requestUsageCarbonEmissionConfigRequest: requests.RequestUsageCarbonEmissionConfigRequest
@@ -2348,7 +2348,7 @@ export class UsageapiClient {
    * @param RequestUsageCarbonEmissionsRequest
    * @return RequestUsageCarbonEmissionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestUsageCarbonEmissions.ts.html |here} to see how to use RequestUsageCarbonEmissions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/RequestUsageCarbonEmissions.ts.html |here} to see how to use RequestUsageCarbonEmissions API.
    */
   public async requestUsageCarbonEmissions(
     requestUsageCarbonEmissionsRequest: requests.RequestUsageCarbonEmissionsRequest
@@ -2432,7 +2432,7 @@ export class UsageapiClient {
    * @param UpdateCustomTableRequest
    * @return UpdateCustomTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateCustomTable.ts.html |here} to see how to use UpdateCustomTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateCustomTable.ts.html |here} to see how to use UpdateCustomTable API.
    */
   public async updateCustomTable(
     updateCustomTableRequest: requests.UpdateCustomTableRequest
@@ -2515,7 +2515,7 @@ export class UsageapiClient {
    * @param UpdateEmailRecipientsGroupRequest
    * @return UpdateEmailRecipientsGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateEmailRecipientsGroup.ts.html |here} to see how to use UpdateEmailRecipientsGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateEmailRecipientsGroup.ts.html |here} to see how to use UpdateEmailRecipientsGroup API.
    */
   public async updateEmailRecipientsGroup(
     updateEmailRecipientsGroupRequest: requests.UpdateEmailRecipientsGroupRequest
@@ -2602,7 +2602,7 @@ export class UsageapiClient {
    * @param UpdateQueryRequest
    * @return UpdateQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateQuery.ts.html |here} to see how to use UpdateQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateQuery.ts.html |here} to see how to use UpdateQuery API.
    */
   public async updateQuery(
     updateQueryRequest: requests.UpdateQueryRequest
@@ -2685,7 +2685,7 @@ export class UsageapiClient {
    * @param UpdateScheduleRequest
    * @return UpdateScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateSchedule.ts.html |here} to see how to use UpdateSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateSchedule.ts.html |here} to see how to use UpdateSchedule API.
    */
   public async updateSchedule(
     updateScheduleRequest: requests.UpdateScheduleRequest
@@ -2768,7 +2768,7 @@ export class UsageapiClient {
    * @param UpdateUsageCarbonEmissionsQueryRequest
    * @return UpdateUsageCarbonEmissionsQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateUsageCarbonEmissionsQuery.ts.html |here} to see how to use UpdateUsageCarbonEmissionsQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usageapi/UpdateUsageCarbonEmissionsQuery.ts.html |here} to see how to use UpdateUsageCarbonEmissionsQuery API.
    */
   public async updateUsageCarbonEmissionsQuery(
     updateUsageCarbonEmissionsQueryRequest: requests.UpdateUsageCarbonEmissionsQueryRequest

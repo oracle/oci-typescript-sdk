@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface DefaultTestPipelineConnectionDetails extends model.TestPipelineConnectionDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the connection being
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the connection being
    * referenced.
    *
    */

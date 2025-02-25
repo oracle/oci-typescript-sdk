@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListAccessPolicies.ts.html |here} to see how to use ListAccessPoliciesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListAccessPolicies.ts.html |here} to see how to use ListAccessPoliciesRequest.
  */
 export interface ListAccessPoliciesRequest extends common.BaseRequest {
   /**

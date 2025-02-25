@@ -1,7 +1,7 @@
 /**
  * Management Agent API
  * Use the Management Agent API to manage your infrastructure's management agents, including their plugins and install keys.
-For more information, see [Management Agent](https://docs.cloud.oracle.com/iaas/management-agents/index.html).
+For more information, see [Management Agent](https://docs.oracle.com/iaas/management-agents/index.html).
 
  * OpenAPI spec version: 20200202
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface WorkRequestError {
   /**
    * A machine-usable code for the error that occured. Error codes are listed on
-   * (https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm)
+   * (https://docs.oracle.com/iaas/Content/API/References/apierrors.htm)
    *
    */
   "code": string;

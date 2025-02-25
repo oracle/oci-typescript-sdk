@@ -1,8 +1,8 @@
 /**
  * Object Storage Service API
  * Use Object Storage and Archive Storage APIs to manage buckets, objects, and related resources.
-For more information, see [Overview of Object Storage](/Content/Object/Concepts/objectstorageoverview.htm) and
-[Overview of Archive Storage](/Content/Archive/Concepts/archivestorageoverview.htm).
+For more information, see [Overview of Object Storage](https://docs.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) and
+[Overview of Archive Storage](https://docs.oracle.com/iaas/Content/Archive/Concepts/archivestorageoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: opc_casper_users_us_grp@oracle.com
@@ -20,7 +20,7 @@ import common = require("oci-common");
 /**
  * To use any of the API operations, you must be authorized in an IAM policy. If you are not authorized,
  * talk to an administrator. If you are an administrator who needs to write policies to give users access, see
- * [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+ * [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
  *
  */
 export interface UpdateBucketDetails {
@@ -54,26 +54,26 @@ export interface UpdateBucketDetails {
   /**
    * Whether or not events are emitted for object state changes in this bucket. By default, {@code objectEventsEnabled} is
    * set to {@code false}. Set {@code objectEventsEnabled} to {@code true} to emit events for object state changes. For more information
-   * about events, see [Overview of Events](https://docs.cloud.oracle.com/Content/Events/Concepts/eventsoverview.htm).
+   * about events, see [Overview of Events](https://docs.oracle.com/iaas/Content/Events/Concepts/eventsoverview.htm).
    *
    */
   "objectEventsEnabled"?: boolean;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {\"Operations\": {\"CostCenter\": \"42\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Key Management master encryption key to associate
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Key Management master encryption key to associate
    * with the specified bucket. If this value is empty, the Update operation will remove the associated key, if
    * there is one, from the bucket. (The bucket will continue to be encrypted, but with an encryption key managed
    * by Oracle.)

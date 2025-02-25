@@ -1,7 +1,7 @@
 /**
  * DNS API
  * API for the DNS service. Use this API to manage DNS zones, records, and other DNS resources.
-For more information, see [Overview of the DNS Service](/iaas/Content/DNS/Concepts/dnszonemanagement.htm).
+For more information, see [Overview of the DNS Service](https://docs.oracle.com/iaas/Content/DNS/Concepts/dnszonemanagement.htm).
 
  * OpenAPI spec version: 20180115
  * 
@@ -259,7 +259,7 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
      * @param ChangeResolverCompartmentRequest
      * @return ChangeResolverCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeResolverCompartment.ts.html |here} to see how to use ChangeResolverCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeResolverCompartment.ts.html |here} to see how to use ChangeResolverCompartment API.
      */
   public async changeResolverCompartment(
     changeResolverCompartmentRequest: requests.ChangeResolverCompartmentRequest
@@ -341,7 +341,7 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
    * @param ChangeSteeringPolicyCompartmentRequest
    * @return ChangeSteeringPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeSteeringPolicyCompartment.ts.html |here} to see how to use ChangeSteeringPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeSteeringPolicyCompartment.ts.html |here} to see how to use ChangeSteeringPolicyCompartment API.
    */
   public async changeSteeringPolicyCompartment(
     changeSteeringPolicyCompartmentRequest: requests.ChangeSteeringPolicyCompartmentRequest
@@ -424,7 +424,7 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
    * @param ChangeTsigKeyCompartmentRequest
    * @return ChangeTsigKeyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeTsigKeyCompartment.ts.html |here} to see how to use ChangeTsigKeyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeTsigKeyCompartment.ts.html |here} to see how to use ChangeTsigKeyCompartment API.
    */
   public async changeTsigKeyCompartment(
     changeTsigKeyCompartmentRequest: requests.ChangeTsigKeyCompartmentRequest
@@ -503,7 +503,7 @@ To change the compartment of a protected view, change the compartment of its cor
      * @param ChangeViewCompartmentRequest
      * @return ChangeViewCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeViewCompartment.ts.html |here} to see how to use ChangeViewCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeViewCompartment.ts.html |here} to see how to use ChangeViewCompartment API.
      */
   public async changeViewCompartment(
     changeViewCompartmentRequest: requests.ChangeViewCompartmentRequest
@@ -592,7 +592,7 @@ Protected zones cannot have their compartment changed. When the zone name is pro
      * @param ChangeZoneCompartmentRequest
      * @return ChangeZoneCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeZoneCompartment.ts.html |here} to see how to use ChangeZoneCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ChangeZoneCompartment.ts.html |here} to see how to use ChangeZoneCompartment API.
      */
   public async changeZoneCompartment(
     changeZoneCompartmentRequest: requests.ChangeZoneCompartmentRequest
@@ -674,7 +674,7 @@ Protected zones cannot have their compartment changed. When the zone name is pro
    * @param CreateResolverEndpointRequest
    * @return CreateResolverEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateResolverEndpoint.ts.html |here} to see how to use CreateResolverEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateResolverEndpoint.ts.html |here} to see how to use CreateResolverEndpoint API.
    */
   public async createResolverEndpoint(
     createResolverEndpointRequest: requests.CreateResolverEndpointRequest
@@ -763,13 +763,13 @@ Protected zones cannot have their compartment changed. When the zone name is pro
 
   /**
    * Creates a new steering policy in the specified compartment. For more information on
-   * creating policies with templates, see [Traffic Management API Guide](https://docs.cloud.oracle.com/iaas/Content/TrafficManagement/Concepts/trafficmanagementapi.htm).
+   * creating policies with templates, see [Traffic Management API Guide](https://docs.oracle.com/iaas/Content/TrafficManagement/Concepts/trafficmanagementapi.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSteeringPolicyRequest
    * @return CreateSteeringPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateSteeringPolicy.ts.html |here} to see how to use CreateSteeringPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateSteeringPolicy.ts.html |here} to see how to use CreateSteeringPolicy API.
    */
   public async createSteeringPolicy(
     createSteeringPolicyRequest: requests.CreateSteeringPolicyRequest
@@ -866,7 +866,7 @@ For the purposes of access control, the attachment is automatically placed
      * @param CreateSteeringPolicyAttachmentRequest
      * @return CreateSteeringPolicyAttachmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateSteeringPolicyAttachment.ts.html |here} to see how to use CreateSteeringPolicyAttachment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateSteeringPolicyAttachment.ts.html |here} to see how to use CreateSteeringPolicyAttachment API.
      */
   public async createSteeringPolicyAttachment(
     createSteeringPolicyAttachmentRequest: requests.CreateSteeringPolicyAttachmentRequest
@@ -960,7 +960,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param CreateTsigKeyRequest
    * @return CreateTsigKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateTsigKey.ts.html |here} to see how to use CreateTsigKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateTsigKey.ts.html |here} to see how to use CreateTsigKey API.
    */
   public async createTsigKey(
     createTsigKeyRequest: requests.CreateTsigKeyRequest
@@ -1051,7 +1051,7 @@ For the purposes of access control, the attachment is automatically placed
    * @param CreateViewRequest
    * @return CreateViewResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateView.ts.html |here} to see how to use CreateView API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateView.ts.html |here} to see how to use CreateView API.
    */
   public async createView(
     createViewRequest: requests.CreateViewRequest
@@ -1146,7 +1146,7 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
      * @param CreateZoneRequest
      * @return CreateZoneResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateZone.ts.html |here} to see how to use CreateZone API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateZone.ts.html |here} to see how to use CreateZone API.
      */
   public async createZone(
     createZoneRequest: requests.CreateZoneRequest
@@ -1239,7 +1239,7 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
    * @param CreateZoneFromZoneFileRequest
    * @return CreateZoneFromZoneFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateZoneFromZoneFile.ts.html |here} to see how to use CreateZoneFromZoneFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateZoneFromZoneFile.ts.html |here} to see how to use CreateZoneFromZoneFile API.
    */
   public async createZoneFromZoneFile(
     createZoneFromZoneFileRequest: requests.CreateZoneFromZoneFileRequest
@@ -1332,7 +1332,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
      * @param DeleteDomainRecordsRequest
      * @return DeleteDomainRecordsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteDomainRecords.ts.html |here} to see how to use DeleteDomainRecords API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteDomainRecords.ts.html |here} to see how to use DeleteDomainRecords API.
      */
   public async deleteDomainRecords(
     deleteDomainRecordsRequest: requests.DeleteDomainRecordsRequest
@@ -1410,7 +1410,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
      * @param DeleteRRSetRequest
      * @return DeleteRRSetResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteRRSet.ts.html |here} to see how to use DeleteRRSet API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteRRSet.ts.html |here} to see how to use DeleteRRSet API.
      */
   public async deleteRRSet(
     deleteRRSetRequest: requests.DeleteRRSetRequest
@@ -1489,7 +1489,7 @@ Note that attempting to delete a resolver endpoint in the DELETED lifecycle stat
      * @param DeleteResolverEndpointRequest
      * @return DeleteResolverEndpointResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteResolverEndpoint.ts.html |here} to see how to use DeleteResolverEndpoint API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteResolverEndpoint.ts.html |here} to see how to use DeleteResolverEndpoint API.
      */
   public async deleteResolverEndpoint(
     deleteResolverEndpointRequest: requests.DeleteResolverEndpointRequest
@@ -1571,7 +1571,7 @@ A `204` response indicates that the delete has been successful.
      * @param DeleteSteeringPolicyRequest
      * @return DeleteSteeringPolicyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteSteeringPolicy.ts.html |here} to see how to use DeleteSteeringPolicy API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteSteeringPolicy.ts.html |here} to see how to use DeleteSteeringPolicy API.
      */
   public async deleteSteeringPolicy(
     deleteSteeringPolicyRequest: requests.DeleteSteeringPolicyRequest
@@ -1648,7 +1648,7 @@ A `204` response indicates that the delete has been successful.
    * @param DeleteSteeringPolicyAttachmentRequest
    * @return DeleteSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteSteeringPolicyAttachment.ts.html |here} to see how to use DeleteSteeringPolicyAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteSteeringPolicyAttachment.ts.html |here} to see how to use DeleteSteeringPolicyAttachment API.
    */
   public async deleteSteeringPolicyAttachment(
     deleteSteeringPolicyAttachmentRequest: requests.DeleteSteeringPolicyAttachmentRequest
@@ -1726,7 +1726,7 @@ A `204` response indicates that the delete has been successful.
    * @param DeleteTsigKeyRequest
    * @return DeleteTsigKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteTsigKey.ts.html |here} to see how to use DeleteTsigKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteTsigKey.ts.html |here} to see how to use DeleteTsigKey API.
    */
   public async deleteTsigKey(
     deleteTsigKeyRequest: requests.DeleteTsigKeyRequest
@@ -1807,7 +1807,7 @@ Note that attempting to delete a view in the DELETED lifecycleState will result 
      * @param DeleteViewRequest
      * @return DeleteViewResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteView.ts.html |here} to see how to use DeleteView API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteView.ts.html |here} to see how to use DeleteView API.
      */
   public async deleteView(
     deleteViewRequest: requests.DeleteViewRequest
@@ -1887,7 +1887,7 @@ A `204` response indicates that the zone has been successfully deleted. Protecte
      * @param DeleteZoneRequest
      * @return DeleteZoneResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteZone.ts.html |here} to see how to use DeleteZone API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/DeleteZone.ts.html |here} to see how to use DeleteZone API.
      */
   public async deleteZone(
     deleteZoneRequest: requests.DeleteZoneRequest
@@ -1969,7 +1969,7 @@ The results are sorted by `rtype` in alphabetical order by default. You can opti
      * @param GetDomainRecordsRequest
      * @return GetDomainRecordsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetDomainRecords.ts.html |here} to see how to use GetDomainRecords API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetDomainRecords.ts.html |here} to see how to use GetDomainRecords API.
      */
   public async getDomainRecords(
     getDomainRecordsRequest: requests.GetDomainRecordsRequest
@@ -2146,7 +2146,7 @@ The results are sorted by `recordHash` by default. When the zone name is provide
      * @param GetRRSetRequest
      * @return GetRRSetResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetRRSet.ts.html |here} to see how to use GetRRSet API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetRRSet.ts.html |here} to see how to use GetRRSet API.
      */
   public async getRRSet(
     getRRSetRequest: requests.GetRRSetRequest
@@ -2318,7 +2318,7 @@ Note that attempting to get a resolver in the DELETED lifecycleState will result
      * @param GetResolverRequest
      * @return GetResolverResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolver.ts.html |here} to see how to use GetResolver API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolver.ts.html |here} to see how to use GetResolver API.
      */
   public async getResolver(
     getResolverRequest: requests.GetResolverRequest
@@ -2402,7 +2402,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
      * @param GetResolverEndpointRequest
      * @return GetResolverEndpointResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolverEndpoint.ts.html |here} to see how to use GetResolverEndpoint API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetResolverEndpoint.ts.html |here} to see how to use GetResolverEndpoint API.
      */
   public async getResolverEndpoint(
     getResolverEndpointRequest: requests.GetResolverEndpointRequest
@@ -2484,7 +2484,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
    * @param GetSteeringPolicyRequest
    * @return GetSteeringPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetSteeringPolicy.ts.html |here} to see how to use GetSteeringPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetSteeringPolicy.ts.html |here} to see how to use GetSteeringPolicy API.
    */
   public async getSteeringPolicy(
     getSteeringPolicyRequest: requests.GetSteeringPolicyRequest
@@ -2565,7 +2565,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
    * @param GetSteeringPolicyAttachmentRequest
    * @return GetSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetSteeringPolicyAttachment.ts.html |here} to see how to use GetSteeringPolicyAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetSteeringPolicyAttachment.ts.html |here} to see how to use GetSteeringPolicyAttachment API.
    */
   public async getSteeringPolicyAttachment(
     getSteeringPolicyAttachmentRequest: requests.GetSteeringPolicyAttachmentRequest
@@ -2646,7 +2646,7 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
    * @param GetTsigKeyRequest
    * @return GetTsigKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetTsigKey.ts.html |here} to see how to use GetTsigKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetTsigKey.ts.html |here} to see how to use GetTsigKey API.
    */
   public async getTsigKey(
     getTsigKeyRequest: requests.GetTsigKeyRequest
@@ -2731,7 +2731,7 @@ Note that attempting to get a
      * @param GetViewRequest
      * @return GetViewResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetView.ts.html |here} to see how to use GetView API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetView.ts.html |here} to see how to use GetView API.
      */
   public async getView(
     getViewRequest: requests.GetViewRequest
@@ -2814,7 +2814,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
      * @param GetZoneRequest
      * @return GetZoneResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZone.ts.html |here} to see how to use GetZone API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZone.ts.html |here} to see how to use GetZone API.
      */
   public async getZone(
     getZoneRequest: requests.GetZoneRequest
@@ -2896,7 +2896,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
    * @param GetZoneContentRequest
    * @return GetZoneContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZoneContent.ts.html |here} to see how to use GetZoneContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZoneContent.ts.html |here} to see how to use GetZoneContent API.
    */
   public async getZoneContent(
     getZoneContentRequest: requests.GetZoneContentRequest
@@ -2983,7 +2983,7 @@ The results are sorted by `domain` in alphabetical order by default. For more in
      * @param GetZoneRecordsRequest
      * @return GetZoneRecordsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZoneRecords.ts.html |here} to see how to use GetZoneRecords API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/GetZoneRecords.ts.html |here} to see how to use GetZoneRecords API.
      */
   public async getZoneRecords(
     getZoneRecordsRequest: requests.GetZoneRecordsRequest
@@ -3161,7 +3161,7 @@ The results are sorted by `domain` in alphabetical order by default. For more in
    * @param ListResolverEndpointsRequest
    * @return ListResolverEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListResolverEndpoints.ts.html |here} to see how to use ListResolverEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListResolverEndpoints.ts.html |here} to see how to use ListResolverEndpoints API.
    */
   public async listResolverEndpoints(
     listResolverEndpointsRequest: requests.ListResolverEndpointsRequest
@@ -3303,7 +3303,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
      * @param ListResolversRequest
      * @return ListResolversResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListResolvers.ts.html |here} to see how to use ListResolvers API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListResolvers.ts.html |here} to see how to use ListResolvers API.
      */
   public async listResolvers(
     listResolversRequest: requests.ListResolversRequest
@@ -3440,7 +3440,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
    * @param ListSteeringPoliciesRequest
    * @return ListSteeringPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListSteeringPolicies.ts.html |here} to see how to use ListSteeringPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListSteeringPolicies.ts.html |here} to see how to use ListSteeringPolicies API.
    */
   public async listSteeringPolicies(
     listSteeringPoliciesRequest: requests.ListSteeringPoliciesRequest
@@ -3588,7 +3588,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
    * @param ListSteeringPolicyAttachmentsRequest
    * @return ListSteeringPolicyAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListSteeringPolicyAttachments.ts.html |here} to see how to use ListSteeringPolicyAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListSteeringPolicyAttachments.ts.html |here} to see how to use ListSteeringPolicyAttachments API.
    */
   public async listSteeringPolicyAttachments(
     listSteeringPolicyAttachmentsRequest: requests.ListSteeringPolicyAttachmentsRequest
@@ -3738,7 +3738,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
    * @param ListTsigKeysRequest
    * @return ListTsigKeysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListTsigKeys.ts.html |here} to see how to use ListTsigKeys API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListTsigKeys.ts.html |here} to see how to use ListTsigKeys API.
    */
   public async listTsigKeys(
     listTsigKeysRequest: requests.ListTsigKeysRequest
@@ -3880,7 +3880,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
      * @param ListViewsRequest
      * @return ListViewsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListViews.ts.html |here} to see how to use ListViews API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListViews.ts.html |here} to see how to use ListViews API.
      */
   public async listViews(
     listViewsRequest: requests.ListViewsRequest
@@ -4018,7 +4018,7 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
    * @param ListZoneTransferServersRequest
    * @return ListZoneTransferServersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListZoneTransferServers.ts.html |here} to see how to use ListZoneTransferServers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListZoneTransferServers.ts.html |here} to see how to use ListZoneTransferServers API.
    */
   public async listZoneTransferServers(
     listZoneTransferServersRequest: requests.ListZoneTransferServersRequest
@@ -4152,7 +4152,7 @@ The collection can be filtered by name, time created, scope, associated view, an
      * @param ListZonesRequest
      * @return ListZonesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListZones.ts.html |here} to see how to use ListZones API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/ListZones.ts.html |here} to see how to use ListZones API.
      */
   public async listZones(
     listZonesRequest: requests.ListZonesRequest
@@ -4304,7 +4304,7 @@ You can update one record or all records for the specified zone depending on the
      * @param PatchDomainRecordsRequest
      * @return PatchDomainRecordsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchDomainRecords.ts.html |here} to see how to use PatchDomainRecords API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchDomainRecords.ts.html |here} to see how to use PatchDomainRecords API.
      */
   public async patchDomainRecords(
     patchDomainRecordsRequest: requests.PatchDomainRecordsRequest
@@ -4406,7 +4406,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
      * @param PatchRRSetRequest
      * @return PatchRRSetResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchRRSet.ts.html |here} to see how to use PatchRRSet API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchRRSet.ts.html |here} to see how to use PatchRRSet API.
      */
   public async patchRRSet(
     patchRRSetRequest: requests.PatchRRSetRequest
@@ -4510,7 +4510,7 @@ You can update one record or all records for the specified zone depending on the
      * @param PatchZoneRecordsRequest
      * @return PatchZoneRecordsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchZoneRecords.ts.html |here} to see how to use PatchZoneRecords API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PatchZoneRecords.ts.html |here} to see how to use PatchZoneRecords API.
      */
   public async patchZoneRecords(
     patchZoneRecordsRequest: requests.PatchZoneRecordsRequest
@@ -4611,13 +4611,13 @@ For key signing keys (KSKs), you must create the DS record with the new key info
 * the new key to establish a chain of trust. To avoid a service disruption, remove the old DS record as soon
 * as its TTL (time to live) expires.
 * <p>
-For more information, see [DNSSEC](https://docs.cloud.oracle.com/iaas/Content/DNS/Concepts/dnssec.htm).
+For more information, see [DNSSEC](https://docs.oracle.com/iaas/Content/DNS/Concepts/dnssec.htm).
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param PromoteZoneDnssecKeyVersionRequest
      * @return PromoteZoneDnssecKeyVersionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PromoteZoneDnssecKeyVersion.ts.html |here} to see how to use PromoteZoneDnssecKeyVersion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/PromoteZoneDnssecKeyVersion.ts.html |here} to see how to use PromoteZoneDnssecKeyVersion API.
      */
   public async promoteZoneDnssecKeyVersion(
     promoteZoneDnssecKeyVersionRequest: requests.PromoteZoneDnssecKeyVersionRequest
@@ -4698,13 +4698,13 @@ For more information, see [DNSSEC](https://docs.cloud.oracle.com/iaas/Content/DN
 * that replaces an existing \"predecessor\" key version.
 * **Note:** A new key-signing key (KSK) version is inert until you update the parent zone DS records.
 * <p>
-For more information, see the [DNSSEC](https://docs.cloud.oracle.com/iaas/Content/DNS/Concepts/dnssec.htm) documentation.
+For more information, see the [DNSSEC](https://docs.oracle.com/iaas/Content/DNS/Concepts/dnssec.htm) documentation.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param StageZoneDnssecKeyVersionRequest
      * @return StageZoneDnssecKeyVersionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/StageZoneDnssecKeyVersion.ts.html |here} to see how to use StageZoneDnssecKeyVersion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/StageZoneDnssecKeyVersion.ts.html |here} to see how to use StageZoneDnssecKeyVersion API.
      */
   public async stageZoneDnssecKeyVersion(
     stageZoneDnssecKeyVersionRequest: requests.StageZoneDnssecKeyVersionRequest
@@ -4792,7 +4792,7 @@ If a specified record does not exist, it will be created. If the record exists, 
      * @param UpdateDomainRecordsRequest
      * @return UpdateDomainRecordsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateDomainRecords.ts.html |here} to see how to use UpdateDomainRecords API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateDomainRecords.ts.html |here} to see how to use UpdateDomainRecords API.
      */
   public async updateDomainRecords(
     updateDomainRecordsRequest: requests.UpdateDomainRecordsRequest
@@ -4894,7 +4894,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
      * @param UpdateRRSetRequest
      * @return UpdateRRSetResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateRRSet.ts.html |here} to see how to use UpdateRRSet API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateRRSet.ts.html |here} to see how to use UpdateRRSet API.
      */
   public async updateRRSet(
     updateRRSetRequest: requests.UpdateRRSetRequest
@@ -4993,7 +4993,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
    * @param UpdateResolverRequest
    * @return UpdateResolverResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateResolver.ts.html |here} to see how to use UpdateResolver API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateResolver.ts.html |here} to see how to use UpdateResolver API.
    */
   public async updateResolver(
     updateResolverRequest: requests.UpdateResolverRequest
@@ -5084,7 +5084,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
    * @param UpdateResolverEndpointRequest
    * @return UpdateResolverEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateResolverEndpoint.ts.html |here} to see how to use UpdateResolverEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateResolverEndpoint.ts.html |here} to see how to use UpdateResolverEndpoint API.
    */
   public async updateResolverEndpoint(
     updateResolverEndpointRequest: requests.UpdateResolverEndpointRequest
@@ -5176,7 +5176,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
    * @param UpdateSteeringPolicyRequest
    * @return UpdateSteeringPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateSteeringPolicy.ts.html |here} to see how to use UpdateSteeringPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateSteeringPolicy.ts.html |here} to see how to use UpdateSteeringPolicy API.
    */
   public async updateSteeringPolicy(
     updateSteeringPolicyRequest: requests.UpdateSteeringPolicyRequest
@@ -5267,7 +5267,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
    * @param UpdateSteeringPolicyAttachmentRequest
    * @return UpdateSteeringPolicyAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateSteeringPolicyAttachment.ts.html |here} to see how to use UpdateSteeringPolicyAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateSteeringPolicyAttachment.ts.html |here} to see how to use UpdateSteeringPolicyAttachment API.
    */
   public async updateSteeringPolicyAttachment(
     updateSteeringPolicyAttachmentRequest: requests.UpdateSteeringPolicyAttachmentRequest
@@ -5360,7 +5360,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
    * @param UpdateTsigKeyRequest
    * @return UpdateTsigKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateTsigKey.ts.html |here} to see how to use UpdateTsigKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateTsigKey.ts.html |here} to see how to use UpdateTsigKey API.
    */
   public async updateTsigKey(
     updateTsigKeyRequest: requests.UpdateTsigKeyRequest
@@ -5451,7 +5451,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
    * @param UpdateViewRequest
    * @return UpdateViewResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateView.ts.html |here} to see how to use UpdateView API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateView.ts.html |here} to see how to use UpdateView API.
    */
   public async updateView(
     updateViewRequest: requests.UpdateViewRequest
@@ -5538,7 +5538,7 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
      * Updates the zone with the specified information.
 * <p>
 Global secondary zones may have their external masters updated. For more information about secondary
-* zones, see [Manage DNS Service Zone](https://docs.cloud.oracle.com/iaas/Content/DNS/Tasks/managingdnszones.htm). When the zone name
+* zones, see [Manage DNS Service Zone](https://docs.oracle.com/iaas/Content/DNS/Tasks/managingdnszones.htm). When the zone name
 * is provided as a path parameter and `PRIVATE` is used for the scope query parameter then the viewId
 * query parameter is required.
 * 
@@ -5546,7 +5546,7 @@ Global secondary zones may have their external masters updated. For more informa
      * @param UpdateZoneRequest
      * @return UpdateZoneResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateZone.ts.html |here} to see how to use UpdateZone API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateZone.ts.html |here} to see how to use UpdateZone API.
      */
   public async updateZone(
     updateZoneRequest: requests.UpdateZoneRequest
@@ -5644,7 +5644,7 @@ If a specified record does not exist, it will be created. If the record exists, 
      * @param UpdateZoneRecordsRequest
      * @return UpdateZoneRecordsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateZoneRecords.ts.html |here} to see how to use UpdateZoneRecords API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/UpdateZoneRecords.ts.html |here} to see how to use UpdateZoneRecords API.
      */
   public async updateZoneRecords(
     updateZoneRecordsRequest: requests.UpdateZoneRecordsRequest

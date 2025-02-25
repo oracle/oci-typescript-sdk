@@ -1,7 +1,7 @@
 /**
  * Audit API
  * API for the Audit Service. Use this API for compliance monitoring in your tenancy.
-For more information, see [Overview of Audit](/iaas/Content/Audit/Concepts/auditoverview.htm).
+For more information, see [Overview of Audit](https://docs.oracle.com/iaas/Content/Audit/Concepts/auditoverview.htm).
 
 **Tip**: This API is good for queries, but not bulk-export operations.
 
@@ -38,7 +38,7 @@ Example: {@code GetInstance}
     */
   "eventName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment of the resource
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment of the resource
    * emitting the event.
    *
    */
@@ -58,7 +58,7 @@ Example: {@code CompartmentA}
    */
   "resourceName"?: string;
   /**
-   * An [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) or some other ID for the resource
+   * An [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) or some other ID for the resource
    * emitting the event.
    *
    */
@@ -71,7 +71,7 @@ Example: {@code CompartmentA}
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, 
 * type, or namespace. Exists for cross-compatibility only. For more information, 
-* see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -79,7 +79,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace. For more
-* information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

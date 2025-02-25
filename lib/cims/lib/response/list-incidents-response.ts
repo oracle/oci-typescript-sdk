@@ -20,11 +20,11 @@ export interface ListIncidentsResponse {
    */
   "opcRequestId": string;
   /**
-   * For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
+   * For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "opcNextPage": string;
   /**
-   * For list pagination. When this header appears in the response, previous pages of results can be queried. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
+   * For list pagination. When this header appears in the response, previous pages of results can be queried. For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "opcPrevPage": string;
   /**

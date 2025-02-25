@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeDetectAnomalyJobCompartment.ts.html |here} to see how to use ChangeDetectAnomalyJobCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeDetectAnomalyJobCompartment.ts.html |here} to see how to use ChangeDetectAnomalyJobCompartmentRequest.
  */
 export interface ChangeDetectAnomalyJobCompartmentRequest extends common.BaseRequest {
   /**

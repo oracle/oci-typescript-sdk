@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetUnprocessedDataBucket.ts.html |here} to see how to use GetUnprocessedDataBucketRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetUnprocessedDataBucket.ts.html |here} to see how to use GetUnprocessedDataBucketRequest.
  */
 export interface GetUnprocessedDataBucketRequest extends common.BaseRequest {
   /**

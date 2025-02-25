@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface InstanceAgentCommandSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the command.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the command.
    */
   "instanceAgentCommandId": string;
   /**
@@ -29,7 +29,7 @@ export interface InstanceAgentCommandSummary {
    */
   "displayName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the command.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the command.
    */
   "compartmentId": string;
   /**

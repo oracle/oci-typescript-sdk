@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DatabaseToolsConnectionSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsConnection}.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsConnection}.
    */
   "id": string;
   /**
@@ -27,7 +27,7 @@ export interface DatabaseToolsConnectionSummary {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the Database Tools connection.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the Database Tools connection.
    */
   "compartmentId": string;
   /**
