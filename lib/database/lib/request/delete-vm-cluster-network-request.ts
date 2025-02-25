@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteVmClusterNetwork.ts.html |here} to see how to use DeleteVmClusterNetworkRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteVmClusterNetwork.ts.html |here} to see how to use DeleteVmClusterNetworkRequest.
  */
 export interface DeleteVmClusterNetworkRequest extends common.BaseRequest {
   /**
-   * The Exadata infrastructure [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Exadata infrastructure [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "exadataInfrastructureId": string;
   /**
-   * The VM cluster network [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The VM cluster network [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "vmClusterNetworkId": string;
   /**

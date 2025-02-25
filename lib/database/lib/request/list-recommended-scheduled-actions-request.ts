@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListRecommendedScheduledActions.ts.html |here} to see how to use ListRecommendedScheduledActionsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListRecommendedScheduledActions.ts.html |here} to see how to use ListRecommendedScheduledActionsRequest.
  */
 export interface ListRecommendedScheduledActionsRequest extends common.BaseRequest {
   /**
-   * The Scheduling Policy [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Scheduling Policy [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "schedulingPolicyId": string;
   /**
-   * The target resource [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) the scheduled actions will be for.
+   * The target resource [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) the scheduled actions will be for.
    */
   "schedulingPolicyTargetResourceId": string;
   /**

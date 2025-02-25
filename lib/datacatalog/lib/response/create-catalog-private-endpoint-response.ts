@@ -22,7 +22,7 @@ export interface CreateCatalogPrivateEndpointResponse {
    */
   "opcRequestId": string;
   /**
-   * The OCID of the asynchronous request. Use [GetWorkRequest](https://docs.cloud.oracle.com/api/#/en/workrequests/20160918/WorkRequest/GetWorkRequest) with this OCID to track the status of the asynchronous request.
+   * The OCID of the asynchronous request. Use [GetWorkRequest](https://docs.oracle.com/iaas/api/#/en/workrequests/20160918/WorkRequest/GetWorkRequest) with this OCID to track the status of the asynchronous request.
    *
    */
   "opcWorkRequestId": string;

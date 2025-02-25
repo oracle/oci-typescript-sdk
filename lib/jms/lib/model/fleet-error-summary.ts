@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface FleetErrorSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Fleet.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Fleet.
    */
   "fleetId": string;
   /**
@@ -27,7 +27,7 @@ export interface FleetErrorSummary {
    */
   "fleetName": string;
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Fleet.
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Fleet.
    *
    */
   "compartmentId": string;

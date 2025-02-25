@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteEndpoint.ts.html |here} to see how to use DeleteEndpointRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteEndpoint.ts.html |here} to see how to use DeleteEndpointRequest.
  */
 export interface DeleteEndpointRequest extends common.BaseRequest {
   /**

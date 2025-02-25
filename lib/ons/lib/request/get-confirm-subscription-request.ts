@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/GetConfirmSubscription.ts.html |here} to see how to use GetConfirmSubscriptionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ons/GetConfirmSubscription.ts.html |here} to see how to use GetConfirmSubscriptionRequest.
  */
 export interface GetConfirmSubscriptionRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription to get the confirmation details for.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription to get the confirmation details for.
    *
    */
   "id": string;
@@ -40,7 +40,7 @@ Allowed values:
 *   * {@code SMS}
 * <p>
 For information about subscription protocols, see
-* [To create a subscription](https://docs.cloud.oracle.com/iaas/Content/Notification/Tasks/managingtopicsandsubscriptions.htm#createSub).
+* [To create a subscription](https://docs.oracle.com/iaas/Content/Notification/Tasks/managingtopicsandsubscriptions.htm#createSub).
 * 
  */
   "protocol": string;

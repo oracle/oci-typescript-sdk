@@ -1,7 +1,7 @@
 /**
  * Compute Cloud@Customer API
  * Use the Compute Cloud@Customer API to manage Compute Cloud@Customer infrastructures and upgrade schedules.
-For more information see [Compute Cloud@Customer documentation](/iaas/compute-cloud-at-customer/home.htm).
+For more information see [Compute Cloud@Customer documentation](https://docs.oracle.com/iaas/compute-cloud-at-customer/home.htm).
 
  * OpenAPI spec version: 20221208
  * 
@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface CccInfrastructure {
   /**
-   * The Compute Cloud@Customer infrastructure [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The Compute Cloud@Customer infrastructure [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * This cannot be changed once created.
    *
    */
@@ -49,11 +49,11 @@ export interface CccInfrastructure {
    */
   "description"?: string;
   /**
-   * The infrastructure compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The infrastructure compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId": string;
   /**
-   * [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the network subnet that is
+   * [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the network subnet that is
    * used to communicate with Compute Cloud@Customer infrastructure.
    *
    */

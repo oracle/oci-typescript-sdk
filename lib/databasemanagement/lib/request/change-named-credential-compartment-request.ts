@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeNamedCredentialCompartment.ts.html |here} to see how to use ChangeNamedCredentialCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeNamedCredentialCompartment.ts.html |here} to see how to use ChangeNamedCredentialCompartmentRequest.
  */
 export interface ChangeNamedCredentialCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the named credential.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the named credential.
    */
   "namedCredentialId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to which the named credential should be moved.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to which the named credential should be moved.
    */
   "changeNamedCredentialCompartmentDetails": model.ChangeNamedCredentialCompartmentDetails;
   /**

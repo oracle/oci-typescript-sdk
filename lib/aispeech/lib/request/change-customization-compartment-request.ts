@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ChangeCustomizationCompartment.ts.html |here} to see how to use ChangeCustomizationCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ChangeCustomizationCompartment.ts.html |here} to see how to use ChangeCustomizationCompartmentRequest.
  */
 export interface ChangeCustomizationCompartmentRequest extends common.BaseRequest {
   /**

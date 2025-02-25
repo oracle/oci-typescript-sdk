@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateJavaDownloadReportDetails {
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) here should be
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) here should be
    * the tenancy OCID.
    *
    */
@@ -48,13 +48,13 @@ export interface CreateJavaDownloadReportDetails {
   "format": model.JavaDownloadReportFormat;
   /**
    * Simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
-   * Example: {@code {\"bar-key\": \"value\"}}. (See [Managing Tags and Tag Namespaces](https://docs.cloud.oracle.com/Content/Tagging/Concepts/understandingfreeformtags.htm).)
+   * Example: {@code {\"bar-key\": \"value\"}}. (See [Managing Tags and Tag Namespaces](https://docs.oracle.com/iaas/Content/Tagging/Concepts/understandingfreeformtags.htm).)
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}. (See [Understanding Free-form Tags](https://docs.cloud.oracle.com/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm)).
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}. (See [Understanding Free-form Tags](https://docs.oracle.com/iaas/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm)).
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

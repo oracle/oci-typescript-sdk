@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListFusionEnvironments.ts.html |here} to see how to use ListFusionEnvironmentsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListFusionEnvironments.ts.html |here} to see how to use ListFusionEnvironmentsRequest.
  */
 export interface ListFusionEnvironmentsRequest extends common.BaseRequest {
   /**

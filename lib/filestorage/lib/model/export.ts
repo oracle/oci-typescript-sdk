@@ -1,7 +1,7 @@
 /**
  * File Storage API
  * Use the File Storage service API to manage file systems, mount targets, and snapshots.
-For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+For more information, see [Overview of File Storage](https://docs.oracle.com/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -49,7 +49,7 @@ No two non-'DELETED' export resources in the same export set can
 * reference the same file system.
 * <p>
 Use {@code exportOptions} to control access to an export. For more information, see
-* [Export Options](https://docs.cloud.oracle.com/Content/File/Tasks/exportoptions.htm).
+* [Export Options](https://docs.oracle.com/iaas/Content/File/Tasks/exportoptions.htm).
 * 
 */
 export interface Export {
@@ -83,15 +83,15 @@ If one export is invisible to a particular client, associated file
     */
   "exportOptions": Array<model.ClientOptions>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of this export's export set.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this export's export set.
    */
   "exportSetId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of this export's file system.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this export's file system.
    */
   "fileSystemId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of this export.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this export.
    */
   "id": string;
   /**

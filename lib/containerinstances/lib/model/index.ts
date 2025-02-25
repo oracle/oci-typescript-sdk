@@ -124,8 +124,6 @@ export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRe
 
 import * as BasicImagePullSecret from "./basic-image-pull-secret";
 export import BasicImagePullSecret = BasicImagePullSecret.BasicImagePullSecret;
-import * as ContainerCommandHealthCheck from "./container-command-health-check";
-export import ContainerCommandHealthCheck = ContainerCommandHealthCheck.ContainerCommandHealthCheck;
 import * as ContainerConfigFileVolume from "./container-config-file-volume";
 export import ContainerConfigFileVolume = ContainerConfigFileVolume.ContainerConfigFileVolume;
 import * as ContainerEmptyDirVolume from "./container-empty-dir-volume";
@@ -136,8 +134,6 @@ import * as ContainerTcpHealthCheck from "./container-tcp-health-check";
 export import ContainerTcpHealthCheck = ContainerTcpHealthCheck.ContainerTcpHealthCheck;
 import * as CreateBasicImagePullSecretDetails from "./create-basic-image-pull-secret-details";
 export import CreateBasicImagePullSecretDetails = CreateBasicImagePullSecretDetails.CreateBasicImagePullSecretDetails;
-import * as CreateContainerCommandHealthCheckDetails from "./create-container-command-health-check-details";
-export import CreateContainerCommandHealthCheckDetails = CreateContainerCommandHealthCheckDetails.CreateContainerCommandHealthCheckDetails;
 import * as CreateContainerConfigFileVolumeDetails from "./create-container-config-file-volume-details";
 export import CreateContainerConfigFileVolumeDetails = CreateContainerConfigFileVolumeDetails.CreateContainerConfigFileVolumeDetails;
 import * as CreateContainerEmptyDirVolumeDetails from "./create-container-empty-dir-volume-details";

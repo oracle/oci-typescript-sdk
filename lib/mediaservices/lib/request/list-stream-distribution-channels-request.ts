@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListStreamDistributionChannels.ts.html |here} to see how to use ListStreamDistributionChannelsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/ListStreamDistributionChannels.ts.html |here} to see how to use ListStreamDistributionChannelsRequest.
  */
 export interface ListStreamDistributionChannelsRequest extends common.BaseRequest {
   /**

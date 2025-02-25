@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListConnectionAssignments.ts.html |here} to see how to use ListConnectionAssignmentsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListConnectionAssignments.ts.html |here} to see how to use ListConnectionAssignmentsRequest.
  */
 export interface ListConnectionAssignmentsRequest extends common.BaseRequest {
   /**
@@ -27,12 +27,12 @@ export interface ListConnectionAssignmentsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the deployment in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the deployment in which to list resources.
    *
    */
   "deploymentId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the connection.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the connection.
    *
    */
   "connectionId"?: string;

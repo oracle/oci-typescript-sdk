@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface RequestSummarizedMetricExtensionsResourcesDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of Metric Extension resource
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of Metric Extension resource
    */
   "metricExtensionId"?: string;
   /**
@@ -27,7 +27,7 @@ export interface RequestSummarizedMetricExtensionsResourcesDetails {
    */
   "resourceType"?: string;
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Compartment Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    */
   "compartmentId"?: string;
   /**
@@ -35,7 +35,7 @@ export interface RequestSummarizedMetricExtensionsResourcesDetails {
    */
   "associationStatus"?: RequestSummarizedMetricExtensionsResourcesDetails.AssociationStatus;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of Monitored Resource
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of Monitored Resource
    */
   "resourceId"?: string;
   /**

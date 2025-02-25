@@ -20,7 +20,7 @@ import common = require("oci-common");
 To use any of the API operations, you must be authorized in an IAM
 * policy. If you're not authorized, talk to an administrator. If you're an
 * administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface BackupSummary {
@@ -92,6 +92,12 @@ export interface BackupSummary {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
    * The OCID of the immediate source DB system backup from which this DB system backup was copied.
    *

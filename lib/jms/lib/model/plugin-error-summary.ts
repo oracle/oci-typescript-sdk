@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface PluginErrorSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Managed Instance running the plugin.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Managed Instance running the plugin.
    */
   "managedInstanceId": string;
   /**
@@ -31,7 +31,7 @@ export interface PluginErrorSummary {
    */
   "hostName"?: string;
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Fleet.
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Fleet.
    *
    */
   "compartmentId": string;

@@ -246,7 +246,7 @@ export class AttachmentClient {
    * @param CreateAttachmentRequest
    * @return CreateAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateAttachment.ts.html |here} to see how to use CreateAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateAttachment.ts.html |here} to see how to use CreateAttachment API.
    */
   public async createAttachment(
     createAttachmentRequest: requests.CreateAttachmentRequest
@@ -327,7 +327,7 @@ export class AttachmentClient {
    * @param DeleteAttachmentRequest
    * @return DeleteAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteAttachment.ts.html |here} to see how to use DeleteAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteAttachment.ts.html |here} to see how to use DeleteAttachment API.
    */
   public async deleteAttachment(
     deleteAttachmentRequest: requests.DeleteAttachmentRequest
@@ -400,7 +400,7 @@ export class AttachmentClient {
    * @param GetAttachmentRequest
    * @return GetAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetAttachment.ts.html |here} to see how to use GetAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetAttachment.ts.html |here} to see how to use GetAttachment API.
    */
   public async getAttachment(
     getAttachmentRequest: requests.GetAttachmentRequest
@@ -476,7 +476,7 @@ export class AttachmentClient {
    * @param GetAttachmentContentRequest
    * @return GetAttachmentContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetAttachmentContent.ts.html |here} to see how to use GetAttachmentContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetAttachmentContent.ts.html |here} to see how to use GetAttachmentContent API.
    */
   public async getAttachmentContent(
     getAttachmentContentRequest: requests.GetAttachmentContentRequest
@@ -548,7 +548,7 @@ export class AttachmentClient {
    * @param ListAttachmentsRequest
    * @return ListAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListAttachments.ts.html |here} to see how to use ListAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListAttachments.ts.html |here} to see how to use ListAttachments API.
    */
   public async listAttachments(
     listAttachmentsRequest: requests.ListAttachmentsRequest
@@ -843,7 +843,7 @@ export class MarketplacePublisherClient {
    * @param ActivateTermVersionRequest
    * @return ActivateTermVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ActivateTermVersion.ts.html |here} to see how to use ActivateTermVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ActivateTermVersion.ts.html |here} to see how to use ActivateTermVersion API.
    */
   public async activateTermVersion(
     activateTermVersionRequest: requests.ActivateTermVersionRequest
@@ -920,7 +920,7 @@ export class MarketplacePublisherClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -988,7 +988,7 @@ export class MarketplacePublisherClient {
    * @param CascadingDeleteListingRequest
    * @return CascadingDeleteListingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CascadingDeleteListing.ts.html |here} to see how to use CascadingDeleteListing API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CascadingDeleteListing.ts.html |here} to see how to use CascadingDeleteListing API.
    */
   public async cascadingDeleteListing(
     cascadingDeleteListingRequest: requests.CascadingDeleteListingRequest
@@ -1062,7 +1062,7 @@ export class MarketplacePublisherClient {
    * @param CascadingDeleteListingRevisionRequest
    * @return CascadingDeleteListingRevisionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CascadingDeleteListingRevision.ts.html |here} to see how to use CascadingDeleteListingRevision API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CascadingDeleteListingRevision.ts.html |here} to see how to use CascadingDeleteListingRevision API.
    */
   public async cascadingDeleteListingRevision(
     cascadingDeleteListingRevisionRequest: requests.CascadingDeleteListingRevisionRequest
@@ -1138,7 +1138,7 @@ export class MarketplacePublisherClient {
    * @param ChangeArtifactCompartmentRequest
    * @return ChangeArtifactCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ChangeArtifactCompartment.ts.html |here} to see how to use ChangeArtifactCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ChangeArtifactCompartment.ts.html |here} to see how to use ChangeArtifactCompartment API.
    */
   public async changeArtifactCompartment(
     changeArtifactCompartmentRequest: requests.ChangeArtifactCompartmentRequest
@@ -1212,7 +1212,7 @@ export class MarketplacePublisherClient {
    * @param ChangeListingCompartmentRequest
    * @return ChangeListingCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ChangeListingCompartment.ts.html |here} to see how to use ChangeListingCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ChangeListingCompartment.ts.html |here} to see how to use ChangeListingCompartment API.
    */
   public async changeListingCompartment(
     changeListingCompartmentRequest: requests.ChangeListingCompartmentRequest
@@ -1286,7 +1286,7 @@ export class MarketplacePublisherClient {
    * @param ChangeListingRevisionToNewStatusRequest
    * @return ChangeListingRevisionToNewStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ChangeListingRevisionToNewStatus.ts.html |here} to see how to use ChangeListingRevisionToNewStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ChangeListingRevisionToNewStatus.ts.html |here} to see how to use ChangeListingRevisionToNewStatus API.
    */
   public async changeListingRevisionToNewStatus(
     changeListingRevisionToNewStatusRequest: requests.ChangeListingRevisionToNewStatusRequest
@@ -1365,7 +1365,7 @@ export class MarketplacePublisherClient {
    * @param ChangeTermCompartmentRequest
    * @return ChangeTermCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ChangeTermCompartment.ts.html |here} to see how to use ChangeTermCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ChangeTermCompartment.ts.html |here} to see how to use ChangeTermCompartment API.
    */
   public async changeTermCompartment(
     changeTermCompartmentRequest: requests.ChangeTermCompartmentRequest
@@ -1439,7 +1439,7 @@ export class MarketplacePublisherClient {
    * @param CloneListingRevisionRequest
    * @return CloneListingRevisionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CloneListingRevision.ts.html |here} to see how to use CloneListingRevision API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CloneListingRevision.ts.html |here} to see how to use CloneListingRevision API.
    */
   public async cloneListingRevision(
     cloneListingRevisionRequest: requests.CloneListingRevisionRequest
@@ -1526,7 +1526,7 @@ After you send your request, the new object's `status` will temporarily be IN_PR
      * @param CreateArtifactRequest
      * @return CreateArtifactResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateArtifact.ts.html |here} to see how to use CreateArtifact API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateArtifact.ts.html |here} to see how to use CreateArtifact API.
      */
   public async createArtifact(
     createArtifactRequest: requests.CreateArtifactRequest
@@ -1611,7 +1611,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
      * @param CreateListingRequest
      * @return CreateListingResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateListing.ts.html |here} to see how to use CreateListing API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateListing.ts.html |here} to see how to use CreateListing API.
      */
   public async createListing(
     createListingRequest: requests.CreateListingRequest
@@ -1692,7 +1692,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param CreateListingRevisionRequest
    * @return CreateListingRevisionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateListingRevision.ts.html |here} to see how to use CreateListingRevision API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateListingRevision.ts.html |here} to see how to use CreateListingRevision API.
    */
   public async createListingRevision(
     createListingRevisionRequest: requests.CreateListingRevisionRequest
@@ -1773,7 +1773,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param CreateListingRevisionAttachmentRequest
    * @return CreateListingRevisionAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateListingRevisionAttachment.ts.html |here} to see how to use CreateListingRevisionAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateListingRevisionAttachment.ts.html |here} to see how to use CreateListingRevisionAttachment API.
    */
   public async createListingRevisionAttachment(
     createListingRevisionAttachmentRequest: requests.CreateListingRevisionAttachmentRequest
@@ -1856,7 +1856,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param CreateListingRevisionNoteRequest
    * @return CreateListingRevisionNoteResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateListingRevisionNote.ts.html |here} to see how to use CreateListingRevisionNote API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateListingRevisionNote.ts.html |here} to see how to use CreateListingRevisionNote API.
    */
   public async createListingRevisionNote(
     createListingRevisionNoteRequest: requests.CreateListingRevisionNoteRequest
@@ -1937,7 +1937,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param CreateListingRevisionPackageRequest
    * @return CreateListingRevisionPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateListingRevisionPackage.ts.html |here} to see how to use CreateListingRevisionPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateListingRevisionPackage.ts.html |here} to see how to use CreateListingRevisionPackage API.
    */
   public async createListingRevisionPackage(
     createListingRevisionPackageRequest: requests.CreateListingRevisionPackageRequest
@@ -2020,7 +2020,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param CreateTermRequest
    * @return CreateTermResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateTerm.ts.html |here} to see how to use CreateTerm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateTerm.ts.html |here} to see how to use CreateTerm API.
    */
   public async createTerm(
     createTermRequest: requests.CreateTermRequest
@@ -2099,7 +2099,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param CreateTermVersionRequest
    * @return CreateTermVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateTermVersion.ts.html |here} to see how to use CreateTermVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateTermVersion.ts.html |here} to see how to use CreateTermVersion API.
    */
   public async createTermVersion(
     createTermVersionRequest: requests.CreateTermVersionRequest
@@ -2177,7 +2177,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param DeleteArtifactRequest
    * @return DeleteArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteArtifact.ts.html |here} to see how to use DeleteArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteArtifact.ts.html |here} to see how to use DeleteArtifact API.
    */
   public async deleteArtifact(
     deleteArtifactRequest: requests.DeleteArtifactRequest
@@ -2251,7 +2251,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param DeleteListingRequest
    * @return DeleteListingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteListing.ts.html |here} to see how to use DeleteListing API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteListing.ts.html |here} to see how to use DeleteListing API.
    */
   public async deleteListing(
     deleteListingRequest: requests.DeleteListingRequest
@@ -2319,7 +2319,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param DeleteListingRevisionRequest
    * @return DeleteListingRevisionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteListingRevision.ts.html |here} to see how to use DeleteListingRevision API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteListingRevision.ts.html |here} to see how to use DeleteListingRevision API.
    */
   public async deleteListingRevision(
     deleteListingRevisionRequest: requests.DeleteListingRevisionRequest
@@ -2387,7 +2387,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param DeleteListingRevisionAttachmentRequest
    * @return DeleteListingRevisionAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteListingRevisionAttachment.ts.html |here} to see how to use DeleteListingRevisionAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteListingRevisionAttachment.ts.html |here} to see how to use DeleteListingRevisionAttachment API.
    */
   public async deleteListingRevisionAttachment(
     deleteListingRevisionAttachmentRequest: requests.DeleteListingRevisionAttachmentRequest
@@ -2458,7 +2458,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param DeleteListingRevisionNoteRequest
    * @return DeleteListingRevisionNoteResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteListingRevisionNote.ts.html |here} to see how to use DeleteListingRevisionNote API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteListingRevisionNote.ts.html |here} to see how to use DeleteListingRevisionNote API.
    */
   public async deleteListingRevisionNote(
     deleteListingRevisionNoteRequest: requests.DeleteListingRevisionNoteRequest
@@ -2526,7 +2526,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param DeleteListingRevisionPackageRequest
    * @return DeleteListingRevisionPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteListingRevisionPackage.ts.html |here} to see how to use DeleteListingRevisionPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteListingRevisionPackage.ts.html |here} to see how to use DeleteListingRevisionPackage API.
    */
   public async deleteListingRevisionPackage(
     deleteListingRevisionPackageRequest: requests.DeleteListingRevisionPackageRequest
@@ -2596,7 +2596,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param DeleteTermRequest
    * @return DeleteTermResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteTerm.ts.html |here} to see how to use DeleteTerm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteTerm.ts.html |here} to see how to use DeleteTerm API.
    */
   public async deleteTerm(
     deleteTermRequest: requests.DeleteTermRequest
@@ -2663,7 +2663,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param DeleteTermVersionRequest
    * @return DeleteTermVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteTermVersion.ts.html |here} to see how to use DeleteTermVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteTermVersion.ts.html |here} to see how to use DeleteTermVersion API.
    */
   public async deleteTermVersion(
     deleteTermVersionRequest: requests.DeleteTermVersionRequest
@@ -2731,7 +2731,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetArtifactRequest
    * @return GetArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetArtifact.ts.html |here} to see how to use GetArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetArtifact.ts.html |here} to see how to use GetArtifact API.
    */
   public async getArtifact(
     getArtifactRequest: requests.GetArtifactRequest
@@ -2806,7 +2806,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetCategoryRequest
    * @return GetCategoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetCategory.ts.html |here} to see how to use GetCategory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetCategory.ts.html |here} to see how to use GetCategory API.
    */
   public async getCategory(
     getCategoryRequest: requests.GetCategoryRequest
@@ -2884,7 +2884,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetListingRequest
    * @return GetListingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetListing.ts.html |here} to see how to use GetListing API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetListing.ts.html |here} to see how to use GetListing API.
    */
   public async getListing(
     getListingRequest: requests.GetListingRequest
@@ -2960,7 +2960,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetListingRevisionRequest
    * @return GetListingRevisionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetListingRevision.ts.html |here} to see how to use GetListingRevision API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetListingRevision.ts.html |here} to see how to use GetListingRevision API.
    */
   public async getListingRevision(
     getListingRevisionRequest: requests.GetListingRevisionRequest
@@ -3037,7 +3037,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetListingRevisionAttachmentRequest
    * @return GetListingRevisionAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetListingRevisionAttachment.ts.html |here} to see how to use GetListingRevisionAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetListingRevisionAttachment.ts.html |here} to see how to use GetListingRevisionAttachment API.
    */
   public async getListingRevisionAttachment(
     getListingRevisionAttachmentRequest: requests.GetListingRevisionAttachmentRequest
@@ -3116,7 +3116,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetListingRevisionNoteRequest
    * @return GetListingRevisionNoteResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetListingRevisionNote.ts.html |here} to see how to use GetListingRevisionNote API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetListingRevisionNote.ts.html |here} to see how to use GetListingRevisionNote API.
    */
   public async getListingRevisionNote(
     getListingRevisionNoteRequest: requests.GetListingRevisionNoteRequest
@@ -3193,7 +3193,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetListingRevisionPackageRequest
    * @return GetListingRevisionPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetListingRevisionPackage.ts.html |here} to see how to use GetListingRevisionPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetListingRevisionPackage.ts.html |here} to see how to use GetListingRevisionPackage API.
    */
   public async getListingRevisionPackage(
     getListingRevisionPackageRequest: requests.GetListingRevisionPackageRequest
@@ -3269,7 +3269,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetMarketRequest
    * @return GetMarketResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetMarket.ts.html |here} to see how to use GetMarket API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetMarket.ts.html |here} to see how to use GetMarket API.
    */
   public async getMarket(
     getMarketRequest: requests.GetMarketRequest
@@ -3344,7 +3344,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetProductRequest
    * @return GetProductResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetProduct.ts.html |here} to see how to use GetProduct API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetProduct.ts.html |here} to see how to use GetProduct API.
    */
   public async getProduct(
     getProductRequest: requests.GetProductRequest
@@ -3419,7 +3419,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetPublisherRequest
    * @return GetPublisherResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetPublisher.ts.html |here} to see how to use GetPublisher API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetPublisher.ts.html |here} to see how to use GetPublisher API.
    */
   public async getPublisher(
     getPublisherRequest: requests.GetPublisherRequest
@@ -3495,7 +3495,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetTermRequest
    * @return GetTermResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetTerm.ts.html |here} to see how to use GetTerm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetTerm.ts.html |here} to see how to use GetTerm API.
    */
   public async getTerm(
     getTermRequest: requests.GetTermRequest
@@ -3570,7 +3570,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetTermVersionRequest
    * @return GetTermVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetTermVersion.ts.html |here} to see how to use GetTermVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetTermVersion.ts.html |here} to see how to use GetTermVersion API.
    */
   public async getTermVersion(
     getTermVersionRequest: requests.GetTermVersionRequest
@@ -3646,7 +3646,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -3730,7 +3730,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param ListArtifactsRequest
    * @return ListArtifactsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListArtifacts.ts.html |here} to see how to use ListArtifacts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListArtifacts.ts.html |here} to see how to use ListArtifacts API.
    */
   public async listArtifacts(
     listArtifactsRequest: requests.ListArtifactsRequest
@@ -3816,7 +3816,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param ListCategoriesRequest
    * @return ListCategoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListCategories.ts.html |here} to see how to use ListCategories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListCategories.ts.html |here} to see how to use ListCategories API.
    */
   public async listCategories(
     listCategoriesRequest: requests.ListCategoriesRequest
@@ -3899,7 +3899,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param ListListingRevisionAttachmentsRequest
    * @return ListListingRevisionAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListListingRevisionAttachments.ts.html |here} to see how to use ListListingRevisionAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListListingRevisionAttachments.ts.html |here} to see how to use ListListingRevisionAttachments API.
    */
   public async listListingRevisionAttachments(
     listListingRevisionAttachmentsRequest: requests.ListListingRevisionAttachmentsRequest
@@ -3985,7 +3985,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param ListListingRevisionNotesRequest
    * @return ListListingRevisionNotesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListListingRevisionNotes.ts.html |here} to see how to use ListListingRevisionNotes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListListingRevisionNotes.ts.html |here} to see how to use ListListingRevisionNotes API.
    */
   public async listListingRevisionNotes(
     listListingRevisionNotesRequest: requests.ListListingRevisionNotesRequest
@@ -4067,7 +4067,7 @@ After you send your request, the new object's `lifecycleState` will be CREATING.
    * @param ListListingRevisionPackagesRequest
    * @return ListListingRevisionPackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListListingRevisionPackages.ts.html |here} to see how to use ListListingRevisionPackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListListingRevisionPackages.ts.html |here} to see how to use ListListingRevisionPackages API.
    */
   public async listListingRevisionPackages(
     listListingRevisionPackagesRequest: requests.ListListingRevisionPackagesRequest
@@ -4156,7 +4156,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
      * @param ListListingRevisionsRequest
      * @return ListListingRevisionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListListingRevisions.ts.html |here} to see how to use ListListingRevisions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListListingRevisions.ts.html |here} to see how to use ListListingRevisions API.
      */
   public async listListingRevisions(
     listListingRevisionsRequest: requests.ListListingRevisionsRequest
@@ -4243,7 +4243,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param ListListingsRequest
    * @return ListListingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListListings.ts.html |here} to see how to use ListListings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListListings.ts.html |here} to see how to use ListListings API.
    */
   public async listListings(
     listListingsRequest: requests.ListListingsRequest
@@ -4328,7 +4328,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param ListMarketsRequest
    * @return ListMarketsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListMarkets.ts.html |here} to see how to use ListMarkets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListMarkets.ts.html |here} to see how to use ListMarkets API.
    */
   public async listMarkets(
     listMarketsRequest: requests.ListMarketsRequest
@@ -4411,7 +4411,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param ListProductsRequest
    * @return ListProductsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListProducts.ts.html |here} to see how to use ListProducts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListProducts.ts.html |here} to see how to use ListProducts API.
    */
   public async listProducts(
     listProductsRequest: requests.ListProductsRequest
@@ -4492,7 +4492,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param ListPublishersRequest
    * @return ListPublishersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListPublishers.ts.html |here} to see how to use ListPublishers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListPublishers.ts.html |here} to see how to use ListPublishers API.
    */
   public async listPublishers(
     listPublishersRequest: requests.ListPublishersRequest
@@ -4573,7 +4573,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param ListTermVersionsRequest
    * @return ListTermVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListTermVersions.ts.html |here} to see how to use ListTermVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListTermVersions.ts.html |here} to see how to use ListTermVersions API.
    */
   public async listTermVersions(
     listTermVersionsRequest: requests.ListTermVersionsRequest
@@ -4655,7 +4655,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param ListTermsRequest
    * @return ListTermsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListTerms.ts.html |here} to see how to use ListTerms API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListTerms.ts.html |here} to see how to use ListTerms API.
    */
   public async listTerms(
     listTermsRequest: requests.ListTermsRequest
@@ -4736,7 +4736,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -4818,7 +4818,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -4900,7 +4900,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -4983,7 +4983,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param MarkListingRevisionPackageAsDefaultRequest
    * @return MarkListingRevisionPackageAsDefaultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/MarkListingRevisionPackageAsDefault.ts.html |here} to see how to use MarkListingRevisionPackageAsDefault API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/MarkListingRevisionPackageAsDefault.ts.html |here} to see how to use MarkListingRevisionPackageAsDefault API.
    */
   public async markListingRevisionPackageAsDefault(
     markListingRevisionPackageAsDefaultRequest: requests.MarkListingRevisionPackageAsDefaultRequest
@@ -5060,7 +5060,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param PublishListingRevisionRequest
    * @return PublishListingRevisionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/PublishListingRevision.ts.html |here} to see how to use PublishListingRevision API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/PublishListingRevision.ts.html |here} to see how to use PublishListingRevision API.
    */
   public async publishListingRevision(
     publishListingRevisionRequest: requests.PublishListingRevisionRequest
@@ -5134,7 +5134,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param PublishListingRevisionAsPrivateRequest
    * @return PublishListingRevisionAsPrivateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/PublishListingRevisionAsPrivate.ts.html |here} to see how to use PublishListingRevisionAsPrivate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/PublishListingRevisionAsPrivate.ts.html |here} to see how to use PublishListingRevisionAsPrivate API.
    */
   public async publishListingRevisionAsPrivate(
     publishListingRevisionAsPrivateRequest: requests.PublishListingRevisionAsPrivateRequest
@@ -5215,7 +5215,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param PublishListingRevisionPackageRequest
    * @return PublishListingRevisionPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/PublishListingRevisionPackage.ts.html |here} to see how to use PublishListingRevisionPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/PublishListingRevisionPackage.ts.html |here} to see how to use PublishListingRevisionPackage API.
    */
   public async publishListingRevisionPackage(
     publishListingRevisionPackageRequest: requests.PublishListingRevisionPackageRequest
@@ -5291,7 +5291,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param SubmitListingRevisionForReviewRequest
    * @return SubmitListingRevisionForReviewResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/SubmitListingRevisionForReview.ts.html |here} to see how to use SubmitListingRevisionForReview API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/SubmitListingRevisionForReview.ts.html |here} to see how to use SubmitListingRevisionForReview API.
    */
   public async submitListingRevisionForReview(
     submitListingRevisionForReviewRequest: requests.SubmitListingRevisionForReviewRequest
@@ -5376,7 +5376,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UnPublishListingRevisionPackageRequest
    * @return UnPublishListingRevisionPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UnPublishListingRevisionPackage.ts.html |here} to see how to use UnPublishListingRevisionPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UnPublishListingRevisionPackage.ts.html |here} to see how to use UnPublishListingRevisionPackage API.
    */
   public async unPublishListingRevisionPackage(
     unPublishListingRevisionPackageRequest: requests.UnPublishListingRevisionPackageRequest
@@ -5452,7 +5452,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UpdateArtifactRequest
    * @return UpdateArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateArtifact.ts.html |here} to see how to use UpdateArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateArtifact.ts.html |here} to see how to use UpdateArtifact API.
    */
   public async updateArtifact(
     updateArtifactRequest: requests.UpdateArtifactRequest
@@ -5530,7 +5530,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UpdateListingRequest
    * @return UpdateListingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListing.ts.html |here} to see how to use UpdateListing API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListing.ts.html |here} to see how to use UpdateListing API.
    */
   public async updateListing(
     updateListingRequest: requests.UpdateListingRequest
@@ -5612,7 +5612,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UpdateListingRevisionRequest
    * @return UpdateListingRevisionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListingRevision.ts.html |here} to see how to use UpdateListingRevision API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListingRevision.ts.html |here} to see how to use UpdateListingRevision API.
    */
   public async updateListingRevision(
     updateListingRevisionRequest: requests.UpdateListingRevisionRequest
@@ -5694,7 +5694,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UpdateListingRevisionAttachmentRequest
    * @return UpdateListingRevisionAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListingRevisionAttachment.ts.html |here} to see how to use UpdateListingRevisionAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListingRevisionAttachment.ts.html |here} to see how to use UpdateListingRevisionAttachment API.
    */
   public async updateListingRevisionAttachment(
     updateListingRevisionAttachmentRequest: requests.UpdateListingRevisionAttachmentRequest
@@ -5779,7 +5779,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UpdateListingRevisionAttachmentContentRequest
    * @return UpdateListingRevisionAttachmentContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListingRevisionAttachmentContent.ts.html |here} to see how to use UpdateListingRevisionAttachmentContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListingRevisionAttachmentContent.ts.html |here} to see how to use UpdateListingRevisionAttachmentContent API.
    */
   public async updateListingRevisionAttachmentContent(
     updateListingRevisionAttachmentContentRequest: requests.UpdateListingRevisionAttachmentContentRequest
@@ -5861,7 +5861,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UpdateListingRevisionIconContentRequest
    * @return UpdateListingRevisionIconContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListingRevisionIconContent.ts.html |here} to see how to use UpdateListingRevisionIconContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListingRevisionIconContent.ts.html |here} to see how to use UpdateListingRevisionIconContent API.
    */
   public async updateListingRevisionIconContent(
     updateListingRevisionIconContentRequest: requests.UpdateListingRevisionIconContentRequest
@@ -5941,7 +5941,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UpdateListingRevisionPackageRequest
    * @return UpdateListingRevisionPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListingRevisionPackage.ts.html |here} to see how to use UpdateListingRevisionPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateListingRevisionPackage.ts.html |here} to see how to use UpdateListingRevisionPackage API.
    */
   public async updateListingRevisionPackage(
     updateListingRevisionPackageRequest: requests.UpdateListingRevisionPackageRequest
@@ -6025,7 +6025,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UpdateTermRequest
    * @return UpdateTermResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateTerm.ts.html |here} to see how to use UpdateTerm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateTerm.ts.html |here} to see how to use UpdateTerm API.
    */
   public async updateTerm(
     updateTermRequest: requests.UpdateTermRequest
@@ -6106,7 +6106,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UpdateTermVersionRequest
    * @return UpdateTermVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateTermVersion.ts.html |here} to see how to use UpdateTermVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateTermVersion.ts.html |here} to see how to use UpdateTermVersion API.
    */
   public async updateTermVersion(
     updateTermVersionRequest: requests.UpdateTermVersionRequest
@@ -6188,7 +6188,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param UpdateTermVersionContentRequest
    * @return UpdateTermVersionContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateTermVersionContent.ts.html |here} to see how to use UpdateTermVersionContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateTermVersionContent.ts.html |here} to see how to use UpdateTermVersionContent API.
    */
   public async updateTermVersionContent(
     updateTermVersionContentRequest: requests.UpdateTermVersionContentRequest
@@ -6267,7 +6267,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param ValidateAndPublishArtifactRequest
    * @return ValidateAndPublishArtifactResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ValidateAndPublishArtifact.ts.html |here} to see how to use ValidateAndPublishArtifact API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ValidateAndPublishArtifact.ts.html |here} to see how to use ValidateAndPublishArtifact API.
    */
   public async validateAndPublishArtifact(
     validateAndPublishArtifactRequest: requests.ValidateAndPublishArtifactRequest
@@ -6341,7 +6341,7 @@ You can specify your compartment's OCID as the value for the compartment ID.
    * @param WithdrawListingRevisionRequest
    * @return WithdrawListingRevisionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/WithdrawListingRevision.ts.html |here} to see how to use WithdrawListingRevision API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/WithdrawListingRevision.ts.html |here} to see how to use WithdrawListingRevision API.
    */
   public async withdrawListingRevision(
     withdrawListingRevisionRequest: requests.WithdrawListingRevisionRequest
@@ -6625,7 +6625,7 @@ export class OfferClient {
    * @param CreateOfferRequest
    * @return CreateOfferResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateOffer.ts.html |here} to see how to use CreateOffer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/CreateOffer.ts.html |here} to see how to use CreateOffer API.
    */
   public async createOffer(
     createOfferRequest: requests.CreateOfferRequest
@@ -6704,7 +6704,7 @@ export class OfferClient {
    * @param DeleteOfferRequest
    * @return DeleteOfferResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteOffer.ts.html |here} to see how to use DeleteOffer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/DeleteOffer.ts.html |here} to see how to use DeleteOffer API.
    */
   public async deleteOffer(
     deleteOfferRequest: requests.DeleteOfferRequest
@@ -6776,7 +6776,7 @@ export class OfferClient {
    * @param GetOfferRequest
    * @return GetOfferResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetOffer.ts.html |here} to see how to use GetOffer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetOffer.ts.html |here} to see how to use GetOffer API.
    */
   public async getOffer(
     getOfferRequest: requests.GetOfferRequest
@@ -6851,7 +6851,7 @@ export class OfferClient {
    * @param GetOfferInternalDetailRequest
    * @return GetOfferInternalDetailResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetOfferInternalDetail.ts.html |here} to see how to use GetOfferInternalDetail API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/GetOfferInternalDetail.ts.html |here} to see how to use GetOfferInternalDetail API.
    */
   public async getOfferInternalDetail(
     getOfferInternalDetailRequest: requests.GetOfferInternalDetailRequest
@@ -6927,7 +6927,7 @@ export class OfferClient {
    * @param ListOffersRequest
    * @return ListOffersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListOffers.ts.html |here} to see how to use ListOffers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/ListOffers.ts.html |here} to see how to use ListOffers API.
    */
   public async listOffers(
     listOffersRequest: requests.ListOffersRequest
@@ -7010,7 +7010,7 @@ export class OfferClient {
    * @param UpdateOfferRequest
    * @return UpdateOfferResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateOffer.ts.html |here} to see how to use UpdateOffer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplacepublisher/UpdateOffer.ts.html |here} to see how to use UpdateOffer API.
    */
   public async updateOffer(
     updateOfferRequest: requests.UpdateOfferRequest

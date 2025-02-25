@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -21,23 +21,23 @@ import common = require("oci-common");
  */
 export interface ManagementStation {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance that is acting as the management station.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance that is acting as the management station.
    */
   "managedInstanceId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the management station.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the management station.
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the scheduled job for the mirror sync.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the scheduled job for the mirror sync.
    */
   "scheduledJobId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile used for the management station.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile used for the management station.
    */
   "profileId"?: string;
   /**
@@ -77,15 +77,47 @@ export interface ManagementStation {
    */
   "lifecycleState"?: ManagementStation.LifecycleState;
   /**
+   * When enabled, the station setup script automatically runs to configure the firewall and SELinux settings on the station.
+   */
+  "isAutoConfigEnabled"?: boolean;
+  /**
+   * A list of other management stations that are behind the same load balancer within a high availability configuration. Stations are identified as peers if they have the same hostname and compartment.
+   */
+  "peerManagementStations": Array<model.PeerManagementStation>;
+  /**
+   * The location of the instance that is acting as the management station.
+   */
+  "location"?: model.ManagedInstanceLocation;
+  /**
+   * Amount of available mirror storage in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mirrorStorageAvailableSize"?: number;
+  /**
+   * Total mirror storage size in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mirrorStorageSize"?: number;
+  /**
+   * The total size of all software source mirrors in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mirrorSize"?: number;
+  /**
+   * The total number of unique packages within the mirrored software sources on the station. Each package is counted only once, regardless of how many versions it has. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mirrorUniquePackageCount"?: number;
+  /**
+   * The total number of all packages within the mirrored software sources. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mirrorPackageCount"?: number;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -122,7 +154,13 @@ export namespace ManagementStation {
           : undefined,
         "proxy": obj.proxy ? model.ProxyConfiguration.getJsonObj(obj.proxy) : undefined,
         "mirror": obj.mirror ? model.MirrorConfiguration.getJsonObj(obj.mirror) : undefined,
-        "health": obj.health ? model.StationHealth.getJsonObj(obj.health) : undefined
+        "health": obj.health ? model.StationHealth.getJsonObj(obj.health) : undefined,
+
+        "peerManagementStations": obj.peerManagementStations
+          ? obj.peerManagementStations.map(item => {
+              return model.PeerManagementStation.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -139,7 +177,13 @@ export namespace ManagementStation {
         "mirror": obj.mirror
           ? model.MirrorConfiguration.getDeserializedJsonObj(obj.mirror)
           : undefined,
-        "health": obj.health ? model.StationHealth.getDeserializedJsonObj(obj.health) : undefined
+        "health": obj.health ? model.StationHealth.getDeserializedJsonObj(obj.health) : undefined,
+
+        "peerManagementStations": obj.peerManagementStations
+          ? obj.peerManagementStations.map(item => {
+              return model.PeerManagementStation.getDeserializedJsonObj(item);
+            })
+          : undefined
       }
     };
 

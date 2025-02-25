@@ -1,6 +1,6 @@
 /**
  * Database Service API
- * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](/iaas/Content/Database/Concepts/databaseoverview.htm).
+ * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: sic_dbaas_cp_us_grp@oracle.com
@@ -250,7 +250,7 @@ export class DatabaseClient {
    * @param ActivateExadataInfrastructureRequest
    * @return ActivateExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ActivateExadataInfrastructure.ts.html |here} to see how to use ActivateExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ActivateExadataInfrastructure.ts.html |here} to see how to use ActivateExadataInfrastructure API.
    */
   public async activateExadataInfrastructure(
     activateExadataInfrastructureRequest: requests.ActivateExadataInfrastructureRequest
@@ -339,7 +339,7 @@ export class DatabaseClient {
    * @param AddStorageCapacityCloudExadataInfrastructureRequest
    * @return AddStorageCapacityCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddStorageCapacityCloudExadataInfrastructure.ts.html |here} to see how to use AddStorageCapacityCloudExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddStorageCapacityCloudExadataInfrastructure.ts.html |here} to see how to use AddStorageCapacityCloudExadataInfrastructure API.
    */
   public async addStorageCapacityCloudExadataInfrastructure(
     addStorageCapacityCloudExadataInfrastructureRequest: requests.AddStorageCapacityCloudExadataInfrastructureRequest
@@ -428,7 +428,7 @@ export class DatabaseClient {
    * @param AddStorageCapacityExadataInfrastructureRequest
    * @return AddStorageCapacityExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddStorageCapacityExadataInfrastructure.ts.html |here} to see how to use AddStorageCapacityExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddStorageCapacityExadataInfrastructure.ts.html |here} to see how to use AddStorageCapacityExadataInfrastructure API.
    */
   public async addStorageCapacityExadataInfrastructure(
     addStorageCapacityExadataInfrastructureRequest: requests.AddStorageCapacityExadataInfrastructureRequest
@@ -516,7 +516,7 @@ export class DatabaseClient {
    * @param AddVirtualMachineToCloudVmClusterRequest
    * @return AddVirtualMachineToCloudVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddVirtualMachineToCloudVmCluster.ts.html |here} to see how to use AddVirtualMachineToCloudVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddVirtualMachineToCloudVmCluster.ts.html |here} to see how to use AddVirtualMachineToCloudVmCluster API.
    */
   public async addVirtualMachineToCloudVmCluster(
     addVirtualMachineToCloudVmClusterRequest: requests.AddVirtualMachineToCloudVmClusterRequest
@@ -606,7 +606,7 @@ export class DatabaseClient {
    * @param AddVirtualMachineToVmClusterRequest
    * @return AddVirtualMachineToVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddVirtualMachineToVmCluster.ts.html |here} to see how to use AddVirtualMachineToVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddVirtualMachineToVmCluster.ts.html |here} to see how to use AddVirtualMachineToVmCluster API.
    */
   public async addVirtualMachineToVmCluster(
     addVirtualMachineToVmClusterRequest: requests.AddVirtualMachineToVmClusterRequest
@@ -696,7 +696,7 @@ export class DatabaseClient {
    * @param AutonomousDatabaseManualRefreshRequest
    * @return AutonomousDatabaseManualRefreshResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AutonomousDatabaseManualRefresh.ts.html |here} to see how to use AutonomousDatabaseManualRefresh API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AutonomousDatabaseManualRefresh.ts.html |here} to see how to use AutonomousDatabaseManualRefresh API.
    */
   public async autonomousDatabaseManualRefresh(
     autonomousDatabaseManualRefreshRequest: requests.AutonomousDatabaseManualRefreshRequest
@@ -785,7 +785,7 @@ export class DatabaseClient {
    * @param CancelBackupRequest
    * @return CancelBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CancelBackup.ts.html |here} to see how to use CancelBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CancelBackup.ts.html |here} to see how to use CancelBackup API.
    */
   public async cancelBackup(
     cancelBackupRequest: requests.CancelBackupRequest
@@ -860,7 +860,7 @@ export class DatabaseClient {
    * @param CancelExecutionWindowRequest
    * @return CancelExecutionWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CancelExecutionWindow.ts.html |here} to see how to use CancelExecutionWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CancelExecutionWindow.ts.html |here} to see how to use CancelExecutionWindow API.
    */
   public async cancelExecutionWindow(
     cancelExecutionWindowRequest: requests.CancelExecutionWindowRequest
@@ -949,7 +949,7 @@ export class DatabaseClient {
    * @param CascadingDeleteSchedulingPlanRequest
    * @return CascadingDeleteSchedulingPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CascadingDeleteSchedulingPlan.ts.html |here} to see how to use CascadingDeleteSchedulingPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CascadingDeleteSchedulingPlan.ts.html |here} to see how to use CascadingDeleteSchedulingPlan API.
    */
   public async cascadingDeleteSchedulingPlan(
     cascadingDeleteSchedulingPlanRequest: requests.CascadingDeleteSchedulingPlanRequest
@@ -1021,13 +1021,13 @@ export class DatabaseClient {
   /**
    * Move the Autonomous Container Database and its dependent resources to the specified compartment.
    * For more information about moving Autonomous Container Databases, see
-   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAutonomousContainerDatabaseCompartmentRequest
    * @return ChangeAutonomousContainerDatabaseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousContainerDatabaseCompartment.ts.html |here} to see how to use ChangeAutonomousContainerDatabaseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousContainerDatabaseCompartment.ts.html |here} to see how to use ChangeAutonomousContainerDatabaseCompartment API.
    */
   public async changeAutonomousContainerDatabaseCompartment(
     changeAutonomousContainerDatabaseCompartmentRequest: requests.ChangeAutonomousContainerDatabaseCompartmentRequest
@@ -1113,13 +1113,13 @@ export class DatabaseClient {
   /**
    * Move the Autonomous Database and its dependent resources to the specified compartment.
    * For more information about moving Autonomous Databases, see
-   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAutonomousDatabaseCompartmentRequest
    * @return ChangeAutonomousDatabaseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseCompartment.ts.html |here} to see how to use ChangeAutonomousDatabaseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseCompartment.ts.html |here} to see how to use ChangeAutonomousDatabaseCompartment API.
    */
   public async changeAutonomousDatabaseCompartment(
     changeAutonomousDatabaseCompartmentRequest: requests.ChangeAutonomousDatabaseCompartmentRequest
@@ -1205,7 +1205,7 @@ export class DatabaseClient {
    * @param ChangeAutonomousDatabaseSoftwareImageCompartmentRequest
    * @return ChangeAutonomousDatabaseSoftwareImageCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseSoftwareImageCompartment.ts.html |here} to see how to use ChangeAutonomousDatabaseSoftwareImageCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseSoftwareImageCompartment.ts.html |here} to see how to use ChangeAutonomousDatabaseSoftwareImageCompartment API.
    */
   public async changeAutonomousDatabaseSoftwareImageCompartment(
     changeAutonomousDatabaseSoftwareImageCompartmentRequest: requests.ChangeAutonomousDatabaseSoftwareImageCompartmentRequest
@@ -1295,7 +1295,7 @@ export class DatabaseClient {
    * @param ChangeAutonomousDatabaseSubscriptionRequest
    * @return ChangeAutonomousDatabaseSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseSubscription.ts.html |here} to see how to use ChangeAutonomousDatabaseSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseSubscription.ts.html |here} to see how to use ChangeAutonomousDatabaseSubscription API.
    */
   public async changeAutonomousDatabaseSubscription(
     changeAutonomousDatabaseSubscriptionRequest: requests.ChangeAutonomousDatabaseSubscriptionRequest
@@ -1372,13 +1372,13 @@ export class DatabaseClient {
   /**
    * **Deprecated.** Use the {@link #changeCloudExadataInfrastructureCompartment(ChangeCloudExadataInfrastructureCompartmentRequest) changeCloudExadataInfrastructureCompartment} operation to move an Exadata infrastructure resource to a different compartment and  {@link #changeCloudAutonomousVmClusterCompartment(ChangeCloudAutonomousVmClusterCompartmentRequest) changeCloudAutonomousVmClusterCompartment} operation to move an Autonomous Exadata VM cluster to a different compartment.
    * For more information, see
-   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAutonomousExadataInfrastructureCompartmentRequest
    * @return ChangeAutonomousExadataInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeAutonomousExadataInfrastructureCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeAutonomousExadataInfrastructureCompartment API.
    */
   public async changeAutonomousExadataInfrastructureCompartment(
     changeAutonomousExadataInfrastructureCompartmentRequest: requests.ChangeAutonomousExadataInfrastructureCompartmentRequest
@@ -1468,7 +1468,7 @@ export class DatabaseClient {
    * @param ChangeAutonomousVmClusterCompartmentRequest
    * @return ChangeAutonomousVmClusterCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousVmClusterCompartment.ts.html |here} to see how to use ChangeAutonomousVmClusterCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousVmClusterCompartment.ts.html |here} to see how to use ChangeAutonomousVmClusterCompartment API.
    */
   public async changeAutonomousVmClusterCompartment(
     changeAutonomousVmClusterCompartmentRequest: requests.ChangeAutonomousVmClusterCompartmentRequest
@@ -1545,13 +1545,13 @@ export class DatabaseClient {
   /**
    * Move the backup destination and its dependent resources to the specified compartment.
    * For more information, see
-   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeBackupDestinationCompartmentRequest
    * @return ChangeBackupDestinationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeBackupDestinationCompartment.ts.html |here} to see how to use ChangeBackupDestinationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeBackupDestinationCompartment.ts.html |here} to see how to use ChangeBackupDestinationCompartment API.
    */
   public async changeBackupDestinationCompartment(
     changeBackupDestinationCompartmentRequest: requests.ChangeBackupDestinationCompartmentRequest
@@ -1637,7 +1637,7 @@ export class DatabaseClient {
    * @param ChangeCloudAutonomousVmClusterCompartmentRequest
    * @return ChangeCloudAutonomousVmClusterCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudAutonomousVmClusterCompartment.ts.html |here} to see how to use ChangeCloudAutonomousVmClusterCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudAutonomousVmClusterCompartment.ts.html |here} to see how to use ChangeCloudAutonomousVmClusterCompartment API.
    */
   public async changeCloudAutonomousVmClusterCompartment(
     changeCloudAutonomousVmClusterCompartmentRequest: requests.ChangeCloudAutonomousVmClusterCompartmentRequest
@@ -1715,13 +1715,13 @@ export class DatabaseClient {
   }
 
   /**
-   * Moves a cloud Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.For more information about moving resources to a different compartment, see [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * Moves a cloud Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.For more information about moving resources to a different compartment, see [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCloudExadataInfrastructureCompartmentRequest
    * @return ChangeCloudExadataInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeCloudExadataInfrastructureCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeCloudExadataInfrastructureCompartment API.
    */
   public async changeCloudExadataInfrastructureCompartment(
     changeCloudExadataInfrastructureCompartmentRequest: requests.ChangeCloudExadataInfrastructureCompartmentRequest
@@ -1805,7 +1805,7 @@ export class DatabaseClient {
    * @param ChangeCloudExadataInfrastructureSubscriptionRequest
    * @return ChangeCloudExadataInfrastructureSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudExadataInfrastructureSubscription.ts.html |here} to see how to use ChangeCloudExadataInfrastructureSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudExadataInfrastructureSubscription.ts.html |here} to see how to use ChangeCloudExadataInfrastructureSubscription API.
    */
   public async changeCloudExadataInfrastructureSubscription(
     changeCloudExadataInfrastructureSubscriptionRequest: requests.ChangeCloudExadataInfrastructureSubscriptionRequest
@@ -1890,7 +1890,7 @@ export class DatabaseClient {
    * @param ChangeCloudVmClusterCompartmentRequest
    * @return ChangeCloudVmClusterCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudVmClusterCompartment.ts.html |here} to see how to use ChangeCloudVmClusterCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudVmClusterCompartment.ts.html |here} to see how to use ChangeCloudVmClusterCompartment API.
    */
   public async changeCloudVmClusterCompartment(
     changeCloudVmClusterCompartmentRequest: requests.ChangeCloudVmClusterCompartmentRequest
@@ -1971,7 +1971,7 @@ export class DatabaseClient {
    * @param ChangeCloudVmClusterSubscriptionRequest
    * @return ChangeCloudVmClusterSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudVmClusterSubscription.ts.html |here} to see how to use ChangeCloudVmClusterSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudVmClusterSubscription.ts.html |here} to see how to use ChangeCloudVmClusterSubscription API.
    */
   public async changeCloudVmClusterSubscription(
     changeCloudVmClusterSubscriptionRequest: requests.ChangeCloudVmClusterSubscriptionRequest
@@ -2048,13 +2048,13 @@ export class DatabaseClient {
   /**
    * Move the Database Software Image and its dependent resources to the specified compartment.
    * For more information about moving Databse Software Images, see
-   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDatabaseSoftwareImageCompartmentRequest
    * @return ChangeDatabaseSoftwareImageCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDatabaseSoftwareImageCompartment.ts.html |here} to see how to use ChangeDatabaseSoftwareImageCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDatabaseSoftwareImageCompartment.ts.html |here} to see how to use ChangeDatabaseSoftwareImageCompartment API.
    */
   public async changeDatabaseSoftwareImageCompartment(
     changeDatabaseSoftwareImageCompartmentRequest: requests.ChangeDatabaseSoftwareImageCompartmentRequest
@@ -2143,7 +2143,7 @@ export class DatabaseClient {
    * @param ChangeDataguardRoleRequest
    * @return ChangeDataguardRoleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDataguardRole.ts.html |here} to see how to use ChangeDataguardRole API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDataguardRole.ts.html |here} to see how to use ChangeDataguardRole API.
    */
   public async changeDataguardRole(
     changeDataguardRoleRequest: requests.ChangeDataguardRoleRequest
@@ -2229,13 +2229,13 @@ export class DatabaseClient {
   /**
    * Moves the DB system and its dependent resources to the specified compartment.
    * For more information about moving DB systems, see
-   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDbSystemCompartmentRequest
    * @return ChangeDbSystemCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDbSystemCompartment.ts.html |here} to see how to use ChangeDbSystemCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDbSystemCompartment.ts.html |here} to see how to use ChangeDbSystemCompartment API.
    */
   public async changeDbSystemCompartment(
     changeDbSystemCompartmentRequest: requests.ChangeDbSystemCompartmentRequest
@@ -2320,7 +2320,7 @@ export class DatabaseClient {
    * @param ChangeDisasterRecoveryConfigurationRequest
    * @return ChangeDisasterRecoveryConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDisasterRecoveryConfiguration.ts.html |here} to see how to use ChangeDisasterRecoveryConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDisasterRecoveryConfiguration.ts.html |here} to see how to use ChangeDisasterRecoveryConfiguration API.
    */
   public async changeDisasterRecoveryConfiguration(
     changeDisasterRecoveryConfigurationRequest: requests.ChangeDisasterRecoveryConfigurationRequest
@@ -2409,7 +2409,7 @@ export class DatabaseClient {
    * @param ChangeEncryptionKeyLocationRequest
    * @return ChangeEncryptionKeyLocationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeEncryptionKeyLocation.ts.html |here} to see how to use ChangeEncryptionKeyLocation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeEncryptionKeyLocation.ts.html |here} to see how to use ChangeEncryptionKeyLocation API.
    */
   public async changeEncryptionKeyLocation(
     changeEncryptionKeyLocationRequest: requests.ChangeEncryptionKeyLocationRequest
@@ -2491,7 +2491,7 @@ export class DatabaseClient {
    * @param ChangeExadataInfrastructureCompartmentRequest
    * @return ChangeExadataInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeExadataInfrastructureCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeExadataInfrastructureCompartment API.
    */
   public async changeExadataInfrastructureCompartment(
     changeExadataInfrastructureCompartmentRequest: requests.ChangeExadataInfrastructureCompartmentRequest
@@ -2573,7 +2573,7 @@ export class DatabaseClient {
    * @param ChangeExadbVmClusterCompartmentRequest
    * @return ChangeExadbVmClusterCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExadbVmClusterCompartment.ts.html |here} to see how to use ChangeExadbVmClusterCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExadbVmClusterCompartment.ts.html |here} to see how to use ChangeExadbVmClusterCompartment API.
    */
   public async changeExadbVmClusterCompartment(
     changeExadbVmClusterCompartmentRequest: requests.ChangeExadbVmClusterCompartmentRequest
@@ -2654,7 +2654,7 @@ export class DatabaseClient {
    * @param ChangeExascaleDbStorageVaultCompartmentRequest
    * @return ChangeExascaleDbStorageVaultCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExascaleDbStorageVaultCompartment.ts.html |here} to see how to use ChangeExascaleDbStorageVaultCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExascaleDbStorageVaultCompartment.ts.html |here} to see how to use ChangeExascaleDbStorageVaultCompartment API.
    */
   public async changeExascaleDbStorageVaultCompartment(
     changeExascaleDbStorageVaultCompartmentRequest: requests.ChangeExascaleDbStorageVaultCompartmentRequest
@@ -2735,13 +2735,13 @@ export class DatabaseClient {
    * Move the {@link #createExternalContainerDatabaseDetails(CreateExternalContainerDatabaseDetailsRequest) createExternalContainerDatabaseDetails}
    * and its dependent resources to the specified compartment.
    * For more information about moving external container databases, see
-   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeExternalContainerDatabaseCompartmentRequest
    * @return ChangeExternalContainerDatabaseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalContainerDatabaseCompartment.ts.html |here} to see how to use ChangeExternalContainerDatabaseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalContainerDatabaseCompartment.ts.html |here} to see how to use ChangeExternalContainerDatabaseCompartment API.
    */
   public async changeExternalContainerDatabaseCompartment(
     changeExternalContainerDatabaseCompartmentRequest: requests.ChangeExternalContainerDatabaseCompartmentRequest
@@ -2826,13 +2826,13 @@ export class DatabaseClient {
   /**
    * Move the external non-container database and its dependent resources to the specified compartment.
    * For more information about moving external non-container databases, see
-   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeExternalNonContainerDatabaseCompartmentRequest
    * @return ChangeExternalNonContainerDatabaseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalNonContainerDatabaseCompartment.ts.html |here} to see how to use ChangeExternalNonContainerDatabaseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalNonContainerDatabaseCompartment.ts.html |here} to see how to use ChangeExternalNonContainerDatabaseCompartment API.
    */
   public async changeExternalNonContainerDatabaseCompartment(
     changeExternalNonContainerDatabaseCompartmentRequest: requests.ChangeExternalNonContainerDatabaseCompartmentRequest
@@ -2919,13 +2919,13 @@ export class DatabaseClient {
    * Move the {@link #createExternalPluggableDatabaseDetails(CreateExternalPluggableDatabaseDetailsRequest) createExternalPluggableDatabaseDetails} and
    * its dependent resources to the specified compartment.
    * For more information about moving external pluggable databases, see
-   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeExternalPluggableDatabaseCompartmentRequest
    * @return ChangeExternalPluggableDatabaseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalPluggableDatabaseCompartment.ts.html |here} to see how to use ChangeExternalPluggableDatabaseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalPluggableDatabaseCompartment.ts.html |here} to see how to use ChangeExternalPluggableDatabaseCompartment API.
    */
   public async changeExternalPluggableDatabaseCompartment(
     changeExternalPluggableDatabaseCompartmentRequest: requests.ChangeExternalPluggableDatabaseCompartmentRequest
@@ -3010,13 +3010,13 @@ export class DatabaseClient {
   /**
    * Move the key store resource to the specified compartment.
    * For more information about moving key stores, see
-   * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeKeyStoreCompartmentRequest
    * @return ChangeKeyStoreCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeKeyStoreCompartment.ts.html |here} to see how to use ChangeKeyStoreCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeKeyStoreCompartment.ts.html |here} to see how to use ChangeKeyStoreCompartment API.
    */
   public async changeKeyStoreCompartment(
     changeKeyStoreCompartmentRequest: requests.ChangeKeyStoreCompartmentRequest
@@ -3096,7 +3096,7 @@ export class DatabaseClient {
    * @param ChangeKeyStoreTypeRequest
    * @return ChangeKeyStoreTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeKeyStoreType.ts.html |here} to see how to use ChangeKeyStoreType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeKeyStoreType.ts.html |here} to see how to use ChangeKeyStoreType API.
    */
   public async changeKeyStoreType(
     changeKeyStoreTypeRequest: requests.ChangeKeyStoreTypeRequest
@@ -3176,7 +3176,7 @@ export class DatabaseClient {
    * @param ChangeOneoffPatchCompartmentRequest
    * @return ChangeOneoffPatchCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeOneoffPatchCompartment.ts.html |here} to see how to use ChangeOneoffPatchCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeOneoffPatchCompartment.ts.html |here} to see how to use ChangeOneoffPatchCompartment API.
    */
   public async changeOneoffPatchCompartment(
     changeOneoffPatchCompartmentRequest: requests.ChangeOneoffPatchCompartmentRequest
@@ -3257,7 +3257,7 @@ export class DatabaseClient {
    * @param ChangeSchedulingPlanCompartmentRequest
    * @return ChangeSchedulingPlanCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeSchedulingPlanCompartment.ts.html |here} to see how to use ChangeSchedulingPlanCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeSchedulingPlanCompartment.ts.html |here} to see how to use ChangeSchedulingPlanCompartment API.
    */
   public async changeSchedulingPlanCompartment(
     changeSchedulingPlanCompartmentRequest: requests.ChangeSchedulingPlanCompartmentRequest
@@ -3338,7 +3338,7 @@ export class DatabaseClient {
    * @param ChangeSchedulingPolicyCompartmentRequest
    * @return ChangeSchedulingPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeSchedulingPolicyCompartment.ts.html |here} to see how to use ChangeSchedulingPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeSchedulingPolicyCompartment.ts.html |here} to see how to use ChangeSchedulingPolicyCompartment API.
    */
   public async changeSchedulingPolicyCompartment(
     changeSchedulingPolicyCompartmentRequest: requests.ChangeSchedulingPolicyCompartmentRequest
@@ -3420,7 +3420,7 @@ export class DatabaseClient {
    * @param ChangeVmClusterCompartmentRequest
    * @return ChangeVmClusterCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeVmClusterCompartment.ts.html |here} to see how to use ChangeVmClusterCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeVmClusterCompartment.ts.html |here} to see how to use ChangeVmClusterCompartment API.
    */
   public async changeVmClusterCompartment(
     changeVmClusterCompartmentRequest: requests.ChangeVmClusterCompartmentRequest
@@ -3502,7 +3502,7 @@ export class DatabaseClient {
    * @param CheckExternalDatabaseConnectorConnectionStatusRequest
    * @return CheckExternalDatabaseConnectorConnectionStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CheckExternalDatabaseConnectorConnectionStatus.ts.html |here} to see how to use CheckExternalDatabaseConnectorConnectionStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CheckExternalDatabaseConnectorConnectionStatus.ts.html |here} to see how to use CheckExternalDatabaseConnectorConnectionStatus API.
    */
   public async checkExternalDatabaseConnectorConnectionStatus(
     checkExternalDatabaseConnectorConnectionStatusRequest: requests.CheckExternalDatabaseConnectorConnectionStatusRequest
@@ -3583,13 +3583,13 @@ export class DatabaseClient {
   /**
    * Changes the status of the standalone backup resource to `ACTIVE` after the backup is created from the on-premises database and placed in Oracle Cloud Infrastructure Object Storage.
    * <p>
-   **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.cloud.oracle.com/Content/Database/Tasks/mig-onprembackup.htm) for more information.
+   **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.oracle.com/iaas/Content/Database/Tasks/mig-onprembackup.htm) for more information.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CompleteExternalBackupJobRequest
    * @return CompleteExternalBackupJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CompleteExternalBackupJob.ts.html |here} to see how to use CompleteExternalBackupJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CompleteExternalBackupJob.ts.html |here} to see how to use CompleteExternalBackupJob API.
    */
   public async completeExternalBackupJob(
     completeExternalBackupJobRequest: requests.CompleteExternalBackupJobRequest
@@ -3672,13 +3672,13 @@ export class DatabaseClient {
   }
 
   /**
-   * Configures the Autonomous Database Vault service [key](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   * Configures the Autonomous Database Vault service [key](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ConfigureAutonomousDatabaseVaultKeyRequest
    * @return ConfigureAutonomousDatabaseVaultKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureAutonomousDatabaseVaultKey.ts.html |here} to see how to use ConfigureAutonomousDatabaseVaultKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureAutonomousDatabaseVaultKey.ts.html |here} to see how to use ConfigureAutonomousDatabaseVaultKey API.
    */
   public async configureAutonomousDatabaseVaultKey(
     configureAutonomousDatabaseVaultKeyRequest: requests.ConfigureAutonomousDatabaseVaultKeyRequest
@@ -3760,7 +3760,7 @@ export class DatabaseClient {
    * @param ConfigureExascaleExadataInfrastructureRequest
    * @return ConfigureExascaleExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureExascaleExadataInfrastructure.ts.html |here} to see how to use ConfigureExascaleExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureExascaleExadataInfrastructure.ts.html |here} to see how to use ConfigureExascaleExadataInfrastructure API.
    */
   public async configureExascaleExadataInfrastructure(
     configureExascaleExadataInfrastructureRequest: requests.ConfigureExascaleExadataInfrastructureRequest
@@ -3850,7 +3850,7 @@ export class DatabaseClient {
    * @param ConfigureSaasAdminUserRequest
    * @return ConfigureSaasAdminUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureSaasAdminUser.ts.html |here} to see how to use ConfigureSaasAdminUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureSaasAdminUser.ts.html |here} to see how to use ConfigureSaasAdminUser API.
    */
   public async configureSaasAdminUser(
     configureSaasAdminUserRequest: requests.ConfigureSaasAdminUserRequest
@@ -3939,7 +3939,7 @@ export class DatabaseClient {
    * @param ConfirmKeyStoreDetailsAreCorrectRequest
    * @return ConfirmKeyStoreDetailsAreCorrectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfirmKeyStoreDetailsAreCorrect.ts.html |here} to see how to use ConfirmKeyStoreDetailsAreCorrect API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfirmKeyStoreDetailsAreCorrect.ts.html |here} to see how to use ConfirmKeyStoreDetailsAreCorrect API.
    */
   public async confirmKeyStoreDetailsAreCorrect(
     confirmKeyStoreDetailsAreCorrectRequest: requests.ConfirmKeyStoreDetailsAreCorrectRequest
@@ -4015,7 +4015,7 @@ export class DatabaseClient {
    * @param ConvertToPdbRequest
    * @return ConvertToPdbResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToPdb.ts.html |here} to see how to use ConvertToPdb API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToPdb.ts.html |here} to see how to use ConvertToPdb API.
    */
   public async convertToPdb(
     convertToPdbRequest: requests.ConvertToPdbRequest
@@ -4104,7 +4104,7 @@ export class DatabaseClient {
    * @param ConvertToRegularPluggableDatabaseRequest
    * @return ConvertToRegularPluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToRegularPluggableDatabase.ts.html |here} to see how to use ConvertToRegularPluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToRegularPluggableDatabase.ts.html |here} to see how to use ConvertToRegularPluggableDatabase API.
    */
   public async convertToRegularPluggableDatabase(
     convertToRegularPluggableDatabaseRequest: requests.ConvertToRegularPluggableDatabaseRequest
@@ -4198,7 +4198,7 @@ This operation should be performed on respective standby database.
      * @param ConvertToStandaloneRequest
      * @return ConvertToStandaloneResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToStandalone.ts.html |here} to see how to use ConvertToStandalone API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToStandalone.ts.html |here} to see how to use ConvertToStandalone API.
      */
   public async convertToStandalone(
     convertToStandaloneRequest: requests.ConvertToStandaloneRequest
@@ -4287,7 +4287,7 @@ This operation should be performed on respective standby database.
    * @param CreateApplicationVipRequest
    * @return CreateApplicationVipResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateApplicationVip.ts.html |here} to see how to use CreateApplicationVip API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateApplicationVip.ts.html |here} to see how to use CreateApplicationVip API.
    */
   public async createApplicationVip(
     createApplicationVipRequest: requests.CreateApplicationVipRequest
@@ -4373,7 +4373,7 @@ This operation should be performed on respective standby database.
    * @param CreateAutonomousContainerDatabaseRequest
    * @return CreateAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousContainerDatabase.ts.html |here} to see how to use CreateAutonomousContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousContainerDatabase.ts.html |here} to see how to use CreateAutonomousContainerDatabase API.
    */
   public async createAutonomousContainerDatabase(
     createAutonomousContainerDatabaseRequest: requests.CreateAutonomousContainerDatabaseRequest
@@ -4454,19 +4454,19 @@ This operation should be performed on respective standby database.
 
   /**
      * Create a new Autonomous Data Guard association. An Autonomous Data Guard association represents the replication relationship between the
-* specified Autonomous Container database and a peer Autonomous Container database. For more information, see [Using Oracle Data Guard](https://docs.cloud.oracle.com/Content/Database/Tasks/usingdataguard.htm).
+* specified Autonomous Container database and a peer Autonomous Container database. For more information, see [Using Oracle Data Guard](https://docs.oracle.com/iaas/Content/Database/Tasks/usingdataguard.htm).
 * <p>
 All Oracle Cloud Infrastructure resources, including Data Guard associations, get an Oracle-assigned, unique ID
 * called an Oracle Cloud Identifier (OCID). When you create a resource, you can find its OCID in the response.
 * You can also retrieve a resource's OCID by using a List API operation on that resource type, or by viewing the
 * resource in the Console. For more information, see
-* [Resource Identifiers](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+* [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateAutonomousContainerDatabaseDataguardAssociationRequest
      * @return CreateAutonomousContainerDatabaseDataguardAssociationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use CreateAutonomousContainerDatabaseDataguardAssociation API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use CreateAutonomousContainerDatabaseDataguardAssociation API.
      */
   public async createAutonomousContainerDatabaseDataguardAssociation(
     createAutonomousContainerDatabaseDataguardAssociationRequest: requests.CreateAutonomousContainerDatabaseDataguardAssociationRequest
@@ -4558,7 +4558,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateAutonomousDatabaseRequest
    * @return CreateAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousDatabase.ts.html |here} to see how to use CreateAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousDatabase.ts.html |here} to see how to use CreateAutonomousDatabase API.
    */
   public async createAutonomousDatabase(
     createAutonomousDatabaseRequest: requests.CreateAutonomousDatabaseRequest
@@ -4645,7 +4645,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateAutonomousDatabaseBackupRequest
    * @return CreateAutonomousDatabaseBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousDatabaseBackup.ts.html |here} to see how to use CreateAutonomousDatabaseBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousDatabaseBackup.ts.html |here} to see how to use CreateAutonomousDatabaseBackup API.
    */
   public async createAutonomousDatabaseBackup(
     createAutonomousDatabaseBackupRequest: requests.CreateAutonomousDatabaseBackupRequest
@@ -4732,7 +4732,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateAutonomousDatabaseSoftwareImageRequest
    * @return CreateAutonomousDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use CreateAutonomousDatabaseSoftwareImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use CreateAutonomousDatabaseSoftwareImage API.
    */
   public async createAutonomousDatabaseSoftwareImage(
     createAutonomousDatabaseSoftwareImageRequest: requests.CreateAutonomousDatabaseSoftwareImageRequest
@@ -4819,7 +4819,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateAutonomousVmClusterRequest
    * @return CreateAutonomousVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousVmCluster.ts.html |here} to see how to use CreateAutonomousVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAutonomousVmCluster.ts.html |here} to see how to use CreateAutonomousVmCluster API.
    */
   public async createAutonomousVmCluster(
     createAutonomousVmClusterRequest: requests.CreateAutonomousVmClusterRequest
@@ -4906,7 +4906,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateBackupRequest
    * @return CreateBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateBackup.ts.html |here} to see how to use CreateBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateBackup.ts.html |here} to see how to use CreateBackup API.
    */
   public async createBackup(
     createBackupRequest: requests.CreateBackupRequest
@@ -4991,7 +4991,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateBackupDestinationRequest
    * @return CreateBackupDestinationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateBackupDestination.ts.html |here} to see how to use CreateBackupDestination API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateBackupDestination.ts.html |here} to see how to use CreateBackupDestination API.
    */
   public async createBackupDestination(
     createBackupDestinationRequest: requests.CreateBackupDestinationRequest
@@ -5072,7 +5072,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateCloudAutonomousVmClusterRequest
    * @return CreateCloudAutonomousVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudAutonomousVmCluster.ts.html |here} to see how to use CreateCloudAutonomousVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudAutonomousVmCluster.ts.html |here} to see how to use CreateCloudAutonomousVmCluster API.
    */
   public async createCloudAutonomousVmCluster(
     createCloudAutonomousVmClusterRequest: requests.CreateCloudAutonomousVmClusterRequest
@@ -5153,13 +5153,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Creates a cloud Exadata infrastructure resource. This resource is used to create either an [Exadata Cloud Service](https://docs.cloud.oracle.com/Content/Database/Concepts/exaoverview.htm) instance or an Autonomous Database on dedicated Exadata infrastructure.
+   * Creates a cloud Exadata infrastructure resource. This resource is used to create either an [Exadata Cloud Service](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm) instance or an Autonomous Database on dedicated Exadata infrastructure.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCloudExadataInfrastructureRequest
    * @return CreateCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudExadataInfrastructure.ts.html |here} to see how to use CreateCloudExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudExadataInfrastructure.ts.html |here} to see how to use CreateCloudExadataInfrastructure API.
    */
   public async createCloudExadataInfrastructure(
     createCloudExadataInfrastructureRequest: requests.CreateCloudExadataInfrastructureRequest
@@ -5246,7 +5246,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateCloudVmClusterRequest
    * @return CreateCloudVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudVmCluster.ts.html |here} to see how to use CreateCloudVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateCloudVmCluster.ts.html |here} to see how to use CreateCloudVmCluster API.
    */
   public async createCloudVmCluster(
     createCloudVmClusterRequest: requests.CreateCloudVmClusterRequest
@@ -5334,7 +5334,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateConsoleConnectionRequest
    * @return CreateConsoleConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateConsoleConnection.ts.html |here} to see how to use CreateConsoleConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateConsoleConnection.ts.html |here} to see how to use CreateConsoleConnection API.
    */
   public async createConsoleConnection(
     createConsoleConnectionRequest: requests.CreateConsoleConnectionRequest
@@ -5421,7 +5421,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateConsoleHistoryRequest
    * @return CreateConsoleHistoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateConsoleHistory.ts.html |here} to see how to use CreateConsoleHistory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateConsoleHistory.ts.html |here} to see how to use CreateConsoleHistory API.
    */
   public async createConsoleHistory(
     createConsoleHistoryRequest: requests.CreateConsoleHistoryRequest
@@ -5504,19 +5504,19 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
 
   /**
      * Creates a new Data Guard association.  A Data Guard association represents the replication relationship between the
-* specified database and a peer database. For more information, see [Using Oracle Data Guard](https://docs.cloud.oracle.com/Content/Database/Tasks/usingdataguard.htm).
+* specified database and a peer database. For more information, see [Using Oracle Data Guard](https://docs.oracle.com/iaas/Content/Database/Tasks/usingdataguard.htm).
 * <p>
 All Oracle Cloud Infrastructure resources, including Data Guard associations, get an Oracle-assigned, unique ID
 * called an Oracle Cloud Identifier (OCID). When you create a resource, you can find its OCID in the response.
 * You can also retrieve a resource's OCID by using a List API operation on that resource type, or by viewing the
 * resource in the Console. For more information, see
-* [Resource Identifiers](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+* [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateDataGuardAssociationRequest
      * @return CreateDataGuardAssociationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDataGuardAssociation.ts.html |here} to see how to use CreateDataGuardAssociation API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDataGuardAssociation.ts.html |here} to see how to use CreateDataGuardAssociation API.
      */
   public async createDataGuardAssociation(
     createDataGuardAssociationRequest: requests.CreateDataGuardAssociationRequest
@@ -5604,7 +5604,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateDatabaseRequest
    * @return CreateDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDatabase.ts.html |here} to see how to use CreateDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDatabase.ts.html |here} to see how to use CreateDatabase API.
    */
   public async createDatabase(
     createDatabaseRequest: requests.CreateDatabaseRequest
@@ -5690,7 +5690,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateDatabaseSoftwareImageRequest
    * @return CreateDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDatabaseSoftwareImage.ts.html |here} to see how to use CreateDatabaseSoftwareImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDatabaseSoftwareImage.ts.html |here} to see how to use CreateDatabaseSoftwareImage API.
    */
   public async createDatabaseSoftwareImage(
     createDatabaseSoftwareImageRequest: requests.CreateDatabaseSoftwareImageRequest
@@ -5776,7 +5776,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateDbHomeRequest
    * @return CreateDbHomeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDbHome.ts.html |here} to see how to use CreateDbHome API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDbHome.ts.html |here} to see how to use CreateDbHome API.
    */
   public async createDbHome(
     createDbHomeRequest: requests.CreateDbHomeRequest
@@ -5862,7 +5862,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExadataInfrastructureRequest
    * @return CreateExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExadataInfrastructure.ts.html |here} to see how to use CreateExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExadataInfrastructure.ts.html |here} to see how to use CreateExadataInfrastructure API.
    */
   public async createExadataInfrastructure(
     createExadataInfrastructureRequest: requests.CreateExadataInfrastructureRequest
@@ -5949,7 +5949,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExadbVmClusterRequest
    * @return CreateExadbVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExadbVmCluster.ts.html |here} to see how to use CreateExadbVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExadbVmCluster.ts.html |here} to see how to use CreateExadbVmCluster API.
    */
   public async createExadbVmCluster(
     createExadbVmClusterRequest: requests.CreateExadbVmClusterRequest
@@ -6035,7 +6035,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExascaleDbStorageVaultRequest
    * @return CreateExascaleDbStorageVaultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExascaleDbStorageVault.ts.html |here} to see how to use CreateExascaleDbStorageVault API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExascaleDbStorageVault.ts.html |here} to see how to use CreateExascaleDbStorageVault API.
    */
   public async createExascaleDbStorageVault(
     createExascaleDbStorageVaultRequest: requests.CreateExascaleDbStorageVaultRequest
@@ -6122,7 +6122,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExecutionActionRequest
    * @return CreateExecutionActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExecutionAction.ts.html |here} to see how to use CreateExecutionAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExecutionAction.ts.html |here} to see how to use CreateExecutionAction API.
    */
   public async createExecutionAction(
     createExecutionActionRequest: requests.CreateExecutionActionRequest
@@ -6208,7 +6208,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExecutionWindowRequest
    * @return CreateExecutionWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExecutionWindow.ts.html |here} to see how to use CreateExecutionWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExecutionWindow.ts.html |here} to see how to use CreateExecutionWindow API.
    */
   public async createExecutionWindow(
     createExecutionWindowRequest: requests.CreateExecutionWindowRequest
@@ -6290,13 +6290,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Creates a new backup resource and returns the information the caller needs to back up an on-premises Oracle Database to Oracle Cloud Infrastructure.
    * <p>
-   **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.cloud.oracle.com/Content/Database/Tasks/mig-onprembackup.htm) for more information.
+   **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.oracle.com/iaas/Content/Database/Tasks/mig-onprembackup.htm) for more information.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExternalBackupJobRequest
    * @return CreateExternalBackupJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalBackupJob.ts.html |here} to see how to use CreateExternalBackupJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalBackupJob.ts.html |here} to see how to use CreateExternalBackupJob API.
    */
   public async createExternalBackupJob(
     createExternalBackupJobRequest: requests.CreateExternalBackupJobRequest
@@ -6380,7 +6380,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExternalContainerDatabaseRequest
    * @return CreateExternalContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalContainerDatabase.ts.html |here} to see how to use CreateExternalContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalContainerDatabase.ts.html |here} to see how to use CreateExternalContainerDatabase API.
    */
   public async createExternalContainerDatabase(
     createExternalContainerDatabaseRequest: requests.CreateExternalContainerDatabaseRequest
@@ -6466,7 +6466,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExternalDatabaseConnectorRequest
    * @return CreateExternalDatabaseConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalDatabaseConnector.ts.html |here} to see how to use CreateExternalDatabaseConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalDatabaseConnector.ts.html |here} to see how to use CreateExternalDatabaseConnector API.
    */
   public async createExternalDatabaseConnector(
     createExternalDatabaseConnectorRequest: requests.CreateExternalDatabaseConnectorRequest
@@ -6553,7 +6553,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExternalNonContainerDatabaseRequest
    * @return CreateExternalNonContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalNonContainerDatabase.ts.html |here} to see how to use CreateExternalNonContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalNonContainerDatabase.ts.html |here} to see how to use CreateExternalNonContainerDatabase API.
    */
   public async createExternalNonContainerDatabase(
     createExternalNonContainerDatabaseRequest: requests.CreateExternalNonContainerDatabaseRequest
@@ -6641,7 +6641,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateExternalPluggableDatabaseRequest
    * @return CreateExternalPluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalPluggableDatabase.ts.html |here} to see how to use CreateExternalPluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateExternalPluggableDatabase.ts.html |here} to see how to use CreateExternalPluggableDatabase API.
    */
   public async createExternalPluggableDatabase(
     createExternalPluggableDatabaseRequest: requests.CreateExternalPluggableDatabaseRequest
@@ -6728,7 +6728,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateKeyStoreRequest
    * @return CreateKeyStoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateKeyStore.ts.html |here} to see how to use CreateKeyStore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateKeyStore.ts.html |here} to see how to use CreateKeyStore API.
    */
   public async createKeyStore(
     createKeyStoreRequest: requests.CreateKeyStoreRequest
@@ -6812,7 +6812,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateMaintenanceRunRequest
    * @return CreateMaintenanceRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateMaintenanceRun.ts.html |here} to see how to use CreateMaintenanceRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateMaintenanceRun.ts.html |here} to see how to use CreateMaintenanceRun API.
    */
   public async createMaintenanceRun(
     createMaintenanceRunRequest: requests.CreateMaintenanceRunRequest
@@ -6893,7 +6893,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateOneoffPatchRequest
    * @return CreateOneoffPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateOneoffPatch.ts.html |here} to see how to use CreateOneoffPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateOneoffPatch.ts.html |here} to see how to use CreateOneoffPatch API.
    */
   public async createOneoffPatch(
     createOneoffPatchRequest: requests.CreateOneoffPatchRequest
@@ -6981,7 +6981,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreatePluggableDatabaseRequest
    * @return CreatePluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreatePluggableDatabase.ts.html |here} to see how to use CreatePluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreatePluggableDatabase.ts.html |here} to see how to use CreatePluggableDatabase API.
    */
   public async createPluggableDatabase(
     createPluggableDatabaseRequest: requests.CreatePluggableDatabaseRequest
@@ -7067,7 +7067,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateScheduledActionRequest
    * @return CreateScheduledActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateScheduledAction.ts.html |here} to see how to use CreateScheduledAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateScheduledAction.ts.html |here} to see how to use CreateScheduledAction API.
    */
   public async createScheduledAction(
     createScheduledActionRequest: requests.CreateScheduledActionRequest
@@ -7152,7 +7152,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateSchedulingPlanRequest
    * @return CreateSchedulingPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingPlan.ts.html |here} to see how to use CreateSchedulingPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingPlan.ts.html |here} to see how to use CreateSchedulingPlan API.
    */
   public async createSchedulingPlan(
     createSchedulingPlanRequest: requests.CreateSchedulingPlanRequest
@@ -7237,7 +7237,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateSchedulingPolicyRequest
    * @return CreateSchedulingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingPolicy.ts.html |here} to see how to use CreateSchedulingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingPolicy.ts.html |here} to see how to use CreateSchedulingPolicy API.
    */
   public async createSchedulingPolicy(
     createSchedulingPolicyRequest: requests.CreateSchedulingPolicyRequest
@@ -7323,7 +7323,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateSchedulingWindowRequest
    * @return CreateSchedulingWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingWindow.ts.html |here} to see how to use CreateSchedulingWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateSchedulingWindow.ts.html |here} to see how to use CreateSchedulingWindow API.
    */
   public async createSchedulingWindow(
     createSchedulingWindowRequest: requests.CreateSchedulingWindowRequest
@@ -7411,7 +7411,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateVmClusterRequest
    * @return CreateVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateVmCluster.ts.html |here} to see how to use CreateVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateVmCluster.ts.html |here} to see how to use CreateVmCluster API.
    */
   public async createVmCluster(
     createVmClusterRequest: requests.CreateVmClusterRequest
@@ -7498,7 +7498,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param CreateVmClusterNetworkRequest
    * @return CreateVmClusterNetworkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateVmClusterNetwork.ts.html |here} to see how to use CreateVmClusterNetwork API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateVmClusterNetwork.ts.html |here} to see how to use CreateVmClusterNetwork API.
    */
   public async createVmClusterNetwork(
     createVmClusterNetworkRequest: requests.CreateVmClusterNetworkRequest
@@ -7598,7 +7598,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DbNodeActionRequest
    * @return DbNodeActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DbNodeAction.ts.html |here} to see how to use DbNodeAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DbNodeAction.ts.html |here} to see how to use DbNodeAction API.
    */
   public async dbNodeAction(
     dbNodeActionRequest: requests.DbNodeActionRequest
@@ -7683,7 +7683,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteApplicationVipRequest
    * @return DeleteApplicationVipResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteApplicationVip.ts.html |here} to see how to use DeleteApplicationVip API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteApplicationVip.ts.html |here} to see how to use DeleteApplicationVip API.
    */
   public async deleteApplicationVip(
     deleteApplicationVipRequest: requests.DeleteApplicationVipRequest
@@ -7757,7 +7757,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteAutonomousDatabaseRequest
    * @return DeleteAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabase.ts.html |here} to see how to use DeleteAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabase.ts.html |here} to see how to use DeleteAutonomousDatabase API.
    */
   public async deleteAutonomousDatabase(
     deleteAutonomousDatabaseRequest: requests.DeleteAutonomousDatabaseRequest
@@ -7831,7 +7831,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteAutonomousDatabaseBackupRequest
    * @return DeleteAutonomousDatabaseBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabaseBackup.ts.html |here} to see how to use DeleteAutonomousDatabaseBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabaseBackup.ts.html |here} to see how to use DeleteAutonomousDatabaseBackup API.
    */
   public async deleteAutonomousDatabaseBackup(
     deleteAutonomousDatabaseBackupRequest: requests.DeleteAutonomousDatabaseBackupRequest
@@ -7906,7 +7906,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteAutonomousDatabaseSoftwareImageRequest
    * @return DeleteAutonomousDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use DeleteAutonomousDatabaseSoftwareImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use DeleteAutonomousDatabaseSoftwareImage API.
    */
   public async deleteAutonomousDatabaseSoftwareImage(
     deleteAutonomousDatabaseSoftwareImageRequest: requests.DeleteAutonomousDatabaseSoftwareImageRequest
@@ -7982,7 +7982,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteAutonomousVmClusterRequest
    * @return DeleteAutonomousVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousVmCluster.ts.html |here} to see how to use DeleteAutonomousVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousVmCluster.ts.html |here} to see how to use DeleteAutonomousVmCluster API.
    */
   public async deleteAutonomousVmCluster(
     deleteAutonomousVmClusterRequest: requests.DeleteAutonomousVmClusterRequest
@@ -8056,7 +8056,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteBackupRequest
    * @return DeleteBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteBackup.ts.html |here} to see how to use DeleteBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteBackup.ts.html |here} to see how to use DeleteBackup API.
    */
   public async deleteBackup(
     deleteBackupRequest: requests.DeleteBackupRequest
@@ -8129,7 +8129,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteBackupDestinationRequest
    * @return DeleteBackupDestinationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteBackupDestination.ts.html |here} to see how to use DeleteBackupDestination API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteBackupDestination.ts.html |here} to see how to use DeleteBackupDestination API.
    */
   public async deleteBackupDestination(
     deleteBackupDestinationRequest: requests.DeleteBackupDestinationRequest
@@ -8198,7 +8198,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteCloudAutonomousVmClusterRequest
    * @return DeleteCloudAutonomousVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteCloudAutonomousVmCluster.ts.html |here} to see how to use DeleteCloudAutonomousVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteCloudAutonomousVmCluster.ts.html |here} to see how to use DeleteCloudAutonomousVmCluster API.
    */
   public async deleteCloudAutonomousVmCluster(
     deleteCloudAutonomousVmClusterRequest: requests.DeleteCloudAutonomousVmClusterRequest
@@ -8274,7 +8274,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteCloudExadataInfrastructureRequest
    * @return DeleteCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteCloudExadataInfrastructure.ts.html |here} to see how to use DeleteCloudExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteCloudExadataInfrastructure.ts.html |here} to see how to use DeleteCloudExadataInfrastructure API.
    */
   public async deleteCloudExadataInfrastructure(
     deleteCloudExadataInfrastructureRequest: requests.DeleteCloudExadataInfrastructureRequest
@@ -8352,7 +8352,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteCloudVmClusterRequest
    * @return DeleteCloudVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteCloudVmCluster.ts.html |here} to see how to use DeleteCloudVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteCloudVmCluster.ts.html |here} to see how to use DeleteCloudVmCluster API.
    */
   public async deleteCloudVmCluster(
     deleteCloudVmClusterRequest: requests.DeleteCloudVmClusterRequest
@@ -8425,7 +8425,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteConsoleConnectionRequest
    * @return DeleteConsoleConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteConsoleConnection.ts.html |here} to see how to use DeleteConsoleConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteConsoleConnection.ts.html |here} to see how to use DeleteConsoleConnection API.
    */
   public async deleteConsoleConnection(
     deleteConsoleConnectionRequest: requests.DeleteConsoleConnectionRequest
@@ -8499,7 +8499,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * @param DeleteConsoleHistoryRequest
    * @return DeleteConsoleHistoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteConsoleHistory.ts.html |here} to see how to use DeleteConsoleHistory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteConsoleHistory.ts.html |here} to see how to use DeleteConsoleHistory API.
    */
   public async deleteConsoleHistory(
     deleteConsoleHistoryRequest: requests.DeleteConsoleHistoryRequest
@@ -8576,7 +8576,7 @@ The data in this database is local to the Exadata system and will be lost when t
      * @param DeleteDatabaseRequest
      * @return DeleteDatabaseResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDatabase.ts.html |here} to see how to use DeleteDatabase API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDatabase.ts.html |here} to see how to use DeleteDatabase API.
      */
   public async deleteDatabase(
     deleteDatabaseRequest: requests.DeleteDatabaseRequest
@@ -8651,7 +8651,7 @@ The data in this database is local to the Exadata system and will be lost when t
    * @param DeleteDatabaseSoftwareImageRequest
    * @return DeleteDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDatabaseSoftwareImage.ts.html |here} to see how to use DeleteDatabaseSoftwareImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDatabaseSoftwareImage.ts.html |here} to see how to use DeleteDatabaseSoftwareImage API.
    */
   public async deleteDatabaseSoftwareImage(
     deleteDatabaseSoftwareImageRequest: requests.DeleteDatabaseSoftwareImageRequest
@@ -8727,7 +8727,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
      * @param DeleteDbHomeRequest
      * @return DeleteDbHomeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDbHome.ts.html |here} to see how to use DeleteDbHome API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDbHome.ts.html |here} to see how to use DeleteDbHome API.
      */
   public async deleteDbHome(
     deleteDbHomeRequest: requests.DeleteDbHomeRequest
@@ -8802,7 +8802,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteExadataInfrastructureRequest
    * @return DeleteExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExadataInfrastructure.ts.html |here} to see how to use DeleteExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExadataInfrastructure.ts.html |here} to see how to use DeleteExadataInfrastructure API.
    */
   public async deleteExadataInfrastructure(
     deleteExadataInfrastructureRequest: requests.DeleteExadataInfrastructureRequest
@@ -8877,7 +8877,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteExadbVmClusterRequest
    * @return DeleteExadbVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExadbVmCluster.ts.html |here} to see how to use DeleteExadbVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExadbVmCluster.ts.html |here} to see how to use DeleteExadbVmCluster API.
    */
   public async deleteExadbVmCluster(
     deleteExadbVmClusterRequest: requests.DeleteExadbVmClusterRequest
@@ -8951,7 +8951,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteExascaleDbStorageVaultRequest
    * @return DeleteExascaleDbStorageVaultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExascaleDbStorageVault.ts.html |here} to see how to use DeleteExascaleDbStorageVault API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExascaleDbStorageVault.ts.html |here} to see how to use DeleteExascaleDbStorageVault API.
    */
   public async deleteExascaleDbStorageVault(
     deleteExascaleDbStorageVaultRequest: requests.DeleteExascaleDbStorageVaultRequest
@@ -9026,7 +9026,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteExecutionActionRequest
    * @return DeleteExecutionActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExecutionAction.ts.html |here} to see how to use DeleteExecutionAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExecutionAction.ts.html |here} to see how to use DeleteExecutionAction API.
    */
   public async deleteExecutionAction(
     deleteExecutionActionRequest: requests.DeleteExecutionActionRequest
@@ -9100,7 +9100,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteExecutionWindowRequest
    * @return DeleteExecutionWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExecutionWindow.ts.html |here} to see how to use DeleteExecutionWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExecutionWindow.ts.html |here} to see how to use DeleteExecutionWindow API.
    */
   public async deleteExecutionWindow(
     deleteExecutionWindowRequest: requests.DeleteExecutionWindowRequest
@@ -9171,7 +9171,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteExternalContainerDatabaseRequest
    * @return DeleteExternalContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalContainerDatabase.ts.html |here} to see how to use DeleteExternalContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalContainerDatabase.ts.html |here} to see how to use DeleteExternalContainerDatabase API.
    */
   public async deleteExternalContainerDatabase(
     deleteExternalContainerDatabaseRequest: requests.DeleteExternalContainerDatabaseRequest
@@ -9249,7 +9249,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteExternalDatabaseConnectorRequest
    * @return DeleteExternalDatabaseConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalDatabaseConnector.ts.html |here} to see how to use DeleteExternalDatabaseConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalDatabaseConnector.ts.html |here} to see how to use DeleteExternalDatabaseConnector API.
    */
   public async deleteExternalDatabaseConnector(
     deleteExternalDatabaseConnectorRequest: requests.DeleteExternalDatabaseConnectorRequest
@@ -9325,7 +9325,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteExternalNonContainerDatabaseRequest
    * @return DeleteExternalNonContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalNonContainerDatabase.ts.html |here} to see how to use DeleteExternalNonContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalNonContainerDatabase.ts.html |here} to see how to use DeleteExternalNonContainerDatabase API.
    */
   public async deleteExternalNonContainerDatabase(
     deleteExternalNonContainerDatabaseRequest: requests.DeleteExternalNonContainerDatabaseRequest
@@ -9402,7 +9402,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteExternalPluggableDatabaseRequest
    * @return DeleteExternalPluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalPluggableDatabase.ts.html |here} to see how to use DeleteExternalPluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExternalPluggableDatabase.ts.html |here} to see how to use DeleteExternalPluggableDatabase API.
    */
   public async deleteExternalPluggableDatabase(
     deleteExternalPluggableDatabaseRequest: requests.DeleteExternalPluggableDatabaseRequest
@@ -9478,7 +9478,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteKeyStoreRequest
    * @return DeleteKeyStoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteKeyStore.ts.html |here} to see how to use DeleteKeyStore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteKeyStore.ts.html |here} to see how to use DeleteKeyStore API.
    */
   public async deleteKeyStore(
     deleteKeyStoreRequest: requests.DeleteKeyStoreRequest
@@ -9547,7 +9547,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteOneoffPatchRequest
    * @return DeleteOneoffPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteOneoffPatch.ts.html |here} to see how to use DeleteOneoffPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteOneoffPatch.ts.html |here} to see how to use DeleteOneoffPatch API.
    */
   public async deleteOneoffPatch(
     deleteOneoffPatchRequest: requests.DeleteOneoffPatchRequest
@@ -9620,7 +9620,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeletePluggableDatabaseRequest
    * @return DeletePluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeletePluggableDatabase.ts.html |here} to see how to use DeletePluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeletePluggableDatabase.ts.html |here} to see how to use DeletePluggableDatabase API.
    */
   public async deletePluggableDatabase(
     deletePluggableDatabaseRequest: requests.DeletePluggableDatabaseRequest
@@ -9694,7 +9694,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteScheduledActionRequest
    * @return DeleteScheduledActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteScheduledAction.ts.html |here} to see how to use DeleteScheduledAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteScheduledAction.ts.html |here} to see how to use DeleteScheduledAction API.
    */
   public async deleteScheduledAction(
     deleteScheduledActionRequest: requests.DeleteScheduledActionRequest
@@ -9768,7 +9768,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteSchedulingPlanRequest
    * @return DeleteSchedulingPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingPlan.ts.html |here} to see how to use DeleteSchedulingPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingPlan.ts.html |here} to see how to use DeleteSchedulingPlan API.
    */
   public async deleteSchedulingPlan(
     deleteSchedulingPlanRequest: requests.DeleteSchedulingPlanRequest
@@ -9842,7 +9842,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteSchedulingPolicyRequest
    * @return DeleteSchedulingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingPolicy.ts.html |here} to see how to use DeleteSchedulingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingPolicy.ts.html |here} to see how to use DeleteSchedulingPolicy API.
    */
   public async deleteSchedulingPolicy(
     deleteSchedulingPolicyRequest: requests.DeleteSchedulingPolicyRequest
@@ -9911,7 +9911,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteSchedulingWindowRequest
    * @return DeleteSchedulingWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingWindow.ts.html |here} to see how to use DeleteSchedulingWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingWindow.ts.html |here} to see how to use DeleteSchedulingWindow API.
    */
   public async deleteSchedulingWindow(
     deleteSchedulingWindowRequest: requests.DeleteSchedulingWindowRequest
@@ -9981,7 +9981,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteVmClusterRequest
    * @return DeleteVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteVmCluster.ts.html |here} to see how to use DeleteVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteVmCluster.ts.html |here} to see how to use DeleteVmCluster API.
    */
   public async deleteVmCluster(
     deleteVmClusterRequest: requests.DeleteVmClusterRequest
@@ -10056,7 +10056,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeleteVmClusterNetworkRequest
    * @return DeleteVmClusterNetworkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteVmClusterNetwork.ts.html |here} to see how to use DeleteVmClusterNetwork API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteVmClusterNetwork.ts.html |here} to see how to use DeleteVmClusterNetwork API.
    */
   public async deleteVmClusterNetwork(
     deleteVmClusterNetworkRequest: requests.DeleteVmClusterNetworkRequest
@@ -10132,7 +10132,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DeregisterAutonomousDatabaseDataSafeRequest
    * @return DeregisterAutonomousDatabaseDataSafeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeregisterAutonomousDatabaseDataSafe.ts.html |here} to see how to use DeregisterAutonomousDatabaseDataSafe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeregisterAutonomousDatabaseDataSafe.ts.html |here} to see how to use DeregisterAutonomousDatabaseDataSafe API.
    */
   public async deregisterAutonomousDatabaseDataSafe(
     deregisterAutonomousDatabaseDataSafeRequest: requests.DeregisterAutonomousDatabaseDataSafeRequest
@@ -10211,7 +10211,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisableAutonomousDatabaseManagementRequest
    * @return DisableAutonomousDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableAutonomousDatabaseManagement.ts.html |here} to see how to use DisableAutonomousDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableAutonomousDatabaseManagement.ts.html |here} to see how to use DisableAutonomousDatabaseManagement API.
    */
   public async disableAutonomousDatabaseManagement(
     disableAutonomousDatabaseManagementRequest: requests.DisableAutonomousDatabaseManagementRequest
@@ -10285,7 +10285,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisableAutonomousDatabaseOperationsInsightsRequest
    * @return DisableAutonomousDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableAutonomousDatabaseOperationsInsights.ts.html |here} to see how to use DisableAutonomousDatabaseOperationsInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableAutonomousDatabaseOperationsInsights.ts.html |here} to see how to use DisableAutonomousDatabaseOperationsInsights API.
    */
   public async disableAutonomousDatabaseOperationsInsights(
     disableAutonomousDatabaseOperationsInsightsRequest: requests.DisableAutonomousDatabaseOperationsInsightsRequest
@@ -10362,7 +10362,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisableDatabaseManagementRequest
    * @return DisableDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableDatabaseManagement.ts.html |here} to see how to use DisableDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableDatabaseManagement.ts.html |here} to see how to use DisableDatabaseManagement API.
    */
   public async disableDatabaseManagement(
     disableDatabaseManagementRequest: requests.DisableDatabaseManagementRequest
@@ -10447,7 +10447,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisableExternalContainerDatabaseDatabaseManagementRequest
    * @return DisableExternalContainerDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalContainerDatabaseDatabaseManagement.ts.html |here} to see how to use DisableExternalContainerDatabaseDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalContainerDatabaseDatabaseManagement.ts.html |here} to see how to use DisableExternalContainerDatabaseDatabaseManagement API.
    */
   public async disableExternalContainerDatabaseDatabaseManagement(
     disableExternalContainerDatabaseDatabaseManagementRequest: requests.DisableExternalContainerDatabaseDatabaseManagementRequest
@@ -10532,7 +10532,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisableExternalContainerDatabaseStackMonitoringRequest
    * @return DisableExternalContainerDatabaseStackMonitoringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalContainerDatabaseStackMonitoring.ts.html |here} to see how to use DisableExternalContainerDatabaseStackMonitoring API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalContainerDatabaseStackMonitoring.ts.html |here} to see how to use DisableExternalContainerDatabaseStackMonitoring API.
    */
   public async disableExternalContainerDatabaseStackMonitoring(
     disableExternalContainerDatabaseStackMonitoringRequest: requests.DisableExternalContainerDatabaseStackMonitoringRequest
@@ -10608,13 +10608,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Disable Database Management Service for the external non-container database.
    * For more information about the Database Management Service, see
-   * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
+   * [Database Management Service](https://docs.oracle.com/iaas/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableExternalNonContainerDatabaseDatabaseManagementRequest
    * @return DisableExternalNonContainerDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalNonContainerDatabaseDatabaseManagement.ts.html |here} to see how to use DisableExternalNonContainerDatabaseDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalNonContainerDatabaseDatabaseManagement.ts.html |here} to see how to use DisableExternalNonContainerDatabaseDatabaseManagement API.
    */
   public async disableExternalNonContainerDatabaseDatabaseManagement(
     disableExternalNonContainerDatabaseDatabaseManagementRequest: requests.DisableExternalNonContainerDatabaseDatabaseManagementRequest
@@ -10699,7 +10699,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisableExternalNonContainerDatabaseOperationsInsightsRequest
    * @return DisableExternalNonContainerDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalNonContainerDatabaseOperationsInsights.ts.html |here} to see how to use DisableExternalNonContainerDatabaseOperationsInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalNonContainerDatabaseOperationsInsights.ts.html |here} to see how to use DisableExternalNonContainerDatabaseOperationsInsights API.
    */
   public async disableExternalNonContainerDatabaseOperationsInsights(
     disableExternalNonContainerDatabaseOperationsInsightsRequest: requests.DisableExternalNonContainerDatabaseOperationsInsightsRequest
@@ -10784,7 +10784,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisableExternalNonContainerDatabaseStackMonitoringRequest
    * @return DisableExternalNonContainerDatabaseStackMonitoringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalNonContainerDatabaseStackMonitoring.ts.html |here} to see how to use DisableExternalNonContainerDatabaseStackMonitoring API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalNonContainerDatabaseStackMonitoring.ts.html |here} to see how to use DisableExternalNonContainerDatabaseStackMonitoring API.
    */
   public async disableExternalNonContainerDatabaseStackMonitoring(
     disableExternalNonContainerDatabaseStackMonitoringRequest: requests.DisableExternalNonContainerDatabaseStackMonitoringRequest
@@ -10860,13 +10860,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Disable Database Management Service for the external pluggable database.
    * For more information about the Database Management Service, see
-   * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
+   * [Database Management Service](https://docs.oracle.com/iaas/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableExternalPluggableDatabaseDatabaseManagementRequest
    * @return DisableExternalPluggableDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalPluggableDatabaseDatabaseManagement.ts.html |here} to see how to use DisableExternalPluggableDatabaseDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalPluggableDatabaseDatabaseManagement.ts.html |here} to see how to use DisableExternalPluggableDatabaseDatabaseManagement API.
    */
   public async disableExternalPluggableDatabaseDatabaseManagement(
     disableExternalPluggableDatabaseDatabaseManagementRequest: requests.DisableExternalPluggableDatabaseDatabaseManagementRequest
@@ -10951,7 +10951,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisableExternalPluggableDatabaseOperationsInsightsRequest
    * @return DisableExternalPluggableDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalPluggableDatabaseOperationsInsights.ts.html |here} to see how to use DisableExternalPluggableDatabaseOperationsInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalPluggableDatabaseOperationsInsights.ts.html |here} to see how to use DisableExternalPluggableDatabaseOperationsInsights API.
    */
   public async disableExternalPluggableDatabaseOperationsInsights(
     disableExternalPluggableDatabaseOperationsInsightsRequest: requests.DisableExternalPluggableDatabaseOperationsInsightsRequest
@@ -11036,7 +11036,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisableExternalPluggableDatabaseStackMonitoringRequest
    * @return DisableExternalPluggableDatabaseStackMonitoringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalPluggableDatabaseStackMonitoring.ts.html |here} to see how to use DisableExternalPluggableDatabaseStackMonitoring API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisableExternalPluggableDatabaseStackMonitoring.ts.html |here} to see how to use DisableExternalPluggableDatabaseStackMonitoring API.
    */
   public async disableExternalPluggableDatabaseStackMonitoring(
     disableExternalPluggableDatabaseStackMonitoringRequest: requests.DisableExternalPluggableDatabaseStackMonitoringRequest
@@ -11116,7 +11116,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DisablePluggableDatabaseManagementRequest
    * @return DisablePluggableDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisablePluggableDatabaseManagement.ts.html |here} to see how to use DisablePluggableDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisablePluggableDatabaseManagement.ts.html |here} to see how to use DisablePluggableDatabaseManagement API.
    */
   public async disablePluggableDatabaseManagement(
     disablePluggableDatabaseManagementRequest: requests.DisablePluggableDatabaseManagementRequest
@@ -11201,7 +11201,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DownloadExadataInfrastructureConfigFileRequest
    * @return DownloadExadataInfrastructureConfigFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadExadataInfrastructureConfigFile.ts.html |here} to see how to use DownloadExadataInfrastructureConfigFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadExadataInfrastructureConfigFile.ts.html |here} to see how to use DownloadExadataInfrastructureConfigFile API.
    */
   public async downloadExadataInfrastructureConfigFile(
     downloadExadataInfrastructureConfigFileRequest: requests.DownloadExadataInfrastructureConfigFileRequest
@@ -11293,7 +11293,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DownloadOneoffPatchRequest
    * @return DownloadOneoffPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadOneoffPatch.ts.html |here} to see how to use DownloadOneoffPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadOneoffPatch.ts.html |here} to see how to use DownloadOneoffPatch API.
    */
   public async downloadOneoffPatch(
     downloadOneoffPatchRequest: requests.DownloadOneoffPatchRequest
@@ -11372,7 +11372,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DownloadValidationReportRequest
    * @return DownloadValidationReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadValidationReport.ts.html |here} to see how to use DownloadValidationReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadValidationReport.ts.html |here} to see how to use DownloadValidationReport API.
    */
   public async downloadValidationReport(
     downloadValidationReportRequest: requests.DownloadValidationReportRequest
@@ -11463,7 +11463,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param DownloadVmClusterNetworkConfigFileRequest
    * @return DownloadVmClusterNetworkConfigFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadVmClusterNetworkConfigFile.ts.html |here} to see how to use DownloadVmClusterNetworkConfigFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadVmClusterNetworkConfigFile.ts.html |here} to see how to use DownloadVmClusterNetworkConfigFile API.
    */
   public async downloadVmClusterNetworkConfigFile(
     downloadVmClusterNetworkConfigFileRequest: requests.DownloadVmClusterNetworkConfigFileRequest
@@ -11555,7 +11555,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param EnableAutonomousDatabaseManagementRequest
    * @return EnableAutonomousDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableAutonomousDatabaseManagement.ts.html |here} to see how to use EnableAutonomousDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableAutonomousDatabaseManagement.ts.html |here} to see how to use EnableAutonomousDatabaseManagement API.
    */
   public async enableAutonomousDatabaseManagement(
     enableAutonomousDatabaseManagementRequest: requests.EnableAutonomousDatabaseManagementRequest
@@ -11629,7 +11629,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param EnableAutonomousDatabaseOperationsInsightsRequest
    * @return EnableAutonomousDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableAutonomousDatabaseOperationsInsights.ts.html |here} to see how to use EnableAutonomousDatabaseOperationsInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableAutonomousDatabaseOperationsInsights.ts.html |here} to see how to use EnableAutonomousDatabaseOperationsInsights API.
    */
   public async enableAutonomousDatabaseOperationsInsights(
     enableAutonomousDatabaseOperationsInsightsRequest: requests.EnableAutonomousDatabaseOperationsInsightsRequest
@@ -11705,7 +11705,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param EnableDatabaseManagementRequest
    * @return EnableDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableDatabaseManagement.ts.html |here} to see how to use EnableDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableDatabaseManagement.ts.html |here} to see how to use EnableDatabaseManagement API.
    */
   public async enableDatabaseManagement(
     enableDatabaseManagementRequest: requests.EnableDatabaseManagementRequest
@@ -11791,13 +11791,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Enables Database Management Service for the external container database.
    * For more information about the Database Management Service, see
-   * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
+   * [Database Management Service](https://docs.oracle.com/iaas/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableExternalContainerDatabaseDatabaseManagementRequest
    * @return EnableExternalContainerDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalContainerDatabaseDatabaseManagement.ts.html |here} to see how to use EnableExternalContainerDatabaseDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalContainerDatabaseDatabaseManagement.ts.html |here} to see how to use EnableExternalContainerDatabaseDatabaseManagement API.
    */
   public async enableExternalContainerDatabaseDatabaseManagement(
     enableExternalContainerDatabaseDatabaseManagementRequest: requests.EnableExternalContainerDatabaseDatabaseManagementRequest
@@ -11887,7 +11887,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param EnableExternalContainerDatabaseStackMonitoringRequest
    * @return EnableExternalContainerDatabaseStackMonitoringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalContainerDatabaseStackMonitoring.ts.html |here} to see how to use EnableExternalContainerDatabaseStackMonitoring API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalContainerDatabaseStackMonitoring.ts.html |here} to see how to use EnableExternalContainerDatabaseStackMonitoring API.
    */
   public async enableExternalContainerDatabaseStackMonitoring(
     enableExternalContainerDatabaseStackMonitoringRequest: requests.EnableExternalContainerDatabaseStackMonitoringRequest
@@ -11968,13 +11968,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Enable Database Management Service for the external non-container database.
    * For more information about the Database Management Service, see
-   * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
+   * [Database Management Service](https://docs.oracle.com/iaas/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableExternalNonContainerDatabaseDatabaseManagementRequest
    * @return EnableExternalNonContainerDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalNonContainerDatabaseDatabaseManagement.ts.html |here} to see how to use EnableExternalNonContainerDatabaseDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalNonContainerDatabaseDatabaseManagement.ts.html |here} to see how to use EnableExternalNonContainerDatabaseDatabaseManagement API.
    */
   public async enableExternalNonContainerDatabaseDatabaseManagement(
     enableExternalNonContainerDatabaseDatabaseManagementRequest: requests.EnableExternalNonContainerDatabaseDatabaseManagementRequest
@@ -12064,7 +12064,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param EnableExternalNonContainerDatabaseOperationsInsightsRequest
    * @return EnableExternalNonContainerDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalNonContainerDatabaseOperationsInsights.ts.html |here} to see how to use EnableExternalNonContainerDatabaseOperationsInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalNonContainerDatabaseOperationsInsights.ts.html |here} to see how to use EnableExternalNonContainerDatabaseOperationsInsights API.
    */
   public async enableExternalNonContainerDatabaseOperationsInsights(
     enableExternalNonContainerDatabaseOperationsInsightsRequest: requests.EnableExternalNonContainerDatabaseOperationsInsightsRequest
@@ -12154,7 +12154,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param EnableExternalNonContainerDatabaseStackMonitoringRequest
    * @return EnableExternalNonContainerDatabaseStackMonitoringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalNonContainerDatabaseStackMonitoring.ts.html |here} to see how to use EnableExternalNonContainerDatabaseStackMonitoring API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalNonContainerDatabaseStackMonitoring.ts.html |here} to see how to use EnableExternalNonContainerDatabaseStackMonitoring API.
    */
   public async enableExternalNonContainerDatabaseStackMonitoring(
     enableExternalNonContainerDatabaseStackMonitoringRequest: requests.EnableExternalNonContainerDatabaseStackMonitoringRequest
@@ -12235,13 +12235,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   /**
    * Enable Database Management Service for the external pluggable database.
    * For more information about the Database Management Service, see
-   * [Database Management Service](https://docs.cloud.oracle.com/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
+   * [Database Management Service](https://docs.oracle.com/iaas/Content/ExternalDatabase/Concepts/databasemanagementservice.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableExternalPluggableDatabaseDatabaseManagementRequest
    * @return EnableExternalPluggableDatabaseDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalPluggableDatabaseDatabaseManagement.ts.html |here} to see how to use EnableExternalPluggableDatabaseDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalPluggableDatabaseDatabaseManagement.ts.html |here} to see how to use EnableExternalPluggableDatabaseDatabaseManagement API.
    */
   public async enableExternalPluggableDatabaseDatabaseManagement(
     enableExternalPluggableDatabaseDatabaseManagementRequest: requests.EnableExternalPluggableDatabaseDatabaseManagementRequest
@@ -12331,7 +12331,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param EnableExternalPluggableDatabaseOperationsInsightsRequest
    * @return EnableExternalPluggableDatabaseOperationsInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalPluggableDatabaseOperationsInsights.ts.html |here} to see how to use EnableExternalPluggableDatabaseOperationsInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalPluggableDatabaseOperationsInsights.ts.html |here} to see how to use EnableExternalPluggableDatabaseOperationsInsights API.
    */
   public async enableExternalPluggableDatabaseOperationsInsights(
     enableExternalPluggableDatabaseOperationsInsightsRequest: requests.EnableExternalPluggableDatabaseOperationsInsightsRequest
@@ -12421,7 +12421,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param EnableExternalPluggableDatabaseStackMonitoringRequest
    * @return EnableExternalPluggableDatabaseStackMonitoringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalPluggableDatabaseStackMonitoring.ts.html |here} to see how to use EnableExternalPluggableDatabaseStackMonitoring API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnableExternalPluggableDatabaseStackMonitoring.ts.html |here} to see how to use EnableExternalPluggableDatabaseStackMonitoring API.
    */
   public async enableExternalPluggableDatabaseStackMonitoring(
     enableExternalPluggableDatabaseStackMonitoringRequest: requests.EnableExternalPluggableDatabaseStackMonitoringRequest
@@ -12505,7 +12505,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param EnablePluggableDatabaseManagementRequest
    * @return EnablePluggableDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnablePluggableDatabaseManagement.ts.html |here} to see how to use EnablePluggableDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnablePluggableDatabaseManagement.ts.html |here} to see how to use EnablePluggableDatabaseManagement API.
    */
   public async enablePluggableDatabaseManagement(
     enablePluggableDatabaseManagementRequest: requests.EnablePluggableDatabaseManagementRequest
@@ -12600,7 +12600,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
    * @param FailOverAutonomousDatabaseRequest
    * @return FailOverAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailOverAutonomousDatabase.ts.html |here} to see how to use FailOverAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailOverAutonomousDatabase.ts.html |here} to see how to use FailOverAutonomousDatabase API.
    */
   public async failOverAutonomousDatabase(
     failOverAutonomousDatabaseRequest: requests.FailOverAutonomousDatabaseRequest
@@ -12689,7 +12689,7 @@ A failover can result in data loss, depending on the protection mode in effect a
      * @param FailoverAutonomousContainerDatabaseDataguardAssociationRequest
      * @return FailoverAutonomousContainerDatabaseDataguardAssociationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailoverAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use FailoverAutonomousContainerDatabaseDataguardAssociation API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailoverAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use FailoverAutonomousContainerDatabaseDataguardAssociation API.
      */
   public async failoverAutonomousContainerDatabaseDataguardAssociation(
     failoverAutonomousContainerDatabaseDataguardAssociationRequest: requests.FailoverAutonomousContainerDatabaseDataguardAssociationRequest
@@ -12786,7 +12786,7 @@ This operation should be performed on respective standby database.
      * @param FailoverDataGuardRequest
      * @return FailoverDataGuardResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailoverDataGuard.ts.html |here} to see how to use FailoverDataGuard API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailoverDataGuard.ts.html |here} to see how to use FailoverDataGuard API.
      */
   public async failoverDataGuard(
     failoverDataGuardRequest: requests.FailoverDataGuardRequest
@@ -12879,7 +12879,7 @@ A failover might result in data loss depending on the protection mode in effect 
      * @param FailoverDataGuardAssociationRequest
      * @return FailoverDataGuardAssociationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailoverDataGuardAssociation.ts.html |here} to see how to use FailoverDataGuardAssociation API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailoverDataGuardAssociation.ts.html |here} to see how to use FailoverDataGuardAssociation API.
      */
   public async failoverDataGuardAssociation(
     failoverDataGuardAssociationRequest: requests.FailoverDataGuardAssociationRequest
@@ -12969,7 +12969,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GenerateAutonomousDatabaseWalletRequest
    * @return GenerateAutonomousDatabaseWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GenerateAutonomousDatabaseWallet.ts.html |here} to see how to use GenerateAutonomousDatabaseWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GenerateAutonomousDatabaseWallet.ts.html |here} to see how to use GenerateAutonomousDatabaseWallet API.
    */
   public async generateAutonomousDatabaseWallet(
     generateAutonomousDatabaseWalletRequest: requests.GenerateAutonomousDatabaseWalletRequest
@@ -13063,7 +13063,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GenerateRecommendedVmClusterNetworkRequest
    * @return GenerateRecommendedVmClusterNetworkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GenerateRecommendedVmClusterNetwork.ts.html |here} to see how to use GenerateRecommendedVmClusterNetwork API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GenerateRecommendedVmClusterNetwork.ts.html |here} to see how to use GenerateRecommendedVmClusterNetwork API.
    */
   public async generateRecommendedVmClusterNetwork(
     generateRecommendedVmClusterNetworkRequest: requests.GenerateRecommendedVmClusterNetworkRequest
@@ -13148,7 +13148,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetApplicationVipRequest
    * @return GetApplicationVipResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetApplicationVip.ts.html |here} to see how to use GetApplicationVip API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetApplicationVip.ts.html |here} to see how to use GetApplicationVip API.
    */
   public async getApplicationVip(
     getApplicationVipRequest: requests.GetApplicationVipRequest
@@ -13224,7 +13224,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousContainerDatabaseRequest
    * @return GetAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabase.ts.html |here} to see how to use GetAutonomousContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabase.ts.html |here} to see how to use GetAutonomousContainerDatabase API.
    */
   public async getAutonomousContainerDatabase(
     getAutonomousContainerDatabaseRequest: requests.GetAutonomousContainerDatabaseRequest
@@ -13302,7 +13302,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousContainerDatabaseDataguardAssociationRequest
    * @return GetAutonomousContainerDatabaseDataguardAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use GetAutonomousContainerDatabaseDataguardAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use GetAutonomousContainerDatabaseDataguardAssociation API.
    */
   public async getAutonomousContainerDatabaseDataguardAssociation(
     getAutonomousContainerDatabaseDataguardAssociationRequest: requests.GetAutonomousContainerDatabaseDataguardAssociationRequest
@@ -13385,7 +13385,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousContainerDatabaseResourceUsageRequest
    * @return GetAutonomousContainerDatabaseResourceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabaseResourceUsage.ts.html |here} to see how to use GetAutonomousContainerDatabaseResourceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabaseResourceUsage.ts.html |here} to see how to use GetAutonomousContainerDatabaseResourceUsage API.
    */
   public async getAutonomousContainerDatabaseResourceUsage(
     getAutonomousContainerDatabaseResourceUsageRequest: requests.GetAutonomousContainerDatabaseResourceUsageRequest
@@ -13466,7 +13466,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousDatabaseRequest
    * @return GetAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabase.ts.html |here} to see how to use GetAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabase.ts.html |here} to see how to use GetAutonomousDatabase API.
    */
   public async getAutonomousDatabase(
     getAutonomousDatabaseRequest: requests.GetAutonomousDatabaseRequest
@@ -13542,7 +13542,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousDatabaseBackupRequest
    * @return GetAutonomousDatabaseBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseBackup.ts.html |here} to see how to use GetAutonomousDatabaseBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseBackup.ts.html |here} to see how to use GetAutonomousDatabaseBackup API.
    */
   public async getAutonomousDatabaseBackup(
     getAutonomousDatabaseBackupRequest: requests.GetAutonomousDatabaseBackupRequest
@@ -13620,7 +13620,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousDatabaseDataguardAssociationRequest
    * @return GetAutonomousDatabaseDataguardAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseDataguardAssociation.ts.html |here} to see how to use GetAutonomousDatabaseDataguardAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseDataguardAssociation.ts.html |here} to see how to use GetAutonomousDatabaseDataguardAssociation API.
    */
   public async getAutonomousDatabaseDataguardAssociation(
     getAutonomousDatabaseDataguardAssociationRequest: requests.GetAutonomousDatabaseDataguardAssociationRequest
@@ -13704,7 +13704,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousDatabaseRegionalWalletRequest
    * @return GetAutonomousDatabaseRegionalWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseRegionalWallet.ts.html |here} to see how to use GetAutonomousDatabaseRegionalWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseRegionalWallet.ts.html |here} to see how to use GetAutonomousDatabaseRegionalWallet API.
    */
   public async getAutonomousDatabaseRegionalWallet(
     getAutonomousDatabaseRegionalWalletRequest: requests.GetAutonomousDatabaseRegionalWalletRequest
@@ -13774,7 +13774,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousDatabaseSoftwareImageRequest
    * @return GetAutonomousDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use GetAutonomousDatabaseSoftwareImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use GetAutonomousDatabaseSoftwareImage API.
    */
   public async getAutonomousDatabaseSoftwareImage(
     getAutonomousDatabaseSoftwareImageRequest: requests.GetAutonomousDatabaseSoftwareImageRequest
@@ -13853,7 +13853,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousDatabaseWalletRequest
    * @return GetAutonomousDatabaseWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseWallet.ts.html |here} to see how to use GetAutonomousDatabaseWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseWallet.ts.html |here} to see how to use GetAutonomousDatabaseWallet API.
    */
   public async getAutonomousDatabaseWallet(
     getAutonomousDatabaseWalletRequest: requests.GetAutonomousDatabaseWalletRequest
@@ -13926,7 +13926,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousExadataInfrastructureRequest
    * @return GetAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousExadataInfrastructure.ts.html |here} to see how to use GetAutonomousExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousExadataInfrastructure.ts.html |here} to see how to use GetAutonomousExadataInfrastructure API.
    */
   public async getAutonomousExadataInfrastructure(
     getAutonomousExadataInfrastructureRequest: requests.GetAutonomousExadataInfrastructureRequest
@@ -14003,7 +14003,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousPatchRequest
    * @return GetAutonomousPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousPatch.ts.html |here} to see how to use GetAutonomousPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousPatch.ts.html |here} to see how to use GetAutonomousPatch API.
    */
   public async getAutonomousPatch(
     getAutonomousPatchRequest: requests.GetAutonomousPatchRequest
@@ -14079,7 +14079,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousVirtualMachineRequest
    * @return GetAutonomousVirtualMachineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousVirtualMachine.ts.html |here} to see how to use GetAutonomousVirtualMachine API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousVirtualMachine.ts.html |here} to see how to use GetAutonomousVirtualMachine API.
    */
   public async getAutonomousVirtualMachine(
     getAutonomousVirtualMachineRequest: requests.GetAutonomousVirtualMachineRequest
@@ -14157,7 +14157,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousVmClusterRequest
    * @return GetAutonomousVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousVmCluster.ts.html |here} to see how to use GetAutonomousVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousVmCluster.ts.html |here} to see how to use GetAutonomousVmCluster API.
    */
   public async getAutonomousVmCluster(
     getAutonomousVmClusterRequest: requests.GetAutonomousVmClusterRequest
@@ -14234,7 +14234,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetAutonomousVmClusterResourceUsageRequest
    * @return GetAutonomousVmClusterResourceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousVmClusterResourceUsage.ts.html |here} to see how to use GetAutonomousVmClusterResourceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousVmClusterResourceUsage.ts.html |here} to see how to use GetAutonomousVmClusterResourceUsage API.
    */
   public async getAutonomousVmClusterResourceUsage(
     getAutonomousVmClusterResourceUsageRequest: requests.GetAutonomousVmClusterResourceUsageRequest
@@ -14311,7 +14311,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetBackupRequest
    * @return GetBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetBackup.ts.html |here} to see how to use GetBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetBackup.ts.html |here} to see how to use GetBackup API.
    */
   public async getBackup(
     getBackupRequest: requests.GetBackupRequest
@@ -14387,7 +14387,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetBackupDestinationRequest
    * @return GetBackupDestinationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetBackupDestination.ts.html |here} to see how to use GetBackupDestination API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetBackupDestination.ts.html |here} to see how to use GetBackupDestination API.
    */
   public async getBackupDestination(
     getBackupDestinationRequest: requests.GetBackupDestinationRequest
@@ -14464,7 +14464,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudAutonomousVmClusterRequest
    * @return GetCloudAutonomousVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudAutonomousVmCluster.ts.html |here} to see how to use GetCloudAutonomousVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudAutonomousVmCluster.ts.html |here} to see how to use GetCloudAutonomousVmCluster API.
    */
   public async getCloudAutonomousVmCluster(
     getCloudAutonomousVmClusterRequest: requests.GetCloudAutonomousVmClusterRequest
@@ -14542,7 +14542,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudAutonomousVmClusterResourceUsageRequest
    * @return GetCloudAutonomousVmClusterResourceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudAutonomousVmClusterResourceUsage.ts.html |here} to see how to use GetCloudAutonomousVmClusterResourceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudAutonomousVmClusterResourceUsage.ts.html |here} to see how to use GetCloudAutonomousVmClusterResourceUsage API.
    */
   public async getCloudAutonomousVmClusterResourceUsage(
     getCloudAutonomousVmClusterResourceUsageRequest: requests.GetCloudAutonomousVmClusterResourceUsageRequest
@@ -14623,7 +14623,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudExadataInfrastructureRequest
    * @return GetCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudExadataInfrastructure.ts.html |here} to see how to use GetCloudExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudExadataInfrastructure.ts.html |here} to see how to use GetCloudExadataInfrastructure API.
    */
   public async getCloudExadataInfrastructure(
     getCloudExadataInfrastructureRequest: requests.GetCloudExadataInfrastructureRequest
@@ -14702,7 +14702,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudExadataInfrastructureUnallocatedResourcesRequest
    * @return GetCloudExadataInfrastructureUnallocatedResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudExadataInfrastructureUnallocatedResources.ts.html |here} to see how to use GetCloudExadataInfrastructureUnallocatedResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudExadataInfrastructureUnallocatedResources.ts.html |here} to see how to use GetCloudExadataInfrastructureUnallocatedResources API.
    */
   public async getCloudExadataInfrastructureUnallocatedResources(
     getCloudExadataInfrastructureUnallocatedResourcesRequest: requests.GetCloudExadataInfrastructureUnallocatedResourcesRequest
@@ -14785,7 +14785,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudVmClusterRequest
    * @return GetCloudVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmCluster.ts.html |here} to see how to use GetCloudVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmCluster.ts.html |here} to see how to use GetCloudVmCluster API.
    */
   public async getCloudVmCluster(
     getCloudVmClusterRequest: requests.GetCloudVmClusterRequest
@@ -14863,7 +14863,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudVmClusterIormConfigRequest
    * @return GetCloudVmClusterIormConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterIormConfig.ts.html |here} to see how to use GetCloudVmClusterIormConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterIormConfig.ts.html |here} to see how to use GetCloudVmClusterIormConfig API.
    */
   public async getCloudVmClusterIormConfig(
     getCloudVmClusterIormConfigRequest: requests.GetCloudVmClusterIormConfigRequest
@@ -14941,7 +14941,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudVmClusterUpdateRequest
    * @return GetCloudVmClusterUpdateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterUpdate.ts.html |here} to see how to use GetCloudVmClusterUpdate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterUpdate.ts.html |here} to see how to use GetCloudVmClusterUpdate API.
    */
   public async getCloudVmClusterUpdate(
     getCloudVmClusterUpdateRequest: requests.GetCloudVmClusterUpdateRequest
@@ -15014,7 +15014,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetCloudVmClusterUpdateHistoryEntryRequest
    * @return GetCloudVmClusterUpdateHistoryEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetCloudVmClusterUpdateHistoryEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetCloudVmClusterUpdateHistoryEntry API.
    */
   public async getCloudVmClusterUpdateHistoryEntry(
     getCloudVmClusterUpdateHistoryEntryRequest: requests.GetCloudVmClusterUpdateHistoryEntryRequest
@@ -15092,7 +15092,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetConsoleConnectionRequest
    * @return GetConsoleConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetConsoleConnection.ts.html |here} to see how to use GetConsoleConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetConsoleConnection.ts.html |here} to see how to use GetConsoleConnection API.
    */
   public async getConsoleConnection(
     getConsoleConnectionRequest: requests.GetConsoleConnectionRequest
@@ -15169,7 +15169,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetConsoleHistoryRequest
    * @return GetConsoleHistoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetConsoleHistory.ts.html |here} to see how to use GetConsoleHistory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetConsoleHistory.ts.html |here} to see how to use GetConsoleHistory API.
    */
   public async getConsoleHistory(
     getConsoleHistoryRequest: requests.GetConsoleHistoryRequest
@@ -15247,7 +15247,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetConsoleHistoryContentRequest
    * @return GetConsoleHistoryContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetConsoleHistoryContent.ts.html |here} to see how to use GetConsoleHistoryContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetConsoleHistoryContent.ts.html |here} to see how to use GetConsoleHistoryContent API.
    */
   public async getConsoleHistoryContent(
     getConsoleHistoryContentRequest: requests.GetConsoleHistoryContentRequest
@@ -15326,7 +15326,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDataGuardAssociationRequest
    * @return GetDataGuardAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDataGuardAssociation.ts.html |here} to see how to use GetDataGuardAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDataGuardAssociation.ts.html |here} to see how to use GetDataGuardAssociation API.
    */
   public async getDataGuardAssociation(
     getDataGuardAssociationRequest: requests.GetDataGuardAssociationRequest
@@ -15402,7 +15402,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDatabaseRequest
    * @return GetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDatabase.ts.html |here} to see how to use GetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDatabase.ts.html |here} to see how to use GetDatabase API.
    */
   public async getDatabase(
     getDatabaseRequest: requests.GetDatabaseRequest
@@ -15477,7 +15477,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDatabaseSoftwareImageRequest
    * @return GetDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDatabaseSoftwareImage.ts.html |here} to see how to use GetDatabaseSoftwareImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDatabaseSoftwareImage.ts.html |here} to see how to use GetDatabaseSoftwareImage API.
    */
   public async getDatabaseSoftwareImage(
     getDatabaseSoftwareImageRequest: requests.GetDatabaseSoftwareImageRequest
@@ -15554,7 +15554,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDatabaseUpgradeHistoryEntryRequest
    * @return GetDatabaseUpgradeHistoryEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDatabaseUpgradeHistoryEntry.ts.html |here} to see how to use GetDatabaseUpgradeHistoryEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDatabaseUpgradeHistoryEntry.ts.html |here} to see how to use GetDatabaseUpgradeHistoryEntry API.
    */
   public async getDatabaseUpgradeHistoryEntry(
     getDatabaseUpgradeHistoryEntryRequest: requests.GetDatabaseUpgradeHistoryEntryRequest
@@ -15627,7 +15627,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbHomeRequest
    * @return GetDbHomeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbHome.ts.html |here} to see how to use GetDbHome API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbHome.ts.html |here} to see how to use GetDbHome API.
    */
   public async getDbHome(
     getDbHomeRequest: requests.GetDbHomeRequest
@@ -15703,7 +15703,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbHomePatchRequest
    * @return GetDbHomePatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbHomePatch.ts.html |here} to see how to use GetDbHomePatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbHomePatch.ts.html |here} to see how to use GetDbHomePatch API.
    */
   public async getDbHomePatch(
     getDbHomePatchRequest: requests.GetDbHomePatchRequest
@@ -15775,7 +15775,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbHomePatchHistoryEntryRequest
    * @return GetDbHomePatchHistoryEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbHomePatchHistoryEntry.ts.html |here} to see how to use GetDbHomePatchHistoryEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbHomePatchHistoryEntry.ts.html |here} to see how to use GetDbHomePatchHistoryEntry API.
    */
   public async getDbHomePatchHistoryEntry(
     getDbHomePatchHistoryEntryRequest: requests.GetDbHomePatchHistoryEntryRequest
@@ -15852,7 +15852,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbNodeRequest
    * @return GetDbNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbNode.ts.html |here} to see how to use GetDbNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbNode.ts.html |here} to see how to use GetDbNode API.
    */
   public async getDbNode(
     getDbNodeRequest: requests.GetDbNodeRequest
@@ -15928,7 +15928,7 @@ A failover might result in data loss depending on the protection mode in effect 
    * @param GetDbServerRequest
    * @return GetDbServerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbServer.ts.html |here} to see how to use GetDbServer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbServer.ts.html |here} to see how to use GetDbServer API.
    */
   public async getDbServer(
     getDbServerRequest: requests.GetDbServerRequest
@@ -16003,15 +16003,15 @@ A failover might result in data loss depending on the protection mode in effect 
   /**
      * Gets information about the specified DB system.
 * <p>
-**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
 * <p>
-For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetDbSystemRequest
      * @return GetDbSystemResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystem.ts.html |here} to see how to use GetDbSystem API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystem.ts.html |here} to see how to use GetDbSystem API.
      */
   public async getDbSystem(
     getDbSystemRequest: requests.GetDbSystemRequest
@@ -16087,7 +16087,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param GetDbSystemPatchRequest
    * @return GetDbSystemPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemPatch.ts.html |here} to see how to use GetDbSystemPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemPatch.ts.html |here} to see how to use GetDbSystemPatch API.
    */
   public async getDbSystemPatch(
     getDbSystemPatchRequest: requests.GetDbSystemPatchRequest
@@ -16159,7 +16159,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param GetDbSystemPatchHistoryEntryRequest
    * @return GetDbSystemPatchHistoryEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemPatchHistoryEntry.ts.html |here} to see how to use GetDbSystemPatchHistoryEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemPatchHistoryEntry.ts.html |here} to see how to use GetDbSystemPatchHistoryEntry API.
    */
   public async getDbSystemPatchHistoryEntry(
     getDbSystemPatchHistoryEntryRequest: requests.GetDbSystemPatchHistoryEntryRequest
@@ -16237,7 +16237,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param GetDbSystemUpgradeHistoryEntryRequest
    * @return GetDbSystemUpgradeHistoryEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemUpgradeHistoryEntry.ts.html |here} to see how to use GetDbSystemUpgradeHistoryEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemUpgradeHistoryEntry.ts.html |here} to see how to use GetDbSystemUpgradeHistoryEntry API.
    */
   public async getDbSystemUpgradeHistoryEntry(
     getDbSystemUpgradeHistoryEntryRequest: requests.GetDbSystemUpgradeHistoryEntryRequest
@@ -16312,7 +16312,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param GetExadataInfrastructureRequest
    * @return GetExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataInfrastructure.ts.html |here} to see how to use GetExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataInfrastructure.ts.html |here} to see how to use GetExadataInfrastructure API.
    */
   public async getExadataInfrastructure(
     getExadataInfrastructureRequest: requests.GetExadataInfrastructureRequest
@@ -16392,7 +16392,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param GetExadataInfrastructureOcpusRequest
    * @return GetExadataInfrastructureOcpusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataInfrastructureOcpus.ts.html |here} to see how to use GetExadataInfrastructureOcpus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataInfrastructureOcpus.ts.html |here} to see how to use GetExadataInfrastructureOcpus API.
    */
   public async getExadataInfrastructureOcpus(
     getExadataInfrastructureOcpusRequest: requests.GetExadataInfrastructureOcpusRequest
@@ -16466,7 +16466,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param GetExadataInfrastructureUnAllocatedResourcesRequest
    * @return GetExadataInfrastructureUnAllocatedResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataInfrastructureUnAllocatedResources.ts.html |here} to see how to use GetExadataInfrastructureUnAllocatedResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataInfrastructureUnAllocatedResources.ts.html |here} to see how to use GetExadataInfrastructureUnAllocatedResources API.
    */
   public async getExadataInfrastructureUnAllocatedResources(
     getExadataInfrastructureUnAllocatedResourcesRequest: requests.GetExadataInfrastructureUnAllocatedResourcesRequest
@@ -16546,9 +16546,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
      * Gets the IORM configuration settings for the specified cloud Exadata DB system.
 * All Exadata service instances have default IORM settings.
 * <p>
-**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
 * <p>
-For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * <p>
 The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getCloudVmClusterIormConfig} API is used for this operation with Exadata systems using the
 * new resource model.
@@ -16557,7 +16557,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
      * @param GetExadataIormConfigRequest
      * @return GetExadataIormConfigResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataIormConfig.ts.html |here} to see how to use GetExadataIormConfig API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataIormConfig.ts.html |here} to see how to use GetExadataIormConfig API.
      */
   public async getExadataIormConfig(
     getExadataIormConfigRequest: requests.GetExadataIormConfigRequest
@@ -16629,7 +16629,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetExadbVmClusterRequest
    * @return GetExadbVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadbVmCluster.ts.html |here} to see how to use GetExadbVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadbVmCluster.ts.html |here} to see how to use GetExadbVmCluster API.
    */
   public async getExadbVmCluster(
     getExadbVmClusterRequest: requests.GetExadbVmClusterRequest
@@ -16706,7 +16706,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetExadbVmClusterUpdateRequest
    * @return GetExadbVmClusterUpdateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadbVmClusterUpdate.ts.html |here} to see how to use GetExadbVmClusterUpdate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadbVmClusterUpdate.ts.html |here} to see how to use GetExadbVmClusterUpdate API.
    */
   public async getExadbVmClusterUpdate(
     getExadbVmClusterUpdateRequest: requests.GetExadbVmClusterUpdateRequest
@@ -16779,7 +16779,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetExadbVmClusterUpdateHistoryEntryRequest
    * @return GetExadbVmClusterUpdateHistoryEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadbVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetExadbVmClusterUpdateHistoryEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadbVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetExadbVmClusterUpdateHistoryEntry API.
    */
   public async getExadbVmClusterUpdateHistoryEntry(
     getExadbVmClusterUpdateHistoryEntryRequest: requests.GetExadbVmClusterUpdateHistoryEntryRequest
@@ -16858,7 +16858,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetExascaleDbStorageVaultRequest
    * @return GetExascaleDbStorageVaultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExascaleDbStorageVault.ts.html |here} to see how to use GetExascaleDbStorageVault API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExascaleDbStorageVault.ts.html |here} to see how to use GetExascaleDbStorageVault API.
    */
   public async getExascaleDbStorageVault(
     getExascaleDbStorageVaultRequest: requests.GetExascaleDbStorageVaultRequest
@@ -16936,7 +16936,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetExecutionActionRequest
    * @return GetExecutionActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExecutionAction.ts.html |here} to see how to use GetExecutionAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExecutionAction.ts.html |here} to see how to use GetExecutionAction API.
    */
   public async getExecutionAction(
     getExecutionActionRequest: requests.GetExecutionActionRequest
@@ -17013,7 +17013,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetExecutionWindowRequest
    * @return GetExecutionWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExecutionWindow.ts.html |here} to see how to use GetExecutionWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExecutionWindow.ts.html |here} to see how to use GetExecutionWindow API.
    */
   public async getExecutionWindow(
     getExecutionWindowRequest: requests.GetExecutionWindowRequest
@@ -17086,13 +17086,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   /**
    * Gets information about the specified external backup job.
    * <p>
-   **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.cloud.oracle.com/Content/Database/Tasks/mig-onprembackup.htm) for more information.
+   **Note:** This API is used by an Oracle Cloud Infrastructure Python script that is packaged with the Oracle Cloud Infrastructure CLI. Oracle recommends that you use the script instead using the API directly. See [Migrating an On-Premises Database to Oracle Cloud Infrastructure by Creating a Backup in the Cloud](https://docs.oracle.com/iaas/Content/Database/Tasks/mig-onprembackup.htm) for more information.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExternalBackupJobRequest
    * @return GetExternalBackupJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalBackupJob.ts.html |here} to see how to use GetExternalBackupJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalBackupJob.ts.html |here} to see how to use GetExternalBackupJob API.
    */
   public async getExternalBackupJob(
     getExternalBackupJobRequest: requests.GetExternalBackupJobRequest
@@ -17167,7 +17167,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetExternalContainerDatabaseRequest
    * @return GetExternalContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalContainerDatabase.ts.html |here} to see how to use GetExternalContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalContainerDatabase.ts.html |here} to see how to use GetExternalContainerDatabase API.
    */
   public async getExternalContainerDatabase(
     getExternalContainerDatabaseRequest: requests.GetExternalContainerDatabaseRequest
@@ -17245,7 +17245,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetExternalDatabaseConnectorRequest
    * @return GetExternalDatabaseConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalDatabaseConnector.ts.html |here} to see how to use GetExternalDatabaseConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalDatabaseConnector.ts.html |here} to see how to use GetExternalDatabaseConnector API.
    */
   public async getExternalDatabaseConnector(
     getExternalDatabaseConnectorRequest: requests.GetExternalDatabaseConnectorRequest
@@ -17323,7 +17323,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetExternalNonContainerDatabaseRequest
    * @return GetExternalNonContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalNonContainerDatabase.ts.html |here} to see how to use GetExternalNonContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalNonContainerDatabase.ts.html |here} to see how to use GetExternalNonContainerDatabase API.
    */
   public async getExternalNonContainerDatabase(
     getExternalNonContainerDatabaseRequest: requests.GetExternalNonContainerDatabaseRequest
@@ -17403,7 +17403,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetExternalPluggableDatabaseRequest
    * @return GetExternalPluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalPluggableDatabase.ts.html |here} to see how to use GetExternalPluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExternalPluggableDatabase.ts.html |here} to see how to use GetExternalPluggableDatabase API.
    */
   public async getExternalPluggableDatabase(
     getExternalPluggableDatabaseRequest: requests.GetExternalPluggableDatabaseRequest
@@ -17483,7 +17483,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetInfrastructureTargetVersionsRequest
    * @return GetInfrastructureTargetVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetInfrastructureTargetVersions.ts.html |here} to see how to use GetInfrastructureTargetVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetInfrastructureTargetVersions.ts.html |here} to see how to use GetInfrastructureTargetVersions API.
    */
   public async getInfrastructureTargetVersions(
     getInfrastructureTargetVersionsRequest: requests.GetInfrastructureTargetVersionsRequest
@@ -17563,7 +17563,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetKeyStoreRequest
    * @return GetKeyStoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetKeyStore.ts.html |here} to see how to use GetKeyStore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetKeyStore.ts.html |here} to see how to use GetKeyStore API.
    */
   public async getKeyStore(
     getKeyStoreRequest: requests.GetKeyStoreRequest
@@ -17639,7 +17639,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetMaintenanceRunRequest
    * @return GetMaintenanceRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetMaintenanceRun.ts.html |here} to see how to use GetMaintenanceRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetMaintenanceRun.ts.html |here} to see how to use GetMaintenanceRun API.
    */
   public async getMaintenanceRun(
     getMaintenanceRunRequest: requests.GetMaintenanceRunRequest
@@ -17714,7 +17714,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetMaintenanceRunHistoryRequest
    * @return GetMaintenanceRunHistoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetMaintenanceRunHistory.ts.html |here} to see how to use GetMaintenanceRunHistory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetMaintenanceRunHistory.ts.html |here} to see how to use GetMaintenanceRunHistory API.
    */
   public async getMaintenanceRunHistory(
     getMaintenanceRunHistoryRequest: requests.GetMaintenanceRunHistoryRequest
@@ -17791,7 +17791,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetOneoffPatchRequest
    * @return GetOneoffPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetOneoffPatch.ts.html |here} to see how to use GetOneoffPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetOneoffPatch.ts.html |here} to see how to use GetOneoffPatch API.
    */
   public async getOneoffPatch(
     getOneoffPatchRequest: requests.GetOneoffPatchRequest
@@ -17868,7 +17868,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetPdbConversionHistoryEntryRequest
    * @return GetPdbConversionHistoryEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetPdbConversionHistoryEntry.ts.html |here} to see how to use GetPdbConversionHistoryEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetPdbConversionHistoryEntry.ts.html |here} to see how to use GetPdbConversionHistoryEntry API.
    */
   public async getPdbConversionHistoryEntry(
     getPdbConversionHistoryEntryRequest: requests.GetPdbConversionHistoryEntryRequest
@@ -17942,7 +17942,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetPluggableDatabaseRequest
    * @return GetPluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetPluggableDatabase.ts.html |here} to see how to use GetPluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetPluggableDatabase.ts.html |here} to see how to use GetPluggableDatabase API.
    */
   public async getPluggableDatabase(
     getPluggableDatabaseRequest: requests.GetPluggableDatabaseRequest
@@ -18018,7 +18018,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetScheduledActionRequest
    * @return GetScheduledActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetScheduledAction.ts.html |here} to see how to use GetScheduledAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetScheduledAction.ts.html |here} to see how to use GetScheduledAction API.
    */
   public async getScheduledAction(
     getScheduledActionRequest: requests.GetScheduledActionRequest
@@ -18095,7 +18095,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetSchedulingPlanRequest
    * @return GetSchedulingPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetSchedulingPlan.ts.html |here} to see how to use GetSchedulingPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetSchedulingPlan.ts.html |here} to see how to use GetSchedulingPlan API.
    */
   public async getSchedulingPlan(
     getSchedulingPlanRequest: requests.GetSchedulingPlanRequest
@@ -18172,7 +18172,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetSchedulingPolicyRequest
    * @return GetSchedulingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetSchedulingPolicy.ts.html |here} to see how to use GetSchedulingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetSchedulingPolicy.ts.html |here} to see how to use GetSchedulingPolicy API.
    */
   public async getSchedulingPolicy(
     getSchedulingPolicyRequest: requests.GetSchedulingPolicyRequest
@@ -18249,7 +18249,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetSchedulingWindowRequest
    * @return GetSchedulingWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetSchedulingWindow.ts.html |here} to see how to use GetSchedulingWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetSchedulingWindow.ts.html |here} to see how to use GetSchedulingWindow API.
    */
   public async getSchedulingWindow(
     getSchedulingWindowRequest: requests.GetSchedulingWindowRequest
@@ -18327,7 +18327,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetVmClusterRequest
    * @return GetVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmCluster.ts.html |here} to see how to use GetVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmCluster.ts.html |here} to see how to use GetVmCluster API.
    */
   public async getVmCluster(
     getVmClusterRequest: requests.GetVmClusterRequest
@@ -18405,7 +18405,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetVmClusterNetworkRequest
    * @return GetVmClusterNetworkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterNetwork.ts.html |here} to see how to use GetVmClusterNetwork API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterNetwork.ts.html |here} to see how to use GetVmClusterNetwork API.
    */
   public async getVmClusterNetwork(
     getVmClusterNetworkRequest: requests.GetVmClusterNetworkRequest
@@ -18484,7 +18484,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetVmClusterPatchRequest
    * @return GetVmClusterPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterPatch.ts.html |here} to see how to use GetVmClusterPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterPatch.ts.html |here} to see how to use GetVmClusterPatch API.
    */
   public async getVmClusterPatch(
     getVmClusterPatchRequest: requests.GetVmClusterPatchRequest
@@ -18556,7 +18556,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetVmClusterPatchHistoryEntryRequest
    * @return GetVmClusterPatchHistoryEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterPatchHistoryEntry.ts.html |here} to see how to use GetVmClusterPatchHistoryEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterPatchHistoryEntry.ts.html |here} to see how to use GetVmClusterPatchHistoryEntry API.
    */
   public async getVmClusterPatchHistoryEntry(
     getVmClusterPatchHistoryEntryRequest: requests.GetVmClusterPatchHistoryEntryRequest
@@ -18634,7 +18634,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetVmClusterUpdateRequest
    * @return GetVmClusterUpdateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterUpdate.ts.html |here} to see how to use GetVmClusterUpdate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterUpdate.ts.html |here} to see how to use GetVmClusterUpdate API.
    */
   public async getVmClusterUpdate(
     getVmClusterUpdateRequest: requests.GetVmClusterUpdateRequest
@@ -18707,7 +18707,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param GetVmClusterUpdateHistoryEntryRequest
    * @return GetVmClusterUpdateHistoryEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetVmClusterUpdateHistoryEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetVmClusterUpdateHistoryEntry API.
    */
   public async getVmClusterUpdateHistoryEntry(
     getVmClusterUpdateHistoryEntryRequest: requests.GetVmClusterUpdateHistoryEntryRequest
@@ -18786,7 +18786,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
    * @param LaunchAutonomousExadataInfrastructureRequest
    * @return LaunchAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/LaunchAutonomousExadataInfrastructure.ts.html |here} to see how to use LaunchAutonomousExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/LaunchAutonomousExadataInfrastructure.ts.html |here} to see how to use LaunchAutonomousExadataInfrastructure API.
    */
   public async launchAutonomousExadataInfrastructure(
     launchAutonomousExadataInfrastructureRequest: requests.LaunchAutonomousExadataInfrastructureRequest
@@ -18870,11 +18870,11 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
 * Database edition that you specify applies to all the databases on that DB system. The selected edition cannot be changed.
 * <p>
 An initial database is created on the DB system based on the request parameters you provide and some default
-* options. For detailed information about default options, see [Bare metal and virtual machine DB system default options.](https://docs.cloud.oracle.com/Content/Database/Tasks/creatingDBsystem.htm#Default)
+* options. For detailed information about default options, see [Bare metal and virtual machine DB system default options.](https://docs.oracle.com/iaas/Content/Database/Tasks/creatingDBsystem.htm#Default)
 * <p>
-**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
 * <p>
-For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * <p>
 Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructureRequest) createCloudExadataInfrastructure} and {@link #createCloudVmCluster(CreateCloudVmClusterRequest) createCloudVmCluster} APIs to provision a new Exadata Cloud Service instance.
 * 
@@ -18882,7 +18882,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
      * @param LaunchDbSystemRequest
      * @return LaunchDbSystemResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/LaunchDbSystem.ts.html |here} to see how to use LaunchDbSystem API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/LaunchDbSystem.ts.html |here} to see how to use LaunchDbSystem API.
      */
   public async launchDbSystem(
     launchDbSystemRequest: requests.LaunchDbSystemRequest
@@ -18967,7 +18967,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListApplicationVipsRequest
    * @return ListApplicationVipsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListApplicationVips.ts.html |here} to see how to use ListApplicationVips API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListApplicationVips.ts.html |here} to see how to use ListApplicationVips API.
    */
   public async listApplicationVips(
     listApplicationVipsRequest: requests.ListApplicationVipsRequest
@@ -19102,7 +19102,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousContainerDatabaseDataguardAssociationsRequest
    * @return ListAutonomousContainerDatabaseDataguardAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabaseDataguardAssociations.ts.html |here} to see how to use ListAutonomousContainerDatabaseDataguardAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabaseDataguardAssociations.ts.html |here} to see how to use ListAutonomousContainerDatabaseDataguardAssociations API.
    */
   public async listAutonomousContainerDatabaseDataguardAssociations(
     listAutonomousContainerDatabaseDataguardAssociationsRequest: requests.ListAutonomousContainerDatabaseDataguardAssociationsRequest
@@ -19245,7 +19245,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousContainerDatabaseVersionsRequest
    * @return ListAutonomousContainerDatabaseVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabaseVersions.ts.html |here} to see how to use ListAutonomousContainerDatabaseVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabaseVersions.ts.html |here} to see how to use ListAutonomousContainerDatabaseVersions API.
    */
   public async listAutonomousContainerDatabaseVersions(
     listAutonomousContainerDatabaseVersionsRequest: requests.ListAutonomousContainerDatabaseVersionsRequest
@@ -19381,7 +19381,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousContainerDatabasesRequest
    * @return ListAutonomousContainerDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabases.ts.html |here} to see how to use ListAutonomousContainerDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabases.ts.html |here} to see how to use ListAutonomousContainerDatabases API.
    */
   public async listAutonomousContainerDatabases(
     listAutonomousContainerDatabasesRequest: requests.ListAutonomousContainerDatabasesRequest
@@ -19525,7 +19525,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousDatabaseBackupsRequest
    * @return ListAutonomousDatabaseBackupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseBackups.ts.html |here} to see how to use ListAutonomousDatabaseBackups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseBackups.ts.html |here} to see how to use ListAutonomousDatabaseBackups API.
    */
   public async listAutonomousDatabaseBackups(
     listAutonomousDatabaseBackupsRequest: requests.ListAutonomousDatabaseBackupsRequest
@@ -19662,7 +19662,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousDatabaseCharacterSetsRequest
    * @return ListAutonomousDatabaseCharacterSetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseCharacterSets.ts.html |here} to see how to use ListAutonomousDatabaseCharacterSets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseCharacterSets.ts.html |here} to see how to use ListAutonomousDatabaseCharacterSets API.
    */
   public async listAutonomousDatabaseCharacterSets(
     listAutonomousDatabaseCharacterSetsRequest: requests.ListAutonomousDatabaseCharacterSetsRequest
@@ -19742,7 +19742,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousDatabaseClonesRequest
    * @return ListAutonomousDatabaseClonesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseClones.ts.html |here} to see how to use ListAutonomousDatabaseClones API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseClones.ts.html |here} to see how to use ListAutonomousDatabaseClones API.
    */
   public async listAutonomousDatabaseClones(
     listAutonomousDatabaseClonesRequest: requests.ListAutonomousDatabaseClonesRequest
@@ -19881,7 +19881,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousDatabaseDataguardAssociationsRequest
    * @return ListAutonomousDatabaseDataguardAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseDataguardAssociations.ts.html |here} to see how to use ListAutonomousDatabaseDataguardAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseDataguardAssociations.ts.html |here} to see how to use ListAutonomousDatabaseDataguardAssociations API.
    */
   public async listAutonomousDatabaseDataguardAssociations(
     listAutonomousDatabaseDataguardAssociationsRequest: requests.ListAutonomousDatabaseDataguardAssociationsRequest
@@ -20016,7 +20016,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousDatabasePeersRequest
    * @return ListAutonomousDatabasePeersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabasePeers.ts.html |here} to see how to use ListAutonomousDatabasePeers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabasePeers.ts.html |here} to see how to use ListAutonomousDatabasePeers API.
    */
   public async listAutonomousDatabasePeers(
     listAutonomousDatabasePeersRequest: requests.ListAutonomousDatabasePeersRequest
@@ -20097,7 +20097,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousDatabaseRefreshableClonesRequest
    * @return ListAutonomousDatabaseRefreshableClonesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseRefreshableClones.ts.html |here} to see how to use ListAutonomousDatabaseRefreshableClones API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseRefreshableClones.ts.html |here} to see how to use ListAutonomousDatabaseRefreshableClones API.
    */
   public async listAutonomousDatabaseRefreshableClones(
     listAutonomousDatabaseRefreshableClonesRequest: requests.ListAutonomousDatabaseRefreshableClonesRequest
@@ -20180,7 +20180,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousDatabaseSoftwareImagesRequest
    * @return ListAutonomousDatabaseSoftwareImagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseSoftwareImages.ts.html |here} to see how to use ListAutonomousDatabaseSoftwareImages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseSoftwareImages.ts.html |here} to see how to use ListAutonomousDatabaseSoftwareImages API.
    */
   public async listAutonomousDatabaseSoftwareImages(
     listAutonomousDatabaseSoftwareImagesRequest: requests.ListAutonomousDatabaseSoftwareImagesRequest
@@ -20265,7 +20265,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousDatabasesRequest
    * @return ListAutonomousDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabases.ts.html |here} to see how to use ListAutonomousDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabases.ts.html |here} to see how to use ListAutonomousDatabases API.
    */
   public async listAutonomousDatabases(
     listAutonomousDatabasesRequest: requests.ListAutonomousDatabasesRequest
@@ -20411,7 +20411,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousDbPreviewVersionsRequest
    * @return ListAutonomousDbPreviewVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDbPreviewVersions.ts.html |here} to see how to use ListAutonomousDbPreviewVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDbPreviewVersions.ts.html |here} to see how to use ListAutonomousDbPreviewVersions API.
    */
   public async listAutonomousDbPreviewVersions(
     listAutonomousDbPreviewVersionsRequest: requests.ListAutonomousDbPreviewVersionsRequest
@@ -20544,7 +20544,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousDbVersionsRequest
    * @return ListAutonomousDbVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDbVersions.ts.html |here} to see how to use ListAutonomousDbVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDbVersions.ts.html |here} to see how to use ListAutonomousDbVersions API.
    */
   public async listAutonomousDbVersions(
     listAutonomousDbVersionsRequest: requests.ListAutonomousDbVersionsRequest
@@ -20678,7 +20678,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousExadataInfrastructureShapesRequest
    * @return ListAutonomousExadataInfrastructureShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousExadataInfrastructureShapes.ts.html |here} to see how to use ListAutonomousExadataInfrastructureShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousExadataInfrastructureShapes.ts.html |here} to see how to use ListAutonomousExadataInfrastructureShapes API.
    */
   public async listAutonomousExadataInfrastructureShapes(
     listAutonomousExadataInfrastructureShapesRequest: requests.ListAutonomousExadataInfrastructureShapesRequest
@@ -20813,7 +20813,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousExadataInfrastructuresRequest
    * @return ListAutonomousExadataInfrastructuresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousExadataInfrastructures.ts.html |here} to see how to use ListAutonomousExadataInfrastructures API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousExadataInfrastructures.ts.html |here} to see how to use ListAutonomousExadataInfrastructures API.
    */
   public async listAutonomousExadataInfrastructures(
     listAutonomousExadataInfrastructuresRequest: requests.ListAutonomousExadataInfrastructuresRequest
@@ -20949,7 +20949,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousVirtualMachinesRequest
    * @return ListAutonomousVirtualMachinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousVirtualMachines.ts.html |here} to see how to use ListAutonomousVirtualMachines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousVirtualMachines.ts.html |here} to see how to use ListAutonomousVirtualMachines API.
    */
   public async listAutonomousVirtualMachines(
     listAutonomousVirtualMachinesRequest: requests.ListAutonomousVirtualMachinesRequest
@@ -21083,7 +21083,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousVmClusterAcdResourceUsageRequest
    * @return ListAutonomousVmClusterAcdResourceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousVmClusterAcdResourceUsage.ts.html |here} to see how to use ListAutonomousVmClusterAcdResourceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousVmClusterAcdResourceUsage.ts.html |here} to see how to use ListAutonomousVmClusterAcdResourceUsage API.
    */
   public async listAutonomousVmClusterAcdResourceUsage(
     listAutonomousVmClusterAcdResourceUsageRequest: requests.ListAutonomousVmClusterAcdResourceUsageRequest
@@ -21220,7 +21220,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListAutonomousVmClustersRequest
    * @return ListAutonomousVmClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousVmClusters.ts.html |here} to see how to use ListAutonomousVmClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousVmClusters.ts.html |here} to see how to use ListAutonomousVmClusters API.
    */
   public async listAutonomousVmClusters(
     listAutonomousVmClustersRequest: requests.ListAutonomousVmClustersRequest
@@ -21357,7 +21357,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListBackupDestinationRequest
    * @return ListBackupDestinationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListBackupDestination.ts.html |here} to see how to use ListBackupDestination API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListBackupDestination.ts.html |here} to see how to use ListBackupDestination API.
    */
   public async listBackupDestination(
     listBackupDestinationRequest: requests.ListBackupDestinationRequest
@@ -21494,7 +21494,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListBackupsRequest
    * @return ListBackupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListBackups.ts.html |here} to see how to use ListBackups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListBackups.ts.html |here} to see how to use ListBackups API.
    */
   public async listBackups(
     listBackupsRequest: requests.ListBackupsRequest
@@ -21627,7 +21627,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListCloudAutonomousVmClusterAcdResourceUsageRequest
    * @return ListCloudAutonomousVmClusterAcdResourceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudAutonomousVmClusterAcdResourceUsage.ts.html |here} to see how to use ListCloudAutonomousVmClusterAcdResourceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudAutonomousVmClusterAcdResourceUsage.ts.html |here} to see how to use ListCloudAutonomousVmClusterAcdResourceUsage API.
    */
   public async listCloudAutonomousVmClusterAcdResourceUsage(
     listCloudAutonomousVmClusterAcdResourceUsageRequest: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
@@ -21768,7 +21768,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListCloudAutonomousVmClustersRequest
    * @return ListCloudAutonomousVmClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudAutonomousVmClusters.ts.html |here} to see how to use ListCloudAutonomousVmClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudAutonomousVmClusters.ts.html |here} to see how to use ListCloudAutonomousVmClusters API.
    */
   public async listCloudAutonomousVmClusters(
     listCloudAutonomousVmClustersRequest: requests.ListCloudAutonomousVmClustersRequest
@@ -21907,7 +21907,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListCloudExadataInfrastructuresRequest
    * @return ListCloudExadataInfrastructuresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudExadataInfrastructures.ts.html |here} to see how to use ListCloudExadataInfrastructures API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudExadataInfrastructures.ts.html |here} to see how to use ListCloudExadataInfrastructures API.
    */
   public async listCloudExadataInfrastructures(
     listCloudExadataInfrastructuresRequest: requests.ListCloudExadataInfrastructuresRequest
@@ -22044,7 +22044,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListCloudVmClusterUpdateHistoryEntriesRequest
    * @return ListCloudVmClusterUpdateHistoryEntriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListCloudVmClusterUpdateHistoryEntries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListCloudVmClusterUpdateHistoryEntries API.
    */
   public async listCloudVmClusterUpdateHistoryEntries(
     listCloudVmClusterUpdateHistoryEntriesRequest: requests.ListCloudVmClusterUpdateHistoryEntriesRequest
@@ -22178,7 +22178,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListCloudVmClusterUpdatesRequest
    * @return ListCloudVmClusterUpdatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudVmClusterUpdates.ts.html |here} to see how to use ListCloudVmClusterUpdates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudVmClusterUpdates.ts.html |here} to see how to use ListCloudVmClusterUpdates API.
    */
   public async listCloudVmClusterUpdates(
     listCloudVmClusterUpdatesRequest: requests.ListCloudVmClusterUpdatesRequest
@@ -22312,7 +22312,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListCloudVmClustersRequest
    * @return ListCloudVmClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudVmClusters.ts.html |here} to see how to use ListCloudVmClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudVmClusters.ts.html |here} to see how to use ListCloudVmClusters API.
    */
   public async listCloudVmClusters(
     listCloudVmClustersRequest: requests.ListCloudVmClustersRequest
@@ -22448,7 +22448,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListConsoleConnectionsRequest
    * @return ListConsoleConnectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListConsoleConnections.ts.html |here} to see how to use ListConsoleConnections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListConsoleConnections.ts.html |here} to see how to use ListConsoleConnections API.
    */
   public async listConsoleConnections(
     listConsoleConnectionsRequest: requests.ListConsoleConnectionsRequest
@@ -22524,7 +22524,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListConsoleHistoriesRequest
    * @return ListConsoleHistoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListConsoleHistories.ts.html |here} to see how to use ListConsoleHistories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListConsoleHistories.ts.html |here} to see how to use ListConsoleHistories API.
    */
   public async listConsoleHistories(
     listConsoleHistoriesRequest: requests.ListConsoleHistoriesRequest
@@ -22608,7 +22608,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListContainerDatabasePatchesRequest
    * @return ListContainerDatabasePatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListContainerDatabasePatches.ts.html |here} to see how to use ListContainerDatabasePatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListContainerDatabasePatches.ts.html |here} to see how to use ListContainerDatabasePatches API.
    */
   public async listContainerDatabasePatches(
     listContainerDatabasePatchesRequest: requests.ListContainerDatabasePatchesRequest
@@ -22743,7 +22743,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDataGuardAssociationsRequest
    * @return ListDataGuardAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDataGuardAssociations.ts.html |here} to see how to use ListDataGuardAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDataGuardAssociations.ts.html |here} to see how to use ListDataGuardAssociations API.
    */
   public async listDataGuardAssociations(
     listDataGuardAssociationsRequest: requests.ListDataGuardAssociationsRequest
@@ -22875,7 +22875,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDatabaseSoftwareImagesRequest
    * @return ListDatabaseSoftwareImagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDatabaseSoftwareImages.ts.html |here} to see how to use ListDatabaseSoftwareImages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDatabaseSoftwareImages.ts.html |here} to see how to use ListDatabaseSoftwareImages API.
    */
   public async listDatabaseSoftwareImages(
     listDatabaseSoftwareImagesRequest: requests.ListDatabaseSoftwareImagesRequest
@@ -23015,7 +23015,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDatabaseUpgradeHistoryEntriesRequest
    * @return ListDatabaseUpgradeHistoryEntriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDatabaseUpgradeHistoryEntries.ts.html |here} to see how to use ListDatabaseUpgradeHistoryEntries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDatabaseUpgradeHistoryEntries.ts.html |here} to see how to use ListDatabaseUpgradeHistoryEntries API.
    */
   public async listDatabaseUpgradeHistoryEntries(
     listDatabaseUpgradeHistoryEntriesRequest: requests.ListDatabaseUpgradeHistoryEntriesRequest
@@ -23152,7 +23152,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDatabasesRequest
    * @return ListDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDatabases.ts.html |here} to see how to use ListDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDatabases.ts.html |here} to see how to use ListDatabases API.
    */
   public async listDatabases(
     listDatabasesRequest: requests.ListDatabasesRequest
@@ -23288,7 +23288,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbHomePatchHistoryEntriesRequest
    * @return ListDbHomePatchHistoryEntriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbHomePatchHistoryEntries.ts.html |here} to see how to use ListDbHomePatchHistoryEntries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbHomePatchHistoryEntries.ts.html |here} to see how to use ListDbHomePatchHistoryEntries API.
    */
   public async listDbHomePatchHistoryEntries(
     listDbHomePatchHistoryEntriesRequest: requests.ListDbHomePatchHistoryEntriesRequest
@@ -23420,7 +23420,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbHomePatchesRequest
    * @return ListDbHomePatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbHomePatches.ts.html |here} to see how to use ListDbHomePatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbHomePatches.ts.html |here} to see how to use ListDbHomePatches API.
    */
   public async listDbHomePatches(
     listDbHomePatchesRequest: requests.ListDbHomePatchesRequest
@@ -23551,7 +23551,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbHomesRequest
    * @return ListDbHomesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbHomes.ts.html |here} to see how to use ListDbHomes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbHomes.ts.html |here} to see how to use ListDbHomes API.
    */
   public async listDbHomes(
     listDbHomesRequest: requests.ListDbHomesRequest
@@ -23689,7 +23689,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbNodesRequest
    * @return ListDbNodesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbNodes.ts.html |here} to see how to use ListDbNodes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbNodes.ts.html |here} to see how to use ListDbNodes API.
    */
   public async listDbNodes(
     listDbNodesRequest: requests.ListDbNodesRequest
@@ -23825,7 +23825,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbServersRequest
    * @return ListDbServersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbServers.ts.html |here} to see how to use ListDbServers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbServers.ts.html |here} to see how to use ListDbServers API.
    */
   public async listDbServers(
     listDbServersRequest: requests.ListDbServersRequest
@@ -23961,7 +23961,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbSystemComputePerformancesRequest
    * @return ListDbSystemComputePerformancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemComputePerformances.ts.html |here} to see how to use ListDbSystemComputePerformances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemComputePerformances.ts.html |here} to see how to use ListDbSystemComputePerformances API.
    */
   public async listDbSystemComputePerformances(
     listDbSystemComputePerformancesRequest: requests.ListDbSystemComputePerformancesRequest
@@ -24039,7 +24039,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbSystemPatchHistoryEntriesRequest
    * @return ListDbSystemPatchHistoryEntriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemPatchHistoryEntries.ts.html |here} to see how to use ListDbSystemPatchHistoryEntries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemPatchHistoryEntries.ts.html |here} to see how to use ListDbSystemPatchHistoryEntries API.
    */
   public async listDbSystemPatchHistoryEntries(
     listDbSystemPatchHistoryEntriesRequest: requests.ListDbSystemPatchHistoryEntriesRequest
@@ -24171,7 +24171,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbSystemPatchesRequest
    * @return ListDbSystemPatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemPatches.ts.html |here} to see how to use ListDbSystemPatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemPatches.ts.html |here} to see how to use ListDbSystemPatches API.
    */
   public async listDbSystemPatches(
     listDbSystemPatchesRequest: requests.ListDbSystemPatchesRequest
@@ -24301,7 +24301,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbSystemShapesRequest
    * @return ListDbSystemShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemShapes.ts.html |here} to see how to use ListDbSystemShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemShapes.ts.html |here} to see how to use ListDbSystemShapes API.
    */
   public async listDbSystemShapes(
     listDbSystemShapesRequest: requests.ListDbSystemShapesRequest
@@ -24432,7 +24432,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbSystemStoragePerformancesRequest
    * @return ListDbSystemStoragePerformancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemStoragePerformances.ts.html |here} to see how to use ListDbSystemStoragePerformances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemStoragePerformances.ts.html |here} to see how to use ListDbSystemStoragePerformances API.
    */
   public async listDbSystemStoragePerformances(
     listDbSystemStoragePerformancesRequest: requests.ListDbSystemStoragePerformancesRequest
@@ -24511,7 +24511,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
    * @param ListDbSystemUpgradeHistoryEntriesRequest
    * @return ListDbSystemUpgradeHistoryEntriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemUpgradeHistoryEntries.ts.html |here} to see how to use ListDbSystemUpgradeHistoryEntries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemUpgradeHistoryEntries.ts.html |here} to see how to use ListDbSystemUpgradeHistoryEntries API.
    */
   public async listDbSystemUpgradeHistoryEntries(
     listDbSystemUpgradeHistoryEntriesRequest: requests.ListDbSystemUpgradeHistoryEntriesRequest
@@ -24644,15 +24644,15 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   /**
      * Lists the DB systems in the specified compartment. You can specify a `backupId` to list only the DB systems that support creating a database using this backup in this compartment.
 * <p>
-**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
 * <p>
-For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListDbSystemsRequest
      * @return ListDbSystemsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystems.ts.html |here} to see how to use ListDbSystems API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystems.ts.html |here} to see how to use ListDbSystems API.
      */
   public async listDbSystems(
     listDbSystemsRequest: requests.ListDbSystemsRequest
@@ -24787,7 +24787,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListDbVersionsRequest
    * @return ListDbVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbVersions.ts.html |here} to see how to use ListDbVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbVersions.ts.html |here} to see how to use ListDbVersions API.
    */
   public async listDbVersions(
     listDbVersionsRequest: requests.ListDbVersionsRequest
@@ -24923,7 +24923,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExadataInfrastructuresRequest
    * @return ListExadataInfrastructuresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadataInfrastructures.ts.html |here} to see how to use ListExadataInfrastructures API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadataInfrastructures.ts.html |here} to see how to use ListExadataInfrastructures API.
    */
   public async listExadataInfrastructures(
     listExadataInfrastructuresRequest: requests.ListExadataInfrastructuresRequest
@@ -25060,7 +25060,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExadbVmClusterUpdateHistoryEntriesRequest
    * @return ListExadbVmClusterUpdateHistoryEntriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListExadbVmClusterUpdateHistoryEntries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListExadbVmClusterUpdateHistoryEntries API.
    */
   public async listExadbVmClusterUpdateHistoryEntries(
     listExadbVmClusterUpdateHistoryEntriesRequest: requests.ListExadbVmClusterUpdateHistoryEntriesRequest
@@ -25194,7 +25194,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExadbVmClusterUpdatesRequest
    * @return ListExadbVmClusterUpdatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusterUpdates.ts.html |here} to see how to use ListExadbVmClusterUpdates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusterUpdates.ts.html |here} to see how to use ListExadbVmClusterUpdates API.
    */
   public async listExadbVmClusterUpdates(
     listExadbVmClusterUpdatesRequest: requests.ListExadbVmClusterUpdatesRequest
@@ -25329,7 +25329,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExadbVmClustersRequest
    * @return ListExadbVmClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusters.ts.html |here} to see how to use ListExadbVmClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExadbVmClusters.ts.html |here} to see how to use ListExadbVmClusters API.
    */
   public async listExadbVmClusters(
     listExadbVmClustersRequest: requests.ListExadbVmClustersRequest
@@ -25465,7 +25465,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExascaleDbStorageVaultsRequest
    * @return ListExascaleDbStorageVaultsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExascaleDbStorageVaults.ts.html |here} to see how to use ListExascaleDbStorageVaults API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExascaleDbStorageVaults.ts.html |here} to see how to use ListExascaleDbStorageVaults API.
    */
   public async listExascaleDbStorageVaults(
     listExascaleDbStorageVaultsRequest: requests.ListExascaleDbStorageVaultsRequest
@@ -25602,7 +25602,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExecutionActionsRequest
    * @return ListExecutionActionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExecutionActions.ts.html |here} to see how to use ListExecutionActions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExecutionActions.ts.html |here} to see how to use ListExecutionActions API.
    */
   public async listExecutionActions(
     listExecutionActionsRequest: requests.ListExecutionActionsRequest
@@ -25738,7 +25738,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExecutionWindowsRequest
    * @return ListExecutionWindowsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExecutionWindows.ts.html |here} to see how to use ListExecutionWindows API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExecutionWindows.ts.html |here} to see how to use ListExecutionWindows API.
    */
   public async listExecutionWindows(
     listExecutionWindowsRequest: requests.ListExecutionWindowsRequest
@@ -25874,7 +25874,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExternalContainerDatabasesRequest
    * @return ListExternalContainerDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalContainerDatabases.ts.html |here} to see how to use ListExternalContainerDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalContainerDatabases.ts.html |here} to see how to use ListExternalContainerDatabases API.
    */
   public async listExternalContainerDatabases(
     listExternalContainerDatabasesRequest: requests.ListExternalContainerDatabasesRequest
@@ -26010,7 +26010,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExternalDatabaseConnectorsRequest
    * @return ListExternalDatabaseConnectorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalDatabaseConnectors.ts.html |here} to see how to use ListExternalDatabaseConnectors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalDatabaseConnectors.ts.html |here} to see how to use ListExternalDatabaseConnectors API.
    */
   public async listExternalDatabaseConnectors(
     listExternalDatabaseConnectorsRequest: requests.ListExternalDatabaseConnectorsRequest
@@ -26147,7 +26147,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExternalNonContainerDatabasesRequest
    * @return ListExternalNonContainerDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalNonContainerDatabases.ts.html |here} to see how to use ListExternalNonContainerDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalNonContainerDatabases.ts.html |here} to see how to use ListExternalNonContainerDatabases API.
    */
   public async listExternalNonContainerDatabases(
     listExternalNonContainerDatabasesRequest: requests.ListExternalNonContainerDatabasesRequest
@@ -26284,7 +26284,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListExternalPluggableDatabasesRequest
    * @return ListExternalPluggableDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalPluggableDatabases.ts.html |here} to see how to use ListExternalPluggableDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListExternalPluggableDatabases.ts.html |here} to see how to use ListExternalPluggableDatabases API.
    */
   public async listExternalPluggableDatabases(
     listExternalPluggableDatabasesRequest: requests.ListExternalPluggableDatabasesRequest
@@ -26421,7 +26421,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListFlexComponentsRequest
    * @return ListFlexComponentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListFlexComponents.ts.html |here} to see how to use ListFlexComponents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListFlexComponents.ts.html |here} to see how to use ListFlexComponents API.
    */
   public async listFlexComponents(
     listFlexComponentsRequest: requests.ListFlexComponentsRequest
@@ -26502,7 +26502,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListGiVersionMinorVersionsRequest
    * @return ListGiVersionMinorVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListGiVersionMinorVersions.ts.html |here} to see how to use ListGiVersionMinorVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListGiVersionMinorVersions.ts.html |here} to see how to use ListGiVersionMinorVersions API.
    */
   public async listGiVersionMinorVersions(
     listGiVersionMinorVersionsRequest: requests.ListGiVersionMinorVersionsRequest
@@ -26641,7 +26641,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListGiVersionsRequest
    * @return ListGiVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListGiVersions.ts.html |here} to see how to use ListGiVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListGiVersions.ts.html |here} to see how to use ListGiVersions API.
    */
   public async listGiVersions(
     listGiVersionsRequest: requests.ListGiVersionsRequest
@@ -26774,7 +26774,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListKeyStoresRequest
    * @return ListKeyStoresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListKeyStores.ts.html |here} to see how to use ListKeyStores API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListKeyStores.ts.html |here} to see how to use ListKeyStores API.
    */
   public async listKeyStores(
     listKeyStoresRequest: requests.ListKeyStoresRequest
@@ -26905,7 +26905,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListMaintenanceRunHistoryRequest
    * @return ListMaintenanceRunHistoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListMaintenanceRunHistory.ts.html |here} to see how to use ListMaintenanceRunHistory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListMaintenanceRunHistory.ts.html |here} to see how to use ListMaintenanceRunHistory API.
    */
   public async listMaintenanceRunHistory(
     listMaintenanceRunHistoryRequest: requests.ListMaintenanceRunHistoryRequest
@@ -27044,7 +27044,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListMaintenanceRunsRequest
    * @return ListMaintenanceRunsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListMaintenanceRuns.ts.html |here} to see how to use ListMaintenanceRuns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListMaintenanceRuns.ts.html |here} to see how to use ListMaintenanceRuns API.
    */
   public async listMaintenanceRuns(
     listMaintenanceRunsRequest: requests.ListMaintenanceRunsRequest
@@ -27183,7 +27183,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListOneoffPatchesRequest
    * @return ListOneoffPatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListOneoffPatches.ts.html |here} to see how to use ListOneoffPatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListOneoffPatches.ts.html |here} to see how to use ListOneoffPatches API.
    */
   public async listOneoffPatches(
     listOneoffPatchesRequest: requests.ListOneoffPatchesRequest
@@ -27318,7 +27318,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListParamsForActionTypeRequest
    * @return ListParamsForActionTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListParamsForActionType.ts.html |here} to see how to use ListParamsForActionType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListParamsForActionType.ts.html |here} to see how to use ListParamsForActionType API.
    */
   public async listParamsForActionType(
     listParamsForActionTypeRequest: requests.ListParamsForActionTypeRequest
@@ -27397,7 +27397,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListPdbConversionHistoryEntriesRequest
    * @return ListPdbConversionHistoryEntriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListPdbConversionHistoryEntries.ts.html |here} to see how to use ListPdbConversionHistoryEntries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListPdbConversionHistoryEntries.ts.html |here} to see how to use ListPdbConversionHistoryEntries API.
    */
   public async listPdbConversionHistoryEntries(
     listPdbConversionHistoryEntriesRequest: requests.ListPdbConversionHistoryEntriesRequest
@@ -27534,7 +27534,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListPluggableDatabasesRequest
    * @return ListPluggableDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListPluggableDatabases.ts.html |here} to see how to use ListPluggableDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListPluggableDatabases.ts.html |here} to see how to use ListPluggableDatabases API.
    */
   public async listPluggableDatabases(
     listPluggableDatabasesRequest: requests.ListPluggableDatabasesRequest
@@ -27669,7 +27669,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListRecommendedScheduledActionsRequest
    * @return ListRecommendedScheduledActionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListRecommendedScheduledActions.ts.html |here} to see how to use ListRecommendedScheduledActions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListRecommendedScheduledActions.ts.html |here} to see how to use ListRecommendedScheduledActions API.
    */
   public async listRecommendedScheduledActions(
     listRecommendedScheduledActionsRequest: requests.ListRecommendedScheduledActionsRequest
@@ -27753,7 +27753,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListScheduledActionsRequest
    * @return ListScheduledActionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListScheduledActions.ts.html |here} to see how to use ListScheduledActions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListScheduledActions.ts.html |here} to see how to use ListScheduledActions API.
    */
   public async listScheduledActions(
     listScheduledActionsRequest: requests.ListScheduledActionsRequest
@@ -27839,7 +27839,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListSchedulingPlansRequest
    * @return ListSchedulingPlansResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingPlans.ts.html |here} to see how to use ListSchedulingPlans API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingPlans.ts.html |here} to see how to use ListSchedulingPlans API.
    */
   public async listSchedulingPlans(
     listSchedulingPlansRequest: requests.ListSchedulingPlansRequest
@@ -27925,7 +27925,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListSchedulingPoliciesRequest
    * @return ListSchedulingPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingPolicies.ts.html |here} to see how to use ListSchedulingPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingPolicies.ts.html |here} to see how to use ListSchedulingPolicies API.
    */
   public async listSchedulingPolicies(
     listSchedulingPoliciesRequest: requests.ListSchedulingPoliciesRequest
@@ -28060,7 +28060,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListSchedulingWindowsRequest
    * @return ListSchedulingWindowsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingWindows.ts.html |here} to see how to use ListSchedulingWindows API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSchedulingWindows.ts.html |here} to see how to use ListSchedulingWindows API.
    */
   public async listSchedulingWindows(
     listSchedulingWindowsRequest: requests.ListSchedulingWindowsRequest
@@ -28196,7 +28196,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListSystemVersionsRequest
    * @return ListSystemVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSystemVersions.ts.html |here} to see how to use ListSystemVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSystemVersions.ts.html |here} to see how to use ListSystemVersions API.
    */
   public async listSystemVersions(
     listSystemVersionsRequest: requests.ListSystemVersionsRequest
@@ -28278,7 +28278,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListVmClusterNetworksRequest
    * @return ListVmClusterNetworksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterNetworks.ts.html |here} to see how to use ListVmClusterNetworks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterNetworks.ts.html |here} to see how to use ListVmClusterNetworks API.
    */
   public async listVmClusterNetworks(
     listVmClusterNetworksRequest: requests.ListVmClusterNetworksRequest
@@ -28415,7 +28415,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListVmClusterPatchHistoryEntriesRequest
    * @return ListVmClusterPatchHistoryEntriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterPatchHistoryEntries.ts.html |here} to see how to use ListVmClusterPatchHistoryEntries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterPatchHistoryEntries.ts.html |here} to see how to use ListVmClusterPatchHistoryEntries API.
    */
   public async listVmClusterPatchHistoryEntries(
     listVmClusterPatchHistoryEntriesRequest: requests.ListVmClusterPatchHistoryEntriesRequest
@@ -28547,7 +28547,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListVmClusterPatchesRequest
    * @return ListVmClusterPatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterPatches.ts.html |here} to see how to use ListVmClusterPatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterPatches.ts.html |here} to see how to use ListVmClusterPatches API.
    */
   public async listVmClusterPatches(
     listVmClusterPatchesRequest: requests.ListVmClusterPatchesRequest
@@ -28678,7 +28678,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListVmClusterUpdateHistoryEntriesRequest
    * @return ListVmClusterUpdateHistoryEntriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListVmClusterUpdateHistoryEntries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListVmClusterUpdateHistoryEntries API.
    */
   public async listVmClusterUpdateHistoryEntries(
     listVmClusterUpdateHistoryEntriesRequest: requests.ListVmClusterUpdateHistoryEntriesRequest
@@ -28813,7 +28813,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListVmClusterUpdatesRequest
    * @return ListVmClusterUpdatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterUpdates.ts.html |here} to see how to use ListVmClusterUpdates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterUpdates.ts.html |here} to see how to use ListVmClusterUpdates API.
    */
   public async listVmClusterUpdates(
     listVmClusterUpdatesRequest: requests.ListVmClusterUpdatesRequest
@@ -28948,7 +28948,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param ListVmClustersRequest
    * @return ListVmClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusters.ts.html |here} to see how to use ListVmClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusters.ts.html |here} to see how to use ListVmClusters API.
    */
   public async listVmClusters(
     listVmClustersRequest: requests.ListVmClustersRequest
@@ -29085,7 +29085,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param LocalClonePluggableDatabaseRequest
    * @return LocalClonePluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/LocalClonePluggableDatabase.ts.html |here} to see how to use LocalClonePluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/LocalClonePluggableDatabase.ts.html |here} to see how to use LocalClonePluggableDatabase API.
    */
   public async localClonePluggableDatabase(
     localClonePluggableDatabaseRequest: requests.LocalClonePluggableDatabaseRequest
@@ -29177,7 +29177,7 @@ This operation should always be performed on primary.
      * @param MigrateDataGuardAssociationToMultiDataGuardsRequest
      * @return MigrateDataGuardAssociationToMultiDataGuardsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MigrateDataGuardAssociationToMultiDataGuards.ts.html |here} to see how to use MigrateDataGuardAssociationToMultiDataGuards API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MigrateDataGuardAssociationToMultiDataGuards.ts.html |here} to see how to use MigrateDataGuardAssociationToMultiDataGuards API.
      */
   public async migrateDataGuardAssociationToMultiDataGuards(
     migrateDataGuardAssociationToMultiDataGuardsRequest: requests.MigrateDataGuardAssociationToMultiDataGuardsRequest
@@ -29261,14 +29261,14 @@ This operation should always be performed on primary.
   }
 
   /**
-   * Migrates the Exadata DB system to the new [Exadata resource model](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model).
+   * Migrates the Exadata DB system to the new [Exadata resource model](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model).
    * All related resources will be migrated.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param MigrateExadataDbSystemResourceModelRequest
    * @return MigrateExadataDbSystemResourceModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MigrateExadataDbSystemResourceModel.ts.html |here} to see how to use MigrateExadataDbSystemResourceModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MigrateExadataDbSystemResourceModel.ts.html |here} to see how to use MigrateExadataDbSystemResourceModel API.
    */
   public async migrateExadataDbSystemResourceModel(
     migrateExadataDbSystemResourceModelRequest: requests.MigrateExadataDbSystemResourceModelRequest
@@ -29347,12 +29347,12 @@ This operation should always be performed on primary.
   }
 
   /**
-   * Changes encryption key management from customer-managed, using the [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm), to Oracle-managed.
+   * Changes encryption key management from customer-managed, using the [Vault service](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm), to Oracle-managed.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param MigrateVaultKeyRequest
    * @return MigrateVaultKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MigrateVaultKey.ts.html |here} to see how to use MigrateVaultKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MigrateVaultKey.ts.html |here} to see how to use MigrateVaultKey API.
    */
   public async migrateVaultKey(
     migrateVaultKeyRequest: requests.MigrateVaultKeyRequest
@@ -29440,7 +29440,7 @@ This operation should always be performed on primary.
    * @param ModifyDatabaseManagementRequest
    * @return ModifyDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ModifyDatabaseManagement.ts.html |here} to see how to use ModifyDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ModifyDatabaseManagement.ts.html |here} to see how to use ModifyDatabaseManagement API.
    */
   public async modifyDatabaseManagement(
     modifyDatabaseManagementRequest: requests.ModifyDatabaseManagementRequest
@@ -29529,7 +29529,7 @@ This operation should always be performed on primary.
    * @param ModifyPluggableDatabaseManagementRequest
    * @return ModifyPluggableDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ModifyPluggableDatabaseManagement.ts.html |here} to see how to use ModifyPluggableDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ModifyPluggableDatabaseManagement.ts.html |here} to see how to use ModifyPluggableDatabaseManagement API.
    */
   public async modifyPluggableDatabaseManagement(
     modifyPluggableDatabaseManagementRequest: requests.ModifyPluggableDatabaseManagementRequest
@@ -29619,7 +29619,7 @@ This operation should always be performed on primary.
    * @param MoveExecutionActionMemberRequest
    * @return MoveExecutionActionMemberResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MoveExecutionActionMember.ts.html |here} to see how to use MoveExecutionActionMember API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MoveExecutionActionMember.ts.html |here} to see how to use MoveExecutionActionMember API.
    */
   public async moveExecutionActionMember(
     moveExecutionActionMemberRequest: requests.MoveExecutionActionMemberRequest
@@ -29709,7 +29709,7 @@ This operation should always be performed on primary.
    * @param RefreshPluggableDatabaseRequest
    * @return RefreshPluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RefreshPluggableDatabase.ts.html |here} to see how to use RefreshPluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RefreshPluggableDatabase.ts.html |here} to see how to use RefreshPluggableDatabase API.
    */
   public async refreshPluggableDatabase(
     refreshPluggableDatabaseRequest: requests.RefreshPluggableDatabaseRequest
@@ -29794,7 +29794,7 @@ This operation should always be performed on primary.
    * @param RegisterAutonomousDatabaseDataSafeRequest
    * @return RegisterAutonomousDatabaseDataSafeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RegisterAutonomousDatabaseDataSafe.ts.html |here} to see how to use RegisterAutonomousDatabaseDataSafe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RegisterAutonomousDatabaseDataSafe.ts.html |here} to see how to use RegisterAutonomousDatabaseDataSafe API.
    */
   public async registerAutonomousDatabaseDataSafe(
     registerAutonomousDatabaseDataSafeRequest: requests.RegisterAutonomousDatabaseDataSafeRequest
@@ -29873,7 +29873,7 @@ This operation should always be performed on primary.
    * @param ReinstateAutonomousContainerDatabaseDataguardAssociationRequest
    * @return ReinstateAutonomousContainerDatabaseDataguardAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use ReinstateAutonomousContainerDatabaseDataguardAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use ReinstateAutonomousContainerDatabaseDataguardAssociation API.
    */
   public async reinstateAutonomousContainerDatabaseDataguardAssociation(
     reinstateAutonomousContainerDatabaseDataguardAssociationRequest: requests.ReinstateAutonomousContainerDatabaseDataguardAssociationRequest
@@ -29966,7 +29966,7 @@ This operation should be performed on disabled standby database.
      * @param ReinstateDataGuardRequest
      * @return ReinstateDataGuardResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateDataGuard.ts.html |here} to see how to use ReinstateDataGuard API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateDataGuard.ts.html |here} to see how to use ReinstateDataGuard API.
      */
   public async reinstateDataGuard(
     reinstateDataGuardRequest: requests.ReinstateDataGuardRequest
@@ -30055,7 +30055,7 @@ This operation should be performed on disabled standby database.
    * @param ReinstateDataGuardAssociationRequest
    * @return ReinstateDataGuardAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateDataGuardAssociation.ts.html |here} to see how to use ReinstateDataGuardAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateDataGuardAssociation.ts.html |here} to see how to use ReinstateDataGuardAssociation API.
    */
   public async reinstateDataGuardAssociation(
     reinstateDataGuardAssociationRequest: requests.ReinstateDataGuardAssociationRequest
@@ -30147,7 +30147,7 @@ This operation should be performed on disabled standby database.
    * @param RemoteClonePluggableDatabaseRequest
    * @return RemoteClonePluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoteClonePluggableDatabase.ts.html |here} to see how to use RemoteClonePluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoteClonePluggableDatabase.ts.html |here} to see how to use RemoteClonePluggableDatabase API.
    */
   public async remoteClonePluggableDatabase(
     remoteClonePluggableDatabaseRequest: requests.RemoteClonePluggableDatabaseRequest
@@ -30237,7 +30237,7 @@ This operation should be performed on disabled standby database.
    * @param RemoveVirtualMachineFromCloudVmClusterRequest
    * @return RemoveVirtualMachineFromCloudVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromCloudVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromCloudVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromCloudVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromCloudVmCluster API.
    */
   public async removeVirtualMachineFromCloudVmCluster(
     removeVirtualMachineFromCloudVmClusterRequest: requests.RemoveVirtualMachineFromCloudVmClusterRequest
@@ -30327,7 +30327,7 @@ This operation should be performed on disabled standby database.
    * @param RemoveVirtualMachineFromExadbVmClusterRequest
    * @return RemoveVirtualMachineFromExadbVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromExadbVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromExadbVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromExadbVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromExadbVmCluster API.
    */
   public async removeVirtualMachineFromExadbVmCluster(
     removeVirtualMachineFromExadbVmClusterRequest: requests.RemoveVirtualMachineFromExadbVmClusterRequest
@@ -30417,7 +30417,7 @@ This operation should be performed on disabled standby database.
    * @param RemoveVirtualMachineFromVmClusterRequest
    * @return RemoveVirtualMachineFromVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromVmCluster API.
    */
   public async removeVirtualMachineFromVmCluster(
     removeVirtualMachineFromVmClusterRequest: requests.RemoveVirtualMachineFromVmClusterRequest
@@ -30507,7 +30507,7 @@ This operation should be performed on disabled standby database.
    * @param ReorderExecutionActionsRequest
    * @return ReorderExecutionActionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReorderExecutionActions.ts.html |here} to see how to use ReorderExecutionActions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReorderExecutionActions.ts.html |here} to see how to use ReorderExecutionActions API.
    */
   public async reorderExecutionActions(
     reorderExecutionActionsRequest: requests.ReorderExecutionActionsRequest
@@ -30596,7 +30596,7 @@ This operation should be performed on disabled standby database.
    * @param ReorderScheduledActionsRequest
    * @return ReorderScheduledActionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReorderScheduledActions.ts.html |here} to see how to use ReorderScheduledActions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReorderScheduledActions.ts.html |here} to see how to use ReorderScheduledActions API.
    */
   public async reorderScheduledActions(
     reorderScheduledActionsRequest: requests.ReorderScheduledActionsRequest
@@ -30691,7 +30691,7 @@ This operation should be performed on disabled standby database.
    * @param ResizeVmClusterNetworkRequest
    * @return ResizeVmClusterNetworkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ResizeVmClusterNetwork.ts.html |here} to see how to use ResizeVmClusterNetwork API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ResizeVmClusterNetwork.ts.html |here} to see how to use ResizeVmClusterNetwork API.
    */
   public async resizeVmClusterNetwork(
     resizeVmClusterNetworkRequest: requests.ResizeVmClusterNetworkRequest
@@ -30781,7 +30781,7 @@ This operation should be performed on disabled standby database.
    * @param ResourcePoolShapesRequest
    * @return ResourcePoolShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ResourcePoolShapes.ts.html |here} to see how to use ResourcePoolShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ResourcePoolShapes.ts.html |here} to see how to use ResourcePoolShapes API.
    */
   public async resourcePoolShapes(
     resourcePoolShapesRequest: requests.ResourcePoolShapesRequest
@@ -30866,7 +30866,7 @@ This operation should be performed on disabled standby database.
    * @param RestartAutonomousContainerDatabaseRequest
    * @return RestartAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestartAutonomousContainerDatabase.ts.html |here} to see how to use RestartAutonomousContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestartAutonomousContainerDatabase.ts.html |here} to see how to use RestartAutonomousContainerDatabase API.
    */
   public async restartAutonomousContainerDatabase(
     restartAutonomousContainerDatabaseRequest: requests.RestartAutonomousContainerDatabaseRequest
@@ -30951,7 +30951,7 @@ This operation should be performed on disabled standby database.
    * @param RestartAutonomousDatabaseRequest
    * @return RestartAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestartAutonomousDatabase.ts.html |here} to see how to use RestartAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestartAutonomousDatabase.ts.html |here} to see how to use RestartAutonomousDatabase API.
    */
   public async restartAutonomousDatabase(
     restartAutonomousDatabaseRequest: requests.RestartAutonomousDatabaseRequest
@@ -31034,7 +31034,7 @@ This operation should be performed on disabled standby database.
    * @param RestoreAutonomousDatabaseRequest
    * @return RestoreAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestoreAutonomousDatabase.ts.html |here} to see how to use RestoreAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestoreAutonomousDatabase.ts.html |here} to see how to use RestoreAutonomousDatabase API.
    */
   public async restoreAutonomousDatabase(
     restoreAutonomousDatabaseRequest: requests.RestoreAutonomousDatabaseRequest
@@ -31122,7 +31122,7 @@ This operation should be performed on disabled standby database.
    * @param RestoreDatabaseRequest
    * @return RestoreDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestoreDatabase.ts.html |here} to see how to use RestoreDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestoreDatabase.ts.html |here} to see how to use RestoreDatabase API.
    */
   public async restoreDatabase(
     restoreDatabaseRequest: requests.RestoreDatabaseRequest
@@ -31203,12 +31203,12 @@ This operation should be performed on disabled standby database.
   }
 
   /**
-   * Creates a new version of an existing [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * Creates a new version of an existing [Vault service](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateAutonomousContainerDatabaseEncryptionKeyRequest
    * @return RotateAutonomousContainerDatabaseEncryptionKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousContainerDatabaseEncryptionKey.ts.html |here} to see how to use RotateAutonomousContainerDatabaseEncryptionKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousContainerDatabaseEncryptionKey.ts.html |here} to see how to use RotateAutonomousContainerDatabaseEncryptionKey API.
    */
   public async rotateAutonomousContainerDatabaseEncryptionKey(
     rotateAutonomousContainerDatabaseEncryptionKeyRequest: requests.RotateAutonomousContainerDatabaseEncryptionKeyRequest
@@ -31295,12 +31295,12 @@ This operation should be performed on disabled standby database.
   }
 
   /**
-   * Rotate existing AutonomousDatabase [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * Rotate existing AutonomousDatabase [Vault service](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateAutonomousDatabaseEncryptionKeyRequest
    * @return RotateAutonomousDatabaseEncryptionKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousDatabaseEncryptionKey.ts.html |here} to see how to use RotateAutonomousDatabaseEncryptionKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousDatabaseEncryptionKey.ts.html |here} to see how to use RotateAutonomousDatabaseEncryptionKey API.
    */
   public async rotateAutonomousDatabaseEncryptionKey(
     rotateAutonomousDatabaseEncryptionKeyRequest: requests.RotateAutonomousDatabaseEncryptionKeyRequest
@@ -31390,7 +31390,7 @@ This operation should be performed on disabled standby database.
    * @param RotateAutonomousVmClusterOrdsCertsRequest
    * @return RotateAutonomousVmClusterOrdsCertsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousVmClusterOrdsCerts.ts.html |here} to see how to use RotateAutonomousVmClusterOrdsCerts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousVmClusterOrdsCerts.ts.html |here} to see how to use RotateAutonomousVmClusterOrdsCerts API.
    */
   public async rotateAutonomousVmClusterOrdsCerts(
     rotateAutonomousVmClusterOrdsCertsRequest: requests.RotateAutonomousVmClusterOrdsCertsRequest
@@ -31471,7 +31471,7 @@ This operation should be performed on disabled standby database.
    * @param RotateAutonomousVmClusterSslCertsRequest
    * @return RotateAutonomousVmClusterSslCertsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousVmClusterSslCerts.ts.html |here} to see how to use RotateAutonomousVmClusterSslCerts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousVmClusterSslCerts.ts.html |here} to see how to use RotateAutonomousVmClusterSslCerts API.
    */
   public async rotateAutonomousVmClusterSslCerts(
     rotateAutonomousVmClusterSslCertsRequest: requests.RotateAutonomousVmClusterSslCertsRequest
@@ -31552,7 +31552,7 @@ This operation should be performed on disabled standby database.
    * @param RotateCloudAutonomousVmClusterOrdsCertsRequest
    * @return RotateCloudAutonomousVmClusterOrdsCertsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateCloudAutonomousVmClusterOrdsCerts.ts.html |here} to see how to use RotateCloudAutonomousVmClusterOrdsCerts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateCloudAutonomousVmClusterOrdsCerts.ts.html |here} to see how to use RotateCloudAutonomousVmClusterOrdsCerts API.
    */
   public async rotateCloudAutonomousVmClusterOrdsCerts(
     rotateCloudAutonomousVmClusterOrdsCertsRequest: requests.RotateCloudAutonomousVmClusterOrdsCertsRequest
@@ -31636,7 +31636,7 @@ This operation should be performed on disabled standby database.
    * @param RotateCloudAutonomousVmClusterSslCertsRequest
    * @return RotateCloudAutonomousVmClusterSslCertsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateCloudAutonomousVmClusterSslCerts.ts.html |here} to see how to use RotateCloudAutonomousVmClusterSslCerts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateCloudAutonomousVmClusterSslCerts.ts.html |here} to see how to use RotateCloudAutonomousVmClusterSslCerts API.
    */
   public async rotateCloudAutonomousVmClusterSslCerts(
     rotateCloudAutonomousVmClusterSslCertsRequest: requests.RotateCloudAutonomousVmClusterSslCertsRequest
@@ -31718,7 +31718,7 @@ This operation should be performed on disabled standby database.
    * @param RotateOrdsCertsRequest
    * @return RotateOrdsCertsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateOrdsCerts.ts.html |here} to see how to use RotateOrdsCerts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateOrdsCerts.ts.html |here} to see how to use RotateOrdsCerts API.
    */
   public async rotateOrdsCerts(
     rotateOrdsCertsRequest: requests.RotateOrdsCertsRequest
@@ -31794,7 +31794,7 @@ This operation should be performed on disabled standby database.
    * @param RotatePluggableDatabaseEncryptionKeyRequest
    * @return RotatePluggableDatabaseEncryptionKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotatePluggableDatabaseEncryptionKey.ts.html |here} to see how to use RotatePluggableDatabaseEncryptionKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotatePluggableDatabaseEncryptionKey.ts.html |here} to see how to use RotatePluggableDatabaseEncryptionKey API.
    */
   public async rotatePluggableDatabaseEncryptionKey(
     rotatePluggableDatabaseEncryptionKeyRequest: requests.RotatePluggableDatabaseEncryptionKeyRequest
@@ -31870,7 +31870,7 @@ This operation should be performed on disabled standby database.
    * @param RotateSslCertsRequest
    * @return RotateSslCertsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateSslCerts.ts.html |here} to see how to use RotateSslCerts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateSslCerts.ts.html |here} to see how to use RotateSslCerts API.
    */
   public async rotateSslCerts(
     rotateSslCertsRequest: requests.RotateSslCertsRequest
@@ -31940,12 +31940,12 @@ This operation should be performed on disabled standby database.
   }
 
   /**
-   * Creates a new version of an existing [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * Creates a new version of an existing [Vault service](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RotateVaultKeyRequest
    * @return RotateVaultKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateVaultKey.ts.html |here} to see how to use RotateVaultKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateVaultKey.ts.html |here} to see how to use RotateVaultKey API.
    */
   public async rotateVaultKey(
     rotateVaultKeyRequest: requests.RotateVaultKeyRequest
@@ -32028,7 +32028,7 @@ This operation should be performed on disabled standby database.
    * @param SaasAdminUserStatusRequest
    * @return SaasAdminUserStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SaasAdminUserStatus.ts.html |here} to see how to use SaasAdminUserStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SaasAdminUserStatus.ts.html |here} to see how to use SaasAdminUserStatus API.
    */
   public async saasAdminUserStatus(
     saasAdminUserStatusRequest: requests.SaasAdminUserStatusRequest
@@ -32106,7 +32106,7 @@ This operation should be performed on disabled standby database.
    * @param ScanExternalContainerDatabasePluggableDatabasesRequest
    * @return ScanExternalContainerDatabasePluggableDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ScanExternalContainerDatabasePluggableDatabases.ts.html |here} to see how to use ScanExternalContainerDatabasePluggableDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ScanExternalContainerDatabasePluggableDatabases.ts.html |here} to see how to use ScanExternalContainerDatabasePluggableDatabases API.
    */
   public async scanExternalContainerDatabasePluggableDatabases(
     scanExternalContainerDatabasePluggableDatabasesRequest: requests.ScanExternalContainerDatabasePluggableDatabasesRequest
@@ -32182,12 +32182,12 @@ This operation should be performed on disabled standby database.
   }
 
   /**
-   * Sets a new version of an existing [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * Sets a new version of an existing [Vault service](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SetDbKeyVersionRequest
    * @return SetDbKeyVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SetDbKeyVersion.ts.html |here} to see how to use SetDbKeyVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SetDbKeyVersion.ts.html |here} to see how to use SetDbKeyVersion API.
    */
   public async setDbKeyVersion(
     setDbKeyVersionRequest: requests.SetDbKeyVersionRequest
@@ -32270,12 +32270,12 @@ This operation should be performed on disabled standby database.
   }
 
   /**
-   * Sets a new version of an existing [Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
+   * Sets a new version of an existing [Vault service](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) key.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SetPdbKeyVersionRequest
    * @return SetPdbKeyVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SetPdbKeyVersion.ts.html |here} to see how to use SetPdbKeyVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SetPdbKeyVersion.ts.html |here} to see how to use SetPdbKeyVersion API.
    */
   public async setPdbKeyVersion(
     setPdbKeyVersionRequest: requests.SetPdbKeyVersionRequest
@@ -32364,7 +32364,7 @@ This operation should be performed on disabled standby database.
    * @param ShrinkAutonomousDatabaseRequest
    * @return ShrinkAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ShrinkAutonomousDatabase.ts.html |here} to see how to use ShrinkAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ShrinkAutonomousDatabase.ts.html |here} to see how to use ShrinkAutonomousDatabase API.
    */
   public async shrinkAutonomousDatabase(
     shrinkAutonomousDatabaseRequest: requests.ShrinkAutonomousDatabaseRequest
@@ -32447,7 +32447,7 @@ This operation should be performed on disabled standby database.
    * @param StartAutonomousDatabaseRequest
    * @return StartAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StartAutonomousDatabase.ts.html |here} to see how to use StartAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StartAutonomousDatabase.ts.html |here} to see how to use StartAutonomousDatabase API.
    */
   public async startAutonomousDatabase(
     startAutonomousDatabaseRequest: requests.StartAutonomousDatabaseRequest
@@ -32528,7 +32528,7 @@ This operation should be performed on disabled standby database.
    * @param StartPluggableDatabaseRequest
    * @return StartPluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StartPluggableDatabase.ts.html |here} to see how to use StartPluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StartPluggableDatabase.ts.html |here} to see how to use StartPluggableDatabase API.
    */
   public async startPluggableDatabase(
     startPluggableDatabaseRequest: requests.StartPluggableDatabaseRequest
@@ -32612,7 +32612,7 @@ This operation should be performed on disabled standby database.
    * @param StopAutonomousDatabaseRequest
    * @return StopAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StopAutonomousDatabase.ts.html |here} to see how to use StopAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StopAutonomousDatabase.ts.html |here} to see how to use StopAutonomousDatabase API.
    */
   public async stopAutonomousDatabase(
     stopAutonomousDatabaseRequest: requests.StopAutonomousDatabaseRequest
@@ -32694,7 +32694,7 @@ This operation should be performed on disabled standby database.
    * @param StopPluggableDatabaseRequest
    * @return StopPluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StopPluggableDatabase.ts.html |here} to see how to use StopPluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/StopPluggableDatabase.ts.html |here} to see how to use StopPluggableDatabase API.
    */
   public async stopPluggableDatabase(
     stopPluggableDatabaseRequest: requests.StopPluggableDatabaseRequest
@@ -32783,7 +32783,7 @@ This operation should be performed on respective standby database.
      * @param SwitchOverDataGuardRequest
      * @return SwitchOverDataGuardResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchOverDataGuard.ts.html |here} to see how to use SwitchOverDataGuard API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchOverDataGuard.ts.html |here} to see how to use SwitchOverDataGuard API.
      */
   public async switchOverDataGuard(
     switchOverDataGuardRequest: requests.SwitchOverDataGuardRequest
@@ -32874,7 +32874,7 @@ A switchover incurs no data loss.
      * @param SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest
      * @return SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchoverAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use SwitchoverAutonomousContainerDatabaseDataguardAssociation API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchoverAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use SwitchoverAutonomousContainerDatabaseDataguardAssociation API.
      */
   public async switchoverAutonomousContainerDatabaseDataguardAssociation(
     switchoverAutonomousContainerDatabaseDataguardAssociationRequest: requests.SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest
@@ -32970,7 +32970,7 @@ A switchover incurs no data loss.
    * @param SwitchoverAutonomousDatabaseRequest
    * @return SwitchoverAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchoverAutonomousDatabase.ts.html |here} to see how to use SwitchoverAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchoverAutonomousDatabase.ts.html |here} to see how to use SwitchoverAutonomousDatabase API.
    */
   public async switchoverAutonomousDatabase(
     switchoverAutonomousDatabaseRequest: requests.SwitchoverAutonomousDatabaseRequest
@@ -33060,7 +33060,7 @@ A switchover guarantees no data loss.
      * @param SwitchoverDataGuardAssociationRequest
      * @return SwitchoverDataGuardAssociationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchoverDataGuardAssociation.ts.html |here} to see how to use SwitchoverDataGuardAssociation API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchoverDataGuardAssociation.ts.html |here} to see how to use SwitchoverDataGuardAssociation API.
      */
   public async switchoverDataGuardAssociation(
     switchoverDataGuardAssociationRequest: requests.SwitchoverDataGuardAssociationRequest
@@ -33149,7 +33149,7 @@ A switchover guarantees no data loss.
    * @param TerminateAutonomousContainerDatabaseRequest
    * @return TerminateAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateAutonomousContainerDatabase.ts.html |here} to see how to use TerminateAutonomousContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateAutonomousContainerDatabase.ts.html |here} to see how to use TerminateAutonomousContainerDatabase API.
    */
   public async terminateAutonomousContainerDatabase(
     terminateAutonomousContainerDatabaseRequest: requests.TerminateAutonomousContainerDatabaseRequest
@@ -33224,7 +33224,7 @@ A switchover guarantees no data loss.
    * @param TerminateAutonomousExadataInfrastructureRequest
    * @return TerminateAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateAutonomousExadataInfrastructure.ts.html |here} to see how to use TerminateAutonomousExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateAutonomousExadataInfrastructure.ts.html |here} to see how to use TerminateAutonomousExadataInfrastructure API.
    */
   public async terminateAutonomousExadataInfrastructure(
     terminateAutonomousExadataInfrastructureRequest: requests.TerminateAutonomousExadataInfrastructureRequest
@@ -33297,15 +33297,15 @@ A switchover guarantees no data loss.
   /**
      * Terminates a DB system and permanently deletes it and any databases running on it, and any storage volumes attached to it. The database data is local to the DB system and will be lost when the system is terminated. Oracle recommends that you back up any data in the DB system prior to terminating it.
 * <p>
-**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
 * <p>
-For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param TerminateDbSystemRequest
      * @return TerminateDbSystemResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateDbSystem.ts.html |here} to see how to use TerminateDbSystem API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/TerminateDbSystem.ts.html |here} to see how to use TerminateDbSystem API.
      */
   public async terminateDbSystem(
     terminateDbSystemRequest: requests.TerminateDbSystemRequest
@@ -33377,7 +33377,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateAutonomousContainerDatabaseRequest
    * @return UpdateAutonomousContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousContainerDatabase.ts.html |here} to see how to use UpdateAutonomousContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousContainerDatabase.ts.html |here} to see how to use UpdateAutonomousContainerDatabase API.
    */
   public async updateAutonomousContainerDatabase(
     updateAutonomousContainerDatabaseRequest: requests.UpdateAutonomousContainerDatabaseRequest
@@ -33466,7 +33466,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateAutonomousContainerDatabaseDataguardAssociationRequest
    * @return UpdateAutonomousContainerDatabaseDataguardAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use UpdateAutonomousContainerDatabaseDataguardAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use UpdateAutonomousContainerDatabaseDataguardAssociation API.
    */
   public async updateAutonomousContainerDatabaseDataguardAssociation(
     updateAutonomousContainerDatabaseDataguardAssociationRequest: requests.UpdateAutonomousContainerDatabaseDataguardAssociationRequest
@@ -33561,7 +33561,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateAutonomousDatabaseRequest
    * @return UpdateAutonomousDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabase.ts.html |here} to see how to use UpdateAutonomousDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabase.ts.html |here} to see how to use UpdateAutonomousDatabase API.
    */
   public async updateAutonomousDatabase(
     updateAutonomousDatabaseRequest: requests.UpdateAutonomousDatabaseRequest
@@ -33650,7 +33650,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateAutonomousDatabaseBackupRequest
    * @return UpdateAutonomousDatabaseBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseBackup.ts.html |here} to see how to use UpdateAutonomousDatabaseBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseBackup.ts.html |here} to see how to use UpdateAutonomousDatabaseBackup API.
    */
   public async updateAutonomousDatabaseBackup(
     updateAutonomousDatabaseBackupRequest: requests.UpdateAutonomousDatabaseBackupRequest
@@ -33740,7 +33740,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateAutonomousDatabaseRegionalWalletRequest
    * @return UpdateAutonomousDatabaseRegionalWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseRegionalWallet.ts.html |here} to see how to use UpdateAutonomousDatabaseRegionalWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseRegionalWallet.ts.html |here} to see how to use UpdateAutonomousDatabaseRegionalWallet API.
    */
   public async updateAutonomousDatabaseRegionalWallet(
     updateAutonomousDatabaseRegionalWalletRequest: requests.UpdateAutonomousDatabaseRegionalWalletRequest
@@ -33816,7 +33816,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateAutonomousDatabaseSoftwareImageRequest
    * @return UpdateAutonomousDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use UpdateAutonomousDatabaseSoftwareImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use UpdateAutonomousDatabaseSoftwareImage API.
    */
   public async updateAutonomousDatabaseSoftwareImage(
     updateAutonomousDatabaseSoftwareImageRequest: requests.UpdateAutonomousDatabaseSoftwareImageRequest
@@ -33901,7 +33901,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateAutonomousDatabaseWalletRequest
    * @return UpdateAutonomousDatabaseWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseWallet.ts.html |here} to see how to use UpdateAutonomousDatabaseWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseWallet.ts.html |here} to see how to use UpdateAutonomousDatabaseWallet API.
    */
   public async updateAutonomousDatabaseWallet(
     updateAutonomousDatabaseWalletRequest: requests.UpdateAutonomousDatabaseWalletRequest
@@ -33980,7 +33980,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateAutonomousExadataInfrastructureRequest
    * @return UpdateAutonomousExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousExadataInfrastructure.ts.html |here} to see how to use UpdateAutonomousExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousExadataInfrastructure.ts.html |here} to see how to use UpdateAutonomousExadataInfrastructure API.
    */
   public async updateAutonomousExadataInfrastructure(
     updateAutonomousExadataInfrastructureRequest: requests.UpdateAutonomousExadataInfrastructureRequest
@@ -34069,7 +34069,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateAutonomousVmClusterRequest
    * @return UpdateAutonomousVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousVmCluster.ts.html |here} to see how to use UpdateAutonomousVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousVmCluster.ts.html |here} to see how to use UpdateAutonomousVmCluster API.
    */
   public async updateAutonomousVmCluster(
     updateAutonomousVmClusterRequest: requests.UpdateAutonomousVmClusterRequest
@@ -34160,7 +34160,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateBackupDestinationRequest
    * @return UpdateBackupDestinationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateBackupDestination.ts.html |here} to see how to use UpdateBackupDestination API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateBackupDestination.ts.html |here} to see how to use UpdateBackupDestination API.
    */
   public async updateBackupDestination(
     updateBackupDestinationRequest: requests.UpdateBackupDestinationRequest
@@ -34243,7 +34243,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateCloudAutonomousVmClusterRequest
    * @return UpdateCloudAutonomousVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudAutonomousVmCluster.ts.html |here} to see how to use UpdateCloudAutonomousVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudAutonomousVmCluster.ts.html |here} to see how to use UpdateCloudAutonomousVmCluster API.
    */
   public async updateCloudAutonomousVmCluster(
     updateCloudAutonomousVmClusterRequest: requests.UpdateCloudAutonomousVmClusterRequest
@@ -34333,7 +34333,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateCloudExadataInfrastructureRequest
    * @return UpdateCloudExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudExadataInfrastructure.ts.html |here} to see how to use UpdateCloudExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudExadataInfrastructure.ts.html |here} to see how to use UpdateCloudExadataInfrastructure API.
    */
   public async updateCloudExadataInfrastructure(
     updateCloudExadataInfrastructureRequest: requests.UpdateCloudExadataInfrastructureRequest
@@ -34423,7 +34423,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateCloudVmClusterRequest
    * @return UpdateCloudVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudVmCluster.ts.html |here} to see how to use UpdateCloudVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudVmCluster.ts.html |here} to see how to use UpdateCloudVmCluster API.
    */
   public async updateCloudVmCluster(
     updateCloudVmClusterRequest: requests.UpdateCloudVmClusterRequest
@@ -34511,7 +34511,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateCloudVmClusterIormConfigRequest
    * @return UpdateCloudVmClusterIormConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudVmClusterIormConfig.ts.html |here} to see how to use UpdateCloudVmClusterIormConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateCloudVmClusterIormConfig.ts.html |here} to see how to use UpdateCloudVmClusterIormConfig API.
    */
   public async updateCloudVmClusterIormConfig(
     updateCloudVmClusterIormConfigRequest: requests.UpdateCloudVmClusterIormConfigRequest
@@ -34599,7 +34599,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateConsoleConnectionRequest
    * @return UpdateConsoleConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateConsoleConnection.ts.html |here} to see how to use UpdateConsoleConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateConsoleConnection.ts.html |here} to see how to use UpdateConsoleConnection API.
    */
   public async updateConsoleConnection(
     updateConsoleConnectionRequest: requests.UpdateConsoleConnectionRequest
@@ -34688,7 +34688,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateConsoleHistoryRequest
    * @return UpdateConsoleHistoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateConsoleHistory.ts.html |here} to see how to use UpdateConsoleHistory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateConsoleHistory.ts.html |here} to see how to use UpdateConsoleHistory API.
    */
   public async updateConsoleHistory(
     updateConsoleHistoryRequest: requests.UpdateConsoleHistoryRequest
@@ -34772,13 +34772,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Update an existing Data Guard member. A Data Guard member represents the replication relationship between the
-   * specified database and a standby database. For more information, see [Using Oracle Data Guard](https://docs.cloud.oracle.com/Content/Database/Tasks/usingdataguard.htm).
+   * specified database and a standby database. For more information, see [Using Oracle Data Guard](https://docs.oracle.com/iaas/Content/Database/Tasks/usingdataguard.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDataGuardRequest
    * @return UpdateDataGuardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDataGuard.ts.html |here} to see how to use UpdateDataGuard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDataGuard.ts.html |here} to see how to use UpdateDataGuard API.
    */
   public async updateDataGuard(
     updateDataGuardRequest: requests.UpdateDataGuardRequest
@@ -34867,7 +34867,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateDataGuardAssociationRequest
    * @return UpdateDataGuardAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDataGuardAssociation.ts.html |here} to see how to use UpdateDataGuardAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDataGuardAssociation.ts.html |here} to see how to use UpdateDataGuardAssociation API.
    */
   public async updateDataGuardAssociation(
     updateDataGuardAssociationRequest: requests.UpdateDataGuardAssociationRequest
@@ -34957,7 +34957,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateDatabaseRequest
    * @return UpdateDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDatabase.ts.html |here} to see how to use UpdateDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDatabase.ts.html |here} to see how to use UpdateDatabase API.
    */
   public async updateDatabase(
     updateDatabaseRequest: requests.UpdateDatabaseRequest
@@ -35043,7 +35043,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateDatabaseSoftwareImageRequest
    * @return UpdateDatabaseSoftwareImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDatabaseSoftwareImage.ts.html |here} to see how to use UpdateDatabaseSoftwareImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDatabaseSoftwareImage.ts.html |here} to see how to use UpdateDatabaseSoftwareImage API.
    */
   public async updateDatabaseSoftwareImage(
     updateDatabaseSoftwareImageRequest: requests.UpdateDatabaseSoftwareImageRequest
@@ -35125,7 +35125,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateDbHomeRequest
    * @return UpdateDbHomeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbHome.ts.html |here} to see how to use UpdateDbHome API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbHome.ts.html |here} to see how to use UpdateDbHome API.
    */
   public async updateDbHome(
     updateDbHomeRequest: requests.UpdateDbHomeRequest
@@ -35211,7 +35211,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateDbNodeRequest
    * @return UpdateDbNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbNode.ts.html |here} to see how to use UpdateDbNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbNode.ts.html |here} to see how to use UpdateDbNode API.
    */
   public async updateDbNode(
     updateDbNodeRequest: requests.UpdateDbNodeRequest
@@ -35295,15 +35295,15 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
      * Updates the properties of the specified DB system.
 * <p>
-**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
 * <p>
-For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateDbSystemRequest
      * @return UpdateDbSystemResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbSystem.ts.html |here} to see how to use UpdateDbSystem API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbSystem.ts.html |here} to see how to use UpdateDbSystem API.
      */
   public async updateDbSystem(
     updateDbSystemRequest: requests.UpdateDbSystemRequest
@@ -35391,7 +35391,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
    * @param UpdateExadataInfrastructureRequest
    * @return UpdateExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadataInfrastructure.ts.html |here} to see how to use UpdateExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadataInfrastructure.ts.html |here} to see how to use UpdateExadataInfrastructure API.
    */
   public async updateExadataInfrastructure(
     updateExadataInfrastructureRequest: requests.UpdateExadataInfrastructureRequest
@@ -35476,9 +35476,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   /**
      * Updates IORM settings for the specified Exadata DB system.
 * <p>
-**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
+**Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
 * <p>
-For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
+For Exadata Cloud Service instances, support for this API will end on May 15th, 2021. See [Switching an Exadata DB System to the New Resource Model and APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem_topic-resource_model_conversion.htm) for details on converting existing Exadata DB systems to the new resource model.
 * <p>
 The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest) updateCloudVmClusterIormConfig} API is used for Exadata systems using the
 * new resource model.
@@ -35487,7 +35487,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
      * @param UpdateExadataIormConfigRequest
      * @return UpdateExadataIormConfigResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadataIormConfig.ts.html |here} to see how to use UpdateExadataIormConfig API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadataIormConfig.ts.html |here} to see how to use UpdateExadataIormConfig API.
      */
   public async updateExadataIormConfig(
     updateExadataIormConfigRequest: requests.UpdateExadataIormConfigRequest
@@ -35575,7 +35575,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateExadbVmClusterRequest
    * @return UpdateExadbVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadbVmCluster.ts.html |here} to see how to use UpdateExadbVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExadbVmCluster.ts.html |here} to see how to use UpdateExadbVmCluster API.
    */
   public async updateExadbVmCluster(
     updateExadbVmClusterRequest: requests.UpdateExadbVmClusterRequest
@@ -35663,7 +35663,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateExascaleDbStorageVaultRequest
    * @return UpdateExascaleDbStorageVaultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExascaleDbStorageVault.ts.html |here} to see how to use UpdateExascaleDbStorageVault API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExascaleDbStorageVault.ts.html |here} to see how to use UpdateExascaleDbStorageVault API.
    */
   public async updateExascaleDbStorageVault(
     updateExascaleDbStorageVaultRequest: requests.UpdateExascaleDbStorageVaultRequest
@@ -35752,7 +35752,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateExecutionActionRequest
    * @return UpdateExecutionActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExecutionAction.ts.html |here} to see how to use UpdateExecutionAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExecutionAction.ts.html |here} to see how to use UpdateExecutionAction API.
    */
   public async updateExecutionAction(
     updateExecutionActionRequest: requests.UpdateExecutionActionRequest
@@ -35840,7 +35840,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateExecutionWindowRequest
    * @return UpdateExecutionWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExecutionWindow.ts.html |here} to see how to use UpdateExecutionWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExecutionWindow.ts.html |here} to see how to use UpdateExecutionWindow API.
    */
   public async updateExecutionWindow(
     updateExecutionWindowRequest: requests.UpdateExecutionWindowRequest
@@ -35930,7 +35930,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateExternalContainerDatabaseRequest
    * @return UpdateExternalContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalContainerDatabase.ts.html |here} to see how to use UpdateExternalContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalContainerDatabase.ts.html |here} to see how to use UpdateExternalContainerDatabase API.
    */
   public async updateExternalContainerDatabase(
     updateExternalContainerDatabaseRequest: requests.UpdateExternalContainerDatabaseRequest
@@ -36019,7 +36019,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateExternalDatabaseConnectorRequest
    * @return UpdateExternalDatabaseConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalDatabaseConnector.ts.html |here} to see how to use UpdateExternalDatabaseConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalDatabaseConnector.ts.html |here} to see how to use UpdateExternalDatabaseConnector API.
    */
   public async updateExternalDatabaseConnector(
     updateExternalDatabaseConnectorRequest: requests.UpdateExternalDatabaseConnectorRequest
@@ -36108,7 +36108,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateExternalNonContainerDatabaseRequest
    * @return UpdateExternalNonContainerDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalNonContainerDatabase.ts.html |here} to see how to use UpdateExternalNonContainerDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalNonContainerDatabase.ts.html |here} to see how to use UpdateExternalNonContainerDatabase API.
    */
   public async updateExternalNonContainerDatabase(
     updateExternalNonContainerDatabaseRequest: requests.UpdateExternalNonContainerDatabaseRequest
@@ -36200,7 +36200,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateExternalPluggableDatabaseRequest
    * @return UpdateExternalPluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalPluggableDatabase.ts.html |here} to see how to use UpdateExternalPluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateExternalPluggableDatabase.ts.html |here} to see how to use UpdateExternalPluggableDatabase API.
    */
   public async updateExternalPluggableDatabase(
     updateExternalPluggableDatabaseRequest: requests.UpdateExternalPluggableDatabaseRequest
@@ -36290,7 +36290,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateKeyStoreRequest
    * @return UpdateKeyStoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateKeyStore.ts.html |here} to see how to use UpdateKeyStore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateKeyStore.ts.html |here} to see how to use UpdateKeyStore API.
    */
   public async updateKeyStore(
     updateKeyStoreRequest: requests.UpdateKeyStoreRequest
@@ -36372,7 +36372,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateMaintenanceRunRequest
    * @return UpdateMaintenanceRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateMaintenanceRun.ts.html |here} to see how to use UpdateMaintenanceRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateMaintenanceRun.ts.html |here} to see how to use UpdateMaintenanceRun API.
    */
   public async updateMaintenanceRun(
     updateMaintenanceRunRequest: requests.UpdateMaintenanceRunRequest
@@ -36454,7 +36454,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateOneoffPatchRequest
    * @return UpdateOneoffPatchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateOneoffPatch.ts.html |here} to see how to use UpdateOneoffPatch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateOneoffPatch.ts.html |here} to see how to use UpdateOneoffPatch API.
    */
   public async updateOneoffPatch(
     updateOneoffPatchRequest: requests.UpdateOneoffPatchRequest
@@ -36536,7 +36536,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdatePluggableDatabaseRequest
    * @return UpdatePluggableDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdatePluggableDatabase.ts.html |here} to see how to use UpdatePluggableDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdatePluggableDatabase.ts.html |here} to see how to use UpdatePluggableDatabase API.
    */
   public async updatePluggableDatabase(
     updatePluggableDatabaseRequest: requests.UpdatePluggableDatabaseRequest
@@ -36623,7 +36623,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateScheduledActionRequest
    * @return UpdateScheduledActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateScheduledAction.ts.html |here} to see how to use UpdateScheduledAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateScheduledAction.ts.html |here} to see how to use UpdateScheduledAction API.
    */
   public async updateScheduledAction(
     updateScheduledActionRequest: requests.UpdateScheduledActionRequest
@@ -36710,7 +36710,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateSchedulingPolicyRequest
    * @return UpdateSchedulingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateSchedulingPolicy.ts.html |here} to see how to use UpdateSchedulingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateSchedulingPolicy.ts.html |here} to see how to use UpdateSchedulingPolicy API.
    */
   public async updateSchedulingPolicy(
     updateSchedulingPolicyRequest: requests.UpdateSchedulingPolicyRequest
@@ -36798,7 +36798,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateSchedulingWindowRequest
    * @return UpdateSchedulingWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateSchedulingWindow.ts.html |here} to see how to use UpdateSchedulingWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateSchedulingWindow.ts.html |here} to see how to use UpdateSchedulingWindow API.
    */
   public async updateSchedulingWindow(
     updateSchedulingWindowRequest: requests.UpdateSchedulingWindowRequest
@@ -36887,7 +36887,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateVmClusterRequest
    * @return UpdateVmClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateVmCluster.ts.html |here} to see how to use UpdateVmCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateVmCluster.ts.html |here} to see how to use UpdateVmCluster API.
    */
   public async updateVmCluster(
     updateVmClusterRequest: requests.UpdateVmClusterRequest
@@ -36976,7 +36976,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpdateVmClusterNetworkRequest
    * @return UpdateVmClusterNetworkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateVmClusterNetwork.ts.html |here} to see how to use UpdateVmClusterNetwork API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateVmClusterNetwork.ts.html |here} to see how to use UpdateVmClusterNetwork API.
    */
   public async updateVmClusterNetwork(
     updateVmClusterNetworkRequest: requests.UpdateVmClusterNetworkRequest
@@ -37066,7 +37066,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpgradeDatabaseRequest
    * @return UpgradeDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpgradeDatabase.ts.html |here} to see how to use UpgradeDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpgradeDatabase.ts.html |here} to see how to use UpgradeDatabase API.
    */
   public async upgradeDatabase(
     upgradeDatabaseRequest: requests.UpgradeDatabaseRequest
@@ -37154,7 +37154,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param UpgradeDbSystemRequest
    * @return UpgradeDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpgradeDbSystem.ts.html |here} to see how to use UpgradeDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpgradeDbSystem.ts.html |here} to see how to use UpgradeDbSystem API.
    */
   public async upgradeDbSystem(
     upgradeDbSystemRequest: requests.UpgradeDbSystemRequest
@@ -37243,7 +37243,7 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
    * @param ValidateVmClusterNetworkRequest
    * @return ValidateVmClusterNetworkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ValidateVmClusterNetwork.ts.html |here} to see how to use ValidateVmClusterNetwork API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ValidateVmClusterNetwork.ts.html |here} to see how to use ValidateVmClusterNetwork API.
    */
   public async validateVmClusterNetwork(
     validateVmClusterNetworkRequest: requests.ValidateVmClusterNetworkRequest

@@ -1,6 +1,6 @@
 /**
  * Bastion API
- * Use the Bastion API to provide restricted and time-limited access to target resources that don't have public endpoints. Bastions let authorized users connect from specific IP addresses to target resources using Secure Shell (SSH) sessions. For more information, see [the Bastion documentation](/iaas/Content/Bastion/home.htm).
+ * Use the Bastion API to provide restricted and time-limited access to target resources that don't have public endpoints. Bastions let authorized users connect from specific IP addresses to target resources using Secure Shell (SSH) sessions. For more information, see [the Bastion documentation](https://docs.oracle.com/iaas/Content/Bastion/home.htm).
  * OpenAPI spec version: 20210331
  *
  *
@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface WorkRequestError {
   /**
    * A machine-usable code for the error that occurred. Error codes are listed on
-   * (https://docs.cloud.oracle.com/Content/API/References/apierrors.htm)
+   * (https://docs.oracle.com/iaas/Content/API/References/apierrors.htm)
    *
    */
   "code": string;

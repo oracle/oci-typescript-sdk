@@ -1,6 +1,6 @@
 /**
  * License Manager API
- * Use the License Manager API to manage product licenses and license records. For more information, see [License Manager Overview](/iaas/Content/LicenseManager/Concepts/licensemanageroverview.htm).
+ * Use the License Manager API to manage product licenses and license records. For more information, see [License Manager Overview](https://docs.oracle.com/iaas/Content/LicenseManager/Concepts/licensemanageroverview.htm).
  * OpenAPI spec version: 20220430
  *
  *
@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface TopUtilizedProductLicenseSummary {
   /**
-   * The product license [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The product license [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "productLicenseId": string;
   /**

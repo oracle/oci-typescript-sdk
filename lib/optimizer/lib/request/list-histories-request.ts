@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListHistories.ts.html |here} to see how to use ListHistoriesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/optimizer/ListHistories.ts.html |here} to see how to use ListHistoriesRequest.
  */
 export interface ListHistoriesRequest extends common.BaseRequest {
   /**

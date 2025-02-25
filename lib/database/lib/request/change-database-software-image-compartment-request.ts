@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDatabaseSoftwareImageCompartment.ts.html |here} to see how to use ChangeDatabaseSoftwareImageCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDatabaseSoftwareImageCompartment.ts.html |here} to see how to use ChangeDatabaseSoftwareImageCompartmentRequest.
  */
 export interface ChangeDatabaseSoftwareImageCompartmentRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ChangeDatabaseSoftwareImageCompartmentRequest extends common.Ba
    */
   "changeCompartmentDetails": model.ChangeCompartmentDetails;
   /**
-   * The DB system [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The DB system [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "databaseSoftwareImageId": string;
   /**

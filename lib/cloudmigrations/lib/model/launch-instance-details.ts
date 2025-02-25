@@ -30,7 +30,7 @@ Example: {@code Uocm:PHX-AD-1}
   /**
    * The OCID of the compute capacity reservation under which this instance is launched.
    * You can opt out of all default reservations by specifying an empty string as input for this field.
-   * For more information, see [Capacity Reservations](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/reserve-capacity.htm#default).
+   * For more information, see [Capacity Reservations](https://docs.oracle.com/iaas/Content/Compute/Tasks/reserve-capacity.htm#default).
    *
    */
   "capacityReservationId"?: string;
@@ -115,7 +115,7 @@ If your instance boot volume type is paravirtualized,
 * <p>
 For more information about the Bring Your Own Image feature of
 * Oracle Cloud Infrastructure, see
-* [Bring Your Own Image](https://docs.cloud.oracle.com/iaas/Content/Compute/References/bringyourownimage.htm).
+* [Bring Your Own Image](https://docs.oracle.com/iaas/Content/Compute/References/bringyourownimage.htm).
 * <p>
 For more information about iPXE, see http://ipxe.org.
 * 

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteOneoffPatch.ts.html |here} to see how to use DeleteOneoffPatchRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteOneoffPatch.ts.html |here} to see how to use DeleteOneoffPatchRequest.
  */
 export interface DeleteOneoffPatchRequest extends common.BaseRequest {
   /**
-   * The one-off patch [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The one-off patch [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "oneoffPatchId": string;
   /**

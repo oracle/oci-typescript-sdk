@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExecutionAction.ts.html |here} to see how to use DeleteExecutionActionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteExecutionAction.ts.html |here} to see how to use DeleteExecutionActionRequest.
  */
 export interface DeleteExecutionActionRequest extends common.BaseRequest {
   /**
-   * The execution action [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The execution action [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "executionActionId": string;
   /**

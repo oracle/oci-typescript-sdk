@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface DatabaseToolsUserPasswordSecretIdSummary
   extends model.DatabaseToolsUserPasswordSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the secret containing the user password.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the secret containing the user password.
    */
   "secretId"?: string;
 

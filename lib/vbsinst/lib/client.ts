@@ -242,7 +242,7 @@ export class VbsInstanceClient {
    * @param ChangeVbsInstanceCompartmentRequest
    * @return ChangeVbsInstanceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/ChangeVbsInstanceCompartment.ts.html |here} to see how to use ChangeVbsInstanceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/ChangeVbsInstanceCompartment.ts.html |here} to see how to use ChangeVbsInstanceCompartment API.
    */
   public async changeVbsInstanceCompartment(
     changeVbsInstanceCompartmentRequest: requests.ChangeVbsInstanceCompartmentRequest
@@ -321,7 +321,7 @@ export class VbsInstanceClient {
    * @param CreateVbsInstanceRequest
    * @return CreateVbsInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/CreateVbsInstance.ts.html |here} to see how to use CreateVbsInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/CreateVbsInstance.ts.html |here} to see how to use CreateVbsInstance API.
    */
   public async createVbsInstance(
     createVbsInstanceRequest: requests.CreateVbsInstanceRequest
@@ -397,7 +397,7 @@ export class VbsInstanceClient {
    * @param DeleteVbsInstanceRequest
    * @return DeleteVbsInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/DeleteVbsInstance.ts.html |here} to see how to use DeleteVbsInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/DeleteVbsInstance.ts.html |here} to see how to use DeleteVbsInstance API.
    */
   public async deleteVbsInstance(
     deleteVbsInstanceRequest: requests.DeleteVbsInstanceRequest
@@ -469,7 +469,7 @@ export class VbsInstanceClient {
    * @param GetVbsInstanceRequest
    * @return GetVbsInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/GetVbsInstance.ts.html |here} to see how to use GetVbsInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/GetVbsInstance.ts.html |here} to see how to use GetVbsInstance API.
    */
   public async getVbsInstance(
     getVbsInstanceRequest: requests.GetVbsInstanceRequest
@@ -544,7 +544,7 @@ export class VbsInstanceClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -620,7 +620,7 @@ export class VbsInstanceClient {
    * @param ListVbsInstancesRequest
    * @return ListVbsInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/ListVbsInstances.ts.html |here} to see how to use ListVbsInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/ListVbsInstances.ts.html |here} to see how to use ListVbsInstances API.
    */
   public async listVbsInstances(
     listVbsInstancesRequest: requests.ListVbsInstancesRequest
@@ -703,7 +703,7 @@ export class VbsInstanceClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -785,7 +785,7 @@ export class VbsInstanceClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -866,7 +866,7 @@ export class VbsInstanceClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -946,7 +946,7 @@ export class VbsInstanceClient {
    * @param UpdateVbsInstanceRequest
    * @return UpdateVbsInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/UpdateVbsInstance.ts.html |here} to see how to use UpdateVbsInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vbsinst/UpdateVbsInstance.ts.html |here} to see how to use UpdateVbsInstance API.
    */
   public async updateVbsInstance(
     updateVbsInstanceRequest: requests.UpdateVbsInstanceRequest

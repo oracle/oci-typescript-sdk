@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ManagedInstance {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance.
    *
    */
   "id": string;
@@ -34,12 +34,12 @@ export interface ManagedInstance {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tenancy that the managed instance resides in.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tenancy that the managed instance resides in.
    *
    */
   "tenancyId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the managed instance.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the managed instance.
    *
    */
   "compartmentId": string;
@@ -90,16 +90,20 @@ export interface ManagedInstance {
    */
   "profile"?: string;
   /**
+   * The version of the profile that was used to register this instance with the service.
+   */
+  "profileVersion"?: string;
+  /**
    * Indicates whether this managed instance is acting as an on-premises management station.
    */
   "isManagementStation"?: boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station for the instance to use as primary management station.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station for the instance to use as primary management station.
    *
    */
   "primaryManagementStationId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station for the instance to use as secondary managment station.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station for the instance to use as secondary management station.
    *
    */
   "secondaryManagementStationId"?: string;
@@ -161,7 +165,7 @@ export interface ManagedInstance {
    */
   "timeUpdated"?: Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Oracle Notifications service (ONS) topic. ONS is the channel used to send notifications to the customer.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Oracle Notifications service (ONS) topic. ONS is the channel used to send notifications to the customer.
    *
    */
   "notificationTopicId"?: string;
@@ -170,6 +174,10 @@ export interface ManagedInstance {
    * Indicates whether the Autonomous Linux service manages the instance.
    */
   "isManagedByAutonomousLinux"?: boolean;
+  /**
+   * The version of osmh-agent running on the managed instance
+   */
+  "agentVersion"?: string;
 }
 
 export namespace ManagedInstance {

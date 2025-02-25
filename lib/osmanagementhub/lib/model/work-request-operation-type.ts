@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -57,6 +57,7 @@ export enum WorkRequestOperationType {
   InstallOtherWindowsUpdates = "INSTALL_OTHER_WINDOWS_UPDATES",
   RemoveContent = "REMOVE_CONTENT",
   UnregisterManagedInstance = "UNREGISTER_MANAGED_INSTANCE",
+  Reboot = "REBOOT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

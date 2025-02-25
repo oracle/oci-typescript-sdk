@@ -48,7 +48,7 @@ export interface UpdateDb2ConnectionDetails extends model.UpdateConnectionDetail
    */
   "password"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored,
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored,
    * that Oracle GoldenGate uses to connect the associated DB2 database.
    * Note: When provided, 'password' field must not be provided.
    *
@@ -71,7 +71,7 @@ export interface UpdateDb2ConnectionDetails extends model.UpdateConnectionDetail
    */
   "sslClientKeystoredb"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the keystore file stored,
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the keystore file stored,
    * which created at the client containing the server certificate / CA root certificate.
    * Note: When provided, 'sslClientKeystoredb' field must not be provided.
    *
@@ -84,7 +84,7 @@ export interface UpdateDb2ConnectionDetails extends model.UpdateConnectionDetail
    */
   "sslClientKeystash"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the keystash file is stored,
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the keystash file is stored,
    * which contains the encrypted password to the key database file.
    * Note: When provided, 'sslClientKeystash' field must not be provided.
    *

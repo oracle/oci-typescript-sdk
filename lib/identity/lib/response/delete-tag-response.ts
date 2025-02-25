@@ -22,7 +22,7 @@ export interface DeleteTagResponse {
    */
   "opcRequestId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    *
    */
   "opcWorkRequestId": string;

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/CreateAlarmSuppression.ts.html |here} to see how to use CreateAlarmSuppressionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/CreateAlarmSuppression.ts.html |here} to see how to use CreateAlarmSuppressionRequest.
  */
 export interface CreateAlarmSuppressionRequest extends common.BaseRequest {
   /**

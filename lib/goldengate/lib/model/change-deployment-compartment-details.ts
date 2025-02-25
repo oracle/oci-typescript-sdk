@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ChangeDeploymentCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
    *
    */
   "compartmentId": string;

@@ -1,6 +1,6 @@
 /**
  * OCI Control Center Capacity Management API
- * OCI Control Center (OCC) Capacity Management enables you to manage capacity requests in realms where OCI Control Center Capacity Management is available. For more information, see [OCI Control Center](/iaas/Content/control-center/home.htm).
+ * OCI Control Center (OCC) Capacity Management enables you to manage capacity requests in realms where OCI Control Center Capacity Management is available. For more information, see [OCI Control Center](https://docs.oracle.com/iaas/Content/control-center/home.htm).
  * OpenAPI spec version: 20231107
  *
  *
@@ -243,7 +243,7 @@ export class CapacityManagementClient {
    * @param CreateOccAvailabilityCatalogRequest
    * @return CreateOccAvailabilityCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccAvailabilityCatalog.ts.html |here} to see how to use CreateOccAvailabilityCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccAvailabilityCatalog.ts.html |here} to see how to use CreateOccAvailabilityCatalog API.
    */
   public async createOccAvailabilityCatalog(
     createOccAvailabilityCatalogRequest: requests.CreateOccAvailabilityCatalogRequest
@@ -328,7 +328,7 @@ export class CapacityManagementClient {
    * @param CreateOccCapacityRequestRequest
    * @return CreateOccCapacityRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccCapacityRequest.ts.html |here} to see how to use CreateOccCapacityRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccCapacityRequest.ts.html |here} to see how to use CreateOccCapacityRequest API.
    */
   public async createOccCapacityRequest(
     createOccCapacityRequestRequest: requests.CreateOccCapacityRequestRequest
@@ -413,7 +413,7 @@ export class CapacityManagementClient {
    * @param CreateOccCustomerRequest
    * @return CreateOccCustomerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccCustomer.ts.html |here} to see how to use CreateOccCustomer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccCustomer.ts.html |here} to see how to use CreateOccCustomer API.
    */
   public async createOccCustomer(
     createOccCustomerRequest: requests.CreateOccCustomerRequest
@@ -500,7 +500,7 @@ export class CapacityManagementClient {
    * @param CreateOccCustomerGroupRequest
    * @return CreateOccCustomerGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccCustomerGroup.ts.html |here} to see how to use CreateOccCustomerGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccCustomerGroup.ts.html |here} to see how to use CreateOccCustomerGroup API.
    */
   public async createOccCustomerGroup(
     createOccCustomerGroupRequest: requests.CreateOccCustomerGroupRequest
@@ -585,7 +585,7 @@ export class CapacityManagementClient {
    * @param DeleteOccAvailabilityCatalogRequest
    * @return DeleteOccAvailabilityCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccAvailabilityCatalog.ts.html |here} to see how to use DeleteOccAvailabilityCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccAvailabilityCatalog.ts.html |here} to see how to use DeleteOccAvailabilityCatalog API.
    */
   public async deleteOccAvailabilityCatalog(
     deleteOccAvailabilityCatalogRequest: requests.DeleteOccAvailabilityCatalogRequest
@@ -658,7 +658,7 @@ export class CapacityManagementClient {
    * @param DeleteOccCapacityRequestRequest
    * @return DeleteOccCapacityRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccCapacityRequest.ts.html |here} to see how to use DeleteOccCapacityRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccCapacityRequest.ts.html |here} to see how to use DeleteOccCapacityRequest API.
    */
   public async deleteOccCapacityRequest(
     deleteOccCapacityRequestRequest: requests.DeleteOccCapacityRequestRequest
@@ -731,7 +731,7 @@ export class CapacityManagementClient {
    * @param DeleteOccCustomerRequest
    * @return DeleteOccCustomerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccCustomer.ts.html |here} to see how to use DeleteOccCustomer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccCustomer.ts.html |here} to see how to use DeleteOccCustomer API.
    */
   public async deleteOccCustomer(
     deleteOccCustomerRequest: requests.DeleteOccCustomerRequest
@@ -805,7 +805,7 @@ export class CapacityManagementClient {
    * @param DeleteOccCustomerGroupRequest
    * @return DeleteOccCustomerGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccCustomerGroup.ts.html |here} to see how to use DeleteOccCustomerGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccCustomerGroup.ts.html |here} to see how to use DeleteOccCustomerGroup API.
    */
   public async deleteOccCustomerGroup(
     deleteOccCustomerGroupRequest: requests.DeleteOccCustomerGroupRequest
@@ -878,7 +878,7 @@ export class CapacityManagementClient {
    * @param GetOccAvailabilityCatalogRequest
    * @return GetOccAvailabilityCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetOccAvailabilityCatalog.ts.html |here} to see how to use GetOccAvailabilityCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetOccAvailabilityCatalog.ts.html |here} to see how to use GetOccAvailabilityCatalog API.
    */
   public async getOccAvailabilityCatalog(
     getOccAvailabilityCatalogRequest: requests.GetOccAvailabilityCatalogRequest
@@ -955,7 +955,7 @@ export class CapacityManagementClient {
    * @param GetOccAvailabilityCatalogContentRequest
    * @return GetOccAvailabilityCatalogContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetOccAvailabilityCatalogContent.ts.html |here} to see how to use GetOccAvailabilityCatalogContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetOccAvailabilityCatalogContent.ts.html |here} to see how to use GetOccAvailabilityCatalogContent API.
    */
   public async getOccAvailabilityCatalogContent(
     getOccAvailabilityCatalogContentRequest: requests.GetOccAvailabilityCatalogContentRequest
@@ -1030,7 +1030,7 @@ export class CapacityManagementClient {
    * @param GetOccCapacityRequestRequest
    * @return GetOccCapacityRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetOccCapacityRequest.ts.html |here} to see how to use GetOccCapacityRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetOccCapacityRequest.ts.html |here} to see how to use GetOccCapacityRequest API.
    */
   public async getOccCapacityRequest(
     getOccCapacityRequestRequest: requests.GetOccCapacityRequestRequest
@@ -1107,7 +1107,7 @@ export class CapacityManagementClient {
    * @param GetOccCustomerGroupRequest
    * @return GetOccCustomerGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetOccCustomerGroup.ts.html |here} to see how to use GetOccCustomerGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetOccCustomerGroup.ts.html |here} to see how to use GetOccCustomerGroup API.
    */
   public async getOccCustomerGroup(
     getOccCustomerGroupRequest: requests.GetOccCustomerGroupRequest
@@ -1184,7 +1184,7 @@ export class CapacityManagementClient {
    * @param ListInternalNamespaceOccOverviewsRequest
    * @return ListInternalNamespaceOccOverviewsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalNamespaceOccOverviews.ts.html |here} to see how to use ListInternalNamespaceOccOverviews API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalNamespaceOccOverviews.ts.html |here} to see how to use ListInternalNamespaceOccOverviews API.
    */
   public async listInternalNamespaceOccOverviews(
     listInternalNamespaceOccOverviewsRequest: requests.ListInternalNamespaceOccOverviewsRequest
@@ -1273,7 +1273,7 @@ export class CapacityManagementClient {
    * @param ListInternalOccHandoverResourceBlockDetailsRequest
    * @return ListInternalOccHandoverResourceBlockDetailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccHandoverResourceBlockDetails.ts.html |here} to see how to use ListInternalOccHandoverResourceBlockDetails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccHandoverResourceBlockDetails.ts.html |here} to see how to use ListInternalOccHandoverResourceBlockDetails API.
    */
   public async listInternalOccHandoverResourceBlockDetails(
     listInternalOccHandoverResourceBlockDetailsRequest: requests.ListInternalOccHandoverResourceBlockDetailsRequest
@@ -1358,7 +1358,7 @@ export class CapacityManagementClient {
    * @param ListInternalOccHandoverResourceBlocksRequest
    * @return ListInternalOccHandoverResourceBlocksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccHandoverResourceBlocks.ts.html |here} to see how to use ListInternalOccHandoverResourceBlocks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccHandoverResourceBlocks.ts.html |here} to see how to use ListInternalOccHandoverResourceBlocks API.
    */
   public async listInternalOccHandoverResourceBlocks(
     listInternalOccHandoverResourceBlocksRequest: requests.ListInternalOccHandoverResourceBlocksRequest
@@ -1449,7 +1449,7 @@ export class CapacityManagementClient {
    * @param ListOccAvailabilitiesRequest
    * @return ListOccAvailabilitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccAvailabilities.ts.html |here} to see how to use ListOccAvailabilities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccAvailabilities.ts.html |here} to see how to use ListOccAvailabilities API.
    */
   public async listOccAvailabilities(
     listOccAvailabilitiesRequest: requests.ListOccAvailabilitiesRequest
@@ -1534,7 +1534,7 @@ export class CapacityManagementClient {
    * @param ListOccAvailabilityCatalogsRequest
    * @return ListOccAvailabilityCatalogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccAvailabilityCatalogs.ts.html |here} to see how to use ListOccAvailabilityCatalogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccAvailabilityCatalogs.ts.html |here} to see how to use ListOccAvailabilityCatalogs API.
    */
   public async listOccAvailabilityCatalogs(
     listOccAvailabilityCatalogsRequest: requests.ListOccAvailabilityCatalogsRequest
@@ -1618,7 +1618,7 @@ export class CapacityManagementClient {
    * @param ListOccAvailabilityCatalogsInternalRequest
    * @return ListOccAvailabilityCatalogsInternalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccAvailabilityCatalogsInternal.ts.html |here} to see how to use ListOccAvailabilityCatalogsInternal API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccAvailabilityCatalogsInternal.ts.html |here} to see how to use ListOccAvailabilityCatalogsInternal API.
    */
   public async listOccAvailabilityCatalogsInternal(
     listOccAvailabilityCatalogsInternalRequest: requests.ListOccAvailabilityCatalogsInternalRequest
@@ -1705,7 +1705,7 @@ export class CapacityManagementClient {
    * @param ListOccCapacityRequestsRequest
    * @return ListOccCapacityRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccCapacityRequests.ts.html |here} to see how to use ListOccCapacityRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccCapacityRequests.ts.html |here} to see how to use ListOccCapacityRequests API.
    */
   public async listOccCapacityRequests(
     listOccCapacityRequestsRequest: requests.ListOccCapacityRequestsRequest
@@ -1790,7 +1790,7 @@ export class CapacityManagementClient {
    * @param ListOccCapacityRequestsInternalRequest
    * @return ListOccCapacityRequestsInternalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccCapacityRequestsInternal.ts.html |here} to see how to use ListOccCapacityRequestsInternal API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccCapacityRequestsInternal.ts.html |here} to see how to use ListOccCapacityRequestsInternal API.
    */
   public async listOccCapacityRequestsInternal(
     listOccCapacityRequestsInternalRequest: requests.ListOccCapacityRequestsInternalRequest
@@ -1879,7 +1879,7 @@ export class CapacityManagementClient {
    * @param ListOccCustomerGroupsRequest
    * @return ListOccCustomerGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccCustomerGroups.ts.html |here} to see how to use ListOccCustomerGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccCustomerGroups.ts.html |here} to see how to use ListOccCustomerGroups API.
    */
   public async listOccCustomerGroups(
     listOccCustomerGroupsRequest: requests.ListOccCustomerGroupsRequest
@@ -1963,7 +1963,7 @@ export class CapacityManagementClient {
    * @param ListOccHandoverResourceBlockDetailsRequest
    * @return ListOccHandoverResourceBlockDetailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccHandoverResourceBlockDetails.ts.html |here} to see how to use ListOccHandoverResourceBlockDetails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccHandoverResourceBlockDetails.ts.html |here} to see how to use ListOccHandoverResourceBlockDetails API.
    */
   public async listOccHandoverResourceBlockDetails(
     listOccHandoverResourceBlockDetailsRequest: requests.ListOccHandoverResourceBlockDetailsRequest
@@ -2048,7 +2048,7 @@ export class CapacityManagementClient {
    * @param ListOccHandoverResourceBlocksRequest
    * @return ListOccHandoverResourceBlocksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccHandoverResourceBlocks.ts.html |here} to see how to use ListOccHandoverResourceBlocks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccHandoverResourceBlocks.ts.html |here} to see how to use ListOccHandoverResourceBlocks API.
    */
   public async listOccHandoverResourceBlocks(
     listOccHandoverResourceBlocksRequest: requests.ListOccHandoverResourceBlocksRequest
@@ -2138,7 +2138,7 @@ export class CapacityManagementClient {
    * @param ListOccOverviewsRequest
    * @return ListOccOverviewsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccOverviews.ts.html |here} to see how to use ListOccOverviews API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccOverviews.ts.html |here} to see how to use ListOccOverviews API.
    */
   public async listOccOverviews(
     listOccOverviewsRequest: requests.ListOccOverviewsRequest
@@ -2223,7 +2223,7 @@ export class CapacityManagementClient {
    * @param PatchInternalOccCapacityRequestRequest
    * @return PatchInternalOccCapacityRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/PatchInternalOccCapacityRequest.ts.html |here} to see how to use PatchInternalOccCapacityRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/PatchInternalOccCapacityRequest.ts.html |here} to see how to use PatchInternalOccCapacityRequest API.
    */
   public async patchInternalOccCapacityRequest(
     patchInternalOccCapacityRequestRequest: requests.PatchInternalOccCapacityRequestRequest
@@ -2307,7 +2307,7 @@ export class CapacityManagementClient {
    * @param PatchOccCapacityRequestRequest
    * @return PatchOccCapacityRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/PatchOccCapacityRequest.ts.html |here} to see how to use PatchOccCapacityRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/PatchOccCapacityRequest.ts.html |here} to see how to use PatchOccCapacityRequest API.
    */
   public async patchOccCapacityRequest(
     patchOccCapacityRequestRequest: requests.PatchOccCapacityRequestRequest
@@ -2390,7 +2390,7 @@ export class CapacityManagementClient {
    * @param PublishOccAvailabilityCatalogRequest
    * @return PublishOccAvailabilityCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/PublishOccAvailabilityCatalog.ts.html |here} to see how to use PublishOccAvailabilityCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/PublishOccAvailabilityCatalog.ts.html |here} to see how to use PublishOccAvailabilityCatalog API.
    */
   public async publishOccAvailabilityCatalog(
     publishOccAvailabilityCatalogRequest: requests.PublishOccAvailabilityCatalogRequest
@@ -2461,7 +2461,7 @@ export class CapacityManagementClient {
    * @param UpdateInternalOccCapacityRequestRequest
    * @return UpdateInternalOccCapacityRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateInternalOccCapacityRequest.ts.html |here} to see how to use UpdateInternalOccCapacityRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateInternalOccCapacityRequest.ts.html |here} to see how to use UpdateInternalOccCapacityRequest API.
    */
   public async updateInternalOccCapacityRequest(
     updateInternalOccCapacityRequestRequest: requests.UpdateInternalOccCapacityRequestRequest
@@ -2550,7 +2550,7 @@ export class CapacityManagementClient {
    * @param UpdateOccAvailabilityCatalogRequest
    * @return UpdateOccAvailabilityCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccAvailabilityCatalog.ts.html |here} to see how to use UpdateOccAvailabilityCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccAvailabilityCatalog.ts.html |here} to see how to use UpdateOccAvailabilityCatalog API.
    */
   public async updateOccAvailabilityCatalog(
     updateOccAvailabilityCatalogRequest: requests.UpdateOccAvailabilityCatalogRequest
@@ -2637,7 +2637,7 @@ export class CapacityManagementClient {
    * @param UpdateOccCapacityRequestRequest
    * @return UpdateOccCapacityRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccCapacityRequest.ts.html |here} to see how to use UpdateOccCapacityRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccCapacityRequest.ts.html |here} to see how to use UpdateOccCapacityRequest API.
    */
   public async updateOccCapacityRequest(
     updateOccCapacityRequestRequest: requests.UpdateOccCapacityRequestRequest
@@ -2724,7 +2724,7 @@ export class CapacityManagementClient {
    * @param UpdateOccCustomerRequest
    * @return UpdateOccCustomerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccCustomer.ts.html |here} to see how to use UpdateOccCustomer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccCustomer.ts.html |here} to see how to use UpdateOccCustomer API.
    */
   public async updateOccCustomer(
     updateOccCustomerRequest: requests.UpdateOccCustomerRequest
@@ -2812,7 +2812,7 @@ export class CapacityManagementClient {
    * @param UpdateOccCustomerGroupRequest
    * @return UpdateOccCustomerGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccCustomerGroup.ts.html |here} to see how to use UpdateOccCustomerGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccCustomerGroup.ts.html |here} to see how to use UpdateOccCustomerGroup API.
    */
   public async updateOccCustomerGroup(
     updateOccCustomerGroupRequest: requests.UpdateOccCustomerGroupRequest

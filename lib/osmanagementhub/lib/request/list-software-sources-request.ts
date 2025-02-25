@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwareSources.ts.html |here} to see how to use ListSoftwareSourcesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListSoftwareSources.ts.html |here} to see how to use ListSoftwareSourcesRequest.
  */
 export interface ListSoftwareSourcesRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ListSoftwareSourcesRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the software source.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the software source.
    */
   "softwareSourceId"?: string;
   /**
@@ -43,21 +43,25 @@ export interface ListSoftwareSourcesRequest extends common.BaseRequest {
    */
   "archType"?: Array<model.ArchType>;
   /**
-   * The availabilities of the software source in a non-OCI environment for a tenancy.
+   * The availability of the software source in a non-OCI environment for a tenancy.
    */
   "availability"?: Array<model.Availability>;
   /**
-   * The availabilities of the software source in an OCI environment for a tenancy.
+   * The availability of the software source in an OCI environment for a tenancy.
    */
   "availabilityAtOci"?: Array<model.Availability>;
   /**
-   * The availabilities of the software source. Use this query parameter to filter across availabilities in different environments.
+   * The availability of the software source. Use this query parameter to filter across availabilities in different environments.
    */
   "availabilityAnywhere"?: Array<model.Availability>;
   /**
    * Indicates whether the software source is mandatory for the Autonomous Linux service.
    */
   "isMandatoryForAutonomousLinux"?: boolean;
+  /**
+   * A filter to return software sources which can be synced to a management station.
+   */
+  "isMirrorSyncAllowed"?: boolean;
   /**
    * A filter to return resources that match the given user-friendly name.
    */
@@ -72,7 +76,7 @@ export interface ListSoftwareSourcesRequest extends common.BaseRequest {
   "displayNameNotEqualTo"?: Array<string>;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 50}
 * 
@@ -80,7 +84,7 @@ Example: {@code 50}
   "limit"?: number;
   /**
  * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 3}
 * 

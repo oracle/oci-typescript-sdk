@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -51,6 +51,15 @@ export interface VersionedCustomSoftwareSource extends model.SoftwareSource {
    * The packages in the software source.
    */
   "packages"?: Array<string>;
+  /**
+   * Identifies how the versioned custom software source was created.
+   */
+  "softwareSourceSubType"?: model.SoftwareSourceSubType;
+  /**
+   * The date and time the metadata for this software source was last updated (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
+   *
+   */
+  "timeMetadataUpdated"?: Date;
 
   "softwareSourceType": string;
 }

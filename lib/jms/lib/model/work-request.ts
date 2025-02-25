@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An asynchronous work request. See [Work Requests](https://docs.cloud.oracle.com/Content/General/Concepts/workrequestoverview.htm).
+ * An asynchronous work request. See [Work Requests](https://docs.oracle.com/iaas/Content/General/Concepts/workrequestoverview.htm).
  */
 export interface WorkRequest {
   /**
@@ -27,11 +27,11 @@ export interface WorkRequest {
    */
   "status": model.OperationStatus;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the work request. Work requests should be scoped to
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the work request. Work requests should be scoped to
    * the same compartment as the resource the work request affects. If the work request affects multiple resources,
    * and those resources aren't in the same compartment, it's up to the service team to pick the primary
    * resource whose compartment should be used.

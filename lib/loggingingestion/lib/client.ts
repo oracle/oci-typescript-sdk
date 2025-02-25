@@ -220,7 +220,7 @@ export class LoggingClient {
    * @param PutLogsRequest
    * @return PutLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loggingingestion/PutLogs.ts.html |here} to see how to use PutLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loggingingestion/PutLogs.ts.html |here} to see how to use PutLogs API.
    */
   public async putLogs(
     putLogsRequest: requests.PutLogsRequest

@@ -240,13 +240,13 @@ export class NetworkLoadBalancerClient {
 
   /**
    * Moves a network load balancer into a different compartment within the same tenancy. For information about moving resources
-   * between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeNetworkLoadBalancerCompartmentRequest
    * @return ChangeNetworkLoadBalancerCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ChangeNetworkLoadBalancerCompartment.ts.html |here} to see how to use ChangeNetworkLoadBalancerCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ChangeNetworkLoadBalancerCompartment.ts.html |here} to see how to use ChangeNetworkLoadBalancerCompartment API.
    */
   public async changeNetworkLoadBalancerCompartment(
     changeNetworkLoadBalancerCompartmentRequest: requests.ChangeNetworkLoadBalancerCompartmentRequest
@@ -328,7 +328,7 @@ export class NetworkLoadBalancerClient {
    * @param CreateBackendRequest
    * @return CreateBackendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/CreateBackend.ts.html |here} to see how to use CreateBackend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/CreateBackend.ts.html |here} to see how to use CreateBackend API.
    */
   public async createBackend(
     createBackendRequest: requests.CreateBackendRequest
@@ -409,7 +409,7 @@ export class NetworkLoadBalancerClient {
    * @param CreateBackendSetRequest
    * @return CreateBackendSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/CreateBackendSet.ts.html |here} to see how to use CreateBackendSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/CreateBackendSet.ts.html |here} to see how to use CreateBackendSet API.
    */
   public async createBackendSet(
     createBackendSetRequest: requests.CreateBackendSetRequest
@@ -489,7 +489,7 @@ export class NetworkLoadBalancerClient {
    * @param CreateListenerRequest
    * @return CreateListenerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/CreateListener.ts.html |here} to see how to use CreateListener API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/CreateListener.ts.html |here} to see how to use CreateListener API.
    */
   public async createListener(
     createListenerRequest: requests.CreateListenerRequest
@@ -575,7 +575,7 @@ export class NetworkLoadBalancerClient {
    * @param CreateNetworkLoadBalancerRequest
    * @return CreateNetworkLoadBalancerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/CreateNetworkLoadBalancer.ts.html |here} to see how to use CreateNetworkLoadBalancer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/CreateNetworkLoadBalancer.ts.html |here} to see how to use CreateNetworkLoadBalancer API.
    */
   public async createNetworkLoadBalancer(
     createNetworkLoadBalancerRequest: requests.CreateNetworkLoadBalancerRequest
@@ -661,7 +661,7 @@ export class NetworkLoadBalancerClient {
    * @param DeleteBackendRequest
    * @return DeleteBackendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/DeleteBackend.ts.html |here} to see how to use DeleteBackend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/DeleteBackend.ts.html |here} to see how to use DeleteBackend API.
    */
   public async deleteBackend(
     deleteBackendRequest: requests.DeleteBackendRequest
@@ -741,7 +741,7 @@ Before you can delete a backend set, you must remove it from any active listener
      * @param DeleteBackendSetRequest
      * @return DeleteBackendSetResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/DeleteBackendSet.ts.html |here} to see how to use DeleteBackendSet API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/DeleteBackendSet.ts.html |here} to see how to use DeleteBackendSet API.
      */
   public async deleteBackendSet(
     deleteBackendSetRequest: requests.DeleteBackendSetRequest
@@ -816,7 +816,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param DeleteListenerRequest
    * @return DeleteListenerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/DeleteListener.ts.html |here} to see how to use DeleteListener API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/DeleteListener.ts.html |here} to see how to use DeleteListener API.
    */
   public async deleteListener(
     deleteListenerRequest: requests.DeleteListenerRequest
@@ -896,7 +896,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param DeleteNetworkLoadBalancerRequest
    * @return DeleteNetworkLoadBalancerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/DeleteNetworkLoadBalancer.ts.html |here} to see how to use DeleteNetworkLoadBalancer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/DeleteNetworkLoadBalancer.ts.html |here} to see how to use DeleteNetworkLoadBalancer API.
    */
   public async deleteNetworkLoadBalancer(
     deleteNetworkLoadBalancerRequest: requests.DeleteNetworkLoadBalancerRequest
@@ -970,7 +970,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param GetBackendRequest
    * @return GetBackendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackend.ts.html |here} to see how to use GetBackend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackend.ts.html |here} to see how to use GetBackend API.
    */
   public async getBackend(
     getBackendRequest: requests.GetBackendRequest
@@ -1050,7 +1050,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param GetBackendHealthRequest
    * @return GetBackendHealthResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackendHealth.ts.html |here} to see how to use GetBackendHealth API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackendHealth.ts.html |here} to see how to use GetBackendHealth API.
    */
   public async getBackendHealth(
     getBackendHealthRequest: requests.GetBackendHealthRequest
@@ -1125,7 +1125,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param GetBackendOperationalStatusRequest
    * @return GetBackendOperationalStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackendOperationalStatus.ts.html |here} to see how to use GetBackendOperationalStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackendOperationalStatus.ts.html |here} to see how to use GetBackendOperationalStatus API.
    */
   public async getBackendOperationalStatus(
     getBackendOperationalStatusRequest: requests.GetBackendOperationalStatusRequest
@@ -1200,7 +1200,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param GetBackendSetRequest
    * @return GetBackendSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackendSet.ts.html |here} to see how to use GetBackendSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackendSet.ts.html |here} to see how to use GetBackendSet API.
    */
   public async getBackendSet(
     getBackendSetRequest: requests.GetBackendSetRequest
@@ -1279,7 +1279,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param GetBackendSetHealthRequest
    * @return GetBackendSetHealthResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackendSetHealth.ts.html |here} to see how to use GetBackendSetHealth API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetBackendSetHealth.ts.html |here} to see how to use GetBackendSetHealth API.
    */
   public async getBackendSetHealth(
     getBackendSetHealthRequest: requests.GetBackendSetHealthRequest
@@ -1357,7 +1357,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param GetHealthCheckerRequest
    * @return GetHealthCheckerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetHealthChecker.ts.html |here} to see how to use GetHealthChecker API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetHealthChecker.ts.html |here} to see how to use GetHealthChecker API.
    */
   public async getHealthChecker(
     getHealthCheckerRequest: requests.GetHealthCheckerRequest
@@ -1438,7 +1438,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param GetListenerRequest
    * @return GetListenerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetListener.ts.html |here} to see how to use GetListener API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetListener.ts.html |here} to see how to use GetListener API.
    */
   public async getListener(
     getListenerRequest: requests.GetListenerRequest
@@ -1516,7 +1516,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param GetNetworkLoadBalancerRequest
    * @return GetNetworkLoadBalancerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetNetworkLoadBalancer.ts.html |here} to see how to use GetNetworkLoadBalancer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetNetworkLoadBalancer.ts.html |here} to see how to use GetNetworkLoadBalancer API.
    */
   public async getNetworkLoadBalancer(
     getNetworkLoadBalancerRequest: requests.GetNetworkLoadBalancerRequest
@@ -1594,7 +1594,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param GetNetworkLoadBalancerHealthRequest
    * @return GetNetworkLoadBalancerHealthResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetNetworkLoadBalancerHealth.ts.html |here} to see how to use GetNetworkLoadBalancerHealth API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetNetworkLoadBalancerHealth.ts.html |here} to see how to use GetNetworkLoadBalancerHealth API.
    */
   public async getNetworkLoadBalancerHealth(
     getNetworkLoadBalancerHealthRequest: requests.GetNetworkLoadBalancerHealthRequest
@@ -1668,7 +1668,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1745,7 +1745,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param ListBackendSetsRequest
    * @return ListBackendSetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListBackendSets.ts.html |here} to see how to use ListBackendSets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListBackendSets.ts.html |here} to see how to use ListBackendSets API.
    */
   public async listBackendSets(
     listBackendSetsRequest: requests.ListBackendSetsRequest
@@ -1828,7 +1828,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param ListBackendsRequest
    * @return ListBackendsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListBackends.ts.html |here} to see how to use ListBackends API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListBackends.ts.html |here} to see how to use ListBackends API.
    */
   public async listBackends(
     listBackendsRequest: requests.ListBackendsRequest
@@ -1911,7 +1911,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param ListListenersRequest
    * @return ListListenersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListListeners.ts.html |here} to see how to use ListListeners API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListListeners.ts.html |here} to see how to use ListListeners API.
    */
   public async listListeners(
     listListenersRequest: requests.ListListenersRequest
@@ -1994,7 +1994,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param ListNetworkLoadBalancerHealthsRequest
    * @return ListNetworkLoadBalancerHealthsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListNetworkLoadBalancerHealths.ts.html |here} to see how to use ListNetworkLoadBalancerHealths API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListNetworkLoadBalancerHealths.ts.html |here} to see how to use ListNetworkLoadBalancerHealths API.
    */
   public async listNetworkLoadBalancerHealths(
     listNetworkLoadBalancerHealthsRequest: requests.ListNetworkLoadBalancerHealthsRequest
@@ -2078,7 +2078,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param ListNetworkLoadBalancersRequest
    * @return ListNetworkLoadBalancersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListNetworkLoadBalancers.ts.html |here} to see how to use ListNetworkLoadBalancers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListNetworkLoadBalancers.ts.html |here} to see how to use ListNetworkLoadBalancers API.
    */
   public async listNetworkLoadBalancers(
     listNetworkLoadBalancersRequest: requests.ListNetworkLoadBalancersRequest
@@ -2161,7 +2161,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param ListNetworkLoadBalancersPoliciesRequest
    * @return ListNetworkLoadBalancersPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListNetworkLoadBalancersPolicies.ts.html |here} to see how to use ListNetworkLoadBalancersPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListNetworkLoadBalancersPolicies.ts.html |here} to see how to use ListNetworkLoadBalancersPolicies API.
    */
   public async listNetworkLoadBalancersPolicies(
     listNetworkLoadBalancersPoliciesRequest: requests.ListNetworkLoadBalancersPoliciesRequest
@@ -2245,7 +2245,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param ListNetworkLoadBalancersProtocolsRequest
    * @return ListNetworkLoadBalancersProtocolsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListNetworkLoadBalancersProtocols.ts.html |here} to see how to use ListNetworkLoadBalancersProtocols API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListNetworkLoadBalancersProtocols.ts.html |here} to see how to use ListNetworkLoadBalancersProtocols API.
    */
   public async listNetworkLoadBalancersProtocols(
     listNetworkLoadBalancersProtocolsRequest: requests.ListNetworkLoadBalancersProtocolsRequest
@@ -2328,7 +2328,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2410,7 +2410,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2491,7 +2491,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2570,7 +2570,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param UpdateBackendRequest
    * @return UpdateBackendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateBackend.ts.html |here} to see how to use UpdateBackend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateBackend.ts.html |here} to see how to use UpdateBackend API.
    */
   public async updateBackend(
     updateBackendRequest: requests.UpdateBackendRequest
@@ -2653,7 +2653,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param UpdateBackendSetRequest
    * @return UpdateBackendSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateBackendSet.ts.html |here} to see how to use UpdateBackendSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateBackendSet.ts.html |here} to see how to use UpdateBackendSet API.
    */
   public async updateBackendSet(
     updateBackendSetRequest: requests.UpdateBackendSetRequest
@@ -2734,7 +2734,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param UpdateHealthCheckerRequest
    * @return UpdateHealthCheckerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateHealthChecker.ts.html |here} to see how to use UpdateHealthChecker API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateHealthChecker.ts.html |here} to see how to use UpdateHealthChecker API.
    */
   public async updateHealthChecker(
     updateHealthCheckerRequest: requests.UpdateHealthCheckerRequest
@@ -2816,7 +2816,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param UpdateListenerRequest
    * @return UpdateListenerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateListener.ts.html |here} to see how to use UpdateListener API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateListener.ts.html |here} to see how to use UpdateListener API.
    */
   public async updateListener(
     updateListenerRequest: requests.UpdateListenerRequest
@@ -2897,7 +2897,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param UpdateNetworkLoadBalancerRequest
    * @return UpdateNetworkLoadBalancerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateNetworkLoadBalancer.ts.html |here} to see how to use UpdateNetworkLoadBalancer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateNetworkLoadBalancer.ts.html |here} to see how to use UpdateNetworkLoadBalancer API.
    */
   public async updateNetworkLoadBalancer(
     updateNetworkLoadBalancerRequest: requests.UpdateNetworkLoadBalancerRequest
@@ -2976,7 +2976,7 @@ Before you can delete a backend set, you must remove it from any active listener
    * @param UpdateNetworkSecurityGroupsRequest
    * @return UpdateNetworkSecurityGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateNetworkSecurityGroups.ts.html |here} to see how to use UpdateNetworkSecurityGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/UpdateNetworkSecurityGroups.ts.html |here} to see how to use UpdateNetworkSecurityGroups API.
    */
   public async updateNetworkSecurityGroups(
     updateNetworkSecurityGroupsRequest: requests.UpdateNetworkSecurityGroupsRequest

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccCustomer.ts.html |here} to see how to use DeleteOccCustomerRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccCustomer.ts.html |here} to see how to use DeleteOccCustomerRequest.
  */
 export interface DeleteOccCustomerRequest extends common.BaseRequest {
   /**

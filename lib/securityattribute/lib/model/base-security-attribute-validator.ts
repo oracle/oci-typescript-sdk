@@ -1,6 +1,6 @@
 /**
  * Security Attribute API
- * Use the Security Attributes API to manage security attributes and security attribute namespaces. For more information, see the documentation for [Security Attributes](/iaas/Content/zero-trust-packet-routing/managing-security-attributes.htm) and [Security Attribute Nampespaces](/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
+ * Use the Security Attributes API to manage security attributes and security attribute namespaces. For more information, see the documentation for [Security Attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attributes.htm) and [Security Attribute Nampespaces](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
  * OpenAPI spec version: 20240815
  *
  *
@@ -17,7 +17,7 @@ import common = require("oci-common");
 /**
 * Validates a security attribute value. Each validator performs validation steps in addition to the standard
 * validation for security attribute values. For more information, see
-* [Limits on Security Attributes](https://docs.cloud.oracle.com/Content/zero-trust-packet-routing/overview.htm).
+* [Limits on Security Attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/overview.htm).
 * <p>
 If you define a validator after a value has been set for a security attribute, then any updates that
 * attempt to change the value must pass the additional validation defined by the current rule.
@@ -25,7 +25,7 @@ If you define a validator after a value has been set for a security attribute, t
 * still update other attributes to resources that contain a non-valid security attribute.
 * <p>
 To clear the validator call UpdateSecurityAttribute with
-* [DefaultSecuirtyAttributeValidator](https://docs.cloud.oracle.com/api/#/en/securityattribute/latest/datatypes/DefaultTagDefinitionValidator).
+* [DefaultSecuirtyAttributeValidator](https://docs.oracle.com/iaas/api/#/en/securityattribute/latest/datatypes/DefaultTagDefinitionValidator).
 * 
 */
 export interface BaseSecurityAttributeValidator {

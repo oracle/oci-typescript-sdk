@@ -29,15 +29,15 @@ export interface CreateOdaPrivateEndpointDetails {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that the ODA private endpoint belongs to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that the ODA private endpoint belongs to.
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet that the private endpoint belongs to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet that the private endpoint belongs to.
    */
   "subnetId": string;
   /**
-   * List of [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of [network security groups](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/networksecuritygroups.htm)
+   * List of [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of [network security groups](https://docs.oracle.com/iaas/Content/Network/Concepts/networksecuritygroups.htm)
    */
   "nsgIds"?: Array<string>;
   /**

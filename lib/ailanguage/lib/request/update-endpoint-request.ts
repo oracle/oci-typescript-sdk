@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateEndpoint.ts.html |here} to see how to use UpdateEndpointRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateEndpoint.ts.html |here} to see how to use UpdateEndpointRequest.
  */
 export interface UpdateEndpointRequest extends common.BaseRequest {
   /**

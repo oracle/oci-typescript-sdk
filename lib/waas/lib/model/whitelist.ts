@@ -27,7 +27,7 @@ export interface Whitelist {
    */
   "addresses"?: Array<string>;
   /**
-   * A list of [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of IP address lists to include in the whitelist.
+   * A list of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of IP address lists to include in the whitelist.
    */
   "addressLists"?: Array<string>;
 }

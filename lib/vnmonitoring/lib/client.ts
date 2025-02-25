@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -245,7 +245,7 @@ export class VnMonitoringClient {
    * @param ChangePathAnalyzerTestCompartmentRequest
    * @return ChangePathAnalyzerTestCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ChangePathAnalyzerTestCompartment.ts.html |here} to see how to use ChangePathAnalyzerTestCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ChangePathAnalyzerTestCompartment.ts.html |here} to see how to use ChangePathAnalyzerTestCompartment API.
    */
   public async changePathAnalyzerTestCompartment(
     changePathAnalyzerTestCompartmentRequest: requests.ChangePathAnalyzerTestCompartmentRequest
@@ -323,7 +323,7 @@ export class VnMonitoringClient {
    * @param CreatePathAnalyzerTestRequest
    * @return CreatePathAnalyzerTestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/CreatePathAnalyzerTest.ts.html |here} to see how to use CreatePathAnalyzerTest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/CreatePathAnalyzerTest.ts.html |here} to see how to use CreatePathAnalyzerTest API.
    */
   public async createPathAnalyzerTest(
     createPathAnalyzerTestRequest: requests.CreatePathAnalyzerTestRequest
@@ -403,7 +403,7 @@ export class VnMonitoringClient {
    * @param DeletePathAnalyzerTestRequest
    * @return DeletePathAnalyzerTestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/DeletePathAnalyzerTest.ts.html |here} to see how to use DeletePathAnalyzerTest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/DeletePathAnalyzerTest.ts.html |here} to see how to use DeletePathAnalyzerTest API.
    */
   public async deletePathAnalyzerTest(
     deletePathAnalyzerTestRequest: requests.DeletePathAnalyzerTestRequest
@@ -466,7 +466,7 @@ export class VnMonitoringClient {
   }
 
   /**
-     * Use this method to initiate a [Network Path Analyzer](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) analysis. This method returns
+     * Use this method to initiate a [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) analysis. This method returns
 * an opc-work-request-id, and you can poll the status of the work request until it either fails or succeeds.
 * <p>
 If the work request status is successful, use {@link #listWorkRequestResults(ListWorkRequestResultsRequest) listWorkRequestResults}
@@ -479,7 +479,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
      * @param GetPathAnalysisRequest
      * @return GetPathAnalysisResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/GetPathAnalysis.ts.html |here} to see how to use GetPathAnalysis API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/GetPathAnalysis.ts.html |here} to see how to use GetPathAnalysis API.
      */
   public async getPathAnalysis(
     getPathAnalysisRequest: requests.GetPathAnalysisRequest
@@ -555,7 +555,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
    * @param GetPathAnalyzerTestRequest
    * @return GetPathAnalyzerTestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/GetPathAnalyzerTest.ts.html |here} to see how to use GetPathAnalyzerTest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/GetPathAnalyzerTest.ts.html |here} to see how to use GetPathAnalyzerTest API.
    */
   public async getPathAnalyzerTest(
     getPathAnalyzerTestRequest: requests.GetPathAnalyzerTestRequest
@@ -630,7 +630,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -711,7 +711,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
    * @param ListPathAnalyzerTestsRequest
    * @return ListPathAnalyzerTestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ListPathAnalyzerTests.ts.html |here} to see how to use ListPathAnalyzerTests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ListPathAnalyzerTests.ts.html |here} to see how to use ListPathAnalyzerTests API.
    */
   public async listPathAnalyzerTests(
     listPathAnalyzerTestsRequest: requests.ListPathAnalyzerTestsRequest
@@ -794,7 +794,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -876,7 +876,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -958,7 +958,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
    * @param ListWorkRequestResultsRequest
    * @return ListWorkRequestResultsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ListWorkRequestResults.ts.html |here} to see how to use ListWorkRequestResults API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ListWorkRequestResults.ts.html |here} to see how to use ListWorkRequestResults API.
    */
   public async listWorkRequestResults(
     listWorkRequestResultsRequest: requests.ListWorkRequestResultsRequest
@@ -1038,7 +1038,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1120,7 +1120,7 @@ If the work request status is successful, use {@link #listWorkRequestResults(Lis
    * @param UpdatePathAnalyzerTestRequest
    * @return UpdatePathAnalyzerTestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/UpdatePathAnalyzerTest.ts.html |here} to see how to use UpdatePathAnalyzerTest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vnmonitoring/UpdatePathAnalyzerTest.ts.html |here} to see how to use UpdatePathAnalyzerTest API.
    */
   public async updatePathAnalyzerTest(
     updatePathAnalyzerTestRequest: requests.UpdatePathAnalyzerTestRequest

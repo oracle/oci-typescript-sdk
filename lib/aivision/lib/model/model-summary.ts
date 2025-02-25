@@ -43,7 +43,7 @@ export interface ModelSummary {
    */
   "modelVersion": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project that contains the model.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project that contains the model.
    */
   "projectId": string;
   /**

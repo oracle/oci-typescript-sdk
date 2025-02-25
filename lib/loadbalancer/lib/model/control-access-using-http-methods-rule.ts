@@ -1,7 +1,7 @@
 /**
  * Load Balancing API
  * API for the Load Balancing service. Use this API to manage load balancers, backend sets, and related items. For more
-information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/balanceoverview.htm).
+information, see [Overview of Load Balancing](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).
 
  * OpenAPI spec version: 20170115
  * 
@@ -36,7 +36,7 @@ export interface ControlAccessUsingHttpMethodsRule extends model.Rule {
 By default, you can specify only the standard HTTP methods defined in the
 * [HTTP Method Registry](http://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also
 * see a list of supported standard HTTP methods in the Load Balancing service documentation at
-* [Managing Rule Sets](https://docs.cloud.oracle.com/Content/Balance/Tasks/managingrulesets.htm).
+* [Managing Rule Sets](https://docs.oracle.com/iaas/Content/Balance/Tasks/managingrulesets.htm).
 * <p>
 Your backend application must be able to handle the methods specified in this list.
 * <p>

@@ -1,9 +1,9 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the {@code telemetry-ingestion} endpoints; for all other operations, use the {@code telemetry} endpoints.
 For more information, see
-[the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
+[the Monitoring documentation](https://docs.oracle.com/iaas/Content/Monitoring/home.htm).
 
  * OpenAPI spec version: 20180401
  * 
@@ -50,9 +50,9 @@ Example: {@code frontend-fleet}
 Construct your query to avoid exceeding limits on returned data. See {@link MetricData}.
 * <p>
 For details about Monitoring Query Language (MQL), see
-* [Monitoring Query Language (MQL) Reference](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Reference/mql.htm).
+* [Monitoring Query Language (MQL) Reference](https://docs.oracle.com/iaas/Content/Monitoring/Reference/mql.htm).
 * For available dimensions, review the metric definition for the supported service. See
-* [Supported Services](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#SupportedServices).
+* [Supported Services](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#SupportedServices).
 * <p>
 Example 1: {@code CpuUtilization[1m].sum()}
 * <p>

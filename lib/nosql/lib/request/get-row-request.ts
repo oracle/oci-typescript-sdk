@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetRow.ts.html |here} to see how to use GetRowRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetRow.ts.html |here} to see how to use GetRowRequest.
  */
 export interface GetRowRequest extends common.BaseRequest {
   /**

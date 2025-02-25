@@ -29,11 +29,11 @@ export interface WorkRequest {
    */
   "status": WorkRequest.Status;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the WorkRequest.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the WorkRequest.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the WorkRequest.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the WorkRequest.
    * WorkRequests should be scoped to the same compartment as the resource the work request affects.
    *
    */

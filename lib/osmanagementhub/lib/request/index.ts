@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -51,8 +51,12 @@ import * as ListLifecycleStagesRequest from "./list-lifecycle-stages-request";
 export import ListLifecycleStagesRequest = ListLifecycleStagesRequest.ListLifecycleStagesRequest;
 import * as PromoteSoftwareSourceToLifecycleStageRequest from "./promote-software-source-to-lifecycle-stage-request";
 export import PromoteSoftwareSourceToLifecycleStageRequest = PromoteSoftwareSourceToLifecycleStageRequest.PromoteSoftwareSourceToLifecycleStageRequest;
+import * as RebootLifecycleStageRequest from "./reboot-lifecycle-stage-request";
+export import RebootLifecycleStageRequest = RebootLifecycleStageRequest.RebootLifecycleStageRequest;
 import * as UpdateLifecycleEnvironmentRequest from "./update-lifecycle-environment-request";
 export import UpdateLifecycleEnvironmentRequest = UpdateLifecycleEnvironmentRequest.UpdateLifecycleEnvironmentRequest;
+import * as AssociateManagedInstancesWithManagementStationRequest from "./associate-managed-instances-with-management-station-request";
+export import AssociateManagedInstancesWithManagementStationRequest = AssociateManagedInstancesWithManagementStationRequest.AssociateManagedInstancesWithManagementStationRequest;
 import * as AttachProfileToManagedInstanceRequest from "./attach-profile-to-managed-instance-request";
 export import AttachProfileToManagedInstanceRequest = AttachProfileToManagedInstanceRequest.AttachProfileToManagedInstanceRequest;
 import * as AttachSoftwareSourcesToManagedInstanceRequest from "./attach-software-sources-to-managed-instance-request";
@@ -101,6 +105,8 @@ import * as ListWindowsUpdatesRequest from "./list-windows-updates-request";
 export import ListWindowsUpdatesRequest = ListWindowsUpdatesRequest.ListWindowsUpdatesRequest;
 import * as ManageModuleStreamsOnManagedInstanceRequest from "./manage-module-streams-on-managed-instance-request";
 export import ManageModuleStreamsOnManagedInstanceRequest = ManageModuleStreamsOnManagedInstanceRequest.ManageModuleStreamsOnManagedInstanceRequest;
+import * as RebootManagedInstanceRequest from "./reboot-managed-instance-request";
+export import RebootManagedInstanceRequest = RebootManagedInstanceRequest.RebootManagedInstanceRequest;
 import * as RefreshSoftwareOnManagedInstanceRequest from "./refresh-software-on-managed-instance-request";
 export import RefreshSoftwareOnManagedInstanceRequest = RefreshSoftwareOnManagedInstanceRequest.RefreshSoftwareOnManagedInstanceRequest;
 import * as RemoveModuleStreamProfileFromManagedInstanceRequest from "./remove-module-stream-profile-from-managed-instance-request";
@@ -155,6 +161,8 @@ import * as ListManagedInstanceGroupsRequest from "./list-managed-instance-group
 export import ListManagedInstanceGroupsRequest = ListManagedInstanceGroupsRequest.ListManagedInstanceGroupsRequest;
 import * as ManageModuleStreamsOnManagedInstanceGroupRequest from "./manage-module-streams-on-managed-instance-group-request";
 export import ManageModuleStreamsOnManagedInstanceGroupRequest = ManageModuleStreamsOnManagedInstanceGroupRequest.ManageModuleStreamsOnManagedInstanceGroupRequest;
+import * as RebootManagedInstanceGroupRequest from "./reboot-managed-instance-group-request";
+export import RebootManagedInstanceGroupRequest = RebootManagedInstanceGroupRequest.RebootManagedInstanceGroupRequest;
 import * as RemoveModuleStreamProfileFromManagedInstanceGroupRequest from "./remove-module-stream-profile-from-managed-instance-group-request";
 export import RemoveModuleStreamProfileFromManagedInstanceGroupRequest = RemoveModuleStreamProfileFromManagedInstanceGroupRequest.RemoveModuleStreamProfileFromManagedInstanceGroupRequest;
 import * as RemovePackagesFromManagedInstanceGroupRequest from "./remove-packages-from-managed-instance-group-request";
@@ -185,14 +193,28 @@ import * as SynchronizeSingleMirrorsRequest from "./synchronize-single-mirrors-r
 export import SynchronizeSingleMirrorsRequest = SynchronizeSingleMirrorsRequest.SynchronizeSingleMirrorsRequest;
 import * as UpdateManagementStationRequest from "./update-management-station-request";
 export import UpdateManagementStationRequest = UpdateManagementStationRequest.UpdateManagementStationRequest;
+import * as AttachLifecycleStageToProfileRequest from "./attach-lifecycle-stage-to-profile-request";
+export import AttachLifecycleStageToProfileRequest = AttachLifecycleStageToProfileRequest.AttachLifecycleStageToProfileRequest;
+import * as AttachManagedInstanceGroupToProfileRequest from "./attach-managed-instance-group-to-profile-request";
+export import AttachManagedInstanceGroupToProfileRequest = AttachManagedInstanceGroupToProfileRequest.AttachManagedInstanceGroupToProfileRequest;
+import * as AttachManagementStationToProfileRequest from "./attach-management-station-to-profile-request";
+export import AttachManagementStationToProfileRequest = AttachManagementStationToProfileRequest.AttachManagementStationToProfileRequest;
+import * as AttachSoftwareSourcesToProfileRequest from "./attach-software-sources-to-profile-request";
+export import AttachSoftwareSourcesToProfileRequest = AttachSoftwareSourcesToProfileRequest.AttachSoftwareSourcesToProfileRequest;
 import * as ChangeProfileCompartmentRequest from "./change-profile-compartment-request";
 export import ChangeProfileCompartmentRequest = ChangeProfileCompartmentRequest.ChangeProfileCompartmentRequest;
 import * as CreateProfileRequest from "./create-profile-request";
 export import CreateProfileRequest = CreateProfileRequest.CreateProfileRequest;
 import * as DeleteProfileRequest from "./delete-profile-request";
 export import DeleteProfileRequest = DeleteProfileRequest.DeleteProfileRequest;
+import * as DetachSoftwareSourcesFromProfileRequest from "./detach-software-sources-from-profile-request";
+export import DetachSoftwareSourcesFromProfileRequest = DetachSoftwareSourcesFromProfileRequest.DetachSoftwareSourcesFromProfileRequest;
 import * as GetProfileRequest from "./get-profile-request";
 export import GetProfileRequest = GetProfileRequest.GetProfileRequest;
+import * as GetProfileVersionRequest from "./get-profile-version-request";
+export import GetProfileVersionRequest = GetProfileVersionRequest.GetProfileVersionRequest;
+import * as ListProfileAvailableSoftwareSourcesRequest from "./list-profile-available-software-sources-request";
+export import ListProfileAvailableSoftwareSourcesRequest = ListProfileAvailableSoftwareSourcesRequest.ListProfileAvailableSoftwareSourcesRequest;
 import * as ListProfilesRequest from "./list-profiles-request";
 export import ListProfilesRequest = ListProfilesRequest.ListProfilesRequest;
 import * as UpdateProfileRequest from "./update-profile-request";
@@ -243,8 +265,12 @@ import * as GetSoftwarePackageByNameRequest from "./get-software-package-by-name
 export import GetSoftwarePackageByNameRequest = GetSoftwarePackageByNameRequest.GetSoftwarePackageByNameRequest;
 import * as GetSoftwareSourceRequest from "./get-software-source-request";
 export import GetSoftwareSourceRequest = GetSoftwareSourceRequest.GetSoftwareSourceRequest;
+import * as GetSoftwareSourceManifestRequest from "./get-software-source-manifest-request";
+export import GetSoftwareSourceManifestRequest = GetSoftwareSourceManifestRequest.GetSoftwareSourceManifestRequest;
 import * as ListAllSoftwarePackagesRequest from "./list-all-software-packages-request";
 export import ListAllSoftwarePackagesRequest = ListAllSoftwarePackagesRequest.ListAllSoftwarePackagesRequest;
+import * as ListAvailableSoftwarePackagesRequest from "./list-available-software-packages-request";
+export import ListAvailableSoftwarePackagesRequest = ListAvailableSoftwarePackagesRequest.ListAvailableSoftwarePackagesRequest;
 import * as ListEntitlementsRequest from "./list-entitlements-request";
 export import ListEntitlementsRequest = ListEntitlementsRequest.ListEntitlementsRequest;
 import * as ListErrataRequest from "./list-errata-request";
@@ -263,14 +289,22 @@ import * as ListSoftwareSourceVendorsRequest from "./list-software-source-vendor
 export import ListSoftwareSourceVendorsRequest = ListSoftwareSourceVendorsRequest.ListSoftwareSourceVendorsRequest;
 import * as ListSoftwareSourcesRequest from "./list-software-sources-request";
 export import ListSoftwareSourcesRequest = ListSoftwareSourcesRequest.ListSoftwareSourcesRequest;
+import * as RemovePackagesFromSoftwareSourceRequest from "./remove-packages-from-software-source-request";
+export import RemovePackagesFromSoftwareSourceRequest = RemovePackagesFromSoftwareSourceRequest.RemovePackagesFromSoftwareSourceRequest;
+import * as ReplacePackagesInSoftwareSourceRequest from "./replace-packages-in-software-source-request";
+export import ReplacePackagesInSoftwareSourceRequest = ReplacePackagesInSoftwareSourceRequest.ReplacePackagesInSoftwareSourceRequest;
 import * as SearchSoftwareSourceModuleStreamsRequest from "./search-software-source-module-streams-request";
 export import SearchSoftwareSourceModuleStreamsRequest = SearchSoftwareSourceModuleStreamsRequest.SearchSoftwareSourceModuleStreamsRequest;
 import * as SearchSoftwareSourceModulesRequest from "./search-software-source-modules-request";
 export import SearchSoftwareSourceModulesRequest = SearchSoftwareSourceModulesRequest.SearchSoftwareSourceModulesRequest;
 import * as SearchSoftwareSourcePackageGroupsRequest from "./search-software-source-package-groups-request";
 export import SearchSoftwareSourcePackageGroupsRequest = SearchSoftwareSourcePackageGroupsRequest.SearchSoftwareSourcePackageGroupsRequest;
+import * as SoftwareSourceGenerateMetadataRequest from "./software-source-generate-metadata-request";
+export import SoftwareSourceGenerateMetadataRequest = SoftwareSourceGenerateMetadataRequest.SoftwareSourceGenerateMetadataRequest;
 import * as UpdateSoftwareSourceRequest from "./update-software-source-request";
 export import UpdateSoftwareSourceRequest = UpdateSoftwareSourceRequest.UpdateSoftwareSourceRequest;
+import * as UpdateSoftwareSourceManifestRequest from "./update-software-source-manifest-request";
+export import UpdateSoftwareSourceManifestRequest = UpdateSoftwareSourceManifestRequest.UpdateSoftwareSourceManifestRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
 import * as ListWorkRequestErrorsRequest from "./list-work-request-errors-request";
@@ -279,3 +313,5 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as RerunWorkRequestRequest from "./rerun-work-request-request";
+export import RerunWorkRequestRequest = RerunWorkRequestRequest.RerunWorkRequestRequest;

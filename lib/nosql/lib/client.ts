@@ -246,7 +246,7 @@ export class NosqlClient {
    * @param ChangeTableCompartmentRequest
    * @return ChangeTableCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ChangeTableCompartment.ts.html |here} to see how to use ChangeTableCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ChangeTableCompartment.ts.html |here} to see how to use ChangeTableCompartment API.
    */
   public async changeTableCompartment(
     changeTableCompartmentRequest: requests.ChangeTableCompartmentRequest
@@ -325,7 +325,7 @@ export class NosqlClient {
    * @param CreateIndexRequest
    * @return CreateIndexResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/CreateIndex.ts.html |here} to see how to use CreateIndex API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/CreateIndex.ts.html |here} to see how to use CreateIndex API.
    */
   public async createIndex(
     createIndexRequest: requests.CreateIndexRequest
@@ -403,7 +403,7 @@ export class NosqlClient {
    * @param CreateReplicaRequest
    * @return CreateReplicaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/CreateReplica.ts.html |here} to see how to use CreateReplica API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/CreateReplica.ts.html |here} to see how to use CreateReplica API.
    */
   public async createReplica(
     createReplicaRequest: requests.CreateReplicaRequest
@@ -482,7 +482,7 @@ export class NosqlClient {
    * @param CreateTableRequest
    * @return CreateTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/CreateTable.ts.html |here} to see how to use CreateTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/CreateTable.ts.html |here} to see how to use CreateTable API.
    */
   public async createTable(
     createTableRequest: requests.CreateTableRequest
@@ -558,7 +558,7 @@ export class NosqlClient {
    * @param DeleteIndexRequest
    * @return DeleteIndexResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteIndex.ts.html |here} to see how to use DeleteIndex API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteIndex.ts.html |here} to see how to use DeleteIndex API.
    */
   public async deleteIndex(
     deleteIndexRequest: requests.DeleteIndexRequest
@@ -635,7 +635,7 @@ export class NosqlClient {
    * @param DeleteReplicaRequest
    * @return DeleteReplicaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteReplica.ts.html |here} to see how to use DeleteReplica API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteReplica.ts.html |here} to see how to use DeleteReplica API.
    */
   public async deleteReplica(
     deleteReplicaRequest: requests.DeleteReplicaRequest
@@ -711,7 +711,7 @@ export class NosqlClient {
    * @param DeleteRowRequest
    * @return DeleteRowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteRow.ts.html |here} to see how to use DeleteRow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteRow.ts.html |here} to see how to use DeleteRow API.
    */
   public async deleteRow(
     deleteRowRequest: requests.DeleteRowRequest
@@ -788,7 +788,7 @@ export class NosqlClient {
    * @param DeleteTableRequest
    * @return DeleteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteTable.ts.html |here} to see how to use DeleteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteTable.ts.html |here} to see how to use DeleteTable API.
    */
   public async deleteTable(
     deleteTableRequest: requests.DeleteTableRequest
@@ -864,7 +864,7 @@ export class NosqlClient {
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
    */
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
@@ -937,7 +937,7 @@ export class NosqlClient {
    * @param GetIndexRequest
    * @return GetIndexResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetIndex.ts.html |here} to see how to use GetIndex API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetIndex.ts.html |here} to see how to use GetIndex API.
    */
   public async getIndex(
     getIndexRequest: requests.GetIndexRequest
@@ -1016,7 +1016,7 @@ export class NosqlClient {
    * @param GetRowRequest
    * @return GetRowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetRow.ts.html |here} to see how to use GetRow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetRow.ts.html |here} to see how to use GetRow API.
    */
   public async getRow(getRowRequest: requests.GetRowRequest): Promise<responses.GetRowResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#getRow.");
@@ -1095,7 +1095,7 @@ export class NosqlClient {
    * @param GetTableRequest
    * @return GetTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetTable.ts.html |here} to see how to use GetTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetTable.ts.html |here} to see how to use GetTable API.
    */
   public async getTable(
     getTableRequest: requests.GetTableRequest
@@ -1173,7 +1173,7 @@ export class NosqlClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1254,7 +1254,7 @@ export class NosqlClient {
    * @param ListIndexesRequest
    * @return ListIndexesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListIndexes.ts.html |here} to see how to use ListIndexes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListIndexes.ts.html |here} to see how to use ListIndexes API.
    */
   public async listIndexes(
     listIndexesRequest: requests.ListIndexesRequest
@@ -1338,7 +1338,7 @@ export class NosqlClient {
    * @param ListTableUsageRequest
    * @return ListTableUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListTableUsage.ts.html |here} to see how to use ListTableUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListTableUsage.ts.html |here} to see how to use ListTableUsage API.
    */
   public async listTableUsage(
     listTableUsageRequest: requests.ListTableUsageRequest
@@ -1420,7 +1420,7 @@ export class NosqlClient {
    * @param ListTablesRequest
    * @return ListTablesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListTables.ts.html |here} to see how to use ListTables API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListTables.ts.html |here} to see how to use ListTables API.
    */
   public async listTables(
     listTablesRequest: requests.ListTablesRequest
@@ -1503,7 +1503,7 @@ export class NosqlClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1583,7 +1583,7 @@ export class NosqlClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1662,7 +1662,7 @@ export class NosqlClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1741,7 +1741,7 @@ export class NosqlClient {
    * @param PrepareStatementRequest
    * @return PrepareStatementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/PrepareStatement.ts.html |here} to see how to use PrepareStatement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/PrepareStatement.ts.html |here} to see how to use PrepareStatement API.
    */
   public async prepareStatement(
     prepareStatementRequest: requests.PrepareStatementRequest
@@ -1814,7 +1814,7 @@ export class NosqlClient {
    * @param QueryRequest
    * @return QueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/Query.ts.html |here} to see how to use Query API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/Query.ts.html |here} to see how to use Query API.
    */
   public async query(queryRequest: requests.QueryRequest): Promise<responses.QueryResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#query.");
@@ -1895,7 +1895,7 @@ export class NosqlClient {
    * @param SummarizeStatementRequest
    * @return SummarizeStatementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/SummarizeStatement.ts.html |here} to see how to use SummarizeStatement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/SummarizeStatement.ts.html |here} to see how to use SummarizeStatement API.
    */
   public async summarizeStatement(
     summarizeStatementRequest: requests.SummarizeStatementRequest
@@ -1967,7 +1967,7 @@ export class NosqlClient {
    * @param UpdateRowRequest
    * @return UpdateRowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/UpdateRow.ts.html |here} to see how to use UpdateRow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/UpdateRow.ts.html |here} to see how to use UpdateRow API.
    */
   public async updateRow(
     updateRowRequest: requests.UpdateRowRequest
@@ -2051,7 +2051,7 @@ export class NosqlClient {
    * @param UpdateTableRequest
    * @return UpdateTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/UpdateTable.ts.html |here} to see how to use UpdateTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/UpdateTable.ts.html |here} to see how to use UpdateTable API.
    */
   public async updateTable(
     updateTableRequest: requests.UpdateTableRequest

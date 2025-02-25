@@ -3,7 +3,7 @@
  * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
 Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
+[the Resource Manager documentation](https://docs.oracle.com/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -20,29 +20,29 @@ import common = require("oci-common");
 
 /**
  * Location information about custom Terraform providers for a stack.
- * For more information, see [Custom Providers](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#features__custom-providers).
+ * For more information, see [Custom Providers](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#features__custom-providers).
  * Note: Older stacks must be explicitly updated to use Terraform Registry ({@code isThirdPartyProviderExperienceEnabled=true}).
  * See {@link #updateStack(UpdateStackRequest) updateStack}. For more information, see
- * [Using Terraform Registry with Older Stacks](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/update-stack-tf-reg.htm).
+ * [Using Terraform Registry with Older Stacks](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/update-stack-tf-reg.htm).
  *
  */
 export interface CustomTerraformProvider {
   /**
    * The name of the region that contains the bucket you want.
-   * For information about regions, see [Regions and Availability Domains](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm).
+   * For information about regions, see [Regions and Availability Domains](https://docs.oracle.com/iaas/Content/General/Concepts/regions.htm).
    * Example: {@code us-phoenix-1}
    *
    */
   "region": string;
   /**
    * The Object Storage namespace that contains the bucket you want.
-   * For information about Object Storage namespaces, see [Understanding Object Storage Namespaces](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/understandingnamespaces.htm).
+   * For information about Object Storage namespaces, see [Understanding Object Storage Namespaces](https://docs.oracle.com/iaas/Content/Object/Tasks/understandingnamespaces.htm).
    *
    */
   "namespace": string;
   /**
    * The name of the bucket that contains the binary files for the custom Terraform providers.
-   * For information about buckets, see [Managing Buckets](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/managingbuckets.htm).
+   * For information about buckets, see [Managing Buckets](https://docs.oracle.com/iaas/Content/Object/Tasks/managingbuckets.htm).
    *
    */
   "bucketName": string;

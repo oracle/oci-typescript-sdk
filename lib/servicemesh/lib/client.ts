@@ -242,7 +242,7 @@ export class ServiceMeshClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -310,7 +310,7 @@ export class ServiceMeshClient {
    * @param ChangeAccessPolicyCompartmentRequest
    * @return ChangeAccessPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeAccessPolicyCompartment.ts.html |here} to see how to use ChangeAccessPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeAccessPolicyCompartment.ts.html |here} to see how to use ChangeAccessPolicyCompartment API.
    */
   public async changeAccessPolicyCompartment(
     changeAccessPolicyCompartmentRequest: requests.ChangeAccessPolicyCompartmentRequest
@@ -390,7 +390,7 @@ export class ServiceMeshClient {
    * @param ChangeIngressGatewayCompartmentRequest
    * @return ChangeIngressGatewayCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeIngressGatewayCompartment.ts.html |here} to see how to use ChangeIngressGatewayCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeIngressGatewayCompartment.ts.html |here} to see how to use ChangeIngressGatewayCompartment API.
    */
   public async changeIngressGatewayCompartment(
     changeIngressGatewayCompartmentRequest: requests.ChangeIngressGatewayCompartmentRequest
@@ -470,7 +470,7 @@ export class ServiceMeshClient {
    * @param ChangeIngressGatewayRouteTableCompartmentRequest
    * @return ChangeIngressGatewayRouteTableCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeIngressGatewayRouteTableCompartment.ts.html |here} to see how to use ChangeIngressGatewayRouteTableCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeIngressGatewayRouteTableCompartment.ts.html |here} to see how to use ChangeIngressGatewayRouteTableCompartment API.
    */
   public async changeIngressGatewayRouteTableCompartment(
     changeIngressGatewayRouteTableCompartmentRequest: requests.ChangeIngressGatewayRouteTableCompartmentRequest
@@ -553,7 +553,7 @@ export class ServiceMeshClient {
    * @param ChangeMeshCompartmentRequest
    * @return ChangeMeshCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeMeshCompartment.ts.html |here} to see how to use ChangeMeshCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeMeshCompartment.ts.html |here} to see how to use ChangeMeshCompartment API.
    */
   public async changeMeshCompartment(
     changeMeshCompartmentRequest: requests.ChangeMeshCompartmentRequest
@@ -633,7 +633,7 @@ export class ServiceMeshClient {
    * @param ChangeVirtualDeploymentCompartmentRequest
    * @return ChangeVirtualDeploymentCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeVirtualDeploymentCompartment.ts.html |here} to see how to use ChangeVirtualDeploymentCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeVirtualDeploymentCompartment.ts.html |here} to see how to use ChangeVirtualDeploymentCompartment API.
    */
   public async changeVirtualDeploymentCompartment(
     changeVirtualDeploymentCompartmentRequest: requests.ChangeVirtualDeploymentCompartmentRequest
@@ -713,7 +713,7 @@ export class ServiceMeshClient {
    * @param ChangeVirtualServiceCompartmentRequest
    * @return ChangeVirtualServiceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeVirtualServiceCompartment.ts.html |here} to see how to use ChangeVirtualServiceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeVirtualServiceCompartment.ts.html |here} to see how to use ChangeVirtualServiceCompartment API.
    */
   public async changeVirtualServiceCompartment(
     changeVirtualServiceCompartmentRequest: requests.ChangeVirtualServiceCompartmentRequest
@@ -793,7 +793,7 @@ export class ServiceMeshClient {
    * @param ChangeVirtualServiceRouteTableCompartmentRequest
    * @return ChangeVirtualServiceRouteTableCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeVirtualServiceRouteTableCompartment.ts.html |here} to see how to use ChangeVirtualServiceRouteTableCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ChangeVirtualServiceRouteTableCompartment.ts.html |here} to see how to use ChangeVirtualServiceRouteTableCompartment API.
    */
   public async changeVirtualServiceRouteTableCompartment(
     changeVirtualServiceRouteTableCompartmentRequest: requests.ChangeVirtualServiceRouteTableCompartmentRequest
@@ -877,7 +877,7 @@ export class ServiceMeshClient {
    * @param CreateAccessPolicyRequest
    * @return CreateAccessPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateAccessPolicy.ts.html |here} to see how to use CreateAccessPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateAccessPolicy.ts.html |here} to see how to use CreateAccessPolicy API.
    */
   public async createAccessPolicy(
     createAccessPolicyRequest: requests.CreateAccessPolicyRequest
@@ -968,7 +968,7 @@ export class ServiceMeshClient {
    * @param CreateIngressGatewayRequest
    * @return CreateIngressGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateIngressGateway.ts.html |here} to see how to use CreateIngressGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateIngressGateway.ts.html |here} to see how to use CreateIngressGateway API.
    */
   public async createIngressGateway(
     createIngressGatewayRequest: requests.CreateIngressGatewayRequest
@@ -1059,7 +1059,7 @@ export class ServiceMeshClient {
    * @param CreateIngressGatewayRouteTableRequest
    * @return CreateIngressGatewayRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateIngressGatewayRouteTable.ts.html |here} to see how to use CreateIngressGatewayRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateIngressGatewayRouteTable.ts.html |here} to see how to use CreateIngressGatewayRouteTable API.
    */
   public async createIngressGatewayRouteTable(
     createIngressGatewayRouteTableRequest: requests.CreateIngressGatewayRouteTableRequest
@@ -1151,7 +1151,7 @@ export class ServiceMeshClient {
    * @param CreateMeshRequest
    * @return CreateMeshResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateMesh.ts.html |here} to see how to use CreateMesh API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateMesh.ts.html |here} to see how to use CreateMesh API.
    */
   public async createMesh(
     createMeshRequest: requests.CreateMeshRequest
@@ -1242,7 +1242,7 @@ export class ServiceMeshClient {
    * @param CreateVirtualDeploymentRequest
    * @return CreateVirtualDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateVirtualDeployment.ts.html |here} to see how to use CreateVirtualDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateVirtualDeployment.ts.html |here} to see how to use CreateVirtualDeployment API.
    */
   public async createVirtualDeployment(
     createVirtualDeploymentRequest: requests.CreateVirtualDeploymentRequest
@@ -1334,7 +1334,7 @@ export class ServiceMeshClient {
    * @param CreateVirtualServiceRequest
    * @return CreateVirtualServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateVirtualService.ts.html |here} to see how to use CreateVirtualService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateVirtualService.ts.html |here} to see how to use CreateVirtualService API.
    */
   public async createVirtualService(
     createVirtualServiceRequest: requests.CreateVirtualServiceRequest
@@ -1425,7 +1425,7 @@ export class ServiceMeshClient {
    * @param CreateVirtualServiceRouteTableRequest
    * @return CreateVirtualServiceRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateVirtualServiceRouteTable.ts.html |here} to see how to use CreateVirtualServiceRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/CreateVirtualServiceRouteTable.ts.html |here} to see how to use CreateVirtualServiceRouteTable API.
    */
   public async createVirtualServiceRouteTable(
     createVirtualServiceRouteTableRequest: requests.CreateVirtualServiceRouteTableRequest
@@ -1516,7 +1516,7 @@ export class ServiceMeshClient {
    * @param DeleteAccessPolicyRequest
    * @return DeleteAccessPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteAccessPolicy.ts.html |here} to see how to use DeleteAccessPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteAccessPolicy.ts.html |here} to see how to use DeleteAccessPolicy API.
    */
   public async deleteAccessPolicy(
     deleteAccessPolicyRequest: requests.DeleteAccessPolicyRequest
@@ -1589,7 +1589,7 @@ export class ServiceMeshClient {
    * @param DeleteIngressGatewayRequest
    * @return DeleteIngressGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteIngressGateway.ts.html |here} to see how to use DeleteIngressGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteIngressGateway.ts.html |here} to see how to use DeleteIngressGateway API.
    */
   public async deleteIngressGateway(
     deleteIngressGatewayRequest: requests.DeleteIngressGatewayRequest
@@ -1662,7 +1662,7 @@ export class ServiceMeshClient {
    * @param DeleteIngressGatewayRouteTableRequest
    * @return DeleteIngressGatewayRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteIngressGatewayRouteTable.ts.html |here} to see how to use DeleteIngressGatewayRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteIngressGatewayRouteTable.ts.html |here} to see how to use DeleteIngressGatewayRouteTable API.
    */
   public async deleteIngressGatewayRouteTable(
     deleteIngressGatewayRouteTableRequest: requests.DeleteIngressGatewayRouteTableRequest
@@ -1737,7 +1737,7 @@ export class ServiceMeshClient {
    * @param DeleteMeshRequest
    * @return DeleteMeshResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteMesh.ts.html |here} to see how to use DeleteMesh API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteMesh.ts.html |here} to see how to use DeleteMesh API.
    */
   public async deleteMesh(
     deleteMeshRequest: requests.DeleteMeshRequest
@@ -1810,7 +1810,7 @@ export class ServiceMeshClient {
    * @param DeleteVirtualDeploymentRequest
    * @return DeleteVirtualDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteVirtualDeployment.ts.html |here} to see how to use DeleteVirtualDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteVirtualDeployment.ts.html |here} to see how to use DeleteVirtualDeployment API.
    */
   public async deleteVirtualDeployment(
     deleteVirtualDeploymentRequest: requests.DeleteVirtualDeploymentRequest
@@ -1884,7 +1884,7 @@ export class ServiceMeshClient {
    * @param DeleteVirtualServiceRequest
    * @return DeleteVirtualServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteVirtualService.ts.html |here} to see how to use DeleteVirtualService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteVirtualService.ts.html |here} to see how to use DeleteVirtualService API.
    */
   public async deleteVirtualService(
     deleteVirtualServiceRequest: requests.DeleteVirtualServiceRequest
@@ -1957,7 +1957,7 @@ export class ServiceMeshClient {
    * @param DeleteVirtualServiceRouteTableRequest
    * @return DeleteVirtualServiceRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteVirtualServiceRouteTable.ts.html |here} to see how to use DeleteVirtualServiceRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/DeleteVirtualServiceRouteTable.ts.html |here} to see how to use DeleteVirtualServiceRouteTable API.
    */
   public async deleteVirtualServiceRouteTable(
     deleteVirtualServiceRouteTableRequest: requests.DeleteVirtualServiceRouteTableRequest
@@ -2032,7 +2032,7 @@ export class ServiceMeshClient {
    * @param GetAccessPolicyRequest
    * @return GetAccessPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetAccessPolicy.ts.html |here} to see how to use GetAccessPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetAccessPolicy.ts.html |here} to see how to use GetAccessPolicy API.
    */
   public async getAccessPolicy(
     getAccessPolicyRequest: requests.GetAccessPolicyRequest
@@ -2108,7 +2108,7 @@ export class ServiceMeshClient {
    * @param GetIngressGatewayRequest
    * @return GetIngressGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetIngressGateway.ts.html |here} to see how to use GetIngressGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetIngressGateway.ts.html |here} to see how to use GetIngressGateway API.
    */
   public async getIngressGateway(
     getIngressGatewayRequest: requests.GetIngressGatewayRequest
@@ -2184,7 +2184,7 @@ export class ServiceMeshClient {
    * @param GetIngressGatewayRouteTableRequest
    * @return GetIngressGatewayRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetIngressGatewayRouteTable.ts.html |here} to see how to use GetIngressGatewayRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetIngressGatewayRouteTable.ts.html |here} to see how to use GetIngressGatewayRouteTable API.
    */
   public async getIngressGatewayRouteTable(
     getIngressGatewayRouteTableRequest: requests.GetIngressGatewayRouteTableRequest
@@ -2261,7 +2261,7 @@ export class ServiceMeshClient {
    * @param GetMeshRequest
    * @return GetMeshResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetMesh.ts.html |here} to see how to use GetMesh API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetMesh.ts.html |here} to see how to use GetMesh API.
    */
   public async getMesh(
     getMeshRequest: requests.GetMeshRequest
@@ -2338,7 +2338,7 @@ export class ServiceMeshClient {
    * @param GetProxyDetailsRequest
    * @return GetProxyDetailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetProxyDetails.ts.html |here} to see how to use GetProxyDetails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetProxyDetails.ts.html |here} to see how to use GetProxyDetails API.
    */
   public async getProxyDetails(
     getProxyDetailsRequest: requests.GetProxyDetailsRequest
@@ -2407,7 +2407,7 @@ export class ServiceMeshClient {
    * @param GetVirtualDeploymentRequest
    * @return GetVirtualDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetVirtualDeployment.ts.html |here} to see how to use GetVirtualDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetVirtualDeployment.ts.html |here} to see how to use GetVirtualDeployment API.
    */
   public async getVirtualDeployment(
     getVirtualDeploymentRequest: requests.GetVirtualDeploymentRequest
@@ -2483,7 +2483,7 @@ export class ServiceMeshClient {
    * @param GetVirtualServiceRequest
    * @return GetVirtualServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetVirtualService.ts.html |here} to see how to use GetVirtualService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetVirtualService.ts.html |here} to see how to use GetVirtualService API.
    */
   public async getVirtualService(
     getVirtualServiceRequest: requests.GetVirtualServiceRequest
@@ -2559,7 +2559,7 @@ export class ServiceMeshClient {
    * @param GetVirtualServiceRouteTableRequest
    * @return GetVirtualServiceRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetVirtualServiceRouteTable.ts.html |here} to see how to use GetVirtualServiceRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetVirtualServiceRouteTable.ts.html |here} to see how to use GetVirtualServiceRouteTable API.
    */
   public async getVirtualServiceRouteTable(
     getVirtualServiceRouteTableRequest: requests.GetVirtualServiceRouteTableRequest
@@ -2636,7 +2636,7 @@ export class ServiceMeshClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2718,7 +2718,7 @@ export class ServiceMeshClient {
    * @param ListAccessPoliciesRequest
    * @return ListAccessPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListAccessPolicies.ts.html |here} to see how to use ListAccessPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListAccessPolicies.ts.html |here} to see how to use ListAccessPolicies API.
    */
   public async listAccessPolicies(
     listAccessPoliciesRequest: requests.ListAccessPoliciesRequest
@@ -2803,7 +2803,7 @@ export class ServiceMeshClient {
    * @param ListIngressGatewayRouteTablesRequest
    * @return ListIngressGatewayRouteTablesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListIngressGatewayRouteTables.ts.html |here} to see how to use ListIngressGatewayRouteTables API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListIngressGatewayRouteTables.ts.html |here} to see how to use ListIngressGatewayRouteTables API.
    */
   public async listIngressGatewayRouteTables(
     listIngressGatewayRouteTablesRequest: requests.ListIngressGatewayRouteTablesRequest
@@ -2889,7 +2889,7 @@ export class ServiceMeshClient {
    * @param ListIngressGatewaysRequest
    * @return ListIngressGatewaysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListIngressGateways.ts.html |here} to see how to use ListIngressGateways API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListIngressGateways.ts.html |here} to see how to use ListIngressGateways API.
    */
   public async listIngressGateways(
     listIngressGatewaysRequest: requests.ListIngressGatewaysRequest
@@ -2974,7 +2974,7 @@ export class ServiceMeshClient {
    * @param ListMeshesRequest
    * @return ListMeshesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListMeshes.ts.html |here} to see how to use ListMeshes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListMeshes.ts.html |here} to see how to use ListMeshes API.
    */
   public async listMeshes(
     listMeshesRequest: requests.ListMeshesRequest
@@ -3058,7 +3058,7 @@ export class ServiceMeshClient {
    * @param ListVirtualDeploymentsRequest
    * @return ListVirtualDeploymentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListVirtualDeployments.ts.html |here} to see how to use ListVirtualDeployments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListVirtualDeployments.ts.html |here} to see how to use ListVirtualDeployments API.
    */
   public async listVirtualDeployments(
     listVirtualDeploymentsRequest: requests.ListVirtualDeploymentsRequest
@@ -3144,7 +3144,7 @@ export class ServiceMeshClient {
    * @param ListVirtualServiceRouteTablesRequest
    * @return ListVirtualServiceRouteTablesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListVirtualServiceRouteTables.ts.html |here} to see how to use ListVirtualServiceRouteTables API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListVirtualServiceRouteTables.ts.html |here} to see how to use ListVirtualServiceRouteTables API.
    */
   public async listVirtualServiceRouteTables(
     listVirtualServiceRouteTablesRequest: requests.ListVirtualServiceRouteTablesRequest
@@ -3230,7 +3230,7 @@ export class ServiceMeshClient {
    * @param ListVirtualServicesRequest
    * @return ListVirtualServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListVirtualServices.ts.html |here} to see how to use ListVirtualServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListVirtualServices.ts.html |here} to see how to use ListVirtualServices API.
    */
   public async listVirtualServices(
     listVirtualServicesRequest: requests.ListVirtualServicesRequest
@@ -3315,7 +3315,7 @@ export class ServiceMeshClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -3398,7 +3398,7 @@ export class ServiceMeshClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -3480,7 +3480,7 @@ export class ServiceMeshClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -3563,7 +3563,7 @@ export class ServiceMeshClient {
    * @param UpdateAccessPolicyRequest
    * @return UpdateAccessPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateAccessPolicy.ts.html |here} to see how to use UpdateAccessPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateAccessPolicy.ts.html |here} to see how to use UpdateAccessPolicy API.
    */
   public async updateAccessPolicy(
     updateAccessPolicyRequest: requests.UpdateAccessPolicyRequest
@@ -3642,7 +3642,7 @@ export class ServiceMeshClient {
    * @param UpdateIngressGatewayRequest
    * @return UpdateIngressGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateIngressGateway.ts.html |here} to see how to use UpdateIngressGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateIngressGateway.ts.html |here} to see how to use UpdateIngressGateway API.
    */
   public async updateIngressGateway(
     updateIngressGatewayRequest: requests.UpdateIngressGatewayRequest
@@ -3721,7 +3721,7 @@ export class ServiceMeshClient {
    * @param UpdateIngressGatewayRouteTableRequest
    * @return UpdateIngressGatewayRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateIngressGatewayRouteTable.ts.html |here} to see how to use UpdateIngressGatewayRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateIngressGatewayRouteTable.ts.html |here} to see how to use UpdateIngressGatewayRouteTable API.
    */
   public async updateIngressGatewayRouteTable(
     updateIngressGatewayRouteTableRequest: requests.UpdateIngressGatewayRouteTableRequest
@@ -3802,7 +3802,7 @@ export class ServiceMeshClient {
    * @param UpdateMeshRequest
    * @return UpdateMeshResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateMesh.ts.html |here} to see how to use UpdateMesh API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateMesh.ts.html |here} to see how to use UpdateMesh API.
    */
   public async updateMesh(
     updateMeshRequest: requests.UpdateMeshRequest
@@ -3881,7 +3881,7 @@ export class ServiceMeshClient {
    * @param UpdateVirtualDeploymentRequest
    * @return UpdateVirtualDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateVirtualDeployment.ts.html |here} to see how to use UpdateVirtualDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateVirtualDeployment.ts.html |here} to see how to use UpdateVirtualDeployment API.
    */
   public async updateVirtualDeployment(
     updateVirtualDeploymentRequest: requests.UpdateVirtualDeploymentRequest
@@ -3961,7 +3961,7 @@ export class ServiceMeshClient {
    * @param UpdateVirtualServiceRequest
    * @return UpdateVirtualServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateVirtualService.ts.html |here} to see how to use UpdateVirtualService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateVirtualService.ts.html |here} to see how to use UpdateVirtualService API.
    */
   public async updateVirtualService(
     updateVirtualServiceRequest: requests.UpdateVirtualServiceRequest
@@ -4040,7 +4040,7 @@ export class ServiceMeshClient {
    * @param UpdateVirtualServiceRouteTableRequest
    * @return UpdateVirtualServiceRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateVirtualServiceRouteTable.ts.html |here} to see how to use UpdateVirtualServiceRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicemesh/UpdateVirtualServiceRouteTable.ts.html |here} to see how to use UpdateVirtualServiceRouteTable API.
    */
   public async updateVirtualServiceRouteTable(
     updateVirtualServiceRouteTableRequest: requests.UpdateVirtualServiceRouteTableRequest

@@ -5,7 +5,7 @@ immediately. In these cases, the operation spawns an asynchronous workflow to fu
 Work requests provide visibility into the status of these in-progress, long-running workflows.
 
 For more information about work requests and the operations that spawn work requests, see
-[Viewing the State of a Compute Work Request](/iaas/Content/Compute/Tasks/viewingworkrequestcompute.htm).
+[Viewing the State of a Compute Work Request](https://docs.oracle.com/iaas/Content/Compute/Tasks/viewingworkrequestcompute.htm).
 
  * OpenAPI spec version: 20160918
  * 
@@ -33,11 +33,11 @@ export interface WorkRequestSummary {
    */
   "status": WorkRequestSummary.Status;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing
    * this work request.
    *
    */

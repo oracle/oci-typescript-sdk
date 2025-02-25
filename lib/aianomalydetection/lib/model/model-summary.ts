@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface ModelSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the model.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the model.
    */
   "id": string;
   /**
@@ -48,7 +48,7 @@ export interface ModelSummary {
    */
   "lifecycleState": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project to associate with the model.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project to associate with the model.
    */
   "projectId": string;
   /**

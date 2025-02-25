@@ -245,7 +245,7 @@ export class DataCatalogClient {
    * @param AddCatalogLockRequest
    * @return AddCatalogLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AddCatalogLock.ts.html |here} to see how to use AddCatalogLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AddCatalogLock.ts.html |here} to see how to use AddCatalogLock API.
    */
   public async addCatalogLock(
     addCatalogLockRequest: requests.AddCatalogLockRequest
@@ -327,7 +327,7 @@ export class DataCatalogClient {
    * @param AddCatalogPrivateEndpointLockRequest
    * @return AddCatalogPrivateEndpointLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AddCatalogPrivateEndpointLock.ts.html |here} to see how to use AddCatalogPrivateEndpointLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AddCatalogPrivateEndpointLock.ts.html |here} to see how to use AddCatalogPrivateEndpointLock API.
    */
   public async addCatalogPrivateEndpointLock(
     addCatalogPrivateEndpointLockRequest: requests.AddCatalogPrivateEndpointLockRequest
@@ -410,7 +410,7 @@ export class DataCatalogClient {
    * @param AddDataSelectorPatternsRequest
    * @return AddDataSelectorPatternsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AddDataSelectorPatterns.ts.html |here} to see how to use AddDataSelectorPatterns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AddDataSelectorPatterns.ts.html |here} to see how to use AddDataSelectorPatterns API.
    */
   public async addDataSelectorPatterns(
     addDataSelectorPatternsRequest: requests.AddDataSelectorPatternsRequest
@@ -495,7 +495,7 @@ export class DataCatalogClient {
    * @param AddMetastoreLockRequest
    * @return AddMetastoreLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AddMetastoreLock.ts.html |here} to see how to use AddMetastoreLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AddMetastoreLock.ts.html |here} to see how to use AddMetastoreLock API.
    */
   public async addMetastoreLock(
     addMetastoreLockRequest: requests.AddMetastoreLockRequest
@@ -577,7 +577,7 @@ export class DataCatalogClient {
    * @param AssociateCustomPropertyRequest
    * @return AssociateCustomPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AssociateCustomProperty.ts.html |here} to see how to use AssociateCustomProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AssociateCustomProperty.ts.html |here} to see how to use AssociateCustomProperty API.
    */
   public async associateCustomProperty(
     associateCustomPropertyRequest: requests.AssociateCustomPropertyRequest
@@ -662,7 +662,7 @@ export class DataCatalogClient {
    * @param AsynchronousExportDataAssetRequest
    * @return AsynchronousExportDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AsynchronousExportDataAsset.ts.html |here} to see how to use AsynchronousExportDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AsynchronousExportDataAsset.ts.html |here} to see how to use AsynchronousExportDataAsset API.
    */
   public async asynchronousExportDataAsset(
     asynchronousExportDataAssetRequest: requests.AsynchronousExportDataAssetRequest
@@ -744,7 +744,7 @@ export class DataCatalogClient {
    * @param AsynchronousExportGlossaryRequest
    * @return AsynchronousExportGlossaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AsynchronousExportGlossary.ts.html |here} to see how to use AsynchronousExportGlossary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AsynchronousExportGlossary.ts.html |here} to see how to use AsynchronousExportGlossary API.
    */
   public async asynchronousExportGlossary(
     asynchronousExportGlossaryRequest: requests.AsynchronousExportGlossaryRequest
@@ -828,7 +828,7 @@ export class DataCatalogClient {
    * @param AttachCatalogPrivateEndpointRequest
    * @return AttachCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AttachCatalogPrivateEndpoint.ts.html |here} to see how to use AttachCatalogPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AttachCatalogPrivateEndpoint.ts.html |here} to see how to use AttachCatalogPrivateEndpoint API.
    */
   public async attachCatalogPrivateEndpoint(
     attachCatalogPrivateEndpointRequest: requests.AttachCatalogPrivateEndpointRequest
@@ -910,7 +910,7 @@ export class DataCatalogClient {
    * @param ChangeCatalogCompartmentRequest
    * @return ChangeCatalogCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ChangeCatalogCompartment.ts.html |here} to see how to use ChangeCatalogCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ChangeCatalogCompartment.ts.html |here} to see how to use ChangeCatalogCompartment API.
    */
   public async changeCatalogCompartment(
     changeCatalogCompartmentRequest: requests.ChangeCatalogCompartmentRequest
@@ -991,7 +991,7 @@ export class DataCatalogClient {
    * @param ChangeCatalogPrivateEndpointCompartmentRequest
    * @return ChangeCatalogPrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ChangeCatalogPrivateEndpointCompartment.ts.html |here} to see how to use ChangeCatalogPrivateEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ChangeCatalogPrivateEndpointCompartment.ts.html |here} to see how to use ChangeCatalogPrivateEndpointCompartment API.
    */
   public async changeCatalogPrivateEndpointCompartment(
     changeCatalogPrivateEndpointCompartmentRequest: requests.ChangeCatalogPrivateEndpointCompartmentRequest
@@ -1075,7 +1075,7 @@ export class DataCatalogClient {
    * @param ChangeMetastoreCompartmentRequest
    * @return ChangeMetastoreCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ChangeMetastoreCompartment.ts.html |here} to see how to use ChangeMetastoreCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ChangeMetastoreCompartment.ts.html |here} to see how to use ChangeMetastoreCompartment API.
    */
   public async changeMetastoreCompartment(
     changeMetastoreCompartmentRequest: requests.ChangeMetastoreCompartmentRequest
@@ -1156,7 +1156,7 @@ export class DataCatalogClient {
    * @param CreateAttributeRequest
    * @return CreateAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateAttribute.ts.html |here} to see how to use CreateAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateAttribute.ts.html |here} to see how to use CreateAttribute API.
    */
   public async createAttribute(
     createAttributeRequest: requests.CreateAttributeRequest
@@ -1240,7 +1240,7 @@ export class DataCatalogClient {
    * @param CreateAttributeTagRequest
    * @return CreateAttributeTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateAttributeTag.ts.html |here} to see how to use CreateAttributeTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateAttributeTag.ts.html |here} to see how to use CreateAttributeTag API.
    */
   public async createAttributeTag(
     createAttributeTagRequest: requests.CreateAttributeTagRequest
@@ -1328,7 +1328,7 @@ export class DataCatalogClient {
    * @param CreateCatalogRequest
    * @return CreateCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateCatalog.ts.html |here} to see how to use CreateCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateCatalog.ts.html |here} to see how to use CreateCatalog API.
    */
   public async createCatalog(
     createCatalogRequest: requests.CreateCatalogRequest
@@ -1404,7 +1404,7 @@ export class DataCatalogClient {
    * @param CreateCatalogPrivateEndpointRequest
    * @return CreateCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateCatalogPrivateEndpoint.ts.html |here} to see how to use CreateCatalogPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateCatalogPrivateEndpoint.ts.html |here} to see how to use CreateCatalogPrivateEndpoint API.
    */
   public async createCatalogPrivateEndpoint(
     createCatalogPrivateEndpointRequest: requests.CreateCatalogPrivateEndpointRequest
@@ -1481,7 +1481,7 @@ export class DataCatalogClient {
    * @param CreateConnectionRequest
    * @return CreateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateConnection.ts.html |here} to see how to use CreateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateConnection.ts.html |here} to see how to use CreateConnection API.
    */
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
@@ -1564,7 +1564,7 @@ export class DataCatalogClient {
    * @param CreateCustomPropertyRequest
    * @return CreateCustomPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateCustomProperty.ts.html |here} to see how to use CreateCustomProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateCustomProperty.ts.html |here} to see how to use CreateCustomProperty API.
    */
   public async createCustomProperty(
     createCustomPropertyRequest: requests.CreateCustomPropertyRequest
@@ -1647,7 +1647,7 @@ export class DataCatalogClient {
    * @param CreateDataAssetRequest
    * @return CreateDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateDataAsset.ts.html |here} to see how to use CreateDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateDataAsset.ts.html |here} to see how to use CreateDataAsset API.
    */
   public async createDataAsset(
     createDataAssetRequest: requests.CreateDataAssetRequest
@@ -1729,7 +1729,7 @@ export class DataCatalogClient {
    * @param CreateDataAssetTagRequest
    * @return CreateDataAssetTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateDataAssetTag.ts.html |here} to see how to use CreateDataAssetTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateDataAssetTag.ts.html |here} to see how to use CreateDataAssetTag API.
    */
   public async createDataAssetTag(
     createDataAssetTagRequest: requests.CreateDataAssetTagRequest
@@ -1812,7 +1812,7 @@ export class DataCatalogClient {
    * @param CreateEntityRequest
    * @return CreateEntityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateEntity.ts.html |here} to see how to use CreateEntity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateEntity.ts.html |here} to see how to use CreateEntity API.
    */
   public async createEntity(
     createEntityRequest: requests.CreateEntityRequest
@@ -1895,7 +1895,7 @@ export class DataCatalogClient {
    * @param CreateEntityTagRequest
    * @return CreateEntityTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateEntityTag.ts.html |here} to see how to use CreateEntityTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateEntityTag.ts.html |here} to see how to use CreateEntityTag API.
    */
   public async createEntityTag(
     createEntityTagRequest: requests.CreateEntityTagRequest
@@ -1979,7 +1979,7 @@ export class DataCatalogClient {
    * @param CreateFolderRequest
    * @return CreateFolderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateFolder.ts.html |here} to see how to use CreateFolder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateFolder.ts.html |here} to see how to use CreateFolder API.
    */
   public async createFolder(
     createFolderRequest: requests.CreateFolderRequest
@@ -2062,7 +2062,7 @@ export class DataCatalogClient {
    * @param CreateFolderTagRequest
    * @return CreateFolderTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateFolderTag.ts.html |here} to see how to use CreateFolderTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateFolderTag.ts.html |here} to see how to use CreateFolderTag API.
    */
   public async createFolderTag(
     createFolderTagRequest: requests.CreateFolderTagRequest
@@ -2146,7 +2146,7 @@ export class DataCatalogClient {
    * @param CreateGlossaryRequest
    * @return CreateGlossaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateGlossary.ts.html |here} to see how to use CreateGlossary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateGlossary.ts.html |here} to see how to use CreateGlossary API.
    */
   public async createGlossary(
     createGlossaryRequest: requests.CreateGlossaryRequest
@@ -2228,7 +2228,7 @@ export class DataCatalogClient {
    * @param CreateJobRequest
    * @return CreateJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateJob.ts.html |here} to see how to use CreateJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateJob.ts.html |here} to see how to use CreateJob API.
    */
   public async createJob(
     createJobRequest: requests.CreateJobRequest
@@ -2310,7 +2310,7 @@ export class DataCatalogClient {
    * @param CreateJobDefinitionRequest
    * @return CreateJobDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateJobDefinition.ts.html |here} to see how to use CreateJobDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateJobDefinition.ts.html |here} to see how to use CreateJobDefinition API.
    */
   public async createJobDefinition(
     createJobDefinitionRequest: requests.CreateJobDefinitionRequest
@@ -2392,7 +2392,7 @@ export class DataCatalogClient {
    * @param CreateJobExecutionRequest
    * @return CreateJobExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateJobExecution.ts.html |here} to see how to use CreateJobExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateJobExecution.ts.html |here} to see how to use CreateJobExecution API.
    */
   public async createJobExecution(
     createJobExecutionRequest: requests.CreateJobExecutionRequest
@@ -2476,7 +2476,7 @@ export class DataCatalogClient {
    * @param CreateMetastoreRequest
    * @return CreateMetastoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateMetastore.ts.html |here} to see how to use CreateMetastore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateMetastore.ts.html |here} to see how to use CreateMetastore API.
    */
   public async createMetastore(
     createMetastoreRequest: requests.CreateMetastoreRequest
@@ -2552,7 +2552,7 @@ export class DataCatalogClient {
    * @param CreateNamespaceRequest
    * @return CreateNamespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateNamespace.ts.html |here} to see how to use CreateNamespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateNamespace.ts.html |here} to see how to use CreateNamespace API.
    */
   public async createNamespace(
     createNamespaceRequest: requests.CreateNamespaceRequest
@@ -2634,7 +2634,7 @@ export class DataCatalogClient {
    * @param CreatePatternRequest
    * @return CreatePatternResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreatePattern.ts.html |here} to see how to use CreatePattern API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreatePattern.ts.html |here} to see how to use CreatePattern API.
    */
   public async createPattern(
     createPatternRequest: requests.CreatePatternRequest
@@ -2716,7 +2716,7 @@ export class DataCatalogClient {
    * @param CreateTermRequest
    * @return CreateTermResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateTerm.ts.html |here} to see how to use CreateTerm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateTerm.ts.html |here} to see how to use CreateTerm API.
    */
   public async createTerm(
     createTermRequest: requests.CreateTermRequest
@@ -2799,7 +2799,7 @@ export class DataCatalogClient {
    * @param CreateTermRelationshipRequest
    * @return CreateTermRelationshipResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateTermRelationship.ts.html |here} to see how to use CreateTermRelationship API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/CreateTermRelationship.ts.html |here} to see how to use CreateTermRelationship API.
    */
   public async createTermRelationship(
     createTermRelationshipRequest: requests.CreateTermRelationshipRequest
@@ -2884,7 +2884,7 @@ export class DataCatalogClient {
    * @param DeleteAttributeRequest
    * @return DeleteAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteAttribute.ts.html |here} to see how to use DeleteAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteAttribute.ts.html |here} to see how to use DeleteAttribute API.
    */
   public async deleteAttribute(
     deleteAttributeRequest: requests.DeleteAttributeRequest
@@ -2956,7 +2956,7 @@ export class DataCatalogClient {
    * @param DeleteAttributeTagRequest
    * @return DeleteAttributeTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteAttributeTag.ts.html |here} to see how to use DeleteAttributeTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteAttributeTag.ts.html |here} to see how to use DeleteAttributeTag API.
    */
   public async deleteAttributeTag(
     deleteAttributeTagRequest: requests.DeleteAttributeTagRequest
@@ -3029,7 +3029,7 @@ export class DataCatalogClient {
    * @param DeleteCatalogRequest
    * @return DeleteCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteCatalog.ts.html |here} to see how to use DeleteCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteCatalog.ts.html |here} to see how to use DeleteCatalog API.
    */
   public async deleteCatalog(
     deleteCatalogRequest: requests.DeleteCatalogRequest
@@ -3104,7 +3104,7 @@ export class DataCatalogClient {
    * @param DeleteCatalogPrivateEndpointRequest
    * @return DeleteCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteCatalogPrivateEndpoint.ts.html |here} to see how to use DeleteCatalogPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteCatalogPrivateEndpoint.ts.html |here} to see how to use DeleteCatalogPrivateEndpoint API.
    */
   public async deleteCatalogPrivateEndpoint(
     deleteCatalogPrivateEndpointRequest: requests.DeleteCatalogPrivateEndpointRequest
@@ -3180,7 +3180,7 @@ export class DataCatalogClient {
    * @param DeleteConnectionRequest
    * @return DeleteConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
    */
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
@@ -3250,7 +3250,7 @@ export class DataCatalogClient {
    * @param DeleteCustomPropertyRequest
    * @return DeleteCustomPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteCustomProperty.ts.html |here} to see how to use DeleteCustomProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteCustomProperty.ts.html |here} to see how to use DeleteCustomProperty API.
    */
   public async deleteCustomProperty(
     deleteCustomPropertyRequest: requests.DeleteCustomPropertyRequest
@@ -3320,7 +3320,7 @@ export class DataCatalogClient {
    * @param DeleteDataAssetRequest
    * @return DeleteDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteDataAsset.ts.html |here} to see how to use DeleteDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteDataAsset.ts.html |here} to see how to use DeleteDataAsset API.
    */
   public async deleteDataAsset(
     deleteDataAssetRequest: requests.DeleteDataAssetRequest
@@ -3389,7 +3389,7 @@ export class DataCatalogClient {
    * @param DeleteDataAssetTagRequest
    * @return DeleteDataAssetTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteDataAssetTag.ts.html |here} to see how to use DeleteDataAssetTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteDataAssetTag.ts.html |here} to see how to use DeleteDataAssetTag API.
    */
   public async deleteDataAssetTag(
     deleteDataAssetTagRequest: requests.DeleteDataAssetTagRequest
@@ -3459,7 +3459,7 @@ export class DataCatalogClient {
    * @param DeleteEntityRequest
    * @return DeleteEntityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteEntity.ts.html |here} to see how to use DeleteEntity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteEntity.ts.html |here} to see how to use DeleteEntity API.
    */
   public async deleteEntity(
     deleteEntityRequest: requests.DeleteEntityRequest
@@ -3529,7 +3529,7 @@ export class DataCatalogClient {
    * @param DeleteEntityTagRequest
    * @return DeleteEntityTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteEntityTag.ts.html |here} to see how to use DeleteEntityTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteEntityTag.ts.html |here} to see how to use DeleteEntityTag API.
    */
   public async deleteEntityTag(
     deleteEntityTagRequest: requests.DeleteEntityTagRequest
@@ -3600,7 +3600,7 @@ export class DataCatalogClient {
    * @param DeleteFolderRequest
    * @return DeleteFolderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteFolder.ts.html |here} to see how to use DeleteFolder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteFolder.ts.html |here} to see how to use DeleteFolder API.
    */
   public async deleteFolder(
     deleteFolderRequest: requests.DeleteFolderRequest
@@ -3670,7 +3670,7 @@ export class DataCatalogClient {
    * @param DeleteFolderTagRequest
    * @return DeleteFolderTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteFolderTag.ts.html |here} to see how to use DeleteFolderTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteFolderTag.ts.html |here} to see how to use DeleteFolderTag API.
    */
   public async deleteFolderTag(
     deleteFolderTagRequest: requests.DeleteFolderTagRequest
@@ -3741,7 +3741,7 @@ export class DataCatalogClient {
    * @param DeleteGlossaryRequest
    * @return DeleteGlossaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteGlossary.ts.html |here} to see how to use DeleteGlossary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteGlossary.ts.html |here} to see how to use DeleteGlossary API.
    */
   public async deleteGlossary(
     deleteGlossaryRequest: requests.DeleteGlossaryRequest
@@ -3810,7 +3810,7 @@ export class DataCatalogClient {
    * @param DeleteJobRequest
    * @return DeleteJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteJob.ts.html |here} to see how to use DeleteJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteJob.ts.html |here} to see how to use DeleteJob API.
    */
   public async deleteJob(
     deleteJobRequest: requests.DeleteJobRequest
@@ -3879,7 +3879,7 @@ export class DataCatalogClient {
    * @param DeleteJobDefinitionRequest
    * @return DeleteJobDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteJobDefinition.ts.html |here} to see how to use DeleteJobDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteJobDefinition.ts.html |here} to see how to use DeleteJobDefinition API.
    */
   public async deleteJobDefinition(
     deleteJobDefinitionRequest: requests.DeleteJobDefinitionRequest
@@ -3948,7 +3948,7 @@ export class DataCatalogClient {
    * @param DeleteMetastoreRequest
    * @return DeleteMetastoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteMetastore.ts.html |here} to see how to use DeleteMetastore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteMetastore.ts.html |here} to see how to use DeleteMetastore API.
    */
   public async deleteMetastore(
     deleteMetastoreRequest: requests.DeleteMetastoreRequest
@@ -4023,7 +4023,7 @@ export class DataCatalogClient {
    * @param DeleteNamespaceRequest
    * @return DeleteNamespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteNamespace.ts.html |here} to see how to use DeleteNamespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteNamespace.ts.html |here} to see how to use DeleteNamespace API.
    */
   public async deleteNamespace(
     deleteNamespaceRequest: requests.DeleteNamespaceRequest
@@ -4092,7 +4092,7 @@ export class DataCatalogClient {
    * @param DeletePatternRequest
    * @return DeletePatternResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeletePattern.ts.html |here} to see how to use DeletePattern API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeletePattern.ts.html |here} to see how to use DeletePattern API.
    */
   public async deletePattern(
     deletePatternRequest: requests.DeletePatternRequest
@@ -4161,7 +4161,7 @@ export class DataCatalogClient {
    * @param DeleteTermRequest
    * @return DeleteTermResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteTerm.ts.html |here} to see how to use DeleteTerm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteTerm.ts.html |here} to see how to use DeleteTerm API.
    */
   public async deleteTerm(
     deleteTermRequest: requests.DeleteTermRequest
@@ -4231,7 +4231,7 @@ export class DataCatalogClient {
    * @param DeleteTermRelationshipRequest
    * @return DeleteTermRelationshipResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteTermRelationship.ts.html |here} to see how to use DeleteTermRelationship API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DeleteTermRelationship.ts.html |here} to see how to use DeleteTermRelationship API.
    */
   public async deleteTermRelationship(
     deleteTermRelationshipRequest: requests.DeleteTermRelationshipRequest
@@ -4304,7 +4304,7 @@ export class DataCatalogClient {
    * @param DetachCatalogPrivateEndpointRequest
    * @return DetachCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DetachCatalogPrivateEndpoint.ts.html |here} to see how to use DetachCatalogPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DetachCatalogPrivateEndpoint.ts.html |here} to see how to use DetachCatalogPrivateEndpoint API.
    */
   public async detachCatalogPrivateEndpoint(
     detachCatalogPrivateEndpointRequest: requests.DetachCatalogPrivateEndpointRequest
@@ -4385,7 +4385,7 @@ export class DataCatalogClient {
    * @param DisassociateCustomPropertyRequest
    * @return DisassociateCustomPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DisassociateCustomProperty.ts.html |here} to see how to use DisassociateCustomProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/DisassociateCustomProperty.ts.html |here} to see how to use DisassociateCustomProperty API.
    */
   public async disassociateCustomProperty(
     disassociateCustomPropertyRequest: requests.DisassociateCustomPropertyRequest
@@ -4470,7 +4470,7 @@ export class DataCatalogClient {
    * @param ExpandTreeForGlossaryRequest
    * @return ExpandTreeForGlossaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ExpandTreeForGlossary.ts.html |here} to see how to use ExpandTreeForGlossary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ExpandTreeForGlossary.ts.html |here} to see how to use ExpandTreeForGlossary API.
    */
   public async expandTreeForGlossary(
     expandTreeForGlossaryRequest: requests.ExpandTreeForGlossaryRequest
@@ -4549,7 +4549,7 @@ export class DataCatalogClient {
    * @param ExportGlossaryRequest
    * @return ExportGlossaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ExportGlossary.ts.html |here} to see how to use ExportGlossary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ExportGlossary.ts.html |here} to see how to use ExportGlossary API.
    */
   public async exportGlossary(
     exportGlossaryRequest: requests.ExportGlossaryRequest
@@ -4629,7 +4629,7 @@ export class DataCatalogClient {
    * @param FetchEntityLineageRequest
    * @return FetchEntityLineageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/FetchEntityLineage.ts.html |here} to see how to use FetchEntityLineage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/FetchEntityLineage.ts.html |here} to see how to use FetchEntityLineage API.
    */
   public async fetchEntityLineage(
     fetchEntityLineageRequest: requests.FetchEntityLineageRequest
@@ -4717,7 +4717,7 @@ export class DataCatalogClient {
    * @param GetAttributeRequest
    * @return GetAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetAttribute.ts.html |here} to see how to use GetAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetAttribute.ts.html |here} to see how to use GetAttribute API.
    */
   public async getAttribute(
     getAttributeRequest: requests.GetAttributeRequest
@@ -4800,7 +4800,7 @@ export class DataCatalogClient {
    * @param GetAttributeTagRequest
    * @return GetAttributeTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetAttributeTag.ts.html |here} to see how to use GetAttributeTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetAttributeTag.ts.html |here} to see how to use GetAttributeTag API.
    */
   public async getAttributeTag(
     getAttributeTagRequest: requests.GetAttributeTagRequest
@@ -4883,7 +4883,7 @@ export class DataCatalogClient {
    * @param GetCatalogRequest
    * @return GetCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetCatalog.ts.html |here} to see how to use GetCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetCatalog.ts.html |here} to see how to use GetCatalog API.
    */
   public async getCatalog(
     getCatalogRequest: requests.GetCatalogRequest
@@ -4959,7 +4959,7 @@ export class DataCatalogClient {
    * @param GetCatalogPrivateEndpointRequest
    * @return GetCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetCatalogPrivateEndpoint.ts.html |here} to see how to use GetCatalogPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetCatalogPrivateEndpoint.ts.html |here} to see how to use GetCatalogPrivateEndpoint API.
    */
   public async getCatalogPrivateEndpoint(
     getCatalogPrivateEndpointRequest: requests.GetCatalogPrivateEndpointRequest
@@ -5036,7 +5036,7 @@ export class DataCatalogClient {
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetConnection.ts.html |here} to see how to use GetConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetConnection.ts.html |here} to see how to use GetConnection API.
    */
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
@@ -5116,7 +5116,7 @@ export class DataCatalogClient {
    * @param GetCustomPropertyRequest
    * @return GetCustomPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetCustomProperty.ts.html |here} to see how to use GetCustomProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetCustomProperty.ts.html |here} to see how to use GetCustomProperty API.
    */
   public async getCustomProperty(
     getCustomPropertyRequest: requests.GetCustomPropertyRequest
@@ -5196,7 +5196,7 @@ export class DataCatalogClient {
    * @param GetDataAssetRequest
    * @return GetDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetDataAsset.ts.html |here} to see how to use GetDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetDataAsset.ts.html |here} to see how to use GetDataAsset API.
    */
   public async getDataAsset(
     getDataAssetRequest: requests.GetDataAssetRequest
@@ -5275,7 +5275,7 @@ export class DataCatalogClient {
    * @param GetDataAssetTagRequest
    * @return GetDataAssetTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetDataAssetTag.ts.html |here} to see how to use GetDataAssetTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetDataAssetTag.ts.html |here} to see how to use GetDataAssetTag API.
    */
   public async getDataAssetTag(
     getDataAssetTagRequest: requests.GetDataAssetTagRequest
@@ -5355,7 +5355,7 @@ export class DataCatalogClient {
    * @param GetEntityRequest
    * @return GetEntityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetEntity.ts.html |here} to see how to use GetEntity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetEntity.ts.html |here} to see how to use GetEntity API.
    */
   public async getEntity(
     getEntityRequest: requests.GetEntityRequest
@@ -5436,7 +5436,7 @@ export class DataCatalogClient {
    * @param GetEntityTagRequest
    * @return GetEntityTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetEntityTag.ts.html |here} to see how to use GetEntityTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetEntityTag.ts.html |here} to see how to use GetEntityTag API.
    */
   public async getEntityTag(
     getEntityTagRequest: requests.GetEntityTagRequest
@@ -5517,7 +5517,7 @@ export class DataCatalogClient {
    * @param GetFolderRequest
    * @return GetFolderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetFolder.ts.html |here} to see how to use GetFolder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetFolder.ts.html |here} to see how to use GetFolder API.
    */
   public async getFolder(
     getFolderRequest: requests.GetFolderRequest
@@ -5598,7 +5598,7 @@ export class DataCatalogClient {
    * @param GetFolderTagRequest
    * @return GetFolderTagResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetFolderTag.ts.html |here} to see how to use GetFolderTag API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetFolderTag.ts.html |here} to see how to use GetFolderTag API.
    */
   public async getFolderTag(
     getFolderTagRequest: requests.GetFolderTagRequest
@@ -5679,7 +5679,7 @@ export class DataCatalogClient {
    * @param GetGlossaryRequest
    * @return GetGlossaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetGlossary.ts.html |here} to see how to use GetGlossary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetGlossary.ts.html |here} to see how to use GetGlossary API.
    */
   public async getGlossary(
     getGlossaryRequest: requests.GetGlossaryRequest
@@ -5758,7 +5758,7 @@ export class DataCatalogClient {
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJob.ts.html |here} to see how to use GetJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJob.ts.html |here} to see how to use GetJob API.
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJob.");
@@ -5835,7 +5835,7 @@ export class DataCatalogClient {
    * @param GetJobDefinitionRequest
    * @return GetJobDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJobDefinition.ts.html |here} to see how to use GetJobDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJobDefinition.ts.html |here} to see how to use GetJobDefinition API.
    */
   public async getJobDefinition(
     getJobDefinitionRequest: requests.GetJobDefinitionRequest
@@ -5914,7 +5914,7 @@ export class DataCatalogClient {
    * @param GetJobExecutionRequest
    * @return GetJobExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJobExecution.ts.html |here} to see how to use GetJobExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJobExecution.ts.html |here} to see how to use GetJobExecution API.
    */
   public async getJobExecution(
     getJobExecutionRequest: requests.GetJobExecutionRequest
@@ -5994,7 +5994,7 @@ export class DataCatalogClient {
    * @param GetJobLogRequest
    * @return GetJobLogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJobLog.ts.html |here} to see how to use GetJobLog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJobLog.ts.html |here} to see how to use GetJobLog API.
    */
   public async getJobLog(
     getJobLogRequest: requests.GetJobLogRequest
@@ -6075,7 +6075,7 @@ export class DataCatalogClient {
    * @param GetJobMetricsRequest
    * @return GetJobMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJobMetrics.ts.html |here} to see how to use GetJobMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetJobMetrics.ts.html |here} to see how to use GetJobMetrics API.
    */
   public async getJobMetrics(
     getJobMetricsRequest: requests.GetJobMetricsRequest
@@ -6157,7 +6157,7 @@ export class DataCatalogClient {
    * @param GetMetastoreRequest
    * @return GetMetastoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetMetastore.ts.html |here} to see how to use GetMetastore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetMetastore.ts.html |here} to see how to use GetMetastore API.
    */
   public async getMetastore(
     getMetastoreRequest: requests.GetMetastoreRequest
@@ -6233,7 +6233,7 @@ export class DataCatalogClient {
    * @param GetNamespaceRequest
    * @return GetNamespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetNamespace.ts.html |here} to see how to use GetNamespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetNamespace.ts.html |here} to see how to use GetNamespace API.
    */
   public async getNamespace(
     getNamespaceRequest: requests.GetNamespaceRequest
@@ -6312,7 +6312,7 @@ export class DataCatalogClient {
    * @param GetPatternRequest
    * @return GetPatternResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetPattern.ts.html |here} to see how to use GetPattern API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetPattern.ts.html |here} to see how to use GetPattern API.
    */
   public async getPattern(
     getPatternRequest: requests.GetPatternRequest
@@ -6391,7 +6391,7 @@ export class DataCatalogClient {
    * @param GetTermRequest
    * @return GetTermResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetTerm.ts.html |here} to see how to use GetTerm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetTerm.ts.html |here} to see how to use GetTerm API.
    */
   public async getTerm(
     getTermRequest: requests.GetTermRequest
@@ -6471,7 +6471,7 @@ export class DataCatalogClient {
    * @param GetTermRelationshipRequest
    * @return GetTermRelationshipResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetTermRelationship.ts.html |here} to see how to use GetTermRelationship API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetTermRelationship.ts.html |here} to see how to use GetTermRelationship API.
    */
   public async getTermRelationship(
     getTermRelationshipRequest: requests.GetTermRelationshipRequest
@@ -6553,7 +6553,7 @@ export class DataCatalogClient {
    * @param GetTypeRequest
    * @return GetTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetType.ts.html |here} to see how to use GetType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetType.ts.html |here} to see how to use GetType API.
    */
   public async getType(
     getTypeRequest: requests.GetTypeRequest
@@ -6632,7 +6632,7 @@ export class DataCatalogClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -6713,7 +6713,7 @@ export class DataCatalogClient {
    * @param ImportConnectionRequest
    * @return ImportConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ImportConnection.ts.html |here} to see how to use ImportConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ImportConnection.ts.html |here} to see how to use ImportConnection API.
    */
   public async importConnection(
     importConnectionRequest: requests.ImportConnectionRequest
@@ -6797,7 +6797,7 @@ export class DataCatalogClient {
    * @param ImportDataAssetRequest
    * @return ImportDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ImportDataAsset.ts.html |here} to see how to use ImportDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ImportDataAsset.ts.html |here} to see how to use ImportDataAsset API.
    */
   public async importDataAsset(
     importDataAssetRequest: requests.ImportDataAssetRequest
@@ -6878,7 +6878,7 @@ export class DataCatalogClient {
    * @param ImportGlossaryRequest
    * @return ImportGlossaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ImportGlossary.ts.html |here} to see how to use ImportGlossary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ImportGlossary.ts.html |here} to see how to use ImportGlossary API.
    */
   public async importGlossary(
     importGlossaryRequest: requests.ImportGlossaryRequest
@@ -6959,7 +6959,7 @@ export class DataCatalogClient {
    * @param ImportLineageRequest
    * @return ImportLineageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ImportLineage.ts.html |here} to see how to use ImportLineage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ImportLineage.ts.html |here} to see how to use ImportLineage API.
    */
   public async importLineage(
     importLineageRequest: requests.ImportLineageRequest
@@ -7037,7 +7037,7 @@ export class DataCatalogClient {
    * @param ListAggregatedPhysicalEntitiesRequest
    * @return ListAggregatedPhysicalEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListAggregatedPhysicalEntities.ts.html |here} to see how to use ListAggregatedPhysicalEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListAggregatedPhysicalEntities.ts.html |here} to see how to use ListAggregatedPhysicalEntities API.
    */
   public async listAggregatedPhysicalEntities(
     listAggregatedPhysicalEntitiesRequest: requests.ListAggregatedPhysicalEntitiesRequest
@@ -7120,7 +7120,7 @@ export class DataCatalogClient {
    * @param ListAttributeTagsRequest
    * @return ListAttributeTagsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListAttributeTags.ts.html |here} to see how to use ListAttributeTags API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListAttributeTags.ts.html |here} to see how to use ListAttributeTags API.
    */
   public async listAttributeTags(
     listAttributeTagsRequest: requests.ListAttributeTagsRequest
@@ -7212,7 +7212,7 @@ export class DataCatalogClient {
    * @param ListAttributesRequest
    * @return ListAttributesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListAttributes.ts.html |here} to see how to use ListAttributes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListAttributes.ts.html |here} to see how to use ListAttributes API.
    */
   public async listAttributes(
     listAttributesRequest: requests.ListAttributesRequest
@@ -7315,7 +7315,7 @@ export class DataCatalogClient {
    * @param ListCatalogPrivateEndpointsRequest
    * @return ListCatalogPrivateEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListCatalogPrivateEndpoints.ts.html |here} to see how to use ListCatalogPrivateEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListCatalogPrivateEndpoints.ts.html |here} to see how to use ListCatalogPrivateEndpoints API.
    */
   public async listCatalogPrivateEndpoints(
     listCatalogPrivateEndpointsRequest: requests.ListCatalogPrivateEndpointsRequest
@@ -7451,7 +7451,7 @@ export class DataCatalogClient {
    * @param ListCatalogsRequest
    * @return ListCatalogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListCatalogs.ts.html |here} to see how to use ListCatalogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListCatalogs.ts.html |here} to see how to use ListCatalogs API.
    */
   public async listCatalogs(
     listCatalogsRequest: requests.ListCatalogsRequest
@@ -7585,7 +7585,7 @@ export class DataCatalogClient {
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListConnections.ts.html |here} to see how to use ListConnections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListConnections.ts.html |here} to see how to use ListConnections API.
    */
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
@@ -7678,7 +7678,7 @@ export class DataCatalogClient {
    * @param ListCustomPropertiesRequest
    * @return ListCustomPropertiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListCustomProperties.ts.html |here} to see how to use ListCustomProperties API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListCustomProperties.ts.html |here} to see how to use ListCustomProperties API.
    */
   public async listCustomProperties(
     listCustomPropertiesRequest: requests.ListCustomPropertiesRequest
@@ -7770,7 +7770,7 @@ export class DataCatalogClient {
    * @param ListDataAssetTagsRequest
    * @return ListDataAssetTagsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListDataAssetTags.ts.html |here} to see how to use ListDataAssetTags API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListDataAssetTags.ts.html |here} to see how to use ListDataAssetTags API.
    */
   public async listDataAssetTags(
     listDataAssetTagsRequest: requests.ListDataAssetTagsRequest
@@ -7859,7 +7859,7 @@ export class DataCatalogClient {
    * @param ListDataAssetsRequest
    * @return ListDataAssetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListDataAssets.ts.html |here} to see how to use ListDataAssets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListDataAssets.ts.html |here} to see how to use ListDataAssets API.
    */
   public async listDataAssets(
     listDataAssetsRequest: requests.ListDataAssetsRequest
@@ -7950,7 +7950,7 @@ export class DataCatalogClient {
    * @param ListDerivedLogicalEntitiesRequest
    * @return ListDerivedLogicalEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListDerivedLogicalEntities.ts.html |here} to see how to use ListDerivedLogicalEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListDerivedLogicalEntities.ts.html |here} to see how to use ListDerivedLogicalEntities API.
    */
   public async listDerivedLogicalEntities(
     listDerivedLogicalEntitiesRequest: requests.ListDerivedLogicalEntitiesRequest
@@ -8031,7 +8031,7 @@ export class DataCatalogClient {
    * @param ListEntitiesRequest
    * @return ListEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListEntities.ts.html |here} to see how to use ListEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListEntities.ts.html |here} to see how to use ListEntities API.
    */
   public async listEntities(
     listEntitiesRequest: requests.ListEntitiesRequest
@@ -8135,7 +8135,7 @@ export class DataCatalogClient {
    * @param ListEntityTagsRequest
    * @return ListEntityTagsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListEntityTags.ts.html |here} to see how to use ListEntityTags API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListEntityTags.ts.html |here} to see how to use ListEntityTags API.
    */
   public async listEntityTags(
     listEntityTagsRequest: requests.ListEntityTagsRequest
@@ -8225,7 +8225,7 @@ export class DataCatalogClient {
    * @param ListFolderTagsRequest
    * @return ListFolderTagsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListFolderTags.ts.html |here} to see how to use ListFolderTags API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListFolderTags.ts.html |here} to see how to use ListFolderTags API.
    */
   public async listFolderTags(
     listFolderTagsRequest: requests.ListFolderTagsRequest
@@ -8315,7 +8315,7 @@ export class DataCatalogClient {
    * @param ListFoldersRequest
    * @return ListFoldersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListFolders.ts.html |here} to see how to use ListFolders API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListFolders.ts.html |here} to see how to use ListFolders API.
    */
   public async listFolders(
     listFoldersRequest: requests.ListFoldersRequest
@@ -8413,7 +8413,7 @@ export class DataCatalogClient {
    * @param ListGlossariesRequest
    * @return ListGlossariesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListGlossaries.ts.html |here} to see how to use ListGlossaries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListGlossaries.ts.html |here} to see how to use ListGlossaries API.
    */
   public async listGlossaries(
     listGlossariesRequest: requests.ListGlossariesRequest
@@ -8502,7 +8502,7 @@ export class DataCatalogClient {
    * @param ListJobDefinitionsRequest
    * @return ListJobDefinitionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListJobDefinitions.ts.html |here} to see how to use ListJobDefinitions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListJobDefinitions.ts.html |here} to see how to use ListJobDefinitions API.
    */
   public async listJobDefinitions(
     listJobDefinitionsRequest: requests.ListJobDefinitionsRequest
@@ -8598,7 +8598,7 @@ export class DataCatalogClient {
    * @param ListJobExecutionsRequest
    * @return ListJobExecutionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListJobExecutions.ts.html |here} to see how to use ListJobExecutions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListJobExecutions.ts.html |here} to see how to use ListJobExecutions API.
    */
   public async listJobExecutions(
     listJobExecutionsRequest: requests.ListJobExecutionsRequest
@@ -8697,7 +8697,7 @@ export class DataCatalogClient {
    * @param ListJobLogsRequest
    * @return ListJobLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListJobLogs.ts.html |here} to see how to use ListJobLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListJobLogs.ts.html |here} to see how to use ListJobLogs API.
    */
   public async listJobLogs(
     listJobLogsRequest: requests.ListJobLogsRequest
@@ -8787,7 +8787,7 @@ export class DataCatalogClient {
    * @param ListJobMetricsRequest
    * @return ListJobMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListJobMetrics.ts.html |here} to see how to use ListJobMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListJobMetrics.ts.html |here} to see how to use ListJobMetrics API.
    */
   public async listJobMetrics(
     listJobMetricsRequest: requests.ListJobMetricsRequest
@@ -8883,7 +8883,7 @@ export class DataCatalogClient {
    * @param ListJobsRequest
    * @return ListJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListJobs.ts.html |here} to see how to use ListJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListJobs.ts.html |here} to see how to use ListJobs API.
    */
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
@@ -8984,7 +8984,7 @@ export class DataCatalogClient {
    * @param ListMetastoresRequest
    * @return ListMetastoresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListMetastores.ts.html |here} to see how to use ListMetastores API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListMetastores.ts.html |here} to see how to use ListMetastores API.
    */
   public async listMetastores(
     listMetastoresRequest: requests.ListMetastoresRequest
@@ -9118,7 +9118,7 @@ export class DataCatalogClient {
    * @param ListNamespacesRequest
    * @return ListNamespacesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListNamespaces.ts.html |here} to see how to use ListNamespaces API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListNamespaces.ts.html |here} to see how to use ListNamespaces API.
    */
   public async listNamespaces(
     listNamespacesRequest: requests.ListNamespacesRequest
@@ -9207,7 +9207,7 @@ export class DataCatalogClient {
    * @param ListPatternsRequest
    * @return ListPatternsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListPatterns.ts.html |here} to see how to use ListPatterns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListPatterns.ts.html |here} to see how to use ListPatterns API.
    */
   public async listPatterns(
     listPatternsRequest: requests.ListPatternsRequest
@@ -9296,7 +9296,7 @@ export class DataCatalogClient {
    * @param ListRulesRequest
    * @return ListRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListRules.ts.html |here} to see how to use ListRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListRules.ts.html |here} to see how to use ListRules API.
    */
   public async listRules(
     listRulesRequest: requests.ListRulesRequest
@@ -9390,7 +9390,7 @@ export class DataCatalogClient {
    * @param ListTagsRequest
    * @return ListTagsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListTags.ts.html |here} to see how to use ListTags API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListTags.ts.html |here} to see how to use ListTags API.
    */
   public async listTags(
     listTagsRequest: requests.ListTagsRequest
@@ -9475,7 +9475,7 @@ export class DataCatalogClient {
    * @param ListTermRelationshipsRequest
    * @return ListTermRelationshipsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListTermRelationships.ts.html |here} to see how to use ListTermRelationships API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListTermRelationships.ts.html |here} to see how to use ListTermRelationships API.
    */
   public async listTermRelationships(
     listTermRelationshipsRequest: requests.ListTermRelationshipsRequest
@@ -9563,7 +9563,7 @@ export class DataCatalogClient {
    * @param ListTermsRequest
    * @return ListTermsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListTerms.ts.html |here} to see how to use ListTerms API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListTerms.ts.html |here} to see how to use ListTerms API.
    */
   public async listTerms(
     listTermsRequest: requests.ListTermsRequest
@@ -9653,7 +9653,7 @@ export class DataCatalogClient {
    * @param ListTypesRequest
    * @return ListTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListTypes.ts.html |here} to see how to use ListTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListTypes.ts.html |here} to see how to use ListTypes API.
    */
   public async listTypes(
     listTypesRequest: requests.ListTypesRequest
@@ -9743,7 +9743,7 @@ export class DataCatalogClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -9878,7 +9878,7 @@ export class DataCatalogClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -10012,7 +10012,7 @@ export class DataCatalogClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -10142,7 +10142,7 @@ export class DataCatalogClient {
    * @param ObjectStatsRequest
    * @return ObjectStatsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ObjectStats.ts.html |here} to see how to use ObjectStats API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ObjectStats.ts.html |here} to see how to use ObjectStats API.
    */
   public async objectStats(
     objectStatsRequest: requests.ObjectStatsRequest
@@ -10223,7 +10223,7 @@ export class DataCatalogClient {
    * @param ParseConnectionRequest
    * @return ParseConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ParseConnection.ts.html |here} to see how to use ParseConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ParseConnection.ts.html |here} to see how to use ParseConnection API.
    */
   public async parseConnection(
     parseConnectionRequest: requests.ParseConnectionRequest
@@ -10310,7 +10310,7 @@ export class DataCatalogClient {
    * @param ProcessRecommendationRequest
    * @return ProcessRecommendationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ProcessRecommendation.ts.html |here} to see how to use ProcessRecommendation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ProcessRecommendation.ts.html |here} to see how to use ProcessRecommendation API.
    */
   public async processRecommendation(
     processRecommendationRequest: requests.ProcessRecommendationRequest
@@ -10396,7 +10396,7 @@ export class DataCatalogClient {
    * @param RecommendationsRequest
    * @return RecommendationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/Recommendations.ts.html |here} to see how to use Recommendations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/Recommendations.ts.html |here} to see how to use Recommendations API.
    */
   public async recommendations(
     recommendationsRequest: requests.RecommendationsRequest
@@ -10472,7 +10472,7 @@ export class DataCatalogClient {
    * @param RemoveCatalogLockRequest
    * @return RemoveCatalogLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/RemoveCatalogLock.ts.html |here} to see how to use RemoveCatalogLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/RemoveCatalogLock.ts.html |here} to see how to use RemoveCatalogLock API.
    */
   public async removeCatalogLock(
     removeCatalogLockRequest: requests.RemoveCatalogLockRequest
@@ -10554,7 +10554,7 @@ export class DataCatalogClient {
    * @param RemoveCatalogPrivateEndpointLockRequest
    * @return RemoveCatalogPrivateEndpointLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/RemoveCatalogPrivateEndpointLock.ts.html |here} to see how to use RemoveCatalogPrivateEndpointLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/RemoveCatalogPrivateEndpointLock.ts.html |here} to see how to use RemoveCatalogPrivateEndpointLock API.
    */
   public async removeCatalogPrivateEndpointLock(
     removeCatalogPrivateEndpointLockRequest: requests.RemoveCatalogPrivateEndpointLockRequest
@@ -10637,7 +10637,7 @@ export class DataCatalogClient {
    * @param RemoveDataSelectorPatternsRequest
    * @return RemoveDataSelectorPatternsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/RemoveDataSelectorPatterns.ts.html |here} to see how to use RemoveDataSelectorPatterns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/RemoveDataSelectorPatterns.ts.html |here} to see how to use RemoveDataSelectorPatterns API.
    */
   public async removeDataSelectorPatterns(
     removeDataSelectorPatternsRequest: requests.RemoveDataSelectorPatternsRequest
@@ -10722,7 +10722,7 @@ export class DataCatalogClient {
    * @param RemoveMetastoreLockRequest
    * @return RemoveMetastoreLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/RemoveMetastoreLock.ts.html |here} to see how to use RemoveMetastoreLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/RemoveMetastoreLock.ts.html |here} to see how to use RemoveMetastoreLock API.
    */
   public async removeMetastoreLock(
     removeMetastoreLockRequest: requests.RemoveMetastoreLockRequest
@@ -10804,7 +10804,7 @@ export class DataCatalogClient {
    * @param SearchCriteriaRequest
    * @return SearchCriteriaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/SearchCriteria.ts.html |here} to see how to use SearchCriteria API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/SearchCriteria.ts.html |here} to see how to use SearchCriteria API.
    */
   public async searchCriteria(
     searchCriteriaRequest: requests.SearchCriteriaRequest
@@ -10894,7 +10894,7 @@ export class DataCatalogClient {
    * @param SuggestMatchesRequest
    * @return SuggestMatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/SuggestMatches.ts.html |here} to see how to use SuggestMatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/SuggestMatches.ts.html |here} to see how to use SuggestMatches API.
    */
   public async suggestMatches(
     suggestMatchesRequest: requests.SuggestMatchesRequest
@@ -10969,7 +10969,7 @@ export class DataCatalogClient {
    * @param SynchronousExportDataAssetRequest
    * @return SynchronousExportDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/SynchronousExportDataAsset.ts.html |here} to see how to use SynchronousExportDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/SynchronousExportDataAsset.ts.html |here} to see how to use SynchronousExportDataAsset API.
    */
   public async synchronousExportDataAsset(
     synchronousExportDataAssetRequest: requests.SynchronousExportDataAssetRequest
@@ -11050,7 +11050,7 @@ export class DataCatalogClient {
    * @param TestConnectionRequest
    * @return TestConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/TestConnection.ts.html |here} to see how to use TestConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/TestConnection.ts.html |here} to see how to use TestConnection API.
    */
   public async testConnection(
     testConnectionRequest: requests.TestConnectionRequest
@@ -11130,7 +11130,7 @@ export class DataCatalogClient {
    * @param UpdateAttributeRequest
    * @return UpdateAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateAttribute.ts.html |here} to see how to use UpdateAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateAttribute.ts.html |here} to see how to use UpdateAttribute API.
    */
   public async updateAttribute(
     updateAttributeRequest: requests.UpdateAttributeRequest
@@ -11216,7 +11216,7 @@ export class DataCatalogClient {
    * @param UpdateCatalogRequest
    * @return UpdateCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateCatalog.ts.html |here} to see how to use UpdateCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateCatalog.ts.html |here} to see how to use UpdateCatalog API.
    */
   public async updateCatalog(
     updateCatalogRequest: requests.UpdateCatalogRequest
@@ -11300,7 +11300,7 @@ export class DataCatalogClient {
    * @param UpdateCatalogPrivateEndpointRequest
    * @return UpdateCatalogPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateCatalogPrivateEndpoint.ts.html |here} to see how to use UpdateCatalogPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateCatalogPrivateEndpoint.ts.html |here} to see how to use UpdateCatalogPrivateEndpoint API.
    */
   public async updateCatalogPrivateEndpoint(
     updateCatalogPrivateEndpointRequest: requests.UpdateCatalogPrivateEndpointRequest
@@ -11381,7 +11381,7 @@ export class DataCatalogClient {
    * @param UpdateConnectionRequest
    * @return UpdateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
    */
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
@@ -11465,7 +11465,7 @@ export class DataCatalogClient {
    * @param UpdateCustomPropertyRequest
    * @return UpdateCustomPropertyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateCustomProperty.ts.html |here} to see how to use UpdateCustomProperty API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateCustomProperty.ts.html |here} to see how to use UpdateCustomProperty API.
    */
   public async updateCustomProperty(
     updateCustomPropertyRequest: requests.UpdateCustomPropertyRequest
@@ -11549,7 +11549,7 @@ export class DataCatalogClient {
    * @param UpdateDataAssetRequest
    * @return UpdateDataAssetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateDataAsset.ts.html |here} to see how to use UpdateDataAsset API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateDataAsset.ts.html |here} to see how to use UpdateDataAsset API.
    */
   public async updateDataAsset(
     updateDataAssetRequest: requests.UpdateDataAssetRequest
@@ -11632,7 +11632,7 @@ export class DataCatalogClient {
    * @param UpdateEntityRequest
    * @return UpdateEntityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateEntity.ts.html |here} to see how to use UpdateEntity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateEntity.ts.html |here} to see how to use UpdateEntity API.
    */
   public async updateEntity(
     updateEntityRequest: requests.UpdateEntityRequest
@@ -11716,7 +11716,7 @@ export class DataCatalogClient {
    * @param UpdateFolderRequest
    * @return UpdateFolderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateFolder.ts.html |here} to see how to use UpdateFolder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateFolder.ts.html |here} to see how to use UpdateFolder API.
    */
   public async updateFolder(
     updateFolderRequest: requests.UpdateFolderRequest
@@ -11800,7 +11800,7 @@ export class DataCatalogClient {
    * @param UpdateGlossaryRequest
    * @return UpdateGlossaryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateGlossary.ts.html |here} to see how to use UpdateGlossary API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateGlossary.ts.html |here} to see how to use UpdateGlossary API.
    */
   public async updateGlossary(
     updateGlossaryRequest: requests.UpdateGlossaryRequest
@@ -11883,7 +11883,7 @@ export class DataCatalogClient {
    * @param UpdateJobRequest
    * @return UpdateJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateJob.ts.html |here} to see how to use UpdateJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateJob.ts.html |here} to see how to use UpdateJob API.
    */
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
@@ -11966,7 +11966,7 @@ export class DataCatalogClient {
    * @param UpdateJobDefinitionRequest
    * @return UpdateJobDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateJobDefinition.ts.html |here} to see how to use UpdateJobDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateJobDefinition.ts.html |here} to see how to use UpdateJobDefinition API.
    */
   public async updateJobDefinition(
     updateJobDefinitionRequest: requests.UpdateJobDefinitionRequest
@@ -12049,7 +12049,7 @@ export class DataCatalogClient {
    * @param UpdateMetastoreRequest
    * @return UpdateMetastoreResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateMetastore.ts.html |here} to see how to use UpdateMetastore API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateMetastore.ts.html |here} to see how to use UpdateMetastore API.
    */
   public async updateMetastore(
     updateMetastoreRequest: requests.UpdateMetastoreRequest
@@ -12133,7 +12133,7 @@ export class DataCatalogClient {
    * @param UpdateNamespaceRequest
    * @return UpdateNamespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateNamespace.ts.html |here} to see how to use UpdateNamespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateNamespace.ts.html |here} to see how to use UpdateNamespace API.
    */
   public async updateNamespace(
     updateNamespaceRequest: requests.UpdateNamespaceRequest
@@ -12216,7 +12216,7 @@ export class DataCatalogClient {
    * @param UpdatePatternRequest
    * @return UpdatePatternResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdatePattern.ts.html |here} to see how to use UpdatePattern API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdatePattern.ts.html |here} to see how to use UpdatePattern API.
    */
   public async updatePattern(
     updatePatternRequest: requests.UpdatePatternRequest
@@ -12299,7 +12299,7 @@ export class DataCatalogClient {
    * @param UpdateTermRequest
    * @return UpdateTermResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateTerm.ts.html |here} to see how to use UpdateTerm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateTerm.ts.html |here} to see how to use UpdateTerm API.
    */
   public async updateTerm(
     updateTermRequest: requests.UpdateTermRequest
@@ -12383,7 +12383,7 @@ export class DataCatalogClient {
    * @param UpdateTermRelationshipRequest
    * @return UpdateTermRelationshipResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateTermRelationship.ts.html |here} to see how to use UpdateTermRelationship API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UpdateTermRelationship.ts.html |here} to see how to use UpdateTermRelationship API.
    */
   public async updateTermRelationship(
     updateTermRelationshipRequest: requests.UpdateTermRelationshipRequest
@@ -12470,7 +12470,7 @@ export class DataCatalogClient {
    * @param UploadCredentialsRequest
    * @return UploadCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UploadCredentials.ts.html |here} to see how to use UploadCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/UploadCredentials.ts.html |here} to see how to use UploadCredentials API.
    */
   public async uploadCredentials(
     uploadCredentialsRequest: requests.UploadCredentialsRequest
@@ -12556,7 +12556,7 @@ export class DataCatalogClient {
    * @param UsersRequest
    * @return UsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/Users.ts.html |here} to see how to use Users API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/Users.ts.html |here} to see how to use Users API.
    */
   public async users(usersRequest: requests.UsersRequest): Promise<responses.UsersResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#users.");
@@ -12635,7 +12635,7 @@ export class DataCatalogClient {
    * @param ValidateConnectionRequest
    * @return ValidateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ValidateConnection.ts.html |here} to see how to use ValidateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ValidateConnection.ts.html |here} to see how to use ValidateConnection API.
    */
   public async validateConnection(
     validateConnectionRequest: requests.ValidateConnectionRequest
@@ -12718,7 +12718,7 @@ export class DataCatalogClient {
    * @param ValidatePatternRequest
    * @return ValidatePatternResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ValidatePattern.ts.html |here} to see how to use ValidatePattern API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/ValidatePattern.ts.html |here} to see how to use ValidatePattern API.
    */
   public async validatePattern(
     validatePatternRequest: requests.ValidatePatternRequest

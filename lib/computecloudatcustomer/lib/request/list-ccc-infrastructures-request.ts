@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ListCccInfrastructures.ts.html |here} to see how to use ListCccInfrastructuresRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ListCccInfrastructures.ts.html |here} to see how to use ListCccInfrastructuresRequest.
  */
 export interface ListCccInfrastructuresRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to
    * list resources.
    *
    */
@@ -54,7 +54,7 @@ export interface ListCccInfrastructuresRequest extends common.BaseRequest {
    */
   "displayNameContains"?: string;
   /**
-   * An [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for a
+   * An [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for a
    * Compute Cloud@Customer Infrastructure.
    *
    */
@@ -77,7 +77,7 @@ export interface ListCccInfrastructuresRequest extends common.BaseRequest {
    */
   "sortBy"?: ListCccInfrastructuresRequest.SortBy;
   /**
-   * The client request [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for tracing.
+   * The client request [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for tracing.
    *
    */
   "opcRequestId"?: string;

@@ -103,6 +103,12 @@ For a standalone DB System, this defines the fault domain in which the DB System
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
   "backupPolicy"?: model.BackupPolicy;
   /**
    * The shape of the primary instances of the DB System. The shape

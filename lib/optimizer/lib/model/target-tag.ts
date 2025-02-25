@@ -2,7 +2,7 @@
  * Cloud Advisor API
  * Use the Cloud Advisor API to find potential inefficiencies in your tenancy and address them.
 Cloud Advisor can help you save money, improve performance, strengthen system resilience, and improve security.
-For more information, see [Cloud Advisor](/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm).
+For more information, see [Cloud Advisor](https://docs.oracle.com/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm).
 
  * OpenAPI spec version: 20200606
  * 
@@ -20,7 +20,7 @@ import common = require("oci-common");
 /**
  * A tag key definition used in the current profile override, including the tag namespace, tag key, tag value type, and tag values.
  * Only defined tags are supported.
- * For more information about tagging, see [Tagging Overview](https://docs.cloud.oracle.com/iaas/Content/Tagging/Concepts/taggingoverview.htm)
+ * For more information about tagging, see [Tagging Overview](https://docs.oracle.com/iaas/Content/Tagging/Concepts/taggingoverview.htm)
  *
  */
 export interface TargetTag {

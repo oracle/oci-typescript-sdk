@@ -2,7 +2,7 @@
  * Dashboards API
  * Use the Oracle Cloud Infrastructure Dashboards service API to manage dashboards in the Console. 
 Dashboards provide an organized and customizable view of resources and their metrics in the Console.
-For more information, see [Dashboards](/Content/Dashboards/home.htm).
+For more information, see [Dashboards](https://docs.oracle.com/iaas/Content/Dashboards/home.htm).
 
 **Important:** Resources for the Dashboards service are created in the tenacy's home region.
 Although it is possible to create dashboard and dashboard group resources in regions other than the home region,
@@ -29,7 +29,7 @@ import common = require("oci-common");
  */
 export interface CreateDashboardDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dashboard group that the dashbaord is associated with.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dashboard group that the dashbaord is associated with.
    */
   "dashboardGroupId": string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateRoutingPolicy.ts.html |here} to see how to use UpdateRoutingPolicyRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateRoutingPolicy.ts.html |here} to see how to use UpdateRoutingPolicyRequest.
  */
 export interface UpdateRoutingPolicyRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface UpdateRoutingPolicyRequest extends common.BaseRequest {
    */
   "updateRoutingPolicyDetails": model.UpdateRoutingPolicyDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the load balancer associated with the routing policy to update.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the load balancer associated with the routing policy to update.
    */
   "loadBalancerId": string;
   /**

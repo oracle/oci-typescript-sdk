@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrorsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrorsRequest.
  */
 export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
   /**
-   * The Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the asynchronous request.
+   * The Oracle Cloud Identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the asynchronous request.
    */
   "workRequestId": string;
   /**

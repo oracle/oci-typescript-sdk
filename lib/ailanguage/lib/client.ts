@@ -243,7 +243,7 @@ export class AIServiceLanguageClient {
   /**
      * The API returns the detected language and a related confidence score (between 0 and 1).  It supports passing a batch of records.
 * <p>
-[List of supported languages.](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#lang-detect)
+[List of supported languages.](https://docs.oracle.com/iaas/language/using/pretrain-models.htm#lang-detect)
 * <p>
 Limitations:
 * - A batch may have up to 100 records.
@@ -254,7 +254,7 @@ Limitations:
      * @param BatchDetectDominantLanguageRequest
      * @return BatchDetectDominantLanguageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectDominantLanguage.ts.html |here} to see how to use BatchDetectDominantLanguage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectDominantLanguage.ts.html |here} to see how to use BatchDetectDominantLanguage API.
      */
   public async batchDetectDominantLanguage(
     batchDetectDominantLanguageRequest: requests.BatchDetectDominantLanguageRequest
@@ -335,7 +335,7 @@ Limitations:
      * @param BatchDetectHealthEntityRequest
      * @return BatchDetectHealthEntityResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectHealthEntity.ts.html |here} to see how to use BatchDetectHealthEntity API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectHealthEntity.ts.html |here} to see how to use BatchDetectHealthEntity API.
      */
   public async batchDetectHealthEntity(
     batchDetectHealthEntityRequest: requests.BatchDetectHealthEntityRequest
@@ -407,7 +407,7 @@ Limitations:
   /**
      * The API extracts entities in text records. For each entity, its type/subtype and confidence score (between 0 and 1) is returned.  It supports passing a batch of records.
 * <p>
-[List of supported entities.](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#ner__sup-ner-entity)
+[List of supported entities.](https://docs.oracle.com/iaas/language/using/pretrain-models.htm#ner__sup-ner-entity)
 * <p>
 Limitations:
 * - A batch may have up to 100 records.
@@ -418,7 +418,7 @@ Limitations:
      * @param BatchDetectLanguageEntitiesRequest
      * @return BatchDetectLanguageEntitiesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageEntities.ts.html |here} to see how to use BatchDetectLanguageEntities API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageEntities.ts.html |here} to see how to use BatchDetectLanguageEntities API.
      */
   public async batchDetectLanguageEntities(
     batchDetectLanguageEntitiesRequest: requests.BatchDetectLanguageEntitiesRequest
@@ -499,7 +499,7 @@ Limitations:
      * @param BatchDetectLanguageKeyPhrasesRequest
      * @return BatchDetectLanguageKeyPhrasesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageKeyPhrases.ts.html |here} to see how to use BatchDetectLanguageKeyPhrases API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageKeyPhrases.ts.html |here} to see how to use BatchDetectLanguageKeyPhrases API.
      */
   public async batchDetectLanguageKeyPhrases(
     batchDetectLanguageKeyPhrasesRequest: requests.BatchDetectLanguageKeyPhrasesRequest
@@ -580,7 +580,7 @@ Limitations:
      * @param BatchDetectLanguagePiiEntitiesRequest
      * @return BatchDetectLanguagePiiEntitiesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguagePiiEntities.ts.html |here} to see how to use BatchDetectLanguagePiiEntities API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguagePiiEntities.ts.html |here} to see how to use BatchDetectLanguagePiiEntities API.
      */
   public async batchDetectLanguagePiiEntities(
     batchDetectLanguagePiiEntitiesRequest: requests.BatchDetectLanguagePiiEntitiesRequest
@@ -658,7 +658,7 @@ For aspect-based sentiment analysis, a set of aspects and their respective senti
 * <p>
 For sentiment analysis, confidence scores are provided for each of the classes (positive, negative, neutral and mixed).
 * <p>
-Learn more about sentiment analysis [here](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#sentiment).
+Learn more about sentiment analysis [here](https://docs.oracle.com/iaas/language/using/pretrain-models.htm#sentiment).
 * <p>
 Limitations:
 *  - A batch may have up to 100 records.
@@ -669,7 +669,7 @@ Limitations:
      * @param BatchDetectLanguageSentimentsRequest
      * @return BatchDetectLanguageSentimentsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageSentiments.ts.html |here} to see how to use BatchDetectLanguageSentiments API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageSentiments.ts.html |here} to see how to use BatchDetectLanguageSentiments API.
      */
   public async batchDetectLanguageSentiments(
     batchDetectLanguageSentimentsRequest: requests.BatchDetectLanguageSentimentsRequest
@@ -745,7 +745,7 @@ Limitations:
 * <p>
 It supports passing a batch of records.
 * <p>
-Learn more about text classification [here](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#text-class).
+Learn more about text classification [here](https://docs.oracle.com/iaas/language/using/pretrain-models.htm#text-class).
 * <p>
 Limitations:
 * - A batch may have up to 100 records.
@@ -756,7 +756,7 @@ Limitations:
      * @param BatchDetectLanguageTextClassificationRequest
      * @return BatchDetectLanguageTextClassificationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageTextClassification.ts.html |here} to see how to use BatchDetectLanguageTextClassification API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguageTextClassification.ts.html |here} to see how to use BatchDetectLanguageTextClassification API.
      */
   public async batchDetectLanguageTextClassification(
     batchDetectLanguageTextClassificationRequest: requests.BatchDetectLanguageTextClassificationRequest
@@ -838,7 +838,7 @@ Limitations:
    * @param BatchLanguageTranslationRequest
    * @return BatchLanguageTranslationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchLanguageTranslation.ts.html |here} to see how to use BatchLanguageTranslation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchLanguageTranslation.ts.html |here} to see how to use BatchLanguageTranslation API.
    */
   public async batchLanguageTranslation(
     batchLanguageTranslationRequest: requests.BatchLanguageTranslationRequest
@@ -913,7 +913,7 @@ Limitations:
    * @param CancelJobRequest
    * @return CancelJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CancelJob.ts.html |here} to see how to use CancelJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CancelJob.ts.html |here} to see how to use CancelJob API.
    */
   public async cancelJob(
     cancelJobRequest: requests.CancelJobRequest
@@ -982,7 +982,7 @@ Limitations:
    * @param ChangeEndpointCompartmentRequest
    * @return ChangeEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ChangeEndpointCompartment.ts.html |here} to see how to use ChangeEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ChangeEndpointCompartment.ts.html |here} to see how to use ChangeEndpointCompartment API.
    */
   public async changeEndpointCompartment(
     changeEndpointCompartmentRequest: requests.ChangeEndpointCompartmentRequest
@@ -1057,7 +1057,7 @@ Limitations:
    * @param ChangeJobCompartmentRequest
    * @return ChangeJobCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ChangeJobCompartment.ts.html |here} to see how to use ChangeJobCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ChangeJobCompartment.ts.html |here} to see how to use ChangeJobCompartment API.
    */
   public async changeJobCompartment(
     changeJobCompartmentRequest: requests.ChangeJobCompartmentRequest
@@ -1132,7 +1132,7 @@ Limitations:
    * @param ChangeModelCompartmentRequest
    * @return ChangeModelCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ChangeModelCompartment.ts.html |here} to see how to use ChangeModelCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ChangeModelCompartment.ts.html |here} to see how to use ChangeModelCompartment API.
    */
   public async changeModelCompartment(
     changeModelCompartmentRequest: requests.ChangeModelCompartmentRequest
@@ -1207,7 +1207,7 @@ Limitations:
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ChangeProjectCompartment.ts.html |here} to see how to use ChangeProjectCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ChangeProjectCompartment.ts.html |here} to see how to use ChangeProjectCompartment API.
    */
   public async changeProjectCompartment(
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
@@ -1283,7 +1283,7 @@ Limitations:
    * @param CreateEndpointRequest
    * @return CreateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CreateEndpoint.ts.html |here} to see how to use CreateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CreateEndpoint.ts.html |here} to see how to use CreateEndpoint API.
    */
   public async createEndpoint(
     createEndpointRequest: requests.CreateEndpointRequest
@@ -1374,7 +1374,7 @@ Limitations:
    * @param CreateJobRequest
    * @return CreateJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CreateJob.ts.html |here} to see how to use CreateJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CreateJob.ts.html |here} to see how to use CreateJob API.
    */
   public async createJob(
     createJobRequest: requests.CreateJobRequest
@@ -1460,7 +1460,7 @@ Limitations:
    * @param CreateModelRequest
    * @return CreateModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CreateModel.ts.html |here} to see how to use CreateModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CreateModel.ts.html |here} to see how to use CreateModel API.
    */
   public async createModel(
     createModelRequest: requests.CreateModelRequest
@@ -1551,7 +1551,7 @@ Limitations:
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CreateProject.ts.html |here} to see how to use CreateProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/CreateProject.ts.html |here} to see how to use CreateProject API.
    */
   public async createProject(
     createProjectRequest: requests.CreateProjectRequest
@@ -1636,7 +1636,7 @@ Limitations:
    * @param DeleteEndpointRequest
    * @return DeleteEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteEndpoint.ts.html |here} to see how to use DeleteEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteEndpoint.ts.html |here} to see how to use DeleteEndpoint API.
    */
   public async deleteEndpoint(
     deleteEndpointRequest: requests.DeleteEndpointRequest
@@ -1709,7 +1709,7 @@ Limitations:
    * @param DeleteJobRequest
    * @return DeleteJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteJob.ts.html |here} to see how to use DeleteJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteJob.ts.html |here} to see how to use DeleteJob API.
    */
   public async deleteJob(
     deleteJobRequest: requests.DeleteJobRequest
@@ -1782,7 +1782,7 @@ Limitations:
    * @param DeleteModelRequest
    * @return DeleteModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteModel.ts.html |here} to see how to use DeleteModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteModel.ts.html |here} to see how to use DeleteModel API.
    */
   public async deleteModel(
     deleteModelRequest: requests.DeleteModelRequest
@@ -1855,7 +1855,7 @@ Limitations:
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteProject.ts.html |here} to see how to use DeleteProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DeleteProject.ts.html |here} to see how to use DeleteProject API.
    */
   public async deleteProject(
     deleteProjectRequest: requests.DeleteProjectRequest
@@ -1924,11 +1924,11 @@ Limitations:
 
   /**
      * **Deprecated**: This API will be retired Tuesday, 10 Oct 2023 00:00:00 GMT.
-* We recommend you replace this API with the batch API, [BatchDetectDominantLanguage](https://docs.cloud.oracle.com/iaas/api/#/en/language/20221001/BatchDetectDominantLanguage/BatchDetectDominantLanguage).
+* We recommend you replace this API with the batch API, [BatchDetectDominantLanguage](https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectDominantLanguage/BatchDetectDominantLanguage).
 * <p>
 The DetectDominantLanguage API returns the detected language and a related confidence score (between 0 and 1).
 * <p>
-[List of supported languages](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#lang-detect)
+[List of supported languages](https://docs.oracle.com/iaas/language/using/pretrain-models.htm#lang-detect)
 * <p>
 Limitations:
 * - A record may be up to 1000 characters long.
@@ -1937,7 +1937,7 @@ Limitations:
      * @param DetectDominantLanguageRequest
      * @return DetectDominantLanguageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectDominantLanguage.ts.html |here} to see how to use DetectDominantLanguage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectDominantLanguage.ts.html |here} to see how to use DetectDominantLanguage API.
      */
   public async detectDominantLanguage(
     detectDominantLanguageRequest: requests.DetectDominantLanguageRequest
@@ -2013,7 +2013,7 @@ Limitations:
 
   /**
      * **Deprecated**: This API will be retired Tuesday, 10 Oct 2023 00:00:00 GMT.
-* We recommend you replace this API with the batch API, [BatchDetectLanguageEntities](https://docs.cloud.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageEntities/BatchDetectLanguageEntities).
+* We recommend you replace this API with the batch API, [BatchDetectLanguageEntities](https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageEntities/BatchDetectLanguageEntities).
 * <p>
 The DetectLanguageEntities API extracts entities in text records. For each entity, its type and confidence score (between 0 and 1) is returned.
 * <p>
@@ -2024,7 +2024,7 @@ Limitations:
      * @param DetectLanguageEntitiesRequest
      * @return DetectLanguageEntitiesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectLanguageEntities.ts.html |here} to see how to use DetectLanguageEntities API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectLanguageEntities.ts.html |here} to see how to use DetectLanguageEntities API.
      */
   public async detectLanguageEntities(
     detectLanguageEntitiesRequest: requests.DetectLanguageEntitiesRequest
@@ -2103,7 +2103,7 @@ Limitations:
 
   /**
      * **Deprecated**: This API will be retired Tuesday, 10 Oct 2023 00:00:00 GMT.
-*         We recommend you replace this API with the batch API, [BatchDetectLanguageKeyPhrases](https://docs.cloud.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageKeyPhrases/BatchDetectLanguageKeyPhrases).
+*         We recommend you replace this API with the batch API, [BatchDetectLanguageKeyPhrases](https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageKeyPhrases/BatchDetectLanguageKeyPhrases).
 * <p>
         The DetectLanguageKeyPhrases API extracts key-phrases in text records. For each key-phrase, a score (between 0 and 1) is returned that highlights the importance of the key-phrase in the context of the text.
 * Limitations:
@@ -2113,7 +2113,7 @@ Limitations:
      * @param DetectLanguageKeyPhrasesRequest
      * @return DetectLanguageKeyPhrasesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectLanguageKeyPhrases.ts.html |here} to see how to use DetectLanguageKeyPhrases API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectLanguageKeyPhrases.ts.html |here} to see how to use DetectLanguageKeyPhrases API.
      */
   public async detectLanguageKeyPhrases(
     detectLanguageKeyPhrasesRequest: requests.DetectLanguageKeyPhrasesRequest
@@ -2189,7 +2189,7 @@ Limitations:
 
   /**
      * **Deprecated**: This API will be retired Tuesday, 10 Oct 2023 00:00:00 GMT.
-* We recommend you replace this API with the batch API, [BatchDetectLanguageSentiments](https://docs.cloud.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageSentiments/BatchDetectLanguageSentiments).
+* We recommend you replace this API with the batch API, [BatchDetectLanguageSentiments](https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageSentiments/BatchDetectLanguageSentiments).
 * <p>
 The DetectLanguageSentiments API extracts aspect-based in text records.
 * <p>
@@ -2197,7 +2197,7 @@ For aspect-based sentiment analysis, a set of aspects and their respective senti
 * <p>
 For sentiment analysis, confidence scores are provided for each of the classes (positive, negative, neutral).
 * <p>
-Learn more about sentiment analysis [here](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#sentiment).
+Learn more about sentiment analysis [here](https://docs.oracle.com/iaas/language/using/pretrain-models.htm#sentiment).
 * <p>
 Limitations:
 *  - A record may be up to 1000 characters long.
@@ -2206,7 +2206,7 @@ Limitations:
      * @param DetectLanguageSentimentsRequest
      * @return DetectLanguageSentimentsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectLanguageSentiments.ts.html |here} to see how to use DetectLanguageSentiments API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectLanguageSentiments.ts.html |here} to see how to use DetectLanguageSentiments API.
      */
   public async detectLanguageSentiments(
     detectLanguageSentimentsRequest: requests.DetectLanguageSentimentsRequest
@@ -2282,11 +2282,11 @@ Limitations:
 
   /**
      * **Deprecated**: This API will be retired Tuesday, 10 Oct 2023 00:00:00 GMT.
-* We recommend you replace this API with the batch API, [BatchDetectLanguageTextClassification](https://docs.cloud.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageTextClassification/BatchDetectLanguageTextClassification).
+* We recommend you replace this API with the batch API, [BatchDetectLanguageTextClassification](https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageTextClassification/BatchDetectLanguageTextClassification).
 * <p>
 The DetectLanguageTextClassification API automatically classifies text into a set of pre-determined classes and sub-classes. A single class/subclass is returned for each record classified.
 * <p>
-Learn more about text classification [here](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#text-class).
+Learn more about text classification [here](https://docs.oracle.com/iaas/language/using/pretrain-models.htm#text-class).
 * <p>
 Limitations:
 * - A record may be up to 1000 characters long.
@@ -2295,7 +2295,7 @@ Limitations:
      * @param DetectLanguageTextClassificationRequest
      * @return DetectLanguageTextClassificationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectLanguageTextClassification.ts.html |here} to see how to use DetectLanguageTextClassification API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectLanguageTextClassification.ts.html |here} to see how to use DetectLanguageTextClassification API.
      */
   public async detectLanguageTextClassification(
     detectLanguageTextClassificationRequest: requests.DetectLanguageTextClassificationRequest
@@ -2377,7 +2377,7 @@ Limitations:
    * @param GetEndpointRequest
    * @return GetEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetEndpoint.ts.html |here} to see how to use GetEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetEndpoint.ts.html |here} to see how to use GetEndpoint API.
    */
   public async getEndpoint(
     getEndpointRequest: requests.GetEndpointRequest
@@ -2453,7 +2453,7 @@ Limitations:
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetJob.ts.html |here} to see how to use GetJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetJob.ts.html |here} to see how to use GetJob API.
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceLanguageClient#getJob.");
@@ -2526,7 +2526,7 @@ Limitations:
    * @param GetModelRequest
    * @return GetModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetModel.ts.html |here} to see how to use GetModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetModel.ts.html |here} to see how to use GetModel API.
    */
   public async getModel(
     getModelRequest: requests.GetModelRequest
@@ -2602,7 +2602,7 @@ Limitations:
    * @param GetModelTypeRequest
    * @return GetModelTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetModelType.ts.html |here} to see how to use GetModelType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetModelType.ts.html |here} to see how to use GetModelType API.
    */
   public async getModelType(
     getModelTypeRequest: requests.GetModelTypeRequest
@@ -2673,7 +2673,7 @@ Limitations:
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetProject.ts.html |here} to see how to use GetProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetProject.ts.html |here} to see how to use GetProject API.
    */
   public async getProject(
     getProjectRequest: requests.GetProjectRequest
@@ -2749,7 +2749,7 @@ Limitations:
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2826,7 +2826,7 @@ Limitations:
    * @param ListEndpointsRequest
    * @return ListEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListEndpoints.ts.html |here} to see how to use ListEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListEndpoints.ts.html |here} to see how to use ListEndpoints API.
    */
   public async listEndpoints(
     listEndpointsRequest: requests.ListEndpointsRequest
@@ -2911,7 +2911,7 @@ Limitations:
    * @param ListEvaluationResultsRequest
    * @return ListEvaluationResultsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListEvaluationResults.ts.html |here} to see how to use ListEvaluationResults API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListEvaluationResults.ts.html |here} to see how to use ListEvaluationResults API.
    */
   public async listEvaluationResults(
     listEvaluationResultsRequest: requests.ListEvaluationResultsRequest
@@ -2992,7 +2992,7 @@ Limitations:
    * @param ListJobsRequest
    * @return ListJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListJobs.ts.html |here} to see how to use ListJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListJobs.ts.html |here} to see how to use ListJobs API.
    */
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
@@ -3075,7 +3075,7 @@ Limitations:
    * @param ListModelsRequest
    * @return ListModelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListModels.ts.html |here} to see how to use ListModels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListModels.ts.html |here} to see how to use ListModels API.
    */
   public async listModels(
     listModelsRequest: requests.ListModelsRequest
@@ -3160,7 +3160,7 @@ Limitations:
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListProjects.ts.html |here} to see how to use ListProjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListProjects.ts.html |here} to see how to use ListProjects API.
    */
   public async listProjects(
     listProjectsRequest: requests.ListProjectsRequest
@@ -3244,7 +3244,7 @@ Limitations:
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -3327,7 +3327,7 @@ Limitations:
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -3410,7 +3410,7 @@ Limitations:
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -3493,7 +3493,7 @@ Limitations:
    * @param UpdateEndpointRequest
    * @return UpdateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateEndpoint.ts.html |here} to see how to use UpdateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateEndpoint.ts.html |here} to see how to use UpdateEndpoint API.
    */
   public async updateEndpoint(
     updateEndpointRequest: requests.UpdateEndpointRequest
@@ -3571,7 +3571,7 @@ Limitations:
    * @param UpdateJobRequest
    * @return UpdateJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateJob.ts.html |here} to see how to use UpdateJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateJob.ts.html |here} to see how to use UpdateJob API.
    */
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
@@ -3653,7 +3653,7 @@ Limitations:
    * @param UpdateModelRequest
    * @return UpdateModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateModel.ts.html |here} to see how to use UpdateModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateModel.ts.html |here} to see how to use UpdateModel API.
    */
   public async updateModel(
     updateModelRequest: requests.UpdateModelRequest
@@ -3731,7 +3731,7 @@ Limitations:
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateProject.ts.html |here} to see how to use UpdateProject API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/UpdateProject.ts.html |here} to see how to use UpdateProject API.
    */
   public async updateProject(
     updateProjectRequest: requests.UpdateProjectRequest

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWebAppFirewallPolicies.ts.html |here} to see how to use ListWebAppFirewallPoliciesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWebAppFirewallPolicies.ts.html |here} to see how to use ListWebAppFirewallPoliciesRequest.
  */
 export interface ListWebAppFirewallPoliciesRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -31,7 +31,7 @@ export interface ListWebAppFirewallPoliciesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * A filter to return only the WebAppFirewallPolicy with the given [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * A filter to return only the WebAppFirewallPolicy with the given [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "id"?: string;
   /**

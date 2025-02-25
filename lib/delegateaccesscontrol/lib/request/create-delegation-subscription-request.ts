@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/CreateDelegationSubscription.ts.html |here} to see how to use CreateDelegationSubscriptionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/delegateaccesscontrol/CreateDelegationSubscription.ts.html |here} to see how to use CreateDelegationSubscriptionRequest.
  */
 export interface CreateDelegationSubscriptionRequest extends common.BaseRequest {
   /**

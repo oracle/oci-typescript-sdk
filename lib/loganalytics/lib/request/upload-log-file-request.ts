@@ -16,7 +16,7 @@ import common = require("oci-common");
 import stream = require("stream");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UploadLogFile.ts.html |here} to see how to use UploadLogFileRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UploadLogFile.ts.html |here} to see how to use UploadLogFileRequest.
  */
 export interface UploadLogFileRequest extends common.BaseRequest {
   /**

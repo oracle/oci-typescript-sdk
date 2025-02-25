@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface TestBdsObjectStorageConnectionDetails {
   /**
-   * An Oracle Cloud Infrastructure URI to which this connection must be attempted. See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
+   * An Oracle Cloud Infrastructure URI to which this connection must be attempted. See https://docs.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    */
   "objectStorageUri": string;
   /**

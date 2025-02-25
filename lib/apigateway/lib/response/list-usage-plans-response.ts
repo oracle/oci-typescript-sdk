@@ -26,7 +26,7 @@ export interface ListUsagePlansResponse {
    * For list pagination. When this header appears in the response,
    * additional pages of results remain. For important details about how
    * pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcNextPage": string;
@@ -34,7 +34,7 @@ export interface ListUsagePlansResponse {
    * For list pagination. When this header appears in the response,
    * additional pages of results were seen previously. For important details
    * about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcPrevPage": string;

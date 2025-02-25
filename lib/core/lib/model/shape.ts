@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -23,8 +23,8 @@ import common = require("oci-common");
 
 /**
  * A compute instance shape that can be used in {@link #launchInstance(LaunchInstanceRequest) launchInstance}.
- * For more information, see [Overview of the Compute Service](https://docs.cloud.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm) and
- * [Compute Shapes](https://docs.cloud.oracle.com/iaas/Content/Compute/References/computeshapes.htm).
+ * For more information, see [Overview of the Compute Service](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm) and
+ * [Compute Shapes](https://docs.oracle.com/iaas/Content/Compute/References/computeshapes.htm).
  *
  */
 export interface Shape {
@@ -145,21 +145,21 @@ If the shape does not have any local disks, this field is {@code null}.
    */
   "quotaNames"?: Array<string>;
   /**
-   * Whether the shape supports creating subcore or burstable instances. A [burstable instance](https://docs.cloud.oracle.com/iaas/Content/Compute/References/burstable-instances.htm)
+   * Whether the shape supports creating subcore or burstable instances. A [burstable instance](https://docs.oracle.com/iaas/Content/Compute/References/burstable-instances.htm)
    * is a virtual machine (VM) instance that provides a baseline level of CPU performance with the ability to burst to a higher level to support occasional
    * spikes in usage.
    *
    */
   "isSubcore"?: boolean;
   /**
-   * Whether the shape supports creating flexible instances. A [flexible shape](https://docs.cloud.oracle.com/iaas/Content/Compute/References/computeshapes.htm#flexible)
+   * Whether the shape supports creating flexible instances. A [flexible shape](https://docs.oracle.com/iaas/Content/Compute/References/computeshapes.htm#flexible)
    * is a shape that lets you customize the number of OCPUs and the amount of memory when launching or resizing your instance.
    *
    */
   "isFlexible"?: boolean;
   /**
    * The list of compatible shapes that this shape can be changed to. For more information,
-   * see [Changing the Shape of an Instance](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/resizinginstances.htm).
+   * see [Changing the Shape of an Instance](https://docs.oracle.com/iaas/Content/Compute/Tasks/resizinginstances.htm).
    *
    */
   "resizeCompatibleShapes"?: Array<string>;

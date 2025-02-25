@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface Pipeline {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the pipeline.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the pipeline.
    */
   "id": string;
   /**
@@ -36,15 +36,15 @@ export interface Pipeline {
    */
   "timeUpdated"?: Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the user who created the pipeline.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the user who created the pipeline.
    */
   "createdBy": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project to associate the pipeline with.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project to associate the pipeline with.
    */
   "projectId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the pipeline.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the pipeline.
    */
   "compartmentId": string;
   /**
@@ -59,6 +59,10 @@ export interface Pipeline {
   "logConfigurationDetails"?: model.PipelineLogConfigurationDetails;
   "infrastructureConfigurationDetails"?: model.PipelineInfrastructureConfigurationDetails;
   /**
+   * The storage mount details to mount to the instance running the pipeline step.
+   */
+  "storageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  /**
    * Array of step details for each step.
    */
   "stepDetails": Array<model.PipelineStepDetails>;
@@ -71,13 +75,13 @@ export interface Pipeline {
    */
   "lifecycleDetails"?: string;
   /**
-   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace. See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -106,6 +110,11 @@ export namespace Pipeline {
               obj.infrastructureConfigurationDetails
             )
           : undefined,
+        "storageMountConfigurationDetailsList": obj.storageMountConfigurationDetailsList
+          ? obj.storageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
+          : undefined,
         "stepDetails": obj.stepDetails
           ? obj.stepDetails.map(item => {
               return model.PipelineStepDetails.getJsonObj(item);
@@ -132,6 +141,11 @@ export namespace Pipeline {
           ? model.PipelineInfrastructureConfigurationDetails.getDeserializedJsonObj(
               obj.infrastructureConfigurationDetails
             )
+          : undefined,
+        "storageMountConfigurationDetailsList": obj.storageMountConfigurationDetailsList
+          ? obj.storageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined,
         "stepDetails": obj.stepDetails
           ? obj.stepDetails.map(item => {

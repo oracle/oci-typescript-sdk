@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateSoftwareSource.ts.html |here} to see how to use UpdateSoftwareSourceRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/UpdateSoftwareSource.ts.html |here} to see how to use UpdateSoftwareSourceRequest.
  */
 export interface UpdateSoftwareSourceRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the software source.
    */
   "softwareSourceId": string;
   /**
@@ -27,8 +27,10 @@ export interface UpdateSoftwareSourceRequest extends common.BaseRequest {
    */
   "updateSoftwareSourceDetails":
     | model.UpdateCustomSoftwareSourceDetails
+    | model.UpdatePrivateSoftwareSourceDetails
     | model.UpdateVersionedCustomSoftwareSourceDetails
-    | model.UpdateVendorSoftwareSourceDetails;
+    | model.UpdateVendorSoftwareSourceDetails
+    | model.UpdateThirdPartySoftwareSourceDetails;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */

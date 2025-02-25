@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseSubscription.ts.html |here} to see how to use ChangeAutonomousDatabaseSubscriptionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAutonomousDatabaseSubscription.ts.html |here} to see how to use ChangeAutonomousDatabaseSubscriptionRequest.
  */
 export interface ChangeAutonomousDatabaseSubscriptionRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ChangeAutonomousDatabaseSubscriptionRequest extends common.Base
    */
   "changeAutonomousDatabaseSubscriptionDetails": model.ChangeAutonomousDatabaseSubscriptionDetails;
   /**
-   * The database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousDatabaseId": string;
   /**

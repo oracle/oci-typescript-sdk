@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetPrimaryDbInstance.ts.html |here} to see how to use GetPrimaryDbInstanceRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetPrimaryDbInstance.ts.html |here} to see how to use GetPrimaryDbInstanceRequest.
  */
 export interface GetPrimaryDbInstanceRequest extends common.BaseRequest {
   /**

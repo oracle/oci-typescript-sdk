@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsObjectCollectionRule.ts.html |here} to see how to use GetLogAnalyticsObjectCollectionRuleRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetLogAnalyticsObjectCollectionRule.ts.html |here} to see how to use GetLogAnalyticsObjectCollectionRuleRequest.
  */
 export interface GetLogAnalyticsObjectCollectionRuleRequest extends common.BaseRequest {
   /**
@@ -24,7 +24,7 @@ export interface GetLogAnalyticsObjectCollectionRuleRequest extends common.BaseR
    */
   "namespaceName": string;
   /**
-   * The Logging Analytics Object Collection Rule [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The Logging Analytics Object Collection Rule [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "logAnalyticsObjectCollectionRuleId": string;
   /**

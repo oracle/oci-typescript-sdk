@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveDeploymentLock.ts.html |here} to see how to use RemoveDeploymentLockRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveDeploymentLock.ts.html |here} to see how to use RemoveDeploymentLockRequest.
  */
 export interface RemoveDeploymentLockRequest extends common.BaseRequest {
   /**

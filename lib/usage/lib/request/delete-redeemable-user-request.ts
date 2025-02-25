@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/DeleteRedeemableUser.ts.html |here} to see how to use DeleteRedeemableUserRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/DeleteRedeemableUser.ts.html |here} to see how to use DeleteRedeemableUserRequest.
  */
 export interface DeleteRedeemableUserRequest extends common.BaseRequest {
   /**

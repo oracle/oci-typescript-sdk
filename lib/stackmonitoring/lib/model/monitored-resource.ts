@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface MonitoredResource {
   /**
-   * Monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Monitored resource identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "id": string;
@@ -40,12 +40,12 @@ export interface MonitoredResource {
    */
   "type": string;
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Compartment Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId": string;
   /**
-   * Tenancy Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Tenancy Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "tenantId": string;
@@ -54,7 +54,7 @@ export interface MonitoredResource {
    */
   "hostName"?: string;
   /**
-   * The external resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The external resource identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * External resource is any OCI resource which is not a Stack Monitoring service resource.
    * Currently supports only following resource types - Container database, non-container database,
    * pluggable database and OCI compute instance.
@@ -62,7 +62,7 @@ export interface MonitoredResource {
    */
   "externalId"?: string;
   /**
-   * Management Agent Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Management Agent Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "managementAgentId"?: string;
   /**

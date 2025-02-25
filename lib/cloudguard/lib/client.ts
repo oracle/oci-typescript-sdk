@@ -1,6 +1,6 @@
 /**
  * Cloud Guard and Security Zones API
- * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
+ * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](https://docs.oracle.com/iaas/cloud-guard/home.htm) and [Security Zones](https://docs.oracle.com/iaas/security-zone/home.htm) documentation.
 
 **Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
 
@@ -251,7 +251,7 @@ export class CloudGuardClient {
    * @param AddCompartmentRequest
    * @return AddCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/AddCompartment.ts.html |here} to see how to use AddCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/AddCompartment.ts.html |here} to see how to use AddCompartment API.
    */
   public async addCompartment(
     addCompartmentRequest: requests.AddCompartmentRequest
@@ -334,7 +334,7 @@ export class CloudGuardClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -405,7 +405,7 @@ export class CloudGuardClient {
    * @param ChangeDataSourceCompartmentRequest
    * @return ChangeDataSourceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeDataSourceCompartment.ts.html |here} to see how to use ChangeDataSourceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeDataSourceCompartment.ts.html |here} to see how to use ChangeDataSourceCompartment API.
    */
   public async changeDataSourceCompartment(
     changeDataSourceCompartmentRequest: requests.ChangeDataSourceCompartmentRequest
@@ -489,7 +489,7 @@ export class CloudGuardClient {
    * @param ChangeDetectorRecipeCompartmentRequest
    * @return ChangeDetectorRecipeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeDetectorRecipeCompartment.ts.html |here} to see how to use ChangeDetectorRecipeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeDetectorRecipeCompartment.ts.html |here} to see how to use ChangeDetectorRecipeCompartment API.
    */
   public async changeDetectorRecipeCompartment(
     changeDetectorRecipeCompartmentRequest: requests.ChangeDetectorRecipeCompartmentRequest
@@ -564,7 +564,7 @@ export class CloudGuardClient {
    * @param ChangeManagedListCompartmentRequest
    * @return ChangeManagedListCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeManagedListCompartment.ts.html |here} to see how to use ChangeManagedListCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeManagedListCompartment.ts.html |here} to see how to use ChangeManagedListCompartment API.
    */
   public async changeManagedListCompartment(
     changeManagedListCompartmentRequest: requests.ChangeManagedListCompartmentRequest
@@ -642,7 +642,7 @@ export class CloudGuardClient {
    * @param ChangeResponderRecipeCompartmentRequest
    * @return ChangeResponderRecipeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeResponderRecipeCompartment.ts.html |here} to see how to use ChangeResponderRecipeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeResponderRecipeCompartment.ts.html |here} to see how to use ChangeResponderRecipeCompartment API.
    */
   public async changeResponderRecipeCompartment(
     changeResponderRecipeCompartmentRequest: requests.ChangeResponderRecipeCompartmentRequest
@@ -717,7 +717,7 @@ export class CloudGuardClient {
    * @param ChangeSavedQueryCompartmentRequest
    * @return ChangeSavedQueryCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSavedQueryCompartment.ts.html |here} to see how to use ChangeSavedQueryCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSavedQueryCompartment.ts.html |here} to see how to use ChangeSavedQueryCompartment API.
    */
   public async changeSavedQueryCompartment(
     changeSavedQueryCompartmentRequest: requests.ChangeSavedQueryCompartmentRequest
@@ -795,7 +795,7 @@ export class CloudGuardClient {
    * @param ChangeSecurityRecipeCompartmentRequest
    * @return ChangeSecurityRecipeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSecurityRecipeCompartment.ts.html |here} to see how to use ChangeSecurityRecipeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSecurityRecipeCompartment.ts.html |here} to see how to use ChangeSecurityRecipeCompartment API.
    */
   public async changeSecurityRecipeCompartment(
     changeSecurityRecipeCompartmentRequest: requests.ChangeSecurityRecipeCompartmentRequest
@@ -873,7 +873,7 @@ export class CloudGuardClient {
    * @param ChangeSecurityZoneCompartmentRequest
    * @return ChangeSecurityZoneCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSecurityZoneCompartment.ts.html |here} to see how to use ChangeSecurityZoneCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeSecurityZoneCompartment.ts.html |here} to see how to use ChangeSecurityZoneCompartment API.
    */
   public async changeSecurityZoneCompartment(
     changeSecurityZoneCompartmentRequest: requests.ChangeSecurityZoneCompartmentRequest
@@ -949,7 +949,7 @@ export class CloudGuardClient {
    * @param CreateAdhocQueryRequest
    * @return CreateAdhocQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateAdhocQuery.ts.html |here} to see how to use CreateAdhocQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateAdhocQuery.ts.html |here} to see how to use CreateAdhocQuery API.
    */
   public async createAdhocQuery(
     createAdhocQueryRequest: requests.CreateAdhocQueryRequest
@@ -1030,7 +1030,7 @@ export class CloudGuardClient {
    * @param CreateDataMaskRuleRequest
    * @return CreateDataMaskRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDataMaskRule.ts.html |here} to see how to use CreateDataMaskRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDataMaskRule.ts.html |here} to see how to use CreateDataMaskRule API.
    */
   public async createDataMaskRule(
     createDataMaskRuleRequest: requests.CreateDataMaskRuleRequest
@@ -1112,7 +1112,7 @@ export class CloudGuardClient {
    * @param CreateDataSourceRequest
    * @return CreateDataSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDataSource.ts.html |here} to see how to use CreateDataSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDataSource.ts.html |here} to see how to use CreateDataSource API.
    */
   public async createDataSource(
     createDataSourceRequest: requests.CreateDataSourceRequest
@@ -1189,7 +1189,7 @@ export class CloudGuardClient {
    * @param CreateDetectorRecipeRequest
    * @return CreateDetectorRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDetectorRecipe.ts.html |here} to see how to use CreateDetectorRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDetectorRecipe.ts.html |here} to see how to use CreateDetectorRecipe API.
    */
   public async createDetectorRecipe(
     createDetectorRecipeRequest: requests.CreateDetectorRecipeRequest
@@ -1269,7 +1269,7 @@ export class CloudGuardClient {
    * @param CreateDetectorRecipeDetectorRuleRequest
    * @return CreateDetectorRecipeDetectorRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDetectorRecipeDetectorRule.ts.html |here} to see how to use CreateDetectorRecipeDetectorRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDetectorRecipeDetectorRule.ts.html |here} to see how to use CreateDetectorRecipeDetectorRule API.
    */
   public async createDetectorRecipeDetectorRule(
     createDetectorRecipeDetectorRuleRequest: requests.CreateDetectorRecipeDetectorRuleRequest
@@ -1353,7 +1353,7 @@ export class CloudGuardClient {
    * @param CreateManagedListRequest
    * @return CreateManagedListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateManagedList.ts.html |here} to see how to use CreateManagedList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateManagedList.ts.html |here} to see how to use CreateManagedList API.
    */
   public async createManagedList(
     createManagedListRequest: requests.CreateManagedListRequest
@@ -1435,7 +1435,7 @@ export class CloudGuardClient {
    * @param CreateResponderRecipeRequest
    * @return CreateResponderRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateResponderRecipe.ts.html |here} to see how to use CreateResponderRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateResponderRecipe.ts.html |here} to see how to use CreateResponderRecipe API.
    */
   public async createResponderRecipe(
     createResponderRecipeRequest: requests.CreateResponderRecipeRequest
@@ -1516,7 +1516,7 @@ export class CloudGuardClient {
    * @param CreateSavedQueryRequest
    * @return CreateSavedQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateSavedQuery.ts.html |here} to see how to use CreateSavedQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateSavedQuery.ts.html |here} to see how to use CreateSavedQuery API.
    */
   public async createSavedQuery(
     createSavedQueryRequest: requests.CreateSavedQueryRequest
@@ -1598,7 +1598,7 @@ export class CloudGuardClient {
    * @param CreateSecurityRecipeRequest
    * @return CreateSecurityRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateSecurityRecipe.ts.html |here} to see how to use CreateSecurityRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateSecurityRecipe.ts.html |here} to see how to use CreateSecurityRecipe API.
    */
   public async createSecurityRecipe(
     createSecurityRecipeRequest: requests.CreateSecurityRecipeRequest
@@ -1680,7 +1680,7 @@ export class CloudGuardClient {
    * @param CreateSecurityZoneRequest
    * @return CreateSecurityZoneResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateSecurityZone.ts.html |here} to see how to use CreateSecurityZone API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateSecurityZone.ts.html |here} to see how to use CreateSecurityZone API.
    */
   public async createSecurityZone(
     createSecurityZoneRequest: requests.CreateSecurityZoneRequest
@@ -1761,7 +1761,7 @@ export class CloudGuardClient {
    * @param CreateTargetRequest
    * @return CreateTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateTarget.ts.html |here} to see how to use CreateTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateTarget.ts.html |here} to see how to use CreateTarget API.
    */
   public async createTarget(
     createTargetRequest: requests.CreateTargetRequest
@@ -1844,7 +1844,7 @@ export class CloudGuardClient {
    * @param CreateTargetDetectorRecipeRequest
    * @return CreateTargetDetectorRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateTargetDetectorRecipe.ts.html |here} to see how to use CreateTargetDetectorRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateTargetDetectorRecipe.ts.html |here} to see how to use CreateTargetDetectorRecipe API.
    */
   public async createTargetDetectorRecipe(
     createTargetDetectorRecipeRequest: requests.CreateTargetDetectorRecipeRequest
@@ -1928,7 +1928,7 @@ export class CloudGuardClient {
    * @param CreateTargetResponderRecipeRequest
    * @return CreateTargetResponderRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateTargetResponderRecipe.ts.html |here} to see how to use CreateTargetResponderRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateTargetResponderRecipe.ts.html |here} to see how to use CreateTargetResponderRecipe API.
    */
   public async createTargetResponderRecipe(
     createTargetResponderRecipeRequest: requests.CreateTargetResponderRecipeRequest
@@ -2013,7 +2013,7 @@ export class CloudGuardClient {
    * @param CreateWlpAgentRequest
    * @return CreateWlpAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateWlpAgent.ts.html |here} to see how to use CreateWlpAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateWlpAgent.ts.html |here} to see how to use CreateWlpAgent API.
    */
   public async createWlpAgent(
     createWlpAgentRequest: requests.CreateWlpAgentRequest
@@ -2093,7 +2093,7 @@ export class CloudGuardClient {
    * @param DeleteAdhocQueryRequest
    * @return DeleteAdhocQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteAdhocQuery.ts.html |here} to see how to use DeleteAdhocQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteAdhocQuery.ts.html |here} to see how to use DeleteAdhocQuery API.
    */
   public async deleteAdhocQuery(
     deleteAdhocQueryRequest: requests.DeleteAdhocQueryRequest
@@ -2162,7 +2162,7 @@ export class CloudGuardClient {
    * @param DeleteDataMaskRuleRequest
    * @return DeleteDataMaskRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDataMaskRule.ts.html |here} to see how to use DeleteDataMaskRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDataMaskRule.ts.html |here} to see how to use DeleteDataMaskRule API.
    */
   public async deleteDataMaskRule(
     deleteDataMaskRuleRequest: requests.DeleteDataMaskRuleRequest
@@ -2230,7 +2230,7 @@ export class CloudGuardClient {
    * @param DeleteDataSourceRequest
    * @return DeleteDataSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDataSource.ts.html |here} to see how to use DeleteDataSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDataSource.ts.html |here} to see how to use DeleteDataSource API.
    */
   public async deleteDataSource(
     deleteDataSourceRequest: requests.DeleteDataSourceRequest
@@ -2304,7 +2304,7 @@ export class CloudGuardClient {
    * @param DeleteDetectorRecipeRequest
    * @return DeleteDetectorRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDetectorRecipe.ts.html |here} to see how to use DeleteDetectorRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDetectorRecipe.ts.html |here} to see how to use DeleteDetectorRecipe API.
    */
   public async deleteDetectorRecipe(
     deleteDetectorRecipeRequest: requests.DeleteDetectorRecipeRequest
@@ -2373,7 +2373,7 @@ export class CloudGuardClient {
    * @param DeleteDetectorRecipeDetectorRuleRequest
    * @return DeleteDetectorRecipeDetectorRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDetectorRecipeDetectorRule.ts.html |here} to see how to use DeleteDetectorRecipeDetectorRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDetectorRecipeDetectorRule.ts.html |here} to see how to use DeleteDetectorRecipeDetectorRule API.
    */
   public async deleteDetectorRecipeDetectorRule(
     deleteDetectorRecipeDetectorRuleRequest: requests.DeleteDetectorRecipeDetectorRuleRequest
@@ -2443,7 +2443,7 @@ export class CloudGuardClient {
    * @param DeleteDetectorRecipeDetectorRuleDataSourceRequest
    * @return DeleteDetectorRecipeDetectorRuleDataSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDetectorRecipeDetectorRuleDataSource.ts.html |here} to see how to use DeleteDetectorRecipeDetectorRuleDataSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDetectorRecipeDetectorRuleDataSource.ts.html |here} to see how to use DeleteDetectorRecipeDetectorRuleDataSource API.
    */
   public async deleteDetectorRecipeDetectorRuleDataSource(
     deleteDetectorRecipeDetectorRuleDataSourceRequest: requests.DeleteDetectorRecipeDetectorRuleDataSourceRequest
@@ -2517,7 +2517,7 @@ export class CloudGuardClient {
    * @param DeleteManagedListRequest
    * @return DeleteManagedListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteManagedList.ts.html |here} to see how to use DeleteManagedList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteManagedList.ts.html |here} to see how to use DeleteManagedList API.
    */
   public async deleteManagedList(
     deleteManagedListRequest: requests.DeleteManagedListRequest
@@ -2586,7 +2586,7 @@ export class CloudGuardClient {
    * @param DeleteResponderRecipeRequest
    * @return DeleteResponderRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteResponderRecipe.ts.html |here} to see how to use DeleteResponderRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteResponderRecipe.ts.html |here} to see how to use DeleteResponderRecipe API.
    */
   public async deleteResponderRecipe(
     deleteResponderRecipeRequest: requests.DeleteResponderRecipeRequest
@@ -2654,7 +2654,7 @@ export class CloudGuardClient {
    * @param DeleteSavedQueryRequest
    * @return DeleteSavedQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteSavedQuery.ts.html |here} to see how to use DeleteSavedQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteSavedQuery.ts.html |here} to see how to use DeleteSavedQuery API.
    */
   public async deleteSavedQuery(
     deleteSavedQueryRequest: requests.DeleteSavedQueryRequest
@@ -2723,7 +2723,7 @@ export class CloudGuardClient {
    * @param DeleteSecurityRecipeRequest
    * @return DeleteSecurityRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteSecurityRecipe.ts.html |here} to see how to use DeleteSecurityRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteSecurityRecipe.ts.html |here} to see how to use DeleteSecurityRecipe API.
    */
   public async deleteSecurityRecipe(
     deleteSecurityRecipeRequest: requests.DeleteSecurityRecipeRequest
@@ -2791,7 +2791,7 @@ export class CloudGuardClient {
    * @param DeleteSecurityZoneRequest
    * @return DeleteSecurityZoneResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteSecurityZone.ts.html |here} to see how to use DeleteSecurityZone API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteSecurityZone.ts.html |here} to see how to use DeleteSecurityZone API.
    */
   public async deleteSecurityZone(
     deleteSecurityZoneRequest: requests.DeleteSecurityZoneRequest
@@ -2859,7 +2859,7 @@ export class CloudGuardClient {
    * @param DeleteTargetRequest
    * @return DeleteTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteTarget.ts.html |here} to see how to use DeleteTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteTarget.ts.html |here} to see how to use DeleteTarget API.
    */
   public async deleteTarget(
     deleteTargetRequest: requests.DeleteTargetRequest
@@ -2929,7 +2929,7 @@ export class CloudGuardClient {
    * @param DeleteTargetDetectorRecipeRequest
    * @return DeleteTargetDetectorRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteTargetDetectorRecipe.ts.html |here} to see how to use DeleteTargetDetectorRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteTargetDetectorRecipe.ts.html |here} to see how to use DeleteTargetDetectorRecipe API.
    */
   public async deleteTargetDetectorRecipe(
     deleteTargetDetectorRecipeRequest: requests.DeleteTargetDetectorRecipeRequest
@@ -3002,7 +3002,7 @@ export class CloudGuardClient {
    * @param DeleteTargetResponderRecipeRequest
    * @return DeleteTargetResponderRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteTargetResponderRecipe.ts.html |here} to see how to use DeleteTargetResponderRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteTargetResponderRecipe.ts.html |here} to see how to use DeleteTargetResponderRecipe API.
    */
   public async deleteTargetResponderRecipe(
     deleteTargetResponderRecipeRequest: requests.DeleteTargetResponderRecipeRequest
@@ -3105,7 +3105,7 @@ export class CloudGuardClient {
    * @param DeleteWlpAgentRequest
    * @return DeleteWlpAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteWlpAgent.ts.html |here} to see how to use DeleteWlpAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteWlpAgent.ts.html |here} to see how to use DeleteWlpAgent API.
    */
   public async deleteWlpAgent(
     deleteWlpAgentRequest: requests.DeleteWlpAgentRequest
@@ -3176,7 +3176,7 @@ export class CloudGuardClient {
    * @param ExecuteResponderExecutionRequest
    * @return ExecuteResponderExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ExecuteResponderExecution.ts.html |here} to see how to use ExecuteResponderExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ExecuteResponderExecution.ts.html |here} to see how to use ExecuteResponderExecution API.
    */
   public async executeResponderExecution(
     executeResponderExecutionRequest: requests.ExecuteResponderExecutionRequest
@@ -3253,7 +3253,7 @@ export class CloudGuardClient {
    * @param GetAdhocQueryRequest
    * @return GetAdhocQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetAdhocQuery.ts.html |here} to see how to use GetAdhocQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetAdhocQuery.ts.html |here} to see how to use GetAdhocQuery API.
    */
   public async getAdhocQuery(
     getAdhocQueryRequest: requests.GetAdhocQueryRequest
@@ -3329,7 +3329,7 @@ export class CloudGuardClient {
    * @param GetAdhocQueryResultContentRequest
    * @return GetAdhocQueryResultContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetAdhocQueryResultContent.ts.html |here} to see how to use GetAdhocQueryResultContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetAdhocQueryResultContent.ts.html |here} to see how to use GetAdhocQueryResultContent API.
    */
   public async getAdhocQueryResultContent(
     getAdhocQueryResultContentRequest: requests.GetAdhocQueryResultContentRequest
@@ -3407,7 +3407,7 @@ export class CloudGuardClient {
    * @param GetConditionMetadataTypeRequest
    * @return GetConditionMetadataTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetConditionMetadataType.ts.html |here} to see how to use GetConditionMetadataType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetConditionMetadataType.ts.html |here} to see how to use GetConditionMetadataType API.
    */
   public async getConditionMetadataType(
     getConditionMetadataTypeRequest: requests.GetConditionMetadataTypeRequest
@@ -3489,7 +3489,7 @@ export class CloudGuardClient {
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
    */
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
@@ -3570,7 +3570,7 @@ export class CloudGuardClient {
    * @param GetDataMaskRuleRequest
    * @return GetDataMaskRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDataMaskRule.ts.html |here} to see how to use GetDataMaskRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDataMaskRule.ts.html |here} to see how to use GetDataMaskRule API.
    */
   public async getDataMaskRule(
     getDataMaskRuleRequest: requests.GetDataMaskRuleRequest
@@ -3646,7 +3646,7 @@ export class CloudGuardClient {
    * @param GetDataSourceRequest
    * @return GetDataSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDataSource.ts.html |here} to see how to use GetDataSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDataSource.ts.html |here} to see how to use GetDataSource API.
    */
   public async getDataSource(
     getDataSourceRequest: requests.GetDataSourceRequest
@@ -3723,7 +3723,7 @@ export class CloudGuardClient {
    * @param GetDetectorRequest
    * @return GetDetectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDetector.ts.html |here} to see how to use GetDetector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDetector.ts.html |here} to see how to use GetDetector API.
    */
   public async getDetector(
     getDetectorRequest: requests.GetDetectorRequest
@@ -3799,7 +3799,7 @@ export class CloudGuardClient {
    * @param GetDetectorRecipeRequest
    * @return GetDetectorRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDetectorRecipe.ts.html |here} to see how to use GetDetectorRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDetectorRecipe.ts.html |here} to see how to use GetDetectorRecipe API.
    */
   public async getDetectorRecipe(
     getDetectorRecipeRequest: requests.GetDetectorRecipeRequest
@@ -3875,7 +3875,7 @@ export class CloudGuardClient {
    * @param GetDetectorRecipeDetectorRuleRequest
    * @return GetDetectorRecipeDetectorRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDetectorRecipeDetectorRule.ts.html |here} to see how to use GetDetectorRecipeDetectorRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDetectorRecipeDetectorRule.ts.html |here} to see how to use GetDetectorRecipeDetectorRule API.
    */
   public async getDetectorRecipeDetectorRule(
     getDetectorRecipeDetectorRuleRequest: requests.GetDetectorRecipeDetectorRuleRequest
@@ -3954,7 +3954,7 @@ export class CloudGuardClient {
    * @param GetDetectorRuleRequest
    * @return GetDetectorRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDetectorRule.ts.html |here} to see how to use GetDetectorRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDetectorRule.ts.html |here} to see how to use GetDetectorRule API.
    */
   public async getDetectorRule(
     getDetectorRuleRequest: requests.GetDetectorRuleRequest
@@ -4036,7 +4036,7 @@ export class CloudGuardClient {
    * @param GetManagedListRequest
    * @return GetManagedListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetManagedList.ts.html |here} to see how to use GetManagedList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetManagedList.ts.html |here} to see how to use GetManagedList API.
    */
   public async getManagedList(
     getManagedListRequest: requests.GetManagedListRequest
@@ -4112,7 +4112,7 @@ export class CloudGuardClient {
    * @param GetProblemRequest
    * @return GetProblemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetProblem.ts.html |here} to see how to use GetProblem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetProblem.ts.html |here} to see how to use GetProblem API.
    */
   public async getProblem(
     getProblemRequest: requests.GetProblemRequest
@@ -4188,7 +4188,7 @@ export class CloudGuardClient {
    * @param GetResourceRequest
    * @return GetResourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResource.ts.html |here} to see how to use GetResource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResource.ts.html |here} to see how to use GetResource API.
    */
   public async getResource(
     getResourceRequest: requests.GetResourceRequest
@@ -4264,7 +4264,7 @@ export class CloudGuardClient {
    * @param GetResourceProfileRequest
    * @return GetResourceProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResourceProfile.ts.html |here} to see how to use GetResourceProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResourceProfile.ts.html |here} to see how to use GetResourceProfile API.
    */
   public async getResourceProfile(
     getResourceProfileRequest: requests.GetResourceProfileRequest
@@ -4340,7 +4340,7 @@ export class CloudGuardClient {
    * @param GetResourceVulnerabilityRequest
    * @return GetResourceVulnerabilityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResourceVulnerability.ts.html |here} to see how to use GetResourceVulnerability API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResourceVulnerability.ts.html |here} to see how to use GetResourceVulnerability API.
    */
   public async getResourceVulnerability(
     getResourceVulnerabilityRequest: requests.GetResourceVulnerabilityRequest
@@ -4419,7 +4419,7 @@ export class CloudGuardClient {
    * @param GetResponderExecutionRequest
    * @return GetResponderExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResponderExecution.ts.html |here} to see how to use GetResponderExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResponderExecution.ts.html |here} to see how to use GetResponderExecution API.
    */
   public async getResponderExecution(
     getResponderExecutionRequest: requests.GetResponderExecutionRequest
@@ -4495,7 +4495,7 @@ export class CloudGuardClient {
    * @param GetResponderRecipeRequest
    * @return GetResponderRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResponderRecipe.ts.html |here} to see how to use GetResponderRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResponderRecipe.ts.html |here} to see how to use GetResponderRecipe API.
    */
   public async getResponderRecipe(
     getResponderRecipeRequest: requests.GetResponderRecipeRequest
@@ -4571,7 +4571,7 @@ export class CloudGuardClient {
    * @param GetResponderRecipeResponderRuleRequest
    * @return GetResponderRecipeResponderRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResponderRecipeResponderRule.ts.html |here} to see how to use GetResponderRecipeResponderRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResponderRecipeResponderRule.ts.html |here} to see how to use GetResponderRecipeResponderRule API.
    */
   public async getResponderRecipeResponderRule(
     getResponderRecipeResponderRuleRequest: requests.GetResponderRecipeResponderRuleRequest
@@ -4649,7 +4649,7 @@ export class CloudGuardClient {
    * @param GetResponderRuleRequest
    * @return GetResponderRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResponderRule.ts.html |here} to see how to use GetResponderRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetResponderRule.ts.html |here} to see how to use GetResponderRule API.
    */
   public async getResponderRule(
     getResponderRuleRequest: requests.GetResponderRuleRequest
@@ -4725,7 +4725,7 @@ export class CloudGuardClient {
    * @param GetSavedQueryRequest
    * @return GetSavedQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSavedQuery.ts.html |here} to see how to use GetSavedQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSavedQuery.ts.html |here} to see how to use GetSavedQuery API.
    */
   public async getSavedQuery(
     getSavedQueryRequest: requests.GetSavedQueryRequest
@@ -4804,7 +4804,7 @@ export class CloudGuardClient {
    * @param GetSecurityPolicyRequest
    * @return GetSecurityPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSecurityPolicy.ts.html |here} to see how to use GetSecurityPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSecurityPolicy.ts.html |here} to see how to use GetSecurityPolicy API.
    */
   public async getSecurityPolicy(
     getSecurityPolicyRequest: requests.GetSecurityPolicyRequest
@@ -4880,7 +4880,7 @@ export class CloudGuardClient {
    * @param GetSecurityRecipeRequest
    * @return GetSecurityRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSecurityRecipe.ts.html |here} to see how to use GetSecurityRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSecurityRecipe.ts.html |here} to see how to use GetSecurityRecipe API.
    */
   public async getSecurityRecipe(
     getSecurityRecipeRequest: requests.GetSecurityRecipeRequest
@@ -4956,7 +4956,7 @@ export class CloudGuardClient {
    * @param GetSecurityZoneRequest
    * @return GetSecurityZoneResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSecurityZone.ts.html |here} to see how to use GetSecurityZone API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSecurityZone.ts.html |here} to see how to use GetSecurityZone API.
    */
   public async getSecurityZone(
     getSecurityZoneRequest: requests.GetSecurityZoneRequest
@@ -5032,7 +5032,7 @@ export class CloudGuardClient {
    * @param GetSightingRequest
    * @return GetSightingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSighting.ts.html |here} to see how to use GetSighting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetSighting.ts.html |here} to see how to use GetSighting API.
    */
   public async getSighting(
     getSightingRequest: requests.GetSightingRequest
@@ -5108,7 +5108,7 @@ export class CloudGuardClient {
    * @param GetTargetRequest
    * @return GetTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetTarget.ts.html |here} to see how to use GetTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetTarget.ts.html |here} to see how to use GetTarget API.
    */
   public async getTarget(
     getTargetRequest: requests.GetTargetRequest
@@ -5184,7 +5184,7 @@ export class CloudGuardClient {
    * @param GetTargetDetectorRecipeRequest
    * @return GetTargetDetectorRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetTargetDetectorRecipe.ts.html |here} to see how to use GetTargetDetectorRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetTargetDetectorRecipe.ts.html |here} to see how to use GetTargetDetectorRecipe API.
    */
   public async getTargetDetectorRecipe(
     getTargetDetectorRecipeRequest: requests.GetTargetDetectorRecipeRequest
@@ -5262,7 +5262,7 @@ export class CloudGuardClient {
    * @param GetTargetDetectorRecipeDetectorRuleRequest
    * @return GetTargetDetectorRecipeDetectorRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetTargetDetectorRecipeDetectorRule.ts.html |here} to see how to use GetTargetDetectorRecipeDetectorRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetTargetDetectorRecipeDetectorRule.ts.html |here} to see how to use GetTargetDetectorRecipeDetectorRule API.
    */
   public async getTargetDetectorRecipeDetectorRule(
     getTargetDetectorRecipeDetectorRuleRequest: requests.GetTargetDetectorRecipeDetectorRuleRequest
@@ -5344,7 +5344,7 @@ export class CloudGuardClient {
    * @param GetTargetResponderRecipeRequest
    * @return GetTargetResponderRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetTargetResponderRecipe.ts.html |here} to see how to use GetTargetResponderRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetTargetResponderRecipe.ts.html |here} to see how to use GetTargetResponderRecipe API.
    */
   public async getTargetResponderRecipe(
     getTargetResponderRecipeRequest: requests.GetTargetResponderRecipeRequest
@@ -5426,7 +5426,7 @@ export class CloudGuardClient {
    * @param GetTargetResponderRecipeResponderRuleRequest
    * @return GetTargetResponderRecipeResponderRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetTargetResponderRecipeResponderRule.ts.html |here} to see how to use GetTargetResponderRecipeResponderRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetTargetResponderRecipeResponderRule.ts.html |here} to see how to use GetTargetResponderRecipeResponderRule API.
    */
   public async getTargetResponderRecipeResponderRule(
     getTargetResponderRecipeResponderRuleRequest: requests.GetTargetResponderRecipeResponderRuleRequest
@@ -5509,7 +5509,7 @@ export class CloudGuardClient {
    * @param GetWlpAgentRequest
    * @return GetWlpAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetWlpAgent.ts.html |here} to see how to use GetWlpAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetWlpAgent.ts.html |here} to see how to use GetWlpAgent API.
    */
   public async getWlpAgent(
     getWlpAgentRequest: requests.GetWlpAgentRequest
@@ -5585,7 +5585,7 @@ export class CloudGuardClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -5683,7 +5683,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAdhocQueries
      * @param ListAdhocQueriesRequest
      * @return ListAdhocQueriesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListAdhocQueries.ts.html |here} to see how to use ListAdhocQueries API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListAdhocQueries.ts.html |here} to see how to use ListAdhocQueries API.
      */
   public async listAdhocQueries(
     listAdhocQueriesRequest: requests.ListAdhocQueriesRequest
@@ -5768,7 +5768,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAdhocQueries
    * @param ListAdhocQueryResultsRequest
    * @return ListAdhocQueryResultsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListAdhocQueryResults.ts.html |here} to see how to use ListAdhocQueryResults API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListAdhocQueryResults.ts.html |here} to see how to use ListAdhocQueryResults API.
    */
   public async listAdhocQueryResults(
     listAdhocQueryResultsRequest: requests.ListAdhocQueryResultsRequest
@@ -5851,7 +5851,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAdhocQueries
    * @param ListConditionMetadataTypesRequest
    * @return ListConditionMetadataTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListConditionMetadataTypes.ts.html |here} to see how to use ListConditionMetadataTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListConditionMetadataTypes.ts.html |here} to see how to use ListConditionMetadataTypes API.
    */
   public async listConditionMetadataTypes(
     listConditionMetadataTypesRequest: requests.ListConditionMetadataTypesRequest
@@ -5934,7 +5934,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAdhocQueries
    * @param ListDataMaskRulesRequest
    * @return ListDataMaskRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDataMaskRules.ts.html |here} to see how to use ListDataMaskRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDataMaskRules.ts.html |here} to see how to use ListDataMaskRules API.
    */
   public async listDataMaskRules(
     listDataMaskRulesRequest: requests.ListDataMaskRulesRequest
@@ -6024,7 +6024,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAdhocQueries
    * @param ListDataSourceEventsRequest
    * @return ListDataSourceEventsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDataSourceEvents.ts.html |here} to see how to use ListDataSourceEvents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDataSourceEvents.ts.html |here} to see how to use ListDataSourceEvents API.
    */
   public async listDataSourceEvents(
     listDataSourceEventsRequest: requests.ListDataSourceEventsRequest
@@ -6123,7 +6123,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAdhocQueries
      * @param ListDataSourcesRequest
      * @return ListDataSourcesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDataSources.ts.html |here} to see how to use ListDataSources API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDataSources.ts.html |here} to see how to use ListDataSources API.
      */
   public async listDataSources(
     listDataSourcesRequest: requests.ListDataSourcesRequest
@@ -6210,7 +6210,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAdhocQueries
    * @param ListDetectorRecipeDetectorRulesRequest
    * @return ListDetectorRecipeDetectorRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDetectorRecipeDetectorRules.ts.html |here} to see how to use ListDetectorRecipeDetectorRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDetectorRecipeDetectorRules.ts.html |here} to see how to use ListDetectorRecipeDetectorRules API.
    */
   public async listDetectorRecipeDetectorRules(
     listDetectorRecipeDetectorRulesRequest: requests.ListDetectorRecipeDetectorRulesRequest
@@ -6310,7 +6310,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
      * @param ListDetectorRecipesRequest
      * @return ListDetectorRecipesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDetectorRecipes.ts.html |here} to see how to use ListDetectorRecipes API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDetectorRecipes.ts.html |here} to see how to use ListDetectorRecipes API.
      */
   public async listDetectorRecipes(
     listDetectorRecipesRequest: requests.ListDetectorRecipesRequest
@@ -6396,7 +6396,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
    * @param ListDetectorRulesRequest
    * @return ListDetectorRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDetectorRules.ts.html |here} to see how to use ListDetectorRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDetectorRules.ts.html |here} to see how to use ListDetectorRules API.
    */
   public async listDetectorRules(
     listDetectorRulesRequest: requests.ListDetectorRulesRequest
@@ -6481,7 +6481,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
    * @param ListDetectorsRequest
    * @return ListDetectorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDetectors.ts.html |here} to see how to use ListDetectors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDetectors.ts.html |here} to see how to use ListDetectors API.
    */
   public async listDetectors(
     listDetectorsRequest: requests.ListDetectorsRequest
@@ -6563,7 +6563,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
    * @param ListImpactedResourcesRequest
    * @return ListImpactedResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListImpactedResources.ts.html |here} to see how to use ListImpactedResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListImpactedResources.ts.html |here} to see how to use ListImpactedResources API.
    */
   public async listImpactedResources(
     listImpactedResourcesRequest: requests.ListImpactedResourcesRequest
@@ -6644,7 +6644,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
    * @param ListManagedListTypesRequest
    * @return ListManagedListTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListManagedListTypes.ts.html |here} to see how to use ListManagedListTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListManagedListTypes.ts.html |here} to see how to use ListManagedListTypes API.
    */
   public async listManagedListTypes(
     listManagedListTypesRequest: requests.ListManagedListTypesRequest
@@ -6739,7 +6739,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
      * @param ListManagedListsRequest
      * @return ListManagedListsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListManagedLists.ts.html |here} to see how to use ListManagedLists API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListManagedLists.ts.html |here} to see how to use ListManagedLists API.
      */
   public async listManagedLists(
     listManagedListsRequest: requests.ListManagedListsRequest
@@ -6826,7 +6826,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
    * @param ListPoliciesRequest
    * @return ListPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListPolicies.ts.html |here} to see how to use ListPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListPolicies.ts.html |here} to see how to use ListPolicies API.
    */
   public async listPolicies(
     listPoliciesRequest: requests.ListPoliciesRequest
@@ -6907,7 +6907,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
    * @param ListProblemEndpointsRequest
    * @return ListProblemEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListProblemEndpoints.ts.html |here} to see how to use ListProblemEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListProblemEndpoints.ts.html |here} to see how to use ListProblemEndpoints API.
    */
   public async listProblemEndpoints(
     listProblemEndpointsRequest: requests.ListProblemEndpointsRequest
@@ -6989,7 +6989,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
    * @param ListProblemEntitiesRequest
    * @return ListProblemEntitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListProblemEntities.ts.html |here} to see how to use ListProblemEntities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListProblemEntities.ts.html |here} to see how to use ListProblemEntities API.
    */
   public async listProblemEntities(
     listProblemEntitiesRequest: requests.ListProblemEntitiesRequest
@@ -7071,7 +7071,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
    * @param ListProblemHistoriesRequest
    * @return ListProblemHistoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListProblemHistories.ts.html |here} to see how to use ListProblemHistories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListProblemHistories.ts.html |here} to see how to use ListProblemHistories API.
    */
   public async listProblemHistories(
     listProblemHistoriesRequest: requests.ListProblemHistoriesRequest
@@ -7168,7 +7168,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
      * @param ListProblemsRequest
      * @return ListProblemsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListProblems.ts.html |here} to see how to use ListProblems API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListProblems.ts.html |here} to see how to use ListProblems API.
      */
   public async listProblems(
     listProblemsRequest: requests.ListProblemsRequest
@@ -7272,7 +7272,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
    * @param ListRecommendationsRequest
    * @return ListRecommendationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListRecommendations.ts.html |here} to see how to use ListRecommendations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListRecommendations.ts.html |here} to see how to use ListRecommendations API.
    */
   public async listRecommendations(
     listRecommendationsRequest: requests.ListRecommendationsRequest
@@ -7357,7 +7357,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
    * @param ListResourcePortsRequest
    * @return ListResourcePortsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourcePorts.ts.html |here} to see how to use ListResourcePorts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourcePorts.ts.html |here} to see how to use ListResourcePorts API.
    */
   public async listResourcePorts(
     listResourcePortsRequest: requests.ListResourcePortsRequest
@@ -7441,7 +7441,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
    * @param ListResourceProfileEndpointsRequest
    * @return ListResourceProfileEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceProfileEndpoints.ts.html |here} to see how to use ListResourceProfileEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceProfileEndpoints.ts.html |here} to see how to use ListResourceProfileEndpoints API.
    */
   public async listResourceProfileEndpoints(
     listResourceProfileEndpointsRequest: requests.ListResourceProfileEndpointsRequest
@@ -7526,7 +7526,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
    * @param ListResourceProfileImpactedResourcesRequest
    * @return ListResourceProfileImpactedResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceProfileImpactedResources.ts.html |here} to see how to use ListResourceProfileImpactedResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceProfileImpactedResources.ts.html |here} to see how to use ListResourceProfileImpactedResources API.
    */
   public async listResourceProfileImpactedResources(
     listResourceProfileImpactedResourcesRequest: requests.ListResourceProfileImpactedResourcesRequest
@@ -7622,7 +7622,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
      * @param ListResourceProfilesRequest
      * @return ListResourceProfilesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceProfiles.ts.html |here} to see how to use ListResourceProfiles API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceProfiles.ts.html |here} to see how to use ListResourceProfiles API.
      */
   public async listResourceProfiles(
     listResourceProfilesRequest: requests.ListResourceProfilesRequest
@@ -7719,7 +7719,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
    * @param ListResourceTypesRequest
    * @return ListResourceTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceTypes.ts.html |here} to see how to use ListResourceTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceTypes.ts.html |here} to see how to use ListResourceTypes API.
    */
   public async listResourceTypes(
     listResourceTypesRequest: requests.ListResourceTypesRequest
@@ -7801,7 +7801,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
    * @param ListResourceVulnerabilitiesRequest
    * @return ListResourceVulnerabilitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceVulnerabilities.ts.html |here} to see how to use ListResourceVulnerabilities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResourceVulnerabilities.ts.html |here} to see how to use ListResourceVulnerabilities API.
    */
   public async listResourceVulnerabilities(
     listResourceVulnerabilitiesRequest: requests.ListResourceVulnerabilitiesRequest
@@ -7900,7 +7900,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResources on
      * @param ListResourcesRequest
      * @return ListResourcesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResources.ts.html |here} to see how to use ListResources API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResources.ts.html |here} to see how to use ListResources API.
      */
   public async listResources(
     listResourcesRequest: requests.ListResourcesRequest
@@ -7995,7 +7995,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResources on
    * @param ListResponderActivitiesRequest
    * @return ListResponderActivitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderActivities.ts.html |here} to see how to use ListResponderActivities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderActivities.ts.html |here} to see how to use ListResponderActivities API.
    */
   public async listResponderActivities(
     listResponderActivitiesRequest: requests.ListResponderActivitiesRequest
@@ -8079,7 +8079,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResources on
    * @param ListResponderExecutionsRequest
    * @return ListResponderExecutionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderExecutions.ts.html |here} to see how to use ListResponderExecutions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderExecutions.ts.html |here} to see how to use ListResponderExecutions API.
    */
   public async listResponderExecutions(
     listResponderExecutionsRequest: requests.ListResponderExecutionsRequest
@@ -8178,7 +8178,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResources on
    * @param ListResponderRecipeResponderRulesRequest
    * @return ListResponderRecipeResponderRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderRecipeResponderRules.ts.html |here} to see how to use ListResponderRecipeResponderRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderRecipeResponderRules.ts.html |here} to see how to use ListResponderRecipeResponderRules API.
    */
   public async listResponderRecipeResponderRules(
     listResponderRecipeResponderRulesRequest: requests.ListResponderRecipeResponderRulesRequest
@@ -8278,7 +8278,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
      * @param ListResponderRecipesRequest
      * @return ListResponderRecipesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderRecipes.ts.html |here} to see how to use ListResponderRecipes API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderRecipes.ts.html |here} to see how to use ListResponderRecipes API.
      */
   public async listResponderRecipes(
     listResponderRecipesRequest: requests.ListResponderRecipesRequest
@@ -8366,7 +8366,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
    * @param ListResponderRulesRequest
    * @return ListResponderRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderRules.ts.html |here} to see how to use ListResponderRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderRules.ts.html |here} to see how to use ListResponderRules API.
    */
   public async listResponderRules(
     listResponderRulesRequest: requests.ListResponderRulesRequest
@@ -8449,7 +8449,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
    * @param ListSavedQueriesRequest
    * @return ListSavedQueriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSavedQueries.ts.html |here} to see how to use ListSavedQueries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSavedQueries.ts.html |here} to see how to use ListSavedQueries API.
    */
   public async listSavedQueries(
     listSavedQueriesRequest: requests.ListSavedQueriesRequest
@@ -8534,7 +8534,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
    * @param ListSecurityPoliciesRequest
    * @return ListSecurityPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSecurityPolicies.ts.html |here} to see how to use ListSecurityPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSecurityPolicies.ts.html |here} to see how to use ListSecurityPolicies API.
    */
   public async listSecurityPolicies(
     listSecurityPoliciesRequest: requests.ListSecurityPoliciesRequest
@@ -8619,7 +8619,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
    * @param ListSecurityRecipesRequest
    * @return ListSecurityRecipesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSecurityRecipes.ts.html |here} to see how to use ListSecurityRecipes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSecurityRecipes.ts.html |here} to see how to use ListSecurityRecipes API.
    */
   public async listSecurityRecipes(
     listSecurityRecipesRequest: requests.ListSecurityRecipesRequest
@@ -8704,7 +8704,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
    * @param ListSecurityZonesRequest
    * @return ListSecurityZonesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSecurityZones.ts.html |here} to see how to use ListSecurityZones API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSecurityZones.ts.html |here} to see how to use ListSecurityZones API.
    */
   public async listSecurityZones(
     listSecurityZonesRequest: requests.ListSecurityZonesRequest
@@ -8792,7 +8792,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
    * @param ListSightingEndpointsRequest
    * @return ListSightingEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSightingEndpoints.ts.html |here} to see how to use ListSightingEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSightingEndpoints.ts.html |here} to see how to use ListSightingEndpoints API.
    */
   public async listSightingEndpoints(
     listSightingEndpointsRequest: requests.ListSightingEndpointsRequest
@@ -8875,7 +8875,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
    * @param ListSightingImpactedResourcesRequest
    * @return ListSightingImpactedResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSightingImpactedResources.ts.html |here} to see how to use ListSightingImpactedResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSightingImpactedResources.ts.html |here} to see how to use ListSightingImpactedResources API.
    */
   public async listSightingImpactedResources(
     listSightingImpactedResourcesRequest: requests.ListSightingImpactedResourcesRequest
@@ -8970,7 +8970,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
      * @param ListSightingsRequest
      * @return ListSightingsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSightings.ts.html |here} to see how to use ListSightings API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListSightings.ts.html |here} to see how to use ListSightings API.
      */
   public async listSightings(
     listSightingsRequest: requests.ListSightingsRequest
@@ -9057,7 +9057,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
    * @param ListTacticsRequest
    * @return ListTacticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTactics.ts.html |here} to see how to use ListTactics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTactics.ts.html |here} to see how to use ListTactics API.
    */
   public async listTactics(
     listTacticsRequest: requests.ListTacticsRequest
@@ -9139,7 +9139,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
    * @param ListTargetDetectorRecipeDetectorRulesRequest
    * @return ListTargetDetectorRecipeDetectorRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTargetDetectorRecipeDetectorRules.ts.html |here} to see how to use ListTargetDetectorRecipeDetectorRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTargetDetectorRecipeDetectorRules.ts.html |here} to see how to use ListTargetDetectorRecipeDetectorRules API.
    */
   public async listTargetDetectorRecipeDetectorRules(
     listTargetDetectorRecipeDetectorRulesRequest: requests.ListTargetDetectorRecipeDetectorRulesRequest
@@ -9231,7 +9231,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
    * @param ListTargetDetectorRecipesRequest
    * @return ListTargetDetectorRecipesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTargetDetectorRecipes.ts.html |here} to see how to use ListTargetDetectorRecipes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTargetDetectorRecipes.ts.html |here} to see how to use ListTargetDetectorRecipes API.
    */
   public async listTargetDetectorRecipes(
     listTargetDetectorRecipesRequest: requests.ListTargetDetectorRecipesRequest
@@ -9320,7 +9320,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
    * @param ListTargetResponderRecipeResponderRulesRequest
    * @return ListTargetResponderRecipeResponderRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTargetResponderRecipeResponderRules.ts.html |here} to see how to use ListTargetResponderRecipeResponderRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTargetResponderRecipeResponderRules.ts.html |here} to see how to use ListTargetResponderRecipeResponderRules API.
    */
   public async listTargetResponderRecipeResponderRules(
     listTargetResponderRecipeResponderRulesRequest: requests.ListTargetResponderRecipeResponderRulesRequest
@@ -9412,7 +9412,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
    * @param ListTargetResponderRecipesRequest
    * @return ListTargetResponderRecipesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTargetResponderRecipes.ts.html |here} to see how to use ListTargetResponderRecipes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTargetResponderRecipes.ts.html |here} to see how to use ListTargetResponderRecipes API.
    */
   public async listTargetResponderRecipes(
     listTargetResponderRecipesRequest: requests.ListTargetResponderRecipesRequest
@@ -9512,7 +9512,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
      * @param ListTargetsRequest
      * @return ListTargetsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTargets.ts.html |here} to see how to use ListTargets API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTargets.ts.html |here} to see how to use ListTargets API.
      */
   public async listTargets(
     listTargetsRequest: requests.ListTargetsRequest
@@ -9598,7 +9598,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
    * @param ListTechniquesRequest
    * @return ListTechniquesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTechniques.ts.html |here} to see how to use ListTechniques API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListTechniques.ts.html |here} to see how to use ListTechniques API.
    */
   public async listTechniques(
     listTechniquesRequest: requests.ListTechniquesRequest
@@ -9681,7 +9681,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
    * @param ListWlpAgentsRequest
    * @return ListWlpAgentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWlpAgents.ts.html |here} to see how to use ListWlpAgents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWlpAgents.ts.html |here} to see how to use ListWlpAgents API.
    */
   public async listWlpAgents(
     listWlpAgentsRequest: requests.ListWlpAgentsRequest
@@ -9763,7 +9763,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -9846,7 +9846,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -9929,7 +9929,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -10015,7 +10015,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
    * @param RemoveCompartmentRequest
    * @return RemoveCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RemoveCompartment.ts.html |here} to see how to use RemoveCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RemoveCompartment.ts.html |here} to see how to use RemoveCompartment API.
    */
   public async removeCompartment(
     removeCompartmentRequest: requests.RemoveCompartmentRequest
@@ -10100,7 +10100,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
    * @param RequestRiskScoresRequest
    * @return RequestRiskScoresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestRiskScores.ts.html |here} to see how to use RequestRiskScores API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestRiskScores.ts.html |here} to see how to use RequestRiskScores API.
    */
   public async requestRiskScores(
     requestRiskScoresRequest: requests.RequestRiskScoresRequest
@@ -10180,7 +10180,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
    * @param RequestSecurityScoreSummarizedTrendRequest
    * @return RequestSecurityScoreSummarizedTrendResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSecurityScoreSummarizedTrend.ts.html |here} to see how to use RequestSecurityScoreSummarizedTrend API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSecurityScoreSummarizedTrend.ts.html |here} to see how to use RequestSecurityScoreSummarizedTrend API.
    */
   public async requestSecurityScoreSummarizedTrend(
     requestSecurityScoreSummarizedTrendRequest: requests.RequestSecurityScoreSummarizedTrendRequest
@@ -10265,7 +10265,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
    * @param RequestSecurityScoresRequest
    * @return RequestSecurityScoresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSecurityScores.ts.html |here} to see how to use RequestSecurityScores API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSecurityScores.ts.html |here} to see how to use RequestSecurityScores API.
    */
   public async requestSecurityScores(
     requestSecurityScoresRequest: requests.RequestSecurityScoresRequest
@@ -10358,7 +10358,7 @@ The compartmentId to be passed with `accessLevel` and `compartmentIdInSubtree` p
      * @param RequestSummarizedActivityProblemsRequest
      * @return RequestSummarizedActivityProblemsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedActivityProblems.ts.html |here} to see how to use RequestSummarizedActivityProblems API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedActivityProblems.ts.html |here} to see how to use RequestSummarizedActivityProblems API.
      */
   public async requestSummarizedActivityProblems(
     requestSummarizedActivityProblemsRequest: requests.RequestSummarizedActivityProblemsRequest
@@ -10452,7 +10452,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
      * @param RequestSummarizedProblemsRequest
      * @return RequestSummarizedProblemsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedProblems.ts.html |here} to see how to use RequestSummarizedProblems API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedProblems.ts.html |here} to see how to use RequestSummarizedProblems API.
      */
   public async requestSummarizedProblems(
     requestSummarizedProblemsRequest: requests.RequestSummarizedProblemsRequest
@@ -10546,7 +10546,7 @@ Setting accessLevel to ACCESSIBLE returns only those compartments for which the 
      * @param RequestSummarizedResponderExecutionsRequest
      * @return RequestSummarizedResponderExecutionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedResponderExecutions.ts.html |here} to see how to use RequestSummarizedResponderExecutions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedResponderExecutions.ts.html |here} to see how to use RequestSummarizedResponderExecutions API.
      */
   public async requestSummarizedResponderExecutions(
     requestSummarizedResponderExecutionsRequest: requests.RequestSummarizedResponderExecutionsRequest
@@ -10633,7 +10633,7 @@ Setting accessLevel to ACCESSIBLE returns only those compartments for which the 
    * @param RequestSummarizedRiskScoresRequest
    * @return RequestSummarizedRiskScoresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedRiskScores.ts.html |here} to see how to use RequestSummarizedRiskScores API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedRiskScores.ts.html |here} to see how to use RequestSummarizedRiskScores API.
    */
   public async requestSummarizedRiskScores(
     requestSummarizedRiskScoresRequest: requests.RequestSummarizedRiskScoresRequest
@@ -10713,7 +10713,7 @@ Setting accessLevel to ACCESSIBLE returns only those compartments for which the 
    * @param RequestSummarizedSecurityScoresRequest
    * @return RequestSummarizedSecurityScoresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedSecurityScores.ts.html |here} to see how to use RequestSummarizedSecurityScores API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedSecurityScores.ts.html |here} to see how to use RequestSummarizedSecurityScores API.
    */
   public async requestSummarizedSecurityScores(
     requestSummarizedSecurityScoresRequest: requests.RequestSummarizedSecurityScoresRequest
@@ -10795,7 +10795,7 @@ Setting accessLevel to ACCESSIBLE returns only those compartments for which the 
    * @param RequestSummarizedTopTrendResourceProfileRiskScoresRequest
    * @return RequestSummarizedTopTrendResourceProfileRiskScoresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedTopTrendResourceProfileRiskScores.ts.html |here} to see how to use RequestSummarizedTopTrendResourceProfileRiskScores API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedTopTrendResourceProfileRiskScores.ts.html |here} to see how to use RequestSummarizedTopTrendResourceProfileRiskScores API.
    */
   public async requestSummarizedTopTrendResourceProfileRiskScores(
     requestSummarizedTopTrendResourceProfileRiskScoresRequest: requests.RequestSummarizedTopTrendResourceProfileRiskScoresRequest
@@ -10897,7 +10897,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
      * @param RequestSummarizedTrendProblemsRequest
      * @return RequestSummarizedTrendProblemsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedTrendProblems.ts.html |here} to see how to use RequestSummarizedTrendProblems API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedTrendProblems.ts.html |here} to see how to use RequestSummarizedTrendProblems API.
      */
   public async requestSummarizedTrendProblems(
     requestSummarizedTrendProblemsRequest: requests.RequestSummarizedTrendProblemsRequest
@@ -10985,7 +10985,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param RequestSummarizedTrendResourceRiskScoresRequest
    * @return RequestSummarizedTrendResourceRiskScoresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedTrendResourceRiskScores.ts.html |here} to see how to use RequestSummarizedTrendResourceRiskScores API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedTrendResourceRiskScores.ts.html |here} to see how to use RequestSummarizedTrendResourceRiskScores API.
    */
   public async requestSummarizedTrendResourceRiskScores(
     requestSummarizedTrendResourceRiskScoresRequest: requests.RequestSummarizedTrendResourceRiskScoresRequest
@@ -11090,7 +11090,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
      * @param RequestSummarizedTrendResponderExecutionsRequest
      * @return RequestSummarizedTrendResponderExecutionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedTrendResponderExecutions.ts.html |here} to see how to use RequestSummarizedTrendResponderExecutions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedTrendResponderExecutions.ts.html |here} to see how to use RequestSummarizedTrendResponderExecutions API.
      */
   public async requestSummarizedTrendResponderExecutions(
     requestSummarizedTrendResponderExecutionsRequest: requests.RequestSummarizedTrendResponderExecutionsRequest
@@ -11179,7 +11179,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param RequestSummarizedTrendSecurityScoresRequest
    * @return RequestSummarizedTrendSecurityScoresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedTrendSecurityScores.ts.html |here} to see how to use RequestSummarizedTrendSecurityScores API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/RequestSummarizedTrendSecurityScores.ts.html |here} to see how to use RequestSummarizedTrendSecurityScores API.
    */
   public async requestSummarizedTrendSecurityScores(
     requestSummarizedTrendSecurityScoresRequest: requests.RequestSummarizedTrendSecurityScoresRequest
@@ -11262,7 +11262,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param SkipBulkResponderExecutionRequest
    * @return SkipBulkResponderExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/SkipBulkResponderExecution.ts.html |here} to see how to use SkipBulkResponderExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/SkipBulkResponderExecution.ts.html |here} to see how to use SkipBulkResponderExecution API.
    */
   public async skipBulkResponderExecution(
     skipBulkResponderExecutionRequest: requests.SkipBulkResponderExecutionRequest
@@ -11333,7 +11333,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param SkipResponderExecutionRequest
    * @return SkipResponderExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/SkipResponderExecution.ts.html |here} to see how to use SkipResponderExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/SkipResponderExecution.ts.html |here} to see how to use SkipResponderExecution API.
    */
   public async skipResponderExecution(
     skipResponderExecutionRequest: requests.SkipResponderExecutionRequest
@@ -11407,7 +11407,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param TriggerResponderRequest
    * @return TriggerResponderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/TriggerResponder.ts.html |here} to see how to use TriggerResponder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/TriggerResponder.ts.html |here} to see how to use TriggerResponder API.
    */
   public async triggerResponder(
     triggerResponderRequest: requests.TriggerResponderRequest
@@ -11482,7 +11482,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateBulkProblemStatusRequest
    * @return UpdateBulkProblemStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateBulkProblemStatus.ts.html |here} to see how to use UpdateBulkProblemStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateBulkProblemStatus.ts.html |here} to see how to use UpdateBulkProblemStatus API.
    */
   public async updateBulkProblemStatus(
     updateBulkProblemStatusRequest: requests.UpdateBulkProblemStatusRequest
@@ -11555,7 +11555,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateConfigurationRequest
    * @return UpdateConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
    */
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest
@@ -11638,7 +11638,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateDataMaskRuleRequest
    * @return UpdateDataMaskRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateDataMaskRule.ts.html |here} to see how to use UpdateDataMaskRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateDataMaskRule.ts.html |here} to see how to use UpdateDataMaskRule API.
    */
   public async updateDataMaskRule(
     updateDataMaskRuleRequest: requests.UpdateDataMaskRuleRequest
@@ -11722,7 +11722,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateDataSourceRequest
    * @return UpdateDataSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateDataSource.ts.html |here} to see how to use UpdateDataSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateDataSource.ts.html |here} to see how to use UpdateDataSource API.
    */
   public async updateDataSource(
     updateDataSourceRequest: requests.UpdateDataSourceRequest
@@ -11801,7 +11801,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateDetectorRecipeRequest
    * @return UpdateDetectorRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateDetectorRecipe.ts.html |here} to see how to use UpdateDetectorRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateDetectorRecipe.ts.html |here} to see how to use UpdateDetectorRecipe API.
    */
   public async updateDetectorRecipe(
     updateDetectorRecipeRequest: requests.UpdateDetectorRecipeRequest
@@ -11884,7 +11884,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateDetectorRecipeDetectorRuleRequest
    * @return UpdateDetectorRecipeDetectorRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateDetectorRecipeDetectorRule.ts.html |here} to see how to use UpdateDetectorRecipeDetectorRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateDetectorRecipeDetectorRule.ts.html |here} to see how to use UpdateDetectorRecipeDetectorRule API.
    */
   public async updateDetectorRecipeDetectorRule(
     updateDetectorRecipeDetectorRuleRequest: requests.UpdateDetectorRecipeDetectorRuleRequest
@@ -11968,7 +11968,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateManagedListRequest
    * @return UpdateManagedListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateManagedList.ts.html |here} to see how to use UpdateManagedList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateManagedList.ts.html |here} to see how to use UpdateManagedList API.
    */
   public async updateManagedList(
     updateManagedListRequest: requests.UpdateManagedListRequest
@@ -12052,7 +12052,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateProblemStatusRequest
    * @return UpdateProblemStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateProblemStatus.ts.html |here} to see how to use UpdateProblemStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateProblemStatus.ts.html |here} to see how to use UpdateProblemStatus API.
    */
   public async updateProblemStatus(
     updateProblemStatusRequest: requests.UpdateProblemStatusRequest
@@ -12137,7 +12137,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateResponderRecipeRequest
    * @return UpdateResponderRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateResponderRecipe.ts.html |here} to see how to use UpdateResponderRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateResponderRecipe.ts.html |here} to see how to use UpdateResponderRecipe API.
    */
   public async updateResponderRecipe(
     updateResponderRecipeRequest: requests.UpdateResponderRecipeRequest
@@ -12221,7 +12221,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateResponderRecipeResponderRuleRequest
    * @return UpdateResponderRecipeResponderRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateResponderRecipeResponderRule.ts.html |here} to see how to use UpdateResponderRecipeResponderRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateResponderRecipeResponderRule.ts.html |here} to see how to use UpdateResponderRecipeResponderRule API.
    */
   public async updateResponderRecipeResponderRule(
     updateResponderRecipeResponderRuleRequest: requests.UpdateResponderRecipeResponderRuleRequest
@@ -12305,7 +12305,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateSavedQueryRequest
    * @return UpdateSavedQueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateSavedQuery.ts.html |here} to see how to use UpdateSavedQuery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateSavedQuery.ts.html |here} to see how to use UpdateSavedQuery API.
    */
   public async updateSavedQuery(
     updateSavedQueryRequest: requests.UpdateSavedQueryRequest
@@ -12390,7 +12390,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateSecurityRecipeRequest
    * @return UpdateSecurityRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateSecurityRecipe.ts.html |here} to see how to use UpdateSecurityRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateSecurityRecipe.ts.html |here} to see how to use UpdateSecurityRecipe API.
    */
   public async updateSecurityRecipe(
     updateSecurityRecipeRequest: requests.UpdateSecurityRecipeRequest
@@ -12474,7 +12474,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateSecurityZoneRequest
    * @return UpdateSecurityZoneResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateSecurityZone.ts.html |here} to see how to use UpdateSecurityZone API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateSecurityZone.ts.html |here} to see how to use UpdateSecurityZone API.
    */
   public async updateSecurityZone(
     updateSecurityZoneRequest: requests.UpdateSecurityZoneRequest
@@ -12558,7 +12558,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateTargetRequest
    * @return UpdateTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateTarget.ts.html |here} to see how to use UpdateTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateTarget.ts.html |here} to see how to use UpdateTarget API.
    */
   public async updateTarget(
     updateTargetRequest: requests.UpdateTargetRequest
@@ -12642,7 +12642,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateTargetDetectorRecipeRequest
    * @return UpdateTargetDetectorRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateTargetDetectorRecipe.ts.html |here} to see how to use UpdateTargetDetectorRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateTargetDetectorRecipe.ts.html |here} to see how to use UpdateTargetDetectorRecipe API.
    */
   public async updateTargetDetectorRecipe(
     updateTargetDetectorRecipeRequest: requests.UpdateTargetDetectorRecipeRequest
@@ -12726,7 +12726,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateTargetDetectorRecipeDetectorRuleRequest
    * @return UpdateTargetDetectorRecipeDetectorRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateTargetDetectorRecipeDetectorRule.ts.html |here} to see how to use UpdateTargetDetectorRecipeDetectorRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateTargetDetectorRecipeDetectorRule.ts.html |here} to see how to use UpdateTargetDetectorRecipeDetectorRule API.
    */
   public async updateTargetDetectorRecipeDetectorRule(
     updateTargetDetectorRecipeDetectorRuleRequest: requests.UpdateTargetDetectorRecipeDetectorRuleRequest
@@ -12819,7 +12819,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateTargetResponderRecipeRequest
    * @return UpdateTargetResponderRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateTargetResponderRecipe.ts.html |here} to see how to use UpdateTargetResponderRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateTargetResponderRecipe.ts.html |here} to see how to use UpdateTargetResponderRecipe API.
    */
   public async updateTargetResponderRecipe(
     updateTargetResponderRecipeRequest: requests.UpdateTargetResponderRecipeRequest
@@ -12908,7 +12908,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateTargetResponderRecipeResponderRuleRequest
    * @return UpdateTargetResponderRecipeResponderRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateTargetResponderRecipeResponderRule.ts.html |here} to see how to use UpdateTargetResponderRecipeResponderRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateTargetResponderRecipeResponderRule.ts.html |here} to see how to use UpdateTargetResponderRecipeResponderRule API.
    */
   public async updateTargetResponderRecipeResponderRule(
     updateTargetResponderRecipeResponderRuleRequest: requests.UpdateTargetResponderRecipeResponderRuleRequest
@@ -12997,7 +12997,7 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
    * @param UpdateWlpAgentRequest
    * @return UpdateWlpAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateWlpAgent.ts.html |here} to see how to use UpdateWlpAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateWlpAgent.ts.html |here} to see how to use UpdateWlpAgent API.
    */
   public async updateWlpAgent(
     updateWlpAgentRequest: requests.UpdateWlpAgentRequest

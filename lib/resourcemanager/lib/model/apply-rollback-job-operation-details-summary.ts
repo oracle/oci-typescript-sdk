@@ -3,7 +3,7 @@
  * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
 Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
+[the Resource Manager documentation](https://docs.oracle.com/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -20,7 +20,7 @@ import common = require("oci-common");
 
 /**
  * Job details that are specific to an apply rollback job. For more information about apply rollback jobs, see
- * [Creating an Apply Rollback Job](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/create-job-apply-rollback.htm).
+ * [Creating an Apply Rollback Job](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/create-job-apply-rollback.htm).
  *
  */
 export interface ApplyRollbackJobOperationDetailsSummary extends model.JobOperationDetailsSummary {
@@ -31,12 +31,12 @@ export interface ApplyRollbackJobOperationDetailsSummary extends model.JobOperat
    */
   "executionPlanRollbackStrategy": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a plan rollback job, for use when specifying {@code \"FROM_PLAN_ROLLBACK_JOB_ID\"} as the {@code executionPlanRollbackStrategy}.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a plan rollback job, for use when specifying {@code \"FROM_PLAN_ROLLBACK_JOB_ID\"} as the {@code executionPlanRollbackStrategy}.
    *
    */
   "executionPlanRollbackJobId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a successful apply job, for use when specifying {@code \"AUTO_APPROVED\"} as the {@code executionPlanRollbackStrategy}.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a successful apply job, for use when specifying {@code \"AUTO_APPROVED\"} as the {@code executionPlanRollbackStrategy}.
    *
    */
   "targetRollbackJobId"?: string;

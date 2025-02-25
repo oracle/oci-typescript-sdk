@@ -35,7 +35,7 @@ export interface MonitorResult {
    */
   "resultDataSet"?: Array<model.MonitorResultData>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the monitor.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the monitor.
    */
   "monitorId"?: string;
   /**

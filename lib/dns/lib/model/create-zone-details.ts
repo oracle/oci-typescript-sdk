@@ -1,7 +1,7 @@
 /**
  * DNS API
  * API for the DNS service. Use this API to manage DNS zones, records, and other DNS resources.
-For more information, see [Overview of the DNS Service](/iaas/Content/DNS/Concepts/dnszonemanagement.htm).
+For more information, see [Overview of the DNS Service](https://docs.oracle.com/iaas/Content/DNS/Concepts/dnszonemanagement.htm).
 
  * OpenAPI spec version: 20180115
  * 
@@ -75,7 +75,7 @@ Metrics are emitted in the {@code oci_dns} namespace daily for each {@code KskDn
 Enabling DNSSEC results in additional records in DNS responses which increases their size and can
 * cause higher response latency.
 * <p>
-For more information, see [DNSSEC](https://docs.cloud.oracle.com/iaas/Content/DNS/Concepts/dnssec.htm).
+For more information, see [DNSSEC](https://docs.oracle.com/iaas/Content/DNS/Concepts/dnssec.htm).
 * 
     */
   "dnssecState"?: model.ZoneDnssecState;

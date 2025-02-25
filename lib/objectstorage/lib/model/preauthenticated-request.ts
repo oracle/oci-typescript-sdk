@@ -1,8 +1,8 @@
 /**
  * Object Storage Service API
  * Use Object Storage and Archive Storage APIs to manage buckets, objects, and related resources.
-For more information, see [Overview of Object Storage](/Content/Object/Concepts/objectstorageoverview.htm) and
-[Overview of Archive Storage](/Content/Archive/Concepts/archivestorageoverview.htm).
+For more information, see [Overview of Object Storage](https://docs.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) and
+[Overview of Archive Storage](https://docs.oracle.com/iaas/Content/Archive/Concepts/archivestorageoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: opc_casper_users_us_grp@oracle.com
@@ -21,11 +21,11 @@ import common = require("oci-common");
 * Pre-authenticated requests provide a way to let users access a bucket or an object without having their own credentials.
 * When you create a pre-authenticated request, a unique URL is generated. Users in your organization, partners, or third
 * parties can use this URL to access the targets identified in the pre-authenticated request.
-* See [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/Content/Object/Tasks/usingpreauthenticatedrequests.htm).
+* See [Using Pre-Authenticated Requests](https://docs.oracle.com/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you are not authorized, talk to an
 * administrator. If you are an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface PreauthenticatedRequest {

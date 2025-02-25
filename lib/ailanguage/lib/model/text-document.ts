@@ -30,7 +30,7 @@ export interface TextDocument {
    */
   "text": string;
   /**
-   * Language code of the document. Please refer to respective model [API documentation](https://docs.cloud.oracle.com/iaas/language/using/overview.htm) for supported languages.
+   * Language code of the document. Please refer to respective model [API documentation](https://docs.oracle.com/iaas/language/using/overview.htm) for supported languages.
    */
   "languageCode"?: string;
 }

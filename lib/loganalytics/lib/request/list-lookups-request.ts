@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLookups.ts.html |here} to see how to use ListLookupsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListLookups.ts.html |here} to see how to use ListLookupsRequest.
  */
 export interface ListLookupsRequest extends common.BaseRequest {
   /**

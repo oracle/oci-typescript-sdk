@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlertPolicy.ts.html |here} to see how to use UpdateAlertPolicyRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlertPolicy.ts.html |here} to see how to use UpdateAlertPolicyRequest.
  */
 export interface UpdateAlertPolicyRequest extends common.BaseRequest {
   /**

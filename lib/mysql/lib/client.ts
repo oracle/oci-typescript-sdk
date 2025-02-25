@@ -249,7 +249,7 @@ export class ChannelsClient {
    * @param CreateChannelRequest
    * @return CreateChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateChannel.ts.html |here} to see how to use CreateChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateChannel.ts.html |here} to see how to use CreateChannel API.
    */
   public async createChannel(
     createChannelRequest: requests.CreateChannelRequest
@@ -333,7 +333,7 @@ export class ChannelsClient {
    * @param DeleteChannelRequest
    * @return DeleteChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteChannel.ts.html |here} to see how to use DeleteChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteChannel.ts.html |here} to see how to use DeleteChannel API.
    */
   public async deleteChannel(
     deleteChannelRequest: requests.DeleteChannelRequest
@@ -409,7 +409,7 @@ export class ChannelsClient {
    * @param GetChannelRequest
    * @return GetChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetChannel.ts.html |here} to see how to use GetChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetChannel.ts.html |here} to see how to use GetChannel API.
    */
   public async getChannel(
     getChannelRequest: requests.GetChannelRequest
@@ -486,7 +486,7 @@ export class ChannelsClient {
    * @param ListChannelsRequest
    * @return ListChannelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListChannels.ts.html |here} to see how to use ListChannels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListChannels.ts.html |here} to see how to use ListChannels API.
    */
   public async listChannels(
     listChannelsRequest: requests.ListChannelsRequest
@@ -625,7 +625,7 @@ export class ChannelsClient {
    * @param ResetChannelRequest
    * @return ResetChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ResetChannel.ts.html |here} to see how to use ResetChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ResetChannel.ts.html |here} to see how to use ResetChannel API.
    */
   public async resetChannel(
     resetChannelRequest: requests.ResetChannelRequest
@@ -702,7 +702,7 @@ export class ChannelsClient {
    * @param ResumeChannelRequest
    * @return ResumeChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ResumeChannel.ts.html |here} to see how to use ResumeChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ResumeChannel.ts.html |here} to see how to use ResumeChannel API.
    */
   public async resumeChannel(
     resumeChannelRequest: requests.ResumeChannelRequest
@@ -780,7 +780,7 @@ export class ChannelsClient {
    * @param UpdateChannelRequest
    * @return UpdateChannelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateChannel.ts.html |here} to see how to use UpdateChannel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateChannel.ts.html |here} to see how to use UpdateChannel API.
    */
   public async updateChannel(
     updateChannelRequest: requests.UpdateChannelRequest
@@ -1069,7 +1069,7 @@ export class DbBackupsClient {
    * @param ChangeBackupCompartmentRequest
    * @return ChangeBackupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ChangeBackupCompartment.ts.html |here} to see how to use ChangeBackupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ChangeBackupCompartment.ts.html |here} to see how to use ChangeBackupCompartment API.
    */
   public async changeBackupCompartment(
     changeBackupCompartmentRequest: requests.ChangeBackupCompartmentRequest
@@ -1150,7 +1150,7 @@ export class DbBackupsClient {
    * @param CopyBackupRequest
    * @return CopyBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CopyBackup.ts.html |here} to see how to use CopyBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CopyBackup.ts.html |here} to see how to use CopyBackup API.
    */
   public async copyBackup(
     copyBackupRequest: requests.CopyBackupRequest
@@ -1237,7 +1237,7 @@ export class DbBackupsClient {
    * @param CreateBackupRequest
    * @return CreateBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateBackup.ts.html |here} to see how to use CreateBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateBackup.ts.html |here} to see how to use CreateBackup API.
    */
   public async createBackup(
     createBackupRequest: requests.CreateBackupRequest
@@ -1323,7 +1323,7 @@ export class DbBackupsClient {
    * @param DeleteBackupRequest
    * @return DeleteBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteBackup.ts.html |here} to see how to use DeleteBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteBackup.ts.html |here} to see how to use DeleteBackup API.
    */
   public async deleteBackup(
     deleteBackupRequest: requests.DeleteBackupRequest
@@ -1396,7 +1396,7 @@ export class DbBackupsClient {
    * @param GetBackupRequest
    * @return GetBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetBackup.ts.html |here} to see how to use GetBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetBackup.ts.html |here} to see how to use GetBackup API.
    */
   public async getBackup(
     getBackupRequest: requests.GetBackupRequest
@@ -1474,7 +1474,7 @@ export class DbBackupsClient {
    * @param ListBackupsRequest
    * @return ListBackupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListBackups.ts.html |here} to see how to use ListBackups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListBackups.ts.html |here} to see how to use ListBackups API.
    */
   public async listBackups(
     listBackupsRequest: requests.ListBackupsRequest
@@ -1611,7 +1611,7 @@ export class DbBackupsClient {
    * @param UpdateBackupRequest
    * @return UpdateBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateBackup.ts.html |here} to see how to use UpdateBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateBackup.ts.html |here} to see how to use UpdateBackup API.
    */
   public async updateBackup(
     updateBackupRequest: requests.UpdateBackupRequest
@@ -1902,7 +1902,7 @@ export class DbSystemClient {
    * @param AddHeatWaveClusterRequest
    * @return AddHeatWaveClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/AddHeatWaveCluster.ts.html |here} to see how to use AddHeatWaveCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/AddHeatWaveCluster.ts.html |here} to see how to use AddHeatWaveCluster API.
    */
   public async addHeatWaveCluster(
     addHeatWaveClusterRequest: requests.AddHeatWaveClusterRequest
@@ -1991,7 +1991,7 @@ export class DbSystemClient {
    * @param CreateDbSystemRequest
    * @return CreateDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateDbSystem.ts.html |here} to see how to use CreateDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateDbSystem.ts.html |here} to see how to use CreateDbSystem API.
    */
   public async createDbSystem(
     createDbSystemRequest: requests.CreateDbSystemRequest
@@ -2082,7 +2082,7 @@ export class DbSystemClient {
    * @param DeleteDbSystemRequest
    * @return DeleteDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteDbSystem.ts.html |here} to see how to use DeleteDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteDbSystem.ts.html |here} to see how to use DeleteDbSystem API.
    */
   public async deleteDbSystem(
     deleteDbSystemRequest: requests.DeleteDbSystemRequest
@@ -2157,7 +2157,7 @@ export class DbSystemClient {
    * @param DeleteHeatWaveClusterRequest
    * @return DeleteHeatWaveClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteHeatWaveCluster.ts.html |here} to see how to use DeleteHeatWaveCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteHeatWaveCluster.ts.html |here} to see how to use DeleteHeatWaveCluster API.
    */
   public async deleteHeatWaveCluster(
     deleteHeatWaveClusterRequest: requests.DeleteHeatWaveClusterRequest
@@ -2231,7 +2231,7 @@ export class DbSystemClient {
    * @param GenerateHeatWaveClusterMemoryEstimateRequest
    * @return GenerateHeatWaveClusterMemoryEstimateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GenerateHeatWaveClusterMemoryEstimate.ts.html |here} to see how to use GenerateHeatWaveClusterMemoryEstimate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GenerateHeatWaveClusterMemoryEstimate.ts.html |here} to see how to use GenerateHeatWaveClusterMemoryEstimate API.
    */
   public async generateHeatWaveClusterMemoryEstimate(
     generateHeatWaveClusterMemoryEstimateRequest: requests.GenerateHeatWaveClusterMemoryEstimateRequest
@@ -2309,7 +2309,7 @@ export class DbSystemClient {
    * @param GetDbSystemRequest
    * @return GetDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetDbSystem.ts.html |here} to see how to use GetDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetDbSystem.ts.html |here} to see how to use GetDbSystem API.
    */
   public async getDbSystem(
     getDbSystemRequest: requests.GetDbSystemRequest
@@ -2386,7 +2386,7 @@ export class DbSystemClient {
    * @param GetHeatWaveClusterRequest
    * @return GetHeatWaveClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetHeatWaveCluster.ts.html |here} to see how to use GetHeatWaveCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetHeatWaveCluster.ts.html |here} to see how to use GetHeatWaveCluster API.
    */
   public async getHeatWaveCluster(
     getHeatWaveClusterRequest: requests.GetHeatWaveClusterRequest
@@ -2465,7 +2465,7 @@ export class DbSystemClient {
    * @param GetHeatWaveClusterMemoryEstimateRequest
    * @return GetHeatWaveClusterMemoryEstimateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetHeatWaveClusterMemoryEstimate.ts.html |here} to see how to use GetHeatWaveClusterMemoryEstimate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetHeatWaveClusterMemoryEstimate.ts.html |here} to see how to use GetHeatWaveClusterMemoryEstimate API.
    */
   public async getHeatWaveClusterMemoryEstimate(
     getHeatWaveClusterMemoryEstimateRequest: requests.GetHeatWaveClusterMemoryEstimateRequest
@@ -2539,7 +2539,7 @@ export class DbSystemClient {
    * @param ListDbSystemsRequest
    * @return ListDbSystemsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListDbSystems.ts.html |here} to see how to use ListDbSystems API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListDbSystems.ts.html |here} to see how to use ListDbSystems API.
    */
   public async listDbSystems(
     listDbSystemsRequest: requests.ListDbSystemsRequest
@@ -2678,7 +2678,7 @@ export class DbSystemClient {
    * @param RestartDbSystemRequest
    * @return RestartDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/RestartDbSystem.ts.html |here} to see how to use RestartDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/RestartDbSystem.ts.html |here} to see how to use RestartDbSystem API.
    */
   public async restartDbSystem(
     restartDbSystemRequest: requests.RestartDbSystemRequest
@@ -2757,7 +2757,7 @@ export class DbSystemClient {
    * @param RestartHeatWaveClusterRequest
    * @return RestartHeatWaveClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/RestartHeatWaveCluster.ts.html |here} to see how to use RestartHeatWaveCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/RestartHeatWaveCluster.ts.html |here} to see how to use RestartHeatWaveCluster API.
    */
   public async restartHeatWaveCluster(
     restartHeatWaveClusterRequest: requests.RestartHeatWaveClusterRequest
@@ -2831,7 +2831,7 @@ export class DbSystemClient {
    * @param StartDbSystemRequest
    * @return StartDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StartDbSystem.ts.html |here} to see how to use StartDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StartDbSystem.ts.html |here} to see how to use StartDbSystem API.
    */
   public async startDbSystem(
     startDbSystemRequest: requests.StartDbSystemRequest
@@ -2905,7 +2905,7 @@ export class DbSystemClient {
    * @param StartHeatWaveClusterRequest
    * @return StartHeatWaveClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StartHeatWaveCluster.ts.html |here} to see how to use StartHeatWaveCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StartHeatWaveCluster.ts.html |here} to see how to use StartHeatWaveCluster API.
    */
   public async startHeatWaveCluster(
     startHeatWaveClusterRequest: requests.StartHeatWaveClusterRequest
@@ -2982,7 +2982,7 @@ A stopped DB System is not billed.
      * @param StopDbSystemRequest
      * @return StopDbSystemResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StopDbSystem.ts.html |here} to see how to use StopDbSystem API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StopDbSystem.ts.html |here} to see how to use StopDbSystem API.
      */
   public async stopDbSystem(
     stopDbSystemRequest: requests.StopDbSystemRequest
@@ -3061,7 +3061,7 @@ A stopped DB System is not billed.
    * @param StopHeatWaveClusterRequest
    * @return StopHeatWaveClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StopHeatWaveCluster.ts.html |here} to see how to use StopHeatWaveCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StopHeatWaveCluster.ts.html |here} to see how to use StopHeatWaveCluster API.
    */
   public async stopHeatWaveCluster(
     stopHeatWaveClusterRequest: requests.StopHeatWaveClusterRequest
@@ -3143,7 +3143,7 @@ Updating different fields in the DB System will have different results
      * @param UpdateDbSystemRequest
      * @return UpdateDbSystemResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateDbSystem.ts.html |here} to see how to use UpdateDbSystem API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateDbSystem.ts.html |here} to see how to use UpdateDbSystem API.
      */
   public async updateDbSystem(
     updateDbSystemRequest: requests.UpdateDbSystemRequest
@@ -3222,7 +3222,7 @@ Updating different fields in the DB System will have different results
    * @param UpdateHeatWaveClusterRequest
    * @return UpdateHeatWaveClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateHeatWaveCluster.ts.html |here} to see how to use UpdateHeatWaveCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateHeatWaveCluster.ts.html |here} to see how to use UpdateHeatWaveCluster API.
    */
   public async updateHeatWaveCluster(
     updateHeatWaveClusterRequest: requests.UpdateHeatWaveClusterRequest
@@ -3508,7 +3508,7 @@ export class MysqlaasClient {
    * @param CreateConfigurationRequest
    * @return CreateConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateConfiguration.ts.html |here} to see how to use CreateConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateConfiguration.ts.html |here} to see how to use CreateConfiguration API.
    */
   public async createConfiguration(
     createConfigurationRequest: requests.CreateConfigurationRequest
@@ -3599,7 +3599,7 @@ export class MysqlaasClient {
    * @param DeleteConfigurationRequest
    * @return DeleteConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteConfiguration.ts.html |here} to see how to use DeleteConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteConfiguration.ts.html |here} to see how to use DeleteConfiguration API.
    */
   public async deleteConfiguration(
     deleteConfigurationRequest: requests.DeleteConfigurationRequest
@@ -3668,7 +3668,7 @@ export class MysqlaasClient {
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
    */
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
@@ -3753,7 +3753,7 @@ The default sort order is a multi-part sort by:
      * @param ListConfigurationsRequest
      * @return ListConfigurationsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListConfigurations.ts.html |here} to see how to use ListConfigurations API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListConfigurations.ts.html |here} to see how to use ListConfigurations API.
      */
   public async listConfigurations(
     listConfigurationsRequest: requests.ListConfigurationsRequest
@@ -3894,7 +3894,7 @@ The default sort order is a multi-part sort by:
    * @param ListShapesRequest
    * @return ListShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListShapes.ts.html |here} to see how to use ListShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListShapes.ts.html |here} to see how to use ListShapes API.
    */
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
@@ -3971,7 +3971,7 @@ The list is sorted by version family.
      * @param ListVersionsRequest
      * @return ListVersionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListVersions.ts.html |here} to see how to use ListVersions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListVersions.ts.html |here} to see how to use ListVersions API.
      */
   public async listVersions(
     listVersionsRequest: requests.ListVersionsRequest
@@ -4042,7 +4042,7 @@ The list is sorted by version family.
    * @param UpdateConfigurationRequest
    * @return UpdateConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
    */
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest
@@ -4332,7 +4332,7 @@ export class ReplicasClient {
    * @param CreateReplicaRequest
    * @return CreateReplicaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateReplica.ts.html |here} to see how to use CreateReplica API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateReplica.ts.html |here} to see how to use CreateReplica API.
    */
   public async createReplica(
     createReplicaRequest: requests.CreateReplicaRequest
@@ -4421,7 +4421,7 @@ export class ReplicasClient {
    * @param DeleteReplicaRequest
    * @return DeleteReplicaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteReplica.ts.html |here} to see how to use DeleteReplica API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteReplica.ts.html |here} to see how to use DeleteReplica API.
    */
   public async deleteReplica(
     deleteReplicaRequest: requests.DeleteReplicaRequest
@@ -4494,7 +4494,7 @@ export class ReplicasClient {
    * @param GetReplicaRequest
    * @return GetReplicaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetReplica.ts.html |here} to see how to use GetReplica API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetReplica.ts.html |here} to see how to use GetReplica API.
    */
   public async getReplica(
     getReplicaRequest: requests.GetReplicaRequest
@@ -4571,7 +4571,7 @@ export class ReplicasClient {
    * @param ListReplicasRequest
    * @return ListReplicasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListReplicas.ts.html |here} to see how to use ListReplicas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListReplicas.ts.html |here} to see how to use ListReplicas API.
    */
   public async listReplicas(
     listReplicasRequest: requests.ListReplicasRequest
@@ -4709,7 +4709,7 @@ export class ReplicasClient {
    * @param UpdateReplicaRequest
    * @return UpdateReplicaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateReplica.ts.html |here} to see how to use UpdateReplica API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateReplica.ts.html |here} to see how to use UpdateReplica API.
    */
   public async updateReplica(
     updateReplicaRequest: requests.UpdateReplicaRequest
@@ -4995,7 +4995,7 @@ export class WorkRequestsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -5078,7 +5078,7 @@ export class WorkRequestsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -5211,7 +5211,7 @@ export class WorkRequestsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -5343,7 +5343,7 @@ export class WorkRequestsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest

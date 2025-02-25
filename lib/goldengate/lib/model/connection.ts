@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface Connection {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the connection being
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the connection being
    * referenced.
    *
    */
@@ -37,7 +37,7 @@ export interface Connection {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
    *
    */
   "compartmentId": string;
@@ -59,7 +59,7 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
   /**
     * The system tags associated with this resource, if any. The system tags are set by Oracle
 * Cloud Infrastructure services. Each key is predefined and scoped to namespaces.  For more
-* information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {orcl-cloud: {free-tier-retain: true}}}
 * 
@@ -117,7 +117,7 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    */
   "nsgIds"?: Array<string>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the target subnet of the dedicated connection.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target subnet of the dedicated connection.
    *
    */
   "subnetId"?: string;

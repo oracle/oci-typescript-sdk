@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface CreateSoftwareSourceDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the software source.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the software source.
    */
   "compartmentId": string;
   /**
@@ -34,14 +34,14 @@ export interface CreateSoftwareSourceDetails {
   "description"?: string;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -66,9 +66,19 @@ export namespace CreateSoftwareSourceDetails {
             <model.CreateVendorSoftwareSourceDetails>(<object>jsonObj),
             true
           );
+        case "PRIVATE":
+          return model.CreatePrivateSoftwareSourceDetails.getJsonObj(
+            <model.CreatePrivateSoftwareSourceDetails>(<object>jsonObj),
+            true
+          );
         case "VERSIONED":
           return model.CreateVersionedCustomSoftwareSourceDetails.getJsonObj(
             <model.CreateVersionedCustomSoftwareSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "THIRD_PARTY":
+          return model.CreateThirdPartySoftwareSourceDetails.getJsonObj(
+            <model.CreateThirdPartySoftwareSourceDetails>(<object>jsonObj),
             true
           );
         default:
@@ -93,9 +103,19 @@ export namespace CreateSoftwareSourceDetails {
             <model.CreateVendorSoftwareSourceDetails>(<object>jsonObj),
             true
           );
+        case "PRIVATE":
+          return model.CreatePrivateSoftwareSourceDetails.getDeserializedJsonObj(
+            <model.CreatePrivateSoftwareSourceDetails>(<object>jsonObj),
+            true
+          );
         case "VERSIONED":
           return model.CreateVersionedCustomSoftwareSourceDetails.getDeserializedJsonObj(
             <model.CreateVersionedCustomSoftwareSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "THIRD_PARTY":
+          return model.CreateThirdPartySoftwareSourceDetails.getDeserializedJsonObj(
+            <model.CreateThirdPartySoftwareSourceDetails>(<object>jsonObj),
             true
           );
         default:

@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface JmsPlugin {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) to identify this JmsPlugin.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) to identify this JmsPlugin.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Management Agent (OMA) or the Oracle Cloud Agent (OCA) instance where the JMS plugin is deployed.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Management Agent (OMA) or the Oracle Cloud Agent (OCA) instance where the JMS plugin is deployed.
    */
   "agentId": string;
   /**
@@ -40,12 +40,12 @@ export interface JmsPlugin {
    */
   "availabilityStatus": model.JmsPluginAvailabilityStatus;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the fleet.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the fleet.
    *
    */
   "fleetId"?: string;
   /**
-   * The OMA/OCA agent's compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The OMA/OCA agent's compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId"?: string;
@@ -85,19 +85,19 @@ export interface JmsPlugin {
   "timeLastSeen"?: Date;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}. (See [Understanding Free-form Tags](https://docs.cloud.oracle.com/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm)).
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}. (See [Understanding Free-form Tags](https://docs.oracle.com/iaas/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm)).
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
-   * Example: {@code {\"bar-key\": \"value\"}}. (See [Managing Tags and Tag Namespaces](https://docs.cloud.oracle.com/Content/Tagging/Concepts/understandingfreeformtags.htm).)
+   * Example: {@code {\"bar-key\": \"value\"}}. (See [Managing Tags and Tag Namespaces](https://docs.oracle.com/iaas/Content/Tagging/Concepts/understandingfreeformtags.htm).)
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
     * System tags for this resource. Each key is predefined and scoped to a namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * System tags can be viewed by users, but can only be created by the system.
 * <p>
 Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}

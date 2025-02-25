@@ -2,7 +2,7 @@
  * Ops Insights API
  * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.oracle.com/iaas/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -23,7 +23,7 @@ import common = require("oci-common");
 export interface EnableExternalMysqlDatabaseInsightDetails
   extends model.EnableDatabaseInsightDetails {
   /**
-   * The DBM owned database connector [OCID](https://docs.cloud.oracle.com/iaas/database-management/doc/view-connector-details.html) mapping to the database credentials and connection details.
+   * The DBM owned database connector [OCID](https://docs.oracle.com/iaas/database-management/doc/view-connector-details.html) mapping to the database credentials and connection details.
    */
   "databaseConnectorId": string;
 

@@ -1,7 +1,7 @@
 /**
  * File Storage API
  * Use the File Storage service API to manage file systems, mount targets, and snapshots.
-For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+For more information, see [Overview of File Storage](https://docs.oracle.com/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -245,7 +245,7 @@ export class FileStorageClient {
    * @param AddExportLockRequest
    * @return AddExportLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddExportLock.ts.html |here} to see how to use AddExportLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddExportLock.ts.html |here} to see how to use AddExportLock API.
    */
   public async addExportLock(
     addExportLockRequest: requests.AddExportLockRequest
@@ -327,7 +327,7 @@ export class FileStorageClient {
    * @param AddFileSystemLockRequest
    * @return AddFileSystemLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddFileSystemLock.ts.html |here} to see how to use AddFileSystemLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddFileSystemLock.ts.html |here} to see how to use AddFileSystemLock API.
    */
   public async addFileSystemLock(
     addFileSystemLockRequest: requests.AddFileSystemLockRequest
@@ -409,7 +409,7 @@ export class FileStorageClient {
    * @param AddFilesystemSnapshotPolicyLockRequest
    * @return AddFilesystemSnapshotPolicyLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddFilesystemSnapshotPolicyLock.ts.html |here} to see how to use AddFilesystemSnapshotPolicyLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddFilesystemSnapshotPolicyLock.ts.html |here} to see how to use AddFilesystemSnapshotPolicyLock API.
    */
   public async addFilesystemSnapshotPolicyLock(
     addFilesystemSnapshotPolicyLockRequest: requests.AddFilesystemSnapshotPolicyLockRequest
@@ -493,7 +493,7 @@ export class FileStorageClient {
    * @param AddMountTargetLockRequest
    * @return AddMountTargetLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddMountTargetLock.ts.html |here} to see how to use AddMountTargetLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddMountTargetLock.ts.html |here} to see how to use AddMountTargetLock API.
    */
   public async addMountTargetLock(
     addMountTargetLockRequest: requests.AddMountTargetLockRequest
@@ -575,7 +575,7 @@ export class FileStorageClient {
    * @param AddOutboundConnectorLockRequest
    * @return AddOutboundConnectorLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddOutboundConnectorLock.ts.html |here} to see how to use AddOutboundConnectorLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddOutboundConnectorLock.ts.html |here} to see how to use AddOutboundConnectorLock API.
    */
   public async addOutboundConnectorLock(
     addOutboundConnectorLockRequest: requests.AddOutboundConnectorLockRequest
@@ -658,7 +658,7 @@ export class FileStorageClient {
    * @param AddReplicationLockRequest
    * @return AddReplicationLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddReplicationLock.ts.html |here} to see how to use AddReplicationLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddReplicationLock.ts.html |here} to see how to use AddReplicationLock API.
    */
   public async addReplicationLock(
     addReplicationLockRequest: requests.AddReplicationLockRequest
@@ -740,7 +740,7 @@ export class FileStorageClient {
    * @param AddSnapshotLockRequest
    * @return AddSnapshotLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddSnapshotLock.ts.html |here} to see how to use AddSnapshotLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/AddSnapshotLock.ts.html |here} to see how to use AddSnapshotLock API.
    */
   public async addSnapshotLock(
     addSnapshotLockRequest: requests.AddSnapshotLockRequest
@@ -823,7 +823,7 @@ export class FileStorageClient {
    * @param CancelDowngradeShapeMountTargetRequest
    * @return CancelDowngradeShapeMountTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CancelDowngradeShapeMountTarget.ts.html |here} to see how to use CancelDowngradeShapeMountTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CancelDowngradeShapeMountTarget.ts.html |here} to see how to use CancelDowngradeShapeMountTarget API.
    */
   public async cancelDowngradeShapeMountTarget(
     cancelDowngradeShapeMountTargetRequest: requests.CancelDowngradeShapeMountTargetRequest
@@ -896,13 +896,13 @@ export class FileStorageClient {
   }
 
   /**
-   * Moves a file system and its associated snapshots into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
+   * Moves a file system and its associated snapshots into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeFileSystemCompartmentRequest
    * @return ChangeFileSystemCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeFileSystemCompartment.ts.html |here} to see how to use ChangeFileSystemCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeFileSystemCompartment.ts.html |here} to see how to use ChangeFileSystemCompartment API.
    */
   public async changeFileSystemCompartment(
     changeFileSystemCompartmentRequest: requests.ChangeFileSystemCompartmentRequest
@@ -973,13 +973,13 @@ export class FileStorageClient {
   }
 
   /**
-   * Moves a file system snapshot policy into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Moves a file system snapshot policy into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeFilesystemSnapshotPolicyCompartmentRequest
    * @return ChangeFilesystemSnapshotPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeFilesystemSnapshotPolicyCompartment.ts.html |here} to see how to use ChangeFilesystemSnapshotPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeFilesystemSnapshotPolicyCompartment.ts.html |here} to see how to use ChangeFilesystemSnapshotPolicyCompartment API.
    */
   public async changeFilesystemSnapshotPolicyCompartment(
     changeFilesystemSnapshotPolicyCompartmentRequest: requests.ChangeFilesystemSnapshotPolicyCompartmentRequest
@@ -1053,13 +1053,13 @@ export class FileStorageClient {
   }
 
   /**
-   * Moves a mount target and its associated export set or share set into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
+   * Moves a mount target and its associated export set or share set into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeMountTargetCompartmentRequest
    * @return ChangeMountTargetCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeMountTargetCompartment.ts.html |here} to see how to use ChangeMountTargetCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeMountTargetCompartment.ts.html |here} to see how to use ChangeMountTargetCompartment API.
    */
   public async changeMountTargetCompartment(
     changeMountTargetCompartmentRequest: requests.ChangeMountTargetCompartmentRequest
@@ -1132,13 +1132,13 @@ export class FileStorageClient {
   /**
    * Moves an outbound connector into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeOutboundConnectorCompartmentRequest
    * @return ChangeOutboundConnectorCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeOutboundConnectorCompartment.ts.html |here} to see how to use ChangeOutboundConnectorCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeOutboundConnectorCompartment.ts.html |here} to see how to use ChangeOutboundConnectorCompartment API.
    */
   public async changeOutboundConnectorCompartment(
     changeOutboundConnectorCompartmentRequest: requests.ChangeOutboundConnectorCompartmentRequest
@@ -1210,13 +1210,13 @@ export class FileStorageClient {
 
   /**
    * Moves a replication and its replication target into a different compartment within the same tenancy.
-   * For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeReplicationCompartmentRequest
    * @return ChangeReplicationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeReplicationCompartment.ts.html |here} to see how to use ChangeReplicationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeReplicationCompartment.ts.html |here} to see how to use ChangeReplicationCompartment API.
    */
   public async changeReplicationCompartment(
     changeReplicationCompartmentRequest: requests.ChangeReplicationCompartmentRequest
@@ -1294,7 +1294,7 @@ export class FileStorageClient {
    * @param CreateExportRequest
    * @return CreateExportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateExport.ts.html |here} to see how to use CreateExport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateExport.ts.html |here} to see how to use CreateExport API.
    */
   public async createExport(
     createExportRequest: requests.CreateExportRequest
@@ -1381,20 +1381,20 @@ After you create a file system, you can associate it with a mount
 * more than one mount target at a time.
 * <p>
 For information about access control and compartments, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/Content/Identity/Concepts/overview.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * <p>
 For information about Network Security Groups access control, see
-* [Network Security Groups](https://docs.cloud.oracle.com/Content/Network/Concepts/networksecuritygroups.htm).
+* [Network Security Groups](https://docs.oracle.com/iaas/Content/Network/Concepts/networksecuritygroups.htm).
 * <p>
 For information about availability domains, see [Regions and
-* Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm).
+* Availability Domains](https://docs.oracle.com/iaas/Content/General/Concepts/regions.htm).
 * To get a list of availability domains, use the
 * `ListAvailabilityDomains` operation in the Identity and Access
 * Management Service API.
 * <p>
 All Oracle Cloud Infrastructure resources, including
 * file systems, get an Oracle-assigned, unique ID called an Oracle
-* Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).
+* Cloud Identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
 * When you create a resource, you can find its OCID in the response.
 * You can also retrieve a resource's OCID by using a List API operation on that resource
 * type or by viewing the resource in the Console.
@@ -1403,7 +1403,7 @@ All Oracle Cloud Infrastructure resources, including
      * @param CreateFileSystemRequest
      * @return CreateFileSystemResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateFileSystem.ts.html |here} to see how to use CreateFileSystem API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateFileSystem.ts.html |here} to see how to use CreateFileSystem API.
      */
   public async createFileSystem(
     createFileSystemRequest: requests.CreateFileSystemRequest
@@ -1488,7 +1488,7 @@ After you create a file system snapshot policy, you can associate it with
      * @param CreateFilesystemSnapshotPolicyRequest
      * @return CreateFilesystemSnapshotPolicyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateFilesystemSnapshotPolicy.ts.html |here} to see how to use CreateFilesystemSnapshotPolicy API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateFilesystemSnapshotPolicy.ts.html |here} to see how to use CreateFilesystemSnapshotPolicy API.
      */
   public async createFilesystemSnapshotPolicy(
     createFilesystemSnapshotPolicyRequest: requests.CreateFilesystemSnapshotPolicyRequest
@@ -1582,17 +1582,17 @@ Mount targets have one or more private IP addresses that you can
 * <p>
 For information about access control and compartments, see
 * [Overview of the IAM
-* Service](https://docs.cloud.oracle.com/Content/Identity/Concepts/overview.htm).
+* Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * <p>
 For information about availability domains, see [Regions and
-* Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm).
+* Availability Domains](https://docs.oracle.com/iaas/Content/General/Concepts/regions.htm).
 * To get a list of availability domains, use the
 * `ListAvailabilityDomains` operation in the Identity and Access
 * Management Service API.
 * <p>
 All Oracle Cloud Infrastructure Services resources, including
 * mount targets, get an Oracle-assigned, unique ID called an
-* Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).
+* Oracle Cloud Identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
 * When you create a resource, you can find its OCID in the response.
 * You can also retrieve a resource's OCID by using a List API operation on that resource
 * type, or by viewing the resource in the Console.
@@ -1601,7 +1601,7 @@ All Oracle Cloud Infrastructure Services resources, including
      * @param CreateMountTargetRequest
      * @return CreateMountTargetResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateMountTarget.ts.html |here} to see how to use CreateMountTarget API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateMountTarget.ts.html |here} to see how to use CreateMountTarget API.
      */
   public async createMountTarget(
     createMountTargetRequest: requests.CreateMountTargetRequest
@@ -1684,17 +1684,17 @@ All Oracle Cloud Infrastructure Services resources, including
 * <p>
 For information about access control and compartments, see
 * [Overview of the IAM
-* Service](https://docs.cloud.oracle.com/Content/Identity/Concepts/overview.htm).
+* Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * <p>
 For information about availability domains, see [Regions and
-* Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm).
+* Availability Domains](https://docs.oracle.com/iaas/Content/General/Concepts/regions.htm).
 * To get a list of availability domains, use the
 * `ListAvailabilityDomains` operation in the Identity and Access
 * Management Service API.
 * <p>
 All Oracle Cloud Infrastructure Services resources, including
 * outbound connectors, get an Oracle-assigned, unique ID called an
-* Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).
+* Oracle Cloud Identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
 * When you create a resource, you can find its OCID in the response.
 * You can also retrieve a resource's OCID by using a List API operation on that resource
 * type, or by viewing the resource in the Console.
@@ -1703,7 +1703,7 @@ All Oracle Cloud Infrastructure Services resources, including
      * @param CreateOutboundConnectorRequest
      * @return CreateOutboundConnectorResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateOutboundConnector.ts.html |here} to see how to use CreateOutboundConnector API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateOutboundConnector.ts.html |here} to see how to use CreateOutboundConnector API.
      */
   public async createOutboundConnector(
     createOutboundConnectorRequest: requests.CreateOutboundConnectorRequest
@@ -1788,21 +1788,21 @@ All Oracle Cloud Infrastructure Services resources, including
 * and sends it to the associated `ReplicationTarget`, which retrieves the delta and applies it to the target
 * file system.
 * Only unexported file systems can be used as target file systems.
-* For more information, see [Using Replication](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/FSreplication.htm).
+* For more information, see [Using Replication](https://docs.oracle.com/iaas/Content/File/Tasks/FSreplication.htm).
 * <p>
 For information about access control and compartments, see
 * [Overview of the IAM
-* Service](https://docs.cloud.oracle.com/Content/Identity/Concepts/overview.htm).
+* Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * <p>
 For information about availability domains, see [Regions and
-* Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm).
+* Availability Domains](https://docs.oracle.com/iaas/Content/General/Concepts/regions.htm).
 * To get a list of availability domains, use the
 * `ListAvailabilityDomains` operation in the Identity and Access
 * Management Service API.
 * <p>
 All Oracle Cloud Infrastructure Services resources, including
 * replications, get an Oracle-assigned, unique ID called an
-* Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).
+* Oracle Cloud Identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
 * When you create a resource, you can find its OCID in the response.
 * You can also retrieve a resource's OCID by using a List API operation on that resource
 * type, or by viewing the resource in the Console.
@@ -1811,7 +1811,7 @@ All Oracle Cloud Infrastructure Services resources, including
      * @param CreateReplicationRequest
      * @return CreateReplicationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateReplication.ts.html |here} to see how to use CreateReplication API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateReplication.ts.html |here} to see how to use CreateReplication API.
      */
   public async createReplication(
     createReplicationRequest: requests.CreateReplicationRequest
@@ -1893,7 +1893,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param CreateSnapshotRequest
    * @return CreateSnapshotResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateSnapshot.ts.html |here} to see how to use CreateSnapshot API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateSnapshot.ts.html |here} to see how to use CreateSnapshot API.
    */
   public async createSnapshot(
     createSnapshotRequest: requests.CreateSnapshotRequest
@@ -1974,7 +1974,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteExportRequest
    * @return DeleteExportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteExport.ts.html |here} to see how to use DeleteExport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteExport.ts.html |here} to see how to use DeleteExport API.
    */
   public async deleteExport(
     deleteExportRequest: requests.DeleteExportRequest
@@ -2047,7 +2047,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteFileSystemRequest
    * @return DeleteFileSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteFileSystem.ts.html |here} to see how to use DeleteFileSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteFileSystem.ts.html |here} to see how to use DeleteFileSystem API.
    */
   public async deleteFileSystem(
     deleteFileSystemRequest: requests.DeleteFileSystemRequest
@@ -2119,7 +2119,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteFilesystemSnapshotPolicyRequest
    * @return DeleteFilesystemSnapshotPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteFilesystemSnapshotPolicy.ts.html |here} to see how to use DeleteFilesystemSnapshotPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteFilesystemSnapshotPolicy.ts.html |here} to see how to use DeleteFilesystemSnapshotPolicy API.
    */
   public async deleteFilesystemSnapshotPolicy(
     deleteFilesystemSnapshotPolicyRequest: requests.DeleteFilesystemSnapshotPolicyRequest
@@ -2193,7 +2193,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteMountTargetRequest
    * @return DeleteMountTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteMountTarget.ts.html |here} to see how to use DeleteMountTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteMountTarget.ts.html |here} to see how to use DeleteMountTarget API.
    */
   public async deleteMountTarget(
     deleteMountTargetRequest: requests.DeleteMountTargetRequest
@@ -2264,7 +2264,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteOutboundConnectorRequest
    * @return DeleteOutboundConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteOutboundConnector.ts.html |here} to see how to use DeleteOutboundConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteOutboundConnector.ts.html |here} to see how to use DeleteOutboundConnector API.
    */
   public async deleteOutboundConnector(
     deleteOutboundConnectorRequest: requests.DeleteOutboundConnectorRequest
@@ -2336,7 +2336,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteReplicationRequest
    * @return DeleteReplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteReplication.ts.html |here} to see how to use DeleteReplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteReplication.ts.html |here} to see how to use DeleteReplication API.
    */
   public async deleteReplication(
     deleteReplicationRequest: requests.DeleteReplicationRequest
@@ -2411,7 +2411,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteReplicationTargetRequest
    * @return DeleteReplicationTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteReplicationTarget.ts.html |here} to see how to use DeleteReplicationTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteReplicationTarget.ts.html |here} to see how to use DeleteReplicationTarget API.
    */
   public async deleteReplicationTarget(
     deleteReplicationTargetRequest: requests.DeleteReplicationTargetRequest
@@ -2483,7 +2483,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DeleteSnapshotRequest
    * @return DeleteSnapshotResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteSnapshot.ts.html |here} to see how to use DeleteSnapshot API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteSnapshot.ts.html |here} to see how to use DeleteSnapshot API.
    */
   public async deleteSnapshot(
     deleteSnapshotRequest: requests.DeleteSnapshotRequest
@@ -2554,7 +2554,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param DetachCloneRequest
    * @return DetachCloneResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DetachClone.ts.html |here} to see how to use DetachClone API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DetachClone.ts.html |here} to see how to use DetachClone API.
    */
   public async detachClone(
     detachCloneRequest: requests.DetachCloneRequest
@@ -2623,7 +2623,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param EstimateReplicationRequest
    * @return EstimateReplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/EstimateReplication.ts.html |here} to see how to use EstimateReplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/EstimateReplication.ts.html |here} to see how to use EstimateReplication API.
    */
   public async estimateReplication(
     estimateReplicationRequest: requests.EstimateReplicationRequest
@@ -2702,7 +2702,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetExportRequest
    * @return GetExportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetExport.ts.html |here} to see how to use GetExport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetExport.ts.html |here} to see how to use GetExport API.
    */
   public async getExport(
     getExportRequest: requests.GetExportRequest
@@ -2778,7 +2778,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetExportSetRequest
    * @return GetExportSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetExportSet.ts.html |here} to see how to use GetExportSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetExportSet.ts.html |here} to see how to use GetExportSet API.
    */
   public async getExportSet(
     getExportSetRequest: requests.GetExportSetRequest
@@ -2854,7 +2854,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetFileSystemRequest
    * @return GetFileSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetFileSystem.ts.html |here} to see how to use GetFileSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetFileSystem.ts.html |here} to see how to use GetFileSystem API.
    */
   public async getFileSystem(
     getFileSystemRequest: requests.GetFileSystemRequest
@@ -2930,7 +2930,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetFilesystemSnapshotPolicyRequest
    * @return GetFilesystemSnapshotPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetFilesystemSnapshotPolicy.ts.html |here} to see how to use GetFilesystemSnapshotPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetFilesystemSnapshotPolicy.ts.html |here} to see how to use GetFilesystemSnapshotPolicy API.
    */
   public async getFilesystemSnapshotPolicy(
     getFilesystemSnapshotPolicyRequest: requests.GetFilesystemSnapshotPolicyRequest
@@ -3007,7 +3007,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetMountTargetRequest
    * @return GetMountTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetMountTarget.ts.html |here} to see how to use GetMountTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetMountTarget.ts.html |here} to see how to use GetMountTarget API.
    */
   public async getMountTarget(
     getMountTargetRequest: requests.GetMountTargetRequest
@@ -3083,7 +3083,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetOutboundConnectorRequest
    * @return GetOutboundConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetOutboundConnector.ts.html |here} to see how to use GetOutboundConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetOutboundConnector.ts.html |here} to see how to use GetOutboundConnector API.
    */
   public async getOutboundConnector(
     getOutboundConnectorRequest: requests.GetOutboundConnectorRequest
@@ -3159,7 +3159,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetReplicationRequest
    * @return GetReplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetReplication.ts.html |here} to see how to use GetReplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetReplication.ts.html |here} to see how to use GetReplication API.
    */
   public async getReplication(
     getReplicationRequest: requests.GetReplicationRequest
@@ -3235,7 +3235,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetReplicationTargetRequest
    * @return GetReplicationTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetReplicationTarget.ts.html |here} to see how to use GetReplicationTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetReplicationTarget.ts.html |here} to see how to use GetReplicationTarget API.
    */
   public async getReplicationTarget(
     getReplicationTargetRequest: requests.GetReplicationTargetRequest
@@ -3311,7 +3311,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param GetSnapshotRequest
    * @return GetSnapshotResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetSnapshot.ts.html |here} to see how to use GetSnapshot API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetSnapshot.ts.html |here} to see how to use GetSnapshot API.
    */
   public async getSnapshot(
     getSnapshotRequest: requests.GetSnapshotRequest
@@ -3388,7 +3388,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListExportSetsRequest
    * @return ListExportSetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListExportSets.ts.html |here} to see how to use ListExportSets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListExportSets.ts.html |here} to see how to use ListExportSets API.
    */
   public async listExportSets(
     listExportSetsRequest: requests.ListExportSetsRequest
@@ -3527,7 +3527,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListExportsRequest
    * @return ListExportsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListExports.ts.html |here} to see how to use ListExports API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListExports.ts.html |here} to see how to use ListExports API.
    */
   public async listExports(
     listExportsRequest: requests.ListExportsRequest
@@ -3665,7 +3665,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListFileSystemsRequest
    * @return ListFileSystemsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListFileSystems.ts.html |here} to see how to use ListFileSystems API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListFileSystems.ts.html |here} to see how to use ListFileSystems API.
    */
   public async listFileSystems(
     listFileSystemsRequest: requests.ListFileSystemsRequest
@@ -3805,7 +3805,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListFilesystemSnapshotPoliciesRequest
    * @return ListFilesystemSnapshotPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListFilesystemSnapshotPolicies.ts.html |here} to see how to use ListFilesystemSnapshotPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListFilesystemSnapshotPolicies.ts.html |here} to see how to use ListFilesystemSnapshotPolicies API.
    */
   public async listFilesystemSnapshotPolicies(
     listFilesystemSnapshotPoliciesRequest: requests.ListFilesystemSnapshotPoliciesRequest
@@ -3943,7 +3943,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListMountTargetsRequest
    * @return ListMountTargetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListMountTargets.ts.html |here} to see how to use ListMountTargets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListMountTargets.ts.html |here} to see how to use ListMountTargets API.
    */
   public async listMountTargets(
     listMountTargetsRequest: requests.ListMountTargetsRequest
@@ -4081,7 +4081,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListOutboundConnectorsRequest
    * @return ListOutboundConnectorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListOutboundConnectors.ts.html |here} to see how to use ListOutboundConnectors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListOutboundConnectors.ts.html |here} to see how to use ListOutboundConnectors API.
    */
   public async listOutboundConnectors(
     listOutboundConnectorsRequest: requests.ListOutboundConnectorsRequest
@@ -4219,7 +4219,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListReplicationTargetsRequest
    * @return ListReplicationTargetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListReplicationTargets.ts.html |here} to see how to use ListReplicationTargets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListReplicationTargets.ts.html |here} to see how to use ListReplicationTargets API.
    */
   public async listReplicationTargets(
     listReplicationTargetsRequest: requests.ListReplicationTargetsRequest
@@ -4357,7 +4357,7 @@ All Oracle Cloud Infrastructure Services resources, including
    * @param ListReplicationsRequest
    * @return ListReplicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListReplications.ts.html |here} to see how to use ListReplications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListReplications.ts.html |here} to see how to use ListReplications API.
    */
   public async listReplications(
     listReplicationsRequest: requests.ListReplicationsRequest
@@ -4501,7 +4501,7 @@ Users can only sort by time created when listing snapshots by file system snapsh
      * @param ListSnapshotsRequest
      * @return ListSnapshotsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListSnapshots.ts.html |here} to see how to use ListSnapshots API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListSnapshots.ts.html |here} to see how to use ListSnapshots API.
      */
   public async listSnapshots(
     listSnapshotsRequest: requests.ListSnapshotsRequest
@@ -4642,7 +4642,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
      * @param PauseFilesystemSnapshotPolicyRequest
      * @return PauseFilesystemSnapshotPolicyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/PauseFilesystemSnapshotPolicy.ts.html |here} to see how to use PauseFilesystemSnapshotPolicy API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/PauseFilesystemSnapshotPolicy.ts.html |here} to see how to use PauseFilesystemSnapshotPolicy API.
      */
   public async pauseFilesystemSnapshotPolicy(
     pauseFilesystemSnapshotPolicyRequest: requests.PauseFilesystemSnapshotPolicyRequest
@@ -4723,7 +4723,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
    * @param RemoveExportLockRequest
    * @return RemoveExportLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveExportLock.ts.html |here} to see how to use RemoveExportLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveExportLock.ts.html |here} to see how to use RemoveExportLock API.
    */
   public async removeExportLock(
     removeExportLockRequest: requests.RemoveExportLockRequest
@@ -4805,7 +4805,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
    * @param RemoveFileSystemLockRequest
    * @return RemoveFileSystemLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveFileSystemLock.ts.html |here} to see how to use RemoveFileSystemLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveFileSystemLock.ts.html |here} to see how to use RemoveFileSystemLock API.
    */
   public async removeFileSystemLock(
     removeFileSystemLockRequest: requests.RemoveFileSystemLockRequest
@@ -4887,7 +4887,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
    * @param RemoveFilesystemSnapshotPolicyLockRequest
    * @return RemoveFilesystemSnapshotPolicyLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveFilesystemSnapshotPolicyLock.ts.html |here} to see how to use RemoveFilesystemSnapshotPolicyLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveFilesystemSnapshotPolicyLock.ts.html |here} to see how to use RemoveFilesystemSnapshotPolicyLock API.
    */
   public async removeFilesystemSnapshotPolicyLock(
     removeFilesystemSnapshotPolicyLockRequest: requests.RemoveFilesystemSnapshotPolicyLockRequest
@@ -4971,7 +4971,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
    * @param RemoveMountTargetLockRequest
    * @return RemoveMountTargetLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveMountTargetLock.ts.html |here} to see how to use RemoveMountTargetLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveMountTargetLock.ts.html |here} to see how to use RemoveMountTargetLock API.
    */
   public async removeMountTargetLock(
     removeMountTargetLockRequest: requests.RemoveMountTargetLockRequest
@@ -5054,7 +5054,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
    * @param RemoveOutboundConnectorLockRequest
    * @return RemoveOutboundConnectorLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveOutboundConnectorLock.ts.html |here} to see how to use RemoveOutboundConnectorLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveOutboundConnectorLock.ts.html |here} to see how to use RemoveOutboundConnectorLock API.
    */
   public async removeOutboundConnectorLock(
     removeOutboundConnectorLockRequest: requests.RemoveOutboundConnectorLockRequest
@@ -5137,7 +5137,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
    * @param RemoveReplicationLockRequest
    * @return RemoveReplicationLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveReplicationLock.ts.html |here} to see how to use RemoveReplicationLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveReplicationLock.ts.html |here} to see how to use RemoveReplicationLock API.
    */
   public async removeReplicationLock(
     removeReplicationLockRequest: requests.RemoveReplicationLockRequest
@@ -5220,7 +5220,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
    * @param RemoveSnapshotLockRequest
    * @return RemoveSnapshotLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveSnapshotLock.ts.html |here} to see how to use RemoveSnapshotLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/RemoveSnapshotLock.ts.html |here} to see how to use RemoveSnapshotLock API.
    */
   public async removeSnapshotLock(
     removeSnapshotLockRequest: requests.RemoveSnapshotLockRequest
@@ -5303,7 +5303,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
    * @param ScheduleDowngradeShapeMountTargetRequest
    * @return ScheduleDowngradeShapeMountTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ScheduleDowngradeShapeMountTarget.ts.html |here} to see how to use ScheduleDowngradeShapeMountTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ScheduleDowngradeShapeMountTarget.ts.html |here} to see how to use ScheduleDowngradeShapeMountTarget API.
    */
   public async scheduleDowngradeShapeMountTarget(
     scheduleDowngradeShapeMountTargetRequest: requests.ScheduleDowngradeShapeMountTargetRequest
@@ -5391,7 +5391,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
      * @param UnpauseFilesystemSnapshotPolicyRequest
      * @return UnpauseFilesystemSnapshotPolicyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UnpauseFilesystemSnapshotPolicy.ts.html |here} to see how to use UnpauseFilesystemSnapshotPolicy API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UnpauseFilesystemSnapshotPolicy.ts.html |here} to see how to use UnpauseFilesystemSnapshotPolicy API.
      */
   public async unpauseFilesystemSnapshotPolicy(
     unpauseFilesystemSnapshotPolicyRequest: requests.UnpauseFilesystemSnapshotPolicyRequest
@@ -5472,7 +5472,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
    * @param UpdateExportRequest
    * @return UpdateExportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateExport.ts.html |here} to see how to use UpdateExport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateExport.ts.html |here} to see how to use UpdateExport API.
    */
   public async updateExport(
     updateExportRequest: requests.UpdateExportRequest
@@ -5556,7 +5556,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
    * @param UpdateExportSetRequest
    * @return UpdateExportSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateExportSet.ts.html |here} to see how to use UpdateExportSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateExportSet.ts.html |here} to see how to use UpdateExportSet API.
    */
   public async updateExportSet(
     updateExportSetRequest: requests.UpdateExportSetRequest
@@ -5640,7 +5640,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
    * @param UpdateFileSystemRequest
    * @return UpdateFileSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateFileSystem.ts.html |here} to see how to use UpdateFileSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateFileSystem.ts.html |here} to see how to use UpdateFileSystem API.
    */
   public async updateFileSystem(
     updateFileSystemRequest: requests.UpdateFileSystemRequest
@@ -5724,7 +5724,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
    * @param UpdateFilesystemSnapshotPolicyRequest
    * @return UpdateFilesystemSnapshotPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateFilesystemSnapshotPolicy.ts.html |here} to see how to use UpdateFilesystemSnapshotPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateFilesystemSnapshotPolicy.ts.html |here} to see how to use UpdateFilesystemSnapshotPolicy API.
    */
   public async updateFilesystemSnapshotPolicy(
     updateFilesystemSnapshotPolicyRequest: requests.UpdateFilesystemSnapshotPolicyRequest
@@ -5810,7 +5810,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
    * @param UpdateMountTargetRequest
    * @return UpdateMountTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateMountTarget.ts.html |here} to see how to use UpdateMountTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateMountTarget.ts.html |here} to see how to use UpdateMountTarget API.
    */
   public async updateMountTarget(
     updateMountTargetRequest: requests.UpdateMountTargetRequest
@@ -5894,7 +5894,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
    * @param UpdateOutboundConnectorRequest
    * @return UpdateOutboundConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateOutboundConnector.ts.html |here} to see how to use UpdateOutboundConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateOutboundConnector.ts.html |here} to see how to use UpdateOutboundConnector API.
    */
   public async updateOutboundConnector(
     updateOutboundConnectorRequest: requests.UpdateOutboundConnectorRequest
@@ -5980,7 +5980,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
    * @param UpdateReplicationRequest
    * @return UpdateReplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateReplication.ts.html |here} to see how to use UpdateReplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateReplication.ts.html |here} to see how to use UpdateReplication API.
    */
   public async updateReplication(
     updateReplicationRequest: requests.UpdateReplicationRequest
@@ -6064,7 +6064,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
    * @param UpdateSnapshotRequest
    * @return UpdateSnapshotResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateSnapshot.ts.html |here} to see how to use UpdateSnapshot API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateSnapshot.ts.html |here} to see how to use UpdateSnapshot API.
    */
   public async updateSnapshot(
     updateSnapshotRequest: requests.UpdateSnapshotRequest
@@ -6149,7 +6149,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
    * @param UpgradeShapeMountTargetRequest
    * @return UpgradeShapeMountTargetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpgradeShapeMountTarget.ts.html |here} to see how to use UpgradeShapeMountTarget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpgradeShapeMountTarget.ts.html |here} to see how to use UpgradeShapeMountTarget API.
    */
   public async upgradeShapeMountTarget(
     upgradeShapeMountTargetRequest: requests.UpgradeShapeMountTargetRequest
@@ -6235,7 +6235,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
    * @param ValidateKeyTabsRequest
    * @return ValidateKeyTabsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ValidateKeyTabs.ts.html |here} to see how to use ValidateKeyTabs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ValidateKeyTabs.ts.html |here} to see how to use ValidateKeyTabs API.
    */
   public async validateKeyTabs(
     validateKeyTabsRequest: requests.ValidateKeyTabsRequest

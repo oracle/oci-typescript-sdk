@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExascaleDbStorageVaultCompartment.ts.html |here} to see how to use ChangeExascaleDbStorageVaultCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExascaleDbStorageVaultCompartment.ts.html |here} to see how to use ChangeExascaleDbStorageVaultCompartmentRequest.
  */
 export interface ChangeExascaleDbStorageVaultCompartmentRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ChangeExascaleDbStorageVaultCompartmentRequest extends common.B
    */
   "changeExascaleDbStorageVaultCompartmentDetails": model.ChangeExascaleDbStorageVaultCompartmentDetails;
   /**
-   * The Exadata Database Storage Vault [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Exadata Database Storage Vault [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "exascaleDbStorageVaultId": string;
   /**

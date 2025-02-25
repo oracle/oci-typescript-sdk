@@ -1,11 +1,11 @@
 /**
  * Autoscaling API
  * APIs for dynamically scaling Compute resources to meet application requirements. For more information about
-autoscaling, see [Autoscaling](/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
-Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+autoscaling, see [Autoscaling](https://docs.oracle.com/iaas/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
+Compute service, see [Overview of the Compute Service](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm).
 
 **Note:** Autoscaling is not available in US Government Cloud tenancies. For more information, see
-[Oracle Cloud Infrastructure US Government Cloud](/Content/General/Concepts/govoverview.htm).
+[Oracle Cloud Infrastructure US Government Cloud](https://docs.oracle.com/iaas/Content/General/Concepts/govoverview.htm).
 
  * OpenAPI spec version: 20181001
  * 
@@ -24,7 +24,7 @@ import common = require("oci-common");
 * Autoscaling policies define the criteria that trigger autoscaling actions and the actions to take.
 * <p>
 An autoscaling policy is part of an autoscaling configuration. For more information, see
-* [Autoscaling](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/autoscalinginstancepools.htm).
+* [Autoscaling](https://docs.oracle.com/iaas/Content/Compute/Tasks/autoscalinginstancepools.htm).
 * <p>
 You can create the following types of autoscaling policies:
 *   

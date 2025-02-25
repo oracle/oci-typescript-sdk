@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetLicenseRecord.ts.html |here} to see how to use GetLicenseRecordRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetLicenseRecord.ts.html |here} to see how to use GetLicenseRecordRequest.
  */
 export interface GetLicenseRecordRequest extends common.BaseRequest {
   /**

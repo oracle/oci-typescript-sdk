@@ -221,7 +221,7 @@ export class RoverBundleClient {
    * @param ListRoverClusterRoverBundleRequestsRequest
    * @return ListRoverClusterRoverBundleRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListRoverClusterRoverBundleRequests.ts.html |here} to see how to use ListRoverClusterRoverBundleRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListRoverClusterRoverBundleRequests.ts.html |here} to see how to use ListRoverClusterRoverBundleRequests API.
    */
   public async listRoverClusterRoverBundleRequests(
     listRoverClusterRoverBundleRequestsRequest: requests.ListRoverClusterRoverBundleRequestsRequest
@@ -303,7 +303,7 @@ export class RoverBundleClient {
    * @param ListRoverNodeRoverBundleRequestsRequest
    * @return ListRoverNodeRoverBundleRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListRoverNodeRoverBundleRequests.ts.html |here} to see how to use ListRoverNodeRoverBundleRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListRoverNodeRoverBundleRequests.ts.html |here} to see how to use ListRoverNodeRoverBundleRequests API.
    */
   public async listRoverNodeRoverBundleRequests(
     listRoverNodeRoverBundleRequestsRequest: requests.ListRoverNodeRoverBundleRequestsRequest
@@ -386,7 +386,7 @@ export class RoverBundleClient {
    * @param RequestBundleRoverClusterRequest
    * @return RequestBundleRoverClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RequestBundleRoverCluster.ts.html |here} to see how to use RequestBundleRoverCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RequestBundleRoverCluster.ts.html |here} to see how to use RequestBundleRoverCluster API.
    */
   public async requestBundleRoverCluster(
     requestBundleRoverClusterRequest: requests.RequestBundleRoverClusterRequest
@@ -465,7 +465,7 @@ export class RoverBundleClient {
    * @param RequestBundleRoverNodeRequest
    * @return RequestBundleRoverNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RequestBundleRoverNode.ts.html |here} to see how to use RequestBundleRoverNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RequestBundleRoverNode.ts.html |here} to see how to use RequestBundleRoverNode API.
    */
   public async requestBundleRoverNode(
     requestBundleRoverNodeRequest: requests.RequestBundleRoverNodeRequest
@@ -543,7 +543,7 @@ export class RoverBundleClient {
    * @param RetrieveAvailableBundleVersionsRoverClusterRequest
    * @return RetrieveAvailableBundleVersionsRoverClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RetrieveAvailableBundleVersionsRoverCluster.ts.html |here} to see how to use RetrieveAvailableBundleVersionsRoverCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RetrieveAvailableBundleVersionsRoverCluster.ts.html |here} to see how to use RetrieveAvailableBundleVersionsRoverCluster API.
    */
   public async retrieveAvailableBundleVersionsRoverCluster(
     retrieveAvailableBundleVersionsRoverClusterRequest: requests.RetrieveAvailableBundleVersionsRoverClusterRequest
@@ -627,7 +627,7 @@ export class RoverBundleClient {
    * @param RetrieveAvailableBundleVersionsRoverNodeRequest
    * @return RetrieveAvailableBundleVersionsRoverNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RetrieveAvailableBundleVersionsRoverNode.ts.html |here} to see how to use RetrieveAvailableBundleVersionsRoverNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RetrieveAvailableBundleVersionsRoverNode.ts.html |here} to see how to use RetrieveAvailableBundleVersionsRoverNode API.
    */
   public async retrieveAvailableBundleVersionsRoverNode(
     retrieveAvailableBundleVersionsRoverNodeRequest: requests.RetrieveAvailableBundleVersionsRoverNodeRequest
@@ -711,7 +711,7 @@ export class RoverBundleClient {
    * @param RetrieveBundleStatusRoverClusterRequest
    * @return RetrieveBundleStatusRoverClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RetrieveBundleStatusRoverCluster.ts.html |here} to see how to use RetrieveBundleStatusRoverCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RetrieveBundleStatusRoverCluster.ts.html |here} to see how to use RetrieveBundleStatusRoverCluster API.
    */
   public async retrieveBundleStatusRoverCluster(
     retrieveBundleStatusRoverClusterRequest: requests.RetrieveBundleStatusRoverClusterRequest
@@ -793,7 +793,7 @@ export class RoverBundleClient {
    * @param RetrieveBundleStatusRoverNodeRequest
    * @return RetrieveBundleStatusRoverNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RetrieveBundleStatusRoverNode.ts.html |here} to see how to use RetrieveBundleStatusRoverNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RetrieveBundleStatusRoverNode.ts.html |here} to see how to use RetrieveBundleStatusRoverNode API.
    */
   public async retrieveBundleStatusRoverNode(
     retrieveBundleStatusRoverNodeRequest: requests.RetrieveBundleStatusRoverNodeRequest
@@ -1083,7 +1083,7 @@ export class RoverClusterClient {
    * @param ChangeRoverClusterCompartmentRequest
    * @return ChangeRoverClusterCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ChangeRoverClusterCompartment.ts.html |here} to see how to use ChangeRoverClusterCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ChangeRoverClusterCompartment.ts.html |here} to see how to use ChangeRoverClusterCompartment API.
    */
   public async changeRoverClusterCompartment(
     changeRoverClusterCompartmentRequest: requests.ChangeRoverClusterCompartmentRequest
@@ -1159,7 +1159,7 @@ export class RoverClusterClient {
    * @param CreateRoverClusterRequest
    * @return CreateRoverClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/CreateRoverCluster.ts.html |here} to see how to use CreateRoverCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/CreateRoverCluster.ts.html |here} to see how to use CreateRoverCluster API.
    */
   public async createRoverCluster(
     createRoverClusterRequest: requests.CreateRoverClusterRequest
@@ -1239,7 +1239,7 @@ export class RoverClusterClient {
    * @param DeleteRoverClusterRequest
    * @return DeleteRoverClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/DeleteRoverCluster.ts.html |here} to see how to use DeleteRoverCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/DeleteRoverCluster.ts.html |here} to see how to use DeleteRoverCluster API.
    */
   public async deleteRoverCluster(
     deleteRoverClusterRequest: requests.DeleteRoverClusterRequest
@@ -1308,7 +1308,7 @@ export class RoverClusterClient {
    * @param GetRoverClusterRequest
    * @return GetRoverClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverCluster.ts.html |here} to see how to use GetRoverCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverCluster.ts.html |here} to see how to use GetRoverCluster API.
    */
   public async getRoverCluster(
     getRoverClusterRequest: requests.GetRoverClusterRequest
@@ -1384,7 +1384,7 @@ export class RoverClusterClient {
    * @param GetRoverClusterCertificateRequest
    * @return GetRoverClusterCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverClusterCertificate.ts.html |here} to see how to use GetRoverClusterCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverClusterCertificate.ts.html |here} to see how to use GetRoverClusterCertificate API.
    */
   public async getRoverClusterCertificate(
     getRoverClusterCertificateRequest: requests.GetRoverClusterCertificateRequest
@@ -1462,7 +1462,7 @@ export class RoverClusterClient {
    * @param ListRoverClustersRequest
    * @return ListRoverClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListRoverClusters.ts.html |here} to see how to use ListRoverClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListRoverClusters.ts.html |here} to see how to use ListRoverClusters API.
    */
   public async listRoverClusters(
     listRoverClustersRequest: requests.ListRoverClustersRequest
@@ -1550,7 +1550,7 @@ export class RoverClusterClient {
    * @param RequestAdditionalNodesRequest
    * @return RequestAdditionalNodesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RequestAdditionalNodes.ts.html |here} to see how to use RequestAdditionalNodes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RequestAdditionalNodes.ts.html |here} to see how to use RequestAdditionalNodes API.
    */
   public async requestAdditionalNodes(
     requestAdditionalNodesRequest: requests.RequestAdditionalNodesRequest
@@ -1630,7 +1630,7 @@ export class RoverClusterClient {
    * @param UpdateRoverClusterRequest
    * @return UpdateRoverClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/UpdateRoverCluster.ts.html |here} to see how to use UpdateRoverCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/UpdateRoverCluster.ts.html |here} to see how to use UpdateRoverCluster API.
    */
   public async updateRoverCluster(
     updateRoverClusterRequest: requests.UpdateRoverClusterRequest
@@ -1920,7 +1920,7 @@ export class RoverEntitlementClient {
    * @param ChangeRoverEntitlementCompartmentRequest
    * @return ChangeRoverEntitlementCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ChangeRoverEntitlementCompartment.ts.html |here} to see how to use ChangeRoverEntitlementCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ChangeRoverEntitlementCompartment.ts.html |here} to see how to use ChangeRoverEntitlementCompartment API.
    */
   public async changeRoverEntitlementCompartment(
     changeRoverEntitlementCompartmentRequest: requests.ChangeRoverEntitlementCompartmentRequest
@@ -1997,7 +1997,7 @@ export class RoverEntitlementClient {
    * @param CreateRoverEntitlementRequest
    * @return CreateRoverEntitlementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/CreateRoverEntitlement.ts.html |here} to see how to use CreateRoverEntitlement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/CreateRoverEntitlement.ts.html |here} to see how to use CreateRoverEntitlement API.
    */
   public async createRoverEntitlement(
     createRoverEntitlementRequest: requests.CreateRoverEntitlementRequest
@@ -2078,7 +2078,7 @@ export class RoverEntitlementClient {
    * @param DeleteRoverEntitlementRequest
    * @return DeleteRoverEntitlementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/DeleteRoverEntitlement.ts.html |here} to see how to use DeleteRoverEntitlement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/DeleteRoverEntitlement.ts.html |here} to see how to use DeleteRoverEntitlement API.
    */
   public async deleteRoverEntitlement(
     deleteRoverEntitlementRequest: requests.DeleteRoverEntitlementRequest
@@ -2148,7 +2148,7 @@ export class RoverEntitlementClient {
    * @param GetRoverEntitlementRequest
    * @return GetRoverEntitlementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverEntitlement.ts.html |here} to see how to use GetRoverEntitlement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverEntitlement.ts.html |here} to see how to use GetRoverEntitlement API.
    */
   public async getRoverEntitlement(
     getRoverEntitlementRequest: requests.GetRoverEntitlementRequest
@@ -2228,7 +2228,7 @@ export class RoverEntitlementClient {
    * @param ListRoverEntitlementsRequest
    * @return ListRoverEntitlementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListRoverEntitlements.ts.html |here} to see how to use ListRoverEntitlements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListRoverEntitlements.ts.html |here} to see how to use ListRoverEntitlements API.
    */
   public async listRoverEntitlements(
     listRoverEntitlementsRequest: requests.ListRoverEntitlementsRequest
@@ -2317,7 +2317,7 @@ export class RoverEntitlementClient {
    * @param UpdateRoverEntitlementRequest
    * @return UpdateRoverEntitlementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/UpdateRoverEntitlement.ts.html |here} to see how to use UpdateRoverEntitlement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/UpdateRoverEntitlement.ts.html |here} to see how to use UpdateRoverEntitlement API.
    */
   public async updateRoverEntitlement(
     updateRoverEntitlementRequest: requests.UpdateRoverEntitlementRequest
@@ -2608,7 +2608,7 @@ export class RoverNodeClient {
    * @param ChangeRoverNodeCompartmentRequest
    * @return ChangeRoverNodeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ChangeRoverNodeCompartment.ts.html |here} to see how to use ChangeRoverNodeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ChangeRoverNodeCompartment.ts.html |here} to see how to use ChangeRoverNodeCompartment API.
    */
   public async changeRoverNodeCompartment(
     changeRoverNodeCompartmentRequest: requests.ChangeRoverNodeCompartmentRequest
@@ -2684,7 +2684,7 @@ export class RoverNodeClient {
    * @param CreateRoverNodeRequest
    * @return CreateRoverNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/CreateRoverNode.ts.html |here} to see how to use CreateRoverNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/CreateRoverNode.ts.html |here} to see how to use CreateRoverNode API.
    */
   public async createRoverNode(
     createRoverNodeRequest: requests.CreateRoverNodeRequest
@@ -2764,7 +2764,7 @@ export class RoverNodeClient {
    * @param DeleteRoverNodeRequest
    * @return DeleteRoverNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/DeleteRoverNode.ts.html |here} to see how to use DeleteRoverNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/DeleteRoverNode.ts.html |here} to see how to use DeleteRoverNode API.
    */
   public async deleteRoverNode(
     deleteRoverNodeRequest: requests.DeleteRoverNodeRequest
@@ -2833,7 +2833,7 @@ export class RoverNodeClient {
    * @param GetRoverNodeRequest
    * @return GetRoverNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverNode.ts.html |here} to see how to use GetRoverNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverNode.ts.html |here} to see how to use GetRoverNode API.
    */
   public async getRoverNode(
     getRoverNodeRequest: requests.GetRoverNodeRequest
@@ -2909,7 +2909,7 @@ export class RoverNodeClient {
    * @param GetRoverNodeCertificateRequest
    * @return GetRoverNodeCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverNodeCertificate.ts.html |here} to see how to use GetRoverNodeCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverNodeCertificate.ts.html |here} to see how to use GetRoverNodeCertificate API.
    */
   public async getRoverNodeCertificate(
     getRoverNodeCertificateRequest: requests.GetRoverNodeCertificateRequest
@@ -2986,7 +2986,7 @@ export class RoverNodeClient {
    * @param GetRoverNodeEncryptionKeyRequest
    * @return GetRoverNodeEncryptionKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverNodeEncryptionKey.ts.html |here} to see how to use GetRoverNodeEncryptionKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverNodeEncryptionKey.ts.html |here} to see how to use GetRoverNodeEncryptionKey API.
    */
   public async getRoverNodeEncryptionKey(
     getRoverNodeEncryptionKeyRequest: requests.GetRoverNodeEncryptionKeyRequest
@@ -3063,7 +3063,7 @@ export class RoverNodeClient {
    * @param GetRoverNodeGetRptRequest
    * @return GetRoverNodeGetRptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverNodeGetRpt.ts.html |here} to see how to use GetRoverNodeGetRpt API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetRoverNodeGetRpt.ts.html |here} to see how to use GetRoverNodeGetRpt API.
    */
   public async getRoverNodeGetRpt(
     getRoverNodeGetRptRequest: requests.GetRoverNodeGetRptRequest
@@ -3141,7 +3141,7 @@ export class RoverNodeClient {
    * @param ListRoverNodesRequest
    * @return ListRoverNodesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListRoverNodes.ts.html |here} to see how to use ListRoverNodes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListRoverNodes.ts.html |here} to see how to use ListRoverNodes API.
    */
   public async listRoverNodes(
     listRoverNodesRequest: requests.ListRoverNodesRequest
@@ -3230,7 +3230,7 @@ export class RoverNodeClient {
    * @param RoverNodeActionRetrieveCaBundleRequest
    * @return RoverNodeActionRetrieveCaBundleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeActionRetrieveCaBundle.ts.html |here} to see how to use RoverNodeActionRetrieveCaBundle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeActionRetrieveCaBundle.ts.html |here} to see how to use RoverNodeActionRetrieveCaBundle API.
    */
   public async roverNodeActionRetrieveCaBundle(
     roverNodeActionRetrieveCaBundleRequest: requests.RoverNodeActionRetrieveCaBundleRequest
@@ -3309,7 +3309,7 @@ export class RoverNodeClient {
    * @param RoverNodeActionSetKeyRequest
    * @return RoverNodeActionSetKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeActionSetKey.ts.html |here} to see how to use RoverNodeActionSetKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeActionSetKey.ts.html |here} to see how to use RoverNodeActionSetKey API.
    */
   public async roverNodeActionSetKey(
     roverNodeActionSetKeyRequest: requests.RoverNodeActionSetKeyRequest
@@ -3394,7 +3394,7 @@ export class RoverNodeClient {
    * @param RoverNodeGenerateCertificateRequest
    * @return RoverNodeGenerateCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeGenerateCertificate.ts.html |here} to see how to use RoverNodeGenerateCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeGenerateCertificate.ts.html |here} to see how to use RoverNodeGenerateCertificate API.
    */
   public async roverNodeGenerateCertificate(
     roverNodeGenerateCertificateRequest: requests.RoverNodeGenerateCertificateRequest
@@ -3479,7 +3479,7 @@ export class RoverNodeClient {
    * @param RoverNodeRenewCertificateRequest
    * @return RoverNodeRenewCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeRenewCertificate.ts.html |here} to see how to use RoverNodeRenewCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeRenewCertificate.ts.html |here} to see how to use RoverNodeRenewCertificate API.
    */
   public async roverNodeRenewCertificate(
     roverNodeRenewCertificateRequest: requests.RoverNodeRenewCertificateRequest
@@ -3564,7 +3564,7 @@ export class RoverNodeClient {
    * @param RoverNodeReplaceCertificateAuthorityRequest
    * @return RoverNodeReplaceCertificateAuthorityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeReplaceCertificateAuthority.ts.html |here} to see how to use RoverNodeReplaceCertificateAuthority API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeReplaceCertificateAuthority.ts.html |here} to see how to use RoverNodeReplaceCertificateAuthority API.
    */
   public async roverNodeReplaceCertificateAuthority(
     roverNodeReplaceCertificateAuthorityRequest: requests.RoverNodeReplaceCertificateAuthorityRequest
@@ -3648,7 +3648,7 @@ export class RoverNodeClient {
    * @param RoverNodeRetrieveLeafCertificateRequest
    * @return RoverNodeRetrieveLeafCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeRetrieveLeafCertificate.ts.html |here} to see how to use RoverNodeRetrieveLeafCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeRetrieveLeafCertificate.ts.html |here} to see how to use RoverNodeRetrieveLeafCertificate API.
    */
   public async roverNodeRetrieveLeafCertificate(
     roverNodeRetrieveLeafCertificateRequest: requests.RoverNodeRetrieveLeafCertificateRequest
@@ -3727,7 +3727,7 @@ export class RoverNodeClient {
    * @param UpdateRoverNodeRequest
    * @return UpdateRoverNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/UpdateRoverNode.ts.html |here} to see how to use UpdateRoverNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/UpdateRoverNode.ts.html |here} to see how to use UpdateRoverNode API.
    */
   public async updateRoverNode(
     updateRoverNodeRequest: requests.UpdateRoverNodeRequest
@@ -3994,7 +3994,7 @@ export class ShapeClient {
    * @param ListShapesRequest
    * @return ListShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListShapes.ts.html |here} to see how to use ListShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListShapes.ts.html |here} to see how to use ListShapes API.
    */
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
@@ -4287,7 +4287,7 @@ export class WorkRequestsClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -4356,7 +4356,7 @@ export class WorkRequestsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -4438,7 +4438,7 @@ export class WorkRequestsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -4526,7 +4526,7 @@ export class WorkRequestsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -4613,7 +4613,7 @@ export class WorkRequestsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest

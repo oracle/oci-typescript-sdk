@@ -6,9 +6,9 @@ OCI Generative AI Agents supports several ways to onboard your data and then all
 
 Use the Generative AI Agents Client API to create and manage client chat sessions. A session represents an interactive conversation initiated by a user through an API to engage with an agent. It involves a series of exchanges where the user sends queries or prompts, and the agent responds with relevant information, actions, or assistance based on the user's input. The session persists for the duration of the interaction, maintaining context and continuity to provide coherent and meaningful responses throughout the conversation.
 
-For creating and managing agents, knowledge bases, data sources, endpoints, and data ingestion jobs see the [Generative AI Agents Management API](#/EN/generative-ai-agents/latest/).
+For creating and managing agents, knowledge bases, data sources, endpoints, and data ingestion jobs see the {@link #eNGenerative-ai-agentsLatest(ENGenerative-ai-agentsLatestRequest) eNGenerative-ai-agentsLatest}.
 
-To learn more about the service, see the [Generative AI Agents documentation](/iaas/Content/generative-ai-agents/home.htm).
+To learn more about the service, see the [Generative AI Agents documentation](https://docs.oracle.com/iaas/Content/generative-ai-agents/home.htm).
 
  * OpenAPI spec version: 20240531
  * 
@@ -229,7 +229,7 @@ export class GenerativeAiAgentRuntimeClient {
    * @param ChatRequest
    * @return ChatResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/Chat.ts.html |here} to see how to use Chat API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/Chat.ts.html |here} to see how to use Chat API.
    */
   public async chat(
     chatRequest: requests.ChatRequest
@@ -316,7 +316,7 @@ Use this API to create an agent session.
      * @param CreateSessionRequest
      * @return CreateSessionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/CreateSession.ts.html |here} to see how to use CreateSession API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/CreateSession.ts.html |here} to see how to use CreateSession API.
      */
   public async createSession(
     createSessionRequest: requests.CreateSessionRequest
@@ -399,7 +399,7 @@ Use this API to create an agent session.
    * @param DeleteSessionRequest
    * @return DeleteSessionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/DeleteSession.ts.html |here} to see how to use DeleteSession API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/DeleteSession.ts.html |here} to see how to use DeleteSession API.
    */
   public async deleteSession(
     deleteSessionRequest: requests.DeleteSessionRequest
@@ -469,7 +469,7 @@ Use this API to create an agent session.
    * @param GetSessionRequest
    * @return GetSessionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/GetSession.ts.html |here} to see how to use GetSession API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/GetSession.ts.html |here} to see how to use GetSession API.
    */
   public async getSession(
     getSessionRequest: requests.GetSessionRequest
@@ -547,7 +547,7 @@ Use this API to create an agent session.
    * @param UpdateSessionRequest
    * @return UpdateSessionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/UpdateSession.ts.html |here} to see how to use UpdateSession API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/UpdateSession.ts.html |here} to see how to use UpdateSession API.
    */
   public async updateSession(
     updateSessionRequest: requests.UpdateSessionRequest

@@ -31,7 +31,7 @@ export interface SearchLogsDetails {
   /**
    * Query corresponding to the search operation. This query is parsed and validated before execution and
    * should follow the specification. For more information on the query language specification, see
-   * [Logging Query Language Specification](https://docs.cloud.oracle.com/Content/Logging/Reference/query_language_specification.htm).
+   * [Logging Query Language Specification](https://docs.oracle.com/iaas/Content/Logging/Reference/query_language_specification.htm).
    *
    */
   "searchQuery": string;

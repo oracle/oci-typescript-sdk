@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -21,9 +21,13 @@ import common = require("oci-common");
  */
 export interface AddPackagesToSoftwareSourceDetails {
   /**
-   * List of packages specified by the full package name (NEVRA.rpm).
+   * List of packages specified by the name of the package (N) or the full package name (NVRA or NEVRA).
    */
   "packages": Array<string>;
+  /**
+   * Indicates whether the service should generate a custom software source when the package list contains invalid values. When set to true, the service ignores any invalid packages and generates the custom software source with using the valid packages.
+   */
+  "isContinueOnMissingPackages"?: boolean;
 }
 
 export namespace AddPackagesToSoftwareSourceDetails {

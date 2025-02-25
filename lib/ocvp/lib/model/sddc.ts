@@ -1,7 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
  * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
-For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+For more information, see [Oracle Cloud VMware Solution](https://docs.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20230701
  * 
@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* An [Oracle Cloud VMware Solution](https://docs.cloud.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm) software-defined data center (SDDC) contains the resources required for a
+* An [Oracle Cloud VMware Solution](https://docs.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm) software-defined data center (SDDC) contains the resources required for a
 * functional VMware environment. Instances in an SDDC
 * (see {@link EsxiHost}) run in a virtual cloud network (VCN)
 * and are preconfigured with VMware and storage. Use the vCenter utility to manage
@@ -30,7 +30,7 @@ The SDDC uses a single management subnet for provisioning the SDDC. It also uses
 */
 export interface Sddc {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the SDDC.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the SDDC.
    *
    */
   "id": string;
@@ -79,7 +79,7 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use a newer
     */
   "esxiSoftwareVersion"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that
    * contains the SDDC.
    *
    */
@@ -103,14 +103,14 @@ Example: {@code nsx-my-sddc.sddc.us-phoenix-1.oraclecloud.com}
     */
   "nsxManagerFqdn": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
    * the virtual IP (VIP) for vCenter. For information about {@code PrivateIp} objects, see the
    * Core Services API.
    *
    */
   "vcenterPrivateIpId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
    * the virtual IP (VIP) for NSX Manager. For information about {@code PrivateIp} objects, see the
    * Core Services API.
    *
@@ -146,7 +146,7 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use different
     */
   "sshAuthorizedKeys": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
    * the virtual IP (VIP) for the NSX Edge Uplink. Use this OCID as the route target for
    * route table rules when setting up connectivity between the SDDC and other networks.
    * For information about {@code PrivateIp} objects, see the Core Services API.
@@ -154,7 +154,7 @@ Therefore, if you upgrade the existing ESXi hosts in the SDDC to use different
    */
   "nsxEdgeUplinkIpId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code PrivateIp} object that is
    * the virtual IP (VIP) for HCX Manager. For information about {@code PrivateIp} objects, see the
    * Core Services API.
    *
@@ -221,7 +221,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   "lifecycleState"?: model.LifecycleStates;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -229,7 +229,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags": { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

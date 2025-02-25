@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListBackups.ts.html |here} to see how to use ListBackupsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListBackups.ts.html |here} to see how to use ListBackupsRequest.
  */
 export interface ListBackupsRequest extends common.BaseRequest {
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId": string;
   /**
@@ -38,7 +38,7 @@ export interface ListBackupsRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
-   * The DB System [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The DB System [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "dbSystemId"?: string;
   /**
@@ -60,14 +60,14 @@ export interface ListBackupsRequest extends common.BaseRequest {
   "sortOrder"?: ListBackupsRequest.SortOrder;
   /**
    * The maximum number of items to return in a paginated list call. For information about pagination, see
-   * [List Pagination](https://docs.cloud.oracle.com/#API/Concepts/usingapi.htm#List_Pagination).
+   * [List Pagination](https://docs.oracle.com/iaas/#API/Concepts/usingapi.htm#List_Pagination).
    *
    */
   "limit"?: number;
   /**
    * The value of the {@code opc-next-page} or {@code opc-prev-page} response header from
    * the previous list call. For information about pagination, see [List
-   * Pagination](https://docs.cloud.oracle.com/#API/Concepts/usingapi.htm#List_Pagination).
+   * Pagination](https://docs.oracle.com/iaas/#API/Concepts/usingapi.htm#List_Pagination).
    *
    */
   "page"?: string;

@@ -23,7 +23,7 @@ export interface AssetSourceCredentials {
    */
   "type": model.AssetSourceCredentialsType;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the secret in a vault.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the secret in a vault.
    * If the the type of the credentials is BASIC{@code , the secret must contain the username and
    * password in JSON format, which is in the form of }{ \"username\": \"<VMwareUser>\", \"password\": \"<VMwarePassword>\" }.
    *

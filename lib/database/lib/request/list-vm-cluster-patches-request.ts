@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterPatches.ts.html |here} to see how to use ListVmClusterPatchesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListVmClusterPatches.ts.html |here} to see how to use ListVmClusterPatchesRequest.
  */
 export interface ListVmClusterPatchesRequest extends common.BaseRequest {
   /**
-   * The VM cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The VM cluster [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "vmClusterId": string;
   /**

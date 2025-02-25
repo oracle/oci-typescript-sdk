@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/CreateServiceConnector.ts.html |here} to see how to use CreateServiceConnectorRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/sch/CreateServiceConnector.ts.html |here} to see how to use CreateServiceConnectorRequest.
  */
 export interface CreateServiceConnectorRequest extends common.BaseRequest {
   /**

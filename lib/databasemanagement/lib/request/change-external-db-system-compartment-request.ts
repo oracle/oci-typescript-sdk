@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeExternalDbSystemCompartment.ts.html |here} to see how to use ChangeExternalDbSystemCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeExternalDbSystemCompartment.ts.html |here} to see how to use ChangeExternalDbSystemCompartmentRequest.
  */
 export interface ChangeExternalDbSystemCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the external DB system.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the external DB system.
    */
   "externalDbSystemId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to which the external DB system should be moved.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to which the external DB system should be moved.
    */
   "changeExternalDbSystemCompartmentDetails": model.ChangeExternalDbSystemCompartmentDetails;
   /**

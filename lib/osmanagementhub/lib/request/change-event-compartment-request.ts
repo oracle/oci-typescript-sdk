@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeEventCompartment.ts.html |here} to see how to use ChangeEventCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ChangeEventCompartment.ts.html |here} to see how to use ChangeEventCompartmentRequest.
  */
 export interface ChangeEventCompartmentRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ChangeEventCompartmentRequest extends common.BaseRequest {
    */
   "changeEventCompartmentDetails": model.ChangeEventCompartmentDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the event.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the event.
    */
   "eventId": string;
   /**

@@ -22,10 +22,15 @@ export interface ListManagedInstancesResponse {
    */
   "opcRequestId": string;
   /**
-   * For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For list pagination. When this header appears in the response, additional pages of results remain. For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcNextPage": string;
+  /**
+   * The total number of items in the result. Used for pagination of a list of items.
+   *
+   */
+  "opcTotalItems": number;
   /**
    * The returned model.ManagedInstanceCollection instance.
    */

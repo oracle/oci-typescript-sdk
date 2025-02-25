@@ -1,6 +1,6 @@
 /**
  * Artifacts and Container Images API
- * API covering the Artifacts and [Registry](/iaas/Content/Registry/Concepts/registryoverview.htm) services.
+ * API covering the Artifacts and [Registry](https://docs.oracle.com/iaas/Content/Registry/Concepts/registryoverview.htm) services.
 Use this API to manage resources such as generic artifacts and container images.
 
  * OpenAPI spec version: 20160918
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface GenericArtifactSummary {
   /**
-    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the artifact.
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the artifact.
 * <p>
 Example: {@code ocid1.genericartifact.oc1..exampleuniqueID}
 * 
@@ -39,7 +39,7 @@ Example: {@code project01/my-web-app/artifact-abc:1.0.0}
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the repository.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the repository.
    */
   "repositoryId": string;
   /**
@@ -70,7 +70,7 @@ Example: {@code 1.1.0} or {@code 1.2-beta-2}
   "lifecycleState": string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -78,7 +78,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags": { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 

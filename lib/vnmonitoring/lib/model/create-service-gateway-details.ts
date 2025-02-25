@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -18,7 +18,7 @@ import common = require("oci-common");
 
 export interface CreateServiceGatewayDetails {
   /**
-   * The [OCID] (https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment to contain the service gateway.
+   * The [OCID] (https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the service gateway.
    *
    */
   "compartmentId": string;
@@ -41,14 +41,14 @@ export interface CreateServiceGatewayDetails {
    */
   "freeformTags"?: { [key: string]: string };
   /**
-    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the service gateway will use.
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the service gateway will use.
 * <p>
 If you don't specify a route table here, the service gateway is created without an associated route
 * table. The Networking service does NOT automatically associate the attached VCN's default route table
 * with the service gateway.
 * <p>
 For information about why you would associate a route table with a service gateway, see
-* [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm).
+* [Transit Routing: Private Access to Oracle Services](https://docs.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm).
 * 
     */
   "routeTableId"?: string;
@@ -66,7 +66,7 @@ For each enabled {@code Service}, make sure there's a route rule with the {@code
     */
   "services": Array<model.ServiceIdRequestDetails>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN.
    *
    */
   "vcnId": string;

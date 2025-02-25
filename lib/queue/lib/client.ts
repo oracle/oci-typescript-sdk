@@ -1,6 +1,6 @@
 /**
  * Queue API
- * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](https://docs.oracle.com/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -214,14 +214,14 @@ export class QueueClient {
 
   /**
    * Deletes the message represented by the receipt from the queue.
-   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to delete messages.
+   * You must use the [messages endpoint](https://docs.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to delete messages.
    * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteMessageRequest
    * @return DeleteMessageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/DeleteMessage.ts.html |here} to see how to use DeleteMessage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/DeleteMessage.ts.html |here} to see how to use DeleteMessage API.
    */
   public async deleteMessage(
     deleteMessageRequest: requests.DeleteMessageRequest
@@ -284,14 +284,14 @@ export class QueueClient {
 
   /**
    * Deletes multiple messages from the queue or the consumer group. Only messages from the same queue/consumer group can be deleted at once.
-   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to delete messages.
+   * You must use the [messages endpoint](https://docs.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to delete messages.
    * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteMessagesRequest
    * @return DeleteMessagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/DeleteMessages.ts.html |here} to see how to use DeleteMessages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/DeleteMessages.ts.html |here} to see how to use DeleteMessages API.
    */
   public async deleteMessages(
     deleteMessagesRequest: requests.DeleteMessagesRequest
@@ -362,7 +362,7 @@ export class QueueClient {
 
   /**
    * Consumes messages from the queue.
-   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to consume messages.
+   * You must use the [messages endpoint](https://docs.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to consume messages.
    * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
    * GetMessages accepts optional channelFilter query parameter that can filter source channels of the messages.
    * When channelFilter is present, service will return available messages from the channel which ID exactly matched the filter.
@@ -372,7 +372,7 @@ export class QueueClient {
    * @param GetMessagesRequest
    * @return GetMessagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/GetMessages.ts.html |here} to see how to use GetMessages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/GetMessages.ts.html |here} to see how to use GetMessages API.
    */
   public async getMessages(
     getMessagesRequest: requests.GetMessagesRequest
@@ -443,14 +443,14 @@ export class QueueClient {
 
   /**
    * Gets the statistics for the queue and its dead letter queue.
-   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to get a queue's statistics.
+   * You must use the [messages endpoint](https://docs.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to get a queue's statistics.
    * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetStatsRequest
    * @return GetStatsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/GetStats.ts.html |here} to see how to use GetStats API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/GetStats.ts.html |here} to see how to use GetStats API.
    */
   public async getStats(
     getStatsRequest: requests.GetStatsRequest
@@ -526,7 +526,7 @@ export class QueueClient {
    * @param ListChannelsRequest
    * @return ListChannelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListChannels.ts.html |here} to see how to use ListChannels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListChannels.ts.html |here} to see how to use ListChannels API.
    */
   public async listChannels(
     listChannelsRequest: requests.ListChannelsRequest
@@ -601,14 +601,14 @@ export class QueueClient {
 
   /**
    * Puts messages into the queue.
-   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to produce messages.
+   * You must use the [messages endpoint](https://docs.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to produce messages.
    * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutMessagesRequest
    * @return PutMessagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/PutMessages.ts.html |here} to see how to use PutMessages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/PutMessages.ts.html |here} to see how to use PutMessages API.
    */
   public async putMessages(
     putMessagesRequest: requests.PutMessagesRequest
@@ -679,14 +679,14 @@ export class QueueClient {
 
   /**
    * Updates the visibility of the message represented by the receipt.
-   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to update messages.
+   * You must use the [messages endpoint](https://docs.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to update messages.
    * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateMessageRequest
    * @return UpdateMessageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/UpdateMessage.ts.html |here} to see how to use UpdateMessage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/UpdateMessage.ts.html |here} to see how to use UpdateMessage API.
    */
   public async updateMessage(
     updateMessageRequest: requests.UpdateMessageRequest
@@ -758,14 +758,14 @@ export class QueueClient {
 
   /**
    * Updates multiple messages in the queue or the consumer group. Only messages from the same queue/consumer group can be updated at once.
-   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to update messages.
+   * You must use the [messages endpoint](https://docs.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to update messages.
    * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateMessagesRequest
    * @return UpdateMessagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/UpdateMessages.ts.html |here} to see how to use UpdateMessages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/UpdateMessages.ts.html |here} to see how to use UpdateMessages API.
    */
   public async updateMessages(
     updateMessagesRequest: requests.UpdateMessagesRequest
@@ -1048,7 +1048,7 @@ export class QueueAdminClient {
    * @param ChangeQueueCompartmentRequest
    * @return ChangeQueueCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ChangeQueueCompartment.ts.html |here} to see how to use ChangeQueueCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ChangeQueueCompartment.ts.html |here} to see how to use ChangeQueueCompartment API.
    */
   public async changeQueueCompartment(
     changeQueueCompartmentRequest: requests.ChangeQueueCompartmentRequest
@@ -1127,7 +1127,7 @@ export class QueueAdminClient {
    * @param CreateQueueRequest
    * @return CreateQueueResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/CreateQueue.ts.html |here} to see how to use CreateQueue API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/CreateQueue.ts.html |here} to see how to use CreateQueue API.
    */
   public async createQueue(
     createQueueRequest: requests.CreateQueueRequest
@@ -1202,7 +1202,7 @@ export class QueueAdminClient {
    * @param DeleteQueueRequest
    * @return DeleteQueueResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/DeleteQueue.ts.html |here} to see how to use DeleteQueue API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/DeleteQueue.ts.html |here} to see how to use DeleteQueue API.
    */
   public async deleteQueue(
     deleteQueueRequest: requests.DeleteQueueRequest
@@ -1274,7 +1274,7 @@ export class QueueAdminClient {
    * @param GetQueueRequest
    * @return GetQueueResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/GetQueue.ts.html |here} to see how to use GetQueue API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/GetQueue.ts.html |here} to see how to use GetQueue API.
    */
   public async getQueue(
     getQueueRequest: requests.GetQueueRequest
@@ -1349,7 +1349,7 @@ export class QueueAdminClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1425,7 +1425,7 @@ export class QueueAdminClient {
    * @param ListQueuesRequest
    * @return ListQueuesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListQueues.ts.html |here} to see how to use ListQueues API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListQueues.ts.html |here} to see how to use ListQueues API.
    */
   public async listQueues(
     listQueuesRequest: requests.ListQueuesRequest
@@ -1508,7 +1508,7 @@ export class QueueAdminClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1587,7 +1587,7 @@ export class QueueAdminClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1666,7 +1666,7 @@ export class QueueAdminClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1747,7 +1747,7 @@ export class QueueAdminClient {
    * @param PurgeQueueRequest
    * @return PurgeQueueResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/PurgeQueue.ts.html |here} to see how to use PurgeQueue API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/PurgeQueue.ts.html |here} to see how to use PurgeQueue API.
    */
   public async purgeQueue(
     purgeQueueRequest: requests.PurgeQueueRequest
@@ -1824,7 +1824,7 @@ export class QueueAdminClient {
    * @param UpdateQueueRequest
    * @return UpdateQueueResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/UpdateQueue.ts.html |here} to see how to use UpdateQueue API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/UpdateQueue.ts.html |here} to see how to use UpdateQueue API.
    */
   public async updateQueue(
     updateQueueRequest: requests.UpdateQueueRequest

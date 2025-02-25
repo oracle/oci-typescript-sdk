@@ -2,7 +2,7 @@
  * Ops Insights API
  * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.oracle.com/iaas/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -26,11 +26,11 @@ export interface CredentialByVault extends model.CredentialDetails {
    */
   "userName"?: string;
   /**
-   * The secret [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) mapping to the database credentials.
+   * The secret [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) mapping to the database credentials.
    */
   "passwordSecretId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the database keystore contents are stored. This is used for TCPS support in BM/VM/ExaCS cases.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the database keystore contents are stored. This is used for TCPS support in BM/VM/ExaCS cases.
    */
   "walletSecretId"?: string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTaskValidation.ts.html |here} to see how to use CreateTaskValidationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateTaskValidation.ts.html |here} to see how to use CreateTaskValidationRequest.
  */
 export interface CreateTaskValidationRequest extends common.BaseRequest {
   /**

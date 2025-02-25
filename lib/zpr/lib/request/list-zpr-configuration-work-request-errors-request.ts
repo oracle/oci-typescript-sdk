@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprConfigurationWorkRequestErrors.ts.html |here} to see how to use ListZprConfigurationWorkRequestErrorsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprConfigurationWorkRequestErrors.ts.html |here} to see how to use ListZprConfigurationWorkRequestErrorsRequest.
  */
 export interface ListZprConfigurationWorkRequestErrorsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the asynchronous work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the asynchronous work request.
    */
   "workRequestId": string;
   /**
@@ -33,14 +33,14 @@ export interface ListZprConfigurationWorkRequestErrorsRequest extends common.Bas
   /**
    * For list pagination. The value of the opc-next-page response header from the previous
    * \"List\" call. For important details about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
    * For list pagination. The maximum number of results per page, or items to return in a
    * paginated \"List\" call. For important details about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;

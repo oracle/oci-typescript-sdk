@@ -243,7 +243,7 @@ export class StackMonitoringClient {
    * @param ApplyMonitoringTemplateRequest
    * @return ApplyMonitoringTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ApplyMonitoringTemplate.ts.html |here} to see how to use ApplyMonitoringTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ApplyMonitoringTemplate.ts.html |here} to see how to use ApplyMonitoringTemplate API.
    */
   public async applyMonitoringTemplate(
     applyMonitoringTemplateRequest: requests.ApplyMonitoringTemplateRequest
@@ -321,7 +321,7 @@ export class StackMonitoringClient {
    * @param AssociateMonitoredResourcesRequest
    * @return AssociateMonitoredResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/AssociateMonitoredResources.ts.html |here} to see how to use AssociateMonitoredResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/AssociateMonitoredResources.ts.html |here} to see how to use AssociateMonitoredResources API.
    */
   public async associateMonitoredResources(
     associateMonitoredResourcesRequest: requests.AssociateMonitoredResourcesRequest
@@ -414,7 +414,7 @@ When provided, If-Match is checked against ETag values of the resource.
      * @param ChangeConfigCompartmentRequest
      * @return ChangeConfigCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeConfigCompartment.ts.html |here} to see how to use ChangeConfigCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeConfigCompartment.ts.html |here} to see how to use ChangeConfigCompartment API.
      */
   public async changeConfigCompartment(
     changeConfigCompartmentRequest: requests.ChangeConfigCompartmentRequest
@@ -491,7 +491,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param ChangeMetricExtensionCompartmentRequest
    * @return ChangeMetricExtensionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeMetricExtensionCompartment.ts.html |here} to see how to use ChangeMetricExtensionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeMetricExtensionCompartment.ts.html |here} to see how to use ChangeMetricExtensionCompartment API.
    */
   public async changeMetricExtensionCompartment(
     changeMetricExtensionCompartmentRequest: requests.ChangeMetricExtensionCompartmentRequest
@@ -570,7 +570,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param ChangeMonitoredResourceCompartmentRequest
    * @return ChangeMonitoredResourceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeMonitoredResourceCompartment.ts.html |here} to see how to use ChangeMonitoredResourceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeMonitoredResourceCompartment.ts.html |here} to see how to use ChangeMonitoredResourceCompartment API.
    */
   public async changeMonitoredResourceCompartment(
     changeMonitoredResourceCompartmentRequest: requests.ChangeMonitoredResourceCompartmentRequest
@@ -653,7 +653,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param ChangeMonitoredResourceTaskCompartmentRequest
    * @return ChangeMonitoredResourceTaskCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeMonitoredResourceTaskCompartment.ts.html |here} to see how to use ChangeMonitoredResourceTaskCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeMonitoredResourceTaskCompartment.ts.html |here} to see how to use ChangeMonitoredResourceTaskCompartment API.
    */
   public async changeMonitoredResourceTaskCompartment(
     changeMonitoredResourceTaskCompartmentRequest: requests.ChangeMonitoredResourceTaskCompartmentRequest
@@ -732,7 +732,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param ChangeProcessSetCompartmentRequest
    * @return ChangeProcessSetCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeProcessSetCompartment.ts.html |here} to see how to use ChangeProcessSetCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeProcessSetCompartment.ts.html |here} to see how to use ChangeProcessSetCompartment API.
    */
   public async changeProcessSetCompartment(
     changeProcessSetCompartmentRequest: requests.ChangeProcessSetCompartmentRequest
@@ -807,7 +807,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param CreateAlarmConditionRequest
    * @return CreateAlarmConditionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateAlarmCondition.ts.html |here} to see how to use CreateAlarmCondition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateAlarmCondition.ts.html |here} to see how to use CreateAlarmCondition API.
    */
   public async createAlarmCondition(
     createAlarmConditionRequest: requests.CreateAlarmConditionRequest
@@ -890,7 +890,7 @@ When provided, If-Match is checked against ETag values of the resource.
    * @param CreateBaselineableMetricRequest
    * @return CreateBaselineableMetricResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateBaselineableMetric.ts.html |here} to see how to use CreateBaselineableMetric API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateBaselineableMetric.ts.html |here} to see how to use CreateBaselineableMetric API.
    */
   public async createBaselineableMetric(
     createBaselineableMetricRequest: requests.CreateBaselineableMetricRequest
@@ -983,7 +983,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
      * @param CreateConfigRequest
      * @return CreateConfigResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateConfig.ts.html |here} to see how to use CreateConfig API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateConfig.ts.html |here} to see how to use CreateConfig API.
      */
   public async createConfig(
     createConfigRequest: requests.CreateConfigRequest
@@ -1064,7 +1064,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param CreateDiscoveryJobRequest
    * @return CreateDiscoveryJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateDiscoveryJob.ts.html |here} to see how to use CreateDiscoveryJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateDiscoveryJob.ts.html |here} to see how to use CreateDiscoveryJob API.
    */
   public async createDiscoveryJob(
     createDiscoveryJobRequest: requests.CreateDiscoveryJobRequest
@@ -1147,7 +1147,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param CreateMaintenanceWindowRequest
    * @return CreateMaintenanceWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMaintenanceWindow.ts.html |here} to see how to use CreateMaintenanceWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMaintenanceWindow.ts.html |here} to see how to use CreateMaintenanceWindow API.
    */
   public async createMaintenanceWindow(
     createMaintenanceWindowRequest: requests.CreateMaintenanceWindowRequest
@@ -1234,7 +1234,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param CreateMetricExtensionRequest
    * @return CreateMetricExtensionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMetricExtension.ts.html |here} to see how to use CreateMetricExtension API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMetricExtension.ts.html |here} to see how to use CreateMetricExtension API.
    */
   public async createMetricExtension(
     createMetricExtensionRequest: requests.CreateMetricExtensionRequest
@@ -1323,7 +1323,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param CreateMonitoredResourceRequest
    * @return CreateMonitoredResourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoredResource.ts.html |here} to see how to use CreateMonitoredResource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoredResource.ts.html |here} to see how to use CreateMonitoredResource API.
    */
   public async createMonitoredResource(
     createMonitoredResourceRequest: requests.CreateMonitoredResourceRequest
@@ -1425,7 +1425,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param CreateMonitoredResourceTaskRequest
    * @return CreateMonitoredResourceTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoredResourceTask.ts.html |here} to see how to use CreateMonitoredResourceTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoredResourceTask.ts.html |here} to see how to use CreateMonitoredResourceTask API.
    */
   public async createMonitoredResourceTask(
     createMonitoredResourceTaskRequest: requests.CreateMonitoredResourceTaskRequest
@@ -1511,7 +1511,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param CreateMonitoredResourceTypeRequest
    * @return CreateMonitoredResourceTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoredResourceType.ts.html |here} to see how to use CreateMonitoredResourceType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoredResourceType.ts.html |here} to see how to use CreateMonitoredResourceType API.
    */
   public async createMonitoredResourceType(
     createMonitoredResourceTypeRequest: requests.CreateMonitoredResourceTypeRequest
@@ -1592,7 +1592,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param CreateMonitoringTemplateRequest
    * @return CreateMonitoringTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoringTemplate.ts.html |here} to see how to use CreateMonitoringTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateMonitoringTemplate.ts.html |here} to see how to use CreateMonitoringTemplate API.
    */
   public async createMonitoringTemplate(
     createMonitoringTemplateRequest: requests.CreateMonitoringTemplateRequest
@@ -1673,7 +1673,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param CreateProcessSetRequest
    * @return CreateProcessSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateProcessSet.ts.html |here} to see how to use CreateProcessSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateProcessSet.ts.html |here} to see how to use CreateProcessSet API.
    */
   public async createProcessSet(
     createProcessSetRequest: requests.CreateProcessSetRequest
@@ -1753,7 +1753,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DeleteAlarmConditionRequest
    * @return DeleteAlarmConditionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteAlarmCondition.ts.html |here} to see how to use DeleteAlarmCondition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteAlarmCondition.ts.html |here} to see how to use DeleteAlarmCondition API.
    */
   public async deleteAlarmCondition(
     deleteAlarmConditionRequest: requests.DeleteAlarmConditionRequest
@@ -1823,7 +1823,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DeleteBaselineableMetricRequest
    * @return DeleteBaselineableMetricResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteBaselineableMetric.ts.html |here} to see how to use DeleteBaselineableMetric API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteBaselineableMetric.ts.html |here} to see how to use DeleteBaselineableMetric API.
    */
   public async deleteBaselineableMetric(
     deleteBaselineableMetricRequest: requests.DeleteBaselineableMetricRequest
@@ -1897,7 +1897,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DeleteConfigRequest
    * @return DeleteConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteConfig.ts.html |here} to see how to use DeleteConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteConfig.ts.html |here} to see how to use DeleteConfig API.
    */
   public async deleteConfig(
     deleteConfigRequest: requests.DeleteConfigRequest
@@ -1965,7 +1965,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DeleteDiscoveryJobRequest
    * @return DeleteDiscoveryJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteDiscoveryJob.ts.html |here} to see how to use DeleteDiscoveryJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteDiscoveryJob.ts.html |here} to see how to use DeleteDiscoveryJob API.
    */
   public async deleteDiscoveryJob(
     deleteDiscoveryJobRequest: requests.DeleteDiscoveryJobRequest
@@ -2035,7 +2035,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DeleteMaintenanceWindowRequest
    * @return DeleteMaintenanceWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMaintenanceWindow.ts.html |here} to see how to use DeleteMaintenanceWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMaintenanceWindow.ts.html |here} to see how to use DeleteMaintenanceWindow API.
    */
   public async deleteMaintenanceWindow(
     deleteMaintenanceWindowRequest: requests.DeleteMaintenanceWindowRequest
@@ -2109,7 +2109,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DeleteMetricExtensionRequest
    * @return DeleteMetricExtensionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMetricExtension.ts.html |here} to see how to use DeleteMetricExtension API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMetricExtension.ts.html |here} to see how to use DeleteMetricExtension API.
    */
   public async deleteMetricExtension(
     deleteMetricExtensionRequest: requests.DeleteMetricExtensionRequest
@@ -2173,7 +2173,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * Delete monitored resource by the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Delete monitored resource by the given identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * By default, only the specified resource is deleted. If the parameter 'isDeleteMembers' is set to true,
    * then the member resources will be deleted too. If the operation fails partially, the deleted entries
    * will not be rolled back.
@@ -2182,7 +2182,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DeleteMonitoredResourceRequest
    * @return DeleteMonitoredResourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMonitoredResource.ts.html |here} to see how to use DeleteMonitoredResource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMonitoredResource.ts.html |here} to see how to use DeleteMonitoredResource API.
    */
   public async deleteMonitoredResource(
     deleteMonitoredResourceRequest: requests.DeleteMonitoredResourceRequest
@@ -2253,12 +2253,12 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * Deletes a monitored resource type by identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Deletes a monitored resource type by identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteMonitoredResourceTypeRequest
    * @return DeleteMonitoredResourceTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMonitoredResourceType.ts.html |here} to see how to use DeleteMonitoredResourceType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMonitoredResourceType.ts.html |here} to see how to use DeleteMonitoredResourceType API.
    */
   public async deleteMonitoredResourceType(
     deleteMonitoredResourceTypeRequest: requests.DeleteMonitoredResourceTypeRequest
@@ -2327,7 +2327,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DeleteMonitoringTemplateRequest
    * @return DeleteMonitoringTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMonitoringTemplate.ts.html |here} to see how to use DeleteMonitoringTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteMonitoringTemplate.ts.html |here} to see how to use DeleteMonitoringTemplate API.
    */
   public async deleteMonitoringTemplate(
     deleteMonitoringTemplateRequest: requests.DeleteMonitoringTemplateRequest
@@ -2396,7 +2396,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DeleteProcessSetRequest
    * @return DeleteProcessSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteProcessSet.ts.html |here} to see how to use DeleteProcessSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteProcessSet.ts.html |here} to see how to use DeleteProcessSet API.
    */
   public async deleteProcessSet(
     deleteProcessSetRequest: requests.DeleteProcessSetRequest
@@ -2466,7 +2466,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DisableExternalDatabaseRequest
    * @return DisableExternalDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DisableExternalDatabase.ts.html |here} to see how to use DisableExternalDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DisableExternalDatabase.ts.html |here} to see how to use DisableExternalDatabase API.
    */
   public async disableExternalDatabase(
     disableExternalDatabaseRequest: requests.DisableExternalDatabaseRequest
@@ -2542,7 +2542,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DisableMetricExtensionRequest
    * @return DisableMetricExtensionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DisableMetricExtension.ts.html |here} to see how to use DisableMetricExtension API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DisableMetricExtension.ts.html |here} to see how to use DisableMetricExtension API.
    */
   public async disableMetricExtension(
     disableMetricExtensionRequest: requests.DisableMetricExtensionRequest
@@ -2622,7 +2622,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param DisassociateMonitoredResourcesRequest
    * @return DisassociateMonitoredResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DisassociateMonitoredResources.ts.html |here} to see how to use DisassociateMonitoredResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DisassociateMonitoredResources.ts.html |here} to see how to use DisassociateMonitoredResources API.
    */
   public async disassociateMonitoredResources(
     disassociateMonitoredResourcesRequest: requests.DisassociateMonitoredResourcesRequest
@@ -2696,7 +2696,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param EnableMetricExtensionRequest
    * @return EnableMetricExtensionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/EnableMetricExtension.ts.html |here} to see how to use EnableMetricExtension API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/EnableMetricExtension.ts.html |here} to see how to use EnableMetricExtension API.
    */
   public async enableMetricExtension(
     enableMetricExtensionRequest: requests.EnableMetricExtensionRequest
@@ -2776,7 +2776,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param EvaluateBaselineableMetricRequest
    * @return EvaluateBaselineableMetricResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/EvaluateBaselineableMetric.ts.html |here} to see how to use EvaluateBaselineableMetric API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/EvaluateBaselineableMetric.ts.html |here} to see how to use EvaluateBaselineableMetric API.
    */
   public async evaluateBaselineableMetric(
     evaluateBaselineableMetricRequest: requests.EvaluateBaselineableMetricRequest
@@ -2862,7 +2862,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ExportMetricExtensionRequest
    * @return ExportMetricExtensionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ExportMetricExtension.ts.html |here} to see how to use ExportMetricExtension API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ExportMetricExtension.ts.html |here} to see how to use ExportMetricExtension API.
    */
   public async exportMetricExtension(
     exportMetricExtensionRequest: requests.ExportMetricExtensionRequest
@@ -2941,7 +2941,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ExportMonitoringTemplateRequest
    * @return ExportMonitoringTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ExportMonitoringTemplate.ts.html |here} to see how to use ExportMonitoringTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ExportMonitoringTemplate.ts.html |here} to see how to use ExportMonitoringTemplate API.
    */
   public async exportMonitoringTemplate(
     exportMonitoringTemplateRequest: requests.ExportMonitoringTemplateRequest
@@ -3020,7 +3020,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param GetAlarmConditionRequest
    * @return GetAlarmConditionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetAlarmCondition.ts.html |here} to see how to use GetAlarmCondition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetAlarmCondition.ts.html |here} to see how to use GetAlarmCondition API.
    */
   public async getAlarmCondition(
     getAlarmConditionRequest: requests.GetAlarmConditionRequest
@@ -3098,7 +3098,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param GetBaselineableMetricRequest
    * @return GetBaselineableMetricResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetBaselineableMetric.ts.html |here} to see how to use GetBaselineableMetric API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetBaselineableMetric.ts.html |here} to see how to use GetBaselineableMetric API.
    */
   public async getBaselineableMetric(
     getBaselineableMetricRequest: requests.GetBaselineableMetricRequest
@@ -3180,7 +3180,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param GetConfigRequest
    * @return GetConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetConfig.ts.html |here} to see how to use GetConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetConfig.ts.html |here} to see how to use GetConfig API.
    */
   public async getConfig(
     getConfigRequest: requests.GetConfigRequest
@@ -3257,7 +3257,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param GetDiscoveryJobRequest
    * @return GetDiscoveryJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetDiscoveryJob.ts.html |here} to see how to use GetDiscoveryJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetDiscoveryJob.ts.html |here} to see how to use GetDiscoveryJob API.
    */
   public async getDiscoveryJob(
     getDiscoveryJobRequest: requests.GetDiscoveryJobRequest
@@ -3328,13 +3328,13 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * Get maintenance window for the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Get maintenance window for the given identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMaintenanceWindowRequest
    * @return GetMaintenanceWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMaintenanceWindow.ts.html |here} to see how to use GetMaintenanceWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMaintenanceWindow.ts.html |here} to see how to use GetMaintenanceWindow API.
    */
   public async getMaintenanceWindow(
     getMaintenanceWindowRequest: requests.GetMaintenanceWindowRequest
@@ -3411,7 +3411,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param GetMetricExtensionRequest
    * @return GetMetricExtensionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMetricExtension.ts.html |here} to see how to use GetMetricExtension API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMetricExtension.ts.html |here} to see how to use GetMetricExtension API.
    */
   public async getMetricExtension(
     getMetricExtensionRequest: requests.GetMetricExtensionRequest
@@ -3483,13 +3483,13 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * Get monitored resource for the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Get monitored resource for the given identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMonitoredResourceRequest
    * @return GetMonitoredResourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoredResource.ts.html |here} to see how to use GetMonitoredResource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoredResource.ts.html |here} to see how to use GetMonitoredResource API.
    */
   public async getMonitoredResource(
     getMonitoredResourceRequest: requests.GetMonitoredResourceRequest
@@ -3561,12 +3561,12 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * Gets stack monitoring resource task details by identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Gets stack monitoring resource task details by identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMonitoredResourceTaskRequest
    * @return GetMonitoredResourceTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoredResourceTask.ts.html |here} to see how to use GetMonitoredResourceTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoredResourceTask.ts.html |here} to see how to use GetMonitoredResourceTask API.
    */
   public async getMonitoredResourceTask(
     getMonitoredResourceTaskRequest: requests.GetMonitoredResourceTaskRequest
@@ -3638,12 +3638,12 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * Gets a monitored resource type by identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Gets a monitored resource type by identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMonitoredResourceTypeRequest
    * @return GetMonitoredResourceTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoredResourceType.ts.html |here} to see how to use GetMonitoredResourceType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoredResourceType.ts.html |here} to see how to use GetMonitoredResourceType API.
    */
   public async getMonitoredResourceType(
     getMonitoredResourceTypeRequest: requests.GetMonitoredResourceTypeRequest
@@ -3720,7 +3720,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param GetMonitoringTemplateRequest
    * @return GetMonitoringTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoringTemplate.ts.html |here} to see how to use GetMonitoringTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetMonitoringTemplate.ts.html |here} to see how to use GetMonitoringTemplate API.
    */
   public async getMonitoringTemplate(
     getMonitoringTemplateRequest: requests.GetMonitoringTemplateRequest
@@ -3797,7 +3797,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param GetProcessSetRequest
    * @return GetProcessSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetProcessSet.ts.html |here} to see how to use GetProcessSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetProcessSet.ts.html |here} to see how to use GetProcessSet API.
    */
   public async getProcessSet(
     getProcessSetRequest: requests.GetProcessSetRequest
@@ -3873,7 +3873,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -3949,7 +3949,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListAlarmConditionsRequest
    * @return ListAlarmConditionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListAlarmConditions.ts.html |here} to see how to use ListAlarmConditions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListAlarmConditions.ts.html |here} to see how to use ListAlarmConditions API.
    */
   public async listAlarmConditions(
     listAlarmConditionsRequest: requests.ListAlarmConditionsRequest
@@ -4035,7 +4035,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListBaselineableMetricsRequest
    * @return ListBaselineableMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListBaselineableMetrics.ts.html |here} to see how to use ListBaselineableMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListBaselineableMetrics.ts.html |here} to see how to use ListBaselineableMetrics API.
    */
   public async listBaselineableMetrics(
     listBaselineableMetricsRequest: requests.ListBaselineableMetricsRequest
@@ -4128,7 +4128,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListConfigsRequest
    * @return ListConfigsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListConfigs.ts.html |here} to see how to use ListConfigs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListConfigs.ts.html |here} to see how to use ListConfigs API.
    */
   public async listConfigs(
     listConfigsRequest: requests.ListConfigsRequest
@@ -4211,7 +4211,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListDefinedMonitoringTemplatesRequest
    * @return ListDefinedMonitoringTemplatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListDefinedMonitoringTemplates.ts.html |here} to see how to use ListDefinedMonitoringTemplates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListDefinedMonitoringTemplates.ts.html |here} to see how to use ListDefinedMonitoringTemplates API.
    */
   public async listDefinedMonitoringTemplates(
     listDefinedMonitoringTemplatesRequest: requests.ListDefinedMonitoringTemplatesRequest
@@ -4295,7 +4295,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListDiscoveryJobLogsRequest
    * @return ListDiscoveryJobLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListDiscoveryJobLogs.ts.html |here} to see how to use ListDiscoveryJobLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListDiscoveryJobLogs.ts.html |here} to see how to use ListDiscoveryJobLogs API.
    */
   public async listDiscoveryJobLogs(
     listDiscoveryJobLogsRequest: requests.ListDiscoveryJobLogsRequest
@@ -4379,7 +4379,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListDiscoveryJobsRequest
    * @return ListDiscoveryJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListDiscoveryJobs.ts.html |here} to see how to use ListDiscoveryJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListDiscoveryJobs.ts.html |here} to see how to use ListDiscoveryJobs API.
    */
   public async listDiscoveryJobs(
     listDiscoveryJobsRequest: requests.ListDiscoveryJobsRequest
@@ -4461,7 +4461,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListMaintenanceWindowsRequest
    * @return ListMaintenanceWindowsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMaintenanceWindows.ts.html |here} to see how to use ListMaintenanceWindows API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMaintenanceWindows.ts.html |here} to see how to use ListMaintenanceWindows API.
    */
   public async listMaintenanceWindows(
     listMaintenanceWindowsRequest: requests.ListMaintenanceWindowsRequest
@@ -4550,7 +4550,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListMetricExtensionsRequest
    * @return ListMetricExtensionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMetricExtensions.ts.html |here} to see how to use ListMetricExtensions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMetricExtensions.ts.html |here} to see how to use ListMetricExtensions API.
    */
   public async listMetricExtensions(
     listMetricExtensionsRequest: requests.ListMetricExtensionsRequest
@@ -4638,7 +4638,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListMonitoredResourceTasksRequest
    * @return ListMonitoredResourceTasksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoredResourceTasks.ts.html |here} to see how to use ListMonitoredResourceTasks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoredResourceTasks.ts.html |here} to see how to use ListMonitoredResourceTasks API.
    */
   public async listMonitoredResourceTasks(
     listMonitoredResourceTasksRequest: requests.ListMonitoredResourceTasksRequest
@@ -4731,7 +4731,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListMonitoredResourceTypesRequest
    * @return ListMonitoredResourceTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoredResourceTypes.ts.html |here} to see how to use ListMonitoredResourceTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoredResourceTypes.ts.html |here} to see how to use ListMonitoredResourceTypes API.
    */
   public async listMonitoredResourceTypes(
     listMonitoredResourceTypesRequest: requests.ListMonitoredResourceTypesRequest
@@ -4823,7 +4823,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListMonitoredResourcesRequest
    * @return ListMonitoredResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoredResources.ts.html |here} to see how to use ListMonitoredResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoredResources.ts.html |here} to see how to use ListMonitoredResources API.
    */
   public async listMonitoredResources(
     listMonitoredResourcesRequest: requests.ListMonitoredResourcesRequest
@@ -4912,7 +4912,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListMonitoringTemplatesRequest
    * @return ListMonitoringTemplatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoringTemplates.ts.html |here} to see how to use ListMonitoringTemplates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListMonitoringTemplates.ts.html |here} to see how to use ListMonitoringTemplates API.
    */
   public async listMonitoringTemplates(
     listMonitoringTemplatesRequest: requests.ListMonitoringTemplatesRequest
@@ -5000,7 +5000,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListProcessSetsRequest
    * @return ListProcessSetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListProcessSets.ts.html |here} to see how to use ListProcessSets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListProcessSets.ts.html |here} to see how to use ListProcessSets API.
    */
   public async listProcessSets(
     listProcessSetsRequest: requests.ListProcessSetsRequest
@@ -5082,7 +5082,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -5165,7 +5165,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -5248,7 +5248,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -5336,7 +5336,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param ManageLicenseRequest
    * @return ManageLicenseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ManageLicense.ts.html |here} to see how to use ManageLicense API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ManageLicense.ts.html |here} to see how to use ManageLicense API.
    */
   public async manageLicense(
     manageLicenseRequest: requests.ManageLicenseRequest
@@ -5410,7 +5410,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param PublishMetricExtensionRequest
    * @return PublishMetricExtensionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/PublishMetricExtension.ts.html |here} to see how to use PublishMetricExtension API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/PublishMetricExtension.ts.html |here} to see how to use PublishMetricExtension API.
    */
   public async publishMetricExtension(
     publishMetricExtensionRequest: requests.PublishMetricExtensionRequest
@@ -5495,7 +5495,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param RequestMonitoredResourcesSummarizedCountRequest
    * @return RequestMonitoredResourcesSummarizedCountResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RequestMonitoredResourcesSummarizedCount.ts.html |here} to see how to use RequestMonitoredResourcesSummarizedCount API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RequestMonitoredResourcesSummarizedCount.ts.html |here} to see how to use RequestMonitoredResourcesSummarizedCount API.
    */
   public async requestMonitoredResourcesSummarizedCount(
     requestMonitoredResourcesSummarizedCountRequest: requests.RequestMonitoredResourcesSummarizedCountRequest
@@ -5588,7 +5588,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param RequestSummarizedMetricExtensionsMetricsRequest
    * @return RequestSummarizedMetricExtensionsMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RequestSummarizedMetricExtensionsMetrics.ts.html |here} to see how to use RequestSummarizedMetricExtensionsMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RequestSummarizedMetricExtensionsMetrics.ts.html |here} to see how to use RequestSummarizedMetricExtensionsMetrics API.
    */
   public async requestSummarizedMetricExtensionsMetrics(
     requestSummarizedMetricExtensionsMetricsRequest: requests.RequestSummarizedMetricExtensionsMetricsRequest
@@ -5680,7 +5680,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param RequestSummarizedMetricExtensionsResourcesRequest
    * @return RequestSummarizedMetricExtensionsResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RequestSummarizedMetricExtensionsResources.ts.html |here} to see how to use RequestSummarizedMetricExtensionsResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RequestSummarizedMetricExtensionsResources.ts.html |here} to see how to use RequestSummarizedMetricExtensionsResources API.
    */
   public async requestSummarizedMetricExtensionsResources(
     requestSummarizedMetricExtensionsResourcesRequest: requests.RequestSummarizedMetricExtensionsResourcesRequest
@@ -5771,7 +5771,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param RetryFailedMaintenanceWindowOperationRequest
    * @return RetryFailedMaintenanceWindowOperationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RetryFailedMaintenanceWindowOperation.ts.html |here} to see how to use RetryFailedMaintenanceWindowOperation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/RetryFailedMaintenanceWindowOperation.ts.html |here} to see how to use RetryFailedMaintenanceWindowOperation API.
    */
   public async retryFailedMaintenanceWindowOperation(
     retryFailedMaintenanceWindowOperationRequest: requests.RetryFailedMaintenanceWindowOperationRequest
@@ -5849,7 +5849,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param SearchAssociatedResourcesRequest
    * @return SearchAssociatedResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/SearchAssociatedResources.ts.html |here} to see how to use SearchAssociatedResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/SearchAssociatedResources.ts.html |here} to see how to use SearchAssociatedResources API.
    */
   public async searchAssociatedResources(
     searchAssociatedResourcesRequest: requests.SearchAssociatedResourcesRequest
@@ -5942,7 +5942,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param SearchMonitoredResourceAssociationsRequest
    * @return SearchMonitoredResourceAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/SearchMonitoredResourceAssociations.ts.html |here} to see how to use SearchMonitoredResourceAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/SearchMonitoredResourceAssociations.ts.html |here} to see how to use SearchMonitoredResourceAssociations API.
    */
   public async searchMonitoredResourceAssociations(
     searchMonitoredResourceAssociationsRequest: requests.SearchMonitoredResourceAssociationsRequest
@@ -6029,13 +6029,13 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * List the member resources for the given monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * List the member resources for the given monitored resource identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchMonitoredResourceMembersRequest
    * @return SearchMonitoredResourceMembersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/SearchMonitoredResourceMembers.ts.html |here} to see how to use SearchMonitoredResourceMembers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/SearchMonitoredResourceMembers.ts.html |here} to see how to use SearchMonitoredResourceMembers API.
    */
   public async searchMonitoredResourceMembers(
     searchMonitoredResourceMembersRequest: requests.SearchMonitoredResourceMembersRequest
@@ -6130,7 +6130,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param SearchMonitoredResourcesRequest
    * @return SearchMonitoredResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/SearchMonitoredResources.ts.html |here} to see how to use SearchMonitoredResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/SearchMonitoredResources.ts.html |here} to see how to use SearchMonitoredResources API.
    */
   public async searchMonitoredResources(
     searchMonitoredResourcesRequest: requests.SearchMonitoredResourcesRequest
@@ -6223,7 +6223,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param StopMaintenanceWindowRequest
    * @return StopMaintenanceWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/StopMaintenanceWindow.ts.html |here} to see how to use StopMaintenanceWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/StopMaintenanceWindow.ts.html |here} to see how to use StopMaintenanceWindow API.
    */
   public async stopMaintenanceWindow(
     stopMaintenanceWindowRequest: requests.StopMaintenanceWindowRequest
@@ -6297,7 +6297,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param TestMetricExtensionRequest
    * @return TestMetricExtensionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/TestMetricExtension.ts.html |here} to see how to use TestMetricExtension API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/TestMetricExtension.ts.html |here} to see how to use TestMetricExtension API.
    */
   public async testMetricExtension(
     testMetricExtensionRequest: requests.TestMetricExtensionRequest
@@ -6386,7 +6386,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param UnapplyMonitoringTemplateRequest
    * @return UnapplyMonitoringTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UnapplyMonitoringTemplate.ts.html |here} to see how to use UnapplyMonitoringTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UnapplyMonitoringTemplate.ts.html |here} to see how to use UnapplyMonitoringTemplate API.
    */
   public async unapplyMonitoringTemplate(
     unapplyMonitoringTemplateRequest: requests.UnapplyMonitoringTemplateRequest
@@ -6461,7 +6461,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param UpdateAlarmConditionRequest
    * @return UpdateAlarmConditionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateAlarmCondition.ts.html |here} to see how to use UpdateAlarmCondition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateAlarmCondition.ts.html |here} to see how to use UpdateAlarmCondition API.
    */
   public async updateAlarmCondition(
     updateAlarmConditionRequest: requests.UpdateAlarmConditionRequest
@@ -6543,13 +6543,13 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * Provided tags will be added or updated in the existing list of tags for the affected resources.
    * Resources to be updated are identified based on association types specified.
    * If association types not specified, then tags will be updated only for the resource identified by
-   * the given monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * the given monitored resource identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAndPropagateTagsRequest
    * @return UpdateAndPropagateTagsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateAndPropagateTags.ts.html |here} to see how to use UpdateAndPropagateTags API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateAndPropagateTags.ts.html |here} to see how to use UpdateAndPropagateTags API.
    */
   public async updateAndPropagateTags(
     updateAndPropagateTagsRequest: requests.UpdateAndPropagateTagsRequest
@@ -6629,7 +6629,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param UpdateBaselineableMetricRequest
    * @return UpdateBaselineableMetricResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateBaselineableMetric.ts.html |here} to see how to use UpdateBaselineableMetric API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateBaselineableMetric.ts.html |here} to see how to use UpdateBaselineableMetric API.
    */
   public async updateBaselineableMetric(
     updateBaselineableMetricRequest: requests.UpdateBaselineableMetricRequest
@@ -6717,7 +6717,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param UpdateConfigRequest
    * @return UpdateConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateConfig.ts.html |here} to see how to use UpdateConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateConfig.ts.html |here} to see how to use UpdateConfig API.
    */
   public async updateConfig(
     updateConfigRequest: requests.UpdateConfigRequest
@@ -6794,13 +6794,13 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * Update maintenance window by the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Update maintenance window by the given identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateMaintenanceWindowRequest
    * @return UpdateMaintenanceWindowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMaintenanceWindow.ts.html |here} to see how to use UpdateMaintenanceWindow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMaintenanceWindow.ts.html |here} to see how to use UpdateMaintenanceWindow API.
    */
   public async updateMaintenanceWindow(
     updateMaintenanceWindowRequest: requests.UpdateMaintenanceWindowRequest
@@ -6879,7 +6879,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param UpdateMetricExtensionRequest
    * @return UpdateMetricExtensionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMetricExtension.ts.html |here} to see how to use UpdateMetricExtension API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMetricExtension.ts.html |here} to see how to use UpdateMetricExtension API.
    */
   public async updateMetricExtension(
     updateMetricExtensionRequest: requests.UpdateMetricExtensionRequest
@@ -6962,7 +6962,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * Update monitored resource by the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Update monitored resource by the given identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * Note that \"properties\" object, if specified, will entirely replace the existing object,
    * as part this operation.
    *
@@ -6970,7 +6970,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param UpdateMonitoredResourceRequest
    * @return UpdateMonitoredResourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoredResource.ts.html |here} to see how to use UpdateMonitoredResource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoredResource.ts.html |here} to see how to use UpdateMonitoredResource API.
    */
   public async updateMonitoredResource(
     updateMonitoredResourceRequest: requests.UpdateMonitoredResourceRequest
@@ -7044,13 +7044,13 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * Update stack monitoring resource task by the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Update stack monitoring resource task by the given identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateMonitoredResourceTaskRequest
    * @return UpdateMonitoredResourceTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoredResourceTask.ts.html |here} to see how to use UpdateMonitoredResourceTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoredResourceTask.ts.html |here} to see how to use UpdateMonitoredResourceTask API.
    */
   public async updateMonitoredResourceTask(
     updateMonitoredResourceTaskRequest: requests.UpdateMonitoredResourceTaskRequest
@@ -7128,13 +7128,13 @@ For example, when a new Management Agent gets registered in a certain compartmen
   }
 
   /**
-   * Update the Monitored Resource Type identified by the identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Update the Monitored Resource Type identified by the identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateMonitoredResourceTypeRequest
    * @return UpdateMonitoredResourceTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoredResourceType.ts.html |here} to see how to use UpdateMonitoredResourceType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoredResourceType.ts.html |here} to see how to use UpdateMonitoredResourceType API.
    */
   public async updateMonitoredResourceType(
     updateMonitoredResourceTypeRequest: requests.UpdateMonitoredResourceTypeRequest
@@ -7217,7 +7217,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param UpdateMonitoringTemplateRequest
    * @return UpdateMonitoringTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoringTemplate.ts.html |here} to see how to use UpdateMonitoringTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateMonitoringTemplate.ts.html |here} to see how to use UpdateMonitoringTemplate API.
    */
   public async updateMonitoringTemplate(
     updateMonitoringTemplateRequest: requests.UpdateMonitoringTemplateRequest
@@ -7300,7 +7300,7 @@ For example, when a new Management Agent gets registered in a certain compartmen
    * @param UpdateProcessSetRequest
    * @return UpdateProcessSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateProcessSet.ts.html |here} to see how to use UpdateProcessSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateProcessSet.ts.html |here} to see how to use UpdateProcessSet API.
    */
   public async updateProcessSet(
     updateProcessSetRequest: requests.UpdateProcessSetRequest

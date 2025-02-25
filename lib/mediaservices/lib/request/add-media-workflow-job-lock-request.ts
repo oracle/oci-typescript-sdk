@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowJobLock.ts.html |here} to see how to use AddMediaWorkflowJobLockRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/AddMediaWorkflowJobLock.ts.html |here} to see how to use AddMediaWorkflowJobLockRequest.
  */
 export interface AddMediaWorkflowJobLockRequest extends common.BaseRequest {
   /**

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface WorkRequestSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "id": string;
   /**
@@ -32,7 +32,7 @@ export interface WorkRequestSummary {
    */
   "status": model.WorkRequestStatus;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request's compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request's compartment.
    */
   "compartmentId": string;
   /**

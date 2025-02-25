@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface MaintenanceWindow {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of maintenance window.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of maintenance window.
    *
    */
   "id": string;
@@ -34,7 +34,7 @@ export interface MaintenanceWindow {
    */
   "description"?: string;
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Compartment Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId": string;

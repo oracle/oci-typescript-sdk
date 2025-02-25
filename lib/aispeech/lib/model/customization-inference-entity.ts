@@ -23,7 +23,7 @@ export interface CustomizationInferenceEntity {
    */
   "entityType"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customization to use.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customization to use.
    */
   "customizationId"?: string;
   /**

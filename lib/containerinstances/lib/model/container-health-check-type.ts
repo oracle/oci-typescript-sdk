@@ -20,7 +20,6 @@ import common = require("oci-common");
 export enum ContainerHealthCheckType {
   Http = "HTTP",
   Tcp = "TCP",
-  Command = "COMMAND",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

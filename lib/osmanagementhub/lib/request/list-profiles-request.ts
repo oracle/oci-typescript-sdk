@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListProfiles.ts.html |here} to see how to use ListProfilesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/ListProfiles.ts.html |here} to see how to use ListProfilesRequest.
  */
 export interface ListProfilesRequest extends common.BaseRequest {
   /**
@@ -35,7 +35,7 @@ export interface ListProfilesRequest extends common.BaseRequest {
    */
   "profileType"?: Array<model.ProfileType>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile. A filter used to return the specified profile.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the registration profile. A filter used to return the specified profile.
    */
   "profileId"?: string;
   /**
@@ -51,7 +51,7 @@ export interface ListProfilesRequest extends common.BaseRequest {
    */
   "registrationType"?: Array<model.Profile.RegistrationType>;
   /**
-   * A boolean variable that is used to list only the default profile resources.
+   * A filter to return only default profiles.
    *
    */
   "isDefaultProfile"?: boolean;
@@ -61,12 +61,28 @@ export interface ListProfilesRequest extends common.BaseRequest {
    */
   "isServiceProvidedProfile"?: boolean;
   /**
+   * A filter to return resources that are associated with the specified management
+   * station [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "managementStation"?: Array<string>;
+  /**
+   * A filter to return resources that aren't associated with the specified management
+   * station [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "managementStationNotEqualTo"?: Array<string>;
+  /**
+   * The version of the registration profile.
+   */
+  "profileVersion"?: string;
+  /**
    * A filter to return only resources that match the given vendor name.
    */
   "vendorName"?: model.VendorName;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 50}
 * 
@@ -74,7 +90,7 @@ Example: {@code 50}
   "limit"?: number;
   /**
  * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
-* For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 3}
 * 

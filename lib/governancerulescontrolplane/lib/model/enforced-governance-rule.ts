@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface EnforcedGovernanceRule {
   /**
-   * The Oracle ID ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the enforced governance rule.
+   * The Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the enforced governance rule.
    */
   "id": string;
   /**
-   * The Oracle ID ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the child's root compartment to which the governance rule is attached.
+   * The Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the child's root compartment to which the governance rule is attached.
    */
   "compartmentId": string;
   /**

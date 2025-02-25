@@ -30,7 +30,7 @@ export interface SynthesizeSpeechDetails {
    */
   "isStreamEnabled"?: boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where the user has access to call {@code SpeechSynthesize} api. But default user access will be checked at tenancy level.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where the user has access to call {@code SpeechSynthesize} api. But default user access will be checked at tenancy level.
    */
   "compartmentId"?: string;
   "configuration"?: model.TtsOracleConfiguration;

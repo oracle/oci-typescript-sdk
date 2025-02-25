@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetDomain.ts.html |here} to see how to use GetDomainRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/GetDomain.ts.html |here} to see how to use GetDomainRequest.
  */
 export interface GetDomainRequest extends common.BaseRequest {
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateInventory.ts.html |here} to see how to use UpdateInventoryRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/UpdateInventory.ts.html |here} to see how to use UpdateInventoryRequest.
  */
 export interface UpdateInventoryRequest extends common.BaseRequest {
   /**

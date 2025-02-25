@@ -23,7 +23,7 @@ export interface AssetSourceConnection {
    */
   "connectionType": model.AssetSourceConnectionType;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the cloud bridge connector used for migration operations.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cloud bridge connector used for migration operations.
    */
   "connectorId": string;
   /**

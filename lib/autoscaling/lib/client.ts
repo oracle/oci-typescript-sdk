@@ -1,11 +1,11 @@
 /**
  * Autoscaling API
  * APIs for dynamically scaling Compute resources to meet application requirements. For more information about
-autoscaling, see [Autoscaling](/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
-Compute service, see [Overview of the Compute Service](/Content/Compute/Concepts/computeoverview.htm).
+autoscaling, see [Autoscaling](https://docs.oracle.com/iaas/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
+Compute service, see [Overview of the Compute Service](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm).
 
 **Note:** Autoscaling is not available in US Government Cloud tenancies. For more information, see
-[Oracle Cloud Infrastructure US Government Cloud](/Content/General/Concepts/govoverview.htm).
+[Oracle Cloud Infrastructure US Government Cloud](https://docs.oracle.com/iaas/Content/General/Concepts/govoverview.htm).
 
  * OpenAPI spec version: 20181001
  * 
@@ -221,7 +221,7 @@ export class AutoScalingClient {
   /**
      * Moves an autoscaling configuration into a different compartment within the same tenancy. For information
 * about moving resources between compartments, see
-* [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When you move an autoscaling configuration to a different compartment, associated resources such as instance
 * pools are not moved.
@@ -230,7 +230,7 @@ When you move an autoscaling configuration to a different compartment, associate
      * @param ChangeAutoScalingConfigurationCompartmentRequest
      * @return ChangeAutoScalingConfigurationCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/ChangeAutoScalingConfigurationCompartment.ts.html |here} to see how to use ChangeAutoScalingConfigurationCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/ChangeAutoScalingConfigurationCompartment.ts.html |here} to see how to use ChangeAutoScalingConfigurationCompartment API.
      */
   public async changeAutoScalingConfigurationCompartment(
     changeAutoScalingConfigurationCompartmentRequest: requests.ChangeAutoScalingConfigurationCompartmentRequest
@@ -313,7 +313,7 @@ When you move an autoscaling configuration to a different compartment, associate
    * @param CreateAutoScalingConfigurationRequest
    * @return CreateAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/CreateAutoScalingConfiguration.ts.html |here} to see how to use CreateAutoScalingConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/CreateAutoScalingConfiguration.ts.html |here} to see how to use CreateAutoScalingConfiguration API.
    */
   public async createAutoScalingConfiguration(
     createAutoScalingConfigurationRequest: requests.CreateAutoScalingConfigurationRequest
@@ -403,7 +403,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
      * @param CreateAutoScalingPolicyRequest
      * @return CreateAutoScalingPolicyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/CreateAutoScalingPolicy.ts.html |here} to see how to use CreateAutoScalingPolicy API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/CreateAutoScalingPolicy.ts.html |here} to see how to use CreateAutoScalingPolicy API.
      */
   public async createAutoScalingPolicy(
     createAutoScalingPolicyRequest: requests.CreateAutoScalingPolicyRequest
@@ -486,7 +486,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    * @param DeleteAutoScalingConfigurationRequest
    * @return DeleteAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/DeleteAutoScalingConfiguration.ts.html |here} to see how to use DeleteAutoScalingConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/DeleteAutoScalingConfiguration.ts.html |here} to see how to use DeleteAutoScalingConfiguration API.
    */
   public async deleteAutoScalingConfiguration(
     deleteAutoScalingConfigurationRequest: requests.DeleteAutoScalingConfigurationRequest
@@ -556,7 +556,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    * @param DeleteAutoScalingPolicyRequest
    * @return DeleteAutoScalingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/DeleteAutoScalingPolicy.ts.html |here} to see how to use DeleteAutoScalingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/DeleteAutoScalingPolicy.ts.html |here} to see how to use DeleteAutoScalingPolicy API.
    */
   public async deleteAutoScalingPolicy(
     deleteAutoScalingPolicyRequest: requests.DeleteAutoScalingPolicyRequest
@@ -627,7 +627,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    * @param GetAutoScalingConfigurationRequest
    * @return GetAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/GetAutoScalingConfiguration.ts.html |here} to see how to use GetAutoScalingConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/GetAutoScalingConfiguration.ts.html |here} to see how to use GetAutoScalingConfiguration API.
    */
   public async getAutoScalingConfiguration(
     getAutoScalingConfigurationRequest: requests.GetAutoScalingConfigurationRequest
@@ -704,7 +704,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    * @param GetAutoScalingPolicyRequest
    * @return GetAutoScalingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/GetAutoScalingPolicy.ts.html |here} to see how to use GetAutoScalingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/GetAutoScalingPolicy.ts.html |here} to see how to use GetAutoScalingPolicy API.
    */
   public async getAutoScalingPolicy(
     getAutoScalingPolicyRequest: requests.GetAutoScalingPolicyRequest
@@ -783,7 +783,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    * @param ListAutoScalingConfigurationsRequest
    * @return ListAutoScalingConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/ListAutoScalingConfigurations.ts.html |here} to see how to use ListAutoScalingConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/ListAutoScalingConfigurations.ts.html |here} to see how to use ListAutoScalingConfigurations API.
    */
   public async listAutoScalingConfigurations(
     listAutoScalingConfigurationsRequest: requests.ListAutoScalingConfigurationsRequest
@@ -918,7 +918,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    * @param ListAutoScalingPoliciesRequest
    * @return ListAutoScalingPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/ListAutoScalingPolicies.ts.html |here} to see how to use ListAutoScalingPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/ListAutoScalingPolicies.ts.html |here} to see how to use ListAutoScalingPolicies API.
    */
   public async listAutoScalingPolicies(
     listAutoScalingPoliciesRequest: requests.ListAutoScalingPoliciesRequest
@@ -1055,7 +1055,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    * @param UpdateAutoScalingConfigurationRequest
    * @return UpdateAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/UpdateAutoScalingConfiguration.ts.html |here} to see how to use UpdateAutoScalingConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/UpdateAutoScalingConfiguration.ts.html |here} to see how to use UpdateAutoScalingConfiguration API.
    */
   public async updateAutoScalingConfiguration(
     updateAutoScalingConfigurationRequest: requests.UpdateAutoScalingConfigurationRequest
@@ -1140,7 +1140,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    * @param UpdateAutoScalingPolicyRequest
    * @return UpdateAutoScalingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/UpdateAutoScalingPolicy.ts.html |here} to see how to use UpdateAutoScalingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/autoscaling/UpdateAutoScalingPolicy.ts.html |here} to see how to use UpdateAutoScalingPolicy API.
    */
   public async updateAutoScalingPolicy(
     updateAutoScalingPolicyRequest: requests.UpdateAutoScalingPolicyRequest

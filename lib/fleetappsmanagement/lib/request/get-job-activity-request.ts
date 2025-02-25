@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetJobActivity.ts.html |here} to see how to use GetJobActivityRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetJobActivity.ts.html |here} to see how to use GetJobActivityRequest.
  */
 export interface GetJobActivityRequest extends common.BaseRequest {
   /**

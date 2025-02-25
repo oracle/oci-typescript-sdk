@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateEmailReturnPath.ts.html |here} to see how to use CreateEmailReturnPathRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateEmailReturnPath.ts.html |here} to see how to use CreateEmailReturnPathRequest.
  */
 export interface CreateEmailReturnPathRequest extends common.BaseRequest {
   /**

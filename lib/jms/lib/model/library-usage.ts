@@ -25,7 +25,7 @@ export interface LibraryUsage {
    */
   "libraryKey": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the related fleet.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the related fleet.
    *
    */
   "fleetId": string;

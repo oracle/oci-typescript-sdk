@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -57,7 +57,7 @@ export interface CrossConnectMapping {
    */
   "bgpMd5AuthKey"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cross-connect or cross-connect group for this mapping.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cross-connect or cross-connect group for this mapping.
    * Specified by the owner of the cross-connect or cross-connect group (the
    * customer if the customer is colocated with Oracle, or the provider if the
    * customer is connecting via provider).
@@ -99,7 +99,7 @@ Example: {@code 10.0.0.19/31}
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv6 addresses.
 * <p>
 IPv6 addressing is supported for all commercial and government regions. See
-* [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+* [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: {@code 2001:db8::1/64}
 * 
@@ -114,7 +114,7 @@ Example: {@code 2001:db8::1/64}
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv6 addresses.
 * <p>
 Note that IPv6 addressing is currently supported only in certain regions. See
-* [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+* [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: {@code 2001:db8::2/64}
 * 

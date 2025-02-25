@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListNotebookSessionShapes.ts.html |here} to see how to use ListNotebookSessionShapesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListNotebookSessionShapes.ts.html |here} to see how to use ListNotebookSessionShapesRequest.
  */
 export interface ListNotebookSessionShapesRequest extends common.BaseRequest {
   /**
-   * <b>Filter</b> results by the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   * <b>Filter</b> results by the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
@@ -31,7 +31,7 @@ export interface ListNotebookSessionShapesRequest extends common.BaseRequest {
  * For list pagination. The maximum number of results per page,
 * or items to return in a paginated \"List\" call.
 * 1 is the minimum, 100 is the maximum.
-* See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
+* See [List Pagination](https://docs.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 50}
 * 
@@ -41,7 +41,7 @@ Example: {@code 50}
  * For list pagination. The value of the {@code opc-next-page} response
 * header from the previous \"List\" call.
 * <p>
-See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
+See [List Pagination](https://docs.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
 * 
  */
   "page"?: string;

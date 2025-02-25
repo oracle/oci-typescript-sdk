@@ -219,7 +219,7 @@ export class ConfigClient {
    * @param CreateConfigRequest
    * @return CreateConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/CreateConfig.ts.html |here} to see how to use CreateConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/CreateConfig.ts.html |here} to see how to use CreateConfig API.
    */
   public async createConfig(
     createConfigRequest: requests.CreateConfigRequest
@@ -302,7 +302,7 @@ export class ConfigClient {
    * @param DeleteConfigRequest
    * @return DeleteConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/DeleteConfig.ts.html |here} to see how to use DeleteConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/DeleteConfig.ts.html |here} to see how to use DeleteConfig API.
    */
   public async deleteConfig(
     deleteConfigRequest: requests.DeleteConfigRequest
@@ -372,7 +372,7 @@ export class ConfigClient {
    * @param GetConfigRequest
    * @return GetConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/GetConfig.ts.html |here} to see how to use GetConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/GetConfig.ts.html |here} to see how to use GetConfig API.
    */
   public async getConfig(
     getConfigRequest: requests.GetConfigRequest
@@ -450,7 +450,7 @@ export class ConfigClient {
    * @param ListConfigsRequest
    * @return ListConfigsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/ListConfigs.ts.html |here} to see how to use ListConfigs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/ListConfigs.ts.html |here} to see how to use ListConfigs API.
    */
   public async listConfigs(
     listConfigsRequest: requests.ListConfigsRequest
@@ -537,7 +537,7 @@ export class ConfigClient {
    * @param RetrieveNamespaceMetricsRequest
    * @return RetrieveNamespaceMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/RetrieveNamespaceMetrics.ts.html |here} to see how to use RetrieveNamespaceMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/RetrieveNamespaceMetrics.ts.html |here} to see how to use RetrieveNamespaceMetrics API.
    */
   public async retrieveNamespaceMetrics(
     retrieveNamespaceMetricsRequest: requests.RetrieveNamespaceMetricsRequest
@@ -618,7 +618,7 @@ export class ConfigClient {
    * @param RetrieveNamespacesRequest
    * @return RetrieveNamespacesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/RetrieveNamespaces.ts.html |here} to see how to use RetrieveNamespaces API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/RetrieveNamespaces.ts.html |here} to see how to use RetrieveNamespaces API.
    */
   public async retrieveNamespaces(
     retrieveNamespacesRequest: requests.RetrieveNamespacesRequest
@@ -696,7 +696,7 @@ export class ConfigClient {
    * @param TestRequest
    * @return TestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/Test.ts.html |here} to see how to use Test API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/Test.ts.html |here} to see how to use Test API.
    */
   public async test(testRequest: requests.TestRequest): Promise<responses.TestResponse> {
     if (this.logger) this.logger.debug("Calling operation ConfigClient#test.");
@@ -775,7 +775,7 @@ export class ConfigClient {
    * @param UpdateConfigRequest
    * @return UpdateConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/UpdateConfig.ts.html |here} to see how to use UpdateConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/UpdateConfig.ts.html |here} to see how to use UpdateConfig API.
    */
   public async updateConfig(
     updateConfigRequest: requests.UpdateConfigRequest
@@ -862,7 +862,7 @@ export class ConfigClient {
    * @param ValidateSpanFilterPatternRequest
    * @return ValidateSpanFilterPatternResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/ValidateSpanFilterPattern.ts.html |here} to see how to use ValidateSpanFilterPattern API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/ValidateSpanFilterPattern.ts.html |here} to see how to use ValidateSpanFilterPattern API.
    */
   public async validateSpanFilterPattern(
     validateSpanFilterPatternRequest: requests.ValidateSpanFilterPatternRequest

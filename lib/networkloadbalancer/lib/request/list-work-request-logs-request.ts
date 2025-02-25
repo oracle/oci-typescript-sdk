@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkloadbalancer/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogsRequest.
  */
 export interface ListWorkRequestLogsRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    */
   "workRequestId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the network load balancers to list.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the network load balancers to list.
    *
    */
   "compartmentId": string;
@@ -36,13 +36,13 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
   /**
    * The page token representing the page from which to start retrieving results.
    * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
-   * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
    * For list pagination. The maximum number of results per page or items to return, in a paginated \"List\" call.
-   * For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For important details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;

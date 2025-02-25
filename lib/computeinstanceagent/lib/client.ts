@@ -251,7 +251,7 @@ Canceling a command is a best-effort attempt. If the command has already
      * @param CancelInstanceAgentCommandRequest
      * @return CancelInstanceAgentCommandResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/CancelInstanceAgentCommand.ts.html |here} to see how to use CancelInstanceAgentCommand API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/CancelInstanceAgentCommand.ts.html |here} to see how to use CancelInstanceAgentCommand API.
      */
   public async cancelInstanceAgentCommand(
     cancelInstanceAgentCommandRequest: requests.CancelInstanceAgentCommandRequest
@@ -327,7 +327,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
      * @param CreateInstanceAgentCommandRequest
      * @return CreateInstanceAgentCommandResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/CreateInstanceAgentCommand.ts.html |here} to see how to use CreateInstanceAgentCommand API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/CreateInstanceAgentCommand.ts.html |here} to see how to use CreateInstanceAgentCommand API.
      */
   public async createInstanceAgentCommand(
     createInstanceAgentCommandRequest: requests.CreateInstanceAgentCommandRequest
@@ -408,7 +408,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
    * @param GetInstanceAgentCommandRequest
    * @return GetInstanceAgentCommandResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/GetInstanceAgentCommand.ts.html |here} to see how to use GetInstanceAgentCommand API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/GetInstanceAgentCommand.ts.html |here} to see how to use GetInstanceAgentCommand API.
    */
   public async getInstanceAgentCommand(
     getInstanceAgentCommandRequest: requests.GetInstanceAgentCommandRequest
@@ -485,7 +485,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
    * @param GetInstanceAgentCommandExecutionRequest
    * @return GetInstanceAgentCommandExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/GetInstanceAgentCommandExecution.ts.html |here} to see how to use GetInstanceAgentCommandExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/GetInstanceAgentCommandExecution.ts.html |here} to see how to use GetInstanceAgentCommandExecution API.
    */
   public async getInstanceAgentCommandExecution(
     getInstanceAgentCommandExecutionRequest: requests.GetInstanceAgentCommandExecutionRequest
@@ -568,7 +568,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
    * @param ListInstanceAgentCommandExecutionsRequest
    * @return ListInstanceAgentCommandExecutionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceAgentCommandExecutions.ts.html |here} to see how to use ListInstanceAgentCommandExecutions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceAgentCommandExecutions.ts.html |here} to see how to use ListInstanceAgentCommandExecutions API.
    */
   public async listInstanceAgentCommandExecutions(
     listInstanceAgentCommandExecutionsRequest: requests.ListInstanceAgentCommandExecutionsRequest
@@ -706,7 +706,7 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
    * @param ListInstanceAgentCommandsRequest
    * @return ListInstanceAgentCommandsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceAgentCommands.ts.html |here} to see how to use ListInstanceAgentCommands API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceAgentCommands.ts.html |here} to see how to use ListInstanceAgentCommands API.
    */
   public async listInstanceAgentCommands(
     listInstanceAgentCommandsRequest: requests.ListInstanceAgentCommandsRequest
@@ -1023,7 +1023,7 @@ export class PluginClient {
    * @param GetInstanceAgentPluginRequest
    * @return GetInstanceAgentPluginResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/GetInstanceAgentPlugin.ts.html |here} to see how to use GetInstanceAgentPlugin API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/GetInstanceAgentPlugin.ts.html |here} to see how to use GetInstanceAgentPlugin API.
    */
   public async getInstanceAgentPlugin(
     getInstanceAgentPluginRequest: requests.GetInstanceAgentPluginRequest
@@ -1097,7 +1097,7 @@ export class PluginClient {
    * @param ListInstanceAgentPluginsRequest
    * @return ListInstanceAgentPluginsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceAgentPlugins.ts.html |here} to see how to use ListInstanceAgentPlugins API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceAgentPlugins.ts.html |here} to see how to use ListInstanceAgentPlugins API.
    */
   public async listInstanceAgentPlugins(
     listInstanceAgentPluginsRequest: requests.ListInstanceAgentPluginsRequest
@@ -1417,7 +1417,7 @@ export class PluginconfigClient {
    * @param ListInstanceagentAvailablePluginsRequest
    * @return ListInstanceagentAvailablePluginsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceagentAvailablePlugins.ts.html |here} to see how to use ListInstanceagentAvailablePlugins API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computeinstanceagent/ListInstanceagentAvailablePlugins.ts.html |here} to see how to use ListInstanceagentAvailablePlugins API.
    */
   public async listInstanceagentAvailablePlugins(
     listInstanceagentAvailablePluginsRequest: requests.ListInstanceagentAvailablePluginsRequest

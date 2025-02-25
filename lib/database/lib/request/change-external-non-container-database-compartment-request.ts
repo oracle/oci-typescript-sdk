@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalNonContainerDatabaseCompartment.ts.html |here} to see how to use ChangeExternalNonContainerDatabaseCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalNonContainerDatabaseCompartment.ts.html |here} to see how to use ChangeExternalNonContainerDatabaseCompartmentRequest.
  */
 export interface ChangeExternalNonContainerDatabaseCompartmentRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ChangeExternalNonContainerDatabaseCompartmentRequest extends co
    */
   "changeCompartmentDetails": model.ChangeCompartmentDetails;
   /**
-   * The external non-container database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The external non-container database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "externalNonContainerDatabaseId": string;
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeContainerInstanceCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the container instance to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the container instance to.
    *
    */
   "compartmentId": string;

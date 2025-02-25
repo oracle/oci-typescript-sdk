@@ -22,7 +22,7 @@ export interface CreateTaskScheduleResponse {
    */
   "opcRequestId": string;
   /**
-   * For optimistic concurrency control. See [ETags for Optimistic Concurrency Control](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#eleven).
+   * For optimistic concurrency control. See [ETags for Optimistic Concurrency Control](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#eleven).
    *
    */
   "etag": string;

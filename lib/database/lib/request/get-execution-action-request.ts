@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExecutionAction.ts.html |here} to see how to use GetExecutionActionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExecutionAction.ts.html |here} to see how to use GetExecutionActionRequest.
  */
 export interface GetExecutionActionRequest extends common.BaseRequest {
   /**
-   * The execution action [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The execution action [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "executionActionId": string;
   /**

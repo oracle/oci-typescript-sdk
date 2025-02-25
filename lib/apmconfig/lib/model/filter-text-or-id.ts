@@ -17,13 +17,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A span filter written in text, or as the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a
+ * A span filter written in text, or as the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a
  * SpanFilter resource. If both are given, the filterText is used.
  *
  */
 export interface FilterTextOrId {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a Span Filter. The filterId is mandatory for the creation
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a Span Filter. The filterId is mandatory for the creation
    * of MetricGroups. A filterId is generated when a Span Filter is created.
    *
    */

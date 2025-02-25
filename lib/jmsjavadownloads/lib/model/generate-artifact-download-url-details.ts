@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GenerateArtifactDownloadUrlDetails {
   /**
-   * The tenancy [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the user initiating the download.
+   * The tenancy [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the user initiating the download.
    */
   "compartmentId"?: string;
   /**

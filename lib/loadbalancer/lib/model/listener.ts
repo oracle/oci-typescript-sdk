@@ -1,7 +1,7 @@
 /**
  * Load Balancing API
  * API for the Load Balancing service. Use this API to manage load balancers, backend sets, and related items. For more
-information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/balanceoverview.htm).
+information, see [Overview of Load Balancing](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).
 
  * OpenAPI spec version: 20170115
  * 
@@ -19,7 +19,7 @@ import common = require("oci-common");
 /**
  * The listener's configuration.
  * For more information on backend set configuration, see
- * [Managing Load Balancer Listeners](https://docs.cloud.oracle.com/Content/Balance/Tasks/managinglisteners.htm).
+ * [Managing Load Balancer Listeners](https://docs.oracle.com/iaas/Content/Balance/Tasks/managinglisteners.htm).
  *
  */
 export interface Listener {

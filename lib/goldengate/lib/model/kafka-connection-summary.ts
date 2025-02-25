@@ -26,7 +26,7 @@ export interface KafkaConnectionSummary extends model.ConnectionSummary {
    */
   "technologyType": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the stream pool being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the stream pool being referenced.
    *
    */
   "streamPoolId"?: string;
@@ -51,7 +51,7 @@ export interface KafkaConnectionSummary extends model.ConnectionSummary {
    */
   "username"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
    * The password Oracle GoldenGate uses to connect the associated system of the given technology.
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
    * If secretId is used plaintext field must not be provided.
@@ -60,31 +60,31 @@ export interface KafkaConnectionSummary extends model.ConnectionSummary {
    */
   "passwordSecretId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the content of the TrustStore file is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the content of the TrustStore file is stored.
    * Note: When provided, 'trustStore' field must not be provided.
    *
    */
   "trustStoreSecretId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the kafka TrustStore password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the kafka TrustStore password is stored.
    * Note: When provided, 'trustStorePassword' field must not be provided.
    *
    */
   "trustStorePasswordSecretId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the content of the KeyStore file is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the content of the KeyStore file is stored.
    * Note: When provided, 'keyStore' field must not be provided.
    *
    */
   "keyStoreSecretId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the kafka KeyStore password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the kafka KeyStore password is stored.
    * Note: When provided, 'keyStorePassword' field must not be provided.
    *
    */
   "keyStorePasswordSecretId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the kafka Ssl Key password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the kafka Ssl Key password is stored.
    * Note: When provided, 'sslKeyPassword' field must not be provided.
    *
    */

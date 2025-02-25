@@ -246,7 +246,7 @@ export class WafClient {
    * @param ChangeNetworkAddressListCompartmentRequest
    * @return ChangeNetworkAddressListCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ChangeNetworkAddressListCompartment.ts.html |here} to see how to use ChangeNetworkAddressListCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ChangeNetworkAddressListCompartment.ts.html |here} to see how to use ChangeNetworkAddressListCompartment API.
    */
   public async changeNetworkAddressListCompartment(
     changeNetworkAddressListCompartmentRequest: requests.ChangeNetworkAddressListCompartmentRequest
@@ -327,7 +327,7 @@ export class WafClient {
    * @param ChangeWebAppFirewallCompartmentRequest
    * @return ChangeWebAppFirewallCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ChangeWebAppFirewallCompartment.ts.html |here} to see how to use ChangeWebAppFirewallCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ChangeWebAppFirewallCompartment.ts.html |here} to see how to use ChangeWebAppFirewallCompartment API.
    */
   public async changeWebAppFirewallCompartment(
     changeWebAppFirewallCompartmentRequest: requests.ChangeWebAppFirewallCompartmentRequest
@@ -408,7 +408,7 @@ export class WafClient {
    * @param ChangeWebAppFirewallPolicyCompartmentRequest
    * @return ChangeWebAppFirewallPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ChangeWebAppFirewallPolicyCompartment.ts.html |here} to see how to use ChangeWebAppFirewallPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ChangeWebAppFirewallPolicyCompartment.ts.html |here} to see how to use ChangeWebAppFirewallPolicyCompartment API.
    */
   public async changeWebAppFirewallPolicyCompartment(
     changeWebAppFirewallPolicyCompartmentRequest: requests.ChangeWebAppFirewallPolicyCompartmentRequest
@@ -489,7 +489,7 @@ export class WafClient {
    * @param CreateNetworkAddressListRequest
    * @return CreateNetworkAddressListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/CreateNetworkAddressList.ts.html |here} to see how to use CreateNetworkAddressList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/CreateNetworkAddressList.ts.html |here} to see how to use CreateNetworkAddressList API.
    */
   public async createNetworkAddressList(
     createNetworkAddressListRequest: requests.CreateNetworkAddressListRequest
@@ -585,7 +585,7 @@ export class WafClient {
    * @param CreateWebAppFirewallRequest
    * @return CreateWebAppFirewallResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/CreateWebAppFirewall.ts.html |here} to see how to use CreateWebAppFirewall API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/CreateWebAppFirewall.ts.html |here} to see how to use CreateWebAppFirewall API.
    */
   public async createWebAppFirewall(
     createWebAppFirewallRequest: requests.CreateWebAppFirewallRequest
@@ -681,7 +681,7 @@ export class WafClient {
    * @param CreateWebAppFirewallPolicyRequest
    * @return CreateWebAppFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/CreateWebAppFirewallPolicy.ts.html |here} to see how to use CreateWebAppFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/CreateWebAppFirewallPolicy.ts.html |here} to see how to use CreateWebAppFirewallPolicy API.
    */
   public async createWebAppFirewallPolicy(
     createWebAppFirewallPolicyRequest: requests.CreateWebAppFirewallPolicyRequest
@@ -776,7 +776,7 @@ export class WafClient {
    * @param DeleteNetworkAddressListRequest
    * @return DeleteNetworkAddressListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/DeleteNetworkAddressList.ts.html |here} to see how to use DeleteNetworkAddressList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/DeleteNetworkAddressList.ts.html |here} to see how to use DeleteNetworkAddressList API.
    */
   public async deleteNetworkAddressList(
     deleteNetworkAddressListRequest: requests.DeleteNetworkAddressListRequest
@@ -849,7 +849,7 @@ export class WafClient {
    * @param DeleteWebAppFirewallRequest
    * @return DeleteWebAppFirewallResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/DeleteWebAppFirewall.ts.html |here} to see how to use DeleteWebAppFirewall API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/DeleteWebAppFirewall.ts.html |here} to see how to use DeleteWebAppFirewall API.
    */
   public async deleteWebAppFirewall(
     deleteWebAppFirewallRequest: requests.DeleteWebAppFirewallRequest
@@ -922,7 +922,7 @@ export class WafClient {
    * @param DeleteWebAppFirewallPolicyRequest
    * @return DeleteWebAppFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/DeleteWebAppFirewallPolicy.ts.html |here} to see how to use DeleteWebAppFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/DeleteWebAppFirewallPolicy.ts.html |here} to see how to use DeleteWebAppFirewallPolicy API.
    */
   public async deleteWebAppFirewallPolicy(
     deleteWebAppFirewallPolicyRequest: requests.DeleteWebAppFirewallPolicyRequest
@@ -995,7 +995,7 @@ export class WafClient {
    * @param GetNetworkAddressListRequest
    * @return GetNetworkAddressListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/GetNetworkAddressList.ts.html |here} to see how to use GetNetworkAddressList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/GetNetworkAddressList.ts.html |here} to see how to use GetNetworkAddressList API.
    */
   public async getNetworkAddressList(
     getNetworkAddressListRequest: requests.GetNetworkAddressListRequest
@@ -1071,7 +1071,7 @@ export class WafClient {
    * @param GetWebAppFirewallRequest
    * @return GetWebAppFirewallResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/GetWebAppFirewall.ts.html |here} to see how to use GetWebAppFirewall API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/GetWebAppFirewall.ts.html |here} to see how to use GetWebAppFirewall API.
    */
   public async getWebAppFirewall(
     getWebAppFirewallRequest: requests.GetWebAppFirewallRequest
@@ -1147,7 +1147,7 @@ export class WafClient {
    * @param GetWebAppFirewallPolicyRequest
    * @return GetWebAppFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/GetWebAppFirewallPolicy.ts.html |here} to see how to use GetWebAppFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/GetWebAppFirewallPolicy.ts.html |here} to see how to use GetWebAppFirewallPolicy API.
    */
   public async getWebAppFirewallPolicy(
     getWebAppFirewallPolicyRequest: requests.GetWebAppFirewallPolicyRequest
@@ -1223,7 +1223,7 @@ export class WafClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1300,7 +1300,7 @@ export class WafClient {
    * @param ListNetworkAddressListsRequest
    * @return ListNetworkAddressListsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListNetworkAddressLists.ts.html |here} to see how to use ListNetworkAddressLists API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListNetworkAddressLists.ts.html |here} to see how to use ListNetworkAddressLists API.
    */
   public async listNetworkAddressLists(
     listNetworkAddressListsRequest: requests.ListNetworkAddressListsRequest
@@ -1384,7 +1384,7 @@ export class WafClient {
    * @param ListProtectionCapabilitiesRequest
    * @return ListProtectionCapabilitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListProtectionCapabilities.ts.html |here} to see how to use ListProtectionCapabilities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListProtectionCapabilities.ts.html |here} to see how to use ListProtectionCapabilities API.
    */
   public async listProtectionCapabilities(
     listProtectionCapabilitiesRequest: requests.ListProtectionCapabilitiesRequest
@@ -1470,7 +1470,7 @@ export class WafClient {
    * @param ListProtectionCapabilityGroupTagsRequest
    * @return ListProtectionCapabilityGroupTagsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListProtectionCapabilityGroupTags.ts.html |here} to see how to use ListProtectionCapabilityGroupTags API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListProtectionCapabilityGroupTags.ts.html |here} to see how to use ListProtectionCapabilityGroupTags API.
    */
   public async listProtectionCapabilityGroupTags(
     listProtectionCapabilityGroupTagsRequest: requests.ListProtectionCapabilityGroupTagsRequest
@@ -1554,7 +1554,7 @@ export class WafClient {
    * @param ListWebAppFirewallPoliciesRequest
    * @return ListWebAppFirewallPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWebAppFirewallPolicies.ts.html |here} to see how to use ListWebAppFirewallPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWebAppFirewallPolicies.ts.html |here} to see how to use ListWebAppFirewallPolicies API.
    */
   public async listWebAppFirewallPolicies(
     listWebAppFirewallPoliciesRequest: requests.ListWebAppFirewallPoliciesRequest
@@ -1638,7 +1638,7 @@ export class WafClient {
    * @param ListWebAppFirewallsRequest
    * @return ListWebAppFirewallsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWebAppFirewalls.ts.html |here} to see how to use ListWebAppFirewalls API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWebAppFirewalls.ts.html |here} to see how to use ListWebAppFirewalls API.
    */
   public async listWebAppFirewalls(
     listWebAppFirewallsRequest: requests.ListWebAppFirewallsRequest
@@ -1723,7 +1723,7 @@ export class WafClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1803,7 +1803,7 @@ export class WafClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1883,7 +1883,7 @@ export class WafClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1962,7 +1962,7 @@ export class WafClient {
    * @param UpdateNetworkAddressListRequest
    * @return UpdateNetworkAddressListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/UpdateNetworkAddressList.ts.html |here} to see how to use UpdateNetworkAddressList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/UpdateNetworkAddressList.ts.html |here} to see how to use UpdateNetworkAddressList API.
    */
   public async updateNetworkAddressList(
     updateNetworkAddressListRequest: requests.UpdateNetworkAddressListRequest
@@ -2040,7 +2040,7 @@ export class WafClient {
    * @param UpdateWebAppFirewallRequest
    * @return UpdateWebAppFirewallResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/UpdateWebAppFirewall.ts.html |here} to see how to use UpdateWebAppFirewall API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/UpdateWebAppFirewall.ts.html |here} to see how to use UpdateWebAppFirewall API.
    */
   public async updateWebAppFirewall(
     updateWebAppFirewallRequest: requests.UpdateWebAppFirewallRequest
@@ -2118,7 +2118,7 @@ export class WafClient {
    * @param UpdateWebAppFirewallPolicyRequest
    * @return UpdateWebAppFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/UpdateWebAppFirewallPolicy.ts.html |here} to see how to use UpdateWebAppFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/waf/UpdateWebAppFirewallPolicy.ts.html |here} to see how to use UpdateWebAppFirewallPolicy API.
    */
   public async updateWebAppFirewallPolicy(
     updateWebAppFirewallPolicyRequest: requests.UpdateWebAppFirewallPolicyRequest

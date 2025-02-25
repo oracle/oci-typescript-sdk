@@ -222,7 +222,7 @@ export class EventClient {
    * @param DeleteEventContentRequest
    * @return DeleteEventContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DeleteEventContent.ts.html |here} to see how to use DeleteEventContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DeleteEventContent.ts.html |here} to see how to use DeleteEventContent API.
    */
   public async deleteEventContent(
     deleteEventContentRequest: requests.DeleteEventContentRequest
@@ -294,7 +294,7 @@ export class EventClient {
    * @param GetEventRequest
    * @return GetEventResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetEvent.ts.html |here} to see how to use GetEvent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetEvent.ts.html |here} to see how to use GetEvent API.
    */
   public async getEvent(
     getEventRequest: requests.GetEventRequest
@@ -374,7 +374,7 @@ export class EventClient {
    * @param GetEventContentRequest
    * @return GetEventContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetEventContent.ts.html |here} to see how to use GetEventContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetEventContent.ts.html |here} to see how to use GetEventContent API.
    */
   public async getEventContent(
     getEventContentRequest: requests.GetEventContentRequest
@@ -453,7 +453,7 @@ export class EventClient {
    * @param GetEventReportRequest
    * @return GetEventReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetEventReport.ts.html |here} to see how to use GetEventReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetEventReport.ts.html |here} to see how to use GetEventReport API.
    */
   public async getEventReport(
     getEventReportRequest: requests.GetEventReportRequest
@@ -530,7 +530,7 @@ export class EventClient {
    * @param ListEventsRequest
    * @return ListEventsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListEvents.ts.html |here} to see how to use ListEvents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListEvents.ts.html |here} to see how to use ListEvents API.
    */
   public async listEvents(
     listEventsRequest: requests.ListEventsRequest
@@ -617,7 +617,7 @@ export class EventClient {
    * @param ListRelatedEventsRequest
    * @return ListRelatedEventsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListRelatedEvents.ts.html |here} to see how to use ListRelatedEvents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListRelatedEvents.ts.html |here} to see how to use ListRelatedEvents API.
    */
   public async listRelatedEvents(
     listRelatedEventsRequest: requests.ListRelatedEventsRequest
@@ -701,7 +701,7 @@ export class EventClient {
    * @param UpdateEventRequest
    * @return UpdateEventResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UpdateEvent.ts.html |here} to see how to use UpdateEvent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UpdateEvent.ts.html |here} to see how to use UpdateEvent API.
    */
   public async updateEvent(
     updateEventRequest: requests.UpdateEventRequest
@@ -787,7 +787,7 @@ export class EventClient {
    * @param UploadEventContentRequest
    * @return UploadEventContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UploadEventContent.ts.html |here} to see how to use UploadEventContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UploadEventContent.ts.html |here} to see how to use UploadEventContent API.
    */
   public async uploadEventContent(
     uploadEventContentRequest: requests.UploadEventContentRequest
@@ -1068,7 +1068,7 @@ export class OsManagementClient {
    * @param AddPackagesToSoftwareSourceRequest
    * @return AddPackagesToSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/AddPackagesToSoftwareSource.ts.html |here} to see how to use AddPackagesToSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/AddPackagesToSoftwareSource.ts.html |here} to see how to use AddPackagesToSoftwareSource API.
    */
   public async addPackagesToSoftwareSource(
     addPackagesToSoftwareSourceRequest: requests.AddPackagesToSoftwareSourceRequest
@@ -1144,7 +1144,7 @@ export class OsManagementClient {
    * @param AttachChildSoftwareSourceToManagedInstanceRequest
    * @return AttachChildSoftwareSourceToManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/AttachChildSoftwareSourceToManagedInstance.ts.html |here} to see how to use AttachChildSoftwareSourceToManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/AttachChildSoftwareSourceToManagedInstance.ts.html |here} to see how to use AttachChildSoftwareSourceToManagedInstance API.
    */
   public async attachChildSoftwareSourceToManagedInstance(
     attachChildSoftwareSourceToManagedInstanceRequest: requests.AttachChildSoftwareSourceToManagedInstanceRequest
@@ -1224,7 +1224,7 @@ export class OsManagementClient {
    * @param AttachManagedInstanceToManagedInstanceGroupRequest
    * @return AttachManagedInstanceToManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/AttachManagedInstanceToManagedInstanceGroup.ts.html |here} to see how to use AttachManagedInstanceToManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/AttachManagedInstanceToManagedInstanceGroup.ts.html |here} to see how to use AttachManagedInstanceToManagedInstanceGroup API.
    */
   public async attachManagedInstanceToManagedInstanceGroup(
     attachManagedInstanceToManagedInstanceGroupRequest: requests.AttachManagedInstanceToManagedInstanceGroupRequest
@@ -1302,7 +1302,7 @@ export class OsManagementClient {
    * @param AttachParentSoftwareSourceToManagedInstanceRequest
    * @return AttachParentSoftwareSourceToManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/AttachParentSoftwareSourceToManagedInstance.ts.html |here} to see how to use AttachParentSoftwareSourceToManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/AttachParentSoftwareSourceToManagedInstance.ts.html |here} to see how to use AttachParentSoftwareSourceToManagedInstance API.
    */
   public async attachParentSoftwareSourceToManagedInstance(
     attachParentSoftwareSourceToManagedInstanceRequest: requests.AttachParentSoftwareSourceToManagedInstanceRequest
@@ -1380,7 +1380,7 @@ export class OsManagementClient {
    * @param ChangeManagedInstanceGroupCompartmentRequest
    * @return ChangeManagedInstanceGroupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ChangeManagedInstanceGroupCompartment.ts.html |here} to see how to use ChangeManagedInstanceGroupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ChangeManagedInstanceGroupCompartment.ts.html |here} to see how to use ChangeManagedInstanceGroupCompartment API.
    */
   public async changeManagedInstanceGroupCompartment(
     changeManagedInstanceGroupCompartmentRequest: requests.ChangeManagedInstanceGroupCompartmentRequest
@@ -1460,7 +1460,7 @@ export class OsManagementClient {
    * @param ChangeScheduledJobCompartmentRequest
    * @return ChangeScheduledJobCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ChangeScheduledJobCompartment.ts.html |here} to see how to use ChangeScheduledJobCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ChangeScheduledJobCompartment.ts.html |here} to see how to use ChangeScheduledJobCompartment API.
    */
   public async changeScheduledJobCompartment(
     changeScheduledJobCompartmentRequest: requests.ChangeScheduledJobCompartmentRequest
@@ -1537,7 +1537,7 @@ export class OsManagementClient {
    * @param ChangeSoftwareSourceCompartmentRequest
    * @return ChangeSoftwareSourceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ChangeSoftwareSourceCompartment.ts.html |here} to see how to use ChangeSoftwareSourceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ChangeSoftwareSourceCompartment.ts.html |here} to see how to use ChangeSoftwareSourceCompartment API.
    */
   public async changeSoftwareSourceCompartment(
     changeSoftwareSourceCompartmentRequest: requests.ChangeSoftwareSourceCompartmentRequest
@@ -1615,7 +1615,7 @@ export class OsManagementClient {
    * @param CreateManagedInstanceGroupRequest
    * @return CreateManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/CreateManagedInstanceGroup.ts.html |here} to see how to use CreateManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/CreateManagedInstanceGroup.ts.html |here} to see how to use CreateManagedInstanceGroup API.
    */
   public async createManagedInstanceGroup(
     createManagedInstanceGroupRequest: requests.CreateManagedInstanceGroupRequest
@@ -1705,7 +1705,7 @@ export class OsManagementClient {
    * @param CreateScheduledJobRequest
    * @return CreateScheduledJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/CreateScheduledJob.ts.html |here} to see how to use CreateScheduledJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/CreateScheduledJob.ts.html |here} to see how to use CreateScheduledJob API.
    */
   public async createScheduledJob(
     createScheduledJobRequest: requests.CreateScheduledJobRequest
@@ -1793,7 +1793,7 @@ export class OsManagementClient {
    * @param CreateSoftwareSourceRequest
    * @return CreateSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/CreateSoftwareSource.ts.html |here} to see how to use CreateSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/CreateSoftwareSource.ts.html |here} to see how to use CreateSoftwareSource API.
    */
   public async createSoftwareSource(
     createSoftwareSourceRequest: requests.CreateSoftwareSourceRequest
@@ -1880,7 +1880,7 @@ export class OsManagementClient {
    * @param DeleteManagedInstanceGroupRequest
    * @return DeleteManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DeleteManagedInstanceGroup.ts.html |here} to see how to use DeleteManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DeleteManagedInstanceGroup.ts.html |here} to see how to use DeleteManagedInstanceGroup API.
    */
   public async deleteManagedInstanceGroup(
     deleteManagedInstanceGroupRequest: requests.DeleteManagedInstanceGroupRequest
@@ -1950,7 +1950,7 @@ export class OsManagementClient {
    * @param DeleteScheduledJobRequest
    * @return DeleteScheduledJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DeleteScheduledJob.ts.html |here} to see how to use DeleteScheduledJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DeleteScheduledJob.ts.html |here} to see how to use DeleteScheduledJob API.
    */
   public async deleteScheduledJob(
     deleteScheduledJobRequest: requests.DeleteScheduledJobRequest
@@ -2019,7 +2019,7 @@ export class OsManagementClient {
    * @param DeleteSoftwareSourceRequest
    * @return DeleteSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DeleteSoftwareSource.ts.html |here} to see how to use DeleteSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DeleteSoftwareSource.ts.html |here} to see how to use DeleteSoftwareSource API.
    */
   public async deleteSoftwareSource(
     deleteSoftwareSourceRequest: requests.DeleteSoftwareSourceRequest
@@ -2090,7 +2090,7 @@ export class OsManagementClient {
    * @param DetachChildSoftwareSourceFromManagedInstanceRequest
    * @return DetachChildSoftwareSourceFromManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DetachChildSoftwareSourceFromManagedInstance.ts.html |here} to see how to use DetachChildSoftwareSourceFromManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DetachChildSoftwareSourceFromManagedInstance.ts.html |here} to see how to use DetachChildSoftwareSourceFromManagedInstance API.
    */
   public async detachChildSoftwareSourceFromManagedInstance(
     detachChildSoftwareSourceFromManagedInstanceRequest: requests.DetachChildSoftwareSourceFromManagedInstanceRequest
@@ -2167,7 +2167,7 @@ export class OsManagementClient {
    * @param DetachManagedInstanceFromManagedInstanceGroupRequest
    * @return DetachManagedInstanceFromManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DetachManagedInstanceFromManagedInstanceGroup.ts.html |here} to see how to use DetachManagedInstanceFromManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DetachManagedInstanceFromManagedInstanceGroup.ts.html |here} to see how to use DetachManagedInstanceFromManagedInstanceGroup API.
    */
   public async detachManagedInstanceFromManagedInstanceGroup(
     detachManagedInstanceFromManagedInstanceGroupRequest: requests.DetachManagedInstanceFromManagedInstanceGroupRequest
@@ -2243,7 +2243,7 @@ export class OsManagementClient {
    * @param DetachParentSoftwareSourceFromManagedInstanceRequest
    * @return DetachParentSoftwareSourceFromManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DetachParentSoftwareSourceFromManagedInstance.ts.html |here} to see how to use DetachParentSoftwareSourceFromManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DetachParentSoftwareSourceFromManagedInstance.ts.html |here} to see how to use DetachParentSoftwareSourceFromManagedInstance API.
    */
   public async detachParentSoftwareSourceFromManagedInstance(
     detachParentSoftwareSourceFromManagedInstanceRequest: requests.DetachParentSoftwareSourceFromManagedInstanceRequest
@@ -2323,7 +2323,7 @@ export class OsManagementClient {
    * @param DisableModuleStreamOnManagedInstanceRequest
    * @return DisableModuleStreamOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DisableModuleStreamOnManagedInstance.ts.html |here} to see how to use DisableModuleStreamOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DisableModuleStreamOnManagedInstance.ts.html |here} to see how to use DisableModuleStreamOnManagedInstance API.
    */
   public async disableModuleStreamOnManagedInstance(
     disableModuleStreamOnManagedInstanceRequest: requests.DisableModuleStreamOnManagedInstanceRequest
@@ -2408,7 +2408,7 @@ export class OsManagementClient {
    * @param EnableModuleStreamOnManagedInstanceRequest
    * @return EnableModuleStreamOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/EnableModuleStreamOnManagedInstance.ts.html |here} to see how to use EnableModuleStreamOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/EnableModuleStreamOnManagedInstance.ts.html |here} to see how to use EnableModuleStreamOnManagedInstance API.
    */
   public async enableModuleStreamOnManagedInstance(
     enableModuleStreamOnManagedInstanceRequest: requests.EnableModuleStreamOnManagedInstanceRequest
@@ -2489,7 +2489,7 @@ export class OsManagementClient {
    * @param GetErratumRequest
    * @return GetErratumResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetErratum.ts.html |here} to see how to use GetErratum API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetErratum.ts.html |here} to see how to use GetErratum API.
    */
   public async getErratum(
     getErratumRequest: requests.GetErratumRequest
@@ -2561,7 +2561,7 @@ export class OsManagementClient {
    * @param GetManagedInstanceRequest
    * @return GetManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetManagedInstance.ts.html |here} to see how to use GetManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetManagedInstance.ts.html |here} to see how to use GetManagedInstance API.
    */
   public async getManagedInstance(
     getManagedInstanceRequest: requests.GetManagedInstanceRequest
@@ -2638,7 +2638,7 @@ export class OsManagementClient {
    * @param GetManagedInstanceGroupRequest
    * @return GetManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetManagedInstanceGroup.ts.html |here} to see how to use GetManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetManagedInstanceGroup.ts.html |here} to see how to use GetManagedInstanceGroup API.
    */
   public async getManagedInstanceGroup(
     getManagedInstanceGroupRequest: requests.GetManagedInstanceGroupRequest
@@ -2721,7 +2721,7 @@ export class OsManagementClient {
    * @param GetModuleStreamRequest
    * @return GetModuleStreamResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetModuleStream.ts.html |here} to see how to use GetModuleStream API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetModuleStream.ts.html |here} to see how to use GetModuleStream API.
    */
   public async getModuleStream(
     getModuleStreamRequest: requests.GetModuleStreamRequest
@@ -2800,7 +2800,7 @@ export class OsManagementClient {
    * @param GetModuleStreamProfileRequest
    * @return GetModuleStreamProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetModuleStreamProfile.ts.html |here} to see how to use GetModuleStreamProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetModuleStreamProfile.ts.html |here} to see how to use GetModuleStreamProfile API.
    */
   public async getModuleStreamProfile(
     getModuleStreamProfileRequest: requests.GetModuleStreamProfileRequest
@@ -2882,7 +2882,7 @@ export class OsManagementClient {
    * @param GetScheduledJobRequest
    * @return GetScheduledJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetScheduledJob.ts.html |here} to see how to use GetScheduledJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetScheduledJob.ts.html |here} to see how to use GetScheduledJob API.
    */
   public async getScheduledJob(
     getScheduledJobRequest: requests.GetScheduledJobRequest
@@ -2964,7 +2964,7 @@ export class OsManagementClient {
    * @param GetSoftwarePackageRequest
    * @return GetSoftwarePackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetSoftwarePackage.ts.html |here} to see how to use GetSoftwarePackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetSoftwarePackage.ts.html |here} to see how to use GetSoftwarePackage API.
    */
   public async getSoftwarePackage(
     getSoftwarePackageRequest: requests.GetSoftwarePackageRequest
@@ -3037,7 +3037,7 @@ export class OsManagementClient {
    * @param GetSoftwareSourceRequest
    * @return GetSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetSoftwareSource.ts.html |here} to see how to use GetSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetSoftwareSource.ts.html |here} to see how to use GetSoftwareSource API.
    */
   public async getSoftwareSource(
     getSoftwareSourceRequest: requests.GetSoftwareSourceRequest
@@ -3119,7 +3119,7 @@ export class OsManagementClient {
    * @param GetWindowsUpdateRequest
    * @return GetWindowsUpdateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetWindowsUpdate.ts.html |here} to see how to use GetWindowsUpdate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetWindowsUpdate.ts.html |here} to see how to use GetWindowsUpdate API.
    */
   public async getWindowsUpdate(
     getWindowsUpdateRequest: requests.GetWindowsUpdateRequest
@@ -3190,7 +3190,7 @@ export class OsManagementClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -3272,7 +3272,7 @@ export class OsManagementClient {
    * @param InstallAllPackageUpdatesOnManagedInstanceRequest
    * @return InstallAllPackageUpdatesOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallAllPackageUpdatesOnManagedInstance.ts.html |here} to see how to use InstallAllPackageUpdatesOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallAllPackageUpdatesOnManagedInstance.ts.html |here} to see how to use InstallAllPackageUpdatesOnManagedInstance API.
    */
   public async installAllPackageUpdatesOnManagedInstance(
     installAllPackageUpdatesOnManagedInstanceRequest: requests.InstallAllPackageUpdatesOnManagedInstanceRequest
@@ -3351,7 +3351,7 @@ export class OsManagementClient {
    * @param InstallAllUpdatesOnManagedInstanceGroupRequest
    * @return InstallAllUpdatesOnManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallAllUpdatesOnManagedInstanceGroup.ts.html |here} to see how to use InstallAllUpdatesOnManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallAllUpdatesOnManagedInstanceGroup.ts.html |here} to see how to use InstallAllUpdatesOnManagedInstanceGroup API.
    */
   public async installAllUpdatesOnManagedInstanceGroup(
     installAllUpdatesOnManagedInstanceGroupRequest: requests.InstallAllUpdatesOnManagedInstanceGroupRequest
@@ -3431,7 +3431,7 @@ export class OsManagementClient {
    * @param InstallAllWindowsUpdatesOnManagedInstanceRequest
    * @return InstallAllWindowsUpdatesOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallAllWindowsUpdatesOnManagedInstance.ts.html |here} to see how to use InstallAllWindowsUpdatesOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallAllWindowsUpdatesOnManagedInstance.ts.html |here} to see how to use InstallAllWindowsUpdatesOnManagedInstance API.
    */
   public async installAllWindowsUpdatesOnManagedInstance(
     installAllWindowsUpdatesOnManagedInstanceRequest: requests.InstallAllWindowsUpdatesOnManagedInstanceRequest
@@ -3512,7 +3512,7 @@ export class OsManagementClient {
    * @param InstallModuleStreamProfileOnManagedInstanceRequest
    * @return InstallModuleStreamProfileOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallModuleStreamProfileOnManagedInstance.ts.html |here} to see how to use InstallModuleStreamProfileOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallModuleStreamProfileOnManagedInstance.ts.html |here} to see how to use InstallModuleStreamProfileOnManagedInstance API.
    */
   public async installModuleStreamProfileOnManagedInstance(
     installModuleStreamProfileOnManagedInstanceRequest: requests.InstallModuleStreamProfileOnManagedInstanceRequest
@@ -3594,7 +3594,7 @@ export class OsManagementClient {
    * @param InstallPackageOnManagedInstanceRequest
    * @return InstallPackageOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallPackageOnManagedInstance.ts.html |here} to see how to use InstallPackageOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallPackageOnManagedInstance.ts.html |here} to see how to use InstallPackageOnManagedInstance API.
    */
   public async installPackageOnManagedInstance(
     installPackageOnManagedInstanceRequest: requests.InstallPackageOnManagedInstanceRequest
@@ -3671,7 +3671,7 @@ export class OsManagementClient {
    * @param InstallPackageUpdateOnManagedInstanceRequest
    * @return InstallPackageUpdateOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallPackageUpdateOnManagedInstance.ts.html |here} to see how to use InstallPackageUpdateOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallPackageUpdateOnManagedInstance.ts.html |here} to see how to use InstallPackageUpdateOnManagedInstance API.
    */
   public async installPackageUpdateOnManagedInstance(
     installPackageUpdateOnManagedInstanceRequest: requests.InstallPackageUpdateOnManagedInstanceRequest
@@ -3750,7 +3750,7 @@ export class OsManagementClient {
    * @param InstallWindowsUpdateOnManagedInstanceRequest
    * @return InstallWindowsUpdateOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallWindowsUpdateOnManagedInstance.ts.html |here} to see how to use InstallWindowsUpdateOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallWindowsUpdateOnManagedInstance.ts.html |here} to see how to use InstallWindowsUpdateOnManagedInstance API.
    */
   public async installWindowsUpdateOnManagedInstance(
     installWindowsUpdateOnManagedInstanceRequest: requests.InstallWindowsUpdateOnManagedInstanceRequest
@@ -3829,7 +3829,7 @@ export class OsManagementClient {
    * @param ListAvailablePackagesForManagedInstanceRequest
    * @return ListAvailablePackagesForManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListAvailablePackagesForManagedInstance.ts.html |here} to see how to use ListAvailablePackagesForManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListAvailablePackagesForManagedInstance.ts.html |here} to see how to use ListAvailablePackagesForManagedInstance API.
    */
   public async listAvailablePackagesForManagedInstance(
     listAvailablePackagesForManagedInstanceRequest: requests.ListAvailablePackagesForManagedInstanceRequest
@@ -3968,7 +3968,7 @@ export class OsManagementClient {
    * @param ListAvailableSoftwareSourcesForManagedInstanceRequest
    * @return ListAvailableSoftwareSourcesForManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListAvailableSoftwareSourcesForManagedInstance.ts.html |here} to see how to use ListAvailableSoftwareSourcesForManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListAvailableSoftwareSourcesForManagedInstance.ts.html |here} to see how to use ListAvailableSoftwareSourcesForManagedInstance API.
    */
   public async listAvailableSoftwareSourcesForManagedInstance(
     listAvailableSoftwareSourcesForManagedInstanceRequest: requests.ListAvailableSoftwareSourcesForManagedInstanceRequest
@@ -4115,7 +4115,7 @@ export class OsManagementClient {
    * @param ListAvailableUpdatesForManagedInstanceRequest
    * @return ListAvailableUpdatesForManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListAvailableUpdatesForManagedInstance.ts.html |here} to see how to use ListAvailableUpdatesForManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListAvailableUpdatesForManagedInstance.ts.html |here} to see how to use ListAvailableUpdatesForManagedInstance API.
    */
   public async listAvailableUpdatesForManagedInstance(
     listAvailableUpdatesForManagedInstanceRequest: requests.ListAvailableUpdatesForManagedInstanceRequest
@@ -4254,7 +4254,7 @@ export class OsManagementClient {
    * @param ListAvailableWindowsUpdatesForManagedInstanceRequest
    * @return ListAvailableWindowsUpdatesForManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListAvailableWindowsUpdatesForManagedInstance.ts.html |here} to see how to use ListAvailableWindowsUpdatesForManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListAvailableWindowsUpdatesForManagedInstance.ts.html |here} to see how to use ListAvailableWindowsUpdatesForManagedInstance API.
    */
   public async listAvailableWindowsUpdatesForManagedInstance(
     listAvailableWindowsUpdatesForManagedInstanceRequest: requests.ListAvailableWindowsUpdatesForManagedInstanceRequest
@@ -4399,7 +4399,7 @@ export class OsManagementClient {
    * @param ListErrataRequest
    * @return ListErrataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListErrata.ts.html |here} to see how to use ListErrata API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListErrata.ts.html |here} to see how to use ListErrata API.
    */
   public async listErrata(
     listErrataRequest: requests.ListErrataRequest
@@ -4536,7 +4536,7 @@ export class OsManagementClient {
    * @param ListManagedInstanceErrataRequest
    * @return ListManagedInstanceErrataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListManagedInstanceErrata.ts.html |here} to see how to use ListManagedInstanceErrata API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListManagedInstanceErrata.ts.html |here} to see how to use ListManagedInstanceErrata API.
    */
   public async listManagedInstanceErrata(
     listManagedInstanceErrataRequest: requests.ListManagedInstanceErrataRequest
@@ -4673,7 +4673,7 @@ export class OsManagementClient {
    * @param ListManagedInstanceGroupsRequest
    * @return ListManagedInstanceGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListManagedInstanceGroups.ts.html |here} to see how to use ListManagedInstanceGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListManagedInstanceGroups.ts.html |here} to see how to use ListManagedInstanceGroups API.
    */
   public async listManagedInstanceGroups(
     listManagedInstanceGroupsRequest: requests.ListManagedInstanceGroupsRequest
@@ -4810,7 +4810,7 @@ export class OsManagementClient {
    * @param ListManagedInstancesRequest
    * @return ListManagedInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListManagedInstances.ts.html |here} to see how to use ListManagedInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListManagedInstances.ts.html |here} to see how to use ListManagedInstances API.
    */
   public async listManagedInstances(
     listManagedInstancesRequest: requests.ListManagedInstancesRequest
@@ -4958,7 +4958,7 @@ The \"moduleName\", \"streamName\", and \"profileName\" attributes combine
      * @param ListModuleStreamProfilesRequest
      * @return ListModuleStreamProfilesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreamProfiles.ts.html |here} to see how to use ListModuleStreamProfiles API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreamProfiles.ts.html |here} to see how to use ListModuleStreamProfiles API.
      */
   public async listModuleStreamProfiles(
     listModuleStreamProfilesRequest: requests.ListModuleStreamProfilesRequest
@@ -5125,7 +5125,7 @@ When sorting by display name, the result set is sorted first by
      * @param ListModuleStreamProfilesOnManagedInstanceRequest
      * @return ListModuleStreamProfilesOnManagedInstanceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreamProfilesOnManagedInstance.ts.html |here} to see how to use ListModuleStreamProfilesOnManagedInstance API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreamProfilesOnManagedInstance.ts.html |here} to see how to use ListModuleStreamProfilesOnManagedInstance API.
      */
   public async listModuleStreamProfilesOnManagedInstance(
     listModuleStreamProfilesOnManagedInstanceRequest: requests.ListModuleStreamProfilesOnManagedInstanceRequest
@@ -5288,7 +5288,7 @@ When sorting by display name, the result set is sorted first by
      * @param ListModuleStreamsRequest
      * @return ListModuleStreamsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreams.ts.html |here} to see how to use ListModuleStreams API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreams.ts.html |here} to see how to use ListModuleStreams API.
      */
   public async listModuleStreams(
     listModuleStreamsRequest: requests.ListModuleStreamsRequest
@@ -5450,7 +5450,7 @@ When sorting by the display name, the result set is sorted first
      * @param ListModuleStreamsOnManagedInstanceRequest
      * @return ListModuleStreamsOnManagedInstanceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreamsOnManagedInstance.ts.html |here} to see how to use ListModuleStreamsOnManagedInstance API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreamsOnManagedInstance.ts.html |here} to see how to use ListModuleStreamsOnManagedInstance API.
      */
   public async listModuleStreamsOnManagedInstance(
     listModuleStreamsOnManagedInstanceRequest: requests.ListModuleStreamsOnManagedInstanceRequest
@@ -5594,7 +5594,7 @@ When sorting by the display name, the result set is sorted first
    * @param ListPackagesInstalledOnManagedInstanceRequest
    * @return ListPackagesInstalledOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListPackagesInstalledOnManagedInstance.ts.html |here} to see how to use ListPackagesInstalledOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListPackagesInstalledOnManagedInstance.ts.html |here} to see how to use ListPackagesInstalledOnManagedInstance API.
    */
   public async listPackagesInstalledOnManagedInstance(
     listPackagesInstalledOnManagedInstanceRequest: requests.ListPackagesInstalledOnManagedInstanceRequest
@@ -5733,7 +5733,7 @@ When sorting by the display name, the result set is sorted first
    * @param ListScheduledJobsRequest
    * @return ListScheduledJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListScheduledJobs.ts.html |here} to see how to use ListScheduledJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListScheduledJobs.ts.html |here} to see how to use ListScheduledJobs API.
    */
   public async listScheduledJobs(
     listScheduledJobsRequest: requests.ListScheduledJobsRequest
@@ -5873,7 +5873,7 @@ When sorting by the display name, the result set is sorted first
    * @param ListSoftwareSourcePackagesRequest
    * @return ListSoftwareSourcePackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListSoftwareSourcePackages.ts.html |here} to see how to use ListSoftwareSourcePackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListSoftwareSourcePackages.ts.html |here} to see how to use ListSoftwareSourcePackages API.
    */
   public async listSoftwareSourcePackages(
     listSoftwareSourcePackagesRequest: requests.ListSoftwareSourcePackagesRequest
@@ -6010,7 +6010,7 @@ When sorting by the display name, the result set is sorted first
    * @param ListSoftwareSourcesRequest
    * @return ListSoftwareSourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListSoftwareSources.ts.html |here} to see how to use ListSoftwareSources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListSoftwareSources.ts.html |here} to see how to use ListSoftwareSources API.
    */
   public async listSoftwareSources(
     listSoftwareSourcesRequest: requests.ListSoftwareSourcesRequest
@@ -6145,7 +6145,7 @@ When sorting by the display name, the result set is sorted first
    * @param ListUpcomingScheduledJobsRequest
    * @return ListUpcomingScheduledJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListUpcomingScheduledJobs.ts.html |here} to see how to use ListUpcomingScheduledJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListUpcomingScheduledJobs.ts.html |here} to see how to use ListUpcomingScheduledJobs API.
    */
   public async listUpcomingScheduledJobs(
     listUpcomingScheduledJobsRequest: requests.ListUpcomingScheduledJobsRequest
@@ -6285,7 +6285,7 @@ When sorting by the display name, the result set is sorted first
    * @param ListWindowsUpdatesRequest
    * @return ListWindowsUpdatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListWindowsUpdates.ts.html |here} to see how to use ListWindowsUpdates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListWindowsUpdates.ts.html |here} to see how to use ListWindowsUpdates API.
    */
   public async listWindowsUpdates(
     listWindowsUpdatesRequest: requests.ListWindowsUpdatesRequest
@@ -6419,7 +6419,7 @@ When sorting by the display name, the result set is sorted first
    * @param ListWindowsUpdatesInstalledOnManagedInstanceRequest
    * @return ListWindowsUpdatesInstalledOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListWindowsUpdatesInstalledOnManagedInstance.ts.html |here} to see how to use ListWindowsUpdatesInstalledOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListWindowsUpdatesInstalledOnManagedInstance.ts.html |here} to see how to use ListWindowsUpdatesInstalledOnManagedInstance API.
    */
   public async listWindowsUpdatesInstalledOnManagedInstance(
     listWindowsUpdatesInstalledOnManagedInstanceRequest: requests.ListWindowsUpdatesInstalledOnManagedInstanceRequest
@@ -6561,7 +6561,7 @@ When sorting by the display name, the result set is sorted first
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -6700,7 +6700,7 @@ When sorting by the display name, the result set is sorted first
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -6839,7 +6839,7 @@ When sorting by the display name, the result set is sorted first
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -7034,7 +7034,7 @@ The WorkRequest resulting from a dry run behaves differently than
      * @param ManageModuleStreamsOnManagedInstanceRequest
      * @return ManageModuleStreamsOnManagedInstanceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ManageModuleStreamsOnManagedInstance.ts.html |here} to see how to use ManageModuleStreamsOnManagedInstance API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ManageModuleStreamsOnManagedInstance.ts.html |here} to see how to use ManageModuleStreamsOnManagedInstance API.
      */
   public async manageModuleStreamsOnManagedInstance(
     manageModuleStreamsOnManagedInstanceRequest: requests.ManageModuleStreamsOnManagedInstanceRequest
@@ -7119,7 +7119,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param RemoveModuleStreamProfileFromManagedInstanceRequest
    * @return RemoveModuleStreamProfileFromManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/RemoveModuleStreamProfileFromManagedInstance.ts.html |here} to see how to use RemoveModuleStreamProfileFromManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/RemoveModuleStreamProfileFromManagedInstance.ts.html |here} to see how to use RemoveModuleStreamProfileFromManagedInstance API.
    */
   public async removeModuleStreamProfileFromManagedInstance(
     removeModuleStreamProfileFromManagedInstanceRequest: requests.RemoveModuleStreamProfileFromManagedInstanceRequest
@@ -7201,7 +7201,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param RemovePackageFromManagedInstanceRequest
    * @return RemovePackageFromManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/RemovePackageFromManagedInstance.ts.html |here} to see how to use RemovePackageFromManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/RemovePackageFromManagedInstance.ts.html |here} to see how to use RemovePackageFromManagedInstance API.
    */
   public async removePackageFromManagedInstance(
     removePackageFromManagedInstanceRequest: requests.RemovePackageFromManagedInstanceRequest
@@ -7278,7 +7278,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param RemovePackagesFromSoftwareSourceRequest
    * @return RemovePackagesFromSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/RemovePackagesFromSoftwareSource.ts.html |here} to see how to use RemovePackagesFromSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/RemovePackagesFromSoftwareSource.ts.html |here} to see how to use RemovePackagesFromSoftwareSource API.
    */
   public async removePackagesFromSoftwareSource(
     removePackagesFromSoftwareSourceRequest: requests.RemovePackagesFromSoftwareSourceRequest
@@ -7353,7 +7353,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param RunScheduledJobNowRequest
    * @return RunScheduledJobNowResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/RunScheduledJobNow.ts.html |here} to see how to use RunScheduledJobNow API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/RunScheduledJobNow.ts.html |here} to see how to use RunScheduledJobNow API.
    */
   public async runScheduledJobNow(
     runScheduledJobNowRequest: requests.RunScheduledJobNowRequest
@@ -7429,7 +7429,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param SearchSoftwarePackagesRequest
    * @return SearchSoftwarePackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/SearchSoftwarePackages.ts.html |here} to see how to use SearchSoftwarePackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/SearchSoftwarePackages.ts.html |here} to see how to use SearchSoftwarePackages API.
    */
   public async searchSoftwarePackages(
     searchSoftwarePackagesRequest: requests.SearchSoftwarePackagesRequest
@@ -7566,7 +7566,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param SkipNextScheduledJobExecutionRequest
    * @return SkipNextScheduledJobExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/SkipNextScheduledJobExecution.ts.html |here} to see how to use SkipNextScheduledJobExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/SkipNextScheduledJobExecution.ts.html |here} to see how to use SkipNextScheduledJobExecution API.
    */
   public async skipNextScheduledJobExecution(
     skipNextScheduledJobExecutionRequest: requests.SkipNextScheduledJobExecutionRequest
@@ -7645,7 +7645,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param SwitchModuleStreamOnManagedInstanceRequest
    * @return SwitchModuleStreamOnManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/SwitchModuleStreamOnManagedInstance.ts.html |here} to see how to use SwitchModuleStreamOnManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/SwitchModuleStreamOnManagedInstance.ts.html |here} to see how to use SwitchModuleStreamOnManagedInstance API.
    */
   public async switchModuleStreamOnManagedInstance(
     switchModuleStreamOnManagedInstanceRequest: requests.SwitchModuleStreamOnManagedInstanceRequest
@@ -7726,7 +7726,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param UpdateManagedInstanceRequest
    * @return UpdateManagedInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UpdateManagedInstance.ts.html |here} to see how to use UpdateManagedInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UpdateManagedInstance.ts.html |here} to see how to use UpdateManagedInstance API.
    */
   public async updateManagedInstance(
     updateManagedInstanceRequest: requests.UpdateManagedInstanceRequest
@@ -7810,7 +7810,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param UpdateManagedInstanceGroupRequest
    * @return UpdateManagedInstanceGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UpdateManagedInstanceGroup.ts.html |here} to see how to use UpdateManagedInstanceGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UpdateManagedInstanceGroup.ts.html |here} to see how to use UpdateManagedInstanceGroup API.
    */
   public async updateManagedInstanceGroup(
     updateManagedInstanceGroupRequest: requests.UpdateManagedInstanceGroupRequest
@@ -7894,7 +7894,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param UpdateScheduledJobRequest
    * @return UpdateScheduledJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UpdateScheduledJob.ts.html |here} to see how to use UpdateScheduledJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UpdateScheduledJob.ts.html |here} to see how to use UpdateScheduledJob API.
    */
   public async updateScheduledJob(
     updateScheduledJobRequest: requests.UpdateScheduledJobRequest
@@ -7977,7 +7977,7 @@ The WorkRequest resulting from a dry run behaves differently than
    * @param UpdateSoftwareSourceRequest
    * @return UpdateSoftwareSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UpdateSoftwareSource.ts.html |here} to see how to use UpdateSoftwareSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/UpdateSoftwareSource.ts.html |here} to see how to use UpdateSoftwareSource API.
    */
   public async updateSoftwareSource(
     updateSoftwareSourceRequest: requests.UpdateSoftwareSourceRequest

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDiscoveryScheduleDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which the discovery schedule is created.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which the discovery schedule is created.
    */
   "compartmentId": string;
   /**

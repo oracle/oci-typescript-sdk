@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarmsStatus.ts.html |here} to see how to use ListAlarmsStatusRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarmsStatus.ts.html |here} to see how to use ListAlarmsStatusRequest.
  */
 export interface ListAlarmsStatusRequest extends common.BaseRequest {
   /**
- * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the
+ * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the
 * resources monitored by the metric that you are searching for. Use tenancyId to search in
 * the root compartment.
 * <p>
@@ -45,14 +45,14 @@ Example: {@code ocid1.compartment.oc1..exampleuniqueID}
   /**
    * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\" call.
    * For important details about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call.
 * For important details about how pagination works, see
-* [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Default: 1000
 * <p>
@@ -81,7 +81,7 @@ Example: {@code ASC}
  */
   "sortOrder"?: ListAlarmsStatusRequest.SortOrder;
   /**
- * A filter to return only the resource with the specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+ * A filter to return only the resource with the specified [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * The resource must be monitored by the metric that you are searching for.
 * <p>
 Example: {@code ocid1.instance.oc1.phx.exampleuniqueID}
@@ -97,7 +97,7 @@ Example: {@code logging-analytics}
  */
   "serviceName"?: string;
   /**
- * A filter to return only resources that match the given entity [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) exactly.
+ * A filter to return only resources that match the given entity [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) exactly.
 * The resource (entity) must be monitored by the metric that you are searching for.
 * <p>
 Example: {@code ocid1.instance.oc1.phx.exampleuniqueID}

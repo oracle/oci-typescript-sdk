@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/RejectAccessRequest.ts.html |here} to see how to use RejectAccessRequestRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/RejectAccessRequest.ts.html |here} to see how to use RejectAccessRequestRequest.
  */
 export interface RejectAccessRequestRequest extends common.BaseRequest {
   /**

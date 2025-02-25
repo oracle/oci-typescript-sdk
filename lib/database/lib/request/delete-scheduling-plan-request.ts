@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingPlan.ts.html |here} to see how to use DeleteSchedulingPlanRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteSchedulingPlan.ts.html |here} to see how to use DeleteSchedulingPlanRequest.
  */
 export interface DeleteSchedulingPlanRequest extends common.BaseRequest {
   /**
-   * The Schedule Plan [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Schedule Plan [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "schedulingPlanId": string;
   /**

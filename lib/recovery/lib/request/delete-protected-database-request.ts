@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/DeleteProtectedDatabase.ts.html |here} to see how to use DeleteProtectedDatabaseRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/DeleteProtectedDatabase.ts.html |here} to see how to use DeleteProtectedDatabaseRequest.
  */
 export interface DeleteProtectedDatabaseRequest extends common.BaseRequest {
   /**

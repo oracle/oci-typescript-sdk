@@ -244,7 +244,7 @@ export class JavaManagementServiceClient {
    * @param AddFleetInstallationSitesRequest
    * @return AddFleetInstallationSitesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/AddFleetInstallationSites.ts.html |here} to see how to use AddFleetInstallationSites API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/AddFleetInstallationSites.ts.html |here} to see how to use AddFleetInstallationSites API.
    */
   public async addFleetInstallationSites(
     addFleetInstallationSitesRequest: requests.AddFleetInstallationSitesRequest
@@ -323,7 +323,7 @@ export class JavaManagementServiceClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -392,7 +392,7 @@ export class JavaManagementServiceClient {
    * @param ChangeFleetCompartmentRequest
    * @return ChangeFleetCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ChangeFleetCompartment.ts.html |here} to see how to use ChangeFleetCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ChangeFleetCompartment.ts.html |here} to see how to use ChangeFleetCompartment API.
    */
   public async changeFleetCompartment(
     changeFleetCompartmentRequest: requests.ChangeFleetCompartmentRequest
@@ -472,7 +472,7 @@ export class JavaManagementServiceClient {
    * @param CreateBlocklistRequest
    * @return CreateBlocklistResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateBlocklist.ts.html |here} to see how to use CreateBlocklist API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateBlocklist.ts.html |here} to see how to use CreateBlocklist API.
    */
   public async createBlocklist(
     createBlocklistRequest: requests.CreateBlocklistRequest
@@ -555,7 +555,7 @@ export class JavaManagementServiceClient {
    * @param CreateDrsFileRequest
    * @return CreateDrsFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateDrsFile.ts.html |here} to see how to use CreateDrsFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateDrsFile.ts.html |here} to see how to use CreateDrsFile API.
    */
   public async createDrsFile(
     createDrsFileRequest: requests.CreateDrsFileRequest
@@ -641,7 +641,7 @@ export class JavaManagementServiceClient {
      * @param CreateFleetRequest
      * @return CreateFleetResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateFleet.ts.html |here} to see how to use CreateFleet API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateFleet.ts.html |here} to see how to use CreateFleet API.
      */
   public async createFleet(
     createFleetRequest: requests.CreateFleetRequest
@@ -720,7 +720,7 @@ export class JavaManagementServiceClient {
    * @param CreateJmsPluginRequest
    * @return CreateJmsPluginResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateJmsPlugin.ts.html |here} to see how to use CreateJmsPlugin API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateJmsPlugin.ts.html |here} to see how to use CreateJmsPlugin API.
    */
   public async createJmsPlugin(
     createJmsPluginRequest: requests.CreateJmsPluginRequest
@@ -800,7 +800,7 @@ export class JavaManagementServiceClient {
    * @param DeleteBlocklistRequest
    * @return DeleteBlocklistResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteBlocklist.ts.html |here} to see how to use DeleteBlocklist API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteBlocklist.ts.html |here} to see how to use DeleteBlocklist API.
    */
   public async deleteBlocklist(
     deleteBlocklistRequest: requests.DeleteBlocklistRequest
@@ -869,7 +869,7 @@ export class JavaManagementServiceClient {
    * @param DeleteCryptoAnalysisResultRequest
    * @return DeleteCryptoAnalysisResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteCryptoAnalysisResult.ts.html |here} to see how to use DeleteCryptoAnalysisResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteCryptoAnalysisResult.ts.html |here} to see how to use DeleteCryptoAnalysisResult API.
    */
   public async deleteCryptoAnalysisResult(
     deleteCryptoAnalysisResultRequest: requests.DeleteCryptoAnalysisResultRequest
@@ -946,7 +946,7 @@ export class JavaManagementServiceClient {
    * @param DeleteDrsFileRequest
    * @return DeleteDrsFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteDrsFile.ts.html |here} to see how to use DeleteDrsFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteDrsFile.ts.html |here} to see how to use DeleteDrsFile API.
    */
   public async deleteDrsFile(
     deleteDrsFileRequest: requests.DeleteDrsFileRequest
@@ -1020,7 +1020,7 @@ export class JavaManagementServiceClient {
    * @param DeleteFleetRequest
    * @return DeleteFleetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteFleet.ts.html |here} to see how to use DeleteFleet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteFleet.ts.html |here} to see how to use DeleteFleet API.
    */
   public async deleteFleet(
     deleteFleetRequest: requests.DeleteFleetRequest
@@ -1093,7 +1093,7 @@ export class JavaManagementServiceClient {
    * @param DeleteJavaMigrationAnalysisResultRequest
    * @return DeleteJavaMigrationAnalysisResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteJavaMigrationAnalysisResult.ts.html |here} to see how to use DeleteJavaMigrationAnalysisResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteJavaMigrationAnalysisResult.ts.html |here} to see how to use DeleteJavaMigrationAnalysisResult API.
    */
   public async deleteJavaMigrationAnalysisResult(
     deleteJavaMigrationAnalysisResultRequest: requests.DeleteJavaMigrationAnalysisResultRequest
@@ -1172,7 +1172,7 @@ export class JavaManagementServiceClient {
    * @param DeleteJmsPluginRequest
    * @return DeleteJmsPluginResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteJmsPlugin.ts.html |here} to see how to use DeleteJmsPlugin API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteJmsPlugin.ts.html |here} to see how to use DeleteJmsPlugin API.
    */
   public async deleteJmsPlugin(
     deleteJmsPluginRequest: requests.DeleteJmsPluginRequest
@@ -1240,7 +1240,7 @@ export class JavaManagementServiceClient {
    * @param DeletePerformanceTuningAnalysisResultRequest
    * @return DeletePerformanceTuningAnalysisResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeletePerformanceTuningAnalysisResult.ts.html |here} to see how to use DeletePerformanceTuningAnalysisResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeletePerformanceTuningAnalysisResult.ts.html |here} to see how to use DeletePerformanceTuningAnalysisResult API.
    */
   public async deletePerformanceTuningAnalysisResult(
     deletePerformanceTuningAnalysisResultRequest: requests.DeletePerformanceTuningAnalysisResultRequest
@@ -1319,7 +1319,7 @@ export class JavaManagementServiceClient {
    * @param DisableDrsRequest
    * @return DisableDrsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DisableDrs.ts.html |here} to see how to use DisableDrs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DisableDrs.ts.html |here} to see how to use DisableDrs API.
    */
   public async disableDrs(
     disableDrsRequest: requests.DisableDrsRequest
@@ -1398,7 +1398,7 @@ export class JavaManagementServiceClient {
    * @param EnableDrsRequest
    * @return EnableDrsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/EnableDrs.ts.html |here} to see how to use EnableDrs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/EnableDrs.ts.html |here} to see how to use EnableDrs API.
    */
   public async enableDrs(
     enableDrsRequest: requests.EnableDrsRequest
@@ -1477,7 +1477,7 @@ export class JavaManagementServiceClient {
    * @param GenerateAgentDeployScriptRequest
    * @return GenerateAgentDeployScriptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GenerateAgentDeployScript.ts.html |here} to see how to use GenerateAgentDeployScript API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GenerateAgentDeployScript.ts.html |here} to see how to use GenerateAgentDeployScript API.
    */
   public async generateAgentDeployScript(
     generateAgentDeployScriptRequest: requests.GenerateAgentDeployScriptRequest
@@ -1564,7 +1564,7 @@ export class JavaManagementServiceClient {
    * @param GenerateAgentInstallerConfigurationRequest
    * @return GenerateAgentInstallerConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GenerateAgentInstallerConfiguration.ts.html |here} to see how to use GenerateAgentInstallerConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GenerateAgentInstallerConfiguration.ts.html |here} to see how to use GenerateAgentInstallerConfiguration API.
    */
   public async generateAgentInstallerConfiguration(
     generateAgentInstallerConfigurationRequest: requests.GenerateAgentInstallerConfigurationRequest
@@ -1651,7 +1651,7 @@ export class JavaManagementServiceClient {
    * @param GenerateLoadPipelineScriptRequest
    * @return GenerateLoadPipelineScriptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GenerateLoadPipelineScript.ts.html |here} to see how to use GenerateLoadPipelineScript API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GenerateLoadPipelineScript.ts.html |here} to see how to use GenerateLoadPipelineScript API.
    */
   public async generateLoadPipelineScript(
     generateLoadPipelineScriptRequest: requests.GenerateLoadPipelineScriptRequest
@@ -1739,7 +1739,7 @@ export class JavaManagementServiceClient {
    * @param GetCryptoAnalysisResultRequest
    * @return GetCryptoAnalysisResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetCryptoAnalysisResult.ts.html |here} to see how to use GetCryptoAnalysisResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetCryptoAnalysisResult.ts.html |here} to see how to use GetCryptoAnalysisResult API.
    */
   public async getCryptoAnalysisResult(
     getCryptoAnalysisResultRequest: requests.GetCryptoAnalysisResultRequest
@@ -1816,7 +1816,7 @@ export class JavaManagementServiceClient {
    * @param GetDrsFileRequest
    * @return GetDrsFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetDrsFile.ts.html |here} to see how to use GetDrsFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetDrsFile.ts.html |here} to see how to use GetDrsFile API.
    */
   public async getDrsFile(
     getDrsFileRequest: requests.GetDrsFileRequest
@@ -1894,7 +1894,7 @@ export class JavaManagementServiceClient {
    * @param GetExportSettingRequest
    * @return GetExportSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetExportSetting.ts.html |here} to see how to use GetExportSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetExportSetting.ts.html |here} to see how to use GetExportSetting API.
    */
   public async getExportSetting(
     getExportSettingRequest: requests.GetExportSettingRequest
@@ -1970,7 +1970,7 @@ export class JavaManagementServiceClient {
    * @param GetExportStatusRequest
    * @return GetExportStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetExportStatus.ts.html |here} to see how to use GetExportStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetExportStatus.ts.html |here} to see how to use GetExportStatus API.
    */
   public async getExportStatus(
     getExportStatusRequest: requests.GetExportStatusRequest
@@ -2046,7 +2046,7 @@ export class JavaManagementServiceClient {
    * @param GetFleetRequest
    * @return GetFleetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetFleet.ts.html |here} to see how to use GetFleet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetFleet.ts.html |here} to see how to use GetFleet API.
    */
   public async getFleet(
     getFleetRequest: requests.GetFleetRequest
@@ -2122,7 +2122,7 @@ export class JavaManagementServiceClient {
    * @param GetFleetAdvancedFeatureConfigurationRequest
    * @return GetFleetAdvancedFeatureConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetFleetAdvancedFeatureConfiguration.ts.html |here} to see how to use GetFleetAdvancedFeatureConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetFleetAdvancedFeatureConfiguration.ts.html |here} to see how to use GetFleetAdvancedFeatureConfiguration API.
    */
   public async getFleetAdvancedFeatureConfiguration(
     getFleetAdvancedFeatureConfigurationRequest: requests.GetFleetAdvancedFeatureConfigurationRequest
@@ -2201,7 +2201,7 @@ export class JavaManagementServiceClient {
    * @param GetFleetAgentConfigurationRequest
    * @return GetFleetAgentConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetFleetAgentConfiguration.ts.html |here} to see how to use GetFleetAgentConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetFleetAgentConfiguration.ts.html |here} to see how to use GetFleetAgentConfiguration API.
    */
   public async getFleetAgentConfiguration(
     getFleetAgentConfigurationRequest: requests.GetFleetAgentConfigurationRequest
@@ -2280,7 +2280,7 @@ export class JavaManagementServiceClient {
    * @param GetJavaFamilyRequest
    * @return GetJavaFamilyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJavaFamily.ts.html |here} to see how to use GetJavaFamily API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJavaFamily.ts.html |here} to see how to use GetJavaFamily API.
    */
   public async getJavaFamily(
     getJavaFamilyRequest: requests.GetJavaFamilyRequest
@@ -2351,7 +2351,7 @@ export class JavaManagementServiceClient {
    * @param GetJavaMigrationAnalysisResultRequest
    * @return GetJavaMigrationAnalysisResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJavaMigrationAnalysisResult.ts.html |here} to see how to use GetJavaMigrationAnalysisResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJavaMigrationAnalysisResult.ts.html |here} to see how to use GetJavaMigrationAnalysisResult API.
    */
   public async getJavaMigrationAnalysisResult(
     getJavaMigrationAnalysisResultRequest: requests.GetJavaMigrationAnalysisResultRequest
@@ -2431,7 +2431,7 @@ export class JavaManagementServiceClient {
    * @param GetJavaReleaseRequest
    * @return GetJavaReleaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJavaRelease.ts.html |here} to see how to use GetJavaRelease API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJavaRelease.ts.html |here} to see how to use GetJavaRelease API.
    */
   public async getJavaRelease(
     getJavaReleaseRequest: requests.GetJavaReleaseRequest
@@ -2502,7 +2502,7 @@ export class JavaManagementServiceClient {
    * @param GetJmsPluginRequest
    * @return GetJmsPluginResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJmsPlugin.ts.html |here} to see how to use GetJmsPlugin API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJmsPlugin.ts.html |here} to see how to use GetJmsPlugin API.
    */
   public async getJmsPlugin(
     getJmsPluginRequest: requests.GetJmsPluginRequest
@@ -2583,7 +2583,7 @@ export class JavaManagementServiceClient {
    * @param GetPerformanceTuningAnalysisResultRequest
    * @return GetPerformanceTuningAnalysisResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetPerformanceTuningAnalysisResult.ts.html |here} to see how to use GetPerformanceTuningAnalysisResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetPerformanceTuningAnalysisResult.ts.html |here} to see how to use GetPerformanceTuningAnalysisResult API.
    */
   public async getPerformanceTuningAnalysisResult(
     getPerformanceTuningAnalysisResultRequest: requests.GetPerformanceTuningAnalysisResultRequest
@@ -2664,7 +2664,7 @@ export class JavaManagementServiceClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -2746,7 +2746,7 @@ export class JavaManagementServiceClient {
    * @param ListAgentInstallersRequest
    * @return ListAgentInstallersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListAgentInstallers.ts.html |here} to see how to use ListAgentInstallers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListAgentInstallers.ts.html |here} to see how to use ListAgentInstallers API.
    */
   public async listAgentInstallers(
     listAgentInstallersRequest: requests.ListAgentInstallersRequest
@@ -2829,7 +2829,7 @@ export class JavaManagementServiceClient {
    * @param ListAnnouncementsRequest
    * @return ListAnnouncementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListAnnouncements.ts.html |here} to see how to use ListAnnouncements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListAnnouncements.ts.html |here} to see how to use ListAnnouncements API.
    */
   public async listAnnouncements(
     listAnnouncementsRequest: requests.ListAnnouncementsRequest
@@ -2912,7 +2912,7 @@ export class JavaManagementServiceClient {
    * @param ListBlocklistsRequest
    * @return ListBlocklistsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListBlocklists.ts.html |here} to see how to use ListBlocklists API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListBlocklists.ts.html |here} to see how to use ListBlocklists API.
    */
   public async listBlocklists(
     listBlocklistsRequest: requests.ListBlocklistsRequest
@@ -2995,7 +2995,7 @@ export class JavaManagementServiceClient {
    * @param ListCryptoAnalysisResultsRequest
    * @return ListCryptoAnalysisResultsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListCryptoAnalysisResults.ts.html |here} to see how to use ListCryptoAnalysisResults API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListCryptoAnalysisResults.ts.html |here} to see how to use ListCryptoAnalysisResults API.
    */
   public async listCryptoAnalysisResults(
     listCryptoAnalysisResultsRequest: requests.ListCryptoAnalysisResultsRequest
@@ -3086,7 +3086,7 @@ export class JavaManagementServiceClient {
    * @param ListDrsFilesRequest
    * @return ListDrsFilesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListDrsFiles.ts.html |here} to see how to use ListDrsFiles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListDrsFiles.ts.html |here} to see how to use ListDrsFiles API.
    */
   public async listDrsFiles(
     listDrsFilesRequest: requests.ListDrsFilesRequest
@@ -3168,7 +3168,7 @@ export class JavaManagementServiceClient {
    * @param ListFleetDiagnosesRequest
    * @return ListFleetDiagnosesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListFleetDiagnoses.ts.html |here} to see how to use ListFleetDiagnoses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListFleetDiagnoses.ts.html |here} to see how to use ListFleetDiagnoses API.
    */
   public async listFleetDiagnoses(
     listFleetDiagnosesRequest: requests.ListFleetDiagnosesRequest
@@ -3247,7 +3247,7 @@ export class JavaManagementServiceClient {
    * @param ListFleetErrorsRequest
    * @return ListFleetErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListFleetErrors.ts.html |here} to see how to use ListFleetErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListFleetErrors.ts.html |here} to see how to use ListFleetErrors API.
    */
   public async listFleetErrors(
     listFleetErrorsRequest: requests.ListFleetErrorsRequest
@@ -3335,7 +3335,7 @@ export class JavaManagementServiceClient {
    * @param ListFleetsRequest
    * @return ListFleetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListFleets.ts.html |here} to see how to use ListFleets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListFleets.ts.html |here} to see how to use ListFleets API.
    */
   public async listFleets(
     listFleetsRequest: requests.ListFleetsRequest
@@ -3418,7 +3418,7 @@ export class JavaManagementServiceClient {
    * @param ListInstallationSitesRequest
    * @return ListInstallationSitesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListInstallationSites.ts.html |here} to see how to use ListInstallationSites API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListInstallationSites.ts.html |here} to see how to use ListInstallationSites API.
    */
   public async listInstallationSites(
     listInstallationSitesRequest: requests.ListInstallationSitesRequest
@@ -3512,7 +3512,7 @@ export class JavaManagementServiceClient {
    * @param ListJavaFamiliesRequest
    * @return ListJavaFamiliesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJavaFamilies.ts.html |here} to see how to use ListJavaFamilies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJavaFamilies.ts.html |here} to see how to use ListJavaFamilies API.
    */
   public async listJavaFamilies(
     listJavaFamiliesRequest: requests.ListJavaFamiliesRequest
@@ -3594,7 +3594,7 @@ export class JavaManagementServiceClient {
    * @param ListJavaMigrationAnalysisResultsRequest
    * @return ListJavaMigrationAnalysisResultsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJavaMigrationAnalysisResults.ts.html |here} to see how to use ListJavaMigrationAnalysisResults API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJavaMigrationAnalysisResults.ts.html |here} to see how to use ListJavaMigrationAnalysisResults API.
    */
   public async listJavaMigrationAnalysisResults(
     listJavaMigrationAnalysisResultsRequest: requests.ListJavaMigrationAnalysisResultsRequest
@@ -3683,7 +3683,7 @@ export class JavaManagementServiceClient {
    * @param ListJavaReleasesRequest
    * @return ListJavaReleasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJavaReleases.ts.html |here} to see how to use ListJavaReleases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJavaReleases.ts.html |here} to see how to use ListJavaReleases API.
    */
   public async listJavaReleases(
     listJavaReleasesRequest: requests.ListJavaReleasesRequest
@@ -3767,7 +3767,7 @@ export class JavaManagementServiceClient {
    * @param ListJmsPluginsRequest
    * @return ListJmsPluginsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJmsPlugins.ts.html |here} to see how to use ListJmsPlugins API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJmsPlugins.ts.html |here} to see how to use ListJmsPlugins API.
    */
   public async listJmsPlugins(
     listJmsPluginsRequest: requests.ListJmsPluginsRequest
@@ -3857,7 +3857,7 @@ export class JavaManagementServiceClient {
    * @param ListJreUsageRequest
    * @return ListJreUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJreUsage.ts.html |here} to see how to use ListJreUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJreUsage.ts.html |here} to see how to use ListJreUsage API.
    */
   public async listJreUsage(
     listJreUsageRequest: requests.ListJreUsageRequest
@@ -3942,7 +3942,7 @@ export class JavaManagementServiceClient {
    * @param ListPerformanceTuningAnalysisResultsRequest
    * @return ListPerformanceTuningAnalysisResultsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListPerformanceTuningAnalysisResults.ts.html |here} to see how to use ListPerformanceTuningAnalysisResults API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListPerformanceTuningAnalysisResults.ts.html |here} to see how to use ListPerformanceTuningAnalysisResults API.
    */
   public async listPerformanceTuningAnalysisResults(
     listPerformanceTuningAnalysisResultsRequest: requests.ListPerformanceTuningAnalysisResultsRequest
@@ -4031,7 +4031,7 @@ export class JavaManagementServiceClient {
    * @param ListPluginErrorsRequest
    * @return ListPluginErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListPluginErrors.ts.html |here} to see how to use ListPluginErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListPluginErrors.ts.html |here} to see how to use ListPluginErrors API.
    */
   public async listPluginErrors(
     listPluginErrorsRequest: requests.ListPluginErrorsRequest
@@ -4119,7 +4119,7 @@ export class JavaManagementServiceClient {
    * @param ListWorkItemsRequest
    * @return ListWorkItemsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListWorkItems.ts.html |here} to see how to use ListWorkItems API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListWorkItems.ts.html |here} to see how to use ListWorkItems API.
    */
   public async listWorkItems(
     listWorkItemsRequest: requests.ListWorkItemsRequest
@@ -4199,7 +4199,7 @@ export class JavaManagementServiceClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -4279,7 +4279,7 @@ export class JavaManagementServiceClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -4359,7 +4359,7 @@ export class JavaManagementServiceClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -4442,7 +4442,7 @@ export class JavaManagementServiceClient {
    * @param RemoveFleetInstallationSitesRequest
    * @return RemoveFleetInstallationSitesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RemoveFleetInstallationSites.ts.html |here} to see how to use RemoveFleetInstallationSites API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RemoveFleetInstallationSites.ts.html |here} to see how to use RemoveFleetInstallationSites API.
    */
   public async removeFleetInstallationSites(
     removeFleetInstallationSitesRequest: requests.RemoveFleetInstallationSitesRequest
@@ -4524,7 +4524,7 @@ export class JavaManagementServiceClient {
    * @param RequestCryptoAnalysesRequest
    * @return RequestCryptoAnalysesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestCryptoAnalyses.ts.html |here} to see how to use RequestCryptoAnalyses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestCryptoAnalyses.ts.html |here} to see how to use RequestCryptoAnalyses API.
    */
   public async requestCryptoAnalyses(
     requestCryptoAnalysesRequest: requests.RequestCryptoAnalysesRequest
@@ -4603,7 +4603,7 @@ export class JavaManagementServiceClient {
    * @param RequestDeployedApplicationMigrationAnalysesRequest
    * @return RequestDeployedApplicationMigrationAnalysesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestDeployedApplicationMigrationAnalyses.ts.html |here} to see how to use RequestDeployedApplicationMigrationAnalyses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestDeployedApplicationMigrationAnalyses.ts.html |here} to see how to use RequestDeployedApplicationMigrationAnalyses API.
    */
   public async requestDeployedApplicationMigrationAnalyses(
     requestDeployedApplicationMigrationAnalysesRequest: requests.RequestDeployedApplicationMigrationAnalysesRequest
@@ -4684,7 +4684,7 @@ export class JavaManagementServiceClient {
    * @param RequestJavaMigrationAnalysesRequest
    * @return RequestJavaMigrationAnalysesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestJavaMigrationAnalyses.ts.html |here} to see how to use RequestJavaMigrationAnalyses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestJavaMigrationAnalyses.ts.html |here} to see how to use RequestJavaMigrationAnalyses API.
    */
   public async requestJavaMigrationAnalyses(
     requestJavaMigrationAnalysesRequest: requests.RequestJavaMigrationAnalysesRequest
@@ -4764,7 +4764,7 @@ export class JavaManagementServiceClient {
    * @param RequestJfrRecordingsRequest
    * @return RequestJfrRecordingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestJfrRecordings.ts.html |here} to see how to use RequestJfrRecordings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestJfrRecordings.ts.html |here} to see how to use RequestJfrRecordings API.
    */
   public async requestJfrRecordings(
     requestJfrRecordingsRequest: requests.RequestJfrRecordingsRequest
@@ -4843,7 +4843,7 @@ export class JavaManagementServiceClient {
    * @param RequestPerformanceTuningAnalysesRequest
    * @return RequestPerformanceTuningAnalysesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestPerformanceTuningAnalyses.ts.html |here} to see how to use RequestPerformanceTuningAnalyses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestPerformanceTuningAnalyses.ts.html |here} to see how to use RequestPerformanceTuningAnalyses API.
    */
   public async requestPerformanceTuningAnalyses(
     requestPerformanceTuningAnalysesRequest: requests.RequestPerformanceTuningAnalysesRequest
@@ -4922,7 +4922,7 @@ export class JavaManagementServiceClient {
    * @param ScanJavaServerUsageRequest
    * @return ScanJavaServerUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ScanJavaServerUsage.ts.html |here} to see how to use ScanJavaServerUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ScanJavaServerUsage.ts.html |here} to see how to use ScanJavaServerUsage API.
    */
   public async scanJavaServerUsage(
     scanJavaServerUsageRequest: requests.ScanJavaServerUsageRequest
@@ -5001,7 +5001,7 @@ export class JavaManagementServiceClient {
    * @param ScanLibraryUsageRequest
    * @return ScanLibraryUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ScanLibraryUsage.ts.html |here} to see how to use ScanLibraryUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ScanLibraryUsage.ts.html |here} to see how to use ScanLibraryUsage API.
    */
   public async scanLibraryUsage(
     scanLibraryUsageRequest: requests.ScanLibraryUsageRequest
@@ -5081,7 +5081,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeApplicationInstallationUsageRequest
    * @return SummarizeApplicationInstallationUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeApplicationInstallationUsage.ts.html |here} to see how to use SummarizeApplicationInstallationUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeApplicationInstallationUsage.ts.html |here} to see how to use SummarizeApplicationInstallationUsage API.
    */
   public async summarizeApplicationInstallationUsage(
     summarizeApplicationInstallationUsageRequest: requests.SummarizeApplicationInstallationUsageRequest
@@ -5181,7 +5181,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeApplicationUsageRequest
    * @return SummarizeApplicationUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeApplicationUsage.ts.html |here} to see how to use SummarizeApplicationUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeApplicationUsage.ts.html |here} to see how to use SummarizeApplicationUsage API.
    */
   public async summarizeApplicationUsage(
     summarizeApplicationUsageRequest: requests.SummarizeApplicationUsageRequest
@@ -5277,7 +5277,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeDeployedApplicationInstallationUsageRequest
    * @return SummarizeDeployedApplicationInstallationUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeDeployedApplicationInstallationUsage.ts.html |here} to see how to use SummarizeDeployedApplicationInstallationUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeDeployedApplicationInstallationUsage.ts.html |here} to see how to use SummarizeDeployedApplicationInstallationUsage API.
    */
   public async summarizeDeployedApplicationInstallationUsage(
     summarizeDeployedApplicationInstallationUsageRequest: requests.SummarizeDeployedApplicationInstallationUsageRequest
@@ -5375,7 +5375,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeDeployedApplicationUsageRequest
    * @return SummarizeDeployedApplicationUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeDeployedApplicationUsage.ts.html |here} to see how to use SummarizeDeployedApplicationUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeDeployedApplicationUsage.ts.html |here} to see how to use SummarizeDeployedApplicationUsage API.
    */
   public async summarizeDeployedApplicationUsage(
     summarizeDeployedApplicationUsageRequest: requests.SummarizeDeployedApplicationUsageRequest
@@ -5467,7 +5467,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeFleetErrorsRequest
    * @return SummarizeFleetErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeFleetErrors.ts.html |here} to see how to use SummarizeFleetErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeFleetErrors.ts.html |here} to see how to use SummarizeFleetErrors API.
    */
   public async summarizeFleetErrors(
     summarizeFleetErrorsRequest: requests.SummarizeFleetErrorsRequest
@@ -5546,7 +5546,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeInstallationUsageRequest
    * @return SummarizeInstallationUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeInstallationUsage.ts.html |here} to see how to use SummarizeInstallationUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeInstallationUsage.ts.html |here} to see how to use SummarizeInstallationUsage API.
    */
   public async summarizeInstallationUsage(
     summarizeInstallationUsageRequest: requests.SummarizeInstallationUsageRequest
@@ -5641,7 +5641,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeJavaServerInstanceUsageRequest
    * @return SummarizeJavaServerInstanceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeJavaServerInstanceUsage.ts.html |here} to see how to use SummarizeJavaServerInstanceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeJavaServerInstanceUsage.ts.html |here} to see how to use SummarizeJavaServerInstanceUsage API.
    */
   public async summarizeJavaServerInstanceUsage(
     summarizeJavaServerInstanceUsageRequest: requests.SummarizeJavaServerInstanceUsageRequest
@@ -5735,7 +5735,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeJavaServerUsageRequest
    * @return SummarizeJavaServerUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeJavaServerUsage.ts.html |here} to see how to use SummarizeJavaServerUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeJavaServerUsage.ts.html |here} to see how to use SummarizeJavaServerUsage API.
    */
   public async summarizeJavaServerUsage(
     summarizeJavaServerUsageRequest: requests.SummarizeJavaServerUsageRequest
@@ -5822,7 +5822,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeJreUsageRequest
    * @return SummarizeJreUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeJreUsage.ts.html |here} to see how to use SummarizeJreUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeJreUsage.ts.html |here} to see how to use SummarizeJreUsage API.
    */
   public async summarizeJreUsage(
     summarizeJreUsageRequest: requests.SummarizeJreUsageRequest
@@ -5915,7 +5915,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeLibraryUsageRequest
    * @return SummarizeLibraryUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeLibraryUsage.ts.html |here} to see how to use SummarizeLibraryUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeLibraryUsage.ts.html |here} to see how to use SummarizeLibraryUsage API.
    */
   public async summarizeLibraryUsage(
     summarizeLibraryUsageRequest: requests.SummarizeLibraryUsageRequest
@@ -6006,7 +6006,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeManagedInstanceUsageRequest
    * @return SummarizeManagedInstanceUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeManagedInstanceUsage.ts.html |here} to see how to use SummarizeManagedInstanceUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeManagedInstanceUsage.ts.html |here} to see how to use SummarizeManagedInstanceUsage API.
    */
   public async summarizeManagedInstanceUsage(
     summarizeManagedInstanceUsageRequest: requests.SummarizeManagedInstanceUsageRequest
@@ -6102,7 +6102,7 @@ export class JavaManagementServiceClient {
    * @param SummarizePluginErrorsRequest
    * @return SummarizePluginErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizePluginErrors.ts.html |here} to see how to use SummarizePluginErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizePluginErrors.ts.html |here} to see how to use SummarizePluginErrors API.
    */
   public async summarizePluginErrors(
     summarizePluginErrorsRequest: requests.SummarizePluginErrorsRequest
@@ -6182,7 +6182,7 @@ export class JavaManagementServiceClient {
    * @param SummarizeResourceInventoryRequest
    * @return SummarizeResourceInventoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeResourceInventory.ts.html |here} to see how to use SummarizeResourceInventory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeResourceInventory.ts.html |here} to see how to use SummarizeResourceInventory API.
    */
   public async summarizeResourceInventory(
     summarizeResourceInventoryRequest: requests.SummarizeResourceInventoryRequest
@@ -6259,7 +6259,7 @@ export class JavaManagementServiceClient {
    * @param UpdateDrsFileRequest
    * @return UpdateDrsFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateDrsFile.ts.html |here} to see how to use UpdateDrsFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateDrsFile.ts.html |here} to see how to use UpdateDrsFile API.
    */
   public async updateDrsFile(
     updateDrsFileRequest: requests.UpdateDrsFileRequest
@@ -6339,7 +6339,7 @@ export class JavaManagementServiceClient {
    * @param UpdateExportSettingRequest
    * @return UpdateExportSettingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateExportSetting.ts.html |here} to see how to use UpdateExportSetting API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateExportSetting.ts.html |here} to see how to use UpdateExportSetting API.
    */
   public async updateExportSetting(
     updateExportSettingRequest: requests.UpdateExportSettingRequest
@@ -6421,7 +6421,7 @@ export class JavaManagementServiceClient {
    * @param UpdateFleetRequest
    * @return UpdateFleetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateFleet.ts.html |here} to see how to use UpdateFleet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateFleet.ts.html |here} to see how to use UpdateFleet API.
    */
   public async updateFleet(
     updateFleetRequest: requests.UpdateFleetRequest
@@ -6501,7 +6501,7 @@ export class JavaManagementServiceClient {
    * @param UpdateFleetAdvancedFeatureConfigurationRequest
    * @return UpdateFleetAdvancedFeatureConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateFleetAdvancedFeatureConfiguration.ts.html |here} to see how to use UpdateFleetAdvancedFeatureConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateFleetAdvancedFeatureConfiguration.ts.html |here} to see how to use UpdateFleetAdvancedFeatureConfiguration API.
    */
   public async updateFleetAdvancedFeatureConfiguration(
     updateFleetAdvancedFeatureConfigurationRequest: requests.UpdateFleetAdvancedFeatureConfigurationRequest
@@ -6586,7 +6586,7 @@ export class JavaManagementServiceClient {
    * @param UpdateFleetAgentConfigurationRequest
    * @return UpdateFleetAgentConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateFleetAgentConfiguration.ts.html |here} to see how to use UpdateFleetAgentConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateFleetAgentConfiguration.ts.html |here} to see how to use UpdateFleetAgentConfiguration API.
    */
   public async updateFleetAgentConfiguration(
     updateFleetAgentConfigurationRequest: requests.UpdateFleetAgentConfigurationRequest
@@ -6666,7 +6666,7 @@ export class JavaManagementServiceClient {
    * @param UpdateJmsPluginRequest
    * @return UpdateJmsPluginResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateJmsPlugin.ts.html |here} to see how to use UpdateJmsPlugin API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateJmsPlugin.ts.html |here} to see how to use UpdateJmsPlugin API.
    */
   public async updateJmsPlugin(
     updateJmsPluginRequest: requests.UpdateJmsPluginRequest

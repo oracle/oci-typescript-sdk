@@ -243,7 +243,7 @@ export class OceInstanceClient {
    * @param ChangeOceInstanceCompartmentRequest
    * @return ChangeOceInstanceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/ChangeOceInstanceCompartment.ts.html |here} to see how to use ChangeOceInstanceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/ChangeOceInstanceCompartment.ts.html |here} to see how to use ChangeOceInstanceCompartment API.
    */
   public async changeOceInstanceCompartment(
     changeOceInstanceCompartmentRequest: requests.ChangeOceInstanceCompartmentRequest
@@ -323,7 +323,7 @@ export class OceInstanceClient {
    * @param CreateOceInstanceRequest
    * @return CreateOceInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/CreateOceInstance.ts.html |here} to see how to use CreateOceInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/CreateOceInstance.ts.html |here} to see how to use CreateOceInstance API.
    */
   public async createOceInstance(
     createOceInstanceRequest: requests.CreateOceInstanceRequest
@@ -398,7 +398,7 @@ export class OceInstanceClient {
    * @param DeleteOceInstanceRequest
    * @return DeleteOceInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/DeleteOceInstance.ts.html |here} to see how to use DeleteOceInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/DeleteOceInstance.ts.html |here} to see how to use DeleteOceInstance API.
    */
   public async deleteOceInstance(
     deleteOceInstanceRequest: requests.DeleteOceInstanceRequest
@@ -470,7 +470,7 @@ export class OceInstanceClient {
    * @param GetOceInstanceRequest
    * @return GetOceInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/GetOceInstance.ts.html |here} to see how to use GetOceInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/GetOceInstance.ts.html |here} to see how to use GetOceInstance API.
    */
   public async getOceInstance(
     getOceInstanceRequest: requests.GetOceInstanceRequest
@@ -545,7 +545,7 @@ export class OceInstanceClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -626,7 +626,7 @@ export class OceInstanceClient {
    * @param ListOceInstancesRequest
    * @return ListOceInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/ListOceInstances.ts.html |here} to see how to use ListOceInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/ListOceInstances.ts.html |here} to see how to use ListOceInstances API.
    */
   public async listOceInstances(
     listOceInstancesRequest: requests.ListOceInstancesRequest
@@ -761,7 +761,7 @@ export class OceInstanceClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -893,7 +893,7 @@ export class OceInstanceClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1024,7 +1024,7 @@ export class OceInstanceClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1154,7 +1154,7 @@ export class OceInstanceClient {
    * @param UpdateOceInstanceRequest
    * @return UpdateOceInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/UpdateOceInstance.ts.html |here} to see how to use UpdateOceInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oce/UpdateOceInstance.ts.html |here} to see how to use UpdateOceInstance API.
    */
   public async updateOceInstance(
     updateOceInstanceRequest: requests.UpdateOceInstanceRequest

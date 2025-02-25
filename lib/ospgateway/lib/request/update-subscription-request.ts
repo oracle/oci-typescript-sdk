@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/UpdateSubscription.ts.html |here} to see how to use UpdateSubscriptionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ospgateway/UpdateSubscription.ts.html |here} to see how to use UpdateSubscriptionRequest.
  */
 export interface UpdateSubscriptionRequest extends common.BaseRequest {
   /**
@@ -28,7 +28,7 @@ export interface UpdateSubscriptionRequest extends common.BaseRequest {
    */
   "ospHomeRegion": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    *
    */
   "compartmentId": string;

@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -24,7 +24,7 @@ import common = require("oci-common");
 /**
  * An object that represents one or multiple Oracle services that you can enable for a
  * {@link ServiceGateway}. In the User Guide topic
- * [Access to Oracle Services: Service Gateway](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/servicegateway.htm), the
+ * [Access to Oracle Services: Service Gateway](https://docs.oracle.com/iaas/Content/Network/Tasks/servicegateway.htm), the
  * term *service CIDR label* is used to refer to the string that represents the regional public
  * IP address ranges of the Oracle service or services covered by a given {@code Service} object. That
  * unique string is the value of the {@code Service} object's {@code cidrBlock} attribute.
@@ -54,7 +54,7 @@ Example: {@code OCI PHX Object Storage}
     */
   "description": string;
   /**
-   * The {@code Service} object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The {@code Service} object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "id": string;
   /**

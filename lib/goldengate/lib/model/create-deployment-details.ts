@@ -41,7 +41,7 @@ export interface CreateDeploymentDetails {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment being referenced.
    *
    */
   "compartmentId": string;
@@ -65,19 +65,19 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    */
   "locks"?: Array<model.AddResourceLockDetails>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the backup being referenced.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup being referenced.
    *
    */
   "deploymentBackupId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet of the deployment's private endpoint.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet of the deployment's private endpoint.
    * The subnet must be a private subnet. For backward compatibility, public subnets are allowed until May 31 2025,
    * after which the private subnet will be enforced.
    *
    */
   "subnetId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a public subnet in the customer tenancy.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a public subnet in the customer tenancy.
    * Can be provided only for public deployments. If provided, the loadbalancer will be created in this subnet instead of the service tenancy.
    * For backward compatibility, this is an optional property. It will become mandatory for public deployments after October 1, 2024.
    *

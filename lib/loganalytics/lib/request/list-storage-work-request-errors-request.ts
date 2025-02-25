@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListStorageWorkRequestErrors.ts.html |here} to see how to use ListStorageWorkRequestErrorsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListStorageWorkRequestErrors.ts.html |here} to see how to use ListStorageWorkRequestErrorsRequest.
  */
 export interface ListStorageWorkRequestErrorsRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ListStorageWorkRequestErrorsRequest extends common.BaseRequest 
    */
   "compartmentId": string;
   /**
-   * Work Request Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the asynchronous request.
+   * Work Request Identifier [OCID] (https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the asynchronous request.
    */
   "workRequestId": string;
   /**

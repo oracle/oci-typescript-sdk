@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -255,13 +255,13 @@ export class BlockstorageClient {
   /**
    * Moves a boot volume backup into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeBootVolumeBackupCompartmentRequest
    * @return ChangeBootVolumeBackupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeBootVolumeBackupCompartment.ts.html |here} to see how to use ChangeBootVolumeBackupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeBootVolumeBackupCompartment.ts.html |here} to see how to use ChangeBootVolumeBackupCompartment API.
    */
   public async changeBootVolumeBackupCompartment(
     changeBootVolumeBackupCompartmentRequest: requests.ChangeBootVolumeBackupCompartmentRequest
@@ -336,13 +336,13 @@ export class BlockstorageClient {
   /**
    * Moves a boot volume into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeBootVolumeCompartmentRequest
    * @return ChangeBootVolumeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeBootVolumeCompartment.ts.html |here} to see how to use ChangeBootVolumeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeBootVolumeCompartment.ts.html |here} to see how to use ChangeBootVolumeCompartment API.
    */
   public async changeBootVolumeCompartment(
     changeBootVolumeCompartmentRequest: requests.ChangeBootVolumeCompartmentRequest
@@ -417,13 +417,13 @@ export class BlockstorageClient {
   /**
    * Moves a volume backup into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVolumeBackupCompartmentRequest
    * @return ChangeVolumeBackupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVolumeBackupCompartment.ts.html |here} to see how to use ChangeVolumeBackupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVolumeBackupCompartment.ts.html |here} to see how to use ChangeVolumeBackupCompartment API.
    */
   public async changeVolumeBackupCompartment(
     changeVolumeBackupCompartmentRequest: requests.ChangeVolumeBackupCompartmentRequest
@@ -498,13 +498,13 @@ export class BlockstorageClient {
   /**
    * Moves a volume into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVolumeCompartmentRequest
    * @return ChangeVolumeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVolumeCompartment.ts.html |here} to see how to use ChangeVolumeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVolumeCompartment.ts.html |here} to see how to use ChangeVolumeCompartment API.
    */
   public async changeVolumeCompartment(
     changeVolumeCompartmentRequest: requests.ChangeVolumeCompartmentRequest
@@ -579,13 +579,13 @@ export class BlockstorageClient {
   /**
    * Moves a volume group backup into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVolumeGroupBackupCompartmentRequest
    * @return ChangeVolumeGroupBackupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVolumeGroupBackupCompartment.ts.html |here} to see how to use ChangeVolumeGroupBackupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVolumeGroupBackupCompartment.ts.html |here} to see how to use ChangeVolumeGroupBackupCompartment API.
    */
   public async changeVolumeGroupBackupCompartment(
     changeVolumeGroupBackupCompartmentRequest: requests.ChangeVolumeGroupBackupCompartmentRequest
@@ -660,13 +660,13 @@ export class BlockstorageClient {
   /**
    * Moves a volume group into a different compartment within the same tenancy.
    * For information about moving resources between compartments,
-   * see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVolumeGroupCompartmentRequest
    * @return ChangeVolumeGroupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVolumeGroupCompartment.ts.html |here} to see how to use ChangeVolumeGroupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVolumeGroupCompartment.ts.html |here} to see how to use ChangeVolumeGroupCompartment API.
    */
   public async changeVolumeGroupCompartment(
     changeVolumeGroupCompartmentRequest: requests.ChangeVolumeGroupCompartmentRequest
@@ -740,13 +740,13 @@ export class BlockstorageClient {
 
   /**
    * Creates a boot volume backup copy in specified region. For general information about volume backups,
-   * see [Overview of Boot Volume Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/bootvolumebackups.htm)
+   * see [Overview of Boot Volume Backups](https://docs.oracle.com/iaas/Content/Block/Concepts/bootvolumebackups.htm)
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CopyBootVolumeBackupRequest
    * @return CopyBootVolumeBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CopyBootVolumeBackup.ts.html |here} to see how to use CopyBootVolumeBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CopyBootVolumeBackup.ts.html |here} to see how to use CopyBootVolumeBackup API.
    */
   public async copyBootVolumeBackup(
     copyBootVolumeBackupRequest: requests.CopyBootVolumeBackupRequest
@@ -840,13 +840,13 @@ export class BlockstorageClient {
 
   /**
    * Creates a volume backup copy in specified region. For general information about volume backups,
-   * see [Overview of Block Volume Service Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumebackups.htm)
+   * see [Overview of Block Volume Service Backups](https://docs.oracle.com/iaas/Content/Block/Concepts/blockvolumebackups.htm)
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CopyVolumeBackupRequest
    * @return CopyVolumeBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CopyVolumeBackup.ts.html |here} to see how to use CopyVolumeBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CopyVolumeBackup.ts.html |here} to see how to use CopyVolumeBackup API.
    */
   public async copyVolumeBackup(
     copyVolumeBackupRequest: requests.CopyVolumeBackupRequest
@@ -939,13 +939,13 @@ export class BlockstorageClient {
 
   /**
    * Creates a volume group backup copy in specified region. For general information about volume group backups,
-   * see [Overview of Block Volume Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumebackups.htm).
+   * see [Overview of Block Volume Backups](https://docs.oracle.com/iaas/Content/Block/Concepts/blockvolumebackups.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CopyVolumeGroupBackupRequest
    * @return CopyVolumeGroupBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CopyVolumeGroupBackup.ts.html |here} to see how to use CopyVolumeGroupBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CopyVolumeGroupBackup.ts.html |here} to see how to use CopyVolumeGroupBackup API.
    */
   public async copyVolumeGroupBackup(
     copyVolumeGroupBackupRequest: requests.CopyVolumeGroupBackupRequest
@@ -1024,7 +1024,7 @@ export class BlockstorageClient {
 
   /**
    * Creates a new boot volume in the specified compartment from an existing boot volume or a boot volume backup.
-   * For general information about boot volumes, see [Boot Volumes](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/bootvolumes.htm).
+   * For general information about boot volumes, see [Boot Volumes](https://docs.oracle.com/iaas/Content/Block/Concepts/bootvolumes.htm).
    * You may optionally specify a *display name* for the volume, which is simply a friendly name or
    * description. It does not have to be unique, and you can change it. Avoid entering confidential information.
    *
@@ -1032,7 +1032,7 @@ export class BlockstorageClient {
    * @param CreateBootVolumeRequest
    * @return CreateBootVolumeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateBootVolume.ts.html |here} to see how to use CreateBootVolume API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateBootVolume.ts.html |here} to see how to use CreateBootVolume API.
    */
   public async createBootVolume(
     createBootVolumeRequest: requests.CreateBootVolumeRequest
@@ -1107,7 +1107,7 @@ export class BlockstorageClient {
 
   /**
      * Creates a new boot volume backup of the specified boot volume. For general information about boot volume backups,
-* see [Overview of Boot Volume Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/bootvolumebackups.htm)
+* see [Overview of Boot Volume Backups](https://docs.oracle.com/iaas/Content/Block/Concepts/bootvolumebackups.htm)
 * <p>
 When the request is received, the backup object is in a REQUEST_RECEIVED state.
 * When the data is imaged, it goes into a CREATING state.
@@ -1117,7 +1117,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
      * @param CreateBootVolumeBackupRequest
      * @return CreateBootVolumeBackupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateBootVolumeBackup.ts.html |here} to see how to use CreateBootVolumeBackup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateBootVolumeBackup.ts.html |here} to see how to use CreateBootVolumeBackup API.
      */
   public async createBootVolumeBackup(
     createBootVolumeBackupRequest: requests.CreateBootVolumeBackupRequest
@@ -1195,12 +1195,12 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
      * Creates a new volume in the specified compartment. Volumes can be created in sizes ranging from
 * 50 GB (51200 MB) to 32 TB (33554432 MB), in 1 GB (1024 MB) increments. By default, volumes are 1 TB (1048576 MB).
 * For general information about block volumes, see
-* [Overview of Block Volume Service](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/overview.htm).
+* [Overview of Block Volume Service](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm).
 * <p>
 A volume and instance can be in separate compartments but must be in the same availability domain.
 * For information about access control and compartments, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about
-* availability domains, see [Regions and Availability Domains](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about
+* availability domains, see [Regions and Availability Domains](https://docs.oracle.com/iaas/Content/General/Concepts/regions.htm).
 * To get a list of availability domains, use the `ListAvailabilityDomains` operation
 * in the Identity and Access Management Service API.
 * <p>
@@ -1211,7 +1211,7 @@ You may optionally specify a *display name* for the volume, which is simply a fr
      * @param CreateVolumeRequest
      * @return CreateVolumeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolume.ts.html |here} to see how to use CreateVolume API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolume.ts.html |here} to see how to use CreateVolume API.
      */
   public async createVolume(
     createVolumeRequest: requests.CreateVolumeRequest
@@ -1286,7 +1286,7 @@ You may optionally specify a *display name* for the volume, which is simply a fr
 
   /**
      * Creates a new backup of the specified volume. For general information about volume backups,
-* see [Overview of Block Volume Service Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumebackups.htm)
+* see [Overview of Block Volume Service Backups](https://docs.oracle.com/iaas/Content/Block/Concepts/blockvolumebackups.htm)
 * <p>
 When the request is received, the backup object is in a REQUEST_RECEIVED state.
 * When the data is imaged, it goes into a CREATING state.
@@ -1296,7 +1296,7 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
      * @param CreateVolumeBackupRequest
      * @return CreateVolumeBackupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeBackup.ts.html |here} to see how to use CreateVolumeBackup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeBackup.ts.html |here} to see how to use CreateVolumeBackup API.
      */
   public async createVolumeBackup(
     createVolumeBackupRequest: requests.CreateVolumeBackupRequest
@@ -1373,13 +1373,13 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
      * Creates a new user defined backup policy.
 * <p>
 For more information about Oracle defined backup policies and user defined backup policies,
-* see [Policy-Based Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm).
+* see [Policy-Based Backups](https://docs.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVolumeBackupPolicyRequest
      * @return CreateVolumeBackupPolicyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeBackupPolicy.ts.html |here} to see how to use CreateVolumeBackupPolicy API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeBackupPolicy.ts.html |here} to see how to use CreateVolumeBackupPolicy API.
      */
   public async createVolumeBackupPolicy(
     createVolumeBackupPolicyRequest: requests.CreateVolumeBackupPolicyRequest
@@ -1463,7 +1463,7 @@ For more information about Oracle defined backup policies and user defined backu
    * @param CreateVolumeBackupPolicyAssignmentRequest
    * @return CreateVolumeBackupPolicyAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeBackupPolicyAssignment.ts.html |here} to see how to use CreateVolumeBackupPolicyAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeBackupPolicyAssignment.ts.html |here} to see how to use CreateVolumeBackupPolicyAssignment API.
    */
   public async createVolumeBackupPolicyAssignment(
     createVolumeBackupPolicyAssignmentRequest: requests.CreateVolumeBackupPolicyAssignmentRequest
@@ -1543,13 +1543,13 @@ For more information about Oracle defined backup policies and user defined backu
 * You may optionally specify a *display name* for the volume group, which is simply a friendly name or
 * description. It does not have to be unique, and you can change it. Avoid entering confidential information.
 * <p>
-For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVolumeGroupRequest
      * @return CreateVolumeGroupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeGroup.ts.html |here} to see how to use CreateVolumeGroup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeGroup.ts.html |here} to see how to use CreateVolumeGroup API.
      */
   public async createVolumeGroup(
     createVolumeGroupRequest: requests.CreateVolumeGroupRequest
@@ -1624,13 +1624,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Creates a new backup volume group of the specified volume group.
-   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateVolumeGroupBackupRequest
    * @return CreateVolumeGroupBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeGroupBackup.ts.html |here} to see how to use CreateVolumeGroupBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVolumeGroupBackup.ts.html |here} to see how to use CreateVolumeGroupBackup API.
    */
   public async createVolumeGroupBackup(
     createVolumeGroupBackupRequest: requests.CreateVolumeGroupBackupRequest
@@ -1707,14 +1707,14 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Deletes the specified boot volume. The volume cannot have an active connection to an instance.
    * To disconnect the boot volume from a connected instance, see
-   * [Disconnecting From a Boot Volume](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/deletingbootvolume.htm).
+   * [Disconnecting From a Boot Volume](https://docs.oracle.com/iaas/Content/Block/Tasks/deletingbootvolume.htm).
    * **Warning:** All data on the boot volume will be permanently lost when the boot volume is deleted.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBootVolumeRequest
    * @return DeleteBootVolumeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteBootVolume.ts.html |here} to see how to use DeleteBootVolume API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteBootVolume.ts.html |here} to see how to use DeleteBootVolume API.
    */
   public async deleteBootVolume(
     deleteBootVolumeRequest: requests.DeleteBootVolumeRequest
@@ -1780,7 +1780,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param DeleteBootVolumeBackupRequest
    * @return DeleteBootVolumeBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteBootVolumeBackup.ts.html |here} to see how to use DeleteBootVolumeBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteBootVolumeBackup.ts.html |here} to see how to use DeleteBootVolumeBackup API.
    */
   public async deleteBootVolumeBackup(
     deleteBootVolumeBackupRequest: requests.DeleteBootVolumeBackupRequest
@@ -1848,7 +1848,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param DeleteBootVolumeKmsKeyRequest
    * @return DeleteBootVolumeKmsKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteBootVolumeKmsKey.ts.html |here} to see how to use DeleteBootVolumeKmsKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteBootVolumeKmsKey.ts.html |here} to see how to use DeleteBootVolumeKmsKey API.
    */
   public async deleteBootVolumeKmsKey(
     deleteBootVolumeKmsKeyRequest: requests.DeleteBootVolumeKmsKeyRequest
@@ -1912,14 +1912,14 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
    * Deletes the specified volume. The volume cannot have an active connection to an instance.
    * To disconnect the volume from a connected instance, see
-   * [Disconnecting From a Volume](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/disconnectingfromavolume.htm).
+   * [Disconnecting From a Volume](https://docs.oracle.com/iaas/Content/Block/Tasks/disconnectingfromavolume.htm).
    * **Warning:** All data on the volume will be permanently lost when the volume is deleted.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVolumeRequest
    * @return DeleteVolumeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolume.ts.html |here} to see how to use DeleteVolume API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolume.ts.html |here} to see how to use DeleteVolume API.
    */
   public async deleteVolume(
     deleteVolumeRequest: requests.DeleteVolumeRequest
@@ -1985,7 +1985,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param DeleteVolumeBackupRequest
    * @return DeleteVolumeBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeBackup.ts.html |here} to see how to use DeleteVolumeBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeBackup.ts.html |here} to see how to use DeleteVolumeBackup API.
    */
   public async deleteVolumeBackup(
     deleteVolumeBackupRequest: requests.DeleteVolumeBackupRequest
@@ -2048,7 +2048,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   /**
      * Deletes a user defined backup policy.
 *  For more information about user defined backup policies,
-*  see [Policy-Based Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm#UserDefinedBackupPolicies).
+*  see [Policy-Based Backups](https://docs.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm#UserDefinedBackupPolicies).
 * <p>
  Avoid entering confidential information.
 * 
@@ -2056,7 +2056,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
      * @param DeleteVolumeBackupPolicyRequest
      * @return DeleteVolumeBackupPolicyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeBackupPolicy.ts.html |here} to see how to use DeleteVolumeBackupPolicy API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeBackupPolicy.ts.html |here} to see how to use DeleteVolumeBackupPolicy API.
      */
   public async deleteVolumeBackupPolicy(
     deleteVolumeBackupPolicyRequest: requests.DeleteVolumeBackupPolicyRequest
@@ -2124,7 +2124,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param DeleteVolumeBackupPolicyAssignmentRequest
    * @return DeleteVolumeBackupPolicyAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeBackupPolicyAssignment.ts.html |here} to see how to use DeleteVolumeBackupPolicyAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeBackupPolicyAssignment.ts.html |here} to see how to use DeleteVolumeBackupPolicyAssignment API.
    */
   public async deleteVolumeBackupPolicyAssignment(
     deleteVolumeBackupPolicyAssignmentRequest: requests.DeleteVolumeBackupPolicyAssignmentRequest
@@ -2187,13 +2187,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Deletes the specified volume group. Individual volumes are not deleted, only the volume group is deleted.
-   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVolumeGroupRequest
    * @return DeleteVolumeGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeGroup.ts.html |here} to see how to use DeleteVolumeGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeGroup.ts.html |here} to see how to use DeleteVolumeGroup API.
    */
   public async deleteVolumeGroup(
     deleteVolumeGroupRequest: requests.DeleteVolumeGroupRequest
@@ -2255,13 +2255,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
 
   /**
    * Deletes a volume group backup. This operation deletes all the backups in
-   * the volume group. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * the volume group. For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVolumeGroupBackupRequest
    * @return DeleteVolumeGroupBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeGroupBackup.ts.html |here} to see how to use DeleteVolumeGroupBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeGroupBackup.ts.html |here} to see how to use DeleteVolumeGroupBackup API.
    */
   public async deleteVolumeGroupBackup(
     deleteVolumeGroupBackupRequest: requests.DeleteVolumeGroupBackupRequest
@@ -2329,7 +2329,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param DeleteVolumeKmsKeyRequest
    * @return DeleteVolumeKmsKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeKmsKey.ts.html |here} to see how to use DeleteVolumeKmsKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVolumeKmsKey.ts.html |here} to see how to use DeleteVolumeKmsKey API.
    */
   public async deleteVolumeKmsKey(
     deleteVolumeKmsKeyRequest: requests.DeleteVolumeKmsKeyRequest
@@ -2395,7 +2395,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetBlockVolumeReplicaRequest
    * @return GetBlockVolumeReplicaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBlockVolumeReplica.ts.html |here} to see how to use GetBlockVolumeReplica API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBlockVolumeReplica.ts.html |here} to see how to use GetBlockVolumeReplica API.
    */
   public async getBlockVolumeReplica(
     getBlockVolumeReplicaRequest: requests.GetBlockVolumeReplicaRequest
@@ -2471,7 +2471,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetBootVolumeRequest
    * @return GetBootVolumeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolume.ts.html |here} to see how to use GetBootVolume API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolume.ts.html |here} to see how to use GetBootVolume API.
    */
   public async getBootVolume(
     getBootVolumeRequest: requests.GetBootVolumeRequest
@@ -2546,7 +2546,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetBootVolumeBackupRequest
    * @return GetBootVolumeBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolumeBackup.ts.html |here} to see how to use GetBootVolumeBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolumeBackup.ts.html |here} to see how to use GetBootVolumeBackup API.
    */
   public async getBootVolumeBackup(
     getBootVolumeBackupRequest: requests.GetBootVolumeBackupRequest
@@ -2622,7 +2622,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetBootVolumeKmsKeyRequest
    * @return GetBootVolumeKmsKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolumeKmsKey.ts.html |here} to see how to use GetBootVolumeKmsKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolumeKmsKey.ts.html |here} to see how to use GetBootVolumeKmsKey API.
    */
   public async getBootVolumeKmsKey(
     getBootVolumeKmsKeyRequest: requests.GetBootVolumeKmsKeyRequest
@@ -2698,7 +2698,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetBootVolumeReplicaRequest
    * @return GetBootVolumeReplicaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolumeReplica.ts.html |here} to see how to use GetBootVolumeReplica API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolumeReplica.ts.html |here} to see how to use GetBootVolumeReplica API.
    */
   public async getBootVolumeReplica(
     getBootVolumeReplicaRequest: requests.GetBootVolumeReplicaRequest
@@ -2774,7 +2774,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetVolumeRequest
    * @return GetVolumeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolume.ts.html |here} to see how to use GetVolume API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolume.ts.html |here} to see how to use GetVolume API.
    */
   public async getVolume(
     getVolumeRequest: requests.GetVolumeRequest
@@ -2848,7 +2848,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetVolumeBackupRequest
    * @return GetVolumeBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeBackup.ts.html |here} to see how to use GetVolumeBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeBackup.ts.html |here} to see how to use GetVolumeBackup API.
    */
   public async getVolumeBackup(
     getVolumeBackupRequest: requests.GetVolumeBackupRequest
@@ -2923,7 +2923,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetVolumeBackupPolicyRequest
    * @return GetVolumeBackupPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeBackupPolicy.ts.html |here} to see how to use GetVolumeBackupPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeBackupPolicy.ts.html |here} to see how to use GetVolumeBackupPolicy API.
    */
   public async getVolumeBackupPolicy(
     getVolumeBackupPolicyRequest: requests.GetVolumeBackupPolicyRequest
@@ -3002,7 +3002,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetVolumeBackupPolicyAssetAssignmentRequest
    * @return GetVolumeBackupPolicyAssetAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeBackupPolicyAssetAssignment.ts.html |here} to see how to use GetVolumeBackupPolicyAssetAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeBackupPolicyAssetAssignment.ts.html |here} to see how to use GetVolumeBackupPolicyAssetAssignment API.
    */
   public async getVolumeBackupPolicyAssetAssignment(
     getVolumeBackupPolicyAssetAssignmentRequest: requests.GetVolumeBackupPolicyAssetAssignmentRequest
@@ -3134,7 +3134,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetVolumeBackupPolicyAssignmentRequest
    * @return GetVolumeBackupPolicyAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeBackupPolicyAssignment.ts.html |here} to see how to use GetVolumeBackupPolicyAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeBackupPolicyAssignment.ts.html |here} to see how to use GetVolumeBackupPolicyAssignment API.
    */
   public async getVolumeBackupPolicyAssignment(
     getVolumeBackupPolicyAssignmentRequest: requests.GetVolumeBackupPolicyAssignmentRequest
@@ -3205,12 +3205,12 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
-   * Gets information for the specified volume group. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * Gets information for the specified volume group. For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeGroupRequest
    * @return GetVolumeGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeGroup.ts.html |here} to see how to use GetVolumeGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeGroup.ts.html |here} to see how to use GetVolumeGroup API.
    */
   public async getVolumeGroup(
     getVolumeGroupRequest: requests.GetVolumeGroupRequest
@@ -3280,12 +3280,12 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
-   * Gets information for the specified volume group backup. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * Gets information for the specified volume group backup. For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeGroupBackupRequest
    * @return GetVolumeGroupBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeGroupBackup.ts.html |here} to see how to use GetVolumeGroupBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeGroupBackup.ts.html |here} to see how to use GetVolumeGroupBackup API.
    */
   public async getVolumeGroupBackup(
     getVolumeGroupBackupRequest: requests.GetVolumeGroupBackupRequest
@@ -3361,7 +3361,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetVolumeGroupReplicaRequest
    * @return GetVolumeGroupReplicaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeGroupReplica.ts.html |here} to see how to use GetVolumeGroupReplica API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeGroupReplica.ts.html |here} to see how to use GetVolumeGroupReplica API.
    */
   public async getVolumeGroupReplica(
     getVolumeGroupReplicaRequest: requests.GetVolumeGroupReplicaRequest
@@ -3438,7 +3438,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param GetVolumeKmsKeyRequest
    * @return GetVolumeKmsKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeKmsKey.ts.html |here} to see how to use GetVolumeKmsKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeKmsKey.ts.html |here} to see how to use GetVolumeKmsKey API.
    */
   public async getVolumeKmsKey(
     getVolumeKmsKeyRequest: requests.GetVolumeKmsKeyRequest
@@ -3515,7 +3515,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param ListBlockVolumeReplicasRequest
    * @return ListBlockVolumeReplicasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBlockVolumeReplicas.ts.html |here} to see how to use ListBlockVolumeReplicas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBlockVolumeReplicas.ts.html |here} to see how to use ListBlockVolumeReplicas API.
    */
   public async listBlockVolumeReplicas(
     listBlockVolumeReplicasRequest: requests.ListBlockVolumeReplicasRequest
@@ -3652,7 +3652,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param ListBootVolumeBackupsRequest
    * @return ListBootVolumeBackupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBootVolumeBackups.ts.html |here} to see how to use ListBootVolumeBackups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBootVolumeBackups.ts.html |here} to see how to use ListBootVolumeBackups API.
    */
   public async listBootVolumeBackups(
     listBootVolumeBackupsRequest: requests.ListBootVolumeBackupsRequest
@@ -3789,7 +3789,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param ListBootVolumeReplicasRequest
    * @return ListBootVolumeReplicasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBootVolumeReplicas.ts.html |here} to see how to use ListBootVolumeReplicas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBootVolumeReplicas.ts.html |here} to see how to use ListBootVolumeReplicas API.
    */
   public async listBootVolumeReplicas(
     listBootVolumeReplicasRequest: requests.ListBootVolumeReplicasRequest
@@ -3926,7 +3926,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param ListBootVolumesRequest
    * @return ListBootVolumesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBootVolumes.ts.html |here} to see how to use ListBootVolumes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBootVolumes.ts.html |here} to see how to use ListBootVolumes API.
    */
   public async listBootVolumes(
     listBootVolumesRequest: requests.ListBootVolumesRequest
@@ -4055,13 +4055,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
      * Lists all the volume backup policies available in the specified compartment.
 * <p>
 For more information about Oracle defined backup policies and user defined backup policies,
-* see [Policy-Based Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm).
+* see [Policy-Based Backups](https://docs.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListVolumeBackupPoliciesRequest
      * @return ListVolumeBackupPoliciesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeBackupPolicies.ts.html |here} to see how to use ListVolumeBackupPolicies API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeBackupPolicies.ts.html |here} to see how to use ListVolumeBackupPolicies API.
      */
   public async listVolumeBackupPolicies(
     listVolumeBackupPoliciesRequest: requests.ListVolumeBackupPoliciesRequest
@@ -4192,7 +4192,7 @@ For more information about Oracle defined backup policies and user defined backu
    * @param ListVolumeBackupsRequest
    * @return ListVolumeBackupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeBackups.ts.html |here} to see how to use ListVolumeBackups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeBackups.ts.html |here} to see how to use ListVolumeBackups API.
    */
   public async listVolumeBackups(
     listVolumeBackupsRequest: requests.ListVolumeBackupsRequest
@@ -4323,13 +4323,13 @@ For more information about Oracle defined backup policies and user defined backu
 
   /**
    * Lists the volume group backups in the specified compartment. You can filter the results by volume group.
-   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVolumeGroupBackupsRequest
    * @return ListVolumeGroupBackupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeGroupBackups.ts.html |here} to see how to use ListVolumeGroupBackups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeGroupBackups.ts.html |here} to see how to use ListVolumeGroupBackups API.
    */
   public async listVolumeGroupBackups(
     listVolumeGroupBackupsRequest: requests.ListVolumeGroupBackupsRequest
@@ -4459,13 +4459,13 @@ For more information about Oracle defined backup policies and user defined backu
 
   /**
    * Lists the volume group replicas in the specified compartment. You can filter the results by volume group.
-   * For more information, see [Volume Group Replication](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroupreplication.htm).
+   * For more information, see [Volume Group Replication](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroupreplication.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVolumeGroupReplicasRequest
    * @return ListVolumeGroupReplicasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeGroupReplicas.ts.html |here} to see how to use ListVolumeGroupReplicas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeGroupReplicas.ts.html |here} to see how to use ListVolumeGroupReplicas API.
    */
   public async listVolumeGroupReplicas(
     listVolumeGroupReplicasRequest: requests.ListVolumeGroupReplicasRequest
@@ -4596,13 +4596,13 @@ For more information about Oracle defined backup policies and user defined backu
 
   /**
    * Lists the volume groups in the specified compartment and availability domain.
-   * For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListVolumeGroupsRequest
    * @return ListVolumeGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeGroups.ts.html |here} to see how to use ListVolumeGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeGroups.ts.html |here} to see how to use ListVolumeGroups API.
    */
   public async listVolumeGroups(
     listVolumeGroupsRequest: requests.ListVolumeGroupsRequest
@@ -4737,7 +4737,7 @@ For more information about Oracle defined backup policies and user defined backu
    * @param ListVolumesRequest
    * @return ListVolumesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumes.ts.html |here} to see how to use ListVolumes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumes.ts.html |here} to see how to use ListVolumes API.
    */
   public async listVolumes(
     listVolumesRequest: requests.ListVolumesRequest
@@ -4871,7 +4871,7 @@ For more information about Oracle defined backup policies and user defined backu
    * @param UpdateBootVolumeRequest
    * @return UpdateBootVolumeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateBootVolume.ts.html |here} to see how to use UpdateBootVolume API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateBootVolume.ts.html |here} to see how to use UpdateBootVolume API.
    */
   public async updateBootVolume(
     updateBootVolumeRequest: requests.UpdateBootVolumeRequest
@@ -4954,7 +4954,7 @@ For more information about Oracle defined backup policies and user defined backu
    * @param UpdateBootVolumeBackupRequest
    * @return UpdateBootVolumeBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateBootVolumeBackup.ts.html |here} to see how to use UpdateBootVolumeBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateBootVolumeBackup.ts.html |here} to see how to use UpdateBootVolumeBackup API.
    */
   public async updateBootVolumeBackup(
     updateBootVolumeBackupRequest: requests.UpdateBootVolumeBackupRequest
@@ -5032,7 +5032,7 @@ For more information about Oracle defined backup policies and user defined backu
    * @param UpdateBootVolumeKmsKeyRequest
    * @return UpdateBootVolumeKmsKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateBootVolumeKmsKey.ts.html |here} to see how to use UpdateBootVolumeKmsKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateBootVolumeKmsKey.ts.html |here} to see how to use UpdateBootVolumeKmsKey API.
    */
   public async updateBootVolumeKmsKey(
     updateBootVolumeKmsKeyRequest: requests.UpdateBootVolumeKmsKeyRequest
@@ -5116,7 +5116,7 @@ For more information about Oracle defined backup policies and user defined backu
    * @param UpdateVolumeRequest
    * @return UpdateVolumeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolume.ts.html |here} to see how to use UpdateVolume API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolume.ts.html |here} to see how to use UpdateVolume API.
    */
   public async updateVolume(
     updateVolumeRequest: requests.UpdateVolumeRequest
@@ -5199,7 +5199,7 @@ For more information about Oracle defined backup policies and user defined backu
    * @param UpdateVolumeBackupRequest
    * @return UpdateVolumeBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeBackup.ts.html |here} to see how to use UpdateVolumeBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeBackup.ts.html |here} to see how to use UpdateVolumeBackup API.
    */
   public async updateVolumeBackup(
     updateVolumeBackupRequest: requests.UpdateVolumeBackupRequest
@@ -5272,7 +5272,7 @@ For more information about Oracle defined backup policies and user defined backu
   /**
      * Updates a user defined backup policy.
 *  For more information about user defined backup policies,
-*  see [Policy-Based Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm#UserDefinedBackupPolicies).
+*  see [Policy-Based Backups](https://docs.oracle.com/iaas/Content/Block/Tasks/schedulingvolumebackups.htm#UserDefinedBackupPolicies).
 * <p>
  Avoid entering confidential information.
 * 
@@ -5280,7 +5280,7 @@ For more information about Oracle defined backup policies and user defined backu
      * @param UpdateVolumeBackupPolicyRequest
      * @return UpdateVolumeBackupPolicyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeBackupPolicy.ts.html |here} to see how to use UpdateVolumeBackupPolicy API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeBackupPolicy.ts.html |here} to see how to use UpdateVolumeBackupPolicy API.
      */
   public async updateVolumeBackupPolicy(
     updateVolumeBackupPolicyRequest: requests.UpdateVolumeBackupPolicyRequest
@@ -5364,13 +5364,13 @@ For more information about Oracle defined backup policies and user defined backu
 * volume group. If the volume ID is not specified in the call, it will be removed from the volume group.
 * Avoid entering confidential information.
 * <p>
-For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdateVolumeGroupRequest
      * @return UpdateVolumeGroupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeGroup.ts.html |here} to see how to use UpdateVolumeGroup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeGroup.ts.html |here} to see how to use UpdateVolumeGroup API.
      */
   public async updateVolumeGroup(
     updateVolumeGroupRequest: requests.UpdateVolumeGroupRequest
@@ -5448,12 +5448,12 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
-   * Updates the display name for the specified volume group backup. For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
+   * Updates the display name for the specified volume group backup. For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/Block/Concepts/volumegroups.htm).
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateVolumeGroupBackupRequest
    * @return UpdateVolumeGroupBackupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeGroupBackup.ts.html |here} to see how to use UpdateVolumeGroupBackup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeGroupBackup.ts.html |here} to see how to use UpdateVolumeGroupBackup API.
    */
   public async updateVolumeGroupBackup(
     updateVolumeGroupBackupRequest: requests.UpdateVolumeGroupBackupRequest
@@ -5531,7 +5531,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
    * @param UpdateVolumeKmsKeyRequest
    * @return UpdateVolumeKmsKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeKmsKey.ts.html |here} to see how to use UpdateVolumeKmsKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeKmsKey.ts.html |here} to see how to use UpdateVolumeKmsKey API.
    */
   public async updateVolumeKmsKey(
     updateVolumeKmsKeyRequest: requests.UpdateVolumeKmsKeyRequest
@@ -5824,7 +5824,7 @@ export class ComputeClient {
    * @param AcceptShieldedIntegrityPolicyRequest
    * @return AcceptShieldedIntegrityPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AcceptShieldedIntegrityPolicy.ts.html |here} to see how to use AcceptShieldedIntegrityPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AcceptShieldedIntegrityPolicy.ts.html |here} to see how to use AcceptShieldedIntegrityPolicy API.
    */
   public async acceptShieldedIntegrityPolicy(
     acceptShieldedIntegrityPolicyRequest: requests.AcceptShieldedIntegrityPolicyRequest
@@ -5894,7 +5894,7 @@ export class ComputeClient {
    * @param AddImageShapeCompatibilityEntryRequest
    * @return AddImageShapeCompatibilityEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddImageShapeCompatibilityEntry.ts.html |here} to see how to use AddImageShapeCompatibilityEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddImageShapeCompatibilityEntry.ts.html |here} to see how to use AddImageShapeCompatibilityEntry API.
    */
   public async addImageShapeCompatibilityEntry(
     addImageShapeCompatibilityEntryRequest: requests.AddImageShapeCompatibilityEntryRequest
@@ -5972,7 +5972,7 @@ export class ComputeClient {
    * @param AttachBootVolumeRequest
    * @return AttachBootVolumeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachBootVolume.ts.html |here} to see how to use AttachBootVolume API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachBootVolume.ts.html |here} to see how to use AttachBootVolume API.
    */
   public async attachBootVolume(
     attachBootVolumeRequest: requests.AttachBootVolumeRequest
@@ -6048,13 +6048,13 @@ export class ComputeClient {
   /**
    * Creates a secondary VNIC and attaches it to the specified instance.
    * For more information about secondary VNICs, see
-   * [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
+   * [Virtual Network Interface Cards (VNICs)](https://docs.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachVnicRequest
    * @return AttachVnicResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachVnic.ts.html |here} to see how to use AttachVnic API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachVnic.ts.html |here} to see how to use AttachVnic API.
    */
   public async attachVnic(
     attachVnicRequest: requests.AttachVnicRequest
@@ -6134,7 +6134,7 @@ export class ComputeClient {
    * @param AttachVolumeRequest
    * @return AttachVolumeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachVolume.ts.html |here} to see how to use AttachVolume API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachVolume.ts.html |here} to see how to use AttachVolume API.
    */
   public async attachVolume(
     attachVolumeRequest: requests.AttachVolumeRequest
@@ -6230,7 +6230,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
      * @param CaptureConsoleHistoryRequest
      * @return CaptureConsoleHistoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CaptureConsoleHistory.ts.html |here} to see how to use CaptureConsoleHistory API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CaptureConsoleHistory.ts.html |here} to see how to use CaptureConsoleHistory API.
      */
   public async captureConsoleHistory(
     captureConsoleHistoryRequest: requests.CaptureConsoleHistoryRequest
@@ -6306,13 +6306,13 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   /**
    * Moves a compute capacity reservation into a different compartment. For information about
    * moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeComputeCapacityReservationCompartmentRequest
    * @return ChangeComputeCapacityReservationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeCapacityReservationCompartment.ts.html |here} to see how to use ChangeComputeCapacityReservationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeCapacityReservationCompartment.ts.html |here} to see how to use ChangeComputeCapacityReservationCompartment API.
    */
   public async changeComputeCapacityReservationCompartment(
     changeComputeCapacityReservationCompartmentRequest: requests.ChangeComputeCapacityReservationCompartmentRequest
@@ -6391,13 +6391,13 @@ The `CaptureConsoleHistory` operation works with the other console history opera
 
   /**
    * Moves a compute capacity topology into a different compartment. For information about moving resources between
-   * compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeComputeCapacityTopologyCompartmentRequest
    * @return ChangeComputeCapacityTopologyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeCapacityTopologyCompartment.ts.html |here} to see how to use ChangeComputeCapacityTopologyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeCapacityTopologyCompartment.ts.html |here} to see how to use ChangeComputeCapacityTopologyCompartment API.
    */
   public async changeComputeCapacityTopologyCompartment(
     changeComputeCapacityTopologyCompartmentRequest: requests.ChangeComputeCapacityTopologyCompartmentRequest
@@ -6476,16 +6476,16 @@ The `CaptureConsoleHistory` operation works with the other console history opera
 
   /**
      * Moves a compute cluster into a different compartment within the same tenancy.
-* A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a remote direct memory access (RDMA) network group.
+* A [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a remote direct memory access (RDMA) network group.
 * <p>
 For information about moving resources between compartments, see
-* [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeComputeClusterCompartmentRequest
      * @return ChangeComputeClusterCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeClusterCompartment.ts.html |here} to see how to use ChangeComputeClusterCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeClusterCompartment.ts.html |here} to see how to use ChangeComputeClusterCompartment API.
      */
   public async changeComputeClusterCompartment(
     changeComputeClusterCompartmentRequest: requests.ChangeComputeClusterCompartmentRequest
@@ -6557,13 +6557,13 @@ For information about moving resources between compartments, see
   /**
    * Moves a compute image capability schema into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see
-   *         [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *         [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeComputeImageCapabilitySchemaCompartmentRequest
    * @return ChangeComputeImageCapabilitySchemaCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeImageCapabilitySchemaCompartment.ts.html |here} to see how to use ChangeComputeImageCapabilitySchemaCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeImageCapabilitySchemaCompartment.ts.html |here} to see how to use ChangeComputeImageCapabilitySchemaCompartment API.
    */
   public async changeComputeImageCapabilitySchemaCompartment(
     changeComputeImageCapabilitySchemaCompartmentRequest: requests.ChangeComputeImageCapabilitySchemaCompartmentRequest
@@ -6642,7 +6642,7 @@ For information about moving resources between compartments, see
    * @param ChangeDedicatedVmHostCompartmentRequest
    * @return ChangeDedicatedVmHostCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeDedicatedVmHostCompartment.ts.html |here} to see how to use ChangeDedicatedVmHostCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeDedicatedVmHostCompartment.ts.html |here} to see how to use ChangeDedicatedVmHostCompartment API.
    */
   public async changeDedicatedVmHostCompartment(
     changeDedicatedVmHostCompartmentRequest: requests.ChangeDedicatedVmHostCompartmentRequest
@@ -6724,13 +6724,13 @@ For information about moving resources between compartments, see
   /**
    * Moves an image into a different compartment within the same tenancy. For information about moving
    * resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeImageCompartmentRequest
    * @return ChangeImageCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeImageCompartment.ts.html |here} to see how to use ChangeImageCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeImageCompartment.ts.html |here} to see how to use ChangeImageCompartment API.
    */
   public async changeImageCompartment(
     changeImageCompartmentRequest: requests.ChangeImageCompartmentRequest
@@ -6806,7 +6806,7 @@ For information about moving resources between compartments, see
   /**
      * Moves an instance into a different compartment within the same tenancy. For information about
 * moving resources between compartments, see
-* [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When you move an instance to a different compartment, associated resources such as boot volumes and VNICs
 * are not moved.
@@ -6815,7 +6815,7 @@ When you move an instance to a different compartment, associated resources such 
      * @param ChangeInstanceCompartmentRequest
      * @return ChangeInstanceCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeInstanceCompartment.ts.html |here} to see how to use ChangeInstanceCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeInstanceCompartment.ts.html |here} to see how to use ChangeInstanceCompartment API.
      */
   public async changeInstanceCompartment(
     changeInstanceCompartmentRequest: requests.ChangeInstanceCompartmentRequest
@@ -6901,7 +6901,7 @@ When you move an instance to a different compartment, associated resources such 
    * @param CreateAppCatalogSubscriptionRequest
    * @return CreateAppCatalogSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateAppCatalogSubscription.ts.html |here} to see how to use CreateAppCatalogSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateAppCatalogSubscription.ts.html |here} to see how to use CreateAppCatalogSubscription API.
    */
   public async createAppCatalogSubscription(
     createAppCatalogSubscriptionRequest: requests.CreateAppCatalogSubscriptionRequest
@@ -6987,7 +6987,7 @@ Use the capacity report to determine whether sufficient capacity is available fo
      * @param CreateComputeCapacityReportRequest
      * @return CreateComputeCapacityReportResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityReport.ts.html |here} to see how to use CreateComputeCapacityReport API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityReport.ts.html |here} to see how to use CreateComputeCapacityReport API.
      */
   public async createComputeCapacityReport(
     createComputeCapacityReportRequest: requests.CreateComputeCapacityReportRequest
@@ -7062,13 +7062,13 @@ Use the capacity report to determine whether sufficient capacity is available fo
    * Compute capacity reservations let you reserve instances in a compartment.
    * When you launch an instance using this reservation, you are assured that you have enough space for your instance,
    * and you won't get out of capacity errors.
-   * For more information, see [Reserved Capacity](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/reserve-capacity.htm).
+   * For more information, see [Reserved Capacity](https://docs.oracle.com/iaas/Content/Compute/Tasks/reserve-capacity.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateComputeCapacityReservationRequest
    * @return CreateComputeCapacityReservationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityReservation.ts.html |here} to see how to use CreateComputeCapacityReservation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityReservation.ts.html |here} to see how to use CreateComputeCapacityReservation API.
    */
   public async createComputeCapacityReservation(
     createComputeCapacityReservationRequest: requests.CreateComputeCapacityReservationRequest
@@ -7164,7 +7164,7 @@ Compute capacity topologies report the health status of your bare metal hosts.
      * @param CreateComputeCapacityTopologyRequest
      * @return CreateComputeCapacityTopologyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityTopology.ts.html |here} to see how to use CreateComputeCapacityTopology API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityTopology.ts.html |here} to see how to use CreateComputeCapacityTopology API.
      */
   public async createComputeCapacityTopology(
     createComputeCapacityTopologyRequest: requests.CreateComputeCapacityTopologyRequest
@@ -7249,7 +7249,7 @@ Compute capacity topologies report the health status of your bare metal hosts.
   }
 
   /**
-     * Creates an empty [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm). A compute cluster
+     * Creates an empty [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm). A compute cluster
 * is a remote direct memory access (RDMA) network group.
 * <p>
 After the compute cluster is created, you can use the compute cluster's OCID with the
@@ -7266,7 +7266,7 @@ If you want predictable capacity for a specific number of identical instances th
      * @param CreateComputeClusterRequest
      * @return CreateComputeClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCluster.ts.html |here} to see how to use CreateComputeCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCluster.ts.html |here} to see how to use CreateComputeCluster API.
      */
   public async createComputeCluster(
     createComputeClusterRequest: requests.CreateComputeClusterRequest
@@ -7347,7 +7347,7 @@ If you want predictable capacity for a specific number of identical instances th
    * @param CreateComputeImageCapabilitySchemaRequest
    * @return CreateComputeImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeImageCapabilitySchema.ts.html |here} to see how to use CreateComputeImageCapabilitySchema API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeImageCapabilitySchema.ts.html |here} to see how to use CreateComputeImageCapabilitySchema API.
    */
   public async createComputeImageCapabilitySchema(
     createComputeImageCapabilitySchemaRequest: requests.CreateComputeImageCapabilitySchemaRequest
@@ -7425,13 +7425,13 @@ If you want predictable capacity for a specific number of identical instances th
    * Creates a new dedicated virtual machine host in the specified compartment and the specified availability domain.
    * Dedicated virtual machine hosts enable you to run your Compute virtual machine (VM) instances on dedicated servers
    * that are a single tenant and not shared with other customers.
-   * For more information, see [Dedicated Virtual Machine Hosts](https://docs.cloud.oracle.com/iaas/Content/Compute/Concepts/dedicatedvmhosts.htm).
+   * For more information, see [Dedicated Virtual Machine Hosts](https://docs.oracle.com/iaas/Content/Compute/Concepts/dedicatedvmhosts.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDedicatedVmHostRequest
    * @return CreateDedicatedVmHostResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDedicatedVmHost.ts.html |here} to see how to use CreateDedicatedVmHost API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDedicatedVmHost.ts.html |here} to see how to use CreateDedicatedVmHost API.
    */
   public async createDedicatedVmHost(
     createDedicatedVmHostRequest: requests.CreateDedicatedVmHostRequest
@@ -7515,7 +7515,7 @@ If you want predictable capacity for a specific number of identical instances th
 * <p>
 When creating a new image, you must provide the OCID of the instance you want to use as the basis for the image, and
 * the OCID of the compartment containing that instance. For more information about images,
-* see [Managing Custom Images](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingcustomimages.htm).
+* see [Managing Custom Images](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingcustomimages.htm).
 * <p>
 When importing an exported image from Object Storage, you specify the source information
 * in {@link #imageSourceDetails(ImageSourceDetailsRequest) imageSourceDetails}.
@@ -7525,11 +7525,11 @@ When importing an image based on the namespace, bucket name, and object name,
 * <p>
 When importing an image based on the Object Storage URL, use
 * {@link #imageSourceViaObjectStorageUriDetails(ImageSourceViaObjectStorageUriDetailsRequest) imageSourceViaObjectStorageUriDetails}.
-* See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm#URLs) and [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
+* See [Object Storage URLs](https://docs.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm#URLs) and [Using Pre-Authenticated Requests](https://docs.oracle.com/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
 * for constructing URLs for image import/export.
 * <p>
 For more information about importing exported images, see
-* [Image Import/Export](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm).
+* [Image Import/Export](https://docs.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm).
 * <p>
 You may optionally specify a *display name* for the image, which is simply a friendly name or description.
 * It does not have to be unique, and you can change it. See {@link #updateImage(UpdateImageRequest) updateImage}.
@@ -7539,7 +7539,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
      * @param CreateImageRequest
      * @return CreateImageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateImage.ts.html |here} to see how to use CreateImage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateImage.ts.html |here} to see how to use CreateImage API.
      */
   public async createImage(
     createImageRequest: requests.CreateImageRequest
@@ -7622,13 +7622,13 @@ You may optionally specify a *display name* for the image, which is simply a fri
 * After the console connection has been created and is available,
 * you connect to the console using SSH.
 * <p>
-For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/iaas/Content/Compute/References/serialconsole.htm).
+For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.oracle.com/iaas/Content/Compute/References/serialconsole.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateInstanceConsoleConnectionRequest
      * @return CreateInstanceConsoleConnectionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInstanceConsoleConnection.ts.html |here} to see how to use CreateInstanceConsoleConnection API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInstanceConsoleConnection.ts.html |here} to see how to use CreateInstanceConsoleConnection API.
      */
   public async createInstanceConsoleConnection(
     createInstanceConsoleConnectionRequest: requests.CreateInstanceConsoleConnectionRequest
@@ -7708,7 +7708,7 @@ For more information about instance console connections, see [Troubleshooting In
    * @param DeleteAppCatalogSubscriptionRequest
    * @return DeleteAppCatalogSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteAppCatalogSubscription.ts.html |here} to see how to use DeleteAppCatalogSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteAppCatalogSubscription.ts.html |here} to see how to use DeleteAppCatalogSubscription API.
    */
   public async deleteAppCatalogSubscription(
     deleteAppCatalogSubscriptionRequest: requests.DeleteAppCatalogSubscriptionRequest
@@ -7776,7 +7776,7 @@ For more information about instance console connections, see [Troubleshooting In
    * @param DeleteComputeCapacityReservationRequest
    * @return DeleteComputeCapacityReservationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCapacityReservation.ts.html |here} to see how to use DeleteComputeCapacityReservation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCapacityReservation.ts.html |here} to see how to use DeleteComputeCapacityReservation API.
    */
   public async deleteComputeCapacityReservation(
     deleteComputeCapacityReservationRequest: requests.DeleteComputeCapacityReservationRequest
@@ -7850,7 +7850,7 @@ For more information about instance console connections, see [Troubleshooting In
    * @param DeleteComputeCapacityTopologyRequest
    * @return DeleteComputeCapacityTopologyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCapacityTopology.ts.html |here} to see how to use DeleteComputeCapacityTopology API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCapacityTopology.ts.html |here} to see how to use DeleteComputeCapacityTopology API.
    */
   public async deleteComputeCapacityTopology(
     deleteComputeCapacityTopologyRequest: requests.DeleteComputeCapacityTopologyRequest
@@ -7919,7 +7919,7 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
-     * Deletes a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a
+     * Deletes a compute cluster. A [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a
 * remote direct memory access (RDMA) network group.
 * <p>
 Before you delete a compute cluster, first delete all instances in the cluster by using
@@ -7929,7 +7929,7 @@ Before you delete a compute cluster, first delete all instances in the cluster b
      * @param DeleteComputeClusterRequest
      * @return DeleteComputeClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCluster.ts.html |here} to see how to use DeleteComputeCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCluster.ts.html |here} to see how to use DeleteComputeCluster API.
      */
   public async deleteComputeCluster(
     deleteComputeClusterRequest: requests.DeleteComputeClusterRequest
@@ -7998,7 +7998,7 @@ Before you delete a compute cluster, first delete all instances in the cluster b
    * @param DeleteComputeImageCapabilitySchemaRequest
    * @return DeleteComputeImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeImageCapabilitySchema.ts.html |here} to see how to use DeleteComputeImageCapabilitySchema API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeImageCapabilitySchema.ts.html |here} to see how to use DeleteComputeImageCapabilitySchema API.
    */
   public async deleteComputeImageCapabilitySchema(
     deleteComputeImageCapabilitySchemaRequest: requests.DeleteComputeImageCapabilitySchemaRequest
@@ -8068,7 +8068,7 @@ Before you delete a compute cluster, first delete all instances in the cluster b
    * @param DeleteConsoleHistoryRequest
    * @return DeleteConsoleHistoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteConsoleHistory.ts.html |here} to see how to use DeleteConsoleHistory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteConsoleHistory.ts.html |here} to see how to use DeleteConsoleHistory API.
    */
   public async deleteConsoleHistory(
     deleteConsoleHistoryRequest: requests.DeleteConsoleHistoryRequest
@@ -8139,7 +8139,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
      * @param DeleteDedicatedVmHostRequest
      * @return DeleteDedicatedVmHostResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDedicatedVmHost.ts.html |here} to see how to use DeleteDedicatedVmHost API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDedicatedVmHost.ts.html |here} to see how to use DeleteDedicatedVmHost API.
      */
   public async deleteDedicatedVmHost(
     deleteDedicatedVmHostRequest: requests.DeleteDedicatedVmHostRequest
@@ -8211,7 +8211,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
    * @param DeleteImageRequest
    * @return DeleteImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteImage.ts.html |here} to see how to use DeleteImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteImage.ts.html |here} to see how to use DeleteImage API.
    */
   public async deleteImage(
     deleteImageRequest: requests.DeleteImageRequest
@@ -8277,7 +8277,7 @@ If any VM instances are assigned to the dedicated virtual machine host,
    * @param DeleteInstanceConsoleConnectionRequest
    * @return DeleteInstanceConsoleConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteInstanceConsoleConnection.ts.html |here} to see how to use DeleteInstanceConsoleConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteInstanceConsoleConnection.ts.html |here} to see how to use DeleteInstanceConsoleConnection API.
    */
   public async deleteInstanceConsoleConnection(
     deleteInstanceConsoleConnectionRequest: requests.DeleteInstanceConsoleConnectionRequest
@@ -8350,7 +8350,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
      * @param DetachBootVolumeRequest
      * @return DetachBootVolumeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachBootVolume.ts.html |here} to see how to use DetachBootVolume API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachBootVolume.ts.html |here} to see how to use DetachBootVolume API.
      */
   public async detachBootVolume(
     detachBootVolumeRequest: requests.DetachBootVolumeRequest
@@ -8418,7 +8418,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
    * <p>
    **Important:** If the VNIC has a
    * {@link PrivateIp} that is the
-   * [target of a route rule](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip),
+   * [target of a route rule](https://docs.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip),
    * deleting the VNIC causes that route rule to blackhole and the traffic
    * will be dropped.
    *
@@ -8426,7 +8426,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
    * @param DetachVnicRequest
    * @return DetachVnicResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachVnic.ts.html |here} to see how to use DetachVnic API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachVnic.ts.html |here} to see how to use DetachVnic API.
    */
   public async detachVnic(
     detachVnicRequest: requests.DetachVnicRequest
@@ -8497,7 +8497,7 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
      * @param DetachVolumeRequest
      * @return DetachVolumeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachVolume.ts.html |here} to see how to use DetachVolume API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachVolume.ts.html |here} to see how to use DetachVolume API.
      */
   public async detachVolume(
     detachVolumeRequest: requests.DetachVolumeRequest
@@ -8562,19 +8562,19 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
      * Exports the specified image to the Oracle Cloud Infrastructure Object Storage service. You can use the Object Storage URL,
 * or the namespace, bucket name, and object name when specifying the location to export to.
 * <p>
-For more information about exporting images, see [Image Import/Export](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm).
+For more information about exporting images, see [Image Import/Export](https://docs.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm).
 * <p>
 To perform an image export, you need write access to the Object Storage bucket for the image,
-* see [Let Users Write Objects to Object Storage Buckets](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/commonpolicies.htm#Let4).
+* see [Let Users Write Objects to Object Storage Buckets](https://docs.oracle.com/iaas/Content/Identity/Concepts/commonpolicies.htm#Let4).
 * <p>
-See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm#URLs) and [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
+See [Object Storage URLs](https://docs.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm#URLs) and [Using Pre-Authenticated Requests](https://docs.oracle.com/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
 * for constructing URLs for image import/export.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ExportImageRequest
      * @return ExportImageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ExportImage.ts.html |here} to see how to use ExportImage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ExportImage.ts.html |here} to see how to use ExportImage API.
      */
   public async exportImage(
     exportImageRequest: requests.ExportImageRequest
@@ -8661,7 +8661,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetAppCatalogListingRequest
    * @return GetAppCatalogListingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAppCatalogListing.ts.html |here} to see how to use GetAppCatalogListing API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAppCatalogListing.ts.html |here} to see how to use GetAppCatalogListing API.
    */
   public async getAppCatalogListing(
     getAppCatalogListingRequest: requests.GetAppCatalogListingRequest
@@ -8736,7 +8736,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetAppCatalogListingAgreementsRequest
    * @return GetAppCatalogListingAgreementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAppCatalogListingAgreements.ts.html |here} to see how to use GetAppCatalogListingAgreements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAppCatalogListingAgreements.ts.html |here} to see how to use GetAppCatalogListingAgreements API.
    */
   public async getAppCatalogListingAgreements(
     getAppCatalogListingAgreementsRequest: requests.GetAppCatalogListingAgreementsRequest
@@ -8813,7 +8813,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetAppCatalogListingResourceVersionRequest
    * @return GetAppCatalogListingResourceVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAppCatalogListingResourceVersion.ts.html |here} to see how to use GetAppCatalogListingResourceVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAppCatalogListingResourceVersion.ts.html |here} to see how to use GetAppCatalogListingResourceVersion API.
    */
   public async getAppCatalogListingResourceVersion(
     getAppCatalogListingResourceVersionRequest: requests.GetAppCatalogListingResourceVersionRequest
@@ -8890,7 +8890,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetBootVolumeAttachmentRequest
    * @return GetBootVolumeAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolumeAttachment.ts.html |here} to see how to use GetBootVolumeAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetBootVolumeAttachment.ts.html |here} to see how to use GetBootVolumeAttachment API.
    */
   public async getBootVolumeAttachment(
     getBootVolumeAttachmentRequest: requests.GetBootVolumeAttachmentRequest
@@ -8965,7 +8965,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetComputeCapacityReservationRequest
    * @return GetComputeCapacityReservationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCapacityReservation.ts.html |here} to see how to use GetComputeCapacityReservation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCapacityReservation.ts.html |here} to see how to use GetComputeCapacityReservation API.
    */
   public async getComputeCapacityReservation(
     getComputeCapacityReservationRequest: requests.GetComputeCapacityReservationRequest
@@ -9042,7 +9042,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetComputeCapacityTopologyRequest
    * @return GetComputeCapacityTopologyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCapacityTopology.ts.html |here} to see how to use GetComputeCapacityTopology API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCapacityTopology.ts.html |here} to see how to use GetComputeCapacityTopology API.
    */
   public async getComputeCapacityTopology(
     getComputeCapacityTopologyRequest: requests.GetComputeCapacityTopologyRequest
@@ -9114,14 +9114,14 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   }
 
   /**
-   * Gets information about a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm)
+   * Gets information about a compute cluster. A [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm)
    * is a remote direct memory access (RDMA) network group.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetComputeClusterRequest
    * @return GetComputeClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCluster.ts.html |here} to see how to use GetComputeCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCluster.ts.html |here} to see how to use GetComputeCluster API.
    */
   public async getComputeCluster(
     getComputeClusterRequest: requests.GetComputeClusterRequest
@@ -9197,7 +9197,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetComputeGlobalImageCapabilitySchemaRequest
    * @return GetComputeGlobalImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeGlobalImageCapabilitySchema.ts.html |here} to see how to use GetComputeGlobalImageCapabilitySchema API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeGlobalImageCapabilitySchema.ts.html |here} to see how to use GetComputeGlobalImageCapabilitySchema API.
    */
   public async getComputeGlobalImageCapabilitySchema(
     getComputeGlobalImageCapabilitySchemaRequest: requests.GetComputeGlobalImageCapabilitySchemaRequest
@@ -9274,7 +9274,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetComputeGlobalImageCapabilitySchemaVersionRequest
    * @return GetComputeGlobalImageCapabilitySchemaVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeGlobalImageCapabilitySchemaVersion.ts.html |here} to see how to use GetComputeGlobalImageCapabilitySchemaVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeGlobalImageCapabilitySchemaVersion.ts.html |here} to see how to use GetComputeGlobalImageCapabilitySchemaVersion API.
    */
   public async getComputeGlobalImageCapabilitySchemaVersion(
     getComputeGlobalImageCapabilitySchemaVersionRequest: requests.GetComputeGlobalImageCapabilitySchemaVersionRequest
@@ -9357,7 +9357,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetComputeImageCapabilitySchemaRequest
    * @return GetComputeImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeImageCapabilitySchema.ts.html |here} to see how to use GetComputeImageCapabilitySchema API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeImageCapabilitySchema.ts.html |here} to see how to use GetComputeImageCapabilitySchema API.
    */
   public async getComputeImageCapabilitySchema(
     getComputeImageCapabilitySchemaRequest: requests.GetComputeImageCapabilitySchemaRequest
@@ -9439,7 +9439,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetConsoleHistoryRequest
    * @return GetConsoleHistoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetConsoleHistory.ts.html |here} to see how to use GetConsoleHistory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetConsoleHistory.ts.html |here} to see how to use GetConsoleHistory API.
    */
   public async getConsoleHistory(
     getConsoleHistoryRequest: requests.GetConsoleHistoryRequest
@@ -9517,7 +9517,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetConsoleHistoryContentRequest
    * @return GetConsoleHistoryContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetConsoleHistoryContent.ts.html |here} to see how to use GetConsoleHistoryContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetConsoleHistoryContent.ts.html |here} to see how to use GetConsoleHistoryContent API.
    */
   public async getConsoleHistoryContent(
     getConsoleHistoryContentRequest: requests.GetConsoleHistoryContentRequest
@@ -9595,7 +9595,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetDedicatedVmHostRequest
    * @return GetDedicatedVmHostResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDedicatedVmHost.ts.html |here} to see how to use GetDedicatedVmHost API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDedicatedVmHost.ts.html |here} to see how to use GetDedicatedVmHost API.
    */
   public async getDedicatedVmHost(
     getDedicatedVmHostRequest: requests.GetDedicatedVmHostRequest
@@ -9671,7 +9671,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetImageRequest
    * @return GetImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetImage.ts.html |here} to see how to use GetImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetImage.ts.html |here} to see how to use GetImage API.
    */
   public async getImage(
     getImageRequest: requests.GetImageRequest
@@ -9745,7 +9745,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetImageShapeCompatibilityEntryRequest
    * @return GetImageShapeCompatibilityEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetImageShapeCompatibilityEntry.ts.html |here} to see how to use GetImageShapeCompatibilityEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetImageShapeCompatibilityEntry.ts.html |here} to see how to use GetImageShapeCompatibilityEntry API.
    */
   public async getImageShapeCompatibilityEntry(
     getImageShapeCompatibilityEntryRequest: requests.GetImageShapeCompatibilityEntryRequest
@@ -9822,7 +9822,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetInstanceRequest
    * @return GetInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstance.ts.html |here} to see how to use GetInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstance.ts.html |here} to see how to use GetInstance API.
    */
   public async getInstance(
     getInstanceRequest: requests.GetInstanceRequest
@@ -9897,7 +9897,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetInstanceConsoleConnectionRequest
    * @return GetInstanceConsoleConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceConsoleConnection.ts.html |here} to see how to use GetInstanceConsoleConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceConsoleConnection.ts.html |here} to see how to use GetInstanceConsoleConnection API.
    */
   public async getInstanceConsoleConnection(
     getInstanceConsoleConnectionRequest: requests.GetInstanceConsoleConnectionRequest
@@ -9970,7 +9970,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetInstanceMaintenanceEventRequest
    * @return GetInstanceMaintenanceEventResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceMaintenanceEvent.ts.html |here} to see how to use GetInstanceMaintenanceEvent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceMaintenanceEvent.ts.html |here} to see how to use GetInstanceMaintenanceEvent API.
    */
   public async getInstanceMaintenanceEvent(
     getInstanceMaintenanceEventRequest: requests.GetInstanceMaintenanceEventRequest
@@ -10043,13 +10043,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the maximum possible date that a maintenance reboot can be extended. For more information, see
-   * [Infrastructure Maintenance](https://docs.cloud.oracle.com/iaas/Content/Compute/References/infrastructure-maintenance.htm).
+   * [Infrastructure Maintenance](https://docs.oracle.com/iaas/Content/Compute/References/infrastructure-maintenance.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstanceMaintenanceRebootRequest
    * @return GetInstanceMaintenanceRebootResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceMaintenanceReboot.ts.html |here} to see how to use GetInstanceMaintenanceReboot API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceMaintenanceReboot.ts.html |here} to see how to use GetInstanceMaintenanceReboot API.
    */
   public async getInstanceMaintenanceReboot(
     getInstanceMaintenanceRebootRequest: requests.GetInstanceMaintenanceRebootRequest
@@ -10121,7 +10121,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetMeasuredBootReportRequest
    * @return GetMeasuredBootReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetMeasuredBootReport.ts.html |here} to see how to use GetMeasuredBootReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetMeasuredBootReport.ts.html |here} to see how to use GetMeasuredBootReport API.
    */
   public async getMeasuredBootReport(
     getMeasuredBootReportRequest: requests.GetMeasuredBootReportRequest
@@ -10198,7 +10198,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetVnicAttachmentRequest
    * @return GetVnicAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVnicAttachment.ts.html |here} to see how to use GetVnicAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVnicAttachment.ts.html |here} to see how to use GetVnicAttachment API.
    */
   public async getVnicAttachment(
     getVnicAttachmentRequest: requests.GetVnicAttachmentRequest
@@ -10273,7 +10273,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetVolumeAttachmentRequest
    * @return GetVolumeAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeAttachment.ts.html |here} to see how to use GetVolumeAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeAttachment.ts.html |here} to see how to use GetVolumeAttachment API.
    */
   public async getVolumeAttachment(
     getVolumeAttachmentRequest: requests.GetVolumeAttachmentRequest
@@ -10350,7 +10350,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
    * @param GetWindowsInstanceInitialCredentialsRequest
    * @return GetWindowsInstanceInitialCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetWindowsInstanceInitialCredentials.ts.html |here} to see how to use GetWindowsInstanceInitialCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetWindowsInstanceInitialCredentials.ts.html |here} to see how to use GetWindowsInstanceInitialCredentials API.
    */
   public async getWindowsInstanceInitialCredentials(
     getWindowsInstanceInitialCredentialsRequest: requests.GetWindowsInstanceInitialCredentialsRequest
@@ -10440,29 +10440,29 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 * OS to crash and then reboot. Before you send a diagnostic interrupt, you must configure the instance to generate a
 * crash dump file when it crashes. The crash dump captures information about the state of the OS at the time of
 * the crash. After the OS restarts, you can analyze the crash dump to diagnose the issue. For more information, see
-* [Sending a Diagnostic Interrupt](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/sendingdiagnosticinterrupt.htm).
+* [Sending a Diagnostic Interrupt](https://docs.oracle.com/iaas/Content/Compute/Tasks/sendingdiagnosticinterrupt.htm).
 * <p>
 
 * <p>
 - **DIAGNOSTICREBOOT** - Powers off the instance, rebuilds it, and then powers it back on.
 * Before you send a diagnostic reboot, restart the instance's OS, confirm that the instance and networking settings are configured
-* correctly, and try other [troubleshooting steps](https://docs.cloud.oracle.com/iaas/Content/Compute/References/troubleshooting-compute-instances.htm).
+* correctly, and try other [troubleshooting steps](https://docs.oracle.com/iaas/Content/Compute/References/troubleshooting-compute-instances.htm).
 * Use diagnostic reboot as a final attempt to troubleshoot an unreachable instance. For virtual machine (VM) instances only.
-* For more information, see [Performing a Diagnostic Reboot](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/diagnostic-reboot.htm).
+* For more information, see [Performing a Diagnostic Reboot](https://docs.oracle.com/iaas/Content/Compute/Tasks/diagnostic-reboot.htm).
 * <p>
 
 * - **REBOOTMIGRATE** - Powers off the instance, moves it to new hardware, and then powers it back on. For more information, see
-* [Infrastructure Maintenance](https://docs.cloud.oracle.com/iaas/Content/Compute/References/infrastructure-maintenance.htm).
+* [Infrastructure Maintenance](https://docs.oracle.com/iaas/Content/Compute/References/infrastructure-maintenance.htm).
 * <p>
 
 * For more information about managing instance lifecycle states, see
-* [Stopping and Starting an Instance](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/restartinginstance.htm).
+* [Stopping and Starting an Instance](https://docs.oracle.com/iaas/Content/Compute/Tasks/restartinginstance.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param InstanceActionRequest
      * @return InstanceActionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/InstanceAction.ts.html |here} to see how to use InstanceAction API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/InstanceAction.ts.html |here} to see how to use InstanceAction API.
      */
   public async instanceAction(
     instanceActionRequest: requests.InstanceActionRequest
@@ -10543,13 +10543,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   /**
      * Creates a new instance in the specified compartment and the specified availability domain.
 * For general information about instances, see
-* [Overview of the Compute Service](https://docs.cloud.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm).
+* [Overview of the Compute Service](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm).
 * <p>
 For information about access control and compartments, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * <p>
 For information about availability domains, see
-* [Regions and Availability Domains](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm).
+* [Regions and Availability Domains](https://docs.oracle.com/iaas/Content/General/Concepts/regions.htm).
 * To get a list of availability domains, use the `ListAvailabilityDomains` operation
 * in the Identity and Access Management Service API.
 * <p>
@@ -10571,7 +10571,7 @@ When you launch an instance, it is automatically attached to a virtual
 * {@link #getVnic(GetVnicRequest) getVnic} with the VNIC ID.
 * <p>
 You can later add secondary VNICs to an instance. For more information, see
-* [Virtual Network Interface Cards (VNICs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
+* [Virtual Network Interface Cards (VNICs)](https://docs.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
 * <p>
 To launch an instance from a Marketplace image listing, you must provide the image ID of the
 * listing resource version that you want, but you also must subscribe to the listing before you try
@@ -10595,7 +10595,7 @@ To determine whether capacity is available for a specific shape before you creat
      * @param LaunchInstanceRequest
      * @return LaunchInstanceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/LaunchInstance.ts.html |here} to see how to use LaunchInstance API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/LaunchInstance.ts.html |here} to see how to use LaunchInstance API.
      */
   public async launchInstance(
     launchInstanceRequest: requests.LaunchInstanceRequest
@@ -10679,7 +10679,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param ListAppCatalogListingResourceVersionsRequest
    * @return ListAppCatalogListingResourceVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListAppCatalogListingResourceVersions.ts.html |here} to see how to use ListAppCatalogListingResourceVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListAppCatalogListingResourceVersions.ts.html |here} to see how to use ListAppCatalogListingResourceVersions API.
    */
   public async listAppCatalogListingResourceVersions(
     listAppCatalogListingResourceVersionsRequest: requests.ListAppCatalogListingResourceVersionsRequest
@@ -10811,7 +10811,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param ListAppCatalogListingsRequest
    * @return ListAppCatalogListingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListAppCatalogListings.ts.html |here} to see how to use ListAppCatalogListings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListAppCatalogListings.ts.html |here} to see how to use ListAppCatalogListings API.
    */
   public async listAppCatalogListings(
     listAppCatalogListingsRequest: requests.ListAppCatalogListingsRequest
@@ -10943,7 +10943,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param ListAppCatalogSubscriptionsRequest
    * @return ListAppCatalogSubscriptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListAppCatalogSubscriptions.ts.html |here} to see how to use ListAppCatalogSubscriptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListAppCatalogSubscriptions.ts.html |here} to see how to use ListAppCatalogSubscriptions API.
    */
   public async listAppCatalogSubscriptions(
     listAppCatalogSubscriptionsRequest: requests.ListAppCatalogSubscriptionsRequest
@@ -11078,7 +11078,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param ListBootVolumeAttachmentsRequest
    * @return ListBootVolumeAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBootVolumeAttachments.ts.html |here} to see how to use ListBootVolumeAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListBootVolumeAttachments.ts.html |here} to see how to use ListBootVolumeAttachments API.
    */
   public async listBootVolumeAttachments(
     listBootVolumeAttachmentsRequest: requests.ListBootVolumeAttachmentsRequest
@@ -11212,7 +11212,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param ListComputeCapacityReservationInstanceShapesRequest
    * @return ListComputeCapacityReservationInstanceShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityReservationInstanceShapes.ts.html |here} to see how to use ListComputeCapacityReservationInstanceShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityReservationInstanceShapes.ts.html |here} to see how to use ListComputeCapacityReservationInstanceShapes API.
    */
   public async listComputeCapacityReservationInstanceShapes(
     listComputeCapacityReservationInstanceShapesRequest: requests.ListComputeCapacityReservationInstanceShapesRequest
@@ -11354,7 +11354,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param ListComputeCapacityReservationInstancesRequest
    * @return ListComputeCapacityReservationInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityReservationInstances.ts.html |here} to see how to use ListComputeCapacityReservationInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityReservationInstances.ts.html |here} to see how to use ListComputeCapacityReservationInstances API.
    */
   public async listComputeCapacityReservationInstances(
     listComputeCapacityReservationInstancesRequest: requests.ListComputeCapacityReservationInstancesRequest
@@ -11495,7 +11495,7 @@ You can limit the list by specifying a compute capacity reservation display name
      * @param ListComputeCapacityReservationsRequest
      * @return ListComputeCapacityReservationsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityReservations.ts.html |here} to see how to use ListComputeCapacityReservations API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityReservations.ts.html |here} to see how to use ListComputeCapacityReservations API.
      */
   public async listComputeCapacityReservations(
     listComputeCapacityReservationsRequest: requests.ListComputeCapacityReservationsRequest
@@ -11633,7 +11633,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListComputeCapacityTopologiesRequest
    * @return ListComputeCapacityTopologiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologies.ts.html |here} to see how to use ListComputeCapacityTopologies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologies.ts.html |here} to see how to use ListComputeCapacityTopologies API.
    */
   public async listComputeCapacityTopologies(
     listComputeCapacityTopologiesRequest: requests.ListComputeCapacityTopologiesRequest
@@ -11716,7 +11716,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListComputeCapacityTopologyComputeBareMetalHostsRequest
    * @return ListComputeCapacityTopologyComputeBareMetalHostsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologyComputeBareMetalHosts.ts.html |here} to see how to use ListComputeCapacityTopologyComputeBareMetalHosts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologyComputeBareMetalHosts.ts.html |here} to see how to use ListComputeCapacityTopologyComputeBareMetalHosts API.
    */
   public async listComputeCapacityTopologyComputeBareMetalHosts(
     listComputeCapacityTopologyComputeBareMetalHostsRequest: requests.ListComputeCapacityTopologyComputeBareMetalHostsRequest
@@ -11810,7 +11810,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListComputeCapacityTopologyComputeHpcIslandsRequest
    * @return ListComputeCapacityTopologyComputeHpcIslandsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologyComputeHpcIslands.ts.html |here} to see how to use ListComputeCapacityTopologyComputeHpcIslands API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologyComputeHpcIslands.ts.html |here} to see how to use ListComputeCapacityTopologyComputeHpcIslands API.
    */
   public async listComputeCapacityTopologyComputeHpcIslands(
     listComputeCapacityTopologyComputeHpcIslandsRequest: requests.ListComputeCapacityTopologyComputeHpcIslandsRequest
@@ -11897,7 +11897,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListComputeCapacityTopologyComputeNetworkBlocksRequest
    * @return ListComputeCapacityTopologyComputeNetworkBlocksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologyComputeNetworkBlocks.ts.html |here} to see how to use ListComputeCapacityTopologyComputeNetworkBlocks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeCapacityTopologyComputeNetworkBlocks.ts.html |here} to see how to use ListComputeCapacityTopologyComputeNetworkBlocks API.
    */
   public async listComputeCapacityTopologyComputeNetworkBlocks(
     listComputeCapacityTopologyComputeNetworkBlocksRequest: requests.ListComputeCapacityTopologyComputeNetworkBlocksRequest
@@ -11983,13 +11983,13 @@ You can limit the list by specifying a compute capacity reservation display name
 
   /**
    * Lists the compute clusters in the specified compartment.
-   * A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a remote direct memory access (RDMA) network group.
+   * A [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a remote direct memory access (RDMA) network group.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListComputeClustersRequest
    * @return ListComputeClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeClusters.ts.html |here} to see how to use ListComputeClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeClusters.ts.html |here} to see how to use ListComputeClusters API.
    */
   public async listComputeClusters(
     listComputeClustersRequest: requests.ListComputeClustersRequest
@@ -12072,7 +12072,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListComputeGlobalImageCapabilitySchemaVersionsRequest
    * @return ListComputeGlobalImageCapabilitySchemaVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeGlobalImageCapabilitySchemaVersions.ts.html |here} to see how to use ListComputeGlobalImageCapabilitySchemaVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeGlobalImageCapabilitySchemaVersions.ts.html |here} to see how to use ListComputeGlobalImageCapabilitySchemaVersions API.
    */
   public async listComputeGlobalImageCapabilitySchemaVersions(
     listComputeGlobalImageCapabilitySchemaVersionsRequest: requests.ListComputeGlobalImageCapabilitySchemaVersionsRequest
@@ -12218,7 +12218,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListComputeGlobalImageCapabilitySchemasRequest
    * @return ListComputeGlobalImageCapabilitySchemasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeGlobalImageCapabilitySchemas.ts.html |here} to see how to use ListComputeGlobalImageCapabilitySchemas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeGlobalImageCapabilitySchemas.ts.html |here} to see how to use ListComputeGlobalImageCapabilitySchemas API.
    */
   public async listComputeGlobalImageCapabilitySchemas(
     listComputeGlobalImageCapabilitySchemasRequest: requests.ListComputeGlobalImageCapabilitySchemasRequest
@@ -12352,7 +12352,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListComputeImageCapabilitySchemasRequest
    * @return ListComputeImageCapabilitySchemasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeImageCapabilitySchemas.ts.html |here} to see how to use ListComputeImageCapabilitySchemas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeImageCapabilitySchemas.ts.html |here} to see how to use ListComputeImageCapabilitySchemas API.
    */
   public async listComputeImageCapabilitySchemas(
     listComputeImageCapabilitySchemasRequest: requests.ListComputeImageCapabilitySchemasRequest
@@ -12487,7 +12487,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListConsoleHistoriesRequest
    * @return ListConsoleHistoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListConsoleHistories.ts.html |here} to see how to use ListConsoleHistories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListConsoleHistories.ts.html |here} to see how to use ListConsoleHistories API.
    */
   public async listConsoleHistories(
     listConsoleHistoriesRequest: requests.ListConsoleHistoriesRequest
@@ -12623,7 +12623,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListDedicatedVmHostInstanceShapesRequest
    * @return ListDedicatedVmHostInstanceShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDedicatedVmHostInstanceShapes.ts.html |here} to see how to use ListDedicatedVmHostInstanceShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDedicatedVmHostInstanceShapes.ts.html |here} to see how to use ListDedicatedVmHostInstanceShapes API.
    */
   public async listDedicatedVmHostInstanceShapes(
     listDedicatedVmHostInstanceShapesRequest: requests.ListDedicatedVmHostInstanceShapesRequest
@@ -12757,7 +12757,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListDedicatedVmHostInstancesRequest
    * @return ListDedicatedVmHostInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDedicatedVmHostInstances.ts.html |here} to see how to use ListDedicatedVmHostInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDedicatedVmHostInstances.ts.html |here} to see how to use ListDedicatedVmHostInstances API.
    */
   public async listDedicatedVmHostInstances(
     listDedicatedVmHostInstancesRequest: requests.ListDedicatedVmHostInstancesRequest
@@ -12894,7 +12894,7 @@ You can limit the list by specifying a compute capacity reservation display name
    * @param ListDedicatedVmHostShapesRequest
    * @return ListDedicatedVmHostShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDedicatedVmHostShapes.ts.html |here} to see how to use ListDedicatedVmHostShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDedicatedVmHostShapes.ts.html |here} to see how to use ListDedicatedVmHostShapes API.
    */
   public async listDedicatedVmHostShapes(
     listDedicatedVmHostShapesRequest: requests.ListDedicatedVmHostShapesRequest
@@ -13031,7 +13031,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
      * @param ListDedicatedVmHostsRequest
      * @return ListDedicatedVmHostsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDedicatedVmHosts.ts.html |here} to see how to use ListDedicatedVmHosts API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDedicatedVmHosts.ts.html |here} to see how to use ListDedicatedVmHosts API.
      */
   public async listDedicatedVmHosts(
     listDedicatedVmHostsRequest: requests.ListDedicatedVmHostsRequest
@@ -13171,7 +13171,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
    * @param ListImageShapeCompatibilityEntriesRequest
    * @return ListImageShapeCompatibilityEntriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListImageShapeCompatibilityEntries.ts.html |here} to see how to use ListImageShapeCompatibilityEntries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListImageShapeCompatibilityEntries.ts.html |here} to see how to use ListImageShapeCompatibilityEntries API.
    */
   public async listImageShapeCompatibilityEntries(
     listImageShapeCompatibilityEntriesRequest: requests.ListImageShapeCompatibilityEntriesRequest
@@ -13299,8 +13299,8 @@ You can limit the list by specifying a dedicated virtual machine host display na
 
   /**
      * Lists a subset of images available in the specified compartment, including
-* [platform images](https://docs.cloud.oracle.com/iaas/Content/Compute/References/images.htm) and
-* [custom images](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingcustomimages.htm).
+* [platform images](https://docs.oracle.com/iaas/Content/Compute/References/images.htm) and
+* [custom images](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingcustomimages.htm).
 * The list of platform images includes the three most recently published versions
 * of each major distribution. The list does not support filtering based on image tags.
 * <p>
@@ -13314,7 +13314,7 @@ The list of images returned is ordered to first show the recent platform images,
      * @param ListImagesRequest
      * @return ListImagesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListImages.ts.html |here} to see how to use ListImages API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListImages.ts.html |here} to see how to use ListImages API.
      */
   public async listImages(
     listImagesRequest: requests.ListImagesRequest
@@ -13444,13 +13444,13 @@ The list of images returned is ordered to first show the recent platform images,
   /**
      * Lists the console connections for the specified compartment or instance.
 * <p>
-For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.cloud.oracle.com/iaas/Content/Compute/References/serialconsole.htm).
+For more information about instance console connections, see [Troubleshooting Instances Using Instance Console Connections](https://docs.oracle.com/iaas/Content/Compute/References/serialconsole.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListInstanceConsoleConnectionsRequest
      * @return ListInstanceConsoleConnectionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstanceConsoleConnections.ts.html |here} to see how to use ListInstanceConsoleConnections API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstanceConsoleConnections.ts.html |here} to see how to use ListInstanceConsoleConnections API.
      */
   public async listInstanceConsoleConnections(
     listInstanceConsoleConnectionsRequest: requests.ListInstanceConsoleConnectionsRequest
@@ -13581,7 +13581,7 @@ For more information about instance console connections, see [Troubleshooting In
    * @param ListInstanceDevicesRequest
    * @return ListInstanceDevicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstanceDevices.ts.html |here} to see how to use ListInstanceDevices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstanceDevices.ts.html |here} to see how to use ListInstanceDevices API.
    */
   public async listInstanceDevices(
     listInstanceDevicesRequest: requests.ListInstanceDevicesRequest
@@ -13717,7 +13717,7 @@ For more information about instance console connections, see [Troubleshooting In
    * @param ListInstanceMaintenanceEventsRequest
    * @return ListInstanceMaintenanceEventsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstanceMaintenanceEvents.ts.html |here} to see how to use ListInstanceMaintenanceEvents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstanceMaintenanceEvents.ts.html |here} to see how to use ListInstanceMaintenanceEvents API.
    */
   public async listInstanceMaintenanceEvents(
     listInstanceMaintenanceEventsRequest: requests.ListInstanceMaintenanceEventsRequest
@@ -13864,7 +13864,7 @@ For more information about instance console connections, see [Troubleshooting In
    * @param ListInstancesRequest
    * @return ListInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstances.ts.html |here} to see how to use ListInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstances.ts.html |here} to see how to use ListInstances API.
    */
   public async listInstances(
     listInstancesRequest: requests.ListInstancesRequest
@@ -14002,7 +14002,7 @@ For more information about instance console connections, see [Troubleshooting In
    * @param ListShapesRequest
    * @return ListShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListShapes.ts.html |here} to see how to use ListShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListShapes.ts.html |here} to see how to use ListShapes API.
    */
   public async listShapes(
     listShapesRequest: requests.ListShapesRequest
@@ -14133,7 +14133,7 @@ For more information about instance console connections, see [Troubleshooting In
    * @param ListVnicAttachmentsRequest
    * @return ListVnicAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVnicAttachments.ts.html |here} to see how to use ListVnicAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVnicAttachments.ts.html |here} to see how to use ListVnicAttachments API.
    */
   public async listVnicAttachments(
     listVnicAttachmentsRequest: requests.ListVnicAttachmentsRequest
@@ -14270,7 +14270,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
      * @param ListVolumeAttachmentsRequest
      * @return ListVolumeAttachmentsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeAttachments.ts.html |here} to see how to use ListVolumeAttachments API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVolumeAttachments.ts.html |here} to see how to use ListVolumeAttachments API.
      */
   public async listVolumeAttachments(
     listVolumeAttachmentsRequest: requests.ListVolumeAttachmentsRequest
@@ -14402,7 +14402,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
    * @param RemoveImageShapeCompatibilityEntryRequest
    * @return RemoveImageShapeCompatibilityEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveImageShapeCompatibilityEntry.ts.html |here} to see how to use RemoveImageShapeCompatibilityEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveImageShapeCompatibilityEntry.ts.html |here} to see how to use RemoveImageShapeCompatibilityEntry API.
    */
   public async removeImageShapeCompatibilityEntry(
     removeImageShapeCompatibilityEntryRequest: requests.RemoveImageShapeCompatibilityEntryRequest
@@ -14482,7 +14482,7 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
      * @param TerminateInstanceRequest
      * @return TerminateInstanceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/TerminateInstance.ts.html |here} to see how to use TerminateInstance API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/TerminateInstance.ts.html |here} to see how to use TerminateInstance API.
      */
   public async terminateInstance(
     terminateInstanceRequest: requests.TerminateInstanceRequest
@@ -14555,7 +14555,7 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
    * @param UpdateComputeCapacityReservationRequest
    * @return UpdateComputeCapacityReservationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCapacityReservation.ts.html |here} to see how to use UpdateComputeCapacityReservation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCapacityReservation.ts.html |here} to see how to use UpdateComputeCapacityReservation API.
    */
   public async updateComputeCapacityReservation(
     updateComputeCapacityReservationRequest: requests.UpdateComputeCapacityReservationRequest
@@ -14635,7 +14635,7 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
    * @param UpdateComputeCapacityTopologyRequest
    * @return UpdateComputeCapacityTopologyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCapacityTopology.ts.html |here} to see how to use UpdateComputeCapacityTopology API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCapacityTopology.ts.html |here} to see how to use UpdateComputeCapacityTopology API.
    */
   public async updateComputeCapacityTopology(
     updateComputeCapacityTopologyRequest: requests.UpdateComputeCapacityTopologyRequest
@@ -14709,7 +14709,7 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
   }
 
   /**
-     * Updates a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a
+     * Updates a compute cluster. A [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a
 * remote direct memory access (RDMA) network group.
 * <p>
 To create instances within a compute cluster, use the {@link #launchInstance(LaunchInstanceRequest) launchInstance}
@@ -14722,7 +14722,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
      * @param UpdateComputeClusterRequest
      * @return UpdateComputeClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCluster.ts.html |here} to see how to use UpdateComputeCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCluster.ts.html |here} to see how to use UpdateComputeCluster API.
      */
   public async updateComputeCluster(
     updateComputeClusterRequest: requests.UpdateComputeClusterRequest
@@ -14806,7 +14806,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
    * @param UpdateComputeImageCapabilitySchemaRequest
    * @return UpdateComputeImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeImageCapabilitySchema.ts.html |here} to see how to use UpdateComputeImageCapabilitySchema API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeImageCapabilitySchema.ts.html |here} to see how to use UpdateComputeImageCapabilitySchema API.
    */
   public async updateComputeImageCapabilitySchema(
     updateComputeImageCapabilitySchemaRequest: requests.UpdateComputeImageCapabilitySchemaRequest
@@ -14889,7 +14889,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
    * @param UpdateConsoleHistoryRequest
    * @return UpdateConsoleHistoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateConsoleHistory.ts.html |here} to see how to use UpdateConsoleHistory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateConsoleHistory.ts.html |here} to see how to use UpdateConsoleHistory API.
    */
   public async updateConsoleHistory(
     updateConsoleHistoryRequest: requests.UpdateConsoleHistoryRequest
@@ -14972,7 +14972,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
    * @param UpdateDedicatedVmHostRequest
    * @return UpdateDedicatedVmHostResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDedicatedVmHost.ts.html |here} to see how to use UpdateDedicatedVmHost API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDedicatedVmHost.ts.html |here} to see how to use UpdateDedicatedVmHost API.
    */
   public async updateDedicatedVmHost(
     updateDedicatedVmHostRequest: requests.UpdateDedicatedVmHostRequest
@@ -15056,7 +15056,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
    * @param UpdateImageRequest
    * @return UpdateImageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateImage.ts.html |here} to see how to use UpdateImage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateImage.ts.html |here} to see how to use UpdateImage API.
    */
   public async updateImage(
     updateImageRequest: requests.UpdateImageRequest
@@ -15145,7 +15145,7 @@ The OCID of the instance remains the same.
      * @param UpdateInstanceRequest
      * @return UpdateInstanceResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstance.ts.html |here} to see how to use UpdateInstance API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstance.ts.html |here} to see how to use UpdateInstance API.
      */
   public async updateInstance(
     updateInstanceRequest: requests.UpdateInstanceRequest
@@ -15232,7 +15232,7 @@ The OCID of the instance remains the same.
    * @param UpdateInstanceConsoleConnectionRequest
    * @return UpdateInstanceConsoleConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstanceConsoleConnection.ts.html |here} to see how to use UpdateInstanceConsoleConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstanceConsoleConnection.ts.html |here} to see how to use UpdateInstanceConsoleConnection API.
    */
   public async updateInstanceConsoleConnection(
     updateInstanceConsoleConnectionRequest: requests.UpdateInstanceConsoleConnectionRequest
@@ -15317,7 +15317,7 @@ The OCID of the instance remains the same.
    * @param UpdateInstanceMaintenanceEventRequest
    * @return UpdateInstanceMaintenanceEventResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstanceMaintenanceEvent.ts.html |here} to see how to use UpdateInstanceMaintenanceEvent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstanceMaintenanceEvent.ts.html |here} to see how to use UpdateInstanceMaintenanceEvent API.
    */
   public async updateInstanceMaintenanceEvent(
     updateInstanceMaintenanceEventRequest: requests.UpdateInstanceMaintenanceEventRequest
@@ -15398,7 +15398,7 @@ The OCID of the instance remains the same.
    * @param UpdateVolumeAttachmentRequest
    * @return UpdateVolumeAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeAttachment.ts.html |here} to see how to use UpdateVolumeAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVolumeAttachment.ts.html |here} to see how to use UpdateVolumeAttachment API.
    */
   public async updateVolumeAttachment(
     updateVolumeAttachmentRequest: requests.UpdateVolumeAttachmentRequest
@@ -15689,13 +15689,13 @@ export class ComputeManagementClient {
   /**
    * Attaches an instance to an instance pool. For information about the prerequisites
    * that an instance must meet before you can attach it to a pool, see
-   * [Attaching an Instance to an Instance Pool](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/updatinginstancepool.htm#attach-instance).
+   * [Attaching an Instance to an Instance Pool](https://docs.oracle.com/iaas/Content/Compute/Tasks/updatinginstancepool.htm#attach-instance).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachInstancePoolInstanceRequest
    * @return AttachInstancePoolInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachInstancePoolInstance.ts.html |here} to see how to use AttachInstancePoolInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachInstancePoolInstance.ts.html |here} to see how to use AttachInstancePoolInstance API.
    */
   public async attachInstancePoolInstance(
     attachInstancePoolInstanceRequest: requests.AttachInstancePoolInstanceRequest
@@ -15787,7 +15787,7 @@ export class ComputeManagementClient {
    * @param AttachLoadBalancerRequest
    * @return AttachLoadBalancerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachLoadBalancer.ts.html |here} to see how to use AttachLoadBalancer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachLoadBalancer.ts.html |here} to see how to use AttachLoadBalancer API.
    */
   public async attachLoadBalancer(
     attachLoadBalancerRequest: requests.AttachLoadBalancerRequest
@@ -15865,10 +15865,10 @@ export class ComputeManagementClient {
   }
 
   /**
-     * Moves a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
+     * Moves a [cluster network with instance pools](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
 * into a different compartment within the same tenancy. For
 * information about moving resources between compartments, see
-* [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When you move a cluster network to a different compartment, associated resources such as the instances
 * in the cluster network, boot volumes, and VNICs are not moved.
@@ -15877,7 +15877,7 @@ When you move a cluster network to a different compartment, associated resources
      * @param ChangeClusterNetworkCompartmentRequest
      * @return ChangeClusterNetworkCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeClusterNetworkCompartment.ts.html |here} to see how to use ChangeClusterNetworkCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeClusterNetworkCompartment.ts.html |here} to see how to use ChangeClusterNetworkCompartment API.
      */
   public async changeClusterNetworkCompartment(
     changeClusterNetworkCompartmentRequest: requests.ChangeClusterNetworkCompartmentRequest
@@ -15956,7 +15956,7 @@ When you move a cluster network to a different compartment, associated resources
   /**
      * Moves an instance configuration into a different compartment within the same tenancy.
 * For information about moving resources between compartments, see
-* [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When you move an instance configuration to a different compartment, associated resources such as
 * instance pools are not moved.
@@ -15966,13 +15966,13 @@ When you move an instance configuration to a different compartment, associated r
 * to a different compartment, you will not be able to use the instance configuration to manage instance pools
 * in the new compartment. If you want to update an instance configuration to point to a different compartment,
 * you should instead create a new instance configuration in the target compartment using
-* [CreateInstanceConfiguration](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/CreateInstanceConfiguration).
+* [CreateInstanceConfiguration](https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/CreateInstanceConfiguration).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ChangeInstanceConfigurationCompartmentRequest
      * @return ChangeInstanceConfigurationCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeInstanceConfigurationCompartment.ts.html |here} to see how to use ChangeInstanceConfigurationCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeInstanceConfigurationCompartment.ts.html |here} to see how to use ChangeInstanceConfigurationCompartment API.
      */
   public async changeInstanceConfigurationCompartment(
     changeInstanceConfigurationCompartmentRequest: requests.ChangeInstanceConfigurationCompartmentRequest
@@ -16052,7 +16052,7 @@ When you move an instance configuration to a different compartment, associated r
   /**
      * Moves an instance pool into a different compartment within the same tenancy. For
 * information about moving resources between compartments, see
-* [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When you move an instance pool to a different compartment, associated resources such as the instances in
 * the pool, boot volumes, VNICs, and autoscaling configurations are not moved.
@@ -16061,7 +16061,7 @@ When you move an instance pool to a different compartment, associated resources 
      * @param ChangeInstancePoolCompartmentRequest
      * @return ChangeInstancePoolCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeInstancePoolCompartment.ts.html |here} to see how to use ChangeInstancePoolCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeInstancePoolCompartment.ts.html |here} to see how to use ChangeInstancePoolCompartment API.
      */
   public async changeInstancePoolCompartment(
     changeInstancePoolCompartmentRequest: requests.ChangeInstancePoolCompartmentRequest
@@ -16136,7 +16136,7 @@ When you move an instance pool to a different compartment, associated resources 
   }
 
   /**
-     * Creates a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+     * Creates a [cluster network with instance pools](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
 * A cluster network is a group of high performance computing (HPC), GPU, or optimized bare metal
 * instances that are connected with an ultra low-latency remote direct memory access (RDMA) network.
 * Cluster networks with instance pools use instance pools to manage groups of identical instances.
@@ -16156,7 +16156,7 @@ To determine whether capacity is available for a specific shape before you creat
      * @param CreateClusterNetworkRequest
      * @return CreateClusterNetworkResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateClusterNetwork.ts.html |here} to see how to use CreateClusterNetwork API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateClusterNetwork.ts.html |here} to see how to use CreateClusterNetwork API.
      */
   public async createClusterNetwork(
     createClusterNetworkRequest: requests.CreateClusterNetworkRequest
@@ -16243,7 +16243,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param CreateInstanceConfigurationRequest
    * @return CreateInstanceConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInstanceConfiguration.ts.html |here} to see how to use CreateInstanceConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInstanceConfiguration.ts.html |here} to see how to use CreateInstanceConfiguration API.
    */
   public async createInstanceConfiguration(
     createInstanceConfigurationRequest: requests.CreateInstanceConfigurationRequest
@@ -16328,7 +16328,7 @@ To determine whether capacity is available for a specific shape before you creat
      * @param CreateInstancePoolRequest
      * @return CreateInstancePoolResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInstancePool.ts.html |here} to see how to use CreateInstancePool API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInstancePool.ts.html |here} to see how to use CreateInstancePool API.
      */
   public async createInstancePool(
     createInstancePoolRequest: requests.CreateInstancePoolRequest
@@ -16408,7 +16408,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param DeleteInstanceConfigurationRequest
    * @return DeleteInstanceConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteInstanceConfiguration.ts.html |here} to see how to use DeleteInstanceConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteInstanceConfiguration.ts.html |here} to see how to use DeleteInstanceConfiguration API.
    */
   public async deleteInstanceConfiguration(
     deleteInstanceConfigurationRequest: requests.DeleteInstanceConfigurationRequest
@@ -16476,7 +16476,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param DetachInstancePoolInstanceRequest
    * @return DetachInstancePoolInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachInstancePoolInstance.ts.html |here} to see how to use DetachInstancePoolInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachInstancePoolInstance.ts.html |here} to see how to use DetachInstancePoolInstance API.
    */
   public async detachInstancePoolInstance(
     detachInstancePoolInstanceRequest: requests.DetachInstancePoolInstanceRequest
@@ -16555,7 +16555,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param DetachLoadBalancerRequest
    * @return DetachLoadBalancerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachLoadBalancer.ts.html |here} to see how to use DetachLoadBalancer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachLoadBalancer.ts.html |here} to see how to use DetachLoadBalancer API.
    */
   public async detachLoadBalancer(
     detachLoadBalancerRequest: requests.DetachLoadBalancerRequest
@@ -16633,13 +16633,13 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
-   * Gets information about a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+   * Gets information about a [cluster network with instance pools](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetClusterNetworkRequest
    * @return GetClusterNetworkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetClusterNetwork.ts.html |here} to see how to use GetClusterNetwork API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetClusterNetwork.ts.html |here} to see how to use GetClusterNetwork API.
    */
   public async getClusterNetwork(
     getClusterNetworkRequest: requests.GetClusterNetworkRequest
@@ -16715,7 +16715,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param GetInstanceConfigurationRequest
    * @return GetInstanceConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceConfiguration.ts.html |here} to see how to use GetInstanceConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceConfiguration.ts.html |here} to see how to use GetInstanceConfiguration API.
    */
   public async getInstanceConfiguration(
     getInstanceConfigurationRequest: requests.GetInstanceConfigurationRequest
@@ -16791,7 +16791,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param GetInstancePoolRequest
    * @return GetInstancePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstancePool.ts.html |here} to see how to use GetInstancePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstancePool.ts.html |here} to see how to use GetInstancePool API.
    */
   public async getInstancePool(
     getInstancePoolRequest: requests.GetInstancePoolRequest
@@ -16867,7 +16867,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param GetInstancePoolInstanceRequest
    * @return GetInstancePoolInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstancePoolInstance.ts.html |here} to see how to use GetInstancePoolInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstancePoolInstance.ts.html |here} to see how to use GetInstancePoolInstance API.
    */
   public async getInstancePoolInstance(
     getInstancePoolInstanceRequest: requests.GetInstancePoolInstanceRequest
@@ -16945,7 +16945,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param GetInstancePoolLoadBalancerAttachmentRequest
    * @return GetInstancePoolLoadBalancerAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstancePoolLoadBalancerAttachment.ts.html |here} to see how to use GetInstancePoolLoadBalancerAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstancePoolLoadBalancerAttachment.ts.html |here} to see how to use GetInstancePoolLoadBalancerAttachment API.
    */
   public async getInstancePoolLoadBalancerAttachment(
     getInstancePoolLoadBalancerAttachmentRequest: requests.GetInstancePoolLoadBalancerAttachmentRequest
@@ -17032,7 +17032,7 @@ To determine whether capacity is available for a specific shape before you creat
      * @param LaunchInstanceConfigurationRequest
      * @return LaunchInstanceConfigurationResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/LaunchInstanceConfiguration.ts.html |here} to see how to use LaunchInstanceConfiguration API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/LaunchInstanceConfiguration.ts.html |here} to see how to use LaunchInstanceConfiguration API.
      */
   public async launchInstanceConfiguration(
     launchInstanceConfigurationRequest: requests.LaunchInstanceConfigurationRequest
@@ -17114,13 +17114,13 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
-   * Lists the instances in a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+   * Lists the instances in a [cluster network with instance pools](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListClusterNetworkInstancesRequest
    * @return ListClusterNetworkInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListClusterNetworkInstances.ts.html |here} to see how to use ListClusterNetworkInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListClusterNetworkInstances.ts.html |here} to see how to use ListClusterNetworkInstances API.
    */
   public async listClusterNetworkInstances(
     listClusterNetworkInstancesRequest: requests.ListClusterNetworkInstancesRequest
@@ -17250,14 +17250,14 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
-   * Lists the [cluster networks with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
+   * Lists the [cluster networks with instance pools](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
    * in the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListClusterNetworksRequest
    * @return ListClusterNetworksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListClusterNetworks.ts.html |here} to see how to use ListClusterNetworks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListClusterNetworks.ts.html |here} to see how to use ListClusterNetworks API.
    */
   public async listClusterNetworks(
     listClusterNetworksRequest: requests.ListClusterNetworksRequest
@@ -17392,7 +17392,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param ListInstanceConfigurationsRequest
    * @return ListInstanceConfigurationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstanceConfigurations.ts.html |here} to see how to use ListInstanceConfigurations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstanceConfigurations.ts.html |here} to see how to use ListInstanceConfigurations API.
    */
   public async listInstanceConfigurations(
     listInstanceConfigurationsRequest: requests.ListInstanceConfigurationsRequest
@@ -17524,7 +17524,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param ListInstancePoolInstancesRequest
    * @return ListInstancePoolInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstancePoolInstances.ts.html |here} to see how to use ListInstancePoolInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstancePoolInstances.ts.html |here} to see how to use ListInstancePoolInstances API.
    */
   public async listInstancePoolInstances(
     listInstancePoolInstancesRequest: requests.ListInstancePoolInstancesRequest
@@ -17659,7 +17659,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param ListInstancePoolsRequest
    * @return ListInstancePoolsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstancePools.ts.html |here} to see how to use ListInstancePools API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstancePools.ts.html |here} to see how to use ListInstancePools API.
    */
   public async listInstancePools(
     listInstancePoolsRequest: requests.ListInstancePoolsRequest
@@ -17795,7 +17795,7 @@ To determine whether capacity is available for a specific shape before you creat
    * @param ResetInstancePoolRequest
    * @return ResetInstancePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ResetInstancePool.ts.html |here} to see how to use ResetInstancePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ResetInstancePool.ts.html |here} to see how to use ResetInstancePool API.
    */
   public async resetInstancePool(
     resetInstancePoolRequest: requests.ResetInstancePoolRequest
@@ -17878,7 +17878,7 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
      * @param SoftresetInstancePoolRequest
      * @return SoftresetInstancePoolResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SoftresetInstancePool.ts.html |here} to see how to use SoftresetInstancePool API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SoftresetInstancePool.ts.html |here} to see how to use SoftresetInstancePool API.
      */
   public async softresetInstancePool(
     softresetInstancePoolRequest: requests.SoftresetInstancePoolRequest
@@ -17961,7 +17961,7 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
      * @param SoftstopInstancePoolRequest
      * @return SoftstopInstancePoolResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SoftstopInstancePool.ts.html |here} to see how to use SoftstopInstancePool API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SoftstopInstancePool.ts.html |here} to see how to use SoftstopInstancePool API.
      */
   public async softstopInstancePool(
     softstopInstancePoolRequest: requests.SoftstopInstancePoolRequest
@@ -18041,7 +18041,7 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
    * @param StartInstancePoolRequest
    * @return StartInstancePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/StartInstancePool.ts.html |here} to see how to use StartInstancePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/StartInstancePool.ts.html |here} to see how to use StartInstancePool API.
    */
   public async startInstancePool(
     startInstancePoolRequest: requests.StartInstancePoolRequest
@@ -18121,7 +18121,7 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
    * @param StopInstancePoolRequest
    * @return StopInstancePoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/StopInstancePool.ts.html |here} to see how to use StopInstancePool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/StopInstancePool.ts.html |here} to see how to use StopInstancePool API.
    */
   public async stopInstancePool(
     stopInstancePoolRequest: requests.StopInstancePoolRequest
@@ -18194,7 +18194,7 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
   }
 
   /**
-     * Deletes (terminates) a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+     * Deletes (terminates) a [cluster network with instance pools](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
 * <p>
 When you delete a cluster network, all of its resources are permanently deleted,
 * including associated instances and instance pools.
@@ -18203,7 +18203,7 @@ When you delete a cluster network, all of its resources are permanently deleted,
      * @param TerminateClusterNetworkRequest
      * @return TerminateClusterNetworkResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/TerminateClusterNetwork.ts.html |here} to see how to use TerminateClusterNetwork API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/TerminateClusterNetwork.ts.html |here} to see how to use TerminateClusterNetwork API.
      */
   public async terminateClusterNetwork(
     terminateClusterNetworkRequest: requests.TerminateClusterNetworkRequest
@@ -18284,7 +18284,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
      * @param TerminateInstancePoolRequest
      * @return TerminateInstancePoolResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/TerminateInstancePool.ts.html |here} to see how to use TerminateInstancePool API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/TerminateInstancePool.ts.html |here} to see how to use TerminateInstancePool API.
      */
   public async terminateInstancePool(
     terminateInstancePoolRequest: requests.TerminateInstancePoolRequest
@@ -18346,14 +18346,14 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   }
 
   /**
-   * Updates a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+   * Updates a [cluster network with instance pools](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
    * The OCID of the cluster network remains the same.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateClusterNetworkRequest
    * @return UpdateClusterNetworkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateClusterNetwork.ts.html |here} to see how to use UpdateClusterNetwork API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateClusterNetwork.ts.html |here} to see how to use UpdateClusterNetwork API.
    */
   public async updateClusterNetwork(
     updateClusterNetworkRequest: requests.UpdateClusterNetworkRequest
@@ -18436,7 +18436,7 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
    * @param UpdateInstanceConfigurationRequest
    * @return UpdateInstanceConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstanceConfiguration.ts.html |here} to see how to use UpdateInstanceConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstanceConfiguration.ts.html |here} to see how to use UpdateInstanceConfiguration API.
    */
   public async updateInstanceConfiguration(
     updateInstanceConfigurationRequest: requests.UpdateInstanceConfigurationRequest
@@ -18522,7 +18522,7 @@ The OCID of the instance pool remains the same.
      * @param UpdateInstancePoolRequest
      * @return UpdateInstancePoolResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstancePool.ts.html |here} to see how to use UpdateInstancePool API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInstancePool.ts.html |here} to see how to use UpdateInstancePool API.
      */
   public async updateInstancePool(
     updateInstancePoolRequest: requests.UpdateInstancePoolRequest
@@ -18818,7 +18818,7 @@ export class VirtualNetworkClient {
    * @param AddDrgRouteDistributionStatementsRequest
    * @return AddDrgRouteDistributionStatementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddDrgRouteDistributionStatements.ts.html |here} to see how to use AddDrgRouteDistributionStatements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddDrgRouteDistributionStatements.ts.html |here} to see how to use AddDrgRouteDistributionStatements API.
    */
   public async addDrgRouteDistributionStatements(
     addDrgRouteDistributionStatementsRequest: requests.AddDrgRouteDistributionStatementsRequest
@@ -18898,7 +18898,7 @@ export class VirtualNetworkClient {
    * @param AddDrgRouteRulesRequest
    * @return AddDrgRouteRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddDrgRouteRules.ts.html |here} to see how to use AddDrgRouteRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddDrgRouteRules.ts.html |here} to see how to use AddDrgRouteRules API.
    */
   public async addDrgRouteRules(
     addDrgRouteRulesRequest: requests.AddDrgRouteRulesRequest
@@ -18975,7 +18975,7 @@ export class VirtualNetworkClient {
    * @param AddIpv6SubnetCidrRequest
    * @return AddIpv6SubnetCidrResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddIpv6SubnetCidr.ts.html |here} to see how to use AddIpv6SubnetCidr API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddIpv6SubnetCidr.ts.html |here} to see how to use AddIpv6SubnetCidr API.
    */
   public async addIpv6SubnetCidr(
     addIpv6SubnetCidrRequest: requests.AddIpv6SubnetCidrRequest
@@ -19061,7 +19061,7 @@ export class VirtualNetworkClient {
    * @param AddIpv6VcnCidrRequest
    * @return AddIpv6VcnCidrResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddIpv6VcnCidr.ts.html |here} to see how to use AddIpv6VcnCidr API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddIpv6VcnCidr.ts.html |here} to see how to use AddIpv6VcnCidr API.
    */
   public async addIpv6VcnCidr(
     addIpv6VcnCidrRequest: requests.AddIpv6VcnCidrRequest
@@ -19141,7 +19141,7 @@ export class VirtualNetworkClient {
    * @param AddNetworkSecurityGroupSecurityRulesRequest
    * @return AddNetworkSecurityGroupSecurityRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddNetworkSecurityGroupSecurityRules.ts.html |here} to see how to use AddNetworkSecurityGroupSecurityRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddNetworkSecurityGroupSecurityRules.ts.html |here} to see how to use AddNetworkSecurityGroupSecurityRules API.
    */
   public async addNetworkSecurityGroupSecurityRules(
     addNetworkSecurityGroupSecurityRulesRequest: requests.AddNetworkSecurityGroupSecurityRulesRequest
@@ -19222,7 +19222,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
      * @param AddPublicIpPoolCapacityRequest
      * @return AddPublicIpPoolCapacityResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddPublicIpPoolCapacity.ts.html |here} to see how to use AddPublicIpPoolCapacity API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddPublicIpPoolCapacity.ts.html |here} to see how to use AddPublicIpPoolCapacity API.
      */
   public async addPublicIpPoolCapacity(
     addPublicIpPoolCapacityRequest: requests.AddPublicIpPoolCapacityRequest
@@ -19312,7 +19312,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
      * @param AddVcnCidrRequest
      * @return AddVcnCidrResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddVcnCidr.ts.html |here} to see how to use AddVcnCidr API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddVcnCidr.ts.html |here} to see how to use AddVcnCidr API.
      */
   public async addVcnCidr(
     addVcnCidrRequest: requests.AddVcnCidrRequest
@@ -19392,7 +19392,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * @param AdvertiseByoipRangeRequest
    * @return AdvertiseByoipRangeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AdvertiseByoipRange.ts.html |here} to see how to use AdvertiseByoipRange API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AdvertiseByoipRange.ts.html |here} to see how to use AdvertiseByoipRange API.
    */
   public async advertiseByoipRange(
     advertiseByoipRangeRequest: requests.AdvertiseByoipRangeRequest
@@ -19470,7 +19470,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * @param AttachServiceIdRequest
    * @return AttachServiceIdResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachServiceId.ts.html |here} to see how to use AttachServiceId API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachServiceId.ts.html |here} to see how to use AttachServiceId API.
    */
   public async attachServiceId(
     attachServiceIdRequest: requests.AttachServiceIdRequest
@@ -19550,7 +19550,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * @param BulkAddVirtualCircuitPublicPrefixesRequest
    * @return BulkAddVirtualCircuitPublicPrefixesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkAddVirtualCircuitPublicPrefixes.ts.html |here} to see how to use BulkAddVirtualCircuitPublicPrefixes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkAddVirtualCircuitPublicPrefixes.ts.html |here} to see how to use BulkAddVirtualCircuitPublicPrefixes API.
    */
   public async bulkAddVirtualCircuitPublicPrefixes(
     bulkAddVirtualCircuitPublicPrefixesRequest: requests.BulkAddVirtualCircuitPublicPrefixesRequest
@@ -19622,7 +19622,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
    * @param BulkDeleteVirtualCircuitPublicPrefixesRequest
    * @return BulkDeleteVirtualCircuitPublicPrefixesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkDeleteVirtualCircuitPublicPrefixes.ts.html |here} to see how to use BulkDeleteVirtualCircuitPublicPrefixes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkDeleteVirtualCircuitPublicPrefixes.ts.html |here} to see how to use BulkDeleteVirtualCircuitPublicPrefixes API.
    */
   public async bulkDeleteVirtualCircuitPublicPrefixes(
     bulkDeleteVirtualCircuitPublicPrefixesRequest: requests.BulkDeleteVirtualCircuitPublicPrefixesRequest
@@ -19687,13 +19687,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves a BYOASN Resource to a different compartment. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeByoasnCompartmentRequest
    * @return ChangeByoasnCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeByoasnCompartment.ts.html |here} to see how to use ChangeByoasnCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeByoasnCompartment.ts.html |here} to see how to use ChangeByoasnCompartment API.
    */
   public async changeByoasnCompartment(
     changeByoasnCompartmentRequest: requests.ChangeByoasnCompartmentRequest
@@ -19765,13 +19765,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves a BYOIP CIDR block to a different compartment. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeByoipRangeCompartmentRequest
    * @return ChangeByoipRangeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeByoipRangeCompartment.ts.html |here} to see how to use ChangeByoipRangeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeByoipRangeCompartment.ts.html |here} to see how to use ChangeByoipRangeCompartment API.
    */
   public async changeByoipRangeCompartment(
     changeByoipRangeCompartmentRequest: requests.ChangeByoipRangeCompartmentRequest
@@ -19842,13 +19842,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves a capture filter to a new compartment in the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCaptureFilterCompartmentRequest
    * @return ChangeCaptureFilterCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeCaptureFilterCompartment.ts.html |here} to see how to use ChangeCaptureFilterCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeCaptureFilterCompartment.ts.html |here} to see how to use ChangeCaptureFilterCompartment API.
    */
   public async changeCaptureFilterCompartment(
     changeCaptureFilterCompartmentRequest: requests.ChangeCaptureFilterCompartmentRequest
@@ -19930,13 +19930,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves a CPE object into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeCpeCompartmentRequest
    * @return ChangeCpeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeCpeCompartment.ts.html |here} to see how to use ChangeCpeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeCpeCompartment.ts.html |here} to see how to use ChangeCpeCompartment API.
    */
   public async changeCpeCompartment(
     changeCpeCompartmentRequest: requests.ChangeCpeCompartmentRequest
@@ -20012,13 +20012,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves a cross-connect into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeCrossConnectCompartmentRequest
    * @return ChangeCrossConnectCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeCrossConnectCompartment.ts.html |here} to see how to use ChangeCrossConnectCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeCrossConnectCompartment.ts.html |here} to see how to use ChangeCrossConnectCompartment API.
    */
   public async changeCrossConnectCompartment(
     changeCrossConnectCompartmentRequest: requests.ChangeCrossConnectCompartmentRequest
@@ -20094,13 +20094,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves a cross-connect group into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeCrossConnectGroupCompartmentRequest
    * @return ChangeCrossConnectGroupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeCrossConnectGroupCompartment.ts.html |here} to see how to use ChangeCrossConnectGroupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeCrossConnectGroupCompartment.ts.html |here} to see how to use ChangeCrossConnectGroupCompartment API.
    */
   public async changeCrossConnectGroupCompartment(
     changeCrossConnectGroupCompartmentRequest: requests.ChangeCrossConnectGroupCompartmentRequest
@@ -20178,13 +20178,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves a set of DHCP options into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDhcpOptionsCompartmentRequest
    * @return ChangeDhcpOptionsCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeDhcpOptionsCompartment.ts.html |here} to see how to use ChangeDhcpOptionsCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeDhcpOptionsCompartment.ts.html |here} to see how to use ChangeDhcpOptionsCompartment API.
    */
   public async changeDhcpOptionsCompartment(
     changeDhcpOptionsCompartmentRequest: requests.ChangeDhcpOptionsCompartmentRequest
@@ -20260,13 +20260,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves a DRG into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDrgCompartmentRequest
    * @return ChangeDrgCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeDrgCompartment.ts.html |here} to see how to use ChangeDrgCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeDrgCompartment.ts.html |here} to see how to use ChangeDrgCompartment API.
    */
   public async changeDrgCompartment(
     changeDrgCompartmentRequest: requests.ChangeDrgCompartmentRequest
@@ -20347,13 +20347,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves an IPSec connection into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeIPSecConnectionCompartmentRequest
    * @return ChangeIPSecConnectionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeIPSecConnectionCompartment.ts.html |here} to see how to use ChangeIPSecConnectionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeIPSecConnectionCompartment.ts.html |here} to see how to use ChangeIPSecConnectionCompartment API.
    */
   public async changeIPSecConnectionCompartment(
     changeIPSecConnectionCompartmentRequest: requests.ChangeIPSecConnectionCompartmentRequest
@@ -20429,13 +20429,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves an internet gateway into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeInternetGatewayCompartmentRequest
    * @return ChangeInternetGatewayCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeInternetGatewayCompartment.ts.html |here} to see how to use ChangeInternetGatewayCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeInternetGatewayCompartment.ts.html |here} to see how to use ChangeInternetGatewayCompartment API.
    */
   public async changeInternetGatewayCompartment(
     changeInternetGatewayCompartmentRequest: requests.ChangeInternetGatewayCompartmentRequest
@@ -20511,13 +20511,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves a local peering gateway into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeLocalPeeringGatewayCompartmentRequest
    * @return ChangeLocalPeeringGatewayCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeLocalPeeringGatewayCompartment.ts.html |here} to see how to use ChangeLocalPeeringGatewayCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeLocalPeeringGatewayCompartment.ts.html |here} to see how to use ChangeLocalPeeringGatewayCompartment API.
    */
   public async changeLocalPeeringGatewayCompartment(
     changeLocalPeeringGatewayCompartmentRequest: requests.ChangeLocalPeeringGatewayCompartmentRequest
@@ -20595,13 +20595,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
    * Moves a NAT gateway into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeNatGatewayCompartmentRequest
    * @return ChangeNatGatewayCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeNatGatewayCompartment.ts.html |here} to see how to use ChangeNatGatewayCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeNatGatewayCompartment.ts.html |here} to see how to use ChangeNatGatewayCompartment API.
    */
   public async changeNatGatewayCompartment(
     changeNatGatewayCompartmentRequest: requests.ChangeNatGatewayCompartmentRequest
@@ -20676,13 +20676,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
 
   /**
    * Moves a network security group into a different compartment within the same tenancy. For
-   * information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeNetworkSecurityGroupCompartmentRequest
    * @return ChangeNetworkSecurityGroupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeNetworkSecurityGroupCompartment.ts.html |here} to see how to use ChangeNetworkSecurityGroupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeNetworkSecurityGroupCompartment.ts.html |here} to see how to use ChangeNetworkSecurityGroupCompartment API.
    */
   public async changeNetworkSecurityGroupCompartment(
     changeNetworkSecurityGroupCompartmentRequest: requests.ChangeNetworkSecurityGroupCompartmentRequest
@@ -20761,7 +20761,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   /**
      * Moves a public IP into a different compartment within the same tenancy. For information
 * about moving resources between compartments, see
-* [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 This operation applies only to reserved public IPs. Ephemeral public IPs always belong to the
 * same compartment as their VNIC and move accordingly.
@@ -20770,7 +20770,7 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
      * @param ChangePublicIpCompartmentRequest
      * @return ChangePublicIpCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangePublicIpCompartment.ts.html |here} to see how to use ChangePublicIpCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangePublicIpCompartment.ts.html |here} to see how to use ChangePublicIpCompartment API.
      */
   public async changePublicIpCompartment(
     changePublicIpCompartmentRequest: requests.ChangePublicIpCompartmentRequest
@@ -20846,13 +20846,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   /**
    * Moves a public IP pool to a different compartment. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangePublicIpPoolCompartmentRequest
    * @return ChangePublicIpPoolCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangePublicIpPoolCompartment.ts.html |here} to see how to use ChangePublicIpPoolCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangePublicIpPoolCompartment.ts.html |here} to see how to use ChangePublicIpPoolCompartment API.
    */
   public async changePublicIpPoolCompartment(
     changePublicIpPoolCompartmentRequest: requests.ChangePublicIpPoolCompartmentRequest
@@ -20923,13 +20923,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   /**
    * Moves a remote peering connection (RPC) into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeRemotePeeringConnectionCompartmentRequest
    * @return ChangeRemotePeeringConnectionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeRemotePeeringConnectionCompartment.ts.html |here} to see how to use ChangeRemotePeeringConnectionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeRemotePeeringConnectionCompartment.ts.html |here} to see how to use ChangeRemotePeeringConnectionCompartment API.
    */
   public async changeRemotePeeringConnectionCompartment(
     changeRemotePeeringConnectionCompartmentRequest: requests.ChangeRemotePeeringConnectionCompartmentRequest
@@ -21008,13 +21008,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   /**
    * Moves a route table into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeRouteTableCompartmentRequest
    * @return ChangeRouteTableCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeRouteTableCompartment.ts.html |here} to see how to use ChangeRouteTableCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeRouteTableCompartment.ts.html |here} to see how to use ChangeRouteTableCompartment API.
    */
   public async changeRouteTableCompartment(
     changeRouteTableCompartmentRequest: requests.ChangeRouteTableCompartmentRequest
@@ -21090,13 +21090,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   /**
    * Moves a security list into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSecurityListCompartmentRequest
    * @return ChangeSecurityListCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeSecurityListCompartment.ts.html |here} to see how to use ChangeSecurityListCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeSecurityListCompartment.ts.html |here} to see how to use ChangeSecurityListCompartment API.
    */
   public async changeSecurityListCompartment(
     changeSecurityListCompartmentRequest: requests.ChangeSecurityListCompartmentRequest
@@ -21172,13 +21172,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   /**
    * Moves a service gateway into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeServiceGatewayCompartmentRequest
    * @return ChangeServiceGatewayCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeServiceGatewayCompartment.ts.html |here} to see how to use ChangeServiceGatewayCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeServiceGatewayCompartment.ts.html |here} to see how to use ChangeServiceGatewayCompartment API.
    */
   public async changeServiceGatewayCompartment(
     changeServiceGatewayCompartmentRequest: requests.ChangeServiceGatewayCompartmentRequest
@@ -21254,13 +21254,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   /**
    * Moves a subnet into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSubnetCompartmentRequest
    * @return ChangeSubnetCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeSubnetCompartment.ts.html |here} to see how to use ChangeSubnetCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeSubnetCompartment.ts.html |here} to see how to use ChangeSubnetCompartment API.
    */
   public async changeSubnetCompartment(
     changeSubnetCompartmentRequest: requests.ChangeSubnetCompartmentRequest
@@ -21341,13 +21341,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   /**
    * Moves a VCN into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVcnCompartmentRequest
    * @return ChangeVcnCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVcnCompartment.ts.html |here} to see how to use ChangeVcnCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVcnCompartment.ts.html |here} to see how to use ChangeVcnCompartment API.
    */
   public async changeVcnCompartment(
     changeVcnCompartmentRequest: requests.ChangeVcnCompartmentRequest
@@ -21428,13 +21428,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   /**
    * Moves a virtual circuit into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeVirtualCircuitCompartmentRequest
    * @return ChangeVirtualCircuitCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVirtualCircuitCompartment.ts.html |here} to see how to use ChangeVirtualCircuitCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVirtualCircuitCompartment.ts.html |here} to see how to use ChangeVirtualCircuitCompartment API.
    */
   public async changeVirtualCircuitCompartment(
     changeVirtualCircuitCompartmentRequest: requests.ChangeVirtualCircuitCompartmentRequest
@@ -21510,13 +21510,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   /**
    * Moves a VLAN into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVlanCompartmentRequest
    * @return ChangeVlanCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVlanCompartment.ts.html |here} to see how to use ChangeVlanCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVlanCompartment.ts.html |here} to see how to use ChangeVlanCompartment API.
    */
   public async changeVlanCompartment(
     changeVlanCompartmentRequest: requests.ChangeVlanCompartmentRequest
@@ -21593,13 +21593,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   /**
    * Moves a VTAP to a new compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeVtapCompartmentRequest
    * @return ChangeVtapCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVtapCompartment.ts.html |here} to see how to use ChangeVtapCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeVtapCompartment.ts.html |here} to see how to use ChangeVtapCompartment API.
    */
   public async changeVtapCompartment(
     changeVtapCompartmentRequest: requests.ChangeVtapCompartmentRequest
@@ -21686,13 +21686,13 @@ This operation must be called by the VCN administrator who is designated as
 * an Identity and Access Management (IAM) policy that gives the requestor permission
 * to connect to LPGs in the acceptor's compartment. Without that permission, this
 * operation will fail. For more information, see
-* [VCN Peering](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
+* [VCN Peering](https://docs.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ConnectLocalPeeringGatewaysRequest
      * @return ConnectLocalPeeringGatewaysResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ConnectLocalPeeringGateways.ts.html |here} to see how to use ConnectLocalPeeringGateways API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ConnectLocalPeeringGateways.ts.html |here} to see how to use ConnectLocalPeeringGateways API.
      */
   public async connectLocalPeeringGateways(
     connectLocalPeeringGatewaysRequest: requests.ConnectLocalPeeringGatewaysRequest
@@ -21766,13 +21766,13 @@ This operation must be called by the VCN administrator who is designated as
 * an Identity and Access Management (IAM) policy that gives the requestor permission
 * to connect to RPCs in the acceptor's compartment. Without that permission, this
 * operation will fail. For more information, see
-* [VCN Peering](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
+* [VCN Peering](https://docs.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ConnectRemotePeeringConnectionsRequest
      * @return ConnectRemotePeeringConnectionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ConnectRemotePeeringConnections.ts.html |here} to see how to use ConnectRemotePeeringConnections API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ConnectRemotePeeringConnections.ts.html |here} to see how to use ConnectRemotePeeringConnections API.
      */
   public async connectRemotePeeringConnections(
     connectRemotePeeringConnectionsRequest: requests.ConnectRemotePeeringConnectionsRequest
@@ -21846,7 +21846,7 @@ This operation must be called by the VCN administrator who is designated as
    * @param CreateByoasnRequest
    * @return CreateByoasnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateByoasn.ts.html |here} to see how to use CreateByoasn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateByoasn.ts.html |here} to see how to use CreateByoasn API.
    */
   public async createByoasn(
     createByoasnRequest: requests.CreateByoasnRequest
@@ -21927,7 +21927,7 @@ This operation must be called by the VCN administrator who is designated as
    * @param CreateByoipRangeRequest
    * @return CreateByoipRangeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateByoipRange.ts.html |here} to see how to use CreateByoipRange API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateByoipRange.ts.html |here} to see how to use CreateByoipRange API.
    */
   public async createByoipRange(
     createByoipRangeRequest: requests.CreateByoipRangeRequest
@@ -22004,10 +22004,10 @@ This operation must be called by the VCN administrator who is designated as
   /**
      * Creates a virtual test access point (VTAP) capture filter in the specified compartment.
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains
 * the VTAP. For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
-* For information about OCIDs, see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* For information about OCIDs, see [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the VTAP, otherwise a default is provided.
 * It does not have to be unique, and you can change it.
@@ -22016,7 +22016,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
      * @param CreateCaptureFilterRequest
      * @return CreateCaptureFilterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateCaptureFilter.ts.html |here} to see how to use CreateCaptureFilter API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateCaptureFilter.ts.html |here} to see how to use CreateCaptureFilter API.
      */
   public async createCaptureFilter(
     createCaptureFilterRequest: requests.CreateCaptureFilterRequest
@@ -22093,17 +22093,17 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
 
   /**
      * Creates a new virtual customer-premises equipment (CPE) object in the specified compartment. For
-* more information, see [Site-to-Site VPN Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm).
+* more information, see [Site-to-Site VPN Overview](https://docs.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want
 * the CPE to reside. Notice that the CPE doesn't have to be in the same compartment as the IPSec
 * connection or other Networking Service components. If you're not sure which compartment to
 * use, put the CPE in the same compartment as the DRG. For more information about
-* compartments and access control, see [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
-* For information about OCIDs, see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* compartments and access control, see [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* For information about OCIDs, see [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You must provide the public IP address of your on-premises router. See
-* [CPE Configuration](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/configuringCPE.htm).
+* [CPE Configuration](https://docs.oracle.com/iaas/Content/Network/Tasks/configuringCPE.htm).
 * <p>
 You may optionally specify a *display name* for the CPE, otherwise a default is provided. It does not have to
 * be unique, and you can change it. Avoid entering confidential information.
@@ -22112,7 +22112,7 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
      * @param CreateCpeRequest
      * @return CreateCpeResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateCpe.ts.html |here} to see how to use CreateCpe API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateCpe.ts.html |here} to see how to use CreateCpe API.
      */
   public async createCpe(
     createCpeRequest: requests.CreateCpeRequest
@@ -22191,16 +22191,16 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
 * <p>
 After creating the `CrossConnect` object, you need to go the FastConnect location
 * and request to have the physical cable installed. For more information, see
-* [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+* [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
 * compartment where you want the cross-connect to reside. If you're
 * not sure which compartment to use, put the cross-connect in the
 * same compartment with your VCN. For more information about
 * compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * For information about OCIDs, see
-* [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the cross-connect.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -22209,7 +22209,7 @@ You may optionally specify a *display name* for the cross-connect.
      * @param CreateCrossConnectRequest
      * @return CreateCrossConnectResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateCrossConnect.ts.html |here} to see how to use CreateCrossConnect API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateCrossConnect.ts.html |here} to see how to use CreateCrossConnect API.
      */
   public async createCrossConnect(
     createCrossConnectRequest: requests.CreateCrossConnectRequest
@@ -22286,16 +22286,16 @@ You may optionally specify a *display name* for the cross-connect.
   /**
      * Creates a new cross-connect group to use with Oracle Cloud Infrastructure
 * FastConnect. For more information, see
-* [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+* [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
 * compartment where you want the cross-connect group to reside. If you're
 * not sure which compartment to use, put the cross-connect group in the
 * same compartment with your VCN. For more information about
 * compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * For information about OCIDs, see
-* [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the cross-connect group.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -22304,7 +22304,7 @@ You may optionally specify a *display name* for the cross-connect group.
      * @param CreateCrossConnectGroupRequest
      * @return CreateCrossConnectGroupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateCrossConnectGroup.ts.html |here} to see how to use CreateCrossConnectGroup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateCrossConnectGroup.ts.html |here} to see how to use CreateCrossConnectGroup API.
      */
   public async createCrossConnectGroup(
     createCrossConnectGroupRequest: requests.CreateCrossConnectGroupRequest
@@ -22382,12 +22382,12 @@ You may optionally specify a *display name* for the cross-connect group.
      * Creates a new set of DHCP options for the specified VCN. For more information, see
 * {@link DhcpOptions}.
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the set of
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the set of
 * DHCP options to reside. Notice that the set of options doesn't have to be in the same compartment as the VCN,
 * subnets, or other Networking Service components. If you're not sure which compartment to use, put the set
 * of DHCP options in the same compartment as the VCN. For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs, see
-* [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs, see
+* [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the set of DHCP options, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -22396,7 +22396,7 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
      * @param CreateDhcpOptionsRequest
      * @return CreateDhcpOptionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDhcpOptions.ts.html |here} to see how to use CreateDhcpOptions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDhcpOptions.ts.html |here} to see how to use CreateDhcpOptions API.
      */
   public async createDhcpOptions(
     createDhcpOptionsRequest: requests.CreateDhcpOptionsRequest
@@ -22471,14 +22471,14 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
 
   /**
      * Creates a new dynamic routing gateway (DRG) in the specified compartment. For more information,
-* see [Dynamic Routing Gateways (DRGs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm).
+* see [Dynamic Routing Gateways (DRGs)](https://docs.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want
 * the DRG to reside. Notice that the DRG doesn't have to be in the same compartment as the VCN,
 * the DRG attachment, or other Networking Service components. If you're not sure which compartment
 * to use, put the DRG in the same compartment as the VCN. For more information about compartments
-* and access control, see [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
-* For information about OCIDs, see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* and access control, see [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* For information about OCIDs, see [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the DRG, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -22487,7 +22487,7 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
      * @param CreateDrgRequest
      * @return CreateDrgResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrg.ts.html |here} to see how to use CreateDrg API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrg.ts.html |here} to see how to use CreateDrg API.
      */
   public async createDrg(
     createDrgRequest: requests.CreateDrgRequest
@@ -22562,21 +22562,21 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
   /**
      * Attaches the specified DRG to the specified network resource. A VCN can be attached to only one DRG
 * at a time, but a DRG can be attached to more than one VCN. The response includes a `DrgAttachment`
-* object with its own [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). For more information about DRGs, see
-* [Dynamic Routing Gateways (DRGs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm).
+* object with its own [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). For more information about DRGs, see
+* [Dynamic Routing Gateways (DRGs)](https://docs.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm).
 * <p>
 You may optionally specify a *display name* for the attachment, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * <p>
 For the purposes of access control, the DRG attachment is automatically placed into the currently selected compartment.
 * For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateDrgAttachmentRequest
      * @return CreateDrgAttachmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrgAttachment.ts.html |here} to see how to use CreateDrgAttachment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrgAttachment.ts.html |here} to see how to use CreateDrgAttachment API.
      */
   public async createDrgAttachment(
     createDrgAttachmentRequest: requests.CreateDrgAttachmentRequest
@@ -22660,7 +22660,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
    * @param CreateDrgRouteDistributionRequest
    * @return CreateDrgRouteDistributionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrgRouteDistribution.ts.html |here} to see how to use CreateDrgRouteDistribution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrgRouteDistribution.ts.html |here} to see how to use CreateDrgRouteDistribution API.
    */
   public async createDrgRouteDistribution(
     createDrgRouteDistributionRequest: requests.CreateDrgRouteDistributionRequest
@@ -22742,7 +22742,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
    * @param CreateDrgRouteTableRequest
    * @return CreateDrgRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrgRouteTable.ts.html |here} to see how to use CreateDrgRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrgRouteTable.ts.html |here} to see how to use CreateDrgRouteTable API.
    */
   public async createDrgRouteTable(
     createDrgRouteTableRequest: requests.CreateDrgRouteTableRequest
@@ -22818,7 +22818,7 @@ For the purposes of access control, the DRG attachment is automatically placed i
 
   /**
      * Creates a new IPSec connection between the specified DRG and CPE. For more information, see
-* [Site-to-Site VPN Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm).
+* [Site-to-Site VPN Overview](https://docs.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm).
 * <p>
 If you configure at least one tunnel to use static routing, then in the request you must provide
 * at least one valid static route (you're allowed a maximum of 10). For example: 10.0.0.0/16.
@@ -22826,12 +22826,12 @@ If you configure at least one tunnel to use static routing, then in the request 
 * the static routes. For more information, see the important note in
 * {@link IPSecConnection}.
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the
 * IPSec connection to reside. Notice that the IPSec connection doesn't have to be in the same compartment
 * as the DRG, CPE, or other Networking Service components. If you're not sure which compartment to
 * use, put the IPSec connection in the same compartment as the DRG. For more information about
 * compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * <p>
 You may optionally specify a *display name* for the IPSec connection, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -22844,13 +22844,13 @@ After creating the IPSec connection, you need to configure your on-premises rout
 * <p>
 For each tunnel, you need the IP address of Oracle's VPN headend and the shared secret
 * (that is, the pre-shared key). For more information, see
-* [CPE Configuration](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/configuringCPE.htm).
+* [CPE Configuration](https://docs.oracle.com/iaas/Content/Network/Tasks/configuringCPE.htm).
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateIPSecConnectionRequest
      * @return CreateIPSecConnectionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateIPSecConnection.ts.html |here} to see how to use CreateIPSecConnection API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateIPSecConnection.ts.html |here} to see how to use CreateIPSecConnection API.
      */
   public async createIPSecConnection(
     createIPSecConnectionRequest: requests.CreateIPSecConnectionRequest
@@ -22926,13 +22926,13 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
 
   /**
      * Creates a new internet gateway for the specified VCN. For more information, see
-* [Access to the Internet](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIGs.htm).
+* [Access to the Internet](https://docs.oracle.com/iaas/Content/Network/Tasks/managingIGs.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the Internet
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the Internet
 * Gateway to reside. Notice that the internet gateway doesn't have to be in the same compartment as the VCN or
 * other Networking Service components. If you're not sure which compartment to use, put the Internet
 * Gateway in the same compartment with the VCN. For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * <p>
 You may optionally specify a *display name* for the internet gateway, otherwise a default is provided. It
 * does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -22950,7 +22950,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
      * @param CreateInternetGatewayRequest
      * @return CreateInternetGatewayResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInternetGateway.ts.html |here} to see how to use CreateInternetGateway API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInternetGateway.ts.html |here} to see how to use CreateInternetGateway API.
      */
   public async createInternetGateway(
     createInternetGatewayRequest: requests.CreateInternetGatewayRequest
@@ -23031,7 +23031,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
    * @param CreateIpv6Request
    * @return CreateIpv6Response
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateIpv6.ts.html |here} to see how to use CreateIpv6 API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateIpv6.ts.html |here} to see how to use CreateIpv6 API.
    */
   public async createIpv6(
     createIpv6Request: requests.CreateIpv6Request
@@ -23111,7 +23111,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
    * @param CreateLocalPeeringGatewayRequest
    * @return CreateLocalPeeringGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateLocalPeeringGateway.ts.html |here} to see how to use CreateLocalPeeringGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateLocalPeeringGateway.ts.html |here} to see how to use CreateLocalPeeringGateway API.
    */
   public async createLocalPeeringGateway(
     createLocalPeeringGatewayRequest: requests.CreateLocalPeeringGatewayRequest
@@ -23193,7 +23193,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
    * @param CreateNatGatewayRequest
    * @return CreateNatGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateNatGateway.ts.html |here} to see how to use CreateNatGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateNatGateway.ts.html |here} to see how to use CreateNatGateway API.
    */
   public async createNatGateway(
     createNatGatewayRequest: requests.CreateNatGatewayRequest
@@ -23273,7 +23273,7 @@ You must specify whether the internet gateway is enabled when you create it. If 
    * @param CreateNetworkSecurityGroupRequest
    * @return CreateNetworkSecurityGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateNetworkSecurityGroup.ts.html |here} to see how to use CreateNetworkSecurityGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateNetworkSecurityGroup.ts.html |here} to see how to use CreateNetworkSecurityGroup API.
    */
   public async createNetworkSecurityGroup(
     createNetworkSecurityGroupRequest: requests.CreateNetworkSecurityGroupRequest
@@ -23350,13 +23350,13 @@ You must specify whether the internet gateway is enabled when you create it. If 
   /**
    * Creates a secondary private IP for the specified VNIC.
    * For more information about secondary private IPs, see
-   * [IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
+   * [IP Addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreatePrivateIpRequest
    * @return CreatePrivateIpResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreatePrivateIp.ts.html |here} to see how to use CreatePrivateIp API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreatePrivateIp.ts.html |here} to see how to use CreatePrivateIp API.
    */
   public async createPrivateIp(
     createPrivateIpRequest: requests.CreatePrivateIpRequest
@@ -23432,10 +23432,10 @@ You must specify whether the internet gateway is enabled when you create it. If 
   /**
      * Creates a public IP. Use the `lifetime` property to specify whether it's an ephemeral or
 * reserved public IP. For information about limits on how many you can create, see
-* [Public IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
+* [Public IP Addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
 * <p>
 * **For an ephemeral public IP assigned to a private IP:** You must also specify a `privateIpId`
-* with the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary private IP you want to assign the public IP to. The public IP is
+* with the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary private IP you want to assign the public IP to. The public IP is
 * created in the same availability domain as the private IP. An ephemeral public IP must always be
 * assigned to a private IP, and only to the *primary* private IP on a VNIC, not a secondary
 * private IP. Exception: If you create a {@link NatGateway}, Oracle
@@ -23456,7 +23456,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
      * @param CreatePublicIpRequest
      * @return CreatePublicIpResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreatePublicIp.ts.html |here} to see how to use CreatePublicIp API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreatePublicIp.ts.html |here} to see how to use CreatePublicIp API.
      */
   public async createPublicIp(
     createPublicIpRequest: requests.CreatePublicIpRequest
@@ -23536,7 +23536,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
    * @param CreatePublicIpPoolRequest
    * @return CreatePublicIpPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreatePublicIpPool.ts.html |here} to see how to use CreatePublicIpPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreatePublicIpPool.ts.html |here} to see how to use CreatePublicIpPool API.
    */
   public async createPublicIpPool(
     createPublicIpPoolRequest: requests.CreatePublicIpPoolRequest
@@ -23618,7 +23618,7 @@ Also, for reserved public IPs, the optional assignment part of this operation is
    * @param CreateRemotePeeringConnectionRequest
    * @return CreateRemotePeeringConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateRemotePeeringConnection.ts.html |here} to see how to use CreateRemotePeeringConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateRemotePeeringConnection.ts.html |here} to see how to use CreateRemotePeeringConnection API.
    */
   public async createRemotePeeringConnection(
     createRemotePeeringConnectionRequest: requests.CreateRemotePeeringConnectionRequest
@@ -23695,16 +23695,16 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   /**
      * Creates a new route table for the specified VCN. In the request you must also include at least one route
 * rule for the new route table. For information on the number of rules you can have in a route table, see
-* [Service Limits](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/servicelimits.htm). For general information about route
+* [Service Limits](https://docs.oracle.com/iaas/Content/General/Concepts/servicelimits.htm). For general information about route
 * tables in your VCN and the types of targets you can use in route rules,
-* see [Route Tables](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm).
+* see [Route Tables](https://docs.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the route
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the route
 * table to reside. Notice that the route table doesn't have to be in the same compartment as the VCN, subnets,
 * or other Networking Service components. If you're not sure which compartment to use, put the route
 * table in the same compartment as the VCN. For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs, see
-* [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs, see
+* [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the route table, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -23713,7 +23713,7 @@ You may optionally specify a *display name* for the route table, otherwise a def
      * @param CreateRouteTableRequest
      * @return CreateRouteTableResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateRouteTable.ts.html |here} to see how to use CreateRouteTable API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateRouteTable.ts.html |here} to see how to use CreateRouteTable API.
      */
   public async createRouteTable(
     createRouteTableRequest: requests.CreateRouteTableRequest
@@ -23788,16 +23788,16 @@ You may optionally specify a *display name* for the route table, otherwise a def
 
   /**
      * Creates a new security list for the specified VCN. For more information
-* about security lists, see [Security Lists](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm).
+* about security lists, see [Security Lists](https://docs.oracle.com/iaas/Content/Network/Concepts/securitylists.htm).
 * For information on the number of rules you can have in a security list, see
-* [Service Limits](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/servicelimits.htm).
+* [Service Limits](https://docs.oracle.com/iaas/Content/General/Concepts/servicelimits.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the security
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the security
 * list to reside. Notice that the security list doesn't have to be in the same compartment as the VCN, subnets,
 * or other Networking Service components. If you're not sure which compartment to use, put the security
 * list in the same compartment as the VCN. For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs, see
-* [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs, see
+* [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the security list, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -23806,7 +23806,7 @@ You may optionally specify a *display name* for the security list, otherwise a d
      * @param CreateSecurityListRequest
      * @return CreateSecurityListResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateSecurityList.ts.html |here} to see how to use CreateSecurityList API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateSecurityList.ts.html |here} to see how to use CreateSecurityList API.
      */
   public async createSecurityList(
     createSecurityListRequest: requests.CreateSecurityListRequest
@@ -23883,10 +23883,10 @@ You may optionally specify a *display name* for the security list, otherwise a d
   /**
      * Creates a new service gateway in the specified compartment.
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want
 * the service gateway to reside. For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
-* For information about OCIDs, see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* For information about OCIDs, see [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the service gateway, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -23898,7 +23898,7 @@ Use the {@link #listServices(ListServicesRequest) listServices} operation to fin
      * @param CreateServiceGatewayRequest
      * @return CreateServiceGatewayResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateServiceGateway.ts.html |here} to see how to use CreateServiceGateway API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateServiceGateway.ts.html |here} to see how to use CreateServiceGateway API.
      */
   public async createServiceGateway(
     createServiceGatewayRequest: requests.CreateServiceGatewayRequest
@@ -23970,41 +23970,41 @@ Use the {@link #listServices(ListServicesRequest) listServices} operation to fin
   /**
      * Creates a new subnet in the specified VCN. You can't change the size of the subnet after creation,
 * so it's important to think about the size of subnets you need before creating them.
-* For more information, see [VCNs and Subnets](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingVCNs.htm).
+* For more information, see [VCNs and Subnets](https://docs.oracle.com/iaas/Content/Network/Tasks/managingVCNs.htm).
 * For information on the number of subnets you can have in a VCN, see
-* [Service Limits](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/servicelimits.htm).
+* [Service Limits](https://docs.oracle.com/iaas/Content/General/Concepts/servicelimits.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the subnet
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the subnet
 * to reside. Notice that the subnet doesn't have to be in the same compartment as the VCN, route tables, or
 * other Networking Service components. If you're not sure which compartment to use, put the subnet in
 * the same compartment as the VCN. For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs,
-* see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs,
+* see [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally associate a route table with the subnet. If you don't, the subnet will use the
 * VCN's default route table. For more information about route tables, see
-* [Route Tables](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm).
+* [Route Tables](https://docs.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm).
 * <p>
 You may optionally associate a security list with the subnet. If you don't, the subnet will use the
 * VCN's default security list. For more information about security lists, see
-* [Security Lists](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm).
+* [Security Lists](https://docs.oracle.com/iaas/Content/Network/Concepts/securitylists.htm).
 * <p>
 You may optionally associate a set of DHCP options with the subnet. If you don't, the subnet will use the
 * VCN's default set. For more information about DHCP options, see
-* [DHCP Options](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDHCP.htm).
+* [DHCP Options](https://docs.oracle.com/iaas/Content/Network/Tasks/managingDHCP.htm).
 * <p>
 You may optionally specify a *display name* for the subnet, otherwise a default is provided.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
 * <p>
 You can also add a DNS label for the subnet, which is required if you want the Internet and
 * VCN Resolver to resolve hostnames for instances in the subnet. For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateSubnetRequest
      * @return CreateSubnetResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateSubnet.ts.html |here} to see how to use CreateSubnet API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateSubnet.ts.html |here} to see how to use CreateSubnet API.
      */
   public async createSubnet(
     createSubnetRequest: requests.CreateSubnetRequest
@@ -24079,7 +24079,7 @@ You can also add a DNS label for the subnet, which is required if you want the I
 
   /**
      * Creates a new virtual cloud network (VCN). For more information, see
-* [VCNs and Subnets](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingVCNs.htm).
+* [VCNs and Subnets](https://docs.oracle.com/iaas/Content/Network/Tasks/managingVCNs.htm).
 * <p>
 For the VCN, you specify a list of one or more IPv4 CIDR blocks that meet the following criteria:
 * <p>
@@ -24090,33 +24090,33 @@ For the VCN, you specify a list of one or more IPv4 CIDR blocks that meet the fo
 For a CIDR block, Oracle recommends that you use one of the private IP address ranges specified in [RFC 1918](https://tools.ietf.org/html/rfc1918) (10.0.0.0/8, 172.16/12, and 192.168/16). Example:
 * 172.16.0.0/16. The CIDR blocks can range from /16 to /30.
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the VCN to
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the VCN to
 * reside. Consult an Oracle Cloud Infrastructure administrator in your organization if you're not sure which
 * compartment to use. Notice that the VCN doesn't have to be in the same compartment as the subnets or other
 * Networking Service components. For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs, see
-* [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm). For information about OCIDs, see
+* [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the VCN, otherwise a default is provided. It does not have to
 * be unique, and you can change it. Avoid entering confidential information.
 * <p>
 You can also add a DNS label for the VCN, which is required if you want the instances to use the
 * Interent and VCN Resolver option for DNS in the VCN. For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 The VCN automatically comes with a default route table, default security list, and default set of DHCP options.
-* The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for each is returned in the response. You can't delete these default objects, but you can change their
+* The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for each is returned in the response. You can't delete these default objects, but you can change their
 * contents (that is, change the route rules, security list rules, and so on).
 * <p>
 The VCN and subnets you create are not accessible until you attach an internet gateway or set up a Site-to-Site VPN
 * or FastConnect. For more information, see
-* [Overview of the Networking Service](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm).
+* [Overview of the Networking Service](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateVcnRequest
      * @return CreateVcnResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVcn.ts.html |here} to see how to use CreateVcn API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVcn.ts.html |here} to see how to use CreateVcn API.
      */
   public async createVcn(
     createVcnRequest: requests.CreateVcnRequest
@@ -24191,16 +24191,16 @@ The VCN and subnets you create are not accessible until you attach an internet g
   /**
      * Creates a new virtual circuit to use with Oracle Cloud
 * Infrastructure FastConnect. For more information, see
-* [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+* [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
 * compartment where you want the virtual circuit to reside. If you're
 * not sure which compartment to use, put the virtual circuit in the
 * same compartment with the DRG it's using. For more information about
 * compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * For information about OCIDs, see
-* [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the virtual circuit.
 * It does not have to be unique, and you can change it. Avoid entering confidential information.
@@ -24209,13 +24209,13 @@ You may optionally specify a *display name* for the virtual circuit.
 * the traffic to flow through. Make sure you attach the DRG to your
 * VCN and confirm the VCN's routing sends traffic to the DRG. Otherwise
 * traffic will not flow. For more information, see
-* [Route Tables](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm).
+* [Route Tables](https://docs.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm).
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateVirtualCircuitRequest
      * @return CreateVirtualCircuitResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVirtualCircuit.ts.html |here} to see how to use CreateVirtualCircuit API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVirtualCircuit.ts.html |here} to see how to use CreateVirtualCircuit API.
      */
   public async createVirtualCircuit(
     createVirtualCircuitRequest: requests.CreateVirtualCircuitRequest
@@ -24296,7 +24296,7 @@ You may optionally specify a *display name* for the virtual circuit.
    * @param CreateVlanRequest
    * @return CreateVlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVlan.ts.html |here} to see how to use CreateVlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVlan.ts.html |here} to see how to use CreateVlan API.
    */
   public async createVlan(
     createVlanRequest: requests.CreateVlanRequest
@@ -24372,10 +24372,10 @@ You may optionally specify a *display name* for the virtual circuit.
   /**
      * Creates a virtual test access point (VTAP) in the specified compartment.
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the VTAP.
+For the purposes of access control, you must provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the VTAP.
 * For more information about compartments and access control, see
-* [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
-* For information about OCIDs, see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+* [Overview of the IAM Service](https://docs.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
+* For information about OCIDs, see [Resource Identifiers](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 You may optionally specify a *display name* for the VTAP, otherwise a default is provided.
 * It does not have to be unique, and you can change it.
@@ -24384,7 +24384,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
      * @param CreateVtapRequest
      * @return CreateVtapResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVtap.ts.html |here} to see how to use CreateVtap API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateVtap.ts.html |here} to see how to use CreateVtap API.
      */
   public async createVtap(
     createVtapRequest: requests.CreateVtapRequest
@@ -24461,13 +24461,13 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
    * Deletes the specified `Byoasn` resource.
    * The resource must be in one of the following states: CREATING, ACTIVE or FAILED.
    * It must not be in use by any of the byoipRanges or deletion will fail.
-   * You must specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * You must specify the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteByoasnRequest
    * @return DeleteByoasnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteByoasn.ts.html |here} to see how to use DeleteByoasn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteByoasn.ts.html |here} to see how to use DeleteByoasn API.
    */
   public async deleteByoasn(
     deleteByoasnRequest: requests.DeleteByoasnRequest
@@ -24533,14 +24533,14 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
    * Deletes the specified `ByoipRange` resource.
    * The resource must be in one of the following states: CREATING, PROVISIONED, ACTIVE, or FAILED.
    * It must not have any subranges currently allocated to a PublicIpPool object or the deletion will fail.
-   * You must specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * You must specify the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * If the `ByoipRange` resource is currently in the PROVISIONED or ACTIVE state, it will be de-provisioned and then deleted.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteByoipRangeRequest
    * @return DeleteByoipRangeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteByoipRange.ts.html |here} to see how to use DeleteByoipRange API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteByoipRange.ts.html |here} to see how to use DeleteByoipRange API.
    */
   public async deleteByoipRange(
     deleteByoipRangeRequest: requests.DeleteByoipRangeRequest
@@ -24615,7 +24615,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
    * @param DeleteCaptureFilterRequest
    * @return DeleteCaptureFilterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteCaptureFilter.ts.html |here} to see how to use DeleteCaptureFilter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteCaptureFilter.ts.html |here} to see how to use DeleteCaptureFilter API.
    */
   public async deleteCaptureFilter(
     deleteCaptureFilterRequest: requests.DeleteCaptureFilterRequest
@@ -24687,7 +24687,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
    * @param DeleteCpeRequest
    * @return DeleteCpeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteCpe.ts.html |here} to see how to use DeleteCpe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteCpe.ts.html |here} to see how to use DeleteCpe API.
    */
   public async deleteCpe(
     deleteCpeRequest: requests.DeleteCpeRequest
@@ -24755,7 +24755,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
    * @param DeleteCrossConnectRequest
    * @return DeleteCrossConnectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteCrossConnect.ts.html |here} to see how to use DeleteCrossConnect API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteCrossConnect.ts.html |here} to see how to use DeleteCrossConnect API.
    */
   public async deleteCrossConnect(
     deleteCrossConnectRequest: requests.DeleteCrossConnectRequest
@@ -24825,7 +24825,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
    * @param DeleteCrossConnectGroupRequest
    * @return DeleteCrossConnectGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteCrossConnectGroup.ts.html |here} to see how to use DeleteCrossConnectGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteCrossConnectGroup.ts.html |here} to see how to use DeleteCrossConnectGroup API.
    */
   public async deleteCrossConnectGroup(
     deleteCrossConnectGroupRequest: requests.DeleteCrossConnectGroupRequest
@@ -24897,7 +24897,7 @@ This is an asynchronous operation. The state of the set of options will switch t
      * @param DeleteDhcpOptionsRequest
      * @return DeleteDhcpOptionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDhcpOptions.ts.html |here} to see how to use DeleteDhcpOptions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDhcpOptions.ts.html |here} to see how to use DeleteDhcpOptions API.
      */
   public async deleteDhcpOptions(
     deleteDhcpOptionsRequest: requests.DeleteDhcpOptionsRequest
@@ -24967,7 +24967,7 @@ This is an asynchronous operation. The state of the set of options will switch t
    * @param DeleteDrgRequest
    * @return DeleteDrgResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrg.ts.html |here} to see how to use DeleteDrg API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrg.ts.html |here} to see how to use DeleteDrg API.
    */
   public async deleteDrg(
     deleteDrgRequest: requests.DeleteDrgRequest
@@ -25036,7 +25036,7 @@ This is an asynchronous operation. The state of the set of options will switch t
    * @param DeleteDrgAttachmentRequest
    * @return DeleteDrgAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrgAttachment.ts.html |here} to see how to use DeleteDrgAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrgAttachment.ts.html |here} to see how to use DeleteDrgAttachment API.
    */
   public async deleteDrgAttachment(
     deleteDrgAttachmentRequest: requests.DeleteDrgAttachmentRequest
@@ -25106,7 +25106,7 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
      * @param DeleteDrgRouteDistributionRequest
      * @return DeleteDrgRouteDistributionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrgRouteDistribution.ts.html |here} to see how to use DeleteDrgRouteDistribution API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrgRouteDistribution.ts.html |here} to see how to use DeleteDrgRouteDistribution API.
      */
   public async deleteDrgRouteDistribution(
     deleteDrgRouteDistributionRequest: requests.DeleteDrgRouteDistributionRequest
@@ -25175,7 +25175,7 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
    * @param DeleteDrgRouteTableRequest
    * @return DeleteDrgRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrgRouteTable.ts.html |here} to see how to use DeleteDrgRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrgRouteTable.ts.html |here} to see how to use DeleteDrgRouteTable API.
    */
   public async deleteDrgRouteTable(
     deleteDrgRouteTableRequest: requests.DeleteDrgRouteTableRequest
@@ -25251,7 +25251,7 @@ This is an asynchronous operation. The connection's `lifecycleState` will change
      * @param DeleteIPSecConnectionRequest
      * @return DeleteIPSecConnectionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteIPSecConnection.ts.html |here} to see how to use DeleteIPSecConnection API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteIPSecConnection.ts.html |here} to see how to use DeleteIPSecConnection API.
      */
   public async deleteIPSecConnection(
     deleteIPSecConnectionRequest: requests.DeleteIPSecConnectionRequest
@@ -25323,7 +25323,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
      * @param DeleteInternetGatewayRequest
      * @return DeleteInternetGatewayResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteInternetGateway.ts.html |here} to see how to use DeleteInternetGateway API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteInternetGateway.ts.html |here} to see how to use DeleteInternetGateway API.
      */
   public async deleteInternetGateway(
     deleteInternetGatewayRequest: requests.DeleteInternetGatewayRequest
@@ -25385,14 +25385,14 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
   }
 
   /**
-   * Unassigns and deletes the specified IPv6. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Unassigns and deletes the specified IPv6. You must specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * The IPv6 address is returned to the subnet's pool of available addresses.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteIpv6Request
    * @return DeleteIpv6Response
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteIpv6.ts.html |here} to see how to use DeleteIpv6 API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteIpv6.ts.html |here} to see how to use DeleteIpv6 API.
    */
   public async deleteIpv6(
     deleteIpv6Request: requests.DeleteIpv6Request
@@ -25463,7 +25463,7 @@ This is an asynchronous operation; the local peering gateway's `lifecycleState` 
      * @param DeleteLocalPeeringGatewayRequest
      * @return DeleteLocalPeeringGatewayResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteLocalPeeringGateway.ts.html |here} to see how to use DeleteLocalPeeringGateway API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteLocalPeeringGateway.ts.html |here} to see how to use DeleteLocalPeeringGateway API.
      */
   public async deleteLocalPeeringGateway(
     deleteLocalPeeringGatewayRequest: requests.DeleteLocalPeeringGatewayRequest
@@ -25535,7 +25535,7 @@ This is an asynchronous operation. The NAT gateway's `lifecycleState` will chang
      * @param DeleteNatGatewayRequest
      * @return DeleteNatGatewayResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteNatGateway.ts.html |here} to see how to use DeleteNatGateway API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteNatGateway.ts.html |here} to see how to use DeleteNatGateway API.
      */
   public async deleteNatGateway(
     deleteNatGatewayRequest: requests.DeleteNatGatewayRequest
@@ -25601,14 +25601,14 @@ This is an asynchronous operation. The NAT gateway's `lifecycleState` will chang
 To get a list of the VNICs in a network security group, use
 * {@link #listNetworkSecurityGroupVnics(ListNetworkSecurityGroupVnicsRequest) listNetworkSecurityGroupVnics}.
 * Each returned {@link NetworkSecurityGroupVnic} object
-* contains both the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC and the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC's parent resource (for example,
+* contains both the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC and the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC's parent resource (for example,
 * the Compute instance that the VNIC is attached to).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param DeleteNetworkSecurityGroupRequest
      * @return DeleteNetworkSecurityGroupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteNetworkSecurityGroup.ts.html |here} to see how to use DeleteNetworkSecurityGroup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteNetworkSecurityGroup.ts.html |here} to see how to use DeleteNetworkSecurityGroup API.
      */
   public async deleteNetworkSecurityGroup(
     deleteNetworkSecurityGroupRequest: requests.DeleteNetworkSecurityGroupRequest
@@ -25672,14 +25672,14 @@ To get a list of the VNICs in a network security group, use
 
   /**
      * Unassigns and deletes the specified private IP. You must
-* specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). The private IP address is returned to
+* specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). The private IP address is returned to
 * the subnet's pool of available addresses.
 * <p>
 This operation cannot be used with primary private IPs, which are
 * automatically unassigned and deleted when the VNIC is terminated.
 * <p>
 **Important:** If a secondary private IP is the
-* [target of a route rule](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip),
+* [target of a route rule](https://docs.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip),
 * unassigning it from the VNIC causes that route rule to blackhole and the traffic
 * will be dropped.
 * 
@@ -25687,7 +25687,7 @@ This operation cannot be used with primary private IPs, which are
      * @param DeletePrivateIpRequest
      * @return DeletePrivateIpResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeletePrivateIp.ts.html |here} to see how to use DeletePrivateIp API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeletePrivateIp.ts.html |here} to see how to use DeletePrivateIp API.
      */
   public async deletePrivateIp(
     deletePrivateIpRequest: requests.DeletePrivateIpRequest
@@ -25749,7 +25749,7 @@ This operation cannot be used with primary private IPs, which are
 
   /**
      * Unassigns and deletes the specified public IP (either ephemeral or reserved).
-* You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). The public IP address is returned to the
+* You must specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). The public IP address is returned to the
 * Oracle Cloud Infrastructure public IP pool.
 * <p>
 **Note:** You cannot update, unassign, or delete the public IP that Oracle automatically
@@ -25768,7 +25768,7 @@ If you want to simply unassign a reserved public IP and return it to your pool
      * @param DeletePublicIpRequest
      * @return DeletePublicIpResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeletePublicIp.ts.html |here} to see how to use DeletePublicIp API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeletePublicIp.ts.html |here} to see how to use DeletePublicIp API.
      */
   public async deletePublicIp(
     deletePublicIpRequest: requests.DeletePublicIpRequest
@@ -25831,13 +25831,13 @@ If you want to simply unassign a reserved public IP and return it to your pool
   /**
    * Deletes the specified public IP pool.
    * To delete a public IP pool it must not have any active IP address allocations.
-   * You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) when deleting an IP pool.
+   * You must specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) when deleting an IP pool.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePublicIpPoolRequest
    * @return DeletePublicIpPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeletePublicIpPool.ts.html |here} to see how to use DeletePublicIpPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeletePublicIpPool.ts.html |here} to see how to use DeletePublicIpPool API.
    */
   public async deletePublicIpPool(
     deletePublicIpPoolRequest: requests.DeletePublicIpPoolRequest
@@ -25910,7 +25910,7 @@ This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINA
      * @param DeleteRemotePeeringConnectionRequest
      * @return DeleteRemotePeeringConnectionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteRemotePeeringConnection.ts.html |here} to see how to use DeleteRemotePeeringConnection API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteRemotePeeringConnection.ts.html |here} to see how to use DeleteRemotePeeringConnection API.
      */
   public async deleteRemotePeeringConnection(
     deleteRemotePeeringConnectionRequest: requests.DeleteRemotePeeringConnectionRequest
@@ -25982,7 +25982,7 @@ This is an asynchronous operation. The route table's `lifecycleState` will chang
      * @param DeleteRouteTableRequest
      * @return DeleteRouteTableResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteRouteTable.ts.html |here} to see how to use DeleteRouteTable API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteRouteTable.ts.html |here} to see how to use DeleteRouteTable API.
      */
   public async deleteRouteTable(
     deleteRouteTableRequest: requests.DeleteRouteTableRequest
@@ -26053,7 +26053,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
      * @param DeleteSecurityListRequest
      * @return DeleteSecurityListResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteSecurityList.ts.html |here} to see how to use DeleteSecurityList API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteSecurityList.ts.html |here} to see how to use DeleteSecurityList API.
      */
   public async deleteSecurityList(
     deleteSecurityListRequest: requests.DeleteSecurityListRequest
@@ -26122,7 +26122,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    * @param DeleteServiceGatewayRequest
    * @return DeleteServiceGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteServiceGateway.ts.html |here} to see how to use DeleteServiceGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteServiceGateway.ts.html |here} to see how to use DeleteServiceGateway API.
    */
   public async deleteServiceGateway(
     deleteServiceGatewayRequest: requests.DeleteServiceGatewayRequest
@@ -26192,7 +26192,7 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    * @param DeleteSubnetRequest
    * @return DeleteSubnetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteSubnet.ts.html |here} to see how to use DeleteSubnet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteSubnet.ts.html |here} to see how to use DeleteSubnet API.
    */
   public async deleteSubnet(
     deleteSubnetRequest: requests.DeleteSubnetRequest
@@ -26264,7 +26264,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
      * @param DeleteVcnRequest
      * @return DeleteVcnResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVcn.ts.html |here} to see how to use DeleteVcn API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVcn.ts.html |here} to see how to use DeleteVcn API.
      */
   public async deleteVcn(
     deleteVcnRequest: requests.DeleteVcnRequest
@@ -26335,7 +26335,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
    * @param DeleteVirtualCircuitRequest
    * @return DeleteVirtualCircuitResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVirtualCircuit.ts.html |here} to see how to use DeleteVirtualCircuit API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVirtualCircuit.ts.html |here} to see how to use DeleteVirtualCircuit API.
    */
   public async deleteVirtualCircuit(
     deleteVirtualCircuitRequest: requests.DeleteVirtualCircuitRequest
@@ -26403,7 +26403,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
    * @param DeleteVlanRequest
    * @return DeleteVlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVlan.ts.html |here} to see how to use DeleteVlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVlan.ts.html |here} to see how to use DeleteVlan API.
    */
   public async deleteVlan(
     deleteVlanRequest: requests.DeleteVlanRequest
@@ -26472,7 +26472,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
    * @param DeleteVtapRequest
    * @return DeleteVtapResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVtap.ts.html |here} to see how to use DeleteVtap API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVtap.ts.html |here} to see how to use DeleteVtap API.
    */
   public async deleteVtap(
     deleteVtapRequest: requests.DeleteVtapRequest
@@ -26556,7 +26556,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
    * @param DetachServiceIdRequest
    * @return DetachServiceIdResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachServiceId.ts.html |here} to see how to use DetachServiceId API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachServiceId.ts.html |here} to see how to use DetachServiceId API.
    */
   public async detachServiceId(
     detachServiceIdRequest: requests.DetachServiceIdRequest
@@ -26633,7 +26633,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
    * @param GetAllDrgAttachmentsRequest
    * @return GetAllDrgAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAllDrgAttachments.ts.html |here} to see how to use GetAllDrgAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAllDrgAttachments.ts.html |here} to see how to use GetAllDrgAttachments API.
    */
   public async getAllDrgAttachments(
     getAllDrgAttachmentsRequest: requests.GetAllDrgAttachmentsRequest
@@ -26768,7 +26768,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
    * @param GetAllowedIkeIPSecParametersRequest
    * @return GetAllowedIkeIPSecParametersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAllowedIkeIPSecParameters.ts.html |here} to see how to use GetAllowedIkeIPSecParameters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetAllowedIkeIPSecParameters.ts.html |here} to see how to use GetAllowedIkeIPSecParameters API.
    */
   public async getAllowedIkeIPSecParameters(
     getAllowedIkeIPSecParametersRequest: requests.GetAllowedIkeIPSecParametersRequest
@@ -26833,13 +26833,13 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   }
 
   /**
-   * Gets the `Byoasn` resource. You must specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Gets the `Byoasn` resource. You must specify the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetByoasnRequest
    * @return GetByoasnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetByoasn.ts.html |here} to see how to use GetByoasn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetByoasn.ts.html |here} to see how to use GetByoasn API.
    */
   public async getByoasn(
     getByoasnRequest: requests.GetByoasnRequest
@@ -26909,13 +26909,13 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
   }
 
   /**
-   * Gets the `ByoipRange` resource. You must specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Gets the `ByoipRange` resource. You must specify the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetByoipRangeRequest
    * @return GetByoipRangeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetByoipRange.ts.html |here} to see how to use GetByoipRange API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetByoipRange.ts.html |here} to see how to use GetByoipRange API.
    */
   public async getByoipRange(
     getByoipRangeRequest: requests.GetByoipRangeRequest
@@ -26991,7 +26991,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
    * @param GetCaptureFilterRequest
    * @return GetCaptureFilterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCaptureFilter.ts.html |here} to see how to use GetCaptureFilter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCaptureFilter.ts.html |here} to see how to use GetCaptureFilter API.
    */
   public async getCaptureFilter(
     getCaptureFilterRequest: requests.GetCaptureFilterRequest
@@ -27067,7 +27067,7 @@ A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temp
    * @param GetCpeRequest
    * @return GetCpeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCpe.ts.html |here} to see how to use GetCpe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCpe.ts.html |here} to see how to use GetCpe API.
    */
   public async getCpe(getCpeRequest: requests.GetCpeRequest): Promise<responses.GetCpeResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCpe.");
@@ -27157,7 +27157,7 @@ The operation returns configuration information for *all* of the
      * @param GetCpeDeviceConfigContentRequest
      * @return GetCpeDeviceConfigContentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCpeDeviceConfigContent.ts.html |here} to see how to use GetCpeDeviceConfigContent API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCpeDeviceConfigContent.ts.html |here} to see how to use GetCpeDeviceConfigContent API.
      */
   public async getCpeDeviceConfigContent(
     getCpeDeviceConfigContentRequest: requests.GetCpeDeviceConfigContentRequest
@@ -27238,7 +27238,7 @@ The operation returns configuration information for *all* of the
    * @param GetCpeDeviceShapeRequest
    * @return GetCpeDeviceShapeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCpeDeviceShape.ts.html |here} to see how to use GetCpeDeviceShape API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCpeDeviceShape.ts.html |here} to see how to use GetCpeDeviceShape API.
    */
   public async getCpeDeviceShape(
     getCpeDeviceShapeRequest: requests.GetCpeDeviceShapeRequest
@@ -27309,7 +27309,7 @@ The operation returns configuration information for *all* of the
    * @param GetCrossConnectRequest
    * @return GetCrossConnectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCrossConnect.ts.html |here} to see how to use GetCrossConnect API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCrossConnect.ts.html |here} to see how to use GetCrossConnect API.
    */
   public async getCrossConnect(
     getCrossConnectRequest: requests.GetCrossConnectRequest
@@ -27384,7 +27384,7 @@ The operation returns configuration information for *all* of the
    * @param GetCrossConnectGroupRequest
    * @return GetCrossConnectGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCrossConnectGroup.ts.html |here} to see how to use GetCrossConnectGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCrossConnectGroup.ts.html |here} to see how to use GetCrossConnectGroup API.
    */
   public async getCrossConnectGroup(
     getCrossConnectGroupRequest: requests.GetCrossConnectGroupRequest
@@ -27460,7 +27460,7 @@ The operation returns configuration information for *all* of the
    * @param GetCrossConnectLetterOfAuthorityRequest
    * @return GetCrossConnectLetterOfAuthorityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCrossConnectLetterOfAuthority.ts.html |here} to see how to use GetCrossConnectLetterOfAuthority API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCrossConnectLetterOfAuthority.ts.html |here} to see how to use GetCrossConnectLetterOfAuthority API.
    */
   public async getCrossConnectLetterOfAuthority(
     getCrossConnectLetterOfAuthorityRequest: requests.GetCrossConnectLetterOfAuthorityRequest
@@ -27532,7 +27532,7 @@ The operation returns configuration information for *all* of the
    * @param GetCrossConnectStatusRequest
    * @return GetCrossConnectStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCrossConnectStatus.ts.html |here} to see how to use GetCrossConnectStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetCrossConnectStatus.ts.html |here} to see how to use GetCrossConnectStatus API.
    */
   public async getCrossConnectStatus(
     getCrossConnectStatusRequest: requests.GetCrossConnectStatusRequest
@@ -27603,7 +27603,7 @@ The operation returns configuration information for *all* of the
    * @param GetDhcpOptionsRequest
    * @return GetDhcpOptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDhcpOptions.ts.html |here} to see how to use GetDhcpOptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDhcpOptions.ts.html |here} to see how to use GetDhcpOptions API.
    */
   public async getDhcpOptions(
     getDhcpOptionsRequest: requests.GetDhcpOptionsRequest
@@ -27678,7 +27678,7 @@ The operation returns configuration information for *all* of the
    * @param GetDrgRequest
    * @return GetDrgResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrg.ts.html |here} to see how to use GetDrg API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrg.ts.html |here} to see how to use GetDrg API.
    */
   public async getDrg(getDrgRequest: requests.GetDrgRequest): Promise<responses.GetDrgResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrg.");
@@ -27750,7 +27750,7 @@ The operation returns configuration information for *all* of the
    * @param GetDrgAttachmentRequest
    * @return GetDrgAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgAttachment.ts.html |here} to see how to use GetDrgAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgAttachment.ts.html |here} to see how to use GetDrgAttachment API.
    */
   public async getDrgAttachment(
     getDrgAttachmentRequest: requests.GetDrgAttachmentRequest
@@ -27821,13 +27821,13 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the redundancy status for the specified DRG. For more information, see
-   * [Redundancy Remedies](https://docs.cloud.oracle.com/iaas/Content/Network/Troubleshoot/drgredundancy.htm).
+   * [Redundancy Remedies](https://docs.oracle.com/iaas/Content/Network/Troubleshoot/drgredundancy.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDrgRedundancyStatusRequest
    * @return GetDrgRedundancyStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgRedundancyStatus.ts.html |here} to see how to use GetDrgRedundancyStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgRedundancyStatus.ts.html |here} to see how to use GetDrgRedundancyStatus API.
    */
   public async getDrgRedundancyStatus(
     getDrgRedundancyStatusRequest: requests.GetDrgRedundancyStatusRequest
@@ -27899,7 +27899,7 @@ The operation returns configuration information for *all* of the
    * @param GetDrgRouteDistributionRequest
    * @return GetDrgRouteDistributionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgRouteDistribution.ts.html |here} to see how to use GetDrgRouteDistribution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgRouteDistribution.ts.html |here} to see how to use GetDrgRouteDistribution API.
    */
   public async getDrgRouteDistribution(
     getDrgRouteDistributionRequest: requests.GetDrgRouteDistributionRequest
@@ -27975,7 +27975,7 @@ The operation returns configuration information for *all* of the
    * @param GetDrgRouteTableRequest
    * @return GetDrgRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgRouteTable.ts.html |here} to see how to use GetDrgRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgRouteTable.ts.html |here} to see how to use GetDrgRouteTable API.
    */
   public async getDrgRouteTable(
     getDrgRouteTableRequest: requests.GetDrgRouteTableRequest
@@ -28046,13 +28046,13 @@ The operation returns configuration information for *all* of the
 
   /**
    * Gets the specified provider service.
-   * For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+   * For more information, see [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFastConnectProviderServiceRequest
    * @return GetFastConnectProviderServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetFastConnectProviderService.ts.html |here} to see how to use GetFastConnectProviderService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetFastConnectProviderService.ts.html |here} to see how to use GetFastConnectProviderService API.
    */
   public async getFastConnectProviderService(
     getFastConnectProviderServiceRequest: requests.GetFastConnectProviderServiceRequest
@@ -28125,7 +28125,7 @@ The operation returns configuration information for *all* of the
    * @param GetFastConnectProviderServiceKeyRequest
    * @return GetFastConnectProviderServiceKeyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetFastConnectProviderServiceKey.ts.html |here} to see how to use GetFastConnectProviderServiceKey API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetFastConnectProviderServiceKey.ts.html |here} to see how to use GetFastConnectProviderServiceKey API.
    */
   public async getFastConnectProviderServiceKey(
     getFastConnectProviderServiceKeyRequest: requests.GetFastConnectProviderServiceKeyRequest
@@ -28201,7 +28201,7 @@ The operation returns configuration information for *all* of the
    * @param GetIPSecConnectionRequest
    * @return GetIPSecConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnection.ts.html |here} to see how to use GetIPSecConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnection.ts.html |here} to see how to use GetIPSecConnection API.
    */
   public async getIPSecConnection(
     getIPSecConnectionRequest: requests.GetIPSecConnectionRequest
@@ -28281,7 +28281,7 @@ The operation returns configuration information for *all* of the
    * @param GetIPSecConnectionDeviceConfigRequest
    * @return GetIPSecConnectionDeviceConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionDeviceConfig.ts.html |here} to see how to use GetIPSecConnectionDeviceConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionDeviceConfig.ts.html |here} to see how to use GetIPSecConnectionDeviceConfig API.
    */
   public async getIPSecConnectionDeviceConfig(
     getIPSecConnectionDeviceConfigRequest: requests.GetIPSecConnectionDeviceConfigRequest
@@ -28359,7 +28359,7 @@ The operation returns configuration information for *all* of the
    * @param GetIPSecConnectionDeviceStatusRequest
    * @return GetIPSecConnectionDeviceStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionDeviceStatus.ts.html |here} to see how to use GetIPSecConnectionDeviceStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionDeviceStatus.ts.html |here} to see how to use GetIPSecConnectionDeviceStatus API.
    */
   public async getIPSecConnectionDeviceStatus(
     getIPSecConnectionDeviceStatusRequest: requests.GetIPSecConnectionDeviceStatusRequest
@@ -28438,7 +28438,7 @@ The operation returns configuration information for *all* of the
    * @param GetIPSecConnectionTunnelRequest
    * @return GetIPSecConnectionTunnelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionTunnel.ts.html |here} to see how to use GetIPSecConnectionTunnel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionTunnel.ts.html |here} to see how to use GetIPSecConnectionTunnel API.
    */
   public async getIPSecConnectionTunnel(
     getIPSecConnectionTunnelRequest: requests.GetIPSecConnectionTunnelRequest
@@ -28516,7 +28516,7 @@ The operation returns configuration information for *all* of the
    * @param GetIPSecConnectionTunnelErrorRequest
    * @return GetIPSecConnectionTunnelErrorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionTunnelError.ts.html |here} to see how to use GetIPSecConnectionTunnelError API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionTunnelError.ts.html |here} to see how to use GetIPSecConnectionTunnelError API.
    */
   public async getIPSecConnectionTunnelError(
     getIPSecConnectionTunnelErrorRequest: requests.GetIPSecConnectionTunnelErrorRequest
@@ -28590,7 +28590,7 @@ The operation returns configuration information for *all* of the
    * @param GetIPSecConnectionTunnelSharedSecretRequest
    * @return GetIPSecConnectionTunnelSharedSecretResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionTunnelSharedSecret.ts.html |here} to see how to use GetIPSecConnectionTunnelSharedSecret API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIPSecConnectionTunnelSharedSecret.ts.html |here} to see how to use GetIPSecConnectionTunnelSharedSecret API.
    */
   public async getIPSecConnectionTunnelSharedSecret(
     getIPSecConnectionTunnelSharedSecretRequest: requests.GetIPSecConnectionTunnelSharedSecretRequest
@@ -28669,7 +28669,7 @@ The operation returns configuration information for *all* of the
    * @param GetInternetGatewayRequest
    * @return GetInternetGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInternetGateway.ts.html |here} to see how to use GetInternetGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInternetGateway.ts.html |here} to see how to use GetInternetGateway API.
    */
   public async getInternetGateway(
     getInternetGatewayRequest: requests.GetInternetGatewayRequest
@@ -28764,7 +28764,7 @@ The operation returns configuration information for all tunnels in the single sp
      * @param GetIpsecCpeDeviceConfigContentRequest
      * @return GetIpsecCpeDeviceConfigContentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIpsecCpeDeviceConfigContent.ts.html |here} to see how to use GetIpsecCpeDeviceConfigContent API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIpsecCpeDeviceConfigContent.ts.html |here} to see how to use GetIpsecCpeDeviceConfigContent API.
      */
   public async getIpsecCpeDeviceConfigContent(
     getIpsecCpeDeviceConfigContentRequest: requests.GetIpsecCpeDeviceConfigContentRequest
@@ -28831,16 +28831,16 @@ The operation returns configuration information for all tunnels in the single sp
   }
 
   /**
-   * Gets the specified IPv6. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Gets the specified IPv6. You must specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * Alternatively, you can get the object by using
    * {@link #listIpv6s(ListIpv6sRequest) listIpv6s}
-   * with the IPv6 address (for example, 2001:0db8:0123:1111:98fe:dcba:9876:4321) and subnet [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * with the IPv6 address (for example, 2001:0db8:0123:1111:98fe:dcba:9876:4321) and subnet [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIpv6Request
    * @return GetIpv6Response
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIpv6.ts.html |here} to see how to use GetIpv6 API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetIpv6.ts.html |here} to see how to use GetIpv6 API.
    */
   public async getIpv6(
     getIpv6Request: requests.GetIpv6Request
@@ -28915,7 +28915,7 @@ The operation returns configuration information for all tunnels in the single sp
    * @param GetLocalPeeringGatewayRequest
    * @return GetLocalPeeringGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetLocalPeeringGateway.ts.html |here} to see how to use GetLocalPeeringGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetLocalPeeringGateway.ts.html |here} to see how to use GetLocalPeeringGateway API.
    */
   public async getLocalPeeringGateway(
     getLocalPeeringGatewayRequest: requests.GetLocalPeeringGatewayRequest
@@ -28991,7 +28991,7 @@ The operation returns configuration information for all tunnels in the single sp
    * @param GetNatGatewayRequest
    * @return GetNatGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetNatGateway.ts.html |here} to see how to use GetNatGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetNatGateway.ts.html |here} to see how to use GetNatGateway API.
    */
   public async getNatGateway(
     getNatGatewayRequest: requests.GetNatGatewayRequest
@@ -29073,7 +29073,7 @@ To list the security rules in an NSG, see
      * @param GetNetworkSecurityGroupRequest
      * @return GetNetworkSecurityGroupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetNetworkSecurityGroup.ts.html |here} to see how to use GetNetworkSecurityGroup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetNetworkSecurityGroup.ts.html |here} to see how to use GetNetworkSecurityGroup API.
      */
   public async getNetworkSecurityGroup(
     getNetworkSecurityGroupRequest: requests.GetNetworkSecurityGroupRequest
@@ -29149,7 +29149,7 @@ To list the security rules in an NSG, see
    * @param GetNetworkingTopologyRequest
    * @return GetNetworkingTopologyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetNetworkingTopology.ts.html |here} to see how to use GetNetworkingTopology API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetNetworkingTopology.ts.html |here} to see how to use GetNetworkingTopology API.
    */
   public async getNetworkingTopology(
     getNetworkingTopologyRequest: requests.GetNetworkingTopologyRequest
@@ -29225,16 +29225,16 @@ To list the security rules in an NSG, see
   }
 
   /**
-   * Gets the specified private IP. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Gets the specified private IP. You must specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * Alternatively, you can get the object by using
    * {@link #listPrivateIps(ListPrivateIpsRequest) listPrivateIps}
-   * with the private IP address (for example, 10.0.3.3) and subnet [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * with the private IP address (for example, 10.0.3.3) and subnet [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPrivateIpRequest
    * @return GetPrivateIpResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPrivateIp.ts.html |here} to see how to use GetPrivateIp API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPrivateIp.ts.html |here} to see how to use GetPrivateIp API.
    */
   public async getPrivateIp(
     getPrivateIpRequest: requests.GetPrivateIpRequest
@@ -29304,23 +29304,23 @@ To list the security rules in an NSG, see
   }
 
   /**
-     * Gets the specified public IP. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+     * Gets the specified public IP. You must specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 Alternatively, you can get the object by using {@link #getPublicIpByIpAddress(GetPublicIpByIpAddressRequest) getPublicIpByIpAddress}
 * with the public IP address (for example, 203.0.113.2).
 * <p>
 Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest) getPublicIpByPrivateIpId}
-* with the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private IP that the public IP is assigned to.
+* with the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private IP that the public IP is assigned to.
 * <p>
 **Note:** If you're fetching a reserved public IP that is in the process of being
 * moved to a different private IP, the service returns the public IP object with
-* `lifecycleState` = ASSIGNING and `assignedEntityId` = [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target private IP.
+* `lifecycleState` = ASSIGNING and `assignedEntityId` = [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target private IP.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetPublicIpRequest
      * @return GetPublicIpResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPublicIp.ts.html |here} to see how to use GetPublicIp API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPublicIp.ts.html |here} to see how to use GetPublicIp API.
      */
   public async getPublicIp(
     getPublicIpRequest: requests.GetPublicIpRequest
@@ -29394,13 +29394,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * <p>
    **Note:** If you're fetching a reserved public IP that is in the process of being
    * moved to a different private IP, the service returns the public IP object with
-   * `lifecycleState` = ASSIGNING and `assignedEntityId` = [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target private IP.
+   * `lifecycleState` = ASSIGNING and `assignedEntityId` = [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target private IP.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPublicIpByIpAddressRequest
    * @return GetPublicIpByIpAddressResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPublicIpByIpAddress.ts.html |here} to see how to use GetPublicIpByIpAddress API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPublicIpByIpAddress.ts.html |here} to see how to use GetPublicIpByIpAddress API.
    */
   public async getPublicIpByIpAddress(
     getPublicIpByIpAddressRequest: requests.GetPublicIpByIpAddressRequest
@@ -29478,19 +29478,19 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * of the private IP. If no public IP is assigned, a 404 is returned.
    * <p>
    **Note:** If you're fetching a reserved public IP that is in the process of being
-   * moved to a different private IP, and you provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the original private
-   * IP, this operation returns a 404. If you instead provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target
+   * moved to a different private IP, and you provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the original private
+   * IP, this operation returns a 404. If you instead provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target
    * private IP, or if you instead call
    * {@link #getPublicIp(GetPublicIpRequest) getPublicIp} or
    * {@link #getPublicIpByIpAddress(GetPublicIpByIpAddressRequest) getPublicIpByIpAddress}, the
    * service returns the public IP object with `lifecycleState` = ASSIGNING and
-   * `assignedEntityId` = [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target private IP.
+   * `assignedEntityId` = [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target private IP.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPublicIpByPrivateIpIdRequest
    * @return GetPublicIpByPrivateIpIdResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPublicIpByPrivateIpId.ts.html |here} to see how to use GetPublicIpByPrivateIpId API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPublicIpByPrivateIpId.ts.html |here} to see how to use GetPublicIpByPrivateIpId API.
    */
   public async getPublicIpByPrivateIpId(
     getPublicIpByPrivateIpIdRequest: requests.GetPublicIpByPrivateIpIdRequest
@@ -29564,13 +29564,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   }
 
   /**
-   * Gets the specified `PublicIpPool` object. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Gets the specified `PublicIpPool` object. You must specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetPublicIpPoolRequest
    * @return GetPublicIpPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPublicIpPool.ts.html |here} to see how to use GetPublicIpPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetPublicIpPool.ts.html |here} to see how to use GetPublicIpPool API.
    */
   public async getPublicIpPool(
     getPublicIpPoolRequest: requests.GetPublicIpPoolRequest
@@ -29647,7 +29647,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * @param GetRemotePeeringConnectionRequest
    * @return GetRemotePeeringConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetRemotePeeringConnection.ts.html |here} to see how to use GetRemotePeeringConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetRemotePeeringConnection.ts.html |here} to see how to use GetRemotePeeringConnection API.
    */
   public async getRemotePeeringConnection(
     getRemotePeeringConnectionRequest: requests.GetRemotePeeringConnectionRequest
@@ -29724,7 +29724,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * @param GetResourceIpInventoryRequest
    * @return GetResourceIpInventoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetResourceIpInventory.ts.html |here} to see how to use GetResourceIpInventory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetResourceIpInventory.ts.html |here} to see how to use GetResourceIpInventory API.
    */
   public async getResourceIpInventory(
     getResourceIpInventoryRequest: requests.GetResourceIpInventoryRequest
@@ -29811,7 +29811,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * @param GetRouteTableRequest
    * @return GetRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetRouteTable.ts.html |here} to see how to use GetRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetRouteTable.ts.html |here} to see how to use GetRouteTable API.
    */
   public async getRouteTable(
     getRouteTableRequest: requests.GetRouteTableRequest
@@ -29886,7 +29886,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * @param GetSecurityListRequest
    * @return GetSecurityListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSecurityList.ts.html |here} to see how to use GetSecurityList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSecurityList.ts.html |here} to see how to use GetSecurityList API.
    */
   public async getSecurityList(
     getSecurityListRequest: requests.GetSecurityListRequest
@@ -29962,7 +29962,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * @param GetServiceRequest
    * @return GetServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetService.ts.html |here} to see how to use GetService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetService.ts.html |here} to see how to use GetService API.
    */
   public async getService(
     getServiceRequest: requests.GetServiceRequest
@@ -30037,7 +30037,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * @param GetServiceGatewayRequest
    * @return GetServiceGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetServiceGateway.ts.html |here} to see how to use GetServiceGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetServiceGateway.ts.html |here} to see how to use GetServiceGateway API.
    */
   public async getServiceGateway(
     getServiceGatewayRequest: requests.GetServiceGatewayRequest
@@ -30112,7 +30112,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * @param GetSubnetRequest
    * @return GetSubnetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSubnet.ts.html |here} to see how to use GetSubnet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSubnet.ts.html |here} to see how to use GetSubnet API.
    */
   public async getSubnet(
     getSubnetRequest: requests.GetSubnetRequest
@@ -30181,13 +30181,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   }
 
   /**
-   * Gets the CIDR utilization data of the specified subnet. Specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Gets the CIDR utilization data of the specified subnet. Specify the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSubnetCidrUtilizationRequest
    * @return GetSubnetCidrUtilizationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSubnetCidrUtilization.ts.html |here} to see how to use GetSubnetCidrUtilization API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSubnetCidrUtilization.ts.html |here} to see how to use GetSubnetCidrUtilization API.
    */
   public async getSubnetCidrUtilization(
     getSubnetCidrUtilizationRequest: requests.GetSubnetCidrUtilizationRequest
@@ -30264,13 +30264,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   }
 
   /**
-   * Gets the IP Inventory data of the specified subnet. Specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Gets the IP Inventory data of the specified subnet. Specify the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSubnetIpInventoryRequest
    * @return GetSubnetIpInventoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSubnetIpInventory.ts.html |here} to see how to use GetSubnetIpInventory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSubnetIpInventory.ts.html |here} to see how to use GetSubnetIpInventory API.
    */
   public async getSubnetIpInventory(
     getSubnetIpInventoryRequest: requests.GetSubnetIpInventoryRequest
@@ -30347,7 +30347,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * @param GetSubnetTopologyRequest
    * @return GetSubnetTopologyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSubnetTopology.ts.html |here} to see how to use GetSubnetTopology API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetSubnetTopology.ts.html |here} to see how to use GetSubnetTopology API.
    */
   public async getSubnetTopology(
     getSubnetTopologyRequest: requests.GetSubnetTopologyRequest
@@ -30433,7 +30433,7 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
    * @param GetTunnelCpeDeviceConfigRequest
    * @return GetTunnelCpeDeviceConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetTunnelCpeDeviceConfig.ts.html |here} to see how to use GetTunnelCpeDeviceConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetTunnelCpeDeviceConfig.ts.html |here} to see how to use GetTunnelCpeDeviceConfig API.
    */
   public async getTunnelCpeDeviceConfig(
     getTunnelCpeDeviceConfigRequest: requests.GetTunnelCpeDeviceConfigRequest
@@ -30529,7 +30529,7 @@ The operation returns configuration information for only the specified IPSec tun
      * @param GetTunnelCpeDeviceConfigContentRequest
      * @return GetTunnelCpeDeviceConfigContentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetTunnelCpeDeviceConfigContent.ts.html |here} to see how to use GetTunnelCpeDeviceConfigContent API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetTunnelCpeDeviceConfigContent.ts.html |here} to see how to use GetTunnelCpeDeviceConfigContent API.
      */
   public async getTunnelCpeDeviceConfigContent(
     getTunnelCpeDeviceConfigContentRequest: requests.GetTunnelCpeDeviceConfigContentRequest
@@ -30603,7 +30603,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param GetUpgradeStatusRequest
    * @return GetUpgradeStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetUpgradeStatus.ts.html |here} to see how to use GetUpgradeStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetUpgradeStatus.ts.html |here} to see how to use GetUpgradeStatus API.
    */
   public async getUpgradeStatus(
     getUpgradeStatusRequest: requests.GetUpgradeStatusRequest
@@ -30674,7 +30674,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param GetVcnRequest
    * @return GetVcnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcn.ts.html |here} to see how to use GetVcn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcn.ts.html |here} to see how to use GetVcn API.
    */
   public async getVcn(getVcnRequest: requests.GetVcnRequest): Promise<responses.GetVcnResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVcn.");
@@ -30746,7 +30746,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param GetVcnDnsResolverAssociationRequest
    * @return GetVcnDnsResolverAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcnDnsResolverAssociation.ts.html |here} to see how to use GetVcnDnsResolverAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcnDnsResolverAssociation.ts.html |here} to see how to use GetVcnDnsResolverAssociation API.
    */
   public async getVcnDnsResolverAssociation(
     getVcnDnsResolverAssociationRequest: requests.GetVcnDnsResolverAssociationRequest
@@ -30818,13 +30818,13 @@ The operation returns configuration information for only the specified IPSec tun
   }
 
   /**
-   * Gets the CIDR overlap information of the specified VCN in selected compartments. Specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Gets the CIDR overlap information of the specified VCN in selected compartments. Specify the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVcnOverlapRequest
    * @return GetVcnOverlapResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcnOverlap.ts.html |here} to see how to use GetVcnOverlap API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcnOverlap.ts.html |here} to see how to use GetVcnOverlap API.
    */
   public async getVcnOverlap(
     getVcnOverlapRequest: requests.GetVcnOverlapRequest
@@ -30926,7 +30926,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param GetVcnTopologyRequest
    * @return GetVcnTopologyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcnTopology.ts.html |here} to see how to use GetVcnTopology API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVcnTopology.ts.html |here} to see how to use GetVcnTopology API.
    */
   public async getVcnTopology(
     getVcnTopologyRequest: requests.GetVcnTopologyRequest
@@ -31007,7 +31007,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param GetVirtualCircuitRequest
    * @return GetVirtualCircuitResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVirtualCircuit.ts.html |here} to see how to use GetVirtualCircuit API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVirtualCircuit.ts.html |here} to see how to use GetVirtualCircuit API.
    */
   public async getVirtualCircuit(
     getVirtualCircuitRequest: requests.GetVirtualCircuitRequest
@@ -31082,7 +31082,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param GetVlanRequest
    * @return GetVlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVlan.ts.html |here} to see how to use GetVlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVlan.ts.html |here} to see how to use GetVlan API.
    */
   public async getVlan(
     getVlanRequest: requests.GetVlanRequest
@@ -31153,7 +31153,7 @@ The operation returns configuration information for only the specified IPSec tun
 
   /**
    * Gets the information for the specified virtual network interface card (VNIC).
-   * You can get the VNIC [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) from the
+   * You can get the VNIC [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) from the
    * {@link #listVnicAttachments(ListVnicAttachmentsRequest) listVnicAttachments}
    * operation.
    *
@@ -31161,7 +31161,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param GetVnicRequest
    * @return GetVnicResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVnic.ts.html |here} to see how to use GetVnic API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVnic.ts.html |here} to see how to use GetVnic API.
    */
   public async getVnic(
     getVnicRequest: requests.GetVnicRequest
@@ -31235,7 +31235,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param GetVtapRequest
    * @return GetVtapResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVtap.ts.html |here} to see how to use GetVtap API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVtap.ts.html |here} to see how to use GetVtap API.
    */
   public async getVtap(
     getVtapRequest: requests.GetVtapRequest
@@ -31305,14 +31305,93 @@ The operation returns configuration information for only the specified IPSec tun
   }
 
   /**
+   * Unassign the specified IPv6 address from Virtual Network Interface Card (VNIC). You must specify the IPv6 [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param Ipv6VnicDetachRequest
+   * @return Ipv6VnicDetachResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/Ipv6VnicDetach.ts.html |here} to see how to use Ipv6VnicDetach API.
+   */
+  public async ipv6VnicDetach(
+    ipv6VnicDetachRequest: requests.Ipv6VnicDetachRequest
+  ): Promise<responses.Ipv6VnicDetachResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#ipv6VnicDetach.");
+    const operationName = "ipv6VnicDetach";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/Ipv6VnicDetach";
+    const pathParams = {
+      "{ipv6Id}": ipv6VnicDetachRequest.ipv6Id
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": ipv6VnicDetachRequest.ifMatch,
+      "opc-request-id": ipv6VnicDetachRequest.opcRequestId,
+      "opc-retry-token": ipv6VnicDetachRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ipv6VnicDetachRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipv6/{ipv6Id}/actions/detach",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.Ipv6VnicDetachResponse>{},
+        body: await response.json(),
+        bodyKey: "ipv6",
+        bodyModel: model.Ipv6,
+        type: "model.Ipv6",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the regions that support remote VCN peering (which is peering across regions).
-   * For more information, see [VCN Peering](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
+   * For more information, see [VCN Peering](https://docs.oracle.com/iaas/Content/Network/Tasks/VCNpeering.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAllowedPeerRegionsForRemotePeeringRequest
    * @return ListAllowedPeerRegionsForRemotePeeringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListAllowedPeerRegionsForRemotePeering.ts.html |here} to see how to use ListAllowedPeerRegionsForRemotePeering API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListAllowedPeerRegionsForRemotePeering.ts.html |here} to see how to use ListAllowedPeerRegionsForRemotePeering API.
    */
   public async listAllowedPeerRegionsForRemotePeering(
     listAllowedPeerRegionsForRemotePeeringRequest: requests.ListAllowedPeerRegionsForRemotePeeringRequest
@@ -31385,7 +31464,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param ListByoasnsRequest
    * @return ListByoasnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListByoasns.ts.html |here} to see how to use ListByoasns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListByoasns.ts.html |here} to see how to use ListByoasns API.
    */
   public async listByoasns(
     listByoasnsRequest: requests.ListByoasnsRequest
@@ -31469,7 +31548,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param ListByoipAllocatedRangesRequest
    * @return ListByoipAllocatedRangesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListByoipAllocatedRanges.ts.html |here} to see how to use ListByoipAllocatedRanges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListByoipAllocatedRanges.ts.html |here} to see how to use ListByoipAllocatedRanges API.
    */
   public async listByoipAllocatedRanges(
     listByoipAllocatedRangesRequest: requests.ListByoipAllocatedRangesRequest
@@ -31551,7 +31630,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param ListByoipRangesRequest
    * @return ListByoipRangesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListByoipRanges.ts.html |here} to see how to use ListByoipRanges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListByoipRanges.ts.html |here} to see how to use ListByoipRanges API.
    */
   public async listByoipRanges(
     listByoipRangesRequest: requests.ListByoipRangesRequest
@@ -31634,7 +31713,7 @@ The operation returns configuration information for only the specified IPSec tun
    * @param ListCaptureFiltersRequest
    * @return ListCaptureFiltersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCaptureFilters.ts.html |here} to see how to use ListCaptureFilters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCaptureFilters.ts.html |here} to see how to use ListCaptureFilters API.
    */
   public async listCaptureFilters(
     listCaptureFiltersRequest: requests.ListCaptureFiltersRequest
@@ -31771,7 +31850,7 @@ The operation returns configuration information for only the specified IPSec tun
 * <p>
 If you want to generate CPE configuration content for one of the returned CPE device types,
 * ensure that the {@link Cpe} object's `cpeDeviceShapeId` attribute is set
-* to the CPE device type's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) (returned by this operation).
+* to the CPE device type's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) (returned by this operation).
 * <p>
 For information about generating CPE configuration content, see these operations:
 * <p>
@@ -31783,7 +31862,7 @@ For information about generating CPE configuration content, see these operations
      * @param ListCpeDeviceShapesRequest
      * @return ListCpeDeviceShapesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCpeDeviceShapes.ts.html |here} to see how to use ListCpeDeviceShapes API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCpeDeviceShapes.ts.html |here} to see how to use ListCpeDeviceShapes API.
      */
   public async listCpeDeviceShapes(
     listCpeDeviceShapesRequest: requests.ListCpeDeviceShapesRequest
@@ -31914,7 +31993,7 @@ For information about generating CPE configuration content, see these operations
    * @param ListCpesRequest
    * @return ListCpesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCpes.ts.html |here} to see how to use ListCpes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCpes.ts.html |here} to see how to use ListCpes API.
    */
   public async listCpes(
     listCpesRequest: requests.ListCpesRequest
@@ -32041,7 +32120,7 @@ For information about generating CPE configuration content, see these operations
    * @param ListCrossConnectGroupsRequest
    * @return ListCrossConnectGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossConnectGroups.ts.html |here} to see how to use ListCrossConnectGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossConnectGroups.ts.html |here} to see how to use ListCrossConnectGroups API.
    */
   public async listCrossConnectGroups(
     listCrossConnectGroupsRequest: requests.ListCrossConnectGroupsRequest
@@ -32177,7 +32256,7 @@ For information about generating CPE configuration content, see these operations
    * @param ListCrossConnectLocationsRequest
    * @return ListCrossConnectLocationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossConnectLocations.ts.html |here} to see how to use ListCrossConnectLocations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossConnectLocations.ts.html |here} to see how to use ListCrossConnectLocations API.
    */
   public async listCrossConnectLocations(
     listCrossConnectLocationsRequest: requests.ListCrossConnectLocationsRequest
@@ -32309,7 +32388,7 @@ For information about generating CPE configuration content, see these operations
    * @param ListCrossConnectMappingsRequest
    * @return ListCrossConnectMappingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossConnectMappings.ts.html |here} to see how to use ListCrossConnectMappings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossConnectMappings.ts.html |here} to see how to use ListCrossConnectMappings API.
    */
   public async listCrossConnectMappings(
     listCrossConnectMappingsRequest: requests.ListCrossConnectMappingsRequest
@@ -32377,13 +32456,13 @@ For information about generating CPE configuration content, see these operations
 
   /**
    * Lists the cross-connects in the specified compartment. You can filter the list
-   * by specifying the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a cross-connect group.
+   * by specifying the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a cross-connect group.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCrossConnectsRequest
    * @return ListCrossConnectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossConnects.ts.html |here} to see how to use ListCrossConnects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossConnects.ts.html |here} to see how to use ListCrossConnects API.
    */
   public async listCrossConnects(
     listCrossConnectsRequest: requests.ListCrossConnectsRequest
@@ -32520,7 +32599,7 @@ For information about generating CPE configuration content, see these operations
    * @param ListCrossconnectPortSpeedShapesRequest
    * @return ListCrossconnectPortSpeedShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossconnectPortSpeedShapes.ts.html |here} to see how to use ListCrossconnectPortSpeedShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListCrossconnectPortSpeedShapes.ts.html |here} to see how to use ListCrossconnectPortSpeedShapes API.
    */
   public async listCrossconnectPortSpeedShapes(
     listCrossconnectPortSpeedShapesRequest: requests.ListCrossconnectPortSpeedShapesRequest
@@ -32654,7 +32733,7 @@ For information about generating CPE configuration content, see these operations
    * @param ListDhcpOptionsRequest
    * @return ListDhcpOptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDhcpOptions.ts.html |here} to see how to use ListDhcpOptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDhcpOptions.ts.html |here} to see how to use ListDhcpOptions API.
    */
   public async listDhcpOptions(
     listDhcpOptionsRequest: requests.ListDhcpOptionsRequest
@@ -32794,7 +32873,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
      * @param ListDrgAttachmentsRequest
      * @return ListDrgAttachmentsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgAttachments.ts.html |here} to see how to use ListDrgAttachments API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgAttachments.ts.html |here} to see how to use ListDrgAttachments API.
      */
   public async listDrgAttachments(
     listDrgAttachmentsRequest: requests.ListDrgAttachmentsRequest
@@ -32933,7 +33012,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
    * @param ListDrgRouteDistributionStatementsRequest
    * @return ListDrgRouteDistributionStatementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteDistributionStatements.ts.html |here} to see how to use ListDrgRouteDistributionStatements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteDistributionStatements.ts.html |here} to see how to use ListDrgRouteDistributionStatements API.
    */
   public async listDrgRouteDistributionStatements(
     listDrgRouteDistributionStatementsRequest: requests.ListDrgRouteDistributionStatementsRequest
@@ -33072,7 +33151,7 @@ To retrieve the statements in a distribution, use the
      * @param ListDrgRouteDistributionsRequest
      * @return ListDrgRouteDistributionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteDistributions.ts.html |here} to see how to use ListDrgRouteDistributions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteDistributions.ts.html |here} to see how to use ListDrgRouteDistributions API.
      */
   public async listDrgRouteDistributions(
     listDrgRouteDistributionsRequest: requests.ListDrgRouteDistributionsRequest
@@ -33206,7 +33285,7 @@ To retrieve the statements in a distribution, use the
    * @param ListDrgRouteRulesRequest
    * @return ListDrgRouteRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteRules.ts.html |here} to see how to use ListDrgRouteRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteRules.ts.html |here} to see how to use ListDrgRouteRules API.
    */
   public async listDrgRouteRules(
     listDrgRouteRulesRequest: requests.ListDrgRouteRulesRequest
@@ -33340,7 +33419,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
      * @param ListDrgRouteTablesRequest
      * @return ListDrgRouteTablesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteTables.ts.html |here} to see how to use ListDrgRouteTables API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgRouteTables.ts.html |here} to see how to use ListDrgRouteTables API.
      */
   public async listDrgRouteTables(
     listDrgRouteTablesRequest: requests.ListDrgRouteTablesRequest
@@ -33476,7 +33555,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
    * @param ListDrgsRequest
    * @return ListDrgsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgs.ts.html |here} to see how to use ListDrgs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgs.ts.html |here} to see how to use ListDrgs API.
    */
   public async listDrgs(
     listDrgsRequest: requests.ListDrgsRequest
@@ -33601,15 +33680,15 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
 * information so you can specify your desired provider and service
 * offering when you create a virtual circuit.
 * <p>
-For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
+For the compartment ID, provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
 * <p>
-For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+For more information, see [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListFastConnectProviderServicesRequest
      * @return ListFastConnectProviderServicesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListFastConnectProviderServices.ts.html |here} to see how to use ListFastConnectProviderServices API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListFastConnectProviderServices.ts.html |here} to see how to use ListFastConnectProviderServices API.
      */
   public async listFastConnectProviderServices(
     listFastConnectProviderServicesRequest: requests.ListFastConnectProviderServicesRequest
@@ -33737,13 +33816,13 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
      * Gets the list of available virtual circuit bandwidth levels for a provider.
 * You need this information so you can specify your desired bandwidth level (shape) when you create a virtual circuit.
 * <p>
-For more information about virtual circuits, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+For more information about virtual circuits, see [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
      * @return ListFastConnectProviderVirtualCircuitBandwidthShapesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListFastConnectProviderVirtualCircuitBandwidthShapes.ts.html |here} to see how to use ListFastConnectProviderVirtualCircuitBandwidthShapes API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListFastConnectProviderVirtualCircuitBandwidthShapes.ts.html |here} to see how to use ListFastConnectProviderVirtualCircuitBandwidthShapes API.
      */
   public async listFastConnectProviderVirtualCircuitBandwidthShapes(
     listFastConnectProviderVirtualCircuitBandwidthShapesRequest: requests.ListFastConnectProviderVirtualCircuitBandwidthShapesRequest
@@ -33886,7 +33965,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListIPSecConnectionTunnelRoutesRequest
    * @return ListIPSecConnectionTunnelRoutesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIPSecConnectionTunnelRoutes.ts.html |here} to see how to use ListIPSecConnectionTunnelRoutes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIPSecConnectionTunnelRoutes.ts.html |here} to see how to use ListIPSecConnectionTunnelRoutes API.
    */
   public async listIPSecConnectionTunnelRoutes(
     listIPSecConnectionTunnelRoutesRequest: requests.ListIPSecConnectionTunnelRoutesRequest
@@ -34025,7 +34104,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListIPSecConnectionTunnelSecurityAssociationsRequest
    * @return ListIPSecConnectionTunnelSecurityAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIPSecConnectionTunnelSecurityAssociations.ts.html |here} to see how to use ListIPSecConnectionTunnelSecurityAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIPSecConnectionTunnelSecurityAssociations.ts.html |here} to see how to use ListIPSecConnectionTunnelSecurityAssociations API.
    */
   public async listIPSecConnectionTunnelSecurityAssociations(
     listIPSecConnectionTunnelSecurityAssociationsRequest: requests.ListIPSecConnectionTunnelSecurityAssociationsRequest
@@ -34169,7 +34248,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListIPSecConnectionTunnelsRequest
    * @return ListIPSecConnectionTunnelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIPSecConnectionTunnels.ts.html |here} to see how to use ListIPSecConnectionTunnels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIPSecConnectionTunnels.ts.html |here} to see how to use ListIPSecConnectionTunnels API.
    */
   public async listIPSecConnectionTunnels(
     listIPSecConnectionTunnelsRequest: requests.ListIPSecConnectionTunnelsRequest
@@ -34302,7 +34381,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListIPSecConnectionsRequest
    * @return ListIPSecConnectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIPSecConnections.ts.html |here} to see how to use ListIPSecConnections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIPSecConnections.ts.html |here} to see how to use ListIPSecConnections API.
    */
   public async listIPSecConnections(
     listIPSecConnectionsRequest: requests.ListIPSecConnectionsRequest
@@ -34436,7 +34515,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListInternetGatewaysRequest
    * @return ListInternetGatewaysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInternetGateways.ts.html |here} to see how to use ListInternetGateways API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInternetGateways.ts.html |here} to see how to use ListInternetGateways API.
    */
   public async listInternetGateways(
     listInternetGatewaysRequest: requests.ListInternetGatewaysRequest
@@ -34572,7 +34651,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListIpInventoryRequest
    * @return ListIpInventoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIpInventory.ts.html |here} to see how to use ListIpInventory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIpInventory.ts.html |here} to see how to use ListIpInventory API.
    */
   public async listIpInventory(
     listIpInventoryRequest: requests.ListIpInventoryRequest
@@ -34674,17 +34753,17 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * Lists the {@link Ipv6} objects based
    * on one of these filters:
    * <p>
-   * Subnet [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
-   *   * VNIC [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Subnet [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *   * VNIC [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *   * Both IPv6 address and subnet OCID: This lets you get an `Ipv6` object based on its private
-   *   IPv6 address (for example, 2001:0db8:0123:1111:abcd:ef01:2345:6789) and not its [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). For comparison,
-   *   {@link #getIpv6(GetIpv6Request) getIpv6} requires the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *   IPv6 address (for example, 2001:0db8:0123:1111:abcd:ef01:2345:6789) and not its [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). For comparison,
+   *   {@link #getIpv6(GetIpv6Request) getIpv6} requires the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIpv6sRequest
    * @return ListIpv6sResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIpv6s.ts.html |here} to see how to use ListIpv6s API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListIpv6s.ts.html |here} to see how to use ListIpv6s API.
    */
   public async listIpv6s(
     listIpv6sRequest: requests.ListIpv6sRequest
@@ -34699,7 +34778,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       "page": listIpv6sRequest.page,
       "ipAddress": listIpv6sRequest.ipAddress,
       "subnetId": listIpv6sRequest.subnetId,
-      "vnicId": listIpv6sRequest.vnicId
+      "vnicId": listIpv6sRequest.vnicId,
+      "ipState": listIpv6sRequest.ipState,
+      "lifetime": listIpv6sRequest.lifetime
     };
 
     let headerParams = {
@@ -34815,7 +34896,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListLocalPeeringGatewaysRequest
    * @return ListLocalPeeringGatewaysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListLocalPeeringGateways.ts.html |here} to see how to use ListLocalPeeringGateways API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListLocalPeeringGateways.ts.html |here} to see how to use ListLocalPeeringGateways API.
    */
   public async listLocalPeeringGateways(
     listLocalPeeringGatewaysRequest: requests.ListLocalPeeringGatewaysRequest
@@ -34948,7 +35029,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListNatGatewaysRequest
    * @return ListNatGatewaysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListNatGateways.ts.html |here} to see how to use ListNatGateways API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListNatGateways.ts.html |here} to see how to use ListNatGateways API.
    */
   public async listNatGateways(
     listNatGatewaysRequest: requests.ListNatGatewaysRequest
@@ -35083,7 +35164,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListNetworkSecurityGroupSecurityRulesRequest
    * @return ListNetworkSecurityGroupSecurityRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListNetworkSecurityGroupSecurityRules.ts.html |here} to see how to use ListNetworkSecurityGroupSecurityRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListNetworkSecurityGroupSecurityRules.ts.html |here} to see how to use ListNetworkSecurityGroupSecurityRules API.
    */
   public async listNetworkSecurityGroupSecurityRules(
     listNetworkSecurityGroupSecurityRulesRequest: requests.ListNetworkSecurityGroupSecurityRulesRequest
@@ -35221,7 +35302,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListNetworkSecurityGroupVnicsRequest
    * @return ListNetworkSecurityGroupVnicsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListNetworkSecurityGroupVnics.ts.html |here} to see how to use ListNetworkSecurityGroupVnics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListNetworkSecurityGroupVnics.ts.html |here} to see how to use ListNetworkSecurityGroupVnics API.
    */
   public async listNetworkSecurityGroupVnics(
     listNetworkSecurityGroupVnicsRequest: requests.ListNetworkSecurityGroupVnicsRequest
@@ -35356,7 +35437,7 @@ For more information about virtual circuits, see [FastConnect Overview](https://
    * @param ListNetworkSecurityGroupsRequest
    * @return ListNetworkSecurityGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListNetworkSecurityGroups.ts.html |here} to see how to use ListNetworkSecurityGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListNetworkSecurityGroups.ts.html |here} to see how to use ListNetworkSecurityGroups API.
    */
   public async listNetworkSecurityGroups(
     listNetworkSecurityGroupsRequest: requests.ListNetworkSecurityGroupsRequest
@@ -35490,25 +35571,25 @@ For more information about virtual circuits, see [FastConnect Overview](https://
      * Lists the {@link PrivateIp} objects based
 * on one of these filters:
 * <p>
-  - Subnet [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
-*   - VNIC [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+  - Subnet [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+*   - VNIC [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 *   - Both private IP address and subnet OCID: This lets
 *   you get a `privateIP` object based on its private IP
-*   address (for example, 10.0.3.3) and not its [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). For comparison,
+*   address (for example, 10.0.3.3) and not its [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). For comparison,
 *   {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp}
-*   requires the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+*   requires the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * <p>
 If you're listing all the private IPs associated with a given subnet
 * or VNIC, the response includes both primary and secondary private IPs.
 * <p>
 If you are an Oracle Cloud VMware Solution customer and have VLANs
-* in your VCN, you can filter the list by VLAN [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). See {@link Vlan}.
+* in your VCN, you can filter the list by VLAN [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). See {@link Vlan}.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListPrivateIpsRequest
      * @return ListPrivateIpsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListPrivateIps.ts.html |here} to see how to use ListPrivateIps API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListPrivateIps.ts.html |here} to see how to use ListPrivateIps API.
      */
   public async listPrivateIps(
     listPrivateIpsRequest: requests.ListPrivateIpsRequest
@@ -35525,6 +35606,8 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
       "ipAddress": listPrivateIpsRequest.ipAddress,
       "subnetId": listPrivateIpsRequest.subnetId,
       "vnicId": listPrivateIpsRequest.vnicId,
+      "ipState": listPrivateIpsRequest.ipState,
+      "lifetime": listPrivateIpsRequest.lifetime,
       "vlanId": listPrivateIpsRequest.vlanId
     };
 
@@ -35642,7 +35725,7 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
    * @param ListPublicIpPoolsRequest
    * @return ListPublicIpPoolsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListPublicIpPools.ts.html |here} to see how to use ListPublicIpPools API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListPublicIpPools.ts.html |here} to see how to use ListPublicIpPools API.
    */
   public async listPublicIpPools(
     listPublicIpPoolsRequest: requests.ListPublicIpPoolsRequest
@@ -35744,7 +35827,7 @@ To list the ephemeral public IPs assigned to private IPs:
      * @param ListPublicIpsRequest
      * @return ListPublicIpsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListPublicIps.ts.html |here} to see how to use ListPublicIps API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListPublicIps.ts.html |here} to see how to use ListPublicIps API.
      */
   public async listPublicIps(
     listPublicIpsRequest: requests.ListPublicIpsRequest
@@ -35879,7 +35962,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListRemotePeeringConnectionsRequest
    * @return ListRemotePeeringConnectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListRemotePeeringConnections.ts.html |here} to see how to use ListRemotePeeringConnections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListRemotePeeringConnections.ts.html |here} to see how to use ListRemotePeeringConnections API.
    */
   public async listRemotePeeringConnections(
     listRemotePeeringConnectionsRequest: requests.ListRemotePeeringConnectionsRequest
@@ -36014,7 +36097,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListRouteTablesRequest
    * @return ListRouteTablesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListRouteTables.ts.html |here} to see how to use ListRouteTables API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListRouteTables.ts.html |here} to see how to use ListRouteTables API.
    */
   public async listRouteTables(
     listRouteTablesRequest: requests.ListRouteTablesRequest
@@ -36150,7 +36233,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListSecurityListsRequest
    * @return ListSecurityListsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListSecurityLists.ts.html |here} to see how to use ListSecurityLists API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListSecurityLists.ts.html |here} to see how to use ListSecurityLists API.
    */
   public async listSecurityLists(
     listSecurityListsRequest: requests.ListSecurityListsRequest
@@ -36286,7 +36369,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListServiceGatewaysRequest
    * @return ListServiceGatewaysResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListServiceGateways.ts.html |here} to see how to use ListServiceGateways API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListServiceGateways.ts.html |here} to see how to use ListServiceGateways API.
    */
   public async listServiceGateways(
     listServiceGatewaysRequest: requests.ListServiceGatewaysRequest
@@ -36422,7 +36505,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListServicesRequest
    * @return ListServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListServices.ts.html |here} to see how to use ListServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListServices.ts.html |here} to see how to use ListServices API.
    */
   public async listServices(
     listServicesRequest: requests.ListServicesRequest
@@ -36552,7 +36635,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListSubnetsRequest
    * @return ListSubnetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListSubnets.ts.html |here} to see how to use ListSubnets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListSubnets.ts.html |here} to see how to use ListSubnets API.
    */
   public async listSubnets(
     listSubnetsRequest: requests.ListSubnetsRequest
@@ -36685,7 +36768,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListVcnsRequest
    * @return ListVcnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVcns.ts.html |here} to see how to use ListVcns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVcns.ts.html |here} to see how to use ListVcns API.
    */
   public async listVcns(
     listVcnsRequest: requests.ListVcnsRequest
@@ -36815,7 +36898,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListVirtualCircuitAssociatedTunnelsRequest
    * @return ListVirtualCircuitAssociatedTunnelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVirtualCircuitAssociatedTunnels.ts.html |here} to see how to use ListVirtualCircuitAssociatedTunnels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVirtualCircuitAssociatedTunnels.ts.html |here} to see how to use ListVirtualCircuitAssociatedTunnels API.
    */
   public async listVirtualCircuitAssociatedTunnels(
     listVirtualCircuitAssociatedTunnelsRequest: requests.ListVirtualCircuitAssociatedTunnelsRequest
@@ -36948,13 +37031,13 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
-   * The operation lists available bandwidth levels for virtual circuits. For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
+   * The operation lists available bandwidth levels for virtual circuits. For the compartment ID, provide the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListVirtualCircuitBandwidthShapesRequest
    * @return ListVirtualCircuitBandwidthShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVirtualCircuitBandwidthShapes.ts.html |here} to see how to use ListVirtualCircuitBandwidthShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVirtualCircuitBandwidthShapes.ts.html |here} to see how to use ListVirtualCircuitBandwidthShapes API.
    */
   public async listVirtualCircuitBandwidthShapes(
     listVirtualCircuitBandwidthShapesRequest: requests.ListVirtualCircuitBandwidthShapesRequest
@@ -37088,7 +37171,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListVirtualCircuitPublicPrefixesRequest
    * @return ListVirtualCircuitPublicPrefixesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVirtualCircuitPublicPrefixes.ts.html |here} to see how to use ListVirtualCircuitPublicPrefixes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVirtualCircuitPublicPrefixes.ts.html |here} to see how to use ListVirtualCircuitPublicPrefixes API.
    */
   public async listVirtualCircuitPublicPrefixes(
     listVirtualCircuitPublicPrefixesRequest: requests.ListVirtualCircuitPublicPrefixesRequest
@@ -37162,7 +37245,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListVirtualCircuitsRequest
    * @return ListVirtualCircuitsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVirtualCircuits.ts.html |here} to see how to use ListVirtualCircuits API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVirtualCircuits.ts.html |here} to see how to use ListVirtualCircuits API.
    */
   public async listVirtualCircuits(
     listVirtualCircuitsRequest: requests.ListVirtualCircuitsRequest
@@ -37297,7 +37380,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListVlansRequest
    * @return ListVlansResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVlans.ts.html |here} to see how to use ListVlans API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVlans.ts.html |here} to see how to use ListVlans API.
    */
   public async listVlans(
     listVlansRequest: requests.ListVlansRequest
@@ -37430,7 +37513,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param ListVtapsRequest
    * @return ListVtapsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVtaps.ts.html |here} to see how to use ListVtaps API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVtaps.ts.html |here} to see how to use ListVtaps API.
    */
   public async listVtaps(
     listVtapsRequest: requests.ListVtapsRequest
@@ -37575,7 +37658,7 @@ To list the ephemeral public IPs assigned to private IPs:
      * @param ModifyVcnCidrRequest
      * @return ModifyVcnCidrResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ModifyVcnCidr.ts.html |here} to see how to use ModifyVcnCidr API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ModifyVcnCidr.ts.html |here} to see how to use ModifyVcnCidr API.
      */
   public async modifyVcnCidr(
     modifyVcnCidrRequest: requests.ModifyVcnCidrRequest
@@ -37649,13 +37732,93 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * Unassign the specified PrivateIP address from Virtual Network Interface Card (VNIC). You must specify the PrivateIP [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PrivateIpVnicDetachRequest
+   * @return PrivateIpVnicDetachResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/PrivateIpVnicDetach.ts.html |here} to see how to use PrivateIpVnicDetach API.
+   */
+  public async privateIpVnicDetach(
+    privateIpVnicDetachRequest: requests.PrivateIpVnicDetachRequest
+  ): Promise<responses.PrivateIpVnicDetachResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#privateIpVnicDetach.");
+    const operationName = "privateIpVnicDetach";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/PrivateIpVnicDetach";
+    const pathParams = {
+      "{privateIpId}": privateIpVnicDetachRequest.privateIpId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": privateIpVnicDetachRequest.ifMatch,
+      "opc-request-id": privateIpVnicDetachRequest.opcRequestId,
+      "opc-retry-token": privateIpVnicDetachRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      privateIpVnicDetachRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateIps/{privateIpId}/actions/detach",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PrivateIpVnicDetachResponse>{},
+        body: await response.json(),
+        bodyKey: "privateIp",
+        bodyModel: model.PrivateIp,
+        type: "model.PrivateIp",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes one or more route distribution statements from the specified route distribution's map.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveDrgRouteDistributionStatementsRequest
    * @return RemoveDrgRouteDistributionStatementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveDrgRouteDistributionStatements.ts.html |here} to see how to use RemoveDrgRouteDistributionStatements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveDrgRouteDistributionStatements.ts.html |here} to see how to use RemoveDrgRouteDistributionStatements API.
    */
   public async removeDrgRouteDistributionStatements(
     removeDrgRouteDistributionStatementsRequest: requests.RemoveDrgRouteDistributionStatementsRequest
@@ -37731,7 +37894,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param RemoveDrgRouteRulesRequest
    * @return RemoveDrgRouteRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveDrgRouteRules.ts.html |here} to see how to use RemoveDrgRouteRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveDrgRouteRules.ts.html |here} to see how to use RemoveDrgRouteRules API.
    */
   public async removeDrgRouteRules(
     removeDrgRouteRulesRequest: requests.RemoveDrgRouteRulesRequest
@@ -37804,7 +37967,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param RemoveExportDrgRouteDistributionRequest
    * @return RemoveExportDrgRouteDistributionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveExportDrgRouteDistribution.ts.html |here} to see how to use RemoveExportDrgRouteDistribution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveExportDrgRouteDistribution.ts.html |here} to see how to use RemoveExportDrgRouteDistribution API.
    */
   public async removeExportDrgRouteDistribution(
     removeExportDrgRouteDistributionRequest: requests.RemoveExportDrgRouteDistributionRequest
@@ -37884,7 +38047,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param RemoveImportDrgRouteDistributionRequest
    * @return RemoveImportDrgRouteDistributionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveImportDrgRouteDistribution.ts.html |here} to see how to use RemoveImportDrgRouteDistribution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveImportDrgRouteDistribution.ts.html |here} to see how to use RemoveImportDrgRouteDistribution API.
    */
   public async removeImportDrgRouteDistribution(
     removeImportDrgRouteDistributionRequest: requests.RemoveImportDrgRouteDistributionRequest
@@ -37963,7 +38126,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param RemoveIpv6SubnetCidrRequest
    * @return RemoveIpv6SubnetCidrResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveIpv6SubnetCidr.ts.html |here} to see how to use RemoveIpv6SubnetCidr API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveIpv6SubnetCidr.ts.html |here} to see how to use RemoveIpv6SubnetCidr API.
    */
   public async removeIpv6SubnetCidr(
     removeIpv6SubnetCidrRequest: requests.RemoveIpv6SubnetCidrRequest
@@ -38049,7 +38212,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param RemoveIpv6VcnCidrRequest
    * @return RemoveIpv6VcnCidrResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveIpv6VcnCidr.ts.html |here} to see how to use RemoveIpv6VcnCidr API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveIpv6VcnCidr.ts.html |here} to see how to use RemoveIpv6VcnCidr API.
    */
   public async removeIpv6VcnCidr(
     removeIpv6VcnCidrRequest: requests.RemoveIpv6VcnCidrRequest
@@ -38134,7 +38297,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param RemoveNetworkSecurityGroupSecurityRulesRequest
    * @return RemoveNetworkSecurityGroupSecurityRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveNetworkSecurityGroupSecurityRules.ts.html |here} to see how to use RemoveNetworkSecurityGroupSecurityRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveNetworkSecurityGroupSecurityRules.ts.html |here} to see how to use RemoveNetworkSecurityGroupSecurityRules API.
    */
   public async removeNetworkSecurityGroupSecurityRules(
     removeNetworkSecurityGroupSecurityRulesRequest: requests.RemoveNetworkSecurityGroupSecurityRulesRequest
@@ -38210,7 +38373,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param RemovePublicIpPoolCapacityRequest
    * @return RemovePublicIpPoolCapacityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemovePublicIpPoolCapacity.ts.html |here} to see how to use RemovePublicIpPoolCapacity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemovePublicIpPoolCapacity.ts.html |here} to see how to use RemovePublicIpPoolCapacity API.
    */
   public async removePublicIpPoolCapacity(
     removePublicIpPoolCapacityRequest: requests.RemovePublicIpPoolCapacityRequest
@@ -38298,7 +38461,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param RemoveVcnCidrRequest
    * @return RemoveVcnCidrResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveVcnCidr.ts.html |here} to see how to use RemoveVcnCidr API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveVcnCidr.ts.html |here} to see how to use RemoveVcnCidr API.
    */
   public async removeVcnCidr(
     removeVcnCidrRequest: requests.RemoveVcnCidrRequest
@@ -38378,7 +38541,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param SetOriginAsnRequest
    * @return SetOriginAsnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SetOriginAsn.ts.html |here} to see how to use SetOriginAsn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SetOriginAsn.ts.html |here} to see how to use SetOriginAsn API.
    */
   public async setOriginAsn(
     setOriginAsnRequest: requests.SetOriginAsnRequest
@@ -38458,7 +38621,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param SetOriginAsnToOracleRequest
    * @return SetOriginAsnToOracleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SetOriginAsnToOracle.ts.html |here} to see how to use SetOriginAsnToOracle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SetOriginAsnToOracle.ts.html |here} to see how to use SetOriginAsnToOracle API.
    */
   public async setOriginAsnToOracle(
     setOriginAsnToOracleRequest: requests.SetOriginAsnToOracleRequest
@@ -38528,7 +38691,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param UpdateByoasnRequest
    * @return UpdateByoasnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateByoasn.ts.html |here} to see how to use UpdateByoasn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateByoasn.ts.html |here} to see how to use UpdateByoasn API.
    */
   public async updateByoasn(
     updateByoasnRequest: requests.UpdateByoasnRequest
@@ -38611,7 +38774,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param UpdateByoipRangeRequest
    * @return UpdateByoipRangeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateByoipRange.ts.html |here} to see how to use UpdateByoipRange API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateByoipRange.ts.html |here} to see how to use UpdateByoipRange API.
    */
   public async updateByoipRange(
     updateByoipRangeRequest: requests.UpdateByoipRangeRequest
@@ -38694,7 +38857,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param UpdateCaptureFilterRequest
    * @return UpdateCaptureFilterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateCaptureFilter.ts.html |here} to see how to use UpdateCaptureFilter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateCaptureFilter.ts.html |here} to see how to use UpdateCaptureFilter API.
    */
   public async updateCaptureFilter(
     updateCaptureFilterRequest: requests.UpdateCaptureFilterRequest
@@ -38779,7 +38942,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param UpdateCpeRequest
    * @return UpdateCpeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateCpe.ts.html |here} to see how to use UpdateCpe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateCpe.ts.html |here} to see how to use UpdateCpe API.
    */
   public async updateCpe(
     updateCpeRequest: requests.UpdateCpeRequest
@@ -38859,7 +39022,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param UpdateCrossConnectRequest
    * @return UpdateCrossConnectResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateCrossConnect.ts.html |here} to see how to use UpdateCrossConnect API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateCrossConnect.ts.html |here} to see how to use UpdateCrossConnect API.
    */
   public async updateCrossConnect(
     updateCrossConnectRequest: requests.UpdateCrossConnectRequest
@@ -38943,7 +39106,7 @@ To list the ephemeral public IPs assigned to private IPs:
    * @param UpdateCrossConnectGroupRequest
    * @return UpdateCrossConnectGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateCrossConnectGroup.ts.html |here} to see how to use UpdateCrossConnectGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateCrossConnectGroup.ts.html |here} to see how to use UpdateCrossConnectGroup API.
    */
   public async updateCrossConnectGroup(
     updateCrossConnectGroupRequest: requests.UpdateCrossConnectGroupRequest
@@ -39029,7 +39192,7 @@ Note that the `options` object you provide replaces the entire existing set of o
      * @param UpdateDhcpOptionsRequest
      * @return UpdateDhcpOptionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDhcpOptions.ts.html |here} to see how to use UpdateDhcpOptions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDhcpOptions.ts.html |here} to see how to use UpdateDhcpOptions API.
      */
   public async updateDhcpOptions(
     updateDhcpOptionsRequest: requests.UpdateDhcpOptionsRequest
@@ -39111,7 +39274,7 @@ Note that the `options` object you provide replaces the entire existing set of o
    * @param UpdateDrgRequest
    * @return UpdateDrgResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrg.ts.html |here} to see how to use UpdateDrg API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrg.ts.html |here} to see how to use UpdateDrg API.
    */
   public async updateDrg(
     updateDrgRequest: requests.UpdateDrgRequest
@@ -39193,7 +39356,7 @@ Note that the `options` object you provide replaces the entire existing set of o
    * @param UpdateDrgAttachmentRequest
    * @return UpdateDrgAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgAttachment.ts.html |here} to see how to use UpdateDrgAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgAttachment.ts.html |here} to see how to use UpdateDrgAttachment API.
    */
   public async updateDrgAttachment(
     updateDrgAttachmentRequest: requests.UpdateDrgAttachmentRequest
@@ -39276,7 +39439,7 @@ Note that the `options` object you provide replaces the entire existing set of o
    * @param UpdateDrgRouteDistributionRequest
    * @return UpdateDrgRouteDistributionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteDistribution.ts.html |here} to see how to use UpdateDrgRouteDistribution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteDistribution.ts.html |here} to see how to use UpdateDrgRouteDistribution API.
    */
   public async updateDrgRouteDistribution(
     updateDrgRouteDistributionRequest: requests.UpdateDrgRouteDistributionRequest
@@ -39359,7 +39522,7 @@ Note that the `options` object you provide replaces the entire existing set of o
    * @param UpdateDrgRouteDistributionStatementsRequest
    * @return UpdateDrgRouteDistributionStatementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteDistributionStatements.ts.html |here} to see how to use UpdateDrgRouteDistributionStatements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteDistributionStatements.ts.html |here} to see how to use UpdateDrgRouteDistributionStatements API.
    */
   public async updateDrgRouteDistributionStatements(
     updateDrgRouteDistributionStatementsRequest: requests.UpdateDrgRouteDistributionStatementsRequest
@@ -39439,7 +39602,7 @@ Note that the `options` object you provide replaces the entire existing set of o
    * @param UpdateDrgRouteRulesRequest
    * @return UpdateDrgRouteRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteRules.ts.html |here} to see how to use UpdateDrgRouteRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteRules.ts.html |here} to see how to use UpdateDrgRouteRules API.
    */
   public async updateDrgRouteRules(
     updateDrgRouteRulesRequest: requests.UpdateDrgRouteRulesRequest
@@ -39516,7 +39679,7 @@ Note that the `options` object you provide replaces the entire existing set of o
    * @param UpdateDrgRouteTableRequest
    * @return UpdateDrgRouteTableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteTable.ts.html |here} to see how to use UpdateDrgRouteTable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgRouteTable.ts.html |here} to see how to use UpdateDrgRouteTable API.
    */
   public async updateDrgRouteTable(
     updateDrgRouteTableRequest: requests.UpdateDrgRouteTableRequest
@@ -39602,7 +39765,7 @@ To update an individual IPSec tunnel's attributes, use
      * @param UpdateIPSecConnectionRequest
      * @return UpdateIPSecConnectionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateIPSecConnection.ts.html |here} to see how to use UpdateIPSecConnection API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateIPSecConnection.ts.html |here} to see how to use UpdateIPSecConnection API.
      */
   public async updateIPSecConnection(
     updateIPSecConnectionRequest: requests.UpdateIPSecConnectionRequest
@@ -39696,7 +39859,7 @@ To update an individual IPSec tunnel's attributes, use
    * @param UpdateIPSecConnectionTunnelRequest
    * @return UpdateIPSecConnectionTunnelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateIPSecConnectionTunnel.ts.html |here} to see how to use UpdateIPSecConnectionTunnel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateIPSecConnectionTunnel.ts.html |here} to see how to use UpdateIPSecConnectionTunnel API.
    */
   public async updateIPSecConnectionTunnel(
     updateIPSecConnectionTunnelRequest: requests.UpdateIPSecConnectionTunnelRequest
@@ -39783,7 +39946,7 @@ To update an individual IPSec tunnel's attributes, use
    * @param UpdateIPSecConnectionTunnelSharedSecretRequest
    * @return UpdateIPSecConnectionTunnelSharedSecretResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateIPSecConnectionTunnelSharedSecret.ts.html |here} to see how to use UpdateIPSecConnectionTunnelSharedSecret API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateIPSecConnectionTunnelSharedSecret.ts.html |here} to see how to use UpdateIPSecConnectionTunnelSharedSecret API.
    */
   public async updateIPSecConnectionTunnelSharedSecret(
     updateIPSecConnectionTunnelSharedSecretRequest: requests.UpdateIPSecConnectionTunnelSharedSecretRequest
@@ -39873,7 +40036,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
      * @param UpdateInternetGatewayRequest
      * @return UpdateInternetGatewayResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInternetGateway.ts.html |here} to see how to use UpdateInternetGateway API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateInternetGateway.ts.html |here} to see how to use UpdateInternetGateway API.
      */
   public async updateInternetGateway(
     updateInternetGatewayRequest: requests.UpdateInternetGatewayRequest
@@ -39950,7 +40113,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   }
 
   /**
-   * Updates the specified IPv6. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Updates the specified IPv6. You must specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * Use this operation if you want to:
    * <p>
    * Move an IPv6 to a different VNIC in the same subnet.
@@ -39962,7 +40125,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
    * @param UpdateIpv6Request
    * @return UpdateIpv6Response
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateIpv6.ts.html |here} to see how to use UpdateIpv6 API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateIpv6.ts.html |here} to see how to use UpdateIpv6 API.
    */
   public async updateIpv6(
     updateIpv6Request: requests.UpdateIpv6Request
@@ -40044,7 +40207,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
    * @param UpdateLocalPeeringGatewayRequest
    * @return UpdateLocalPeeringGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateLocalPeeringGateway.ts.html |here} to see how to use UpdateLocalPeeringGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateLocalPeeringGateway.ts.html |here} to see how to use UpdateLocalPeeringGateway API.
    */
   public async updateLocalPeeringGateway(
     updateLocalPeeringGatewayRequest: requests.UpdateLocalPeeringGatewayRequest
@@ -40127,7 +40290,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
    * @param UpdateNatGatewayRequest
    * @return UpdateNatGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateNatGateway.ts.html |here} to see how to use UpdateNatGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateNatGateway.ts.html |here} to see how to use UpdateNatGateway API.
    */
   public async updateNatGateway(
     updateNatGatewayRequest: requests.UpdateNatGatewayRequest
@@ -40208,7 +40371,7 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
 To add or remove an existing VNIC from the group, use
 * {@link #updateVnic(UpdateVnicRequest) updateVnic}.
 * <p>
-To add a VNIC to the group *when you create the VNIC*, specify the NSG's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) during creation.
+To add a VNIC to the group *when you create the VNIC*, specify the NSG's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) during creation.
 * For example, see the `nsgIds` attribute in {@link #createVnicDetails(CreateVnicDetailsRequest) createVnicDetails}.
 * <p>
 To add or remove security rules from the group, use
@@ -40223,7 +40386,7 @@ To edit the contents of existing security rules in the group, use
      * @param UpdateNetworkSecurityGroupRequest
      * @return UpdateNetworkSecurityGroupResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateNetworkSecurityGroup.ts.html |here} to see how to use UpdateNetworkSecurityGroup API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateNetworkSecurityGroup.ts.html |here} to see how to use UpdateNetworkSecurityGroup API.
      */
   public async updateNetworkSecurityGroup(
     updateNetworkSecurityGroupRequest: requests.UpdateNetworkSecurityGroupRequest
@@ -40306,7 +40469,7 @@ To edit the contents of existing security rules in the group, use
    * @param UpdateNetworkSecurityGroupSecurityRulesRequest
    * @return UpdateNetworkSecurityGroupSecurityRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateNetworkSecurityGroupSecurityRules.ts.html |here} to see how to use UpdateNetworkSecurityGroupSecurityRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateNetworkSecurityGroupSecurityRules.ts.html |here} to see how to use UpdateNetworkSecurityGroupSecurityRules API.
    */
   public async updateNetworkSecurityGroupSecurityRules(
     updateNetworkSecurityGroupSecurityRulesRequest: requests.UpdateNetworkSecurityGroupSecurityRulesRequest
@@ -40380,7 +40543,7 @@ To edit the contents of existing security rules in the group, use
   }
 
   /**
-     * Updates the specified private IP. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+     * Updates the specified private IP. You must specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
 * Use this operation if you want to:
 * <p>
   - Move a secondary private IP to a different VNIC in the same subnet.
@@ -40395,7 +40558,7 @@ This operation cannot be used with primary private IPs.
      * @param UpdatePrivateIpRequest
      * @return UpdatePrivateIpResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdatePrivateIp.ts.html |here} to see how to use UpdatePrivateIp API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdatePrivateIp.ts.html |here} to see how to use UpdatePrivateIp API.
      */
   public async updatePrivateIp(
     updatePrivateIpRequest: requests.UpdatePrivateIpRequest
@@ -40471,7 +40634,7 @@ This operation cannot be used with primary private IPs.
   }
 
   /**
-     * Updates the specified public IP. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Use this operation if you want to:
+     * Updates the specified public IP. You must specify the object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Use this operation if you want to:
 * <p>
 * Assign a reserved public IP in your pool to a private IP.
 * * Move a reserved public IP to a different private IP.
@@ -40509,13 +40672,13 @@ Regarding ephemeral public IPs:
 * a VNIC or instance can have. If you try to move a reserved public IP
 * to a VNIC or instance that has already reached its public IP limit, an error is
 * returned. For information about the public IP limits, see
-* [Public IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
+* [Public IP Addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param UpdatePublicIpRequest
      * @return UpdatePublicIpResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdatePublicIp.ts.html |here} to see how to use UpdatePublicIp API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdatePublicIp.ts.html |here} to see how to use UpdatePublicIp API.
      */
   public async updatePublicIp(
     updatePublicIpRequest: requests.UpdatePublicIpRequest
@@ -40597,7 +40760,7 @@ Regarding ephemeral public IPs:
    * @param UpdatePublicIpPoolRequest
    * @return UpdatePublicIpPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdatePublicIpPool.ts.html |here} to see how to use UpdatePublicIpPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdatePublicIpPool.ts.html |here} to see how to use UpdatePublicIpPool API.
    */
   public async updatePublicIpPool(
     updatePublicIpPoolRequest: requests.UpdatePublicIpPoolRequest
@@ -40681,7 +40844,7 @@ Regarding ephemeral public IPs:
    * @param UpdateRemotePeeringConnectionRequest
    * @return UpdateRemotePeeringConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateRemotePeeringConnection.ts.html |here} to see how to use UpdateRemotePeeringConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateRemotePeeringConnection.ts.html |here} to see how to use UpdateRemotePeeringConnection API.
    */
   public async updateRemotePeeringConnection(
     updateRemotePeeringConnectionRequest: requests.UpdateRemotePeeringConnectionRequest
@@ -40767,7 +40930,7 @@ Note that the `routeRules` object you provide replaces the entire existing set o
      * @param UpdateRouteTableRequest
      * @return UpdateRouteTableResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateRouteTable.ts.html |here} to see how to use UpdateRouteTable API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateRouteTable.ts.html |here} to see how to use UpdateRouteTable API.
      */
   public async updateRouteTable(
     updateRouteTableRequest: requests.UpdateRouteTableRequest
@@ -40853,7 +41016,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
      * @param UpdateSecurityListRequest
      * @return UpdateSecurityListResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateSecurityList.ts.html |here} to see how to use UpdateSecurityList API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateSecurityList.ts.html |here} to see how to use UpdateSecurityList API.
      */
   public async updateSecurityList(
     updateSecurityListRequest: requests.UpdateSecurityListRequest
@@ -40937,7 +41100,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
    * @param UpdateServiceGatewayRequest
    * @return UpdateServiceGatewayResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateServiceGateway.ts.html |here} to see how to use UpdateServiceGateway API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateServiceGateway.ts.html |here} to see how to use UpdateServiceGateway API.
    */
   public async updateServiceGateway(
     updateServiceGatewayRequest: requests.UpdateServiceGatewayRequest
@@ -41020,7 +41183,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
    * @param UpdateSubnetRequest
    * @return UpdateSubnetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateSubnet.ts.html |here} to see how to use UpdateSubnet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateSubnet.ts.html |here} to see how to use UpdateSubnet API.
    */
   public async updateSubnet(
     updateSubnetRequest: requests.UpdateSubnetRequest
@@ -41104,7 +41267,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
    * @param UpdateTunnelCpeDeviceConfigRequest
    * @return UpdateTunnelCpeDeviceConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateTunnelCpeDeviceConfig.ts.html |here} to see how to use UpdateTunnelCpeDeviceConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateTunnelCpeDeviceConfig.ts.html |here} to see how to use UpdateTunnelCpeDeviceConfig API.
    */
   public async updateTunnelCpeDeviceConfig(
     updateTunnelCpeDeviceConfigRequest: requests.UpdateTunnelCpeDeviceConfigRequest
@@ -41190,7 +41353,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
    * @param UpdateVcnRequest
    * @return UpdateVcnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVcn.ts.html |here} to see how to use UpdateVcn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVcn.ts.html |here} to see how to use UpdateVcn API.
    */
   public async updateVcn(
     updateVcnRequest: requests.UpdateVcnRequest
@@ -41280,7 +41443,7 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
 * its state will return to PROVISIONED. Make sure you confirm that
 * the associated BGP session is back up. For more information
 * about the various states and how to test connectivity, see
-* [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
+* [FastConnect Overview](https://docs.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * <p>
 To change the list of public IP prefixes for a public virtual circuit,
 * use {@link #bulkAddVirtualCircuitPublicPrefixes(BulkAddVirtualCircuitPublicPrefixesRequest) bulkAddVirtualCircuitPublicPrefixes}
@@ -41294,7 +41457,7 @@ To change the list of public IP prefixes for a public virtual circuit,
      * @param UpdateVirtualCircuitRequest
      * @return UpdateVirtualCircuitResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVirtualCircuit.ts.html |here} to see how to use UpdateVirtualCircuit API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVirtualCircuit.ts.html |here} to see how to use UpdateVirtualCircuit API.
      */
   public async updateVirtualCircuit(
     updateVirtualCircuitRequest: requests.UpdateVirtualCircuitRequest
@@ -41378,7 +41541,7 @@ To change the list of public IP prefixes for a public virtual circuit,
    * @param UpdateVlanRequest
    * @return UpdateVlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVlan.ts.html |here} to see how to use UpdateVlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVlan.ts.html |here} to see how to use UpdateVlan API.
    */
   public async updateVlan(
     updateVlanRequest: requests.UpdateVlanRequest
@@ -41460,7 +41623,7 @@ To change the list of public IP prefixes for a public virtual circuit,
    * @param UpdateVnicRequest
    * @return UpdateVnicResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVnic.ts.html |here} to see how to use UpdateVnic API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVnic.ts.html |here} to see how to use UpdateVnic API.
    */
   public async updateVnic(
     updateVnicRequest: requests.UpdateVnicRequest
@@ -41541,7 +41704,7 @@ To change the list of public IP prefixes for a public virtual circuit,
    * @param UpdateVtapRequest
    * @return UpdateVtapResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVtap.ts.html |here} to see how to use UpdateVtap API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateVtap.ts.html |here} to see how to use UpdateVtap API.
    */
   public async updateVtap(
     updateVtapRequest: requests.UpdateVtapRequest
@@ -41629,7 +41792,7 @@ To change the list of public IP prefixes for a public virtual circuit,
    * @param UpgradeDrgRequest
    * @return UpgradeDrgResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpgradeDrg.ts.html |here} to see how to use UpgradeDrg API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpgradeDrg.ts.html |here} to see how to use UpgradeDrg API.
    */
   public async upgradeDrg(
     upgradeDrgRequest: requests.UpgradeDrgRequest
@@ -41697,13 +41860,13 @@ To change the list of public IP prefixes for a public virtual circuit,
 
   /**
    * Submits the BYOASN for validation. Please do not submit to Oracle for validation if the information for the BYOASN is not already modified in the Regional Internet Registry.
-   * See [To import a BYOASN](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/BYOASN.htm) for details.
+   * See [To import a BYOASN](https://docs.oracle.com/iaas/Content/Network/Concepts/BYOASN.htm) for details.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ValidateByoasnRequest
    * @return ValidateByoasnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ValidateByoasn.ts.html |here} to see how to use ValidateByoasn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ValidateByoasn.ts.html |here} to see how to use ValidateByoasn API.
    */
   public async validateByoasn(
     validateByoasnRequest: requests.ValidateByoasnRequest
@@ -41773,13 +41936,13 @@ To change the list of public IP prefixes for a public virtual circuit,
 
   /**
    * Submits the BYOIP CIDR block you are importing for validation. Do not submit to Oracle for validation if you have not already
-   * modified the information for the BYOIP CIDR block with your Regional Internet Registry. See [To import a CIDR block](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/BYOIP.htm#import_cidr) for details.
+   * modified the information for the BYOIP CIDR block with your Regional Internet Registry. See [To import a CIDR block](https://docs.oracle.com/iaas/Content/Network/Concepts/BYOIP.htm#import_cidr) for details.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ValidateByoipRangeRequest
    * @return ValidateByoipRangeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ValidateByoipRange.ts.html |here} to see how to use ValidateByoipRange API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ValidateByoipRange.ts.html |here} to see how to use ValidateByoipRange API.
    */
   public async validateByoipRange(
     validateByoipRangeRequest: requests.ValidateByoipRangeRequest
@@ -41853,7 +42016,7 @@ To change the list of public IP prefixes for a public virtual circuit,
    * @param WithdrawByoipRangeRequest
    * @return WithdrawByoipRangeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/WithdrawByoipRange.ts.html |here} to see how to use WithdrawByoipRange API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/WithdrawByoipRange.ts.html |here} to see how to use WithdrawByoipRange API.
    */
   public async withdrawByoipRange(
     withdrawByoipRangeRequest: requests.WithdrawByoipRangeRequest

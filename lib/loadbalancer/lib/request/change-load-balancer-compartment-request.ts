@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ChangeLoadBalancerCompartment.ts.html |here} to see how to use ChangeLoadBalancerCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/ChangeLoadBalancerCompartment.ts.html |here} to see how to use ChangeLoadBalancerCompartmentRequest.
  */
 export interface ChangeLoadBalancerCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the load balancer to move.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the load balancer to move.
    */
   "loadBalancerId": string;
   /**

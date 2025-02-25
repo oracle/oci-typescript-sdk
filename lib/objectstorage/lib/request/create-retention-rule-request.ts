@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CreateRetentionRule.ts.html |here} to see how to use CreateRetentionRuleRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/CreateRetentionRule.ts.html |here} to see how to use CreateRetentionRuleRequest.
  */
 export interface CreateRetentionRuleRequest extends common.BaseRequest {
   /**

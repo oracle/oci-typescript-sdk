@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface MonitoredResourceTask {
   /**
-   * Task identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Task identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "id": string;
   /**
@@ -27,18 +27,18 @@ export interface MonitoredResourceTask {
    */
   "name": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment identifier.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment identifier.
    *
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the tenancy.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tenancy.
    *
    */
   "tenantId"?: string;
   "taskDetails": model.ImportOciTelemetryResourcesTaskDetails;
   /**
-   * Identifiers [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) for work requests submitted for this task.
+   * Identifiers [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for work requests submitted for this task.
    *
    */
   "workRequestIds"?: Array<string>;

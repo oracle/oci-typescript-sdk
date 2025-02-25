@@ -3,7 +3,7 @@
  * Use the Resource Manager API to automate deployment and operations for all Oracle Cloud Infrastructure resources.
 Using the infrastructure-as-code (IaC) model, the service is based on Terraform, an open source industry standard that lets DevOps engineers develop and deploy their infrastructure anywhere.
 For more information, see
-[the Resource Manager documentation](/iaas/Content/ResourceManager/home.htm).
+[the Resource Manager documentation](https://docs.oracle.com/iaas/Content/ResourceManager/home.htm).
 
  * OpenAPI spec version: 20180917
  * 
@@ -19,17 +19,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Metadata about the [DevOps](https://docs.cloud.oracle.com/iaas/Content/devops/using/home.htm) configuration source.
+ * Metadata about the [DevOps](https://docs.oracle.com/iaas/Content/devops/using/home.htm) configuration source.
  *
  */
 export interface DevOpsConfigSourceRecord extends model.ConfigSourceRecord {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@link Project}.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@link Project}.
    *
    */
   "projectId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@link Repository}.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@link Repository}.
    */
   "repositoryId": string;
   /**

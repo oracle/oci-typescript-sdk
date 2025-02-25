@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/CreatePrivateAccessChannel.ts.html |here} to see how to use CreatePrivateAccessChannelRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/CreatePrivateAccessChannel.ts.html |here} to see how to use CreatePrivateAccessChannelRequest.
  */
 export interface CreatePrivateAccessChannelRequest extends common.BaseRequest {
   /**

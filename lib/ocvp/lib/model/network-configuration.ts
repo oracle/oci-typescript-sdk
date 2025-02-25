@@ -1,7 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
  * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
-For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+For more information, see [Oracle Cloud VMware Solution](https://docs.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20230701
  * 
@@ -18,18 +18,18 @@ import common = require("oci-common");
 
 /**
  * The network configurations used by Cluster, including
- * [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the management subnet and VLANs.
+ * [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management subnet and VLANs.
  *
  */
 export interface NetworkConfiguration {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the management subnet used
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management subnet used
    * to provision the Cluster.
    *
    */
   "provisioningSubnetId": string;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
 * for the vSphere component of the VMware environment. This VLAN is a mandatory attribute
 * for Management Cluster.
 * <p>
@@ -47,7 +47,7 @@ Therefore, if you change the existing ESXi hosts in the Cluster to use a differe
     */
   "vsphereVlanId"?: string;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
 * for the vMotion component of the VMware environment.
 * <p>
 This attribute is not guaranteed to reflect the vMotion VLAN
@@ -64,7 +64,7 @@ Therefore, if you change the existing ESXi hosts in the Cluster to use a differe
     */
   "vmotionVlanId": string;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
 * for the vSAN component of the VMware environment.
 * <p>
 This attribute is not guaranteed to reflect the vSAN VLAN
@@ -81,7 +81,7 @@ Therefore, if you change the existing ESXi hosts in the Cluster to use a differe
     */
   "vsanVlanId": string;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
 * for the NSX VTEP component of the VMware environment.
 * <p>
 This attribute is not guaranteed to reflect the NSX VTEP VLAN
@@ -98,7 +98,7 @@ Therefore, if you change the existing ESXi hosts in the Cluster to use a differe
     */
   "nsxVTepVlanId": string;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
 * for the NSX Edge VTEP component of the VMware environment.
 * <p>
 This attribute is not guaranteed to reflect the NSX Edge VTEP VLAN
@@ -115,7 +115,7 @@ Therefore, if you change the existing ESXi hosts in the Cluster to use a differe
     */
   "nsxEdgeVTepVlanId": string;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
 * for the NSX Edge Uplink 1 component of the VMware environment. This VLAN is a mandatory
 * attribute for Management Cluster.
 * <p>
@@ -133,7 +133,7 @@ Therefore, if you change the existing ESXi hosts in the Cluster to use a differe
     */
   "nsxEdgeUplink1VlanId"?: string;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC 
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC 
 * for the NSX Edge Uplink 2 component of the VMware environment. This VLAN is a mandatory
 * attribute for Management Cluster.
 * <p>
@@ -151,19 +151,19 @@ Therefore, if you change the existing ESXi hosts in the Cluster to use a differe
     */
   "nsxEdgeUplink2VlanId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
    * for the vSphere Replication component of the VMware environment.
    *
    */
   "replicationVlanId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN used by the Cluster
    * for the Provisioning component of the VMware environment.
    *
    */
   "provisioningVlanId"?: string;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN used by the SDDC
 * for the HCX component of the VMware environment. This VLAN is a mandatory attribute 
 * for Management Cluster when HCX is enabled.
 * <p>

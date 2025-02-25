@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/GetSecurityAttribute.ts.html |here} to see how to use GetSecurityAttributeRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/securityattribute/GetSecurityAttribute.ts.html |here} to see how to use GetSecurityAttributeRequest.
  */
 export interface GetSecurityAttributeRequest extends common.BaseRequest {
   /**

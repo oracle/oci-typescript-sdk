@@ -244,7 +244,7 @@ export class DesktopServiceClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -312,7 +312,7 @@ export class DesktopServiceClient {
    * @param ChangeDesktopPoolCompartmentRequest
    * @return ChangeDesktopPoolCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ChangeDesktopPoolCompartment.ts.html |here} to see how to use ChangeDesktopPoolCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ChangeDesktopPoolCompartment.ts.html |here} to see how to use ChangeDesktopPoolCompartment API.
    */
   public async changeDesktopPoolCompartment(
     changeDesktopPoolCompartmentRequest: requests.ChangeDesktopPoolCompartmentRequest
@@ -391,7 +391,7 @@ export class DesktopServiceClient {
    * @param CreateDesktopPoolRequest
    * @return CreateDesktopPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/CreateDesktopPool.ts.html |here} to see how to use CreateDesktopPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/CreateDesktopPool.ts.html |here} to see how to use CreateDesktopPool API.
    */
   public async createDesktopPool(
     createDesktopPoolRequest: requests.CreateDesktopPoolRequest
@@ -486,7 +486,7 @@ export class DesktopServiceClient {
    * @param DeleteDesktopRequest
    * @return DeleteDesktopResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/DeleteDesktop.ts.html |here} to see how to use DeleteDesktop API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/DeleteDesktop.ts.html |here} to see how to use DeleteDesktop API.
    */
   public async deleteDesktop(
     deleteDesktopRequest: requests.DeleteDesktopRequest
@@ -559,7 +559,7 @@ export class DesktopServiceClient {
    * @param DeleteDesktopPoolRequest
    * @return DeleteDesktopPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/DeleteDesktopPool.ts.html |here} to see how to use DeleteDesktopPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/DeleteDesktopPool.ts.html |here} to see how to use DeleteDesktopPool API.
    */
   public async deleteDesktopPool(
     deleteDesktopPoolRequest: requests.DeleteDesktopPoolRequest
@@ -633,7 +633,7 @@ export class DesktopServiceClient {
    * @param GetDesktopRequest
    * @return GetDesktopResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/GetDesktop.ts.html |here} to see how to use GetDesktop API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/GetDesktop.ts.html |here} to see how to use GetDesktop API.
    */
   public async getDesktop(
     getDesktopRequest: requests.GetDesktopRequest
@@ -709,7 +709,7 @@ export class DesktopServiceClient {
    * @param GetDesktopPoolRequest
    * @return GetDesktopPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/GetDesktopPool.ts.html |here} to see how to use GetDesktopPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/GetDesktopPool.ts.html |here} to see how to use GetDesktopPool API.
    */
   public async getDesktopPool(
     getDesktopPoolRequest: requests.GetDesktopPoolRequest
@@ -784,7 +784,7 @@ export class DesktopServiceClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -860,7 +860,7 @@ export class DesktopServiceClient {
    * @param ListDesktopPoolDesktopsRequest
    * @return ListDesktopPoolDesktopsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListDesktopPoolDesktops.ts.html |here} to see how to use ListDesktopPoolDesktops API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListDesktopPoolDesktops.ts.html |here} to see how to use ListDesktopPoolDesktops API.
    */
   public async listDesktopPoolDesktops(
     listDesktopPoolDesktopsRequest: requests.ListDesktopPoolDesktopsRequest
@@ -947,7 +947,7 @@ export class DesktopServiceClient {
    * @param ListDesktopPoolVolumesRequest
    * @return ListDesktopPoolVolumesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListDesktopPoolVolumes.ts.html |here} to see how to use ListDesktopPoolVolumes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListDesktopPoolVolumes.ts.html |here} to see how to use ListDesktopPoolVolumes API.
    */
   public async listDesktopPoolVolumes(
     listDesktopPoolVolumesRequest: requests.ListDesktopPoolVolumesRequest
@@ -1034,7 +1034,7 @@ export class DesktopServiceClient {
    * @param ListDesktopPoolsRequest
    * @return ListDesktopPoolsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListDesktopPools.ts.html |here} to see how to use ListDesktopPools API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListDesktopPools.ts.html |here} to see how to use ListDesktopPools API.
    */
   public async listDesktopPools(
     listDesktopPoolsRequest: requests.ListDesktopPoolsRequest
@@ -1118,7 +1118,7 @@ export class DesktopServiceClient {
    * @param ListDesktopsRequest
    * @return ListDesktopsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListDesktops.ts.html |here} to see how to use ListDesktops API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListDesktops.ts.html |here} to see how to use ListDesktops API.
    */
   public async listDesktops(
     listDesktopsRequest: requests.ListDesktopsRequest
@@ -1202,7 +1202,7 @@ export class DesktopServiceClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1284,7 +1284,7 @@ export class DesktopServiceClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1365,7 +1365,7 @@ export class DesktopServiceClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1447,7 +1447,7 @@ export class DesktopServiceClient {
    * @param StartDesktopRequest
    * @return StartDesktopResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/StartDesktop.ts.html |here} to see how to use StartDesktop API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/StartDesktop.ts.html |here} to see how to use StartDesktop API.
    */
   public async startDesktop(
     startDesktopRequest: requests.StartDesktopRequest
@@ -1521,7 +1521,7 @@ export class DesktopServiceClient {
    * @param StartDesktopPoolRequest
    * @return StartDesktopPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/StartDesktopPool.ts.html |here} to see how to use StartDesktopPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/StartDesktopPool.ts.html |here} to see how to use StartDesktopPool API.
    */
   public async startDesktopPool(
     startDesktopPoolRequest: requests.StartDesktopPoolRequest
@@ -1595,7 +1595,7 @@ export class DesktopServiceClient {
    * @param StopDesktopRequest
    * @return StopDesktopResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/StopDesktop.ts.html |here} to see how to use StopDesktop API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/StopDesktop.ts.html |here} to see how to use StopDesktop API.
    */
   public async stopDesktop(
     stopDesktopRequest: requests.StopDesktopRequest
@@ -1671,7 +1671,7 @@ export class DesktopServiceClient {
    * @param StopDesktopPoolRequest
    * @return StopDesktopPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/StopDesktopPool.ts.html |here} to see how to use StopDesktopPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/StopDesktopPool.ts.html |here} to see how to use StopDesktopPool API.
    */
   public async stopDesktopPool(
     stopDesktopPoolRequest: requests.StopDesktopPoolRequest
@@ -1744,7 +1744,7 @@ export class DesktopServiceClient {
    * @param UpdateDesktopRequest
    * @return UpdateDesktopResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/UpdateDesktop.ts.html |here} to see how to use UpdateDesktop API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/UpdateDesktop.ts.html |here} to see how to use UpdateDesktop API.
    */
   public async updateDesktop(
     updateDesktopRequest: requests.UpdateDesktopRequest
@@ -1822,7 +1822,7 @@ export class DesktopServiceClient {
    * @param UpdateDesktopPoolRequest
    * @return UpdateDesktopPoolResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/UpdateDesktopPool.ts.html |here} to see how to use UpdateDesktopPool API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/desktops/UpdateDesktopPool.ts.html |here} to see how to use UpdateDesktopPool API.
    */
   public async updateDesktopPool(
     updateDesktopPoolRequest: requests.UpdateDesktopPoolRequest

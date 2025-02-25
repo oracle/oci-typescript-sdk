@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -51,8 +51,12 @@ import * as ListLifecycleStagesResponse from "./list-lifecycle-stages-response";
 export import ListLifecycleStagesResponse = ListLifecycleStagesResponse.ListLifecycleStagesResponse;
 import * as PromoteSoftwareSourceToLifecycleStageResponse from "./promote-software-source-to-lifecycle-stage-response";
 export import PromoteSoftwareSourceToLifecycleStageResponse = PromoteSoftwareSourceToLifecycleStageResponse.PromoteSoftwareSourceToLifecycleStageResponse;
+import * as RebootLifecycleStageResponse from "./reboot-lifecycle-stage-response";
+export import RebootLifecycleStageResponse = RebootLifecycleStageResponse.RebootLifecycleStageResponse;
 import * as UpdateLifecycleEnvironmentResponse from "./update-lifecycle-environment-response";
 export import UpdateLifecycleEnvironmentResponse = UpdateLifecycleEnvironmentResponse.UpdateLifecycleEnvironmentResponse;
+import * as AssociateManagedInstancesWithManagementStationResponse from "./associate-managed-instances-with-management-station-response";
+export import AssociateManagedInstancesWithManagementStationResponse = AssociateManagedInstancesWithManagementStationResponse.AssociateManagedInstancesWithManagementStationResponse;
 import * as AttachProfileToManagedInstanceResponse from "./attach-profile-to-managed-instance-response";
 export import AttachProfileToManagedInstanceResponse = AttachProfileToManagedInstanceResponse.AttachProfileToManagedInstanceResponse;
 import * as AttachSoftwareSourcesToManagedInstanceResponse from "./attach-software-sources-to-managed-instance-response";
@@ -101,6 +105,8 @@ import * as ListWindowsUpdatesResponse from "./list-windows-updates-response";
 export import ListWindowsUpdatesResponse = ListWindowsUpdatesResponse.ListWindowsUpdatesResponse;
 import * as ManageModuleStreamsOnManagedInstanceResponse from "./manage-module-streams-on-managed-instance-response";
 export import ManageModuleStreamsOnManagedInstanceResponse = ManageModuleStreamsOnManagedInstanceResponse.ManageModuleStreamsOnManagedInstanceResponse;
+import * as RebootManagedInstanceResponse from "./reboot-managed-instance-response";
+export import RebootManagedInstanceResponse = RebootManagedInstanceResponse.RebootManagedInstanceResponse;
 import * as RefreshSoftwareOnManagedInstanceResponse from "./refresh-software-on-managed-instance-response";
 export import RefreshSoftwareOnManagedInstanceResponse = RefreshSoftwareOnManagedInstanceResponse.RefreshSoftwareOnManagedInstanceResponse;
 import * as RemoveModuleStreamProfileFromManagedInstanceResponse from "./remove-module-stream-profile-from-managed-instance-response";
@@ -155,6 +161,8 @@ import * as ListManagedInstanceGroupsResponse from "./list-managed-instance-grou
 export import ListManagedInstanceGroupsResponse = ListManagedInstanceGroupsResponse.ListManagedInstanceGroupsResponse;
 import * as ManageModuleStreamsOnManagedInstanceGroupResponse from "./manage-module-streams-on-managed-instance-group-response";
 export import ManageModuleStreamsOnManagedInstanceGroupResponse = ManageModuleStreamsOnManagedInstanceGroupResponse.ManageModuleStreamsOnManagedInstanceGroupResponse;
+import * as RebootManagedInstanceGroupResponse from "./reboot-managed-instance-group-response";
+export import RebootManagedInstanceGroupResponse = RebootManagedInstanceGroupResponse.RebootManagedInstanceGroupResponse;
 import * as RemoveModuleStreamProfileFromManagedInstanceGroupResponse from "./remove-module-stream-profile-from-managed-instance-group-response";
 export import RemoveModuleStreamProfileFromManagedInstanceGroupResponse = RemoveModuleStreamProfileFromManagedInstanceGroupResponse.RemoveModuleStreamProfileFromManagedInstanceGroupResponse;
 import * as RemovePackagesFromManagedInstanceGroupResponse from "./remove-packages-from-managed-instance-group-response";
@@ -185,14 +193,28 @@ import * as SynchronizeSingleMirrorsResponse from "./synchronize-single-mirrors-
 export import SynchronizeSingleMirrorsResponse = SynchronizeSingleMirrorsResponse.SynchronizeSingleMirrorsResponse;
 import * as UpdateManagementStationResponse from "./update-management-station-response";
 export import UpdateManagementStationResponse = UpdateManagementStationResponse.UpdateManagementStationResponse;
+import * as AttachLifecycleStageToProfileResponse from "./attach-lifecycle-stage-to-profile-response";
+export import AttachLifecycleStageToProfileResponse = AttachLifecycleStageToProfileResponse.AttachLifecycleStageToProfileResponse;
+import * as AttachManagedInstanceGroupToProfileResponse from "./attach-managed-instance-group-to-profile-response";
+export import AttachManagedInstanceGroupToProfileResponse = AttachManagedInstanceGroupToProfileResponse.AttachManagedInstanceGroupToProfileResponse;
+import * as AttachManagementStationToProfileResponse from "./attach-management-station-to-profile-response";
+export import AttachManagementStationToProfileResponse = AttachManagementStationToProfileResponse.AttachManagementStationToProfileResponse;
+import * as AttachSoftwareSourcesToProfileResponse from "./attach-software-sources-to-profile-response";
+export import AttachSoftwareSourcesToProfileResponse = AttachSoftwareSourcesToProfileResponse.AttachSoftwareSourcesToProfileResponse;
 import * as ChangeProfileCompartmentResponse from "./change-profile-compartment-response";
 export import ChangeProfileCompartmentResponse = ChangeProfileCompartmentResponse.ChangeProfileCompartmentResponse;
 import * as CreateProfileResponse from "./create-profile-response";
 export import CreateProfileResponse = CreateProfileResponse.CreateProfileResponse;
 import * as DeleteProfileResponse from "./delete-profile-response";
 export import DeleteProfileResponse = DeleteProfileResponse.DeleteProfileResponse;
+import * as DetachSoftwareSourcesFromProfileResponse from "./detach-software-sources-from-profile-response";
+export import DetachSoftwareSourcesFromProfileResponse = DetachSoftwareSourcesFromProfileResponse.DetachSoftwareSourcesFromProfileResponse;
 import * as GetProfileResponse from "./get-profile-response";
 export import GetProfileResponse = GetProfileResponse.GetProfileResponse;
+import * as GetProfileVersionResponse from "./get-profile-version-response";
+export import GetProfileVersionResponse = GetProfileVersionResponse.GetProfileVersionResponse;
+import * as ListProfileAvailableSoftwareSourcesResponse from "./list-profile-available-software-sources-response";
+export import ListProfileAvailableSoftwareSourcesResponse = ListProfileAvailableSoftwareSourcesResponse.ListProfileAvailableSoftwareSourcesResponse;
 import * as ListProfilesResponse from "./list-profiles-response";
 export import ListProfilesResponse = ListProfilesResponse.ListProfilesResponse;
 import * as UpdateProfileResponse from "./update-profile-response";
@@ -243,8 +265,12 @@ import * as GetSoftwarePackageByNameResponse from "./get-software-package-by-nam
 export import GetSoftwarePackageByNameResponse = GetSoftwarePackageByNameResponse.GetSoftwarePackageByNameResponse;
 import * as GetSoftwareSourceResponse from "./get-software-source-response";
 export import GetSoftwareSourceResponse = GetSoftwareSourceResponse.GetSoftwareSourceResponse;
+import * as GetSoftwareSourceManifestResponse from "./get-software-source-manifest-response";
+export import GetSoftwareSourceManifestResponse = GetSoftwareSourceManifestResponse.GetSoftwareSourceManifestResponse;
 import * as ListAllSoftwarePackagesResponse from "./list-all-software-packages-response";
 export import ListAllSoftwarePackagesResponse = ListAllSoftwarePackagesResponse.ListAllSoftwarePackagesResponse;
+import * as ListAvailableSoftwarePackagesResponse from "./list-available-software-packages-response";
+export import ListAvailableSoftwarePackagesResponse = ListAvailableSoftwarePackagesResponse.ListAvailableSoftwarePackagesResponse;
 import * as ListEntitlementsResponse from "./list-entitlements-response";
 export import ListEntitlementsResponse = ListEntitlementsResponse.ListEntitlementsResponse;
 import * as ListErrataResponse from "./list-errata-response";
@@ -263,14 +289,22 @@ import * as ListSoftwareSourceVendorsResponse from "./list-software-source-vendo
 export import ListSoftwareSourceVendorsResponse = ListSoftwareSourceVendorsResponse.ListSoftwareSourceVendorsResponse;
 import * as ListSoftwareSourcesResponse from "./list-software-sources-response";
 export import ListSoftwareSourcesResponse = ListSoftwareSourcesResponse.ListSoftwareSourcesResponse;
+import * as RemovePackagesFromSoftwareSourceResponse from "./remove-packages-from-software-source-response";
+export import RemovePackagesFromSoftwareSourceResponse = RemovePackagesFromSoftwareSourceResponse.RemovePackagesFromSoftwareSourceResponse;
+import * as ReplacePackagesInSoftwareSourceResponse from "./replace-packages-in-software-source-response";
+export import ReplacePackagesInSoftwareSourceResponse = ReplacePackagesInSoftwareSourceResponse.ReplacePackagesInSoftwareSourceResponse;
 import * as SearchSoftwareSourceModuleStreamsResponse from "./search-software-source-module-streams-response";
 export import SearchSoftwareSourceModuleStreamsResponse = SearchSoftwareSourceModuleStreamsResponse.SearchSoftwareSourceModuleStreamsResponse;
 import * as SearchSoftwareSourceModulesResponse from "./search-software-source-modules-response";
 export import SearchSoftwareSourceModulesResponse = SearchSoftwareSourceModulesResponse.SearchSoftwareSourceModulesResponse;
 import * as SearchSoftwareSourcePackageGroupsResponse from "./search-software-source-package-groups-response";
 export import SearchSoftwareSourcePackageGroupsResponse = SearchSoftwareSourcePackageGroupsResponse.SearchSoftwareSourcePackageGroupsResponse;
+import * as SoftwareSourceGenerateMetadataResponse from "./software-source-generate-metadata-response";
+export import SoftwareSourceGenerateMetadataResponse = SoftwareSourceGenerateMetadataResponse.SoftwareSourceGenerateMetadataResponse;
 import * as UpdateSoftwareSourceResponse from "./update-software-source-response";
 export import UpdateSoftwareSourceResponse = UpdateSoftwareSourceResponse.UpdateSoftwareSourceResponse;
+import * as UpdateSoftwareSourceManifestResponse from "./update-software-source-manifest-response";
+export import UpdateSoftwareSourceManifestResponse = UpdateSoftwareSourceManifestResponse.UpdateSoftwareSourceManifestResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";
@@ -279,3 +313,5 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RerunWorkRequestResponse from "./rerun-work-request-response";
+export import RerunWorkRequestResponse = RerunWorkRequestResponse.RerunWorkRequestResponse;

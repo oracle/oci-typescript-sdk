@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAuditArchiveRetrieval.ts.html |here} to see how to use DeleteAuditArchiveRetrievalRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAuditArchiveRetrieval.ts.html |here} to see how to use DeleteAuditArchiveRetrievalRequest.
  */
 export interface DeleteAuditArchiveRetrievalRequest extends common.BaseRequest {
   /**

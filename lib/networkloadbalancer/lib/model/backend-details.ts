@@ -50,7 +50,7 @@ Example: {@code 8080}
 * proportion of incoming traffic. For example, a server weighted '3' receives three times the number of new connections
 * as a server weighted '1'.
 * For more information about load balancing policies, see
-* [Network Load Balancer Policies](https://docs.cloud.oracle.com/Content/NetworkLoadBalancer/introduction.htm#Policies).
+* [Network Load Balancer Policies](https://docs.oracle.com/iaas/Content/NetworkLoadBalancer/introduction.htm#Policies).
 * <p>
 Example: {@code 3}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

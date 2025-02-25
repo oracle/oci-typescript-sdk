@@ -1,6 +1,6 @@
 /**
  * Application Dependency Management API
- * Use the Application Dependency Management API to create knowledge bases and vulnerability audits.  For more information, see [ADM](/Content/application-dependency-management/home.htm).
+ * Use the Application Dependency Management API to create knowledge bases and vulnerability audits.  For more information, see [ADM](https://docs.oracle.com/iaas/Content/application-dependency-management/home.htm).
  * OpenAPI spec version: 20220421
  *
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface OciDevOpsBuildConfiguration extends model.VerifyConfiguration {
   /**
-   * The Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the user's DevOps Build Pipeline.
+   * The Oracle Cloud Identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the user's DevOps Build Pipeline.
    */
   "pipelineId": string;
   /**

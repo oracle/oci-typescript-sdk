@@ -16,7 +16,7 @@ import common = require("oci-common");
 import stream = require("stream");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/PutObject.ts.html |here} to see how to use PutObjectRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/PutObject.ts.html |here} to see how to use PutObjectRequest.
  */
 export interface PutObjectRequest extends common.BaseRequest {
   /**
@@ -162,26 +162,26 @@ The optional header that defines the base64-encoded SHA384 hash of the body. If 
   "cacheControl"?: string;
   /**
    * The optional header that specifies \"AES256\" as the encryption algorithm. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.oracle.com/iaas/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSseCustomerAlgorithm"?: string;
   /**
    * The optional header that specifies the base64-encoded 256-bit encryption key to use to encrypt or
    * decrypt the data. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.oracle.com/iaas/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSseCustomerKey"?: string;
   /**
    * The optional header that specifies the base64-encoded SHA256 hash of the encryption key. This
    * value is used to check the integrity of the encryption key. For more information, see
-   * [Using Your Own Keys for Server-Side Encryption](https://docs.cloud.oracle.com/Content/Object/Tasks/usingyourencryptionkeys.htm).
+   * [Using Your Own Keys for Server-Side Encryption](https://docs.oracle.com/iaas/Content/Object/Tasks/usingyourencryptionkeys.htm).
    *
    */
   "opcSseCustomerKeySha256"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a master encryption key used to call the Key
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a master encryption key used to call the Key
    * Management service to generate a data encryption key or to encrypt or decrypt a data encryption key.
    *
    */

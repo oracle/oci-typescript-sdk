@@ -1,7 +1,7 @@
 /**
  * Load Balancing API
  * API for the Load Balancing service. Use this API to manage load balancers, backend sets, and related items. For more
-information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/balanceoverview.htm).
+information, see [Overview of Load Balancing](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).
 
  * OpenAPI spec version: 20170115
  * 
@@ -26,7 +26,7 @@ export interface ConnectionConfiguration {
 * between the client and backend servers. A send operation does not reset the timer for receive operations. A
 * receive operation does not reset the timer for send operations.
 * <p>
-For more information, see [Connection Configuration](https://docs.cloud.oracle.com/Content/Balance/Reference/connectionreuse.htm#ConnectionConfiguration).
+For more information, see [Connection Configuration](https://docs.oracle.com/iaas/Content/Balance/Reference/connectionreuse.htm#ConnectionConfiguration).
 * <p>
 Example: {@code 1200}
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

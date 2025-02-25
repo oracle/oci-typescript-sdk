@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -29,7 +29,7 @@ export interface WorkRequest {
    */
   "status": model.OperationStatus;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "id": string;
   /**
@@ -45,22 +45,22 @@ export interface WorkRequest {
    */
   "message"?: string;
   /**
-   * The OCID of the parent work request, if there is any.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the parent work request, if there is any.
    */
   "parentId"?: string;
   /**
-   * The list of OCIDs for the child work requests.
+   * The list of [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the child work requests.
    */
   "childrenId"?: Array<string>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the work request.
    * Work requests should be scoped to the same compartment as the resource it affects.
    * If the work request affects multiple resources the different compartments, the services selects the compartment of the primary resource.
    *
    */
   "compartmentId": string;
   /**
-   * The list of [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the resources affected by the work request.
+   * The list of [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the resources affected by the work request.
    */
   "resources": Array<model.WorkRequestResource>;
   /**
@@ -100,7 +100,7 @@ export interface WorkRequest {
    */
   "timeFinished"?: Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource that initiated the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource that initiated the work request.
    */
   "initiatorId"?: string;
   "managementStation"?: model.WorkRequestManagementStationDetails;
@@ -124,18 +124,31 @@ export interface WorkRequest {
    */
   "contentChecksum"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the original work request that is being retried.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the original work request that is being retried.
    *
    */
   "retryOfId"?: string;
   /**
-   * Indicates whether this work request is managed by the Autonomous Linux service.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the original work request that is being rerun.
+   *
+   */
+  "rerunOfId"?: string;
+  /**
+   * The amount of time in minutes to wait until retrying the work request. If set, the service will automatically retry
+   * a failed work request after the interval. For example, An interval set to [2,5,10]. If the initial
+   * execution of the work request fails, the service waits 2 minutes and then retries. If that fails, the service waits 5 minutes
+   * and then retries. If that fails, the service waits 10 minutes and then retries.
+   *
    */
   "retryIntervals"?: Array<number>;
   /**
    * Indicates whether this work request is managed by the Autonomous Linux service.
    */
   "isManagedByAutonomousLinux"?: boolean;
+  /**
+   * The number of minutes the service waits for the reboot to complete. If the managed instance doesn't reboot within the timeout, the service marks the reboot job as failed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "rebootTimeoutInMins"?: number;
 }
 
 export namespace WorkRequest {

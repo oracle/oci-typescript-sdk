@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface UpdateOciObjectStorageConnectionDetails extends model.UpdateConnectionDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the related OCI tenancy.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the related OCI tenancy.
    *
    */
   "tenancyId"?: string;
@@ -32,7 +32,7 @@ export interface UpdateOciObjectStorageConnectionDetails extends model.UpdateCon
    */
   "region"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the OCI user who will access the Object Storage.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OCI user who will access the Object Storage.
    * The user must have write access to the bucket they want to connect to.
    * If the user is not provided, backend will default to the user who is calling the API endpoint.
    *
@@ -46,7 +46,7 @@ export interface UpdateOciObjectStorageConnectionDetails extends model.UpdateCon
    */
   "privateKeyFile"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the private key file (PEM file) corresponding to the API key of the fingerprint.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the private key file (PEM file) corresponding to the API key of the fingerprint.
    * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm
    * Note: When provided, 'privateKeyFile' field must not be provided.
    *
@@ -59,7 +59,7 @@ export interface UpdateOciObjectStorageConnectionDetails extends model.UpdateCon
    */
   "privateKeyPassphrase"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret that stores the passphrase of the private key.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret that stores the passphrase of the private key.
    * Note: When provided, 'privateKeyPassphrase' field must not be provided.
    *
    */

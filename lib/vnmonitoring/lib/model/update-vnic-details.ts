@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -48,7 +48,7 @@ export interface UpdateVnicDetails {
 * {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp}.
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * 
     */
   "hostnameLabel"?: string;
@@ -69,7 +69,7 @@ For more information about NSGs, see
     * Whether the source/destination check is disabled on the VNIC.
 * Defaults to {@code false}, which means the check is performed. For information about why you would
 * skip the source/destination check, see
-* [Using a Private IP as a Route Target](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip).
+* [Using a Private IP as a Route Target](https://docs.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip).
 * <p>
 If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution (instead of
 * belonging to a subnet), the value of the {@code skipSourceDestCheck} attribute is ignored.

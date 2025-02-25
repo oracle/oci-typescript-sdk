@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetReplicationPolicy.ts.html |here} to see how to use GetReplicationPolicyRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/GetReplicationPolicy.ts.html |here} to see how to use GetReplicationPolicyRequest.
  */
 export interface GetReplicationPolicyRequest extends common.BaseRequest {
   /**

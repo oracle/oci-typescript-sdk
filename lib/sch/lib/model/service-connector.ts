@@ -2,7 +2,7 @@
  * Connector Hub API
  * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Connector Hub, see
-[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+[the Connector Hub documentation](https://docs.oracle.com/iaas/Content/connector-hub/home.htm).
 Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
@@ -21,12 +21,12 @@ import common = require("oci-common");
 /**
  * The configuration details of the flow defined by the connector.
  * For more information about flows defined by connectors, see
- * [Overview of Connector Hub](https://docs.cloud.oracle.com/iaas/Content/connector-hub/overview.htm).
+ * [Overview of Connector Hub](https://docs.oracle.com/iaas/Content/connector-hub/overview.htm).
  *
  */
 export interface ServiceConnector {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the connector.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the connector.
    *
    */
   "id": string;
@@ -42,7 +42,7 @@ export interface ServiceConnector {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the connector.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the connector.
    *
    */
   "compartmentId": string;
@@ -103,7 +103,7 @@ export interface ServiceConnector {
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * The system tags associated with this resource, if any. The system tags are set by Oracle Cloud Infrastructure services. Each key is predefined and scoped to namespaces.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    *
    */

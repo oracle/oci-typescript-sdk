@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpointScanProxy.ts.html |here} to see how to use CreateOdaPrivateEndpointScanProxyRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpointScanProxy.ts.html |here} to see how to use CreateOdaPrivateEndpointScanProxyRequest.
  */
 export interface CreateOdaPrivateEndpointScanProxyRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface CreateOdaPrivateEndpointScanProxyRequest extends common.BaseReq
    */
   "createOdaPrivateEndpointScanProxyDetails": model.CreateOdaPrivateEndpointScanProxyDetails;
   /**
-   * Unique ODA Private Endpoint identifier which is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Unique ODA Private Endpoint identifier which is the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "odaPrivateEndpointId": string;
   /**

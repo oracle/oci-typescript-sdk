@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeActionRetrieveCaBundle.ts.html |here} to see how to use RoverNodeActionRetrieveCaBundleRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/rover/RoverNodeActionRetrieveCaBundle.ts.html |here} to see how to use RoverNodeActionRetrieveCaBundleRequest.
  */
 export interface RoverNodeActionRetrieveCaBundleRequest extends common.BaseRequest {
   /**

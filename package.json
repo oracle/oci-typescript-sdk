@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.102.2",
+  "version": "2.103.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -169,7 +169,8 @@
     "oci-generativeaiagent": "file:lib/generativeaiagent",
     "oci-generativeaiagentruntime": "file:lib/generativeaiagentruntime",
     "oci-securityattribute": "file:lib/securityattribute",
-    "oci-zpr": "file:lib/zpr"
+    "oci-zpr": "file:lib/zpr",
+    "oci-dblm": "file:lib/dblm"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

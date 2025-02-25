@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDatabaseToolsPrivateEndpointDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the Database Tools private endpoint.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the Database Tools private endpoint.
    */
   "compartmentId": string;
   /**
@@ -47,11 +47,11 @@ export interface CreateDatabaseToolsPrivateEndpointDetails {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsEndpointService}.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsEndpointService}.
    */
   "endpointServiceId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet that the private endpoint belongs to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet that the private endpoint belongs to.
    */
   "subnetId": string;
   /**
@@ -59,7 +59,7 @@ export interface CreateDatabaseToolsPrivateEndpointDetails {
    */
   "privateEndpointIp"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the network security groups
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the network security groups
    * that the private endpoint's VNIC belongs to.  For more information about NSGs, see
    * {@link NetworkSecurityGroup}.
    *

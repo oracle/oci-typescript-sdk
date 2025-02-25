@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateLibraryMaskingFormat.ts.html |here} to see how to use CreateLibraryMaskingFormatRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateLibraryMaskingFormat.ts.html |here} to see how to use CreateLibraryMaskingFormatRequest.
  */
 export interface CreateLibraryMaskingFormatRequest extends common.BaseRequest {
   /**

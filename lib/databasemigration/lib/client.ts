@@ -243,7 +243,7 @@ export class DatabaseMigrationClient {
    * @param AbortJobRequest
    * @return AbortJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/AbortJob.ts.html |here} to see how to use AbortJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/AbortJob.ts.html |here} to see how to use AbortJob API.
    */
   public async abortJob(
     abortJobRequest: requests.AbortJobRequest
@@ -322,7 +322,7 @@ export class DatabaseMigrationClient {
    * @param AddMigrationObjectsRequest
    * @return AddMigrationObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/AddMigrationObjects.ts.html |here} to see how to use AddMigrationObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/AddMigrationObjects.ts.html |here} to see how to use AddMigrationObjects API.
    */
   public async addMigrationObjects(
     addMigrationObjectsRequest: requests.AddMigrationObjectsRequest
@@ -397,7 +397,7 @@ export class DatabaseMigrationClient {
    * @param ChangeConnectionCompartmentRequest
    * @return ChangeConnectionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ChangeConnectionCompartment.ts.html |here} to see how to use ChangeConnectionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ChangeConnectionCompartment.ts.html |here} to see how to use ChangeConnectionCompartment API.
    */
   public async changeConnectionCompartment(
     changeConnectionCompartmentRequest: requests.ChangeConnectionCompartmentRequest
@@ -473,7 +473,7 @@ export class DatabaseMigrationClient {
    * @param ChangeMigrationCompartmentRequest
    * @return ChangeMigrationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ChangeMigrationCompartment.ts.html |here} to see how to use ChangeMigrationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ChangeMigrationCompartment.ts.html |here} to see how to use ChangeMigrationCompartment API.
    */
   public async changeMigrationCompartment(
     changeMigrationCompartmentRequest: requests.ChangeMigrationCompartmentRequest
@@ -549,7 +549,7 @@ export class DatabaseMigrationClient {
    * @param CloneMigrationRequest
    * @return CloneMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CloneMigration.ts.html |here} to see how to use CloneMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CloneMigration.ts.html |here} to see how to use CloneMigration API.
    */
   public async cloneMigration(
     cloneMigrationRequest: requests.CloneMigrationRequest
@@ -638,7 +638,7 @@ export class DatabaseMigrationClient {
    * @param ConnectionDiagnosticsRequest
    * @return ConnectionDiagnosticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ConnectionDiagnostics.ts.html |here} to see how to use ConnectionDiagnostics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ConnectionDiagnostics.ts.html |here} to see how to use ConnectionDiagnostics API.
    */
   public async connectionDiagnostics(
     connectionDiagnosticsRequest: requests.ConnectionDiagnosticsRequest
@@ -719,7 +719,7 @@ export class DatabaseMigrationClient {
    * @param CreateConnectionRequest
    * @return CreateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CreateConnection.ts.html |here} to see how to use CreateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CreateConnection.ts.html |here} to see how to use CreateConnection API.
    */
   public async createConnection(
     createConnectionRequest: requests.CreateConnectionRequest
@@ -807,7 +807,7 @@ export class DatabaseMigrationClient {
    * @param CreateMigrationRequest
    * @return CreateMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CreateMigration.ts.html |here} to see how to use CreateMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CreateMigration.ts.html |here} to see how to use CreateMigration API.
    */
   public async createMigration(
     createMigrationRequest: requests.CreateMigrationRequest
@@ -894,7 +894,7 @@ export class DatabaseMigrationClient {
    * @param CreateParameterFileVersionRequest
    * @return CreateParameterFileVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CreateParameterFileVersion.ts.html |here} to see how to use CreateParameterFileVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CreateParameterFileVersion.ts.html |here} to see how to use CreateParameterFileVersion API.
    */
   public async createParameterFileVersion(
     createParameterFileVersionRequest: requests.CreateParameterFileVersionRequest
@@ -975,7 +975,7 @@ export class DatabaseMigrationClient {
    * @param DeleteConnectionRequest
    * @return DeleteConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
    */
   public async deleteConnection(
     deleteConnectionRequest: requests.DeleteConnectionRequest
@@ -1050,7 +1050,7 @@ export class DatabaseMigrationClient {
    * @param DeleteJobRequest
    * @return DeleteJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/DeleteJob.ts.html |here} to see how to use DeleteJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/DeleteJob.ts.html |here} to see how to use DeleteJob API.
    */
   public async deleteJob(
     deleteJobRequest: requests.DeleteJobRequest
@@ -1119,7 +1119,7 @@ export class DatabaseMigrationClient {
    * @param DeleteMigrationRequest
    * @return DeleteMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/DeleteMigration.ts.html |here} to see how to use DeleteMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/DeleteMigration.ts.html |here} to see how to use DeleteMigration API.
    */
   public async deleteMigration(
     deleteMigrationRequest: requests.DeleteMigrationRequest
@@ -1194,7 +1194,7 @@ export class DatabaseMigrationClient {
    * @param DeleteParameterFileVersionRequest
    * @return DeleteParameterFileVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/DeleteParameterFileVersion.ts.html |here} to see how to use DeleteParameterFileVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/DeleteParameterFileVersion.ts.html |here} to see how to use DeleteParameterFileVersion API.
    */
   public async deleteParameterFileVersion(
     deleteParameterFileVersionRequest: requests.DeleteParameterFileVersionRequest
@@ -1270,7 +1270,7 @@ export class DatabaseMigrationClient {
    * @param EvaluateMigrationRequest
    * @return EvaluateMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/EvaluateMigration.ts.html |here} to see how to use EvaluateMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/EvaluateMigration.ts.html |here} to see how to use EvaluateMigration API.
    */
   public async evaluateMigration(
     evaluateMigrationRequest: requests.EvaluateMigrationRequest
@@ -1355,7 +1355,7 @@ export class DatabaseMigrationClient {
    * @param GetAdvisorReportRequest
    * @return GetAdvisorReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetAdvisorReport.ts.html |here} to see how to use GetAdvisorReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetAdvisorReport.ts.html |here} to see how to use GetAdvisorReport API.
    */
   public async getAdvisorReport(
     getAdvisorReportRequest: requests.GetAdvisorReportRequest
@@ -1433,7 +1433,7 @@ export class DatabaseMigrationClient {
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetConnection.ts.html |here} to see how to use GetConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetConnection.ts.html |here} to see how to use GetConnection API.
    */
   public async getConnection(
     getConnectionRequest: requests.GetConnectionRequest
@@ -1510,7 +1510,7 @@ export class DatabaseMigrationClient {
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetJob.ts.html |here} to see how to use GetJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetJob.ts.html |here} to see how to use GetJob API.
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getJob.");
@@ -1585,7 +1585,7 @@ export class DatabaseMigrationClient {
    * @param GetJobOutputContentRequest
    * @return GetJobOutputContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetJobOutputContent.ts.html |here} to see how to use GetJobOutputContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetJobOutputContent.ts.html |here} to see how to use GetJobOutputContent API.
    */
   public async getJobOutputContent(
     getJobOutputContentRequest: requests.GetJobOutputContentRequest
@@ -1658,7 +1658,7 @@ export class DatabaseMigrationClient {
    * @param GetMigrationRequest
    * @return GetMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetMigration.ts.html |here} to see how to use GetMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetMigration.ts.html |here} to see how to use GetMigration API.
    */
   public async getMigration(
     getMigrationRequest: requests.GetMigrationRequest
@@ -1737,7 +1737,7 @@ export class DatabaseMigrationClient {
    * @param GetParameterFileVersionRequest
    * @return GetParameterFileVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetParameterFileVersion.ts.html |here} to see how to use GetParameterFileVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetParameterFileVersion.ts.html |here} to see how to use GetParameterFileVersion API.
    */
   public async getParameterFileVersion(
     getParameterFileVersionRequest: requests.GetParameterFileVersionRequest
@@ -1816,7 +1816,7 @@ export class DatabaseMigrationClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1888,7 +1888,7 @@ export class DatabaseMigrationClient {
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListConnections.ts.html |here} to see how to use ListConnections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListConnections.ts.html |here} to see how to use ListConnections API.
    */
   public async listConnections(
     listConnectionsRequest: requests.ListConnectionsRequest
@@ -1975,7 +1975,7 @@ export class DatabaseMigrationClient {
    * @param ListExcludedObjectsRequest
    * @return ListExcludedObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListExcludedObjects.ts.html |here} to see how to use ListExcludedObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListExcludedObjects.ts.html |here} to see how to use ListExcludedObjects API.
    */
   public async listExcludedObjects(
     listExcludedObjectsRequest: requests.ListExcludedObjectsRequest
@@ -2065,7 +2065,7 @@ export class DatabaseMigrationClient {
    * @param ListJobOutputsRequest
    * @return ListJobOutputsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListJobOutputs.ts.html |here} to see how to use ListJobOutputs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListJobOutputs.ts.html |here} to see how to use ListJobOutputs API.
    */
   public async listJobOutputs(
     listJobOutputsRequest: requests.ListJobOutputsRequest
@@ -2146,7 +2146,7 @@ export class DatabaseMigrationClient {
    * @param ListJobsRequest
    * @return ListJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListJobs.ts.html |here} to see how to use ListJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListJobs.ts.html |here} to see how to use ListJobs API.
    */
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
@@ -2229,7 +2229,7 @@ export class DatabaseMigrationClient {
    * @param ListMigrationObjectTypesRequest
    * @return ListMigrationObjectTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListMigrationObjectTypes.ts.html |here} to see how to use ListMigrationObjectTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListMigrationObjectTypes.ts.html |here} to see how to use ListMigrationObjectTypes API.
    */
   public async listMigrationObjectTypes(
     listMigrationObjectTypesRequest: requests.ListMigrationObjectTypesRequest
@@ -2311,7 +2311,7 @@ export class DatabaseMigrationClient {
    * @param ListMigrationObjectsRequest
    * @return ListMigrationObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListMigrationObjects.ts.html |here} to see how to use ListMigrationObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListMigrationObjects.ts.html |here} to see how to use ListMigrationObjects API.
    */
   public async listMigrationObjects(
     listMigrationObjectsRequest: requests.ListMigrationObjectsRequest
@@ -2392,7 +2392,7 @@ export class DatabaseMigrationClient {
    * @param ListMigrationParametersRequest
    * @return ListMigrationParametersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListMigrationParameters.ts.html |here} to see how to use ListMigrationParameters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListMigrationParameters.ts.html |here} to see how to use ListMigrationParameters API.
    */
   public async listMigrationParameters(
     listMigrationParametersRequest: requests.ListMigrationParametersRequest
@@ -2475,7 +2475,7 @@ export class DatabaseMigrationClient {
    * @param ListMigrationsRequest
    * @return ListMigrationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListMigrations.ts.html |here} to see how to use ListMigrations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListMigrations.ts.html |here} to see how to use ListMigrations API.
    */
   public async listMigrations(
     listMigrationsRequest: requests.ListMigrationsRequest
@@ -2561,7 +2561,7 @@ export class DatabaseMigrationClient {
    * @param ListParameterFileVersionsRequest
    * @return ListParameterFileVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListParameterFileVersions.ts.html |here} to see how to use ListParameterFileVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListParameterFileVersions.ts.html |here} to see how to use ListParameterFileVersions API.
    */
   public async listParameterFileVersions(
     listParameterFileVersionsRequest: requests.ListParameterFileVersionsRequest
@@ -2645,7 +2645,7 @@ export class DatabaseMigrationClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2728,7 +2728,7 @@ export class DatabaseMigrationClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2811,7 +2811,7 @@ export class DatabaseMigrationClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2895,7 +2895,7 @@ export class DatabaseMigrationClient {
    * @param MakeCurrentParameterFileVersionRequest
    * @return MakeCurrentParameterFileVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/MakeCurrentParameterFileVersion.ts.html |here} to see how to use MakeCurrentParameterFileVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/MakeCurrentParameterFileVersion.ts.html |here} to see how to use MakeCurrentParameterFileVersion API.
    */
   public async makeCurrentParameterFileVersion(
     makeCurrentParameterFileVersionRequest: requests.MakeCurrentParameterFileVersionRequest
@@ -2978,7 +2978,7 @@ export class DatabaseMigrationClient {
    * @param RemoveMigrationObjectsRequest
    * @return RemoveMigrationObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/RemoveMigrationObjects.ts.html |here} to see how to use RemoveMigrationObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/RemoveMigrationObjects.ts.html |here} to see how to use RemoveMigrationObjects API.
    */
   public async removeMigrationObjects(
     removeMigrationObjectsRequest: requests.RemoveMigrationObjectsRequest
@@ -3053,7 +3053,7 @@ export class DatabaseMigrationClient {
    * @param ResumeJobRequest
    * @return ResumeJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ResumeJob.ts.html |here} to see how to use ResumeJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ResumeJob.ts.html |here} to see how to use ResumeJob API.
    */
   public async resumeJob(
     resumeJobRequest: requests.ResumeJobRequest
@@ -3137,7 +3137,7 @@ export class DatabaseMigrationClient {
    * @param RetrieveSupportedPhasesRequest
    * @return RetrieveSupportedPhasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/RetrieveSupportedPhases.ts.html |here} to see how to use RetrieveSupportedPhases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/RetrieveSupportedPhases.ts.html |here} to see how to use RetrieveSupportedPhases API.
    */
   public async retrieveSupportedPhases(
     retrieveSupportedPhasesRequest: requests.RetrieveSupportedPhasesRequest
@@ -3210,7 +3210,7 @@ export class DatabaseMigrationClient {
    * @param StartMigrationRequest
    * @return StartMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/StartMigration.ts.html |here} to see how to use StartMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/StartMigration.ts.html |here} to see how to use StartMigration API.
    */
   public async startMigration(
     startMigrationRequest: requests.StartMigrationRequest
@@ -3299,7 +3299,7 @@ export class DatabaseMigrationClient {
    * @param SuspendJobRequest
    * @return SuspendJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/SuspendJob.ts.html |here} to see how to use SuspendJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/SuspendJob.ts.html |here} to see how to use SuspendJob API.
    */
   public async suspendJob(
     suspendJobRequest: requests.SuspendJobRequest
@@ -3378,7 +3378,7 @@ export class DatabaseMigrationClient {
    * @param UpdateConnectionRequest
    * @return UpdateConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
    */
   public async updateConnection(
     updateConnectionRequest: requests.UpdateConnectionRequest
@@ -3458,7 +3458,7 @@ export class DatabaseMigrationClient {
    * @param UpdateJobRequest
    * @return UpdateJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateJob.ts.html |here} to see how to use UpdateJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateJob.ts.html |here} to see how to use UpdateJob API.
    */
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
@@ -3541,7 +3541,7 @@ export class DatabaseMigrationClient {
    * @param UpdateMigrationRequest
    * @return UpdateMigrationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateMigration.ts.html |here} to see how to use UpdateMigration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateMigration.ts.html |here} to see how to use UpdateMigration API.
    */
   public async updateMigration(
     updateMigrationRequest: requests.UpdateMigrationRequest

@@ -35,7 +35,7 @@ export interface CreateMonitoredResourceDetails {
    */
   "type": string;
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Compartment Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId": string;
@@ -45,14 +45,14 @@ export interface CreateMonitoredResourceDetails {
    */
   "hostName"?: string;
   /**
-   * External resource is any OCI resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * External resource is any OCI resource identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    * which is not a Stack Monitoring service resource.
    * Currently supports only OCI compute instance.
    *
    */
   "externalId"?: string;
   /**
-   * Management Agent Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Management Agent Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "managementAgentId"?: string;
   /**

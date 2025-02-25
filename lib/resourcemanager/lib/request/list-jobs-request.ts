@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListJobs.ts.html |here} to see how to use ListJobsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListJobs.ts.html |here} to see how to use ListJobsRequest.
  */
 export interface ListJobsRequest extends common.BaseRequest {
   /**
@@ -25,17 +25,17 @@ export interface ListJobsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A filter to return only resources that exist in the compartment, identified by [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * A filter to return only resources that exist in the compartment, identified by [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId"?: string;
   /**
-   * The stack [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) on which to filter.
+   * The stack [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) on which to filter.
    *
    */
   "stackId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) on which to query for jobs.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) on which to query for jobs.
    *
    */
   "id"?: string;
@@ -75,13 +75,13 @@ Allowable values:
   "sortOrder"?: ListJobsRequest.SortOrder;
   /**
    * The number of items returned in a paginated {@code List} call. For information about pagination, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
    * The value of the {@code opc-next-page} response header from the preceding {@code List} call.
-   * For information about pagination, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For information about pagination, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

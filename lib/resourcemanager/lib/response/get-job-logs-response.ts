@@ -25,7 +25,7 @@ export interface GetJobLogsResponse {
    * To receive the next page, include the header value in the {@code page} param.
    * If the {@code opc-next-page} header does not appear in the response, there
    * are no more list items to get. For more information about list pagination,
-   * see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "opcNextPage": string;

@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ScheduledTask {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the data plane resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the data plane resource.
    *
    */
   "id": string;
@@ -51,7 +51,7 @@ export interface ScheduledTask {
    */
   "pauseReason"?: ScheduledTask.PauseReason;
   /**
-   * most recent Work Request Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the asynchronous request.
+   * most recent Work Request Identifier [OCID] (https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the asynchronous request.
    */
   "workRequestId"?: string;
   /**
@@ -59,7 +59,7 @@ export interface ScheduledTask {
    */
   "numOccurrences"?: number;
   /**
-   * Compartment Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Compartment Identifier [OCID] (https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId": string;
   /**

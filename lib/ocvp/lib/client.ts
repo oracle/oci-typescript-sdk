@@ -1,7 +1,7 @@
 /**
  * Oracle Cloud VMware Solution API
  * Use the Oracle Cloud VMware API to create SDDCs and manage ESXi hosts and software. 
-For more information, see [Oracle Cloud VMware Solution](/iaas/Content/VMware/Concepts/ocvsoverview.htm).
+For more information, see [Oracle Cloud VMware Solution](https://docs.oracle.com/iaas/Content/VMware/Concepts/ocvsoverview.htm).
 
  * OpenAPI spec version: 20230701
  * 
@@ -247,13 +247,13 @@ export class ClusterClient {
 Use the {@link WorkRequest} operations to track the
 * creation of the Cluster.
 * <p>
-**Important:** You must configure the Cluster's networking resources with the security rules detailed in [Security Rules for Oracle Cloud VMware Solution SDDCs](https://docs.cloud.oracle.com/iaas/Content/VMware/Reference/ocvssecurityrules.htm). Otherwise, provisioning the SDDC will fail. The rules are based on the requirements set by VMware.
+**Important:** You must configure the Cluster's networking resources with the security rules detailed in [Security Rules for Oracle Cloud VMware Solution SDDCs](https://docs.oracle.com/iaas/Content/VMware/Reference/ocvssecurityrules.htm). Otherwise, provisioning the SDDC will fail. The rules are based on the requirements set by VMware.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateClusterRequest
      * @return CreateClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CreateCluster.ts.html |here} to see how to use CreateCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CreateCluster.ts.html |here} to see how to use CreateCluster API.
      */
   public async createCluster(
     createClusterRequest: requests.CreateClusterRequest
@@ -335,7 +335,7 @@ Use the {@link WorkRequest} operations to track the
      * @param DeleteClusterRequest
      * @return DeleteClusterResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DeleteCluster.ts.html |here} to see how to use DeleteCluster API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DeleteCluster.ts.html |here} to see how to use DeleteCluster API.
      */
   public async deleteCluster(
     deleteClusterRequest: requests.DeleteClusterRequest
@@ -408,7 +408,7 @@ Use the {@link WorkRequest} operations to track the
    * @param GetClusterRequest
    * @return GetClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetCluster.ts.html |here} to see how to use GetCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetCluster.ts.html |here} to see how to use GetCluster API.
    */
   public async getCluster(
     getClusterRequest: requests.GetClusterRequest
@@ -485,7 +485,7 @@ Use the {@link WorkRequest} operations to track the
    * @param ListClustersRequest
    * @return ListClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListClusters.ts.html |here} to see how to use ListClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListClusters.ts.html |here} to see how to use ListClusters API.
    */
   public async listClusters(
     listClustersRequest: requests.ListClustersRequest
@@ -573,7 +573,7 @@ Use the {@link WorkRequest} operations to track the
    * @param UpdateClusterRequest
    * @return UpdateClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpdateCluster.ts.html |here} to see how to use UpdateCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpdateCluster.ts.html |here} to see how to use UpdateCluster API.
    */
   public async updateCluster(
     updateClusterRequest: requests.UpdateClusterRequest
@@ -869,7 +869,7 @@ Use the {@link WorkRequest} operations to track the
      * @param CreateEsxiHostRequest
      * @return CreateEsxiHostResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CreateEsxiHost.ts.html |here} to see how to use CreateEsxiHost API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CreateEsxiHost.ts.html |here} to see how to use CreateEsxiHost API.
      */
   public async createEsxiHost(
     createEsxiHostRequest: requests.CreateEsxiHostRequest
@@ -959,7 +959,7 @@ Use the {@link WorkRequest} operations to track the
      * @param DeleteEsxiHostRequest
      * @return DeleteEsxiHostResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DeleteEsxiHost.ts.html |here} to see how to use DeleteEsxiHost API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DeleteEsxiHost.ts.html |here} to see how to use DeleteEsxiHost API.
      */
   public async deleteEsxiHost(
     deleteEsxiHostRequest: requests.DeleteEsxiHostRequest
@@ -1032,7 +1032,7 @@ Use the {@link WorkRequest} operations to track the
    * @param GetEsxiHostRequest
    * @return GetEsxiHostResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetEsxiHost.ts.html |here} to see how to use GetEsxiHost API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetEsxiHost.ts.html |here} to see how to use GetEsxiHost API.
    */
   public async getEsxiHost(
     getEsxiHostRequest: requests.GetEsxiHostRequest
@@ -1109,7 +1109,7 @@ Use the {@link WorkRequest} operations to track the
    * @param InplaceUpgradeRequest
    * @return InplaceUpgradeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/InplaceUpgrade.ts.html |here} to see how to use InplaceUpgrade API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/InplaceUpgrade.ts.html |here} to see how to use InplaceUpgrade API.
    */
   public async inplaceUpgrade(
     inplaceUpgradeRequest: requests.InplaceUpgradeRequest
@@ -1192,7 +1192,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
      * @param ListEsxiHostsRequest
      * @return ListEsxiHostsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListEsxiHosts.ts.html |here} to see how to use ListEsxiHosts API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListEsxiHosts.ts.html |here} to see how to use ListEsxiHosts API.
      */
   public async listEsxiHosts(
     listEsxiHostsRequest: requests.ListEsxiHostsRequest
@@ -1280,7 +1280,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
    * @param ReplaceHostRequest
    * @return ReplaceHostResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ReplaceHost.ts.html |here} to see how to use ReplaceHost API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ReplaceHost.ts.html |here} to see how to use ReplaceHost API.
    */
   public async replaceHost(
     replaceHostRequest: requests.ReplaceHostRequest
@@ -1360,7 +1360,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
    * @param SwapBillingRequest
    * @return SwapBillingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/SwapBilling.ts.html |here} to see how to use SwapBilling API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/SwapBilling.ts.html |here} to see how to use SwapBilling API.
    */
   public async swapBilling(
     swapBillingRequest: requests.SwapBillingRequest
@@ -1436,7 +1436,7 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
    * @param UpdateEsxiHostRequest
    * @return UpdateEsxiHostResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpdateEsxiHost.ts.html |here} to see how to use UpdateEsxiHost API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpdateEsxiHost.ts.html |here} to see how to use UpdateEsxiHost API.
    */
   public async updateEsxiHost(
     updateEsxiHostRequest: requests.UpdateEsxiHostRequest
@@ -1727,7 +1727,7 @@ export class SddcClient {
    * @param CancelDowngradeHcxRequest
    * @return CancelDowngradeHcxResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CancelDowngradeHcx.ts.html |here} to see how to use CancelDowngradeHcx API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CancelDowngradeHcx.ts.html |here} to see how to use CancelDowngradeHcx API.
    */
   public async cancelDowngradeHcx(
     cancelDowngradeHcxRequest: requests.CancelDowngradeHcxRequest
@@ -1798,13 +1798,13 @@ export class SddcClient {
   /**
    * Moves an SDDC into a different compartment within the same tenancy. For information
    * about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeSddcCompartmentRequest
    * @return ChangeSddcCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ChangeSddcCompartment.ts.html |here} to see how to use ChangeSddcCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ChangeSddcCompartment.ts.html |here} to see how to use ChangeSddcCompartment API.
    */
   public async changeSddcCompartment(
     changeSddcCompartmentRequest: requests.ChangeSddcCompartmentRequest
@@ -1878,13 +1878,13 @@ export class SddcClient {
 Use the {@link WorkRequest} operations to track the
 * creation of the SDDC.
 * <p>
-**Important:** You must configure the SDDC's networking resources with the security rules detailed in [Security Rules for Oracle Cloud VMware Solution SDDCs](https://docs.cloud.oracle.com/iaas/Content/VMware/Reference/ocvssecurityrules.htm). Otherwise, provisioning the SDDC will fail. The rules are based on the requirements set by VMware.
+**Important:** You must configure the SDDC's networking resources with the security rules detailed in [Security Rules for Oracle Cloud VMware Solution SDDCs](https://docs.oracle.com/iaas/Content/VMware/Reference/ocvssecurityrules.htm). Otherwise, provisioning the SDDC will fail. The rules are based on the requirements set by VMware.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateSddcRequest
      * @return CreateSddcResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CreateSddc.ts.html |here} to see how to use CreateSddc API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CreateSddc.ts.html |here} to see how to use CreateSddc API.
      */
   public async createSddc(
     createSddcRequest: requests.CreateSddcRequest
@@ -1966,7 +1966,7 @@ Use the {@link WorkRequest} operations to track the
      * @param DeleteSddcRequest
      * @return DeleteSddcResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DeleteSddc.ts.html |here} to see how to use DeleteSddc API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DeleteSddc.ts.html |here} to see how to use DeleteSddc API.
      */
   public async deleteSddc(
     deleteSddcRequest: requests.DeleteSddcRequest
@@ -2044,7 +2044,7 @@ Use the {@link WorkRequest} operations to track the
    * @param DowngradeHcxRequest
    * @return DowngradeHcxResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DowngradeHcx.ts.html |here} to see how to use DowngradeHcx API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DowngradeHcx.ts.html |here} to see how to use DowngradeHcx API.
    */
   public async downgradeHcx(
     downgradeHcxRequest: requests.DowngradeHcxRequest
@@ -2123,7 +2123,7 @@ Use the {@link WorkRequest} operations to track the
    * @param GetSddcRequest
    * @return GetSddcResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetSddc.ts.html |here} to see how to use GetSddc API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetSddc.ts.html |here} to see how to use GetSddc API.
    */
   public async getSddc(
     getSddcRequest: requests.GetSddcRequest
@@ -2200,7 +2200,7 @@ Use the {@link WorkRequest} operations to track the
    * @param ListSddcsRequest
    * @return ListSddcsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSddcs.ts.html |here} to see how to use ListSddcs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSddcs.ts.html |here} to see how to use ListSddcs API.
    */
   public async listSddcs(
     listSddcsRequest: requests.ListSddcsRequest
@@ -2284,7 +2284,7 @@ Use the {@link WorkRequest} operations to track the
    * @param ListSupportedCommitmentsRequest
    * @return ListSupportedCommitmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSupportedCommitments.ts.html |here} to see how to use ListSupportedCommitments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSupportedCommitments.ts.html |here} to see how to use ListSupportedCommitments API.
    */
   public async listSupportedCommitments(
     listSupportedCommitmentsRequest: requests.ListSupportedCommitmentsRequest
@@ -2364,7 +2364,7 @@ Use the {@link WorkRequest} operations to track the
    * @param ListSupportedHostShapesRequest
    * @return ListSupportedHostShapesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSupportedHostShapes.ts.html |here} to see how to use ListSupportedHostShapes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSupportedHostShapes.ts.html |here} to see how to use ListSupportedHostShapes API.
    */
   public async listSupportedHostShapes(
     listSupportedHostShapesRequest: requests.ListSupportedHostShapesRequest
@@ -2447,7 +2447,7 @@ Use the {@link WorkRequest} operations to track the
    * @param ListSupportedVmwareSoftwareVersionsRequest
    * @return ListSupportedVmwareSoftwareVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSupportedVmwareSoftwareVersions.ts.html |here} to see how to use ListSupportedVmwareSoftwareVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListSupportedVmwareSoftwareVersions.ts.html |here} to see how to use ListSupportedVmwareSoftwareVersions API.
    */
   public async listSupportedVmwareSoftwareVersions(
     listSupportedVmwareSoftwareVersionsRequest: requests.ListSupportedVmwareSoftwareVersionsRequest
@@ -2529,7 +2529,7 @@ Use the {@link WorkRequest} operations to track the
    * @param RefreshHcxLicenseStatusRequest
    * @return RefreshHcxLicenseStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/RefreshHcxLicenseStatus.ts.html |here} to see how to use RefreshHcxLicenseStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/RefreshHcxLicenseStatus.ts.html |here} to see how to use RefreshHcxLicenseStatus API.
    */
   public async refreshHcxLicenseStatus(
     refreshHcxLicenseStatusRequest: requests.RefreshHcxLicenseStatusRequest
@@ -2604,7 +2604,7 @@ Use the {@link WorkRequest} operations to track the
    * @param RetrievePasswordRequest
    * @return RetrievePasswordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/RetrievePassword.ts.html |here} to see how to use RetrievePassword API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/RetrievePassword.ts.html |here} to see how to use RetrievePassword API.
    */
   public async retrievePassword(
     retrievePasswordRequest: requests.RetrievePasswordRequest
@@ -2690,7 +2690,7 @@ Use the {@link WorkRequest} operations to track the
    * @param UpdateSddcRequest
    * @return UpdateSddcResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpdateSddc.ts.html |here} to see how to use UpdateSddc API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpdateSddc.ts.html |here} to see how to use UpdateSddc API.
    */
   public async updateSddc(
     updateSddcRequest: requests.UpdateSddcRequest
@@ -2773,7 +2773,7 @@ Use the {@link WorkRequest} operations to track the
    * @param UpgradeHcxRequest
    * @return UpgradeHcxResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpgradeHcx.ts.html |here} to see how to use UpgradeHcx API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpgradeHcx.ts.html |here} to see how to use UpgradeHcx API.
    */
   public async upgradeHcx(
     upgradeHcxRequest: requests.UpgradeHcxRequest
@@ -3055,7 +3055,7 @@ export class WorkRequestClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -3132,7 +3132,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -3213,7 +3213,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -3293,7 +3293,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest

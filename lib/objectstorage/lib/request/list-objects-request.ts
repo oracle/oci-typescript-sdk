@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListObjects.ts.html |here} to see how to use ListObjectsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/ListObjects.ts.html |here} to see how to use ListObjectsRequest.
  */
 export interface ListObjectsRequest extends common.BaseRequest {
   /**
@@ -43,7 +43,7 @@ export interface ListObjectsRequest extends common.BaseRequest {
   /**
    * For list pagination. The maximum number of results per page, or items to return in a paginated
    * \"List\" call. For important details about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;

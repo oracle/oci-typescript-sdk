@@ -1,7 +1,7 @@
 /**
  * DNS API
  * API for the DNS service. Use this API to manage DNS zones, records, and other DNS resources.
-For more information, see [Overview of the DNS Service](/iaas/Content/DNS/Concepts/dnszonemanagement.htm).
+For more information, see [Overview of the DNS Service](https://docs.oracle.com/iaas/Content/DNS/Concepts/dnszonemanagement.htm).
 
  * OpenAPI spec version: 20180115
  * 
@@ -24,7 +24,7 @@ import common = require("oci-common");
 * A rule may optionally include a sequence of cases, each with an optional {@code caseCondition}
 * expression. Cases allow a sequence of conditions to be defined that will apply different
 * parameters to the rule when the conditions are met. For more information about cases,
-* see [Traffic Management API Guide](https://docs.cloud.oracle.com/iaas/Content/TrafficManagement/Concepts/trafficmanagementapi.htm).
+* see [Traffic Management API Guide](https://docs.oracle.com/iaas/Content/TrafficManagement/Concepts/trafficmanagementapi.htm).
 * <p>
 
 * **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.

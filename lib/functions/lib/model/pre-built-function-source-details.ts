@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface PreBuiltFunctionSourceDetails extends model.FunctionSourceDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the PbfListing this
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the PbfListing this
    * function is sourced from.
    *
    */

@@ -243,7 +243,7 @@ export class ScheduleClient {
    * @param ActivateScheduleRequest
    * @return ActivateScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ActivateSchedule.ts.html |here} to see how to use ActivateSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ActivateSchedule.ts.html |here} to see how to use ActivateSchedule API.
    */
   public async activateSchedule(
     activateScheduleRequest: requests.ActivateScheduleRequest
@@ -320,7 +320,7 @@ export class ScheduleClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -388,7 +388,7 @@ export class ScheduleClient {
    * @param CreateScheduleRequest
    * @return CreateScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/CreateSchedule.ts.html |here} to see how to use CreateSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/CreateSchedule.ts.html |here} to see how to use CreateSchedule API.
    */
   public async createSchedule(
     createScheduleRequest: requests.CreateScheduleRequest
@@ -482,7 +482,7 @@ export class ScheduleClient {
    * @param DeactivateScheduleRequest
    * @return DeactivateScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/DeactivateSchedule.ts.html |here} to see how to use DeactivateSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/DeactivateSchedule.ts.html |here} to see how to use DeactivateSchedule API.
    */
   public async deactivateSchedule(
     deactivateScheduleRequest: requests.DeactivateScheduleRequest
@@ -559,7 +559,7 @@ export class ScheduleClient {
    * @param DeleteScheduleRequest
    * @return DeleteScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/DeleteSchedule.ts.html |here} to see how to use DeleteSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/DeleteSchedule.ts.html |here} to see how to use DeleteSchedule API.
    */
   public async deleteSchedule(
     deleteScheduleRequest: requests.DeleteScheduleRequest
@@ -626,7 +626,7 @@ export class ScheduleClient {
    * @param GetScheduleRequest
    * @return GetScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/GetSchedule.ts.html |here} to see how to use GetSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/GetSchedule.ts.html |here} to see how to use GetSchedule API.
    */
   public async getSchedule(
     getScheduleRequest: requests.GetScheduleRequest
@@ -701,7 +701,7 @@ export class ScheduleClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -782,7 +782,7 @@ export class ScheduleClient {
    * @param ListResourceTypesRequest
    * @return ListResourceTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ListResourceTypes.ts.html |here} to see how to use ListResourceTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ListResourceTypes.ts.html |here} to see how to use ListResourceTypes API.
    */
   public async listResourceTypes(
     listResourceTypesRequest: requests.ListResourceTypesRequest
@@ -860,7 +860,7 @@ export class ScheduleClient {
    * @param ListSchedulesRequest
    * @return ListSchedulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ListSchedules.ts.html |here} to see how to use ListSchedules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ListSchedules.ts.html |here} to see how to use ListSchedules API.
    */
   public async listSchedules(
     listSchedulesRequest: requests.ListSchedulesRequest
@@ -943,7 +943,7 @@ export class ScheduleClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1024,7 +1024,7 @@ export class ScheduleClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1104,7 +1104,7 @@ export class ScheduleClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1187,7 +1187,7 @@ export class ScheduleClient {
    * @param UpdateScheduleRequest
    * @return UpdateScheduleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/UpdateSchedule.ts.html |here} to see how to use UpdateSchedule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/UpdateSchedule.ts.html |here} to see how to use UpdateSchedule API.
    */
   public async updateSchedule(
     updateScheduleRequest: requests.UpdateScheduleRequest

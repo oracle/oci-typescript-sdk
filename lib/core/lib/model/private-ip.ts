@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -35,7 +35,7 @@ Each instance has a *primary private IP* that is automatically created and
 * <p>
 You can add *secondary private IPs* to a VNIC after it's created. For more
 * information, see the {@code privateIp} operations and also
-* [IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
+* [IP Addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
 * <p>
 **Note:** Only
 * {@link #listPrivateIps(ListPrivateIpsRequest) listPrivateIps} and
@@ -46,7 +46,7 @@ You can add *secondary private IPs* to a VNIC after it's created. For more
 * {@link CreateVnicDetails} when calling either
 * {@link #launchInstance(LaunchInstanceRequest) launchInstance} or
 * {@link #attachVnic(AttachVnicRequest) attachVnic}. To update the hostname
-* for a primary private IP, you use {@code {@link #updateVnic(UpdateVnicRequest) updateVnic}}.
+* for a primary private IP, you use {@link #updateVnic(UpdateVnicRequest) updateVnic}.
 * <p>
 {@code PrivateIp} objects that are created for use with the Oracle Cloud VMware Solution are
 * assigned to a VLAN and not a VNIC in a subnet. See the
@@ -55,7 +55,7 @@ You can add *secondary private IPs* to a VNIC after it's created. For more
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
-* [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
+* [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
 */
 export interface PrivateIp {
@@ -68,12 +68,12 @@ Example: {@code Uocm:PHX-AD-1}
     */
   "availabilityDomain"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the private IP.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the private IP.
    */
   "compartmentId"?: string;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
-* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
@@ -87,7 +87,7 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
   "displayName"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
-* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
 * 
@@ -102,14 +102,14 @@ Example: {@code {\"Department\": \"Finance\"}}
 * [RFC 1123](https://tools.ietf.org/html/rfc1123).
 * <p>
 For more information, see
-* [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
+* [DNS in Your Virtual Cloud Network](https://docs.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
 Example: {@code bminstance1}
 * 
     */
   "hostnameLabel"?: string;
   /**
-   * The private IP's Oracle ID ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
+   * The private IP's Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
    */
   "id"?: string;
   /**
@@ -134,13 +134,13 @@ Example: {@code true}
   "isPrimary"?: boolean;
   /**
    * Applicable only if the {@code PrivateIp} object is being used with a VLAN as part of
-   * the Oracle Cloud VMware Solution. The {@code vlanId} is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN. See
+   * the Oracle Cloud VMware Solution. The {@code vlanId} is the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN. See
    * {@link Vlan}.
    *
    */
   "vlanId"?: string;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the VNIC is in.
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the VNIC is in.
 * <p>
 However, if the {@code PrivateIp} object is being used with a VLAN as part of
 * the Oracle Cloud VMware Solution, the {@code subnetId} is null.
@@ -155,7 +155,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeCreated"?: Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC the private IP is assigned to. The VNIC and private IP
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC the private IP is assigned to. The VNIC and private IP
    * must be in the same subnet.
    * However, if the {@code PrivateIp} object is being used with a VLAN as part of
    * the Oracle Cloud VMware Solution, the {@code vnicId} is null.
@@ -163,13 +163,47 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "vnicId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the PrivateIp will use.
+   * State of the IP address. If an IP address is assigned to a VNIC it is ASSIGNED, otherwise it is AVAILABLE.
+   *
+   */
+  "ipState"?: PrivateIp.IpState;
+  /**
+   * Lifetime of the IP address.
+   * There are two types of IPv6 IPs:
+   *  - Ephemeral
+   *  - Reserved
+   *
+   */
+  "lifetime"?: PrivateIp.Lifetime;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the IP address or VNIC will use. For more information, see
+   * [Source Based Routing](https://docs.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#Overview_of_Routing_for_Your_VCN__source_routing).
    *
    */
   "routeTableId"?: string;
 }
 
 export namespace PrivateIp {
+  export enum IpState {
+    Assigned = "ASSIGNED",
+    Available = "AVAILABLE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Lifetime {
+    Ephemeral = "EPHEMERAL",
+    Reserved = "RESERVED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: PrivateIp): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -45,6 +45,11 @@ export namespace PipelineStepUpdateDetails {
 
     if (obj && "stepType" in obj && obj.stepType) {
       switch (obj.stepType) {
+        case "DATAFLOW":
+          return model.PipelineDataflowStepUpdateDetails.getJsonObj(
+            <model.PipelineDataflowStepUpdateDetails>(<object>jsonObj),
+            true
+          );
         case "ML_JOB":
           return model.PipelineMLJobStepUpdateDetails.getJsonObj(
             <model.PipelineMLJobStepUpdateDetails>(<object>jsonObj),
@@ -80,6 +85,11 @@ export namespace PipelineStepUpdateDetails {
 
     if (obj && "stepType" in obj && obj.stepType) {
       switch (obj.stepType) {
+        case "DATAFLOW":
+          return model.PipelineDataflowStepUpdateDetails.getDeserializedJsonObj(
+            <model.PipelineDataflowStepUpdateDetails>(<object>jsonObj),
+            true
+          );
         case "ML_JOB":
           return model.PipelineMLJobStepUpdateDetails.getDeserializedJsonObj(
             <model.PipelineMLJobStepUpdateDetails>(<object>jsonObj),

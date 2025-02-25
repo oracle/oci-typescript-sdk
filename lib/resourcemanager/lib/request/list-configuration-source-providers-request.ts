@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListConfigurationSourceProviders.ts.html |here} to see how to use ListConfigurationSourceProvidersRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListConfigurationSourceProviders.ts.html |here} to see how to use ListConfigurationSourceProvidersRequest.
  */
 export interface ListConfigurationSourceProvidersRequest extends common.BaseRequest {
   /**
@@ -25,12 +25,12 @@ export interface ListConfigurationSourceProvidersRequest extends common.BaseRequ
    */
   "opcRequestId"?: string;
   /**
-   * A filter to return only resources that exist in the compartment, identified by [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * A filter to return only resources that exist in the compartment, identified by [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId"?: string;
   /**
-   * A filter to return only configuration source providers that match the provided [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * A filter to return only configuration source providers that match the provided [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "configurationSourceProviderId"?: string;
@@ -56,13 +56,13 @@ export interface ListConfigurationSourceProvidersRequest extends common.BaseRequ
   "sortOrder"?: ListConfigurationSourceProvidersRequest.SortOrder;
   /**
    * The number of items returned in a paginated {@code List} call. For information about pagination, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
    * The value of the {@code opc-next-page} response header from the preceding {@code List} call.
-   * For information about pagination, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For information about pagination, see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

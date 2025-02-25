@@ -30,7 +30,7 @@ export interface Project {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)  for the project's compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)  for the project's compartment.
    */
   "compartmentId": string;
   /**

@@ -15,18 +15,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ChangeCccInfrastructureCompartment.ts.html |here} to see how to use ChangeCccInfrastructureCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/computecloudatcustomer/ChangeCccInfrastructureCompartment.ts.html |here} to see how to use ChangeCccInfrastructureCompartmentRequest.
  */
 export interface ChangeCccInfrastructureCompartmentRequest extends common.BaseRequest {
   /**
-   * An [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for a
+   * An [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for a
    * Compute Cloud@Customer Infrastructure.
    *
    */
   "cccInfrastructureId": string;
   /**
    * Details about the compartment change operation including the destination compartment
-   * specified by the resource [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * specified by the resource [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "changeCccInfrastructureCompartmentDetails": model.ChangeCccInfrastructureCompartmentDetails;
@@ -49,7 +49,7 @@ export interface ChangeCccInfrastructureCompartmentRequest extends common.BaseRe
    */
   "opcRetryToken"?: string;
   /**
-   * The client request [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for tracing.
+   * The client request [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for tracing.
    *
    */
   "opcRequestId"?: string;

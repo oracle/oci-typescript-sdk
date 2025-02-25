@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ActivateSchedule.ts.html |here} to see how to use ActivateScheduleRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ActivateSchedule.ts.html |here} to see how to use ActivateScheduleRequest.
  */
 export interface ActivateScheduleRequest extends common.BaseRequest {
   /**
-   * This is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the schedule.
+   * This is the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the schedule.
    */
   "scheduleId": string;
   /**

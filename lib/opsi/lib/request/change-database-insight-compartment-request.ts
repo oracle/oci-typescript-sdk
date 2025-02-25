@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeDatabaseInsightCompartment.ts.html |here} to see how to use ChangeDatabaseInsightCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeDatabaseInsightCompartment.ts.html |here} to see how to use ChangeDatabaseInsightCompartmentRequest.
  */
 export interface ChangeDatabaseInsightCompartmentRequest extends common.BaseRequest {
   /**

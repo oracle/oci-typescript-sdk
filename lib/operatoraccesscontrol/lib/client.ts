@@ -250,7 +250,7 @@ export class AccessRequestsClient {
    * @param ApproveAccessRequestRequest
    * @return ApproveAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ApproveAccessRequest.ts.html |here} to see how to use ApproveAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ApproveAccessRequest.ts.html |here} to see how to use ApproveAccessRequest API.
    */
   public async approveAccessRequest(
     approveAccessRequestRequest: requests.ApproveAccessRequestRequest
@@ -330,7 +330,7 @@ export class AccessRequestsClient {
    * @param GetAccessRequestRequest
    * @return GetAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetAccessRequest.ts.html |here} to see how to use GetAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetAccessRequest.ts.html |here} to see how to use GetAccessRequest API.
    */
   public async getAccessRequest(
     getAccessRequestRequest: requests.GetAccessRequestRequest
@@ -401,7 +401,7 @@ export class AccessRequestsClient {
    * @param GetAuditLogReportRequest
    * @return GetAuditLogReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetAuditLogReport.ts.html |here} to see how to use GetAuditLogReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetAuditLogReport.ts.html |here} to see how to use GetAuditLogReport API.
    */
   public async getAuditLogReport(
     getAuditLogReportRequest: requests.GetAuditLogReportRequest
@@ -475,7 +475,7 @@ export class AccessRequestsClient {
    * @param InteractionRequestRequest
    * @return InteractionRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/InteractionRequest.ts.html |here} to see how to use InteractionRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/InteractionRequest.ts.html |here} to see how to use InteractionRequest API.
    */
   public async interactionRequest(
     interactionRequestRequest: requests.InteractionRequestRequest
@@ -560,7 +560,7 @@ export class AccessRequestsClient {
    * @param ListAccessRequestHistoriesRequest
    * @return ListAccessRequestHistoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListAccessRequestHistories.ts.html |here} to see how to use ListAccessRequestHistories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListAccessRequestHistories.ts.html |here} to see how to use ListAccessRequestHistories API.
    */
   public async listAccessRequestHistories(
     listAccessRequestHistoriesRequest: requests.ListAccessRequestHistoriesRequest
@@ -641,7 +641,7 @@ export class AccessRequestsClient {
    * @param ListAccessRequestsRequest
    * @return ListAccessRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListAccessRequests.ts.html |here} to see how to use ListAccessRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListAccessRequests.ts.html |here} to see how to use ListAccessRequests API.
    */
   public async listAccessRequests(
     listAccessRequestsRequest: requests.ListAccessRequestsRequest
@@ -728,7 +728,7 @@ export class AccessRequestsClient {
    * @param ListInteractionsRequest
    * @return ListInteractionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListInteractions.ts.html |here} to see how to use ListInteractions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListInteractions.ts.html |here} to see how to use ListInteractions API.
    */
   public async listInteractions(
     listInteractionsRequest: requests.ListInteractionsRequest
@@ -808,7 +808,7 @@ export class AccessRequestsClient {
    * @param RejectAccessRequestRequest
    * @return RejectAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/RejectAccessRequest.ts.html |here} to see how to use RejectAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/RejectAccessRequest.ts.html |here} to see how to use RejectAccessRequest API.
    */
   public async rejectAccessRequest(
     rejectAccessRequestRequest: requests.RejectAccessRequestRequest
@@ -889,7 +889,7 @@ export class AccessRequestsClient {
    * @param ReviewAccessRequestRequest
    * @return ReviewAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ReviewAccessRequest.ts.html |here} to see how to use ReviewAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ReviewAccessRequest.ts.html |here} to see how to use ReviewAccessRequest API.
    */
   public async reviewAccessRequest(
     reviewAccessRequestRequest: requests.ReviewAccessRequestRequest
@@ -974,7 +974,7 @@ export class AccessRequestsClient {
    * @param RevokeAccessRequestRequest
    * @return RevokeAccessRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/RevokeAccessRequest.ts.html |here} to see how to use RevokeAccessRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/RevokeAccessRequest.ts.html |here} to see how to use RevokeAccessRequest API.
    */
   public async revokeAccessRequest(
     revokeAccessRequestRequest: requests.RevokeAccessRequestRequest
@@ -1239,7 +1239,7 @@ export class OperatorActionsClient {
    * @param GetOperatorActionRequest
    * @return GetOperatorActionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetOperatorAction.ts.html |here} to see how to use GetOperatorAction API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetOperatorAction.ts.html |here} to see how to use GetOperatorAction API.
    */
   public async getOperatorAction(
     getOperatorActionRequest: requests.GetOperatorActionRequest
@@ -1312,7 +1312,7 @@ export class OperatorActionsClient {
    * @param ListOperatorActionsRequest
    * @return ListOperatorActionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListOperatorActions.ts.html |here} to see how to use ListOperatorActions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListOperatorActions.ts.html |here} to see how to use ListOperatorActions API.
    */
   public async listOperatorActions(
     listOperatorActionsRequest: requests.ListOperatorActionsRequest
@@ -1606,7 +1606,7 @@ export class OperatorControlClient {
    * @param ChangeOperatorControlCompartmentRequest
    * @return ChangeOperatorControlCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ChangeOperatorControlCompartment.ts.html |here} to see how to use ChangeOperatorControlCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ChangeOperatorControlCompartment.ts.html |here} to see how to use ChangeOperatorControlCompartment API.
    */
   public async changeOperatorControlCompartment(
     changeOperatorControlCompartmentRequest: requests.ChangeOperatorControlCompartmentRequest
@@ -1684,7 +1684,7 @@ export class OperatorControlClient {
    * @param CreateOperatorControlRequest
    * @return CreateOperatorControlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/CreateOperatorControl.ts.html |here} to see how to use CreateOperatorControl API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/CreateOperatorControl.ts.html |here} to see how to use CreateOperatorControl API.
    */
   public async createOperatorControl(
     createOperatorControlRequest: requests.CreateOperatorControlRequest
@@ -1770,7 +1770,7 @@ export class OperatorControlClient {
    * @param DeleteOperatorControlRequest
    * @return DeleteOperatorControlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/DeleteOperatorControl.ts.html |here} to see how to use DeleteOperatorControl API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/DeleteOperatorControl.ts.html |here} to see how to use DeleteOperatorControl API.
    */
   public async deleteOperatorControl(
     deleteOperatorControlRequest: requests.DeleteOperatorControlRequest
@@ -1841,7 +1841,7 @@ export class OperatorControlClient {
    * @param GetOperatorControlRequest
    * @return GetOperatorControlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetOperatorControl.ts.html |here} to see how to use GetOperatorControl API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetOperatorControl.ts.html |here} to see how to use GetOperatorControl API.
    */
   public async getOperatorControl(
     getOperatorControlRequest: requests.GetOperatorControlRequest
@@ -1919,7 +1919,7 @@ export class OperatorControlClient {
    * @param ListOperatorControlsRequest
    * @return ListOperatorControlsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListOperatorControls.ts.html |here} to see how to use ListOperatorControls API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListOperatorControls.ts.html |here} to see how to use ListOperatorControls API.
    */
   public async listOperatorControls(
     listOperatorControlsRequest: requests.ListOperatorControlsRequest
@@ -2004,7 +2004,7 @@ export class OperatorControlClient {
    * @param UpdateOperatorControlRequest
    * @return UpdateOperatorControlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/UpdateOperatorControl.ts.html |here} to see how to use UpdateOperatorControl API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/UpdateOperatorControl.ts.html |here} to see how to use UpdateOperatorControl API.
    */
   public async updateOperatorControl(
     updateOperatorControlRequest: requests.UpdateOperatorControlRequest
@@ -2298,7 +2298,7 @@ export class OperatorControlAssignmentClient {
    * @param ChangeOperatorControlAssignmentCompartmentRequest
    * @return ChangeOperatorControlAssignmentCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ChangeOperatorControlAssignmentCompartment.ts.html |here} to see how to use ChangeOperatorControlAssignmentCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ChangeOperatorControlAssignmentCompartment.ts.html |here} to see how to use ChangeOperatorControlAssignmentCompartment API.
    */
   public async changeOperatorControlAssignmentCompartment(
     changeOperatorControlAssignmentCompartmentRequest: requests.ChangeOperatorControlAssignmentCompartmentRequest
@@ -2376,7 +2376,7 @@ export class OperatorControlAssignmentClient {
    * @param CreateOperatorControlAssignmentRequest
    * @return CreateOperatorControlAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/CreateOperatorControlAssignment.ts.html |here} to see how to use CreateOperatorControlAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/CreateOperatorControlAssignment.ts.html |here} to see how to use CreateOperatorControlAssignment API.
    */
   public async createOperatorControlAssignment(
     createOperatorControlAssignmentRequest: requests.CreateOperatorControlAssignmentRequest
@@ -2464,7 +2464,7 @@ export class OperatorControlAssignmentClient {
    * @param DeleteOperatorControlAssignmentRequest
    * @return DeleteOperatorControlAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/DeleteOperatorControlAssignment.ts.html |here} to see how to use DeleteOperatorControlAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/DeleteOperatorControlAssignment.ts.html |here} to see how to use DeleteOperatorControlAssignment API.
    */
   public async deleteOperatorControlAssignment(
     deleteOperatorControlAssignmentRequest: requests.DeleteOperatorControlAssignmentRequest
@@ -2539,7 +2539,7 @@ export class OperatorControlAssignmentClient {
    * @param GetAssignmentValidationStatusRequest
    * @return GetAssignmentValidationStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetAssignmentValidationStatus.ts.html |here} to see how to use GetAssignmentValidationStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetAssignmentValidationStatus.ts.html |here} to see how to use GetAssignmentValidationStatus API.
    */
   public async getAssignmentValidationStatus(
     getAssignmentValidationStatusRequest: requests.GetAssignmentValidationStatusRequest
@@ -2620,7 +2620,7 @@ export class OperatorControlAssignmentClient {
    * @param GetOperatorControlAssignmentRequest
    * @return GetOperatorControlAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetOperatorControlAssignment.ts.html |here} to see how to use GetOperatorControlAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/GetOperatorControlAssignment.ts.html |here} to see how to use GetOperatorControlAssignment API.
    */
   public async getOperatorControlAssignment(
     getOperatorControlAssignmentRequest: requests.GetOperatorControlAssignmentRequest
@@ -2700,7 +2700,7 @@ export class OperatorControlAssignmentClient {
    * @param ListOperatorControlAssignmentsRequest
    * @return ListOperatorControlAssignmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListOperatorControlAssignments.ts.html |here} to see how to use ListOperatorControlAssignments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListOperatorControlAssignments.ts.html |here} to see how to use ListOperatorControlAssignments API.
    */
   public async listOperatorControlAssignments(
     listOperatorControlAssignmentsRequest: requests.ListOperatorControlAssignmentsRequest
@@ -2788,7 +2788,7 @@ export class OperatorControlAssignmentClient {
    * @param UpdateOperatorControlAssignmentRequest
    * @return UpdateOperatorControlAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/UpdateOperatorControlAssignment.ts.html |here} to see how to use UpdateOperatorControlAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/UpdateOperatorControlAssignment.ts.html |here} to see how to use UpdateOperatorControlAssignment API.
    */
   public async updateOperatorControlAssignment(
     updateOperatorControlAssignmentRequest: requests.UpdateOperatorControlAssignmentRequest
@@ -2875,7 +2875,7 @@ export class OperatorControlAssignmentClient {
    * @param ValidateOperatorAssignmentRequest
    * @return ValidateOperatorAssignmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ValidateOperatorAssignment.ts.html |here} to see how to use ValidateOperatorAssignment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ValidateOperatorAssignment.ts.html |here} to see how to use ValidateOperatorAssignment API.
    */
   public async validateOperatorAssignment(
     validateOperatorAssignmentRequest: requests.ValidateOperatorAssignmentRequest

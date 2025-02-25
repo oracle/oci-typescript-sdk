@@ -1,6 +1,6 @@
 /**
  * Application Dependency Management API
- * Use the Application Dependency Management API to create knowledge bases and vulnerability audits.  For more information, see [ADM](/Content/application-dependency-management/home.htm).
+ * Use the Application Dependency Management API to create knowledge bases and vulnerability audits.  For more information, see [ADM](https://docs.oracle.com/iaas/Content/application-dependency-management/home.htm).
  * OpenAPI spec version: 20220421
  *
  *
@@ -243,7 +243,7 @@ export class ApplicationDependencyManagementClient {
    * @param ActivateRemediationRecipeRequest
    * @return ActivateRemediationRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ActivateRemediationRecipe.ts.html |here} to see how to use ActivateRemediationRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ActivateRemediationRecipe.ts.html |here} to see how to use ActivateRemediationRecipe API.
    */
   public async activateRemediationRecipe(
     activateRemediationRecipeRequest: requests.ActivateRemediationRecipeRequest
@@ -318,7 +318,7 @@ export class ApplicationDependencyManagementClient {
    * @param CancelRemediationRunRequest
    * @return CancelRemediationRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CancelRemediationRun.ts.html |here} to see how to use CancelRemediationRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CancelRemediationRun.ts.html |here} to see how to use CancelRemediationRun API.
    */
   public async cancelRemediationRun(
     cancelRemediationRunRequest: requests.CancelRemediationRunRequest
@@ -398,7 +398,7 @@ export class ApplicationDependencyManagementClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -468,7 +468,7 @@ export class ApplicationDependencyManagementClient {
    * @param ChangeKnowledgeBaseCompartmentRequest
    * @return ChangeKnowledgeBaseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ChangeKnowledgeBaseCompartment.ts.html |here} to see how to use ChangeKnowledgeBaseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ChangeKnowledgeBaseCompartment.ts.html |here} to see how to use ChangeKnowledgeBaseCompartment API.
    */
   public async changeKnowledgeBaseCompartment(
     changeKnowledgeBaseCompartmentRequest: requests.ChangeKnowledgeBaseCompartmentRequest
@@ -549,7 +549,7 @@ export class ApplicationDependencyManagementClient {
    * @param ChangeRemediationRecipeCompartmentRequest
    * @return ChangeRemediationRecipeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ChangeRemediationRecipeCompartment.ts.html |here} to see how to use ChangeRemediationRecipeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ChangeRemediationRecipeCompartment.ts.html |here} to see how to use ChangeRemediationRecipeCompartment API.
    */
   public async changeRemediationRecipeCompartment(
     changeRemediationRecipeCompartmentRequest: requests.ChangeRemediationRecipeCompartmentRequest
@@ -630,7 +630,7 @@ export class ApplicationDependencyManagementClient {
    * @param ChangeRemediationRunCompartmentRequest
    * @return ChangeRemediationRunCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ChangeRemediationRunCompartment.ts.html |here} to see how to use ChangeRemediationRunCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ChangeRemediationRunCompartment.ts.html |here} to see how to use ChangeRemediationRunCompartment API.
    */
   public async changeRemediationRunCompartment(
     changeRemediationRunCompartmentRequest: requests.ChangeRemediationRunCompartmentRequest
@@ -706,7 +706,7 @@ export class ApplicationDependencyManagementClient {
    * @param ChangeVulnerabilityAuditCompartmentRequest
    * @return ChangeVulnerabilityAuditCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ChangeVulnerabilityAuditCompartment.ts.html |here} to see how to use ChangeVulnerabilityAuditCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ChangeVulnerabilityAuditCompartment.ts.html |here} to see how to use ChangeVulnerabilityAuditCompartment API.
    */
   public async changeVulnerabilityAuditCompartment(
     changeVulnerabilityAuditCompartmentRequest: requests.ChangeVulnerabilityAuditCompartmentRequest
@@ -782,7 +782,7 @@ export class ApplicationDependencyManagementClient {
    * @param CreateKnowledgeBaseRequest
    * @return CreateKnowledgeBaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CreateKnowledgeBase.ts.html |here} to see how to use CreateKnowledgeBase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CreateKnowledgeBase.ts.html |here} to see how to use CreateKnowledgeBase API.
    */
   public async createKnowledgeBase(
     createKnowledgeBaseRequest: requests.CreateKnowledgeBaseRequest
@@ -860,7 +860,7 @@ export class ApplicationDependencyManagementClient {
    * @param CreateRemediationRecipeRequest
    * @return CreateRemediationRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CreateRemediationRecipe.ts.html |here} to see how to use CreateRemediationRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CreateRemediationRecipe.ts.html |here} to see how to use CreateRemediationRecipe API.
    */
   public async createRemediationRecipe(
     createRemediationRecipeRequest: requests.CreateRemediationRecipeRequest
@@ -938,7 +938,7 @@ export class ApplicationDependencyManagementClient {
    * @param CreateRemediationRunRequest
    * @return CreateRemediationRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CreateRemediationRun.ts.html |here} to see how to use CreateRemediationRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CreateRemediationRun.ts.html |here} to see how to use CreateRemediationRun API.
    */
   public async createRemediationRun(
     createRemediationRunRequest: requests.CreateRemediationRunRequest
@@ -1020,7 +1020,7 @@ export class ApplicationDependencyManagementClient {
    * @param CreateVulnerabilityAuditRequest
    * @return CreateVulnerabilityAuditResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CreateVulnerabilityAudit.ts.html |here} to see how to use CreateVulnerabilityAudit API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/CreateVulnerabilityAudit.ts.html |here} to see how to use CreateVulnerabilityAudit API.
    */
   public async createVulnerabilityAudit(
     createVulnerabilityAuditRequest: requests.CreateVulnerabilityAuditRequest
@@ -1103,7 +1103,7 @@ export class ApplicationDependencyManagementClient {
    * @param DeactivateRemediationRecipeRequest
    * @return DeactivateRemediationRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeactivateRemediationRecipe.ts.html |here} to see how to use DeactivateRemediationRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeactivateRemediationRecipe.ts.html |here} to see how to use DeactivateRemediationRecipe API.
    */
   public async deactivateRemediationRecipe(
     deactivateRemediationRecipeRequest: requests.DeactivateRemediationRecipeRequest
@@ -1178,7 +1178,7 @@ export class ApplicationDependencyManagementClient {
    * @param DeleteKnowledgeBaseRequest
    * @return DeleteKnowledgeBaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeleteKnowledgeBase.ts.html |here} to see how to use DeleteKnowledgeBase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeleteKnowledgeBase.ts.html |here} to see how to use DeleteKnowledgeBase API.
    */
   public async deleteKnowledgeBase(
     deleteKnowledgeBaseRequest: requests.DeleteKnowledgeBaseRequest
@@ -1253,7 +1253,7 @@ export class ApplicationDependencyManagementClient {
    * @param DeleteRemediationRecipeRequest
    * @return DeleteRemediationRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeleteRemediationRecipe.ts.html |here} to see how to use DeleteRemediationRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeleteRemediationRecipe.ts.html |here} to see how to use DeleteRemediationRecipe API.
    */
   public async deleteRemediationRecipe(
     deleteRemediationRecipeRequest: requests.DeleteRemediationRecipeRequest
@@ -1328,7 +1328,7 @@ export class ApplicationDependencyManagementClient {
    * @param DeleteRemediationRunRequest
    * @return DeleteRemediationRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeleteRemediationRun.ts.html |here} to see how to use DeleteRemediationRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeleteRemediationRun.ts.html |here} to see how to use DeleteRemediationRun API.
    */
   public async deleteRemediationRun(
     deleteRemediationRunRequest: requests.DeleteRemediationRunRequest
@@ -1398,7 +1398,7 @@ export class ApplicationDependencyManagementClient {
    * @param DeleteVulnerabilityAuditRequest
    * @return DeleteVulnerabilityAuditResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeleteVulnerabilityAudit.ts.html |here} to see how to use DeleteVulnerabilityAudit API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/DeleteVulnerabilityAudit.ts.html |here} to see how to use DeleteVulnerabilityAudit API.
    */
   public async deleteVulnerabilityAudit(
     deleteVulnerabilityAuditRequest: requests.DeleteVulnerabilityAuditRequest
@@ -1468,7 +1468,7 @@ export class ApplicationDependencyManagementClient {
    * @param GetKnowledgeBaseRequest
    * @return GetKnowledgeBaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetKnowledgeBase.ts.html |here} to see how to use GetKnowledgeBase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetKnowledgeBase.ts.html |here} to see how to use GetKnowledgeBase API.
    */
   public async getKnowledgeBase(
     getKnowledgeBaseRequest: requests.GetKnowledgeBaseRequest
@@ -1546,7 +1546,7 @@ export class ApplicationDependencyManagementClient {
    * @param GetRemediationRecipeRequest
    * @return GetRemediationRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetRemediationRecipe.ts.html |here} to see how to use GetRemediationRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetRemediationRecipe.ts.html |here} to see how to use GetRemediationRecipe API.
    */
   public async getRemediationRecipe(
     getRemediationRecipeRequest: requests.GetRemediationRecipeRequest
@@ -1624,7 +1624,7 @@ export class ApplicationDependencyManagementClient {
    * @param GetRemediationRunRequest
    * @return GetRemediationRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetRemediationRun.ts.html |here} to see how to use GetRemediationRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetRemediationRun.ts.html |here} to see how to use GetRemediationRun API.
    */
   public async getRemediationRun(
     getRemediationRunRequest: requests.GetRemediationRunRequest
@@ -1702,7 +1702,7 @@ export class ApplicationDependencyManagementClient {
    * @param GetStageRequest
    * @return GetStageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetStage.ts.html |here} to see how to use GetStage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetStage.ts.html |here} to see how to use GetStage API.
    */
   public async getStage(
     getStageRequest: requests.GetStageRequest
@@ -1774,7 +1774,7 @@ export class ApplicationDependencyManagementClient {
    * @param GetVulnerabilityAuditRequest
    * @return GetVulnerabilityAuditResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetVulnerabilityAudit.ts.html |here} to see how to use GetVulnerabilityAudit API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetVulnerabilityAudit.ts.html |here} to see how to use GetVulnerabilityAudit API.
    */
   public async getVulnerabilityAudit(
     getVulnerabilityAuditRequest: requests.GetVulnerabilityAuditRequest
@@ -1852,7 +1852,7 @@ export class ApplicationDependencyManagementClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1933,7 +1933,7 @@ export class ApplicationDependencyManagementClient {
    * @param ListApplicationDependencyRecommendationsRequest
    * @return ListApplicationDependencyRecommendationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListApplicationDependencyRecommendations.ts.html |here} to see how to use ListApplicationDependencyRecommendations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListApplicationDependencyRecommendations.ts.html |here} to see how to use ListApplicationDependencyRecommendations API.
    */
   public async listApplicationDependencyRecommendations(
     listApplicationDependencyRecommendationsRequest: requests.ListApplicationDependencyRecommendationsRequest
@@ -2018,7 +2018,7 @@ export class ApplicationDependencyManagementClient {
    * @param ListApplicationDependencyVulnerabilitiesRequest
    * @return ListApplicationDependencyVulnerabilitiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListApplicationDependencyVulnerabilities.ts.html |here} to see how to use ListApplicationDependencyVulnerabilities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListApplicationDependencyVulnerabilities.ts.html |here} to see how to use ListApplicationDependencyVulnerabilities API.
    */
   public async listApplicationDependencyVulnerabilities(
     listApplicationDependencyVulnerabilitiesRequest: requests.ListApplicationDependencyVulnerabilitiesRequest
@@ -2114,7 +2114,7 @@ export class ApplicationDependencyManagementClient {
    * @param ListKnowledgeBasesRequest
    * @return ListKnowledgeBasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListKnowledgeBases.ts.html |here} to see how to use ListKnowledgeBases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListKnowledgeBases.ts.html |here} to see how to use ListKnowledgeBases API.
    */
   public async listKnowledgeBases(
     listKnowledgeBasesRequest: requests.ListKnowledgeBasesRequest
@@ -2201,7 +2201,7 @@ export class ApplicationDependencyManagementClient {
    * @param ListRemediationRecipesRequest
    * @return ListRemediationRecipesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListRemediationRecipes.ts.html |here} to see how to use ListRemediationRecipes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListRemediationRecipes.ts.html |here} to see how to use ListRemediationRecipes API.
    */
   public async listRemediationRecipes(
     listRemediationRecipesRequest: requests.ListRemediationRecipesRequest
@@ -2288,7 +2288,7 @@ export class ApplicationDependencyManagementClient {
    * @param ListRemediationRunsRequest
    * @return ListRemediationRunsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListRemediationRuns.ts.html |here} to see how to use ListRemediationRuns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListRemediationRuns.ts.html |here} to see how to use ListRemediationRuns API.
    */
   public async listRemediationRuns(
     listRemediationRunsRequest: requests.ListRemediationRunsRequest
@@ -2374,7 +2374,7 @@ export class ApplicationDependencyManagementClient {
    * @param ListStagesRequest
    * @return ListStagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListStages.ts.html |here} to see how to use ListStages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListStages.ts.html |here} to see how to use ListStages API.
    */
   public async listStages(
     listStagesRequest: requests.ListStagesRequest
@@ -2459,7 +2459,7 @@ export class ApplicationDependencyManagementClient {
    * @param ListVulnerabilityAuditsRequest
    * @return ListVulnerabilityAuditsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListVulnerabilityAudits.ts.html |here} to see how to use ListVulnerabilityAudits API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListVulnerabilityAudits.ts.html |here} to see how to use ListVulnerabilityAudits API.
    */
   public async listVulnerabilityAudits(
     listVulnerabilityAuditsRequest: requests.ListVulnerabilityAuditsRequest
@@ -2552,7 +2552,7 @@ export class ApplicationDependencyManagementClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2636,7 +2636,7 @@ export class ApplicationDependencyManagementClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2720,7 +2720,7 @@ export class ApplicationDependencyManagementClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2805,7 +2805,7 @@ export class ApplicationDependencyManagementClient {
    * @param UpdateKnowledgeBaseRequest
    * @return UpdateKnowledgeBaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/UpdateKnowledgeBase.ts.html |here} to see how to use UpdateKnowledgeBase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/UpdateKnowledgeBase.ts.html |here} to see how to use UpdateKnowledgeBase API.
    */
   public async updateKnowledgeBase(
     updateKnowledgeBaseRequest: requests.UpdateKnowledgeBaseRequest
@@ -2885,7 +2885,7 @@ export class ApplicationDependencyManagementClient {
    * @param UpdateRemediationRecipeRequest
    * @return UpdateRemediationRecipeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/UpdateRemediationRecipe.ts.html |here} to see how to use UpdateRemediationRecipe API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/UpdateRemediationRecipe.ts.html |here} to see how to use UpdateRemediationRecipe API.
    */
   public async updateRemediationRecipe(
     updateRemediationRecipeRequest: requests.UpdateRemediationRecipeRequest
@@ -2965,7 +2965,7 @@ export class ApplicationDependencyManagementClient {
    * @param UpdateRemediationRunRequest
    * @return UpdateRemediationRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/UpdateRemediationRun.ts.html |here} to see how to use UpdateRemediationRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/UpdateRemediationRun.ts.html |here} to see how to use UpdateRemediationRun API.
    */
   public async updateRemediationRun(
     updateRemediationRunRequest: requests.UpdateRemediationRunRequest
@@ -3049,7 +3049,7 @@ export class ApplicationDependencyManagementClient {
    * @param UpdateVulnerabilityAuditRequest
    * @return UpdateVulnerabilityAuditResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/UpdateVulnerabilityAudit.ts.html |here} to see how to use UpdateVulnerabilityAudit API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/UpdateVulnerabilityAudit.ts.html |here} to see how to use UpdateVulnerabilityAudit API.
    */
   public async updateVulnerabilityAudit(
     updateVulnerabilityAuditRequest: requests.UpdateVulnerabilityAuditRequest

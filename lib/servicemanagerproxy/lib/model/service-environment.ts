@@ -26,14 +26,14 @@ export interface ServiceEnvironment {
   /**
    * Unqiue identifier for the entitlement related to the environment.
    * <p>
-   **Note:** Not an [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   **Note:** Not an [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "id": string;
   /**
    * The unique subscription ID associated with the service environment ID.
    * <p>
-   **Note:** Not an [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   **Note:** Not an [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "subscriptionId": string;
@@ -42,7 +42,7 @@ export interface ServiceEnvironment {
    */
   "status": model.ServiceEntitlementRegistrationStatus;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) for the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the compartment.
    */
   "compartmentId": string;
   "serviceDefinition": model.ServiceDefinition;

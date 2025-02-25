@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderRecipeResponderRules.ts.html |here} to see how to use ListResponderRecipeResponderRulesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListResponderRecipeResponderRules.ts.html |here} to see how to use ListResponderRecipeResponderRulesRequest.
  */
 export interface ListResponderRecipeResponderRulesRequest extends common.BaseRequest {
   /**

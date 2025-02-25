@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateBackendSet.ts.html |here} to see how to use CreateBackendSetRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/CreateBackendSet.ts.html |here} to see how to use CreateBackendSetRequest.
  */
 export interface CreateBackendSetRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface CreateBackendSetRequest extends common.BaseRequest {
    */
   "createBackendSetDetails": model.CreateBackendSetDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the load balancer on which to add a backend set.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the load balancer on which to add a backend set.
    */
   "loadBalancerId": string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListAggregatedComputedUsages.ts.html |here} to see how to use ListAggregatedComputedUsagesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListAggregatedComputedUsages.ts.html |here} to see how to use ListAggregatedComputedUsagesRequest.
  */
 export interface ListAggregatedComputedUsagesRequest extends common.BaseRequest {
   /**

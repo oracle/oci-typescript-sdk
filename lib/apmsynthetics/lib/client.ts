@@ -219,7 +219,7 @@ export class ApmSyntheticClient {
    * @param AggregateNetworkDataRequest
    * @return AggregateNetworkDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/AggregateNetworkData.ts.html |here} to see how to use AggregateNetworkData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/AggregateNetworkData.ts.html |here} to see how to use AggregateNetworkData API.
    */
   public async aggregateNetworkData(
     aggregateNetworkDataRequest: requests.AggregateNetworkDataRequest
@@ -305,7 +305,7 @@ export class ApmSyntheticClient {
    * @param CreateDedicatedVantagePointRequest
    * @return CreateDedicatedVantagePointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateDedicatedVantagePoint.ts.html |here} to see how to use CreateDedicatedVantagePoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateDedicatedVantagePoint.ts.html |here} to see how to use CreateDedicatedVantagePoint API.
    */
   public async createDedicatedVantagePoint(
     createDedicatedVantagePointRequest: requests.CreateDedicatedVantagePointRequest
@@ -389,7 +389,7 @@ export class ApmSyntheticClient {
    * @param CreateMonitorRequest
    * @return CreateMonitorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateMonitor.ts.html |here} to see how to use CreateMonitor API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateMonitor.ts.html |here} to see how to use CreateMonitor API.
    */
   public async createMonitor(
     createMonitorRequest: requests.CreateMonitorRequest
@@ -472,7 +472,7 @@ export class ApmSyntheticClient {
    * @param CreateOnPremiseVantagePointRequest
    * @return CreateOnPremiseVantagePointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateOnPremiseVantagePoint.ts.html |here} to see how to use CreateOnPremiseVantagePoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateOnPremiseVantagePoint.ts.html |here} to see how to use CreateOnPremiseVantagePoint API.
    */
   public async createOnPremiseVantagePoint(
     createOnPremiseVantagePointRequest: requests.CreateOnPremiseVantagePointRequest
@@ -556,7 +556,7 @@ export class ApmSyntheticClient {
    * @param CreateScriptRequest
    * @return CreateScriptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateScript.ts.html |here} to see how to use CreateScript API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateScript.ts.html |here} to see how to use CreateScript API.
    */
   public async createScript(
     createScriptRequest: requests.CreateScriptRequest
@@ -639,7 +639,7 @@ export class ApmSyntheticClient {
    * @param CreateWorkerRequest
    * @return CreateWorkerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateWorker.ts.html |here} to see how to use CreateWorker API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/CreateWorker.ts.html |here} to see how to use CreateWorker API.
    */
   public async createWorker(
     createWorkerRequest: requests.CreateWorkerRequest
@@ -723,7 +723,7 @@ export class ApmSyntheticClient {
    * @param DeleteDedicatedVantagePointRequest
    * @return DeleteDedicatedVantagePointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteDedicatedVantagePoint.ts.html |here} to see how to use DeleteDedicatedVantagePoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteDedicatedVantagePoint.ts.html |here} to see how to use DeleteDedicatedVantagePoint API.
    */
   public async deleteDedicatedVantagePoint(
     deleteDedicatedVantagePointRequest: requests.DeleteDedicatedVantagePointRequest
@@ -794,7 +794,7 @@ export class ApmSyntheticClient {
    * @param DeleteMonitorRequest
    * @return DeleteMonitorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteMonitor.ts.html |here} to see how to use DeleteMonitor API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteMonitor.ts.html |here} to see how to use DeleteMonitor API.
    */
   public async deleteMonitor(
     deleteMonitorRequest: requests.DeleteMonitorRequest
@@ -864,7 +864,7 @@ export class ApmSyntheticClient {
    * @param DeleteOnPremiseVantagePointRequest
    * @return DeleteOnPremiseVantagePointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteOnPremiseVantagePoint.ts.html |here} to see how to use DeleteOnPremiseVantagePoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteOnPremiseVantagePoint.ts.html |here} to see how to use DeleteOnPremiseVantagePoint API.
    */
   public async deleteOnPremiseVantagePoint(
     deleteOnPremiseVantagePointRequest: requests.DeleteOnPremiseVantagePointRequest
@@ -935,7 +935,7 @@ export class ApmSyntheticClient {
    * @param DeleteScriptRequest
    * @return DeleteScriptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteScript.ts.html |here} to see how to use DeleteScript API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteScript.ts.html |here} to see how to use DeleteScript API.
    */
   public async deleteScript(
     deleteScriptRequest: requests.DeleteScriptRequest
@@ -1005,7 +1005,7 @@ export class ApmSyntheticClient {
    * @param DeleteWorkerRequest
    * @return DeleteWorkerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteWorker.ts.html |here} to see how to use DeleteWorker API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/DeleteWorker.ts.html |here} to see how to use DeleteWorker API.
    */
   public async deleteWorker(
     deleteWorkerRequest: requests.DeleteWorkerRequest
@@ -1076,7 +1076,7 @@ export class ApmSyntheticClient {
    * @param GetDedicatedVantagePointRequest
    * @return GetDedicatedVantagePointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetDedicatedVantagePoint.ts.html |here} to see how to use GetDedicatedVantagePoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetDedicatedVantagePoint.ts.html |here} to see how to use GetDedicatedVantagePoint API.
    */
   public async getDedicatedVantagePoint(
     getDedicatedVantagePointRequest: requests.GetDedicatedVantagePointRequest
@@ -1155,7 +1155,7 @@ export class ApmSyntheticClient {
    * @param GetMonitorRequest
    * @return GetMonitorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetMonitor.ts.html |here} to see how to use GetMonitor API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetMonitor.ts.html |here} to see how to use GetMonitor API.
    */
   public async getMonitor(
     getMonitorRequest: requests.GetMonitorRequest
@@ -1234,7 +1234,7 @@ export class ApmSyntheticClient {
    * @param GetMonitorResultRequest
    * @return GetMonitorResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetMonitorResult.ts.html |here} to see how to use GetMonitorResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetMonitorResult.ts.html |here} to see how to use GetMonitorResult API.
    */
   public async getMonitorResult(
     getMonitorResultRequest: requests.GetMonitorResultRequest
@@ -1311,7 +1311,7 @@ export class ApmSyntheticClient {
    * @param GetOnPremiseVantagePointRequest
    * @return GetOnPremiseVantagePointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetOnPremiseVantagePoint.ts.html |here} to see how to use GetOnPremiseVantagePoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetOnPremiseVantagePoint.ts.html |here} to see how to use GetOnPremiseVantagePoint API.
    */
   public async getOnPremiseVantagePoint(
     getOnPremiseVantagePointRequest: requests.GetOnPremiseVantagePointRequest
@@ -1390,7 +1390,7 @@ export class ApmSyntheticClient {
    * @param GetScriptRequest
    * @return GetScriptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetScript.ts.html |here} to see how to use GetScript API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetScript.ts.html |here} to see how to use GetScript API.
    */
   public async getScript(
     getScriptRequest: requests.GetScriptRequest
@@ -1468,7 +1468,7 @@ export class ApmSyntheticClient {
    * @param GetWorkerRequest
    * @return GetWorkerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetWorker.ts.html |here} to see how to use GetWorker API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/GetWorker.ts.html |here} to see how to use GetWorker API.
    */
   public async getWorker(
     getWorkerRequest: requests.GetWorkerRequest
@@ -1548,7 +1548,7 @@ export class ApmSyntheticClient {
    * @param ListDedicatedVantagePointsRequest
    * @return ListDedicatedVantagePointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListDedicatedVantagePoints.ts.html |here} to see how to use ListDedicatedVantagePoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListDedicatedVantagePoints.ts.html |here} to see how to use ListDedicatedVantagePoints API.
    */
   public async listDedicatedVantagePoints(
     listDedicatedVantagePointsRequest: requests.ListDedicatedVantagePointsRequest
@@ -1633,7 +1633,7 @@ export class ApmSyntheticClient {
    * @param ListMonitorsRequest
    * @return ListMonitorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListMonitors.ts.html |here} to see how to use ListMonitors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListMonitors.ts.html |here} to see how to use ListMonitors API.
    */
   public async listMonitors(
     listMonitorsRequest: requests.ListMonitorsRequest
@@ -1721,7 +1721,7 @@ export class ApmSyntheticClient {
    * @param ListOnPremiseVantagePointsRequest
    * @return ListOnPremiseVantagePointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListOnPremiseVantagePoints.ts.html |here} to see how to use ListOnPremiseVantagePoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListOnPremiseVantagePoints.ts.html |here} to see how to use ListOnPremiseVantagePoints API.
    */
   public async listOnPremiseVantagePoints(
     listOnPremiseVantagePointsRequest: requests.ListOnPremiseVantagePointsRequest
@@ -1805,7 +1805,7 @@ export class ApmSyntheticClient {
    * @param ListPublicVantagePointsRequest
    * @return ListPublicVantagePointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListPublicVantagePoints.ts.html |here} to see how to use ListPublicVantagePoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListPublicVantagePoints.ts.html |here} to see how to use ListPublicVantagePoints API.
    */
   public async listPublicVantagePoints(
     listPublicVantagePointsRequest: requests.ListPublicVantagePointsRequest
@@ -1889,7 +1889,7 @@ export class ApmSyntheticClient {
    * @param ListScriptsRequest
    * @return ListScriptsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListScripts.ts.html |here} to see how to use ListScripts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListScripts.ts.html |here} to see how to use ListScripts API.
    */
   public async listScripts(
     listScriptsRequest: requests.ListScriptsRequest
@@ -1972,7 +1972,7 @@ export class ApmSyntheticClient {
    * @param ListWorkersRequest
    * @return ListWorkersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListWorkers.ts.html |here} to see how to use ListWorkers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/ListWorkers.ts.html |here} to see how to use ListWorkers API.
    */
   public async listWorkers(
     listWorkersRequest: requests.ListWorkersRequest
@@ -2058,7 +2058,7 @@ export class ApmSyntheticClient {
    * @param UpdateDedicatedVantagePointRequest
    * @return UpdateDedicatedVantagePointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateDedicatedVantagePoint.ts.html |here} to see how to use UpdateDedicatedVantagePoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateDedicatedVantagePoint.ts.html |here} to see how to use UpdateDedicatedVantagePoint API.
    */
   public async updateDedicatedVantagePoint(
     updateDedicatedVantagePointRequest: requests.UpdateDedicatedVantagePointRequest
@@ -2143,7 +2143,7 @@ export class ApmSyntheticClient {
    * @param UpdateMonitorRequest
    * @return UpdateMonitorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateMonitor.ts.html |here} to see how to use UpdateMonitor API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateMonitor.ts.html |here} to see how to use UpdateMonitor API.
    */
   public async updateMonitor(
     updateMonitorRequest: requests.UpdateMonitorRequest
@@ -2227,7 +2227,7 @@ export class ApmSyntheticClient {
    * @param UpdateOnPremiseVantagePointRequest
    * @return UpdateOnPremiseVantagePointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateOnPremiseVantagePoint.ts.html |here} to see how to use UpdateOnPremiseVantagePoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateOnPremiseVantagePoint.ts.html |here} to see how to use UpdateOnPremiseVantagePoint API.
    */
   public async updateOnPremiseVantagePoint(
     updateOnPremiseVantagePointRequest: requests.UpdateOnPremiseVantagePointRequest
@@ -2312,7 +2312,7 @@ export class ApmSyntheticClient {
    * @param UpdateScriptRequest
    * @return UpdateScriptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateScript.ts.html |here} to see how to use UpdateScript API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateScript.ts.html |here} to see how to use UpdateScript API.
    */
   public async updateScript(
     updateScriptRequest: requests.UpdateScriptRequest
@@ -2396,7 +2396,7 @@ export class ApmSyntheticClient {
    * @param UpdateWorkerRequest
    * @return UpdateWorkerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateWorker.ts.html |here} to see how to use UpdateWorker API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateWorker.ts.html |here} to see how to use UpdateWorker API.
    */
   public async updateWorker(
     updateWorkerRequest: requests.UpdateWorkerRequest

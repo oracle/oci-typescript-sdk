@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeKeyStoreCompartment.ts.html |here} to see how to use ChangeKeyStoreCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeKeyStoreCompartment.ts.html |here} to see how to use ChangeKeyStoreCompartmentRequest.
  */
 export interface ChangeKeyStoreCompartmentRequest extends common.BaseRequest {
   /**
@@ -24,7 +24,7 @@ export interface ChangeKeyStoreCompartmentRequest extends common.BaseRequest {
    */
   "changeKeyStoreCompartmentDetails": model.ChangeKeyStoreCompartmentDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the key store.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the key store.
    */
   "keyStoreId": string;
   /**

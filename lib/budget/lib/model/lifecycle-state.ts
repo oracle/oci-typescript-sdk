@@ -1,6 +1,6 @@
 /**
  * Budgets API
- * Use the Budgets API to manage budgets and budget alerts. For more information, see [Budgets Overview](/iaas/Content/Billing/Concepts/budgetsoverview.htm).
+ * Use the Budgets API to manage budgets and budget alerts. For more information, see [Budgets Overview](https://docs.oracle.com/iaas/Content/Billing/Concepts/budgetsoverview.htm).
  * OpenAPI spec version: 20190111
  *
  *

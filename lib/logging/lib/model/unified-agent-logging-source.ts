@@ -3,7 +3,7 @@
  * Use the Logging Management API to create, read, list, update, move and delete
 log groups, log objects, log saved searches, and agent configurations.
 
-For more information, see [Logging Overview](/iaas/Content/Logging/Concepts/loggingoverview.htm).
+For more information, see [Logging Overview](https://docs.oracle.com/iaas/Content/Logging/Concepts/loggingoverview.htm).
 
  * OpenAPI spec version: 20200531
  * 

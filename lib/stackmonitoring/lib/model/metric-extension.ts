@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface MetricExtension {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of Metric Extension resource
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of Metric Extension resource
    */
   "id": string;
   /**
@@ -39,11 +39,11 @@ export interface MetricExtension {
    */
   "resourceType": string;
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Compartment Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    */
   "compartmentId": string;
   /**
-   * Tenant Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Tenant Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    */
   "tenantId": string;
   /**

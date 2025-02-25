@@ -34,7 +34,7 @@ export interface BatchLanguageTranslationDetails {
    */
   "noTranslate"?: Array<string>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that calls the API, inference will be served from pre trained model
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that calls the API, inference will be served from pre trained model
    */
   "compartmentId"?: string;
   /**

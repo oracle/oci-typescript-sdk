@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetConnection.ts.html |here} to see how to use GetConnectionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetConnection.ts.html |here} to see how to use GetConnectionRequest.
  */
 export interface GetConnectionRequest extends common.BaseRequest {
   /**

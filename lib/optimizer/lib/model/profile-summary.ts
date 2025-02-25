@@ -2,7 +2,7 @@
  * Cloud Advisor API
  * Use the Cloud Advisor API to find potential inefficiencies in your tenancy and address them.
 Cloud Advisor can help you save money, improve performance, strengthen system resilience, and improve security.
-For more information, see [Cloud Advisor](/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm).
+For more information, see [Cloud Advisor](https://docs.oracle.com/iaas/Content/CloudAdvisor/Concepts/cloudadvisoroverview.htm).
 
  * OpenAPI spec version: 20200606
  * 
@@ -44,7 +44,7 @@ export interface ProfileSummary {
   "aggregationIntervalInDays"?: number;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
 * 
@@ -52,7 +52,7 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
     * Simple key-value pair applied without any predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Exists for cross-compatibility only.
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm). Exists for cross-compatibility only.
 * <p>
 Example: {@code {\"bar-key\": \"value\"}}
 * 

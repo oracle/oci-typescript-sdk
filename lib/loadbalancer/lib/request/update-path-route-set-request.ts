@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdatePathRouteSet.ts.html |here} to see how to use UpdatePathRouteSetRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdatePathRouteSet.ts.html |here} to see how to use UpdatePathRouteSetRequest.
  */
 export interface UpdatePathRouteSetRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface UpdatePathRouteSetRequest extends common.BaseRequest {
    */
   "updatePathRouteSetDetails": model.UpdatePathRouteSetDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the load balancer associated with the path route set to update.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the load balancer associated with the path route set to update.
    */
   "loadBalancerId": string;
   /**

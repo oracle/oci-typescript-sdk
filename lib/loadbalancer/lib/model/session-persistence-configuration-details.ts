@@ -1,7 +1,7 @@
 /**
  * Load Balancing API
  * API for the Load Balancing service. Use this API to manage load balancers, backend sets, and related items. For more
-information, see [Overview of Load Balancing](/iaas/Content/Balance/Concepts/balanceoverview.htm).
+information, see [Overview of Load Balancing](https://docs.oracle.com/iaas/Content/Balance/Concepts/balanceoverview.htm).
 
  * OpenAPI spec version: 20170115
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
 * <p>
 Session persistence enables the Load Balancing service to direct any number of requests that originate from a single
 * logical client to a single backend web server. For more information, see
-* [Session Persistence](https://docs.cloud.oracle.com/Content/Balance/Reference/sessionpersistence.htm).
+* [Session Persistence](https://docs.oracle.com/iaas/Content/Balance/Reference/sessionpersistence.htm).
 * <p>
 With application cookie stickiness, the load balancer enables session persistence only when the response from a backend
 * application server includes a {@code Set-cookie} header with the user-specified cookie name.

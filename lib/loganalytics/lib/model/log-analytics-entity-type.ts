@@ -31,7 +31,7 @@ export interface LogAnalyticsEntityType {
    */
   "internalName": string;
   /**
-   * Compartment Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Compartment Identifier [OCID] (https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId"?: string;
   /**

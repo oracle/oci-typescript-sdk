@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface NetworkLoadBalancerHealthSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the network load balancer with which the health status is associated.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the network load balancer with which the health status is associated.
    *
    */
   "networkLoadBalancerId": string;

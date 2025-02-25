@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityPolicyDeploymentCompartment.ts.html |here} to see how to use ChangeSecurityPolicyDeploymentCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityPolicyDeploymentCompartment.ts.html |here} to see how to use ChangeSecurityPolicyDeploymentCompartmentRequest.
  */
 export interface ChangeSecurityPolicyDeploymentCompartmentRequest extends common.BaseRequest {
   /**

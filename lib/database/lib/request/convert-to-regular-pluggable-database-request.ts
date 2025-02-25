@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToRegularPluggableDatabase.ts.html |here} to see how to use ConvertToRegularPluggableDatabaseRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertToRegularPluggableDatabase.ts.html |here} to see how to use ConvertToRegularPluggableDatabaseRequest.
  */
 export interface ConvertToRegularPluggableDatabaseRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ConvertToRegularPluggableDatabaseRequest extends common.BaseReq
    */
   "convertToRegularPluggableDatabaseDetails": model.ConvertToRegularPluggableDatabaseDetails;
   /**
-   * The database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "pluggableDatabaseId": string;
   /**

@@ -1,7 +1,7 @@
 /**
  * Email Delivery Submission API
  * Use the Email Delivery API to send high-volume and application-generated emails.
-For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
+For more information, see [Overview of the Email Delivery Service](https://docs.oracle.com/iaas/Content/Email/Concepts/overview.htm).
 
  * OpenAPI spec version: 20220926
  * Contact: email-dev_us_grp@oracle.com
@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface Sender {
   "senderAddress": model.EmailAddress;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the approved sender resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the approved sender resource.
    */
   "compartmentId": string;
 }

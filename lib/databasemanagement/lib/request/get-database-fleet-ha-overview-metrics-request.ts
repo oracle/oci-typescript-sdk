@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetHaOverviewMetrics.ts.html |here} to see how to use GetDatabaseFleetHaOverviewMetricsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetHaOverviewMetrics.ts.html |here} to see how to use GetDatabaseFleetHaOverviewMetricsRequest.
  */
 export interface GetDatabaseFleetHaOverviewMetricsRequest extends common.BaseRequest {
   /**
@@ -23,11 +23,11 @@ export interface GetDatabaseFleetHaOverviewMetricsRequest extends common.BaseReq
    */
   "opcRequestId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Managed Database Group.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Managed Database Group.
    */
   "managedDatabaseGroupId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId"?: string;
   /**

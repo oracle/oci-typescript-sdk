@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateOnPremiseVantagePoint.ts.html |here} to see how to use UpdateOnPremiseVantagePointRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/UpdateOnPremiseVantagePoint.ts.html |here} to see how to use UpdateOnPremiseVantagePointRequest.
  */
 export interface UpdateOnPremiseVantagePointRequest extends common.BaseRequest {
   /**

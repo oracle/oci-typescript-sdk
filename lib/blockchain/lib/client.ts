@@ -242,7 +242,7 @@ export class BlockchainPlatformClient {
    * @param ChangeBlockchainPlatformCompartmentRequest
    * @return ChangeBlockchainPlatformCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ChangeBlockchainPlatformCompartment.ts.html |here} to see how to use ChangeBlockchainPlatformCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ChangeBlockchainPlatformCompartment.ts.html |here} to see how to use ChangeBlockchainPlatformCompartment API.
    */
   public async changeBlockchainPlatformCompartment(
     changeBlockchainPlatformCompartmentRequest: requests.ChangeBlockchainPlatformCompartmentRequest
@@ -325,7 +325,7 @@ export class BlockchainPlatformClient {
    * @param CreateBlockchainPlatformRequest
    * @return CreateBlockchainPlatformResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/CreateBlockchainPlatform.ts.html |here} to see how to use CreateBlockchainPlatform API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/CreateBlockchainPlatform.ts.html |here} to see how to use CreateBlockchainPlatform API.
    */
   public async createBlockchainPlatform(
     createBlockchainPlatformRequest: requests.CreateBlockchainPlatformRequest
@@ -402,7 +402,7 @@ export class BlockchainPlatformClient {
    * @param CreateOsnRequest
    * @return CreateOsnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/CreateOsn.ts.html |here} to see how to use CreateOsn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/CreateOsn.ts.html |here} to see how to use CreateOsn API.
    */
   public async createOsn(
     createOsnRequest: requests.CreateOsnRequest
@@ -481,7 +481,7 @@ export class BlockchainPlatformClient {
    * @param CreatePeerRequest
    * @return CreatePeerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/CreatePeer.ts.html |here} to see how to use CreatePeer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/CreatePeer.ts.html |here} to see how to use CreatePeer API.
    */
   public async createPeer(
     createPeerRequest: requests.CreatePeerRequest
@@ -559,7 +559,7 @@ export class BlockchainPlatformClient {
    * @param DeleteBlockchainPlatformRequest
    * @return DeleteBlockchainPlatformResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/DeleteBlockchainPlatform.ts.html |here} to see how to use DeleteBlockchainPlatform API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/DeleteBlockchainPlatform.ts.html |here} to see how to use DeleteBlockchainPlatform API.
    */
   public async deleteBlockchainPlatform(
     deleteBlockchainPlatformRequest: requests.DeleteBlockchainPlatformRequest
@@ -634,7 +634,7 @@ export class BlockchainPlatformClient {
    * @param DeleteOsnRequest
    * @return DeleteOsnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/DeleteOsn.ts.html |here} to see how to use DeleteOsn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/DeleteOsn.ts.html |here} to see how to use DeleteOsn API.
    */
   public async deleteOsn(
     deleteOsnRequest: requests.DeleteOsnRequest
@@ -708,7 +708,7 @@ export class BlockchainPlatformClient {
    * @param DeletePeerRequest
    * @return DeletePeerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/DeletePeer.ts.html |here} to see how to use DeletePeer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/DeletePeer.ts.html |here} to see how to use DeletePeer API.
    */
   public async deletePeer(
     deletePeerRequest: requests.DeletePeerRequest
@@ -783,7 +783,7 @@ export class BlockchainPlatformClient {
    * @param DeleteWorkRequestRequest
    * @return DeleteWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/DeleteWorkRequest.ts.html |here} to see how to use DeleteWorkRequest API.
    */
   public async deleteWorkRequest(
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
@@ -857,7 +857,7 @@ export class BlockchainPlatformClient {
    * @param GetBlockchainPlatformRequest
    * @return GetBlockchainPlatformResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/GetBlockchainPlatform.ts.html |here} to see how to use GetBlockchainPlatform API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/GetBlockchainPlatform.ts.html |here} to see how to use GetBlockchainPlatform API.
    */
   public async getBlockchainPlatform(
     getBlockchainPlatformRequest: requests.GetBlockchainPlatformRequest
@@ -934,7 +934,7 @@ export class BlockchainPlatformClient {
    * @param GetOsnRequest
    * @return GetOsnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/GetOsn.ts.html |here} to see how to use GetOsn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/GetOsn.ts.html |here} to see how to use GetOsn API.
    */
   public async getOsn(getOsnRequest: requests.GetOsnRequest): Promise<responses.GetOsnResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#getOsn.");
@@ -1008,7 +1008,7 @@ export class BlockchainPlatformClient {
    * @param GetPeerRequest
    * @return GetPeerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/GetPeer.ts.html |here} to see how to use GetPeer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/GetPeer.ts.html |here} to see how to use GetPeer API.
    */
   public async getPeer(
     getPeerRequest: requests.GetPeerRequest
@@ -1085,7 +1085,7 @@ export class BlockchainPlatformClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1167,7 +1167,7 @@ export class BlockchainPlatformClient {
    * @param ListBlockchainPlatformPatchesRequest
    * @return ListBlockchainPlatformPatchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListBlockchainPlatformPatches.ts.html |here} to see how to use ListBlockchainPlatformPatches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListBlockchainPlatformPatches.ts.html |here} to see how to use ListBlockchainPlatformPatches API.
    */
   public async listBlockchainPlatformPatches(
     listBlockchainPlatformPatchesRequest: requests.ListBlockchainPlatformPatchesRequest
@@ -1249,7 +1249,7 @@ export class BlockchainPlatformClient {
    * @param ListBlockchainPlatformsRequest
    * @return ListBlockchainPlatformsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListBlockchainPlatforms.ts.html |here} to see how to use ListBlockchainPlatforms API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListBlockchainPlatforms.ts.html |here} to see how to use ListBlockchainPlatforms API.
    */
   public async listBlockchainPlatforms(
     listBlockchainPlatformsRequest: requests.ListBlockchainPlatformsRequest
@@ -1332,7 +1332,7 @@ export class BlockchainPlatformClient {
    * @param ListOsnsRequest
    * @return ListOsnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListOsns.ts.html |here} to see how to use ListOsns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListOsns.ts.html |here} to see how to use ListOsns API.
    */
   public async listOsns(
     listOsnsRequest: requests.ListOsnsRequest
@@ -1415,7 +1415,7 @@ export class BlockchainPlatformClient {
    * @param ListPeersRequest
    * @return ListPeersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListPeers.ts.html |here} to see how to use ListPeers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListPeers.ts.html |here} to see how to use ListPeers API.
    */
   public async listPeers(
     listPeersRequest: requests.ListPeersRequest
@@ -1499,7 +1499,7 @@ export class BlockchainPlatformClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1580,7 +1580,7 @@ export class BlockchainPlatformClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1661,7 +1661,7 @@ export class BlockchainPlatformClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1743,7 +1743,7 @@ export class BlockchainPlatformClient {
    * @param PreviewScaleBlockchainPlatformRequest
    * @return PreviewScaleBlockchainPlatformResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/PreviewScaleBlockchainPlatform.ts.html |here} to see how to use PreviewScaleBlockchainPlatform API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/PreviewScaleBlockchainPlatform.ts.html |here} to see how to use PreviewScaleBlockchainPlatform API.
    */
   public async previewScaleBlockchainPlatform(
     previewScaleBlockchainPlatformRequest: requests.PreviewScaleBlockchainPlatformRequest
@@ -1827,7 +1827,7 @@ export class BlockchainPlatformClient {
    * @param ScaleBlockchainPlatformRequest
    * @return ScaleBlockchainPlatformResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ScaleBlockchainPlatform.ts.html |here} to see how to use ScaleBlockchainPlatform API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/ScaleBlockchainPlatform.ts.html |here} to see how to use ScaleBlockchainPlatform API.
    */
   public async scaleBlockchainPlatform(
     scaleBlockchainPlatformRequest: requests.ScaleBlockchainPlatformRequest
@@ -1907,7 +1907,7 @@ export class BlockchainPlatformClient {
    * @param StartBlockchainPlatformRequest
    * @return StartBlockchainPlatformResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/StartBlockchainPlatform.ts.html |here} to see how to use StartBlockchainPlatform API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/StartBlockchainPlatform.ts.html |here} to see how to use StartBlockchainPlatform API.
    */
   public async startBlockchainPlatform(
     startBlockchainPlatformRequest: requests.StartBlockchainPlatformRequest
@@ -1982,7 +1982,7 @@ export class BlockchainPlatformClient {
    * @param StopBlockchainPlatformRequest
    * @return StopBlockchainPlatformResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/StopBlockchainPlatform.ts.html |here} to see how to use StopBlockchainPlatform API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/StopBlockchainPlatform.ts.html |here} to see how to use StopBlockchainPlatform API.
    */
   public async stopBlockchainPlatform(
     stopBlockchainPlatformRequest: requests.StopBlockchainPlatformRequest
@@ -2057,7 +2057,7 @@ export class BlockchainPlatformClient {
    * @param UpdateBlockchainPlatformRequest
    * @return UpdateBlockchainPlatformResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/UpdateBlockchainPlatform.ts.html |here} to see how to use UpdateBlockchainPlatform API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/UpdateBlockchainPlatform.ts.html |here} to see how to use UpdateBlockchainPlatform API.
    */
   public async updateBlockchainPlatform(
     updateBlockchainPlatformRequest: requests.UpdateBlockchainPlatformRequest
@@ -2137,7 +2137,7 @@ export class BlockchainPlatformClient {
    * @param UpdateOsnRequest
    * @return UpdateOsnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/UpdateOsn.ts.html |here} to see how to use UpdateOsn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/UpdateOsn.ts.html |here} to see how to use UpdateOsn API.
    */
   public async updateOsn(
     updateOsnRequest: requests.UpdateOsnRequest
@@ -2217,7 +2217,7 @@ export class BlockchainPlatformClient {
    * @param UpdatePeerRequest
    * @return UpdatePeerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/UpdatePeer.ts.html |here} to see how to use UpdatePeer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/UpdatePeer.ts.html |here} to see how to use UpdatePeer API.
    */
   public async updatePeer(
     updatePeerRequest: requests.UpdatePeerRequest
@@ -2297,7 +2297,7 @@ export class BlockchainPlatformClient {
    * @param UpgradeBlockchainPlatformRequest
    * @return UpgradeBlockchainPlatformResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/UpgradeBlockchainPlatform.ts.html |here} to see how to use UpgradeBlockchainPlatform API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/blockchain/UpgradeBlockchainPlatform.ts.html |here} to see how to use UpgradeBlockchainPlatform API.
    */
   public async upgradeBlockchainPlatform(
     upgradeBlockchainPlatformRequest: requests.UpgradeBlockchainPlatformRequest

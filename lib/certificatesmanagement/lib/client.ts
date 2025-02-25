@@ -244,7 +244,7 @@ export class CertificatesManagementClient {
    * @param CancelCertificateAuthorityDeletionRequest
    * @return CancelCertificateAuthorityDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CancelCertificateAuthorityDeletion.ts.html |here} to see how to use CancelCertificateAuthorityDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CancelCertificateAuthorityDeletion.ts.html |here} to see how to use CancelCertificateAuthorityDeletion API.
    */
   public async cancelCertificateAuthorityDeletion(
     cancelCertificateAuthorityDeletionRequest: requests.CancelCertificateAuthorityDeletionRequest
@@ -323,7 +323,7 @@ export class CertificatesManagementClient {
    * @param CancelCertificateAuthorityVersionDeletionRequest
    * @return CancelCertificateAuthorityVersionDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CancelCertificateAuthorityVersionDeletion.ts.html |here} to see how to use CancelCertificateAuthorityVersionDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CancelCertificateAuthorityVersionDeletion.ts.html |here} to see how to use CancelCertificateAuthorityVersionDeletion API.
    */
   public async cancelCertificateAuthorityVersionDeletion(
     cancelCertificateAuthorityVersionDeletionRequest: requests.CancelCertificateAuthorityVersionDeletionRequest
@@ -406,7 +406,7 @@ export class CertificatesManagementClient {
    * @param CancelCertificateDeletionRequest
    * @return CancelCertificateDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CancelCertificateDeletion.ts.html |here} to see how to use CancelCertificateDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CancelCertificateDeletion.ts.html |here} to see how to use CancelCertificateDeletion API.
    */
   public async cancelCertificateDeletion(
     cancelCertificateDeletionRequest: requests.CancelCertificateDeletionRequest
@@ -482,7 +482,7 @@ export class CertificatesManagementClient {
    * @param CancelCertificateVersionDeletionRequest
    * @return CancelCertificateVersionDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CancelCertificateVersionDeletion.ts.html |here} to see how to use CancelCertificateVersionDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CancelCertificateVersionDeletion.ts.html |here} to see how to use CancelCertificateVersionDeletion API.
    */
   public async cancelCertificateVersionDeletion(
     cancelCertificateVersionDeletionRequest: requests.CancelCertificateVersionDeletionRequest
@@ -556,7 +556,7 @@ export class CertificatesManagementClient {
 
   /**
      * Moves a CA bundle to a different compartment in the same tenancy. For information about
-* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When provided, if-match is checked against the ETag values of the secret.
 * 
@@ -564,7 +564,7 @@ When provided, if-match is checked against the ETag values of the secret.
      * @param ChangeCaBundleCompartmentRequest
      * @return ChangeCaBundleCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ChangeCaBundleCompartment.ts.html |here} to see how to use ChangeCaBundleCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ChangeCaBundleCompartment.ts.html |here} to see how to use ChangeCaBundleCompartment API.
      */
   public async changeCaBundleCompartment(
     changeCaBundleCompartmentRequest: requests.ChangeCaBundleCompartmentRequest
@@ -637,7 +637,7 @@ When provided, if-match is checked against the ETag values of the secret.
 
   /**
      * Moves a certificate authority (CA) to a different compartment within the same tenancy. For information about
-* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When provided, If-Match is checked against the ETag values of the source.
 * 
@@ -645,7 +645,7 @@ When provided, If-Match is checked against the ETag values of the source.
      * @param ChangeCertificateAuthorityCompartmentRequest
      * @return ChangeCertificateAuthorityCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ChangeCertificateAuthorityCompartment.ts.html |here} to see how to use ChangeCertificateAuthorityCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ChangeCertificateAuthorityCompartment.ts.html |here} to see how to use ChangeCertificateAuthorityCompartment API.
      */
   public async changeCertificateAuthorityCompartment(
     changeCertificateAuthorityCompartmentRequest: requests.ChangeCertificateAuthorityCompartmentRequest
@@ -719,7 +719,7 @@ When provided, If-Match is checked against the ETag values of the source.
 
   /**
      * Moves a certificate to a different compartment within the same tenancy. For information about
-* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When provided, if-match is checked against the ETag values of the secret.
 * 
@@ -727,7 +727,7 @@ When provided, if-match is checked against the ETag values of the secret.
      * @param ChangeCertificateCompartmentRequest
      * @return ChangeCertificateCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ChangeCertificateCompartment.ts.html |here} to see how to use ChangeCertificateCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ChangeCertificateCompartment.ts.html |here} to see how to use ChangeCertificateCompartment API.
      */
   public async changeCertificateCompartment(
     changeCertificateCompartmentRequest: requests.ChangeCertificateCompartmentRequest
@@ -804,7 +804,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param CreateCaBundleRequest
    * @return CreateCaBundleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CreateCaBundle.ts.html |here} to see how to use CreateCaBundle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CreateCaBundle.ts.html |here} to see how to use CreateCaBundle API.
    */
   public async createCaBundle(
     createCaBundleRequest: requests.CreateCaBundleRequest
@@ -885,7 +885,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param CreateCertificateRequest
    * @return CreateCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CreateCertificate.ts.html |here} to see how to use CreateCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CreateCertificate.ts.html |here} to see how to use CreateCertificate API.
    */
   public async createCertificate(
     createCertificateRequest: requests.CreateCertificateRequest
@@ -966,7 +966,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param CreateCertificateAuthorityRequest
    * @return CreateCertificateAuthorityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CreateCertificateAuthority.ts.html |here} to see how to use CreateCertificateAuthority API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/CreateCertificateAuthority.ts.html |here} to see how to use CreateCertificateAuthority API.
    */
   public async createCertificateAuthority(
     createCertificateAuthorityRequest: requests.CreateCertificateAuthorityRequest
@@ -1049,7 +1049,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param DeleteCaBundleRequest
    * @return DeleteCaBundleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/DeleteCaBundle.ts.html |here} to see how to use DeleteCaBundle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/DeleteCaBundle.ts.html |here} to see how to use DeleteCaBundle API.
    */
   public async deleteCaBundle(
     deleteCaBundleRequest: requests.DeleteCaBundleRequest
@@ -1118,7 +1118,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param GetAssociationRequest
    * @return GetAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetAssociation.ts.html |here} to see how to use GetAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetAssociation.ts.html |here} to see how to use GetAssociation API.
    */
   public async getAssociation(
     getAssociationRequest: requests.GetAssociationRequest
@@ -1195,7 +1195,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param GetCaBundleRequest
    * @return GetCaBundleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetCaBundle.ts.html |here} to see how to use GetCaBundle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetCaBundle.ts.html |here} to see how to use GetCaBundle API.
    */
   public async getCaBundle(
     getCaBundleRequest: requests.GetCaBundleRequest
@@ -1272,7 +1272,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param GetCertificateRequest
    * @return GetCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetCertificate.ts.html |here} to see how to use GetCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetCertificate.ts.html |here} to see how to use GetCertificate API.
    */
   public async getCertificate(
     getCertificateRequest: requests.GetCertificateRequest
@@ -1349,7 +1349,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param GetCertificateAuthorityRequest
    * @return GetCertificateAuthorityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetCertificateAuthority.ts.html |here} to see how to use GetCertificateAuthority API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetCertificateAuthority.ts.html |here} to see how to use GetCertificateAuthority API.
    */
   public async getCertificateAuthority(
     getCertificateAuthorityRequest: requests.GetCertificateAuthorityRequest
@@ -1426,7 +1426,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param GetCertificateAuthorityVersionRequest
    * @return GetCertificateAuthorityVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetCertificateAuthorityVersion.ts.html |here} to see how to use GetCertificateAuthorityVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetCertificateAuthorityVersion.ts.html |here} to see how to use GetCertificateAuthorityVersion API.
    */
   public async getCertificateAuthorityVersion(
     getCertificateAuthorityVersionRequest: requests.GetCertificateAuthorityVersionRequest
@@ -1508,7 +1508,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param GetCertificateVersionRequest
    * @return GetCertificateVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetCertificateVersion.ts.html |here} to see how to use GetCertificateVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/GetCertificateVersion.ts.html |here} to see how to use GetCertificateVersion API.
    */
   public async getCertificateVersion(
     getCertificateVersionRequest: requests.GetCertificateVersionRequest
@@ -1588,7 +1588,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param ListAssociationsRequest
    * @return ListAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListAssociations.ts.html |here} to see how to use ListAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListAssociations.ts.html |here} to see how to use ListAssociations API.
    */
   public async listAssociations(
     listAssociationsRequest: requests.ListAssociationsRequest
@@ -1676,7 +1676,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param ListCaBundlesRequest
    * @return ListCaBundlesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListCaBundles.ts.html |here} to see how to use ListCaBundles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListCaBundles.ts.html |here} to see how to use ListCaBundles API.
    */
   public async listCaBundles(
     listCaBundlesRequest: requests.ListCaBundlesRequest
@@ -1762,7 +1762,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param ListCertificateAuthoritiesRequest
    * @return ListCertificateAuthoritiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListCertificateAuthorities.ts.html |here} to see how to use ListCertificateAuthorities API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListCertificateAuthorities.ts.html |here} to see how to use ListCertificateAuthorities API.
    */
   public async listCertificateAuthorities(
     listCertificateAuthoritiesRequest: requests.ListCertificateAuthoritiesRequest
@@ -1852,7 +1852,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param ListCertificateAuthorityVersionsRequest
    * @return ListCertificateAuthorityVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListCertificateAuthorityVersions.ts.html |here} to see how to use ListCertificateAuthorityVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListCertificateAuthorityVersions.ts.html |here} to see how to use ListCertificateAuthorityVersions API.
    */
   public async listCertificateAuthorityVersions(
     listCertificateAuthorityVersionsRequest: requests.ListCertificateAuthorityVersionsRequest
@@ -1939,7 +1939,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param ListCertificateVersionsRequest
    * @return ListCertificateVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListCertificateVersions.ts.html |here} to see how to use ListCertificateVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListCertificateVersions.ts.html |here} to see how to use ListCertificateVersions API.
    */
   public async listCertificateVersions(
     listCertificateVersionsRequest: requests.ListCertificateVersionsRequest
@@ -2024,7 +2024,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param ListCertificatesRequest
    * @return ListCertificatesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListCertificates.ts.html |here} to see how to use ListCertificates API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ListCertificates.ts.html |here} to see how to use ListCertificates API.
    */
   public async listCertificates(
     listCertificatesRequest: requests.ListCertificatesRequest
@@ -2109,7 +2109,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param RevokeCertificateAuthorityVersionRequest
    * @return RevokeCertificateAuthorityVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/RevokeCertificateAuthorityVersion.ts.html |here} to see how to use RevokeCertificateAuthorityVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/RevokeCertificateAuthorityVersion.ts.html |here} to see how to use RevokeCertificateAuthorityVersion API.
    */
   public async revokeCertificateAuthorityVersion(
     revokeCertificateAuthorityVersionRequest: requests.RevokeCertificateAuthorityVersionRequest
@@ -2194,7 +2194,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param RevokeCertificateVersionRequest
    * @return RevokeCertificateVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/RevokeCertificateVersion.ts.html |here} to see how to use RevokeCertificateVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/RevokeCertificateVersion.ts.html |here} to see how to use RevokeCertificateVersion API.
    */
   public async revokeCertificateVersion(
     revokeCertificateVersionRequest: requests.RevokeCertificateVersionRequest
@@ -2276,7 +2276,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param ScheduleCertificateAuthorityDeletionRequest
    * @return ScheduleCertificateAuthorityDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ScheduleCertificateAuthorityDeletion.ts.html |here} to see how to use ScheduleCertificateAuthorityDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ScheduleCertificateAuthorityDeletion.ts.html |here} to see how to use ScheduleCertificateAuthorityDeletion API.
    */
   public async scheduleCertificateAuthorityDeletion(
     scheduleCertificateAuthorityDeletionRequest: requests.ScheduleCertificateAuthorityDeletionRequest
@@ -2360,7 +2360,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param ScheduleCertificateAuthorityVersionDeletionRequest
    * @return ScheduleCertificateAuthorityVersionDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ScheduleCertificateAuthorityVersionDeletion.ts.html |here} to see how to use ScheduleCertificateAuthorityVersionDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ScheduleCertificateAuthorityVersionDeletion.ts.html |here} to see how to use ScheduleCertificateAuthorityVersionDeletion API.
    */
   public async scheduleCertificateAuthorityVersionDeletion(
     scheduleCertificateAuthorityVersionDeletionRequest: requests.ScheduleCertificateAuthorityVersionDeletionRequest
@@ -2448,7 +2448,7 @@ When provided, if-match is checked against the ETag values of the secret.
    * @param ScheduleCertificateDeletionRequest
    * @return ScheduleCertificateDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ScheduleCertificateDeletion.ts.html |here} to see how to use ScheduleCertificateDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ScheduleCertificateDeletion.ts.html |here} to see how to use ScheduleCertificateDeletion API.
    */
   public async scheduleCertificateDeletion(
     scheduleCertificateDeletionRequest: requests.ScheduleCertificateDeletionRequest
@@ -2533,7 +2533,7 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
      * @param ScheduleCertificateVersionDeletionRequest
      * @return ScheduleCertificateVersionDeletionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ScheduleCertificateVersionDeletion.ts.html |here} to see how to use ScheduleCertificateVersionDeletion API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/ScheduleCertificateVersionDeletion.ts.html |here} to see how to use ScheduleCertificateVersionDeletion API.
      */
   public async scheduleCertificateVersionDeletion(
     scheduleCertificateVersionDeletionRequest: requests.ScheduleCertificateVersionDeletionRequest
@@ -2617,7 +2617,7 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
    * @param UpdateCaBundleRequest
    * @return UpdateCaBundleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/UpdateCaBundle.ts.html |here} to see how to use UpdateCaBundle API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/UpdateCaBundle.ts.html |here} to see how to use UpdateCaBundle API.
    */
   public async updateCaBundle(
     updateCaBundleRequest: requests.UpdateCaBundleRequest
@@ -2700,7 +2700,7 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
    * @param UpdateCertificateRequest
    * @return UpdateCertificateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/UpdateCertificate.ts.html |here} to see how to use UpdateCertificate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/UpdateCertificate.ts.html |here} to see how to use UpdateCertificate API.
    */
   public async updateCertificate(
     updateCertificateRequest: requests.UpdateCertificateRequest
@@ -2783,7 +2783,7 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
    * @param UpdateCertificateAuthorityRequest
    * @return UpdateCertificateAuthorityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/UpdateCertificateAuthority.ts.html |here} to see how to use UpdateCertificateAuthority API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/certificatesmanagement/UpdateCertificateAuthority.ts.html |here} to see how to use UpdateCertificateAuthority API.
    */
   public async updateCertificateAuthority(
     updateCertificateAuthorityRequest: requests.UpdateCertificateAuthorityRequest

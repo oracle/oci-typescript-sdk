@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CustomizationInference {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customization to use.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customization to use.
    */
   "customizationId"?: string;
   /**
@@ -27,7 +27,7 @@ export interface CustomizationInference {
    */
   "customizationAlias"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where customization is present
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where customization is present
    */
   "compartmentId"?: string;
   /**

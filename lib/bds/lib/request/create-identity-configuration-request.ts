@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateIdentityConfiguration.ts.html |here} to see how to use CreateIdentityConfigurationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateIdentityConfiguration.ts.html |here} to see how to use CreateIdentityConfigurationRequest.
  */
 export interface CreateIdentityConfigurationRequest extends common.BaseRequest {
   /**

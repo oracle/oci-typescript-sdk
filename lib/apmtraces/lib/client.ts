@@ -226,7 +226,7 @@ export class AttributesClient {
    * @param BulkActivateAttributeRequest
    * @return BulkActivateAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkActivateAttribute.ts.html |here} to see how to use BulkActivateAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkActivateAttribute.ts.html |here} to see how to use BulkActivateAttribute API.
    */
   public async bulkActivateAttribute(
     bulkActivateAttributeRequest: requests.BulkActivateAttributeRequest
@@ -310,7 +310,7 @@ export class AttributesClient {
    * @param BulkDeActivateAttributeRequest
    * @return BulkDeActivateAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkDeActivateAttribute.ts.html |here} to see how to use BulkDeActivateAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkDeActivateAttribute.ts.html |here} to see how to use BulkDeActivateAttribute API.
    */
   public async bulkDeActivateAttribute(
     bulkDeActivateAttributeRequest: requests.BulkDeActivateAttributeRequest
@@ -389,7 +389,7 @@ export class AttributesClient {
    * @param BulkPinAttributeRequest
    * @return BulkPinAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkPinAttribute.ts.html |here} to see how to use BulkPinAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkPinAttribute.ts.html |here} to see how to use BulkPinAttribute API.
    */
   public async bulkPinAttribute(
     bulkPinAttributeRequest: requests.BulkPinAttributeRequest
@@ -466,7 +466,7 @@ export class AttributesClient {
    * @param BulkUnpinAttributeRequest
    * @return BulkUnpinAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkUnpinAttribute.ts.html |here} to see how to use BulkUnpinAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkUnpinAttribute.ts.html |here} to see how to use BulkUnpinAttribute API.
    */
   public async bulkUnpinAttribute(
     bulkUnpinAttributeRequest: requests.BulkUnpinAttributeRequest
@@ -543,7 +543,7 @@ export class AttributesClient {
    * @param BulkUpdateAttributeRequest
    * @return BulkUpdateAttributeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkUpdateAttribute.ts.html |here} to see how to use BulkUpdateAttribute API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkUpdateAttribute.ts.html |here} to see how to use BulkUpdateAttribute API.
    */
   public async bulkUpdateAttribute(
     bulkUpdateAttributeRequest: requests.BulkUpdateAttributeRequest
@@ -622,7 +622,7 @@ export class AttributesClient {
    * @param BulkUpdateAttributeNotesRequest
    * @return BulkUpdateAttributeNotesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkUpdateAttributeNotes.ts.html |here} to see how to use BulkUpdateAttributeNotes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/BulkUpdateAttributeNotes.ts.html |here} to see how to use BulkUpdateAttributeNotes API.
    */
   public async bulkUpdateAttributeNotes(
     bulkUpdateAttributeNotesRequest: requests.BulkUpdateAttributeNotesRequest
@@ -700,7 +700,7 @@ export class AttributesClient {
    * @param GetStatusAutoActivateRequest
    * @return GetStatusAutoActivateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetStatusAutoActivate.ts.html |here} to see how to use GetStatusAutoActivate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetStatusAutoActivate.ts.html |here} to see how to use GetStatusAutoActivate API.
    */
   public async getStatusAutoActivate(
     getStatusAutoActivateRequest: requests.GetStatusAutoActivateRequest
@@ -773,7 +773,7 @@ export class AttributesClient {
    * @param PutToggleAutoActivateRequest
    * @return PutToggleAutoActivateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/PutToggleAutoActivate.ts.html |here} to see how to use PutToggleAutoActivate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/PutToggleAutoActivate.ts.html |here} to see how to use PutToggleAutoActivate API.
    */
   public async putToggleAutoActivate(
     putToggleAutoActivateRequest: requests.PutToggleAutoActivateRequest
@@ -1032,7 +1032,7 @@ export class QueryClient {
    * @param ListQuickPicksRequest
    * @return ListQuickPicksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/ListQuickPicks.ts.html |here} to see how to use ListQuickPicks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/ListQuickPicks.ts.html |here} to see how to use ListQuickPicks API.
    */
   public async listQuickPicks(
     listQuickPicksRequest: requests.ListQuickPicksRequest
@@ -1171,7 +1171,7 @@ export class QueryClient {
    * @param QueryRequest
    * @return QueryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/Query.ts.html |here} to see how to use Query API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/Query.ts.html |here} to see how to use Query API.
    */
   public async query(queryRequest: requests.QueryRequest): Promise<responses.QueryResponse> {
     if (this.logger) this.logger.debug("Calling operation QueryClient#query.");
@@ -1444,7 +1444,7 @@ export class TraceClient {
    * @param GetAggregatedSnapshotRequest
    * @return GetAggregatedSnapshotResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetAggregatedSnapshot.ts.html |here} to see how to use GetAggregatedSnapshot API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetAggregatedSnapshot.ts.html |here} to see how to use GetAggregatedSnapshot API.
    */
   public async getAggregatedSnapshot(
     getAggregatedSnapshotRequest: requests.GetAggregatedSnapshotRequest
@@ -1522,7 +1522,7 @@ export class TraceClient {
    * @param GetSpanRequest
    * @return GetSpanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetSpan.ts.html |here} to see how to use GetSpan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetSpan.ts.html |here} to see how to use GetSpan API.
    */
   public async getSpan(
     getSpanRequest: requests.GetSpanRequest
@@ -1600,7 +1600,7 @@ export class TraceClient {
    * @param GetTraceRequest
    * @return GetTraceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetTrace.ts.html |here} to see how to use GetTrace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetTrace.ts.html |here} to see how to use GetTrace API.
    */
   public async getTrace(
     getTraceRequest: requests.GetTraceRequest
@@ -1677,7 +1677,7 @@ export class TraceClient {
    * @param GetTraceSnapshotRequest
    * @return GetTraceSnapshotResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetTraceSnapshot.ts.html |here} to see how to use GetTraceSnapshot API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetTraceSnapshot.ts.html |here} to see how to use GetTraceSnapshot API.
    */
   public async getTraceSnapshot(
     getTraceSnapshotRequest: requests.GetTraceSnapshotRequest

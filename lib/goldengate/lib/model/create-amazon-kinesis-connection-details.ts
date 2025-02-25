@@ -36,7 +36,7 @@ export interface CreateAmazonKinesisConnectionDetails extends model.CreateConnec
    */
   "secretAccessKey"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the secret access key is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the secret access key is stored.
    * Note: When provided, 'secretAccessKey' field must not be provided.
    *
    */

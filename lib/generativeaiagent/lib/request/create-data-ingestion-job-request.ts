@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateDataIngestionJob.ts.html |here} to see how to use CreateDataIngestionJobRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateDataIngestionJob.ts.html |here} to see how to use CreateDataIngestionJobRequest.
  */
 export interface CreateDataIngestionJobRequest extends common.BaseRequest {
   /**

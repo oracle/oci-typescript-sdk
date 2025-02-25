@@ -21,6 +21,10 @@ import common = require("oci-common");
 export interface PipelineCustomScriptStepDetails extends model.PipelineStepDetails {
   "stepInfrastructureConfigurationDetails"?: model.PipelineInfrastructureConfigurationDetails;
   /**
+   * The storage mount details to mount to the instance running the pipeline step.
+   */
+  "stepStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  /**
    * A flag to indicate whether the artifact has been uploaded for this step or not.
    */
   "isArtifactUploaded"?: boolean;
@@ -42,6 +46,11 @@ export namespace PipelineCustomScriptStepDetails {
           ? model.PipelineInfrastructureConfigurationDetails.getJsonObj(
               obj.stepInfrastructureConfigurationDetails
             )
+          : undefined,
+        "stepStorageMountConfigurationDetailsList": obj.stepStorageMountConfigurationDetailsList
+          ? obj.stepStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -64,6 +73,11 @@ export namespace PipelineCustomScriptStepDetails {
           ? model.PipelineInfrastructureConfigurationDetails.getDeserializedJsonObj(
               obj.stepInfrastructureConfigurationDetails
             )
+          : undefined,
+        "stepStorageMountConfigurationDetailsList": obj.stepStorageMountConfigurationDetailsList
+          ? obj.stepStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

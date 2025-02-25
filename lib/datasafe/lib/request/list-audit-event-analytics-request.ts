@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditEventAnalytics.ts.html |here} to see how to use ListAuditEventAnalyticsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditEventAnalytics.ts.html |here} to see how to use ListAuditEventAnalyticsRequest.
  */
 export interface ListAuditEventAnalyticsRequest extends common.BaseRequest {
   /**
@@ -36,13 +36,13 @@ export interface ListAuditEventAnalyticsRequest extends common.BaseRequest {
    */
   "ifMatch"?: string;
   /**
-   * For details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * For details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "limit"?: number;
   /**
    * It is usually retrieved from a previous \"List\" call. For details about how pagination works,
-   * see [List Pagination](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * see [List Pagination](https://docs.oracle.com/iaas/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

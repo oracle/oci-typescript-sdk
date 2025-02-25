@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureAutonomousDatabaseVaultKey.ts.html |here} to see how to use ConfigureAutonomousDatabaseVaultKeyRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureAutonomousDatabaseVaultKey.ts.html |here} to see how to use ConfigureAutonomousDatabaseVaultKeyRequest.
  */
 export interface ConfigureAutonomousDatabaseVaultKeyRequest extends common.BaseRequest {
   /**
-   * The database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousDatabaseId": string;
   /**
-   * Configuration details for the Autonomous Database Vault service [key](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   * Configuration details for the Autonomous Database Vault service [key](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
    */
   "configureAutonomousDatabaseVaultKeyDetails": model.ConfigureAutonomousDatabaseVaultKeyDetails;
   /**

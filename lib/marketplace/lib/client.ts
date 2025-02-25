@@ -1,6 +1,6 @@
 /**
  * Marketplace Service API
- * Use the Marketplace API to manage applications in Oracle Cloud Infrastructure Marketplace. For more information, see [Overview of Marketplace](/Content/Marketplace/Concepts/marketoverview.htm)
+ * Use the Marketplace API to manage applications in Oracle Cloud Infrastructure Marketplace. For more information, see [Overview of Marketplace](https://docs.oracle.com/iaas/Content/Marketplace/Concepts/marketoverview.htm)
  * OpenAPI spec version: 20181001
  *
  *
@@ -219,7 +219,7 @@ export class AccountClient {
    * @param GetLaunchEligibilityRequest
    * @return GetLaunchEligibilityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetLaunchEligibility.ts.html |here} to see how to use GetLaunchEligibility API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetLaunchEligibility.ts.html |here} to see how to use GetLaunchEligibility API.
    */
   public async getLaunchEligibility(
     getLaunchEligibilityRequest: requests.GetLaunchEligibilityRequest
@@ -291,7 +291,7 @@ export class AccountClient {
    * @param GetThirdPartyPaidListingEligibilityRequest
    * @return GetThirdPartyPaidListingEligibilityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetThirdPartyPaidListingEligibility.ts.html |here} to see how to use GetThirdPartyPaidListingEligibility API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetThirdPartyPaidListingEligibility.ts.html |here} to see how to use GetThirdPartyPaidListingEligibility API.
    */
   public async getThirdPartyPaidListingEligibility(
     getThirdPartyPaidListingEligibilityRequest: requests.GetThirdPartyPaidListingEligibilityRequest
@@ -571,7 +571,7 @@ export class MarketplaceClient {
    * @param ChangePublicationCompartmentRequest
    * @return ChangePublicationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ChangePublicationCompartment.ts.html |here} to see how to use ChangePublicationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ChangePublicationCompartment.ts.html |here} to see how to use ChangePublicationCompartment API.
    */
   public async changePublicationCompartment(
     changePublicationCompartmentRequest: requests.ChangePublicationCompartmentRequest
@@ -648,7 +648,7 @@ export class MarketplaceClient {
    * @param CreateAcceptedAgreementRequest
    * @return CreateAcceptedAgreementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/CreateAcceptedAgreement.ts.html |here} to see how to use CreateAcceptedAgreement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/CreateAcceptedAgreement.ts.html |here} to see how to use CreateAcceptedAgreement API.
    */
   public async createAcceptedAgreement(
     createAcceptedAgreementRequest: requests.CreateAcceptedAgreementRequest
@@ -729,7 +729,7 @@ export class MarketplaceClient {
    * @param CreatePublicationRequest
    * @return CreatePublicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/CreatePublication.ts.html |here} to see how to use CreatePublication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/CreatePublication.ts.html |here} to see how to use CreatePublication API.
    */
   public async createPublication(
     createPublicationRequest: requests.CreatePublicationRequest
@@ -812,7 +812,7 @@ export class MarketplaceClient {
    * @param DeleteAcceptedAgreementRequest
    * @return DeleteAcceptedAgreementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/DeleteAcceptedAgreement.ts.html |here} to see how to use DeleteAcceptedAgreement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/DeleteAcceptedAgreement.ts.html |here} to see how to use DeleteAcceptedAgreement API.
    */
   public async deleteAcceptedAgreement(
     deleteAcceptedAgreementRequest: requests.DeleteAcceptedAgreementRequest
@@ -883,7 +883,7 @@ export class MarketplaceClient {
    * @param DeletePublicationRequest
    * @return DeletePublicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/DeletePublication.ts.html |here} to see how to use DeletePublication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/DeletePublication.ts.html |here} to see how to use DeletePublication API.
    */
   public async deletePublication(
     deletePublicationRequest: requests.DeletePublicationRequest
@@ -951,7 +951,7 @@ export class MarketplaceClient {
    * @param ExportListingRequest
    * @return ExportListingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ExportListing.ts.html |here} to see how to use ExportListing API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ExportListing.ts.html |here} to see how to use ExportListing API.
    */
   public async exportListing(
     exportListingRequest: requests.ExportListingRequest
@@ -1035,7 +1035,7 @@ export class MarketplaceClient {
    * @param GetAcceptedAgreementRequest
    * @return GetAcceptedAgreementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetAcceptedAgreement.ts.html |here} to see how to use GetAcceptedAgreement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetAcceptedAgreement.ts.html |here} to see how to use GetAcceptedAgreement API.
    */
   public async getAcceptedAgreement(
     getAcceptedAgreementRequest: requests.GetAcceptedAgreementRequest
@@ -1113,7 +1113,7 @@ export class MarketplaceClient {
    * @param GetAgreementRequest
    * @return GetAgreementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetAgreement.ts.html |here} to see how to use GetAgreement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetAgreement.ts.html |here} to see how to use GetAgreement API.
    */
   public async getAgreement(
     getAgreementRequest: requests.GetAgreementRequest
@@ -1190,20 +1190,20 @@ If you plan to launch an instance from an image listing, you must first subscrib
 * you launch the instance, you also need to provide the image ID of the listing resource version that you want.
 * <p>
 Subscribing to the listing requires you to first get a signature from the terms of use agreement for the
-* listing resource version. To get the signature, issue a [GetAppCatalogListingAgreements](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements/GetAppCatalogListingAgreements) API call.
-* The [AppCatalogListingResourceVersionAgreements](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements) object, including
+* listing resource version. To get the signature, issue a [GetAppCatalogListingAgreements](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements/GetAppCatalogListingAgreements) API call.
+* The [AppCatalogListingResourceVersionAgreements](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements) object, including
 * its signature, is returned in the response. With the signature for the terms of use agreement for the desired
 * listing resource version, create a subscription by issuing a
-* [CreateAppCatalogSubscription](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogSubscription/CreateAppCatalogSubscription) API call.
+* [CreateAppCatalogSubscription](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogSubscription/CreateAppCatalogSubscription) API call.
 * <p>
-To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
-* Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
+To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
+* Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetListingRequest
      * @return GetListingResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetListing.ts.html |here} to see how to use GetListing API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetListing.ts.html |here} to see how to use GetListing API.
      */
   public async getListing(
     getListingRequest: requests.GetListingRequest
@@ -1282,20 +1282,20 @@ If you plan to launch an instance from an image listing, you must first subscrib
 * you launch the instance, you also need to provide the image ID of the listing resource version that you want.
 * <p>
 Subscribing to the listing requires you to first get a signature from the terms of use agreement for the
-* listing resource version. To get the signature, issue a [GetAppCatalogListingAgreements](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements/GetAppCatalogListingAgreements) API call.
-* The [AppCatalogListingResourceVersionAgreements](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements) object, including
+* listing resource version. To get the signature, issue a [GetAppCatalogListingAgreements](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements/GetAppCatalogListingAgreements) API call.
+* The [AppCatalogListingResourceVersionAgreements](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements) object, including
 * its signature, is returned in the response. With the signature for the terms of use agreement for the desired
 * listing resource version, create a subscription by issuing a
-* [CreateAppCatalogSubscription](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogSubscription/CreateAppCatalogSubscription) API call.
+* [CreateAppCatalogSubscription](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogSubscription/CreateAppCatalogSubscription) API call.
 * <p>
-To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
-* Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
+To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
+* Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetPackageRequest
      * @return GetPackageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetPackage.ts.html |here} to see how to use GetPackage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetPackage.ts.html |here} to see how to use GetPackage API.
      */
   public async getPackage(
     getPackageRequest: requests.GetPackageRequest
@@ -1374,7 +1374,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param GetPublicationRequest
    * @return GetPublicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetPublication.ts.html |here} to see how to use GetPublication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetPublication.ts.html |here} to see how to use GetPublication API.
    */
   public async getPublication(
     getPublicationRequest: requests.GetPublicationRequest
@@ -1450,7 +1450,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param GetPublicationPackageRequest
    * @return GetPublicationPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetPublicationPackage.ts.html |here} to see how to use GetPublicationPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetPublicationPackage.ts.html |here} to see how to use GetPublicationPackage API.
    */
   public async getPublicationPackage(
     getPublicationPackageRequest: requests.GetPublicationPackageRequest
@@ -1528,7 +1528,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1606,7 +1606,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListAcceptedAgreementsRequest
    * @return ListAcceptedAgreementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListAcceptedAgreements.ts.html |here} to see how to use ListAcceptedAgreements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListAcceptedAgreements.ts.html |here} to see how to use ListAcceptedAgreements API.
    */
   public async listAcceptedAgreements(
     listAcceptedAgreementsRequest: requests.ListAcceptedAgreementsRequest
@@ -1744,7 +1744,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListAgreementsRequest
    * @return ListAgreementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListAgreements.ts.html |here} to see how to use ListAgreements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListAgreements.ts.html |here} to see how to use ListAgreements API.
    */
   public async listAgreements(
     listAgreementsRequest: requests.ListAgreementsRequest
@@ -1879,7 +1879,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListCategoriesRequest
    * @return ListCategoriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListCategories.ts.html |here} to see how to use ListCategories API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListCategories.ts.html |here} to see how to use ListCategories API.
    */
   public async listCategories(
     listCategoriesRequest: requests.ListCategoriesRequest
@@ -2011,20 +2011,20 @@ If you plan to launch an instance from an image listing, you must first subscrib
 * you launch the instance, you also need to provide the image ID of the listing resource version that you want.
 * <p>
 Subscribing to the listing requires you to first get a signature from the terms of use agreement for the
-* listing resource version. To get the signature, issue a [GetAppCatalogListingAgreements](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements/GetAppCatalogListingAgreements) API call.
-* The [AppCatalogListingResourceVersionAgreements](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements) object, including
+* listing resource version. To get the signature, issue a [GetAppCatalogListingAgreements](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements/GetAppCatalogListingAgreements) API call.
+* The [AppCatalogListingResourceVersionAgreements](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements) object, including
 * its signature, is returned in the response. With the signature for the terms of use agreement for the desired
 * listing resource version, create a subscription by issuing a
-* [CreateAppCatalogSubscription](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogSubscription/CreateAppCatalogSubscription) API call.
+* [CreateAppCatalogSubscription](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogSubscription/CreateAppCatalogSubscription) API call.
 * <p>
-To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
-* Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
+To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
+* Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListListingsRequest
      * @return ListListingsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListListings.ts.html |here} to see how to use ListListings API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListListings.ts.html |here} to see how to use ListListings API.
      */
   public async listListings(
     listListingsRequest: requests.ListListingsRequest
@@ -2167,20 +2167,20 @@ If you plan to launch an instance from an image listing, you must first subscrib
 * you launch the instance, you also need to provide the image ID of the listing resource version that you want.
 * <p>
 Subscribing to the listing requires you to first get a signature from the terms of use agreement for the
-* listing resource version. To get the signature, issue a [GetAppCatalogListingAgreements](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements/GetAppCatalogListingAgreements) API call.
-* The [AppCatalogListingResourceVersionAgreements](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements) object, including
+* listing resource version. To get the signature, issue a [GetAppCatalogListingAgreements](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements/GetAppCatalogListingAgreements) API call.
+* The [AppCatalogListingResourceVersionAgreements](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersionAgreements) object, including
 * its signature, is returned in the response. With the signature for the terms of use agreement for the desired
 * listing resource version, create a subscription by issuing a
-* [CreateAppCatalogSubscription](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogSubscription/CreateAppCatalogSubscription) API call.
+* [CreateAppCatalogSubscription](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogSubscription/CreateAppCatalogSubscription) API call.
 * <p>
-To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
-* Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
+To get the image ID to launch an instance, issue a [GetAppCatalogListingResourceVersion](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion) API call.
+* Lastly, to launch the instance, use the image ID of the listing resource version to issue a [LaunchInstance](https://docs.oracle.com/iaas/en-us/iaas/api/#/en/iaas/latest/Instance/LaunchInstance) API call.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListPackagesRequest
      * @return ListPackagesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPackages.ts.html |here} to see how to use ListPackages API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPackages.ts.html |here} to see how to use ListPackages API.
      */
   public async listPackages(
     listPackagesRequest: requests.ListPackagesRequest
@@ -2316,7 +2316,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListPublicationPackagesRequest
    * @return ListPublicationPackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPublicationPackages.ts.html |here} to see how to use ListPublicationPackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPublicationPackages.ts.html |here} to see how to use ListPublicationPackages API.
    */
   public async listPublicationPackages(
     listPublicationPackagesRequest: requests.ListPublicationPackagesRequest
@@ -2452,7 +2452,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListPublicationsRequest
    * @return ListPublicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPublications.ts.html |here} to see how to use ListPublications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPublications.ts.html |here} to see how to use ListPublications API.
    */
   public async listPublications(
     listPublicationsRequest: requests.ListPublicationsRequest
@@ -2589,7 +2589,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListPublishersRequest
    * @return ListPublishersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPublishers.ts.html |here} to see how to use ListPublishers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPublishers.ts.html |here} to see how to use ListPublishers API.
    */
   public async listPublishers(
     listPublishersRequest: requests.ListPublishersRequest
@@ -2720,7 +2720,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListReportTypesRequest
    * @return ListReportTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListReportTypes.ts.html |here} to see how to use ListReportTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListReportTypes.ts.html |here} to see how to use ListReportTypes API.
    */
   public async listReportTypes(
     listReportTypesRequest: requests.ListReportTypesRequest
@@ -2797,7 +2797,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListReportsRequest
    * @return ListReportsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListReports.ts.html |here} to see how to use ListReports API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListReports.ts.html |here} to see how to use ListReports API.
    */
   public async listReports(
     listReportsRequest: requests.ListReportsRequest
@@ -2876,7 +2876,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListTaxesRequest
    * @return ListTaxesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListTaxes.ts.html |here} to see how to use ListTaxes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListTaxes.ts.html |here} to see how to use ListTaxes API.
    */
   public async listTaxes(
     listTaxesRequest: requests.ListTaxesRequest
@@ -2954,7 +2954,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -3036,7 +3036,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -3117,7 +3117,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -3201,7 +3201,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param SearchListingsRequest
    * @return SearchListingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/SearchListings.ts.html |here} to see how to use SearchListings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/SearchListings.ts.html |here} to see how to use SearchListings API.
    */
   public async searchListings(
     searchListingsRequest: requests.SearchListingsRequest
@@ -3336,7 +3336,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param UpdateAcceptedAgreementRequest
    * @return UpdateAcceptedAgreementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/UpdateAcceptedAgreement.ts.html |here} to see how to use UpdateAcceptedAgreement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/UpdateAcceptedAgreement.ts.html |here} to see how to use UpdateAcceptedAgreement API.
    */
   public async updateAcceptedAgreement(
     updateAcceptedAgreementRequest: requests.UpdateAcceptedAgreementRequest
@@ -3420,7 +3420,7 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
    * @param UpdatePublicationRequest
    * @return UpdatePublicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/UpdatePublication.ts.html |here} to see how to use UpdatePublication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/UpdatePublication.ts.html |here} to see how to use UpdatePublication API.
    */
   public async updatePublication(
     updatePublicationRequest: requests.UpdatePublicationRequest

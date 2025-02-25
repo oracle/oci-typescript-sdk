@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalExadataInfrastructure.ts.html |here} to see how to use GetExternalExadataInfrastructureRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalExadataInfrastructure.ts.html |here} to see how to use GetExternalExadataInfrastructureRequest.
  */
 export interface GetExternalExadataInfrastructureRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure.
    */
   "externalExadataInfrastructureId": string;
   /**

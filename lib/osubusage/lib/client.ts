@@ -220,7 +220,7 @@ export class ComputedUsageClient {
    * @param GetComputedUsageRequest
    * @return GetComputedUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubusage/GetComputedUsage.ts.html |here} to see how to use GetComputedUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubusage/GetComputedUsage.ts.html |here} to see how to use GetComputedUsage API.
    */
   public async getComputedUsage(
     getComputedUsageRequest: requests.GetComputedUsageRequest
@@ -295,7 +295,7 @@ export class ComputedUsageClient {
    * @param ListComputedUsageAggregatedsRequest
    * @return ListComputedUsageAggregatedsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubusage/ListComputedUsageAggregateds.ts.html |here} to see how to use ListComputedUsageAggregateds API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubusage/ListComputedUsageAggregateds.ts.html |here} to see how to use ListComputedUsageAggregateds API.
    */
   public async listComputedUsageAggregateds(
     listComputedUsageAggregatedsRequest: requests.ListComputedUsageAggregatedsRequest
@@ -432,7 +432,7 @@ export class ComputedUsageClient {
    * @param ListComputedUsagesRequest
    * @return ListComputedUsagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubusage/ListComputedUsages.ts.html |here} to see how to use ListComputedUsages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osubusage/ListComputedUsages.ts.html |here} to see how to use ListComputedUsages API.
    */
   public async listComputedUsages(
     listComputedUsagesRequest: requests.ListComputedUsagesRequest

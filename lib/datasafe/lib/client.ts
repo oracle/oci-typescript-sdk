@@ -244,7 +244,7 @@ export class DataSafeClient {
    * @param ActivateTargetDatabaseRequest
    * @return ActivateTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ActivateTargetDatabase.ts.html |here} to see how to use ActivateTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ActivateTargetDatabase.ts.html |here} to see how to use ActivateTargetDatabase API.
    */
   public async activateTargetDatabase(
     activateTargetDatabaseRequest: requests.ActivateTargetDatabaseRequest
@@ -327,7 +327,7 @@ export class DataSafeClient {
    * @param AddMaskingColumnsFromSdmRequest
    * @return AddMaskingColumnsFromSdmResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/AddMaskingColumnsFromSdm.ts.html |here} to see how to use AddMaskingColumnsFromSdm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/AddMaskingColumnsFromSdm.ts.html |here} to see how to use AddMaskingColumnsFromSdm API.
    */
   public async addMaskingColumnsFromSdm(
     addMaskingColumnsFromSdmRequest: requests.AddMaskingColumnsFromSdmRequest
@@ -401,7 +401,7 @@ export class DataSafeClient {
    * @param AlertsUpdateRequest
    * @return AlertsUpdateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/AlertsUpdate.ts.html |here} to see how to use AlertsUpdate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/AlertsUpdate.ts.html |here} to see how to use AlertsUpdate API.
    */
   public async alertsUpdate(
     alertsUpdateRequest: requests.AlertsUpdateRequest
@@ -485,7 +485,7 @@ export class DataSafeClient {
    * @param ApplyDiscoveryJobResultsRequest
    * @return ApplyDiscoveryJobResultsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ApplyDiscoveryJobResults.ts.html |here} to see how to use ApplyDiscoveryJobResults API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ApplyDiscoveryJobResults.ts.html |here} to see how to use ApplyDiscoveryJobResults API.
    */
   public async applyDiscoveryJobResults(
     applyDiscoveryJobResultsRequest: requests.ApplyDiscoveryJobResultsRequest
@@ -571,7 +571,7 @@ export class DataSafeClient {
    * @param ApplySdmMaskingPolicyDifferenceRequest
    * @return ApplySdmMaskingPolicyDifferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ApplySdmMaskingPolicyDifference.ts.html |here} to see how to use ApplySdmMaskingPolicyDifference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ApplySdmMaskingPolicyDifference.ts.html |here} to see how to use ApplySdmMaskingPolicyDifference API.
    */
   public async applySdmMaskingPolicyDifference(
     applySdmMaskingPolicyDifferenceRequest: requests.ApplySdmMaskingPolicyDifferenceRequest
@@ -653,7 +653,7 @@ export class DataSafeClient {
    * @param BulkCreateSensitiveTypesRequest
    * @return BulkCreateSensitiveTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/BulkCreateSensitiveTypes.ts.html |here} to see how to use BulkCreateSensitiveTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/BulkCreateSensitiveTypes.ts.html |here} to see how to use BulkCreateSensitiveTypes API.
    */
   public async bulkCreateSensitiveTypes(
     bulkCreateSensitiveTypesRequest: requests.BulkCreateSensitiveTypesRequest
@@ -726,7 +726,7 @@ export class DataSafeClient {
    * @param BulkCreateSqlFirewallAllowedSqlsRequest
    * @return BulkCreateSqlFirewallAllowedSqlsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/BulkCreateSqlFirewallAllowedSqls.ts.html |here} to see how to use BulkCreateSqlFirewallAllowedSqls API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/BulkCreateSqlFirewallAllowedSqls.ts.html |here} to see how to use BulkCreateSqlFirewallAllowedSqls API.
    */
   public async bulkCreateSqlFirewallAllowedSqls(
     bulkCreateSqlFirewallAllowedSqlsRequest: requests.BulkCreateSqlFirewallAllowedSqlsRequest
@@ -803,7 +803,7 @@ export class DataSafeClient {
    * @param BulkDeleteSqlFirewallAllowedSqlsRequest
    * @return BulkDeleteSqlFirewallAllowedSqlsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/BulkDeleteSqlFirewallAllowedSqls.ts.html |here} to see how to use BulkDeleteSqlFirewallAllowedSqls API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/BulkDeleteSqlFirewallAllowedSqls.ts.html |here} to see how to use BulkDeleteSqlFirewallAllowedSqls API.
    */
   public async bulkDeleteSqlFirewallAllowedSqls(
     bulkDeleteSqlFirewallAllowedSqlsRequest: requests.BulkDeleteSqlFirewallAllowedSqlsRequest
@@ -879,7 +879,7 @@ export class DataSafeClient {
    * @param CalculateAuditVolumeAvailableRequest
    * @return CalculateAuditVolumeAvailableResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CalculateAuditVolumeAvailable.ts.html |here} to see how to use CalculateAuditVolumeAvailable API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CalculateAuditVolumeAvailable.ts.html |here} to see how to use CalculateAuditVolumeAvailable API.
    */
   public async calculateAuditVolumeAvailable(
     calculateAuditVolumeAvailableRequest: requests.CalculateAuditVolumeAvailableRequest
@@ -959,7 +959,7 @@ export class DataSafeClient {
    * @param CalculateAuditVolumeCollectedRequest
    * @return CalculateAuditVolumeCollectedResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CalculateAuditVolumeCollected.ts.html |here} to see how to use CalculateAuditVolumeCollected API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CalculateAuditVolumeCollected.ts.html |here} to see how to use CalculateAuditVolumeCollected API.
    */
   public async calculateAuditVolumeCollected(
     calculateAuditVolumeCollectedRequest: requests.CalculateAuditVolumeCollectedRequest
@@ -1040,7 +1040,7 @@ export class DataSafeClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -1114,7 +1114,7 @@ export class DataSafeClient {
    * @param ChangeAlertCompartmentRequest
    * @return ChangeAlertCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAlertCompartment.ts.html |here} to see how to use ChangeAlertCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAlertCompartment.ts.html |here} to see how to use ChangeAlertCompartment API.
    */
   public async changeAlertCompartment(
     changeAlertCompartmentRequest: requests.ChangeAlertCompartmentRequest
@@ -1188,7 +1188,7 @@ export class DataSafeClient {
    * @param ChangeAlertPolicyCompartmentRequest
    * @return ChangeAlertPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAlertPolicyCompartment.ts.html |here} to see how to use ChangeAlertPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAlertPolicyCompartment.ts.html |here} to see how to use ChangeAlertPolicyCompartment API.
    */
   public async changeAlertPolicyCompartment(
     changeAlertPolicyCompartmentRequest: requests.ChangeAlertPolicyCompartmentRequest
@@ -1269,7 +1269,7 @@ export class DataSafeClient {
    * @param ChangeAuditArchiveRetrievalCompartmentRequest
    * @return ChangeAuditArchiveRetrievalCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAuditArchiveRetrievalCompartment.ts.html |here} to see how to use ChangeAuditArchiveRetrievalCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAuditArchiveRetrievalCompartment.ts.html |here} to see how to use ChangeAuditArchiveRetrievalCompartment API.
    */
   public async changeAuditArchiveRetrievalCompartment(
     changeAuditArchiveRetrievalCompartmentRequest: requests.ChangeAuditArchiveRetrievalCompartmentRequest
@@ -1350,7 +1350,7 @@ export class DataSafeClient {
    * @param ChangeAuditPolicyCompartmentRequest
    * @return ChangeAuditPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAuditPolicyCompartment.ts.html |here} to see how to use ChangeAuditPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAuditPolicyCompartment.ts.html |here} to see how to use ChangeAuditPolicyCompartment API.
    */
   public async changeAuditPolicyCompartment(
     changeAuditPolicyCompartmentRequest: requests.ChangeAuditPolicyCompartmentRequest
@@ -1430,7 +1430,7 @@ export class DataSafeClient {
    * @param ChangeAuditProfileCompartmentRequest
    * @return ChangeAuditProfileCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAuditProfileCompartment.ts.html |here} to see how to use ChangeAuditProfileCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeAuditProfileCompartment.ts.html |here} to see how to use ChangeAuditProfileCompartment API.
    */
   public async changeAuditProfileCompartment(
     changeAuditProfileCompartmentRequest: requests.ChangeAuditProfileCompartmentRequest
@@ -1510,7 +1510,7 @@ export class DataSafeClient {
    * @param ChangeDataSafePrivateEndpointCompartmentRequest
    * @return ChangeDataSafePrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeDataSafePrivateEndpointCompartment.ts.html |here} to see how to use ChangeDataSafePrivateEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeDataSafePrivateEndpointCompartment.ts.html |here} to see how to use ChangeDataSafePrivateEndpointCompartment API.
    */
   public async changeDataSafePrivateEndpointCompartment(
     changeDataSafePrivateEndpointCompartmentRequest: requests.ChangeDataSafePrivateEndpointCompartmentRequest
@@ -1592,7 +1592,7 @@ export class DataSafeClient {
    * @param ChangeDatabaseSecurityConfigCompartmentRequest
    * @return ChangeDatabaseSecurityConfigCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeDatabaseSecurityConfigCompartment.ts.html |here} to see how to use ChangeDatabaseSecurityConfigCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeDatabaseSecurityConfigCompartment.ts.html |here} to see how to use ChangeDatabaseSecurityConfigCompartment API.
    */
   public async changeDatabaseSecurityConfigCompartment(
     changeDatabaseSecurityConfigCompartmentRequest: requests.ChangeDatabaseSecurityConfigCompartmentRequest
@@ -1675,7 +1675,7 @@ export class DataSafeClient {
    * @param ChangeDiscoveryJobCompartmentRequest
    * @return ChangeDiscoveryJobCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeDiscoveryJobCompartment.ts.html |here} to see how to use ChangeDiscoveryJobCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeDiscoveryJobCompartment.ts.html |here} to see how to use ChangeDiscoveryJobCompartment API.
    */
   public async changeDiscoveryJobCompartment(
     changeDiscoveryJobCompartmentRequest: requests.ChangeDiscoveryJobCompartmentRequest
@@ -1750,7 +1750,7 @@ export class DataSafeClient {
    * @param ChangeLibraryMaskingFormatCompartmentRequest
    * @return ChangeLibraryMaskingFormatCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeLibraryMaskingFormatCompartment.ts.html |here} to see how to use ChangeLibraryMaskingFormatCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeLibraryMaskingFormatCompartment.ts.html |here} to see how to use ChangeLibraryMaskingFormatCompartment API.
    */
   public async changeLibraryMaskingFormatCompartment(
     changeLibraryMaskingFormatCompartmentRequest: requests.ChangeLibraryMaskingFormatCompartmentRequest
@@ -1826,7 +1826,7 @@ export class DataSafeClient {
    * @param ChangeMaskingPolicyCompartmentRequest
    * @return ChangeMaskingPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeMaskingPolicyCompartment.ts.html |here} to see how to use ChangeMaskingPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeMaskingPolicyCompartment.ts.html |here} to see how to use ChangeMaskingPolicyCompartment API.
    */
   public async changeMaskingPolicyCompartment(
     changeMaskingPolicyCompartmentRequest: requests.ChangeMaskingPolicyCompartmentRequest
@@ -1901,7 +1901,7 @@ export class DataSafeClient {
    * @param ChangeMaskingPolicyHealthReportCompartmentRequest
    * @return ChangeMaskingPolicyHealthReportCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeMaskingPolicyHealthReportCompartment.ts.html |here} to see how to use ChangeMaskingPolicyHealthReportCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeMaskingPolicyHealthReportCompartment.ts.html |here} to see how to use ChangeMaskingPolicyHealthReportCompartment API.
    */
   public async changeMaskingPolicyHealthReportCompartment(
     changeMaskingPolicyHealthReportCompartmentRequest: requests.ChangeMaskingPolicyHealthReportCompartmentRequest
@@ -1979,7 +1979,7 @@ export class DataSafeClient {
    * @param ChangeOnPremConnectorCompartmentRequest
    * @return ChangeOnPremConnectorCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeOnPremConnectorCompartment.ts.html |here} to see how to use ChangeOnPremConnectorCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeOnPremConnectorCompartment.ts.html |here} to see how to use ChangeOnPremConnectorCompartment API.
    */
   public async changeOnPremConnectorCompartment(
     changeOnPremConnectorCompartmentRequest: requests.ChangeOnPremConnectorCompartmentRequest
@@ -2054,7 +2054,7 @@ export class DataSafeClient {
    * @param ChangeReportCompartmentRequest
    * @return ChangeReportCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeReportCompartment.ts.html |here} to see how to use ChangeReportCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeReportCompartment.ts.html |here} to see how to use ChangeReportCompartment API.
    */
   public async changeReportCompartment(
     changeReportCompartmentRequest: requests.ChangeReportCompartmentRequest
@@ -2133,7 +2133,7 @@ export class DataSafeClient {
    * @param ChangeReportDefinitionCompartmentRequest
    * @return ChangeReportDefinitionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeReportDefinitionCompartment.ts.html |here} to see how to use ChangeReportDefinitionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeReportDefinitionCompartment.ts.html |here} to see how to use ChangeReportDefinitionCompartment API.
    */
   public async changeReportDefinitionCompartment(
     changeReportDefinitionCompartmentRequest: requests.ChangeReportDefinitionCompartmentRequest
@@ -2213,7 +2213,7 @@ export class DataSafeClient {
    * @param ChangeRetentionRequest
    * @return ChangeRetentionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeRetention.ts.html |here} to see how to use ChangeRetention API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeRetention.ts.html |here} to see how to use ChangeRetention API.
    */
   public async changeRetention(
     changeRetentionRequest: requests.ChangeRetentionRequest
@@ -2292,7 +2292,7 @@ export class DataSafeClient {
    * @param ChangeSdmMaskingPolicyDifferenceCompartmentRequest
    * @return ChangeSdmMaskingPolicyDifferenceCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSdmMaskingPolicyDifferenceCompartment.ts.html |here} to see how to use ChangeSdmMaskingPolicyDifferenceCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSdmMaskingPolicyDifferenceCompartment.ts.html |here} to see how to use ChangeSdmMaskingPolicyDifferenceCompartment API.
    */
   public async changeSdmMaskingPolicyDifferenceCompartment(
     changeSdmMaskingPolicyDifferenceCompartmentRequest: requests.ChangeSdmMaskingPolicyDifferenceCompartmentRequest
@@ -2375,7 +2375,7 @@ The existing saved security assessments created due to the schedule are not move
      * @param ChangeSecurityAssessmentCompartmentRequest
      * @return ChangeSecurityAssessmentCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityAssessmentCompartment.ts.html |here} to see how to use ChangeSecurityAssessmentCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityAssessmentCompartment.ts.html |here} to see how to use ChangeSecurityAssessmentCompartment API.
      */
   public async changeSecurityAssessmentCompartment(
     changeSecurityAssessmentCompartmentRequest: requests.ChangeSecurityAssessmentCompartmentRequest
@@ -2450,7 +2450,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param ChangeSecurityPolicyCompartmentRequest
    * @return ChangeSecurityPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityPolicyCompartment.ts.html |here} to see how to use ChangeSecurityPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityPolicyCompartment.ts.html |here} to see how to use ChangeSecurityPolicyCompartment API.
    */
   public async changeSecurityPolicyCompartment(
     changeSecurityPolicyCompartmentRequest: requests.ChangeSecurityPolicyCompartmentRequest
@@ -2530,7 +2530,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param ChangeSecurityPolicyDeploymentCompartmentRequest
    * @return ChangeSecurityPolicyDeploymentCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityPolicyDeploymentCompartment.ts.html |here} to see how to use ChangeSecurityPolicyDeploymentCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSecurityPolicyDeploymentCompartment.ts.html |here} to see how to use ChangeSecurityPolicyDeploymentCompartment API.
    */
   public async changeSecurityPolicyDeploymentCompartment(
     changeSecurityPolicyDeploymentCompartmentRequest: requests.ChangeSecurityPolicyDeploymentCompartmentRequest
@@ -2613,7 +2613,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param ChangeSensitiveDataModelCompartmentRequest
    * @return ChangeSensitiveDataModelCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSensitiveDataModelCompartment.ts.html |here} to see how to use ChangeSensitiveDataModelCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSensitiveDataModelCompartment.ts.html |here} to see how to use ChangeSensitiveDataModelCompartment API.
    */
   public async changeSensitiveDataModelCompartment(
     changeSensitiveDataModelCompartmentRequest: requests.ChangeSensitiveDataModelCompartmentRequest
@@ -2688,7 +2688,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param ChangeSensitiveTypeCompartmentRequest
    * @return ChangeSensitiveTypeCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSensitiveTypeCompartment.ts.html |here} to see how to use ChangeSensitiveTypeCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSensitiveTypeCompartment.ts.html |here} to see how to use ChangeSensitiveTypeCompartment API.
    */
   public async changeSensitiveTypeCompartment(
     changeSensitiveTypeCompartmentRequest: requests.ChangeSensitiveTypeCompartmentRequest
@@ -2763,7 +2763,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param ChangeSensitiveTypesExportCompartmentRequest
    * @return ChangeSensitiveTypesExportCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSensitiveTypesExportCompartment.ts.html |here} to see how to use ChangeSensitiveTypesExportCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSensitiveTypesExportCompartment.ts.html |here} to see how to use ChangeSensitiveTypesExportCompartment API.
    */
   public async changeSensitiveTypesExportCompartment(
     changeSensitiveTypesExportCompartmentRequest: requests.ChangeSensitiveTypesExportCompartmentRequest
@@ -2839,7 +2839,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param ChangeSqlCollectionCompartmentRequest
    * @return ChangeSqlCollectionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSqlCollectionCompartment.ts.html |here} to see how to use ChangeSqlCollectionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSqlCollectionCompartment.ts.html |here} to see how to use ChangeSqlCollectionCompartment API.
    */
   public async changeSqlCollectionCompartment(
     changeSqlCollectionCompartmentRequest: requests.ChangeSqlCollectionCompartmentRequest
@@ -2919,7 +2919,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param ChangeSqlFirewallPolicyCompartmentRequest
    * @return ChangeSqlFirewallPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSqlFirewallPolicyCompartment.ts.html |here} to see how to use ChangeSqlFirewallPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSqlFirewallPolicyCompartment.ts.html |here} to see how to use ChangeSqlFirewallPolicyCompartment API.
    */
   public async changeSqlFirewallPolicyCompartment(
     changeSqlFirewallPolicyCompartmentRequest: requests.ChangeSqlFirewallPolicyCompartmentRequest
@@ -2999,7 +2999,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param ChangeTargetAlertPolicyAssociationCompartmentRequest
    * @return ChangeTargetAlertPolicyAssociationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeTargetAlertPolicyAssociationCompartment.ts.html |here} to see how to use ChangeTargetAlertPolicyAssociationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeTargetAlertPolicyAssociationCompartment.ts.html |here} to see how to use ChangeTargetAlertPolicyAssociationCompartment API.
    */
   public async changeTargetAlertPolicyAssociationCompartment(
     changeTargetAlertPolicyAssociationCompartmentRequest: requests.ChangeTargetAlertPolicyAssociationCompartmentRequest
@@ -3078,7 +3078,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param ChangeTargetDatabaseCompartmentRequest
    * @return ChangeTargetDatabaseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeTargetDatabaseCompartment.ts.html |here} to see how to use ChangeTargetDatabaseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeTargetDatabaseCompartment.ts.html |here} to see how to use ChangeTargetDatabaseCompartment API.
    */
   public async changeTargetDatabaseCompartment(
     changeTargetDatabaseCompartmentRequest: requests.ChangeTargetDatabaseCompartmentRequest
@@ -3158,7 +3158,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param ChangeUserAssessmentCompartmentRequest
    * @return ChangeUserAssessmentCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeUserAssessmentCompartment.ts.html |here} to see how to use ChangeUserAssessmentCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeUserAssessmentCompartment.ts.html |here} to see how to use ChangeUserAssessmentCompartment API.
    */
   public async changeUserAssessmentCompartment(
     changeUserAssessmentCompartmentRequest: requests.ChangeUserAssessmentCompartmentRequest
@@ -3235,7 +3235,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param CompareSecurityAssessmentRequest
    * @return CompareSecurityAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CompareSecurityAssessment.ts.html |here} to see how to use CompareSecurityAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CompareSecurityAssessment.ts.html |here} to see how to use CompareSecurityAssessment API.
    */
   public async compareSecurityAssessment(
     compareSecurityAssessmentRequest: requests.CompareSecurityAssessmentRequest
@@ -3317,7 +3317,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param CompareUserAssessmentRequest
    * @return CompareUserAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CompareUserAssessment.ts.html |here} to see how to use CompareUserAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CompareUserAssessment.ts.html |here} to see how to use CompareUserAssessment API.
    */
   public async compareUserAssessment(
     compareUserAssessmentRequest: requests.CompareUserAssessmentRequest
@@ -3397,7 +3397,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param CreateAlertPolicyRequest
    * @return CreateAlertPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateAlertPolicy.ts.html |here} to see how to use CreateAlertPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateAlertPolicy.ts.html |here} to see how to use CreateAlertPolicy API.
    */
   public async createAlertPolicy(
     createAlertPolicyRequest: requests.CreateAlertPolicyRequest
@@ -3488,7 +3488,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param CreateAlertPolicyRuleRequest
    * @return CreateAlertPolicyRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateAlertPolicyRule.ts.html |here} to see how to use CreateAlertPolicyRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateAlertPolicyRule.ts.html |here} to see how to use CreateAlertPolicyRule API.
    */
   public async createAlertPolicyRule(
     createAlertPolicyRuleRequest: requests.CreateAlertPolicyRuleRequest
@@ -3583,7 +3583,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param CreateAuditArchiveRetrievalRequest
    * @return CreateAuditArchiveRetrievalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateAuditArchiveRetrieval.ts.html |here} to see how to use CreateAuditArchiveRetrieval API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateAuditArchiveRetrieval.ts.html |here} to see how to use CreateAuditArchiveRetrieval API.
    */
   public async createAuditArchiveRetrieval(
     createAuditArchiveRetrievalRequest: requests.CreateAuditArchiveRetrievalRequest
@@ -3669,7 +3669,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param CreateDataSafePrivateEndpointRequest
    * @return CreateDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateDataSafePrivateEndpoint.ts.html |here} to see how to use CreateDataSafePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateDataSafePrivateEndpoint.ts.html |here} to see how to use CreateDataSafePrivateEndpoint API.
    */
   public async createDataSafePrivateEndpoint(
     createDataSafePrivateEndpointRequest: requests.CreateDataSafePrivateEndpointRequest
@@ -3765,7 +3765,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param CreateDiscoveryJobRequest
    * @return CreateDiscoveryJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateDiscoveryJob.ts.html |here} to see how to use CreateDiscoveryJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateDiscoveryJob.ts.html |here} to see how to use CreateDiscoveryJob API.
    */
   public async createDiscoveryJob(
     createDiscoveryJobRequest: requests.CreateDiscoveryJobRequest
@@ -3859,7 +3859,7 @@ The existing saved security assessments created due to the schedule are not move
    * @param CreateLibraryMaskingFormatRequest
    * @return CreateLibraryMaskingFormatResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateLibraryMaskingFormat.ts.html |here} to see how to use CreateLibraryMaskingFormat API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateLibraryMaskingFormat.ts.html |here} to see how to use CreateLibraryMaskingFormat API.
    */
   public async createLibraryMaskingFormat(
     createLibraryMaskingFormatRequest: requests.CreateLibraryMaskingFormatRequest
@@ -3970,7 +3970,7 @@ You can use the maskingColumnGroup attribute to group the columns that you would
      * @param CreateMaskingColumnRequest
      * @return CreateMaskingColumnResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateMaskingColumn.ts.html |here} to see how to use CreateMaskingColumn API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateMaskingColumn.ts.html |here} to see how to use CreateMaskingColumn API.
      */
   public async createMaskingColumn(
     createMaskingColumnRequest: requests.CreateMaskingColumnRequest
@@ -4065,7 +4065,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
      * @param CreateMaskingPolicyRequest
      * @return CreateMaskingPolicyResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateMaskingPolicy.ts.html |here} to see how to use CreateMaskingPolicy API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateMaskingPolicy.ts.html |here} to see how to use CreateMaskingPolicy API.
      */
   public async createMaskingPolicy(
     createMaskingPolicyRequest: requests.CreateMaskingPolicyRequest
@@ -4156,7 +4156,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateOnPremConnectorRequest
    * @return CreateOnPremConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateOnPremConnector.ts.html |here} to see how to use CreateOnPremConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateOnPremConnector.ts.html |here} to see how to use CreateOnPremConnector API.
    */
   public async createOnPremConnector(
     createOnPremConnectorRequest: requests.CreateOnPremConnectorRequest
@@ -4246,7 +4246,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreatePeerTargetDatabaseRequest
    * @return CreatePeerTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreatePeerTargetDatabase.ts.html |here} to see how to use CreatePeerTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreatePeerTargetDatabase.ts.html |here} to see how to use CreatePeerTargetDatabase API.
    */
   public async createPeerTargetDatabase(
     createPeerTargetDatabaseRequest: requests.CreatePeerTargetDatabaseRequest
@@ -4341,7 +4341,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateReferentialRelationRequest
    * @return CreateReferentialRelationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateReferentialRelation.ts.html |here} to see how to use CreateReferentialRelation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateReferentialRelation.ts.html |here} to see how to use CreateReferentialRelation API.
    */
   public async createReferentialRelation(
     createReferentialRelationRequest: requests.CreateReferentialRelationRequest
@@ -4421,7 +4421,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateReportDefinitionRequest
    * @return CreateReportDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateReportDefinition.ts.html |here} to see how to use CreateReportDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateReportDefinition.ts.html |here} to see how to use CreateReportDefinition API.
    */
   public async createReportDefinition(
     createReportDefinitionRequest: requests.CreateReportDefinitionRequest
@@ -4511,7 +4511,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateSdmMaskingPolicyDifferenceRequest
    * @return CreateSdmMaskingPolicyDifferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSdmMaskingPolicyDifference.ts.html |here} to see how to use CreateSdmMaskingPolicyDifference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSdmMaskingPolicyDifference.ts.html |here} to see how to use CreateSdmMaskingPolicyDifference API.
    */
   public async createSdmMaskingPolicyDifference(
     createSdmMaskingPolicyDifferenceRequest: requests.CreateSdmMaskingPolicyDifferenceRequest
@@ -4604,7 +4604,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateSecurityAssessmentRequest
    * @return CreateSecurityAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSecurityAssessment.ts.html |here} to see how to use CreateSecurityAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSecurityAssessment.ts.html |here} to see how to use CreateSecurityAssessment API.
    */
   public async createSecurityAssessment(
     createSecurityAssessmentRequest: requests.CreateSecurityAssessmentRequest
@@ -4696,7 +4696,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateSensitiveColumnRequest
    * @return CreateSensitiveColumnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveColumn.ts.html |here} to see how to use CreateSensitiveColumn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveColumn.ts.html |here} to see how to use CreateSensitiveColumn API.
    */
   public async createSensitiveColumn(
     createSensitiveColumnRequest: requests.CreateSensitiveColumnRequest
@@ -4777,7 +4777,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateSensitiveDataModelRequest
    * @return CreateSensitiveDataModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveDataModel.ts.html |here} to see how to use CreateSensitiveDataModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveDataModel.ts.html |here} to see how to use CreateSensitiveDataModel API.
    */
   public async createSensitiveDataModel(
     createSensitiveDataModelRequest: requests.CreateSensitiveDataModelRequest
@@ -4871,7 +4871,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateSensitiveTypeRequest
    * @return CreateSensitiveTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveType.ts.html |here} to see how to use CreateSensitiveType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveType.ts.html |here} to see how to use CreateSensitiveType API.
    */
   public async createSensitiveType(
     createSensitiveTypeRequest: requests.CreateSensitiveTypeRequest
@@ -4963,7 +4963,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateSensitiveTypesExportRequest
    * @return CreateSensitiveTypesExportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveTypesExport.ts.html |here} to see how to use CreateSensitiveTypesExport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSensitiveTypesExport.ts.html |here} to see how to use CreateSensitiveTypesExport API.
    */
   public async createSensitiveTypesExport(
     createSensitiveTypesExportRequest: requests.CreateSensitiveTypesExportRequest
@@ -5055,7 +5055,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateSqlCollectionRequest
    * @return CreateSqlCollectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSqlCollection.ts.html |here} to see how to use CreateSqlCollection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSqlCollection.ts.html |here} to see how to use CreateSqlCollection API.
    */
   public async createSqlCollection(
     createSqlCollectionRequest: requests.CreateSqlCollectionRequest
@@ -5146,7 +5146,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateTargetAlertPolicyAssociationRequest
    * @return CreateTargetAlertPolicyAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateTargetAlertPolicyAssociation.ts.html |here} to see how to use CreateTargetAlertPolicyAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateTargetAlertPolicyAssociation.ts.html |here} to see how to use CreateTargetAlertPolicyAssociation API.
    */
   public async createTargetAlertPolicyAssociation(
     createTargetAlertPolicyAssociationRequest: requests.CreateTargetAlertPolicyAssociationRequest
@@ -5238,7 +5238,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateTargetDatabaseRequest
    * @return CreateTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateTargetDatabase.ts.html |here} to see how to use CreateTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateTargetDatabase.ts.html |here} to see how to use CreateTargetDatabase API.
    */
   public async createTargetDatabase(
     createTargetDatabaseRequest: requests.CreateTargetDatabaseRequest
@@ -5331,7 +5331,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param CreateUserAssessmentRequest
    * @return CreateUserAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateUserAssessment.ts.html |here} to see how to use CreateUserAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateUserAssessment.ts.html |here} to see how to use CreateUserAssessment API.
    */
   public async createUserAssessment(
     createUserAssessmentRequest: requests.CreateUserAssessmentRequest
@@ -5422,7 +5422,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeactivateTargetDatabaseRequest
    * @return DeactivateTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeactivateTargetDatabase.ts.html |here} to see how to use DeactivateTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeactivateTargetDatabase.ts.html |here} to see how to use DeactivateTargetDatabase API.
    */
   public async deactivateTargetDatabase(
     deactivateTargetDatabaseRequest: requests.DeactivateTargetDatabaseRequest
@@ -5497,7 +5497,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteAlertPolicyRequest
    * @return DeleteAlertPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAlertPolicy.ts.html |here} to see how to use DeleteAlertPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAlertPolicy.ts.html |here} to see how to use DeleteAlertPolicy API.
    */
   public async deleteAlertPolicy(
     deleteAlertPolicyRequest: requests.DeleteAlertPolicyRequest
@@ -5570,7 +5570,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteAlertPolicyRuleRequest
    * @return DeleteAlertPolicyRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAlertPolicyRule.ts.html |here} to see how to use DeleteAlertPolicyRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAlertPolicyRule.ts.html |here} to see how to use DeleteAlertPolicyRule API.
    */
   public async deleteAlertPolicyRule(
     deleteAlertPolicyRuleRequest: requests.DeleteAlertPolicyRuleRequest
@@ -5646,7 +5646,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteAuditArchiveRetrievalRequest
    * @return DeleteAuditArchiveRetrievalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAuditArchiveRetrieval.ts.html |here} to see how to use DeleteAuditArchiveRetrieval API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAuditArchiveRetrieval.ts.html |here} to see how to use DeleteAuditArchiveRetrieval API.
    */
   public async deleteAuditArchiveRetrieval(
     deleteAuditArchiveRetrievalRequest: requests.DeleteAuditArchiveRetrievalRequest
@@ -5720,7 +5720,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteAuditTrailRequest
    * @return DeleteAuditTrailResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAuditTrail.ts.html |here} to see how to use DeleteAuditTrail API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteAuditTrail.ts.html |here} to see how to use DeleteAuditTrail API.
    */
   public async deleteAuditTrail(
     deleteAuditTrailRequest: requests.DeleteAuditTrailRequest
@@ -5793,7 +5793,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteDataSafePrivateEndpointRequest
    * @return DeleteDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteDataSafePrivateEndpoint.ts.html |here} to see how to use DeleteDataSafePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteDataSafePrivateEndpoint.ts.html |here} to see how to use DeleteDataSafePrivateEndpoint API.
    */
   public async deleteDataSafePrivateEndpoint(
     deleteDataSafePrivateEndpointRequest: requests.DeleteDataSafePrivateEndpointRequest
@@ -5867,7 +5867,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteDiscoveryJobRequest
    * @return DeleteDiscoveryJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteDiscoveryJob.ts.html |here} to see how to use DeleteDiscoveryJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteDiscoveryJob.ts.html |here} to see how to use DeleteDiscoveryJob API.
    */
   public async deleteDiscoveryJob(
     deleteDiscoveryJobRequest: requests.DeleteDiscoveryJobRequest
@@ -5940,7 +5940,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteDiscoveryJobResultRequest
    * @return DeleteDiscoveryJobResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteDiscoveryJobResult.ts.html |here} to see how to use DeleteDiscoveryJobResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteDiscoveryJobResult.ts.html |here} to see how to use DeleteDiscoveryJobResult API.
    */
   public async deleteDiscoveryJobResult(
     deleteDiscoveryJobResultRequest: requests.DeleteDiscoveryJobResultRequest
@@ -6010,7 +6010,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteLibraryMaskingFormatRequest
    * @return DeleteLibraryMaskingFormatResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteLibraryMaskingFormat.ts.html |here} to see how to use DeleteLibraryMaskingFormat API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteLibraryMaskingFormat.ts.html |here} to see how to use DeleteLibraryMaskingFormat API.
    */
   public async deleteLibraryMaskingFormat(
     deleteLibraryMaskingFormatRequest: requests.DeleteLibraryMaskingFormatRequest
@@ -6079,7 +6079,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteMaskingColumnRequest
    * @return DeleteMaskingColumnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteMaskingColumn.ts.html |here} to see how to use DeleteMaskingColumn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteMaskingColumn.ts.html |here} to see how to use DeleteMaskingColumn API.
    */
   public async deleteMaskingColumn(
     deleteMaskingColumnRequest: requests.DeleteMaskingColumnRequest
@@ -6148,7 +6148,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteMaskingPolicyRequest
    * @return DeleteMaskingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteMaskingPolicy.ts.html |here} to see how to use DeleteMaskingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteMaskingPolicy.ts.html |here} to see how to use DeleteMaskingPolicy API.
    */
   public async deleteMaskingPolicy(
     deleteMaskingPolicyRequest: requests.DeleteMaskingPolicyRequest
@@ -6221,7 +6221,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteMaskingPolicyHealthReportRequest
    * @return DeleteMaskingPolicyHealthReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteMaskingPolicyHealthReport.ts.html |here} to see how to use DeleteMaskingPolicyHealthReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteMaskingPolicyHealthReport.ts.html |here} to see how to use DeleteMaskingPolicyHealthReport API.
    */
   public async deleteMaskingPolicyHealthReport(
     deleteMaskingPolicyHealthReportRequest: requests.DeleteMaskingPolicyHealthReportRequest
@@ -6296,7 +6296,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteOnPremConnectorRequest
    * @return DeleteOnPremConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteOnPremConnector.ts.html |here} to see how to use DeleteOnPremConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteOnPremConnector.ts.html |here} to see how to use DeleteOnPremConnector API.
    */
   public async deleteOnPremConnector(
     deleteOnPremConnectorRequest: requests.DeleteOnPremConnectorRequest
@@ -6369,7 +6369,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeletePeerTargetDatabaseRequest
    * @return DeletePeerTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeletePeerTargetDatabase.ts.html |here} to see how to use DeletePeerTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeletePeerTargetDatabase.ts.html |here} to see how to use DeletePeerTargetDatabase API.
    */
   public async deletePeerTargetDatabase(
     deletePeerTargetDatabaseRequest: requests.DeletePeerTargetDatabaseRequest
@@ -6444,7 +6444,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteReferentialRelationRequest
    * @return DeleteReferentialRelationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteReferentialRelation.ts.html |here} to see how to use DeleteReferentialRelation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteReferentialRelation.ts.html |here} to see how to use DeleteReferentialRelation API.
    */
   public async deleteReferentialRelation(
     deleteReferentialRelationRequest: requests.DeleteReferentialRelationRequest
@@ -6515,7 +6515,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteReportDefinitionRequest
    * @return DeleteReportDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteReportDefinition.ts.html |here} to see how to use DeleteReportDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteReportDefinition.ts.html |here} to see how to use DeleteReportDefinition API.
    */
   public async deleteReportDefinition(
     deleteReportDefinitionRequest: requests.DeleteReportDefinitionRequest
@@ -6588,7 +6588,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteSdmMaskingPolicyDifferenceRequest
    * @return DeleteSdmMaskingPolicyDifferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSdmMaskingPolicyDifference.ts.html |here} to see how to use DeleteSdmMaskingPolicyDifference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSdmMaskingPolicyDifference.ts.html |here} to see how to use DeleteSdmMaskingPolicyDifference API.
    */
   public async deleteSdmMaskingPolicyDifference(
     deleteSdmMaskingPolicyDifferenceRequest: requests.DeleteSdmMaskingPolicyDifferenceRequest
@@ -6667,7 +6667,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteSecurityAssessmentRequest
    * @return DeleteSecurityAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSecurityAssessment.ts.html |here} to see how to use DeleteSecurityAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSecurityAssessment.ts.html |here} to see how to use DeleteSecurityAssessment API.
    */
   public async deleteSecurityAssessment(
     deleteSecurityAssessmentRequest: requests.DeleteSecurityAssessmentRequest
@@ -6741,7 +6741,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteSensitiveColumnRequest
    * @return DeleteSensitiveColumnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveColumn.ts.html |here} to see how to use DeleteSensitiveColumn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveColumn.ts.html |here} to see how to use DeleteSensitiveColumn API.
    */
   public async deleteSensitiveColumn(
     deleteSensitiveColumnRequest: requests.DeleteSensitiveColumnRequest
@@ -6810,7 +6810,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteSensitiveDataModelRequest
    * @return DeleteSensitiveDataModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveDataModel.ts.html |here} to see how to use DeleteSensitiveDataModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveDataModel.ts.html |here} to see how to use DeleteSensitiveDataModel API.
    */
   public async deleteSensitiveDataModel(
     deleteSensitiveDataModelRequest: requests.DeleteSensitiveDataModelRequest
@@ -6884,7 +6884,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteSensitiveTypeRequest
    * @return DeleteSensitiveTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveType.ts.html |here} to see how to use DeleteSensitiveType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveType.ts.html |here} to see how to use DeleteSensitiveType API.
    */
   public async deleteSensitiveType(
     deleteSensitiveTypeRequest: requests.DeleteSensitiveTypeRequest
@@ -6952,7 +6952,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteSensitiveTypesExportRequest
    * @return DeleteSensitiveTypesExportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveTypesExport.ts.html |here} to see how to use DeleteSensitiveTypesExport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSensitiveTypesExport.ts.html |here} to see how to use DeleteSensitiveTypesExport API.
    */
   public async deleteSensitiveTypesExport(
     deleteSensitiveTypesExportRequest: requests.DeleteSensitiveTypesExportRequest
@@ -7021,7 +7021,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteSqlCollectionRequest
    * @return DeleteSqlCollectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSqlCollection.ts.html |here} to see how to use DeleteSqlCollection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSqlCollection.ts.html |here} to see how to use DeleteSqlCollection API.
    */
   public async deleteSqlCollection(
     deleteSqlCollectionRequest: requests.DeleteSqlCollectionRequest
@@ -7094,7 +7094,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteSqlFirewallAllowedSqlRequest
    * @return DeleteSqlFirewallAllowedSqlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSqlFirewallAllowedSql.ts.html |here} to see how to use DeleteSqlFirewallAllowedSql API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSqlFirewallAllowedSql.ts.html |here} to see how to use DeleteSqlFirewallAllowedSql API.
    */
   public async deleteSqlFirewallAllowedSql(
     deleteSqlFirewallAllowedSqlRequest: requests.DeleteSqlFirewallAllowedSqlRequest
@@ -7169,7 +7169,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteSqlFirewallPolicyRequest
    * @return DeleteSqlFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSqlFirewallPolicy.ts.html |here} to see how to use DeleteSqlFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSqlFirewallPolicy.ts.html |here} to see how to use DeleteSqlFirewallPolicy API.
    */
   public async deleteSqlFirewallPolicy(
     deleteSqlFirewallPolicyRequest: requests.DeleteSqlFirewallPolicyRequest
@@ -7242,7 +7242,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteTargetAlertPolicyAssociationRequest
    * @return DeleteTargetAlertPolicyAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteTargetAlertPolicyAssociation.ts.html |here} to see how to use DeleteTargetAlertPolicyAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteTargetAlertPolicyAssociation.ts.html |here} to see how to use DeleteTargetAlertPolicyAssociation API.
    */
   public async deleteTargetAlertPolicyAssociation(
     deleteTargetAlertPolicyAssociationRequest: requests.DeleteTargetAlertPolicyAssociationRequest
@@ -7317,7 +7317,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteTargetDatabaseRequest
    * @return DeleteTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteTargetDatabase.ts.html |here} to see how to use DeleteTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteTargetDatabase.ts.html |here} to see how to use DeleteTargetDatabase API.
    */
   public async deleteTargetDatabase(
     deleteTargetDatabaseRequest: requests.DeleteTargetDatabaseRequest
@@ -7394,7 +7394,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DeleteUserAssessmentRequest
    * @return DeleteUserAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteUserAssessment.ts.html |here} to see how to use DeleteUserAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteUserAssessment.ts.html |here} to see how to use DeleteUserAssessment API.
    */
   public async deleteUserAssessment(
     deleteUserAssessmentRequest: requests.DeleteUserAssessmentRequest
@@ -7471,7 +7471,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DiscoverAuditTrailsRequest
    * @return DiscoverAuditTrailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DiscoverAuditTrails.ts.html |here} to see how to use DiscoverAuditTrails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DiscoverAuditTrails.ts.html |here} to see how to use DiscoverAuditTrails API.
    */
   public async discoverAuditTrails(
     discoverAuditTrailsRequest: requests.DiscoverAuditTrailsRequest
@@ -7549,7 +7549,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DownloadDiscoveryReportRequest
    * @return DownloadDiscoveryReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadDiscoveryReport.ts.html |here} to see how to use DownloadDiscoveryReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadDiscoveryReport.ts.html |here} to see how to use DownloadDiscoveryReport API.
    */
   public async downloadDiscoveryReport(
     downloadDiscoveryReportRequest: requests.DownloadDiscoveryReportRequest
@@ -7635,7 +7635,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DownloadMaskingLogRequest
    * @return DownloadMaskingLogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadMaskingLog.ts.html |here} to see how to use DownloadMaskingLog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadMaskingLog.ts.html |here} to see how to use DownloadMaskingLog API.
    */
   public async downloadMaskingLog(
     downloadMaskingLogRequest: requests.DownloadMaskingLogRequest
@@ -7725,7 +7725,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DownloadMaskingPolicyRequest
    * @return DownloadMaskingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadMaskingPolicy.ts.html |here} to see how to use DownloadMaskingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadMaskingPolicy.ts.html |here} to see how to use DownloadMaskingPolicy API.
    */
   public async downloadMaskingPolicy(
     downloadMaskingPolicyRequest: requests.DownloadMaskingPolicyRequest
@@ -7814,7 +7814,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DownloadMaskingReportRequest
    * @return DownloadMaskingReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadMaskingReport.ts.html |here} to see how to use DownloadMaskingReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadMaskingReport.ts.html |here} to see how to use DownloadMaskingReport API.
    */
   public async downloadMaskingReport(
     downloadMaskingReportRequest: requests.DownloadMaskingReportRequest
@@ -7901,7 +7901,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DownloadPrivilegeScriptRequest
    * @return DownloadPrivilegeScriptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadPrivilegeScript.ts.html |here} to see how to use DownloadPrivilegeScript API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadPrivilegeScript.ts.html |here} to see how to use DownloadPrivilegeScript API.
    */
   public async downloadPrivilegeScript(
     downloadPrivilegeScriptRequest: requests.DownloadPrivilegeScriptRequest
@@ -7984,7 +7984,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DownloadSecurityAssessmentReportRequest
    * @return DownloadSecurityAssessmentReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSecurityAssessmentReport.ts.html |here} to see how to use DownloadSecurityAssessmentReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSecurityAssessmentReport.ts.html |here} to see how to use DownloadSecurityAssessmentReport API.
    */
   public async downloadSecurityAssessmentReport(
     downloadSecurityAssessmentReportRequest: requests.DownloadSecurityAssessmentReportRequest
@@ -8077,7 +8077,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DownloadSensitiveDataModelRequest
    * @return DownloadSensitiveDataModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSensitiveDataModel.ts.html |here} to see how to use DownloadSensitiveDataModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSensitiveDataModel.ts.html |here} to see how to use DownloadSensitiveDataModel API.
    */
   public async downloadSensitiveDataModel(
     downloadSensitiveDataModelRequest: requests.DownloadSensitiveDataModelRequest
@@ -8167,7 +8167,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DownloadSensitiveTypesExportRequest
    * @return DownloadSensitiveTypesExportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSensitiveTypesExport.ts.html |here} to see how to use DownloadSensitiveTypesExport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSensitiveTypesExport.ts.html |here} to see how to use DownloadSensitiveTypesExport API.
    */
   public async downloadSensitiveTypesExport(
     downloadSensitiveTypesExportRequest: requests.DownloadSensitiveTypesExportRequest
@@ -8256,7 +8256,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param DownloadUserAssessmentReportRequest
    * @return DownloadUserAssessmentReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadUserAssessmentReport.ts.html |here} to see how to use DownloadUserAssessmentReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadUserAssessmentReport.ts.html |here} to see how to use DownloadUserAssessmentReport API.
    */
   public async downloadUserAssessmentReport(
     downloadUserAssessmentReportRequest: requests.DownloadUserAssessmentReportRequest
@@ -8346,7 +8346,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param EnableDataSafeConfigurationRequest
    * @return EnableDataSafeConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/EnableDataSafeConfiguration.ts.html |here} to see how to use EnableDataSafeConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/EnableDataSafeConfiguration.ts.html |here} to see how to use EnableDataSafeConfiguration API.
    */
   public async enableDataSafeConfiguration(
     enableDataSafeConfigurationRequest: requests.EnableDataSafeConfigurationRequest
@@ -8429,7 +8429,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GenerateDiscoveryReportForDownloadRequest
    * @return GenerateDiscoveryReportForDownloadResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateDiscoveryReportForDownload.ts.html |here} to see how to use GenerateDiscoveryReportForDownload API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateDiscoveryReportForDownload.ts.html |here} to see how to use GenerateDiscoveryReportForDownload API.
    */
   public async generateDiscoveryReportForDownload(
     generateDiscoveryReportForDownloadRequest: requests.GenerateDiscoveryReportForDownloadRequest
@@ -8507,7 +8507,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GenerateHealthReportRequest
    * @return GenerateHealthReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateHealthReport.ts.html |here} to see how to use GenerateHealthReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateHealthReport.ts.html |here} to see how to use GenerateHealthReport API.
    */
   public async generateHealthReport(
     generateHealthReportRequest: requests.GenerateHealthReportRequest
@@ -8590,7 +8590,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GenerateMaskingPolicyForDownloadRequest
    * @return GenerateMaskingPolicyForDownloadResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateMaskingPolicyForDownload.ts.html |here} to see how to use GenerateMaskingPolicyForDownload API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateMaskingPolicyForDownload.ts.html |here} to see how to use GenerateMaskingPolicyForDownload API.
    */
   public async generateMaskingPolicyForDownload(
     generateMaskingPolicyForDownloadRequest: requests.GenerateMaskingPolicyForDownloadRequest
@@ -8672,7 +8672,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GenerateMaskingReportForDownloadRequest
    * @return GenerateMaskingReportForDownloadResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateMaskingReportForDownload.ts.html |here} to see how to use GenerateMaskingReportForDownload API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateMaskingReportForDownload.ts.html |here} to see how to use GenerateMaskingReportForDownload API.
    */
   public async generateMaskingReportForDownload(
     generateMaskingReportForDownloadRequest: requests.GenerateMaskingReportForDownloadRequest
@@ -8751,7 +8751,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GenerateOnPremConnectorConfigurationRequest
    * @return GenerateOnPremConnectorConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateOnPremConnectorConfiguration.ts.html |here} to see how to use GenerateOnPremConnectorConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateOnPremConnectorConfiguration.ts.html |here} to see how to use GenerateOnPremConnectorConfiguration API.
    */
   public async generateOnPremConnectorConfiguration(
     generateOnPremConnectorConfigurationRequest: requests.GenerateOnPremConnectorConfigurationRequest
@@ -8840,7 +8840,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GenerateReportRequest
    * @return GenerateReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateReport.ts.html |here} to see how to use GenerateReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateReport.ts.html |here} to see how to use GenerateReport API.
    */
   public async generateReport(
     generateReportRequest: requests.GenerateReportRequest
@@ -8923,7 +8923,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GenerateSecurityAssessmentReportRequest
    * @return GenerateSecurityAssessmentReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSecurityAssessmentReport.ts.html |here} to see how to use GenerateSecurityAssessmentReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSecurityAssessmentReport.ts.html |here} to see how to use GenerateSecurityAssessmentReport API.
    */
   public async generateSecurityAssessmentReport(
     generateSecurityAssessmentReportRequest: requests.GenerateSecurityAssessmentReportRequest
@@ -9007,7 +9007,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GenerateSensitiveDataModelForDownloadRequest
    * @return GenerateSensitiveDataModelForDownloadResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSensitiveDataModelForDownload.ts.html |here} to see how to use GenerateSensitiveDataModelForDownload API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSensitiveDataModelForDownload.ts.html |here} to see how to use GenerateSensitiveDataModelForDownload API.
    */
   public async generateSensitiveDataModelForDownload(
     generateSensitiveDataModelForDownloadRequest: requests.GenerateSensitiveDataModelForDownloadRequest
@@ -9085,7 +9085,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GenerateSqlFirewallPolicyRequest
    * @return GenerateSqlFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSqlFirewallPolicy.ts.html |here} to see how to use GenerateSqlFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSqlFirewallPolicy.ts.html |here} to see how to use GenerateSqlFirewallPolicy API.
    */
   public async generateSqlFirewallPolicy(
     generateSqlFirewallPolicyRequest: requests.GenerateSqlFirewallPolicyRequest
@@ -9162,7 +9162,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GenerateUserAssessmentReportRequest
    * @return GenerateUserAssessmentReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateUserAssessmentReport.ts.html |here} to see how to use GenerateUserAssessmentReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateUserAssessmentReport.ts.html |here} to see how to use GenerateUserAssessmentReport API.
    */
   public async generateUserAssessmentReport(
     generateUserAssessmentReportRequest: requests.GenerateUserAssessmentReportRequest
@@ -9242,7 +9242,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetAlertRequest
    * @return GetAlertResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAlert.ts.html |here} to see how to use GetAlert API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAlert.ts.html |here} to see how to use GetAlert API.
    */
   public async getAlert(
     getAlertRequest: requests.GetAlertRequest
@@ -9318,7 +9318,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetAlertPolicyRequest
    * @return GetAlertPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAlertPolicy.ts.html |here} to see how to use GetAlertPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAlertPolicy.ts.html |here} to see how to use GetAlertPolicy API.
    */
   public async getAlertPolicy(
     getAlertPolicyRequest: requests.GetAlertPolicyRequest
@@ -9394,7 +9394,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetAlertPolicyRuleRequest
    * @return GetAlertPolicyRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAlertPolicyRule.ts.html |here} to see how to use GetAlertPolicyRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAlertPolicyRule.ts.html |here} to see how to use GetAlertPolicyRule API.
    */
   public async getAlertPolicyRule(
     getAlertPolicyRuleRequest: requests.GetAlertPolicyRuleRequest
@@ -9471,7 +9471,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetAuditArchiveRetrievalRequest
    * @return GetAuditArchiveRetrievalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditArchiveRetrieval.ts.html |here} to see how to use GetAuditArchiveRetrieval API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditArchiveRetrieval.ts.html |here} to see how to use GetAuditArchiveRetrieval API.
    */
   public async getAuditArchiveRetrieval(
     getAuditArchiveRetrievalRequest: requests.GetAuditArchiveRetrievalRequest
@@ -9549,7 +9549,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetAuditPolicyRequest
    * @return GetAuditPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditPolicy.ts.html |here} to see how to use GetAuditPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditPolicy.ts.html |here} to see how to use GetAuditPolicy API.
    */
   public async getAuditPolicy(
     getAuditPolicyRequest: requests.GetAuditPolicyRequest
@@ -9625,7 +9625,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetAuditProfileRequest
    * @return GetAuditProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditProfile.ts.html |here} to see how to use GetAuditProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditProfile.ts.html |here} to see how to use GetAuditProfile API.
    */
   public async getAuditProfile(
     getAuditProfileRequest: requests.GetAuditProfileRequest
@@ -9701,7 +9701,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetAuditTrailRequest
    * @return GetAuditTrailResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditTrail.ts.html |here} to see how to use GetAuditTrail API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetAuditTrail.ts.html |here} to see how to use GetAuditTrail API.
    */
   public async getAuditTrail(
     getAuditTrailRequest: requests.GetAuditTrailRequest
@@ -9784,7 +9784,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetCompatibleFormatsForDataTypesRequest
    * @return GetCompatibleFormatsForDataTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetCompatibleFormatsForDataTypes.ts.html |here} to see how to use GetCompatibleFormatsForDataTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetCompatibleFormatsForDataTypes.ts.html |here} to see how to use GetCompatibleFormatsForDataTypes API.
    */
   public async getCompatibleFormatsForDataTypes(
     getCompatibleFormatsForDataTypesRequest: requests.GetCompatibleFormatsForDataTypesRequest
@@ -9871,7 +9871,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetCompatibleFormatsForSensitiveTypesRequest
    * @return GetCompatibleFormatsForSensitiveTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetCompatibleFormatsForSensitiveTypes.ts.html |here} to see how to use GetCompatibleFormatsForSensitiveTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetCompatibleFormatsForSensitiveTypes.ts.html |here} to see how to use GetCompatibleFormatsForSensitiveTypes API.
    */
   public async getCompatibleFormatsForSensitiveTypes(
     getCompatibleFormatsForSensitiveTypesRequest: requests.GetCompatibleFormatsForSensitiveTypesRequest
@@ -9957,7 +9957,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetDataSafeConfigurationRequest
    * @return GetDataSafeConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDataSafeConfiguration.ts.html |here} to see how to use GetDataSafeConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDataSafeConfiguration.ts.html |here} to see how to use GetDataSafeConfiguration API.
    */
   public async getDataSafeConfiguration(
     getDataSafeConfigurationRequest: requests.GetDataSafeConfigurationRequest
@@ -10034,7 +10034,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetDataSafePrivateEndpointRequest
    * @return GetDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDataSafePrivateEndpoint.ts.html |here} to see how to use GetDataSafePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDataSafePrivateEndpoint.ts.html |here} to see how to use GetDataSafePrivateEndpoint API.
    */
   public async getDataSafePrivateEndpoint(
     getDataSafePrivateEndpointRequest: requests.GetDataSafePrivateEndpointRequest
@@ -10111,7 +10111,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetDatabaseSecurityConfigRequest
    * @return GetDatabaseSecurityConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDatabaseSecurityConfig.ts.html |here} to see how to use GetDatabaseSecurityConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDatabaseSecurityConfig.ts.html |here} to see how to use GetDatabaseSecurityConfig API.
    */
   public async getDatabaseSecurityConfig(
     getDatabaseSecurityConfigRequest: requests.GetDatabaseSecurityConfigRequest
@@ -10188,7 +10188,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetDatabaseTableAccessEntryRequest
    * @return GetDatabaseTableAccessEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDatabaseTableAccessEntry.ts.html |here} to see how to use GetDatabaseTableAccessEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDatabaseTableAccessEntry.ts.html |here} to see how to use GetDatabaseTableAccessEntry API.
    */
   public async getDatabaseTableAccessEntry(
     getDatabaseTableAccessEntryRequest: requests.GetDatabaseTableAccessEntryRequest
@@ -10268,7 +10268,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetDatabaseViewAccessEntryRequest
    * @return GetDatabaseViewAccessEntryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDatabaseViewAccessEntry.ts.html |here} to see how to use GetDatabaseViewAccessEntry API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDatabaseViewAccessEntry.ts.html |here} to see how to use GetDatabaseViewAccessEntry API.
    */
   public async getDatabaseViewAccessEntry(
     getDatabaseViewAccessEntryRequest: requests.GetDatabaseViewAccessEntryRequest
@@ -10347,7 +10347,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetDifferenceColumnRequest
    * @return GetDifferenceColumnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDifferenceColumn.ts.html |here} to see how to use GetDifferenceColumn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDifferenceColumn.ts.html |here} to see how to use GetDifferenceColumn API.
    */
   public async getDifferenceColumn(
     getDifferenceColumnRequest: requests.GetDifferenceColumnRequest
@@ -10425,7 +10425,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetDiscoveryJobRequest
    * @return GetDiscoveryJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDiscoveryJob.ts.html |here} to see how to use GetDiscoveryJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDiscoveryJob.ts.html |here} to see how to use GetDiscoveryJob API.
    */
   public async getDiscoveryJob(
     getDiscoveryJobRequest: requests.GetDiscoveryJobRequest
@@ -10501,7 +10501,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetDiscoveryJobResultRequest
    * @return GetDiscoveryJobResultResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDiscoveryJobResult.ts.html |here} to see how to use GetDiscoveryJobResult API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDiscoveryJobResult.ts.html |here} to see how to use GetDiscoveryJobResult API.
    */
   public async getDiscoveryJobResult(
     getDiscoveryJobResultRequest: requests.GetDiscoveryJobResultRequest
@@ -10578,7 +10578,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetLibraryMaskingFormatRequest
    * @return GetLibraryMaskingFormatResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetLibraryMaskingFormat.ts.html |here} to see how to use GetLibraryMaskingFormat API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetLibraryMaskingFormat.ts.html |here} to see how to use GetLibraryMaskingFormat API.
    */
   public async getLibraryMaskingFormat(
     getLibraryMaskingFormatRequest: requests.GetLibraryMaskingFormatRequest
@@ -10654,7 +10654,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetMaskingColumnRequest
    * @return GetMaskingColumnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingColumn.ts.html |here} to see how to use GetMaskingColumn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingColumn.ts.html |here} to see how to use GetMaskingColumn API.
    */
   public async getMaskingColumn(
     getMaskingColumnRequest: requests.GetMaskingColumnRequest
@@ -10731,7 +10731,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetMaskingPolicyRequest
    * @return GetMaskingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingPolicy.ts.html |here} to see how to use GetMaskingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingPolicy.ts.html |here} to see how to use GetMaskingPolicy API.
    */
   public async getMaskingPolicy(
     getMaskingPolicyRequest: requests.GetMaskingPolicyRequest
@@ -10807,7 +10807,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetMaskingPolicyHealthReportRequest
    * @return GetMaskingPolicyHealthReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingPolicyHealthReport.ts.html |here} to see how to use GetMaskingPolicyHealthReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingPolicyHealthReport.ts.html |here} to see how to use GetMaskingPolicyHealthReport API.
    */
   public async getMaskingPolicyHealthReport(
     getMaskingPolicyHealthReportRequest: requests.GetMaskingPolicyHealthReportRequest
@@ -10885,7 +10885,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetMaskingReportRequest
    * @return GetMaskingReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingReport.ts.html |here} to see how to use GetMaskingReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetMaskingReport.ts.html |here} to see how to use GetMaskingReport API.
    */
   public async getMaskingReport(
     getMaskingReportRequest: requests.GetMaskingReportRequest
@@ -10961,7 +10961,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetOnPremConnectorRequest
    * @return GetOnPremConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetOnPremConnector.ts.html |here} to see how to use GetOnPremConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetOnPremConnector.ts.html |here} to see how to use GetOnPremConnector API.
    */
   public async getOnPremConnector(
     getOnPremConnectorRequest: requests.GetOnPremConnectorRequest
@@ -11038,7 +11038,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
    * @param GetPeerTargetDatabaseRequest
    * @return GetPeerTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetPeerTargetDatabase.ts.html |here} to see how to use GetPeerTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetPeerTargetDatabase.ts.html |here} to see how to use GetPeerTargetDatabase API.
    */
   public async getPeerTargetDatabase(
     getPeerTargetDatabaseRequest: requests.GetPeerTargetDatabaseRequest
@@ -11119,7 +11119,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
      * @param GetProfileRequest
      * @return GetProfileResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetProfile.ts.html |here} to see how to use GetProfile API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetProfile.ts.html |here} to see how to use GetProfile API.
      */
   public async getProfile(
     getProfileRequest: requests.GetProfileRequest
@@ -11201,7 +11201,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetReferentialRelationRequest
    * @return GetReferentialRelationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReferentialRelation.ts.html |here} to see how to use GetReferentialRelation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReferentialRelation.ts.html |here} to see how to use GetReferentialRelation API.
    */
   public async getReferentialRelation(
     getReferentialRelationRequest: requests.GetReferentialRelationRequest
@@ -11279,7 +11279,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetReportRequest
    * @return GetReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReport.ts.html |here} to see how to use GetReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReport.ts.html |here} to see how to use GetReport API.
    */
   public async getReport(
     getReportRequest: requests.GetReportRequest
@@ -11355,7 +11355,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetReportContentRequest
    * @return GetReportContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReportContent.ts.html |here} to see how to use GetReportContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReportContent.ts.html |here} to see how to use GetReportContent API.
    */
   public async getReportContent(
     getReportContentRequest: requests.GetReportContentRequest
@@ -11441,7 +11441,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetReportDefinitionRequest
    * @return GetReportDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReportDefinition.ts.html |here} to see how to use GetReportDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetReportDefinition.ts.html |here} to see how to use GetReportDefinition API.
    */
   public async getReportDefinition(
     getReportDefinitionRequest: requests.GetReportDefinitionRequest
@@ -11517,7 +11517,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSdmMaskingPolicyDifferenceRequest
    * @return GetSdmMaskingPolicyDifferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSdmMaskingPolicyDifference.ts.html |here} to see how to use GetSdmMaskingPolicyDifference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSdmMaskingPolicyDifference.ts.html |here} to see how to use GetSdmMaskingPolicyDifference API.
    */
   public async getSdmMaskingPolicyDifference(
     getSdmMaskingPolicyDifferenceRequest: requests.GetSdmMaskingPolicyDifferenceRequest
@@ -11595,7 +11595,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSecurityAssessmentRequest
    * @return GetSecurityAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityAssessment.ts.html |here} to see how to use GetSecurityAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityAssessment.ts.html |here} to see how to use GetSecurityAssessment API.
    */
   public async getSecurityAssessment(
     getSecurityAssessmentRequest: requests.GetSecurityAssessmentRequest
@@ -11671,7 +11671,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSecurityAssessmentComparisonRequest
    * @return GetSecurityAssessmentComparisonResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityAssessmentComparison.ts.html |here} to see how to use GetSecurityAssessmentComparison API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityAssessmentComparison.ts.html |here} to see how to use GetSecurityAssessmentComparison API.
    */
   public async getSecurityAssessmentComparison(
     getSecurityAssessmentComparisonRequest: requests.GetSecurityAssessmentComparisonRequest
@@ -11751,7 +11751,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSecurityPolicyRequest
    * @return GetSecurityPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicy.ts.html |here} to see how to use GetSecurityPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicy.ts.html |here} to see how to use GetSecurityPolicy API.
    */
   public async getSecurityPolicy(
     getSecurityPolicyRequest: requests.GetSecurityPolicyRequest
@@ -11827,7 +11827,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSecurityPolicyDeploymentRequest
    * @return GetSecurityPolicyDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicyDeployment.ts.html |here} to see how to use GetSecurityPolicyDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicyDeployment.ts.html |here} to see how to use GetSecurityPolicyDeployment API.
    */
   public async getSecurityPolicyDeployment(
     getSecurityPolicyDeploymentRequest: requests.GetSecurityPolicyDeploymentRequest
@@ -11904,7 +11904,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSecurityPolicyEntryStateRequest
    * @return GetSecurityPolicyEntryStateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicyEntryState.ts.html |here} to see how to use GetSecurityPolicyEntryState API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicyEntryState.ts.html |here} to see how to use GetSecurityPolicyEntryState API.
    */
   public async getSecurityPolicyEntryState(
     getSecurityPolicyEntryStateRequest: requests.GetSecurityPolicyEntryStateRequest
@@ -11983,7 +11983,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSecurityPolicyReportRequest
    * @return GetSecurityPolicyReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicyReport.ts.html |here} to see how to use GetSecurityPolicyReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSecurityPolicyReport.ts.html |here} to see how to use GetSecurityPolicyReport API.
    */
   public async getSecurityPolicyReport(
     getSecurityPolicyReportRequest: requests.GetSecurityPolicyReportRequest
@@ -12059,7 +12059,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSensitiveColumnRequest
    * @return GetSensitiveColumnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveColumn.ts.html |here} to see how to use GetSensitiveColumn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveColumn.ts.html |here} to see how to use GetSensitiveColumn API.
    */
   public async getSensitiveColumn(
     getSensitiveColumnRequest: requests.GetSensitiveColumnRequest
@@ -12136,7 +12136,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSensitiveDataModelRequest
    * @return GetSensitiveDataModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveDataModel.ts.html |here} to see how to use GetSensitiveDataModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveDataModel.ts.html |here} to see how to use GetSensitiveDataModel API.
    */
   public async getSensitiveDataModel(
     getSensitiveDataModelRequest: requests.GetSensitiveDataModelRequest
@@ -12212,7 +12212,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSensitiveTypeRequest
    * @return GetSensitiveTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveType.ts.html |here} to see how to use GetSensitiveType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveType.ts.html |here} to see how to use GetSensitiveType API.
    */
   public async getSensitiveType(
     getSensitiveTypeRequest: requests.GetSensitiveTypeRequest
@@ -12288,7 +12288,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSensitiveTypesExportRequest
    * @return GetSensitiveTypesExportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveTypesExport.ts.html |here} to see how to use GetSensitiveTypesExport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSensitiveTypesExport.ts.html |here} to see how to use GetSensitiveTypesExport API.
    */
   public async getSensitiveTypesExport(
     getSensitiveTypesExportRequest: requests.GetSensitiveTypesExportRequest
@@ -12364,7 +12364,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSqlCollectionRequest
    * @return GetSqlCollectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSqlCollection.ts.html |here} to see how to use GetSqlCollection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSqlCollection.ts.html |here} to see how to use GetSqlCollection API.
    */
   public async getSqlCollection(
     getSqlCollectionRequest: requests.GetSqlCollectionRequest
@@ -12440,7 +12440,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSqlFirewallAllowedSqlRequest
    * @return GetSqlFirewallAllowedSqlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSqlFirewallAllowedSql.ts.html |here} to see how to use GetSqlFirewallAllowedSql API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSqlFirewallAllowedSql.ts.html |here} to see how to use GetSqlFirewallAllowedSql API.
    */
   public async getSqlFirewallAllowedSql(
     getSqlFirewallAllowedSqlRequest: requests.GetSqlFirewallAllowedSqlRequest
@@ -12517,7 +12517,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetSqlFirewallPolicyRequest
    * @return GetSqlFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSqlFirewallPolicy.ts.html |here} to see how to use GetSqlFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSqlFirewallPolicy.ts.html |here} to see how to use GetSqlFirewallPolicy API.
    */
   public async getSqlFirewallPolicy(
     getSqlFirewallPolicyRequest: requests.GetSqlFirewallPolicyRequest
@@ -12593,7 +12593,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetTargetAlertPolicyAssociationRequest
    * @return GetTargetAlertPolicyAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetTargetAlertPolicyAssociation.ts.html |here} to see how to use GetTargetAlertPolicyAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetTargetAlertPolicyAssociation.ts.html |here} to see how to use GetTargetAlertPolicyAssociation API.
    */
   public async getTargetAlertPolicyAssociation(
     getTargetAlertPolicyAssociationRequest: requests.GetTargetAlertPolicyAssociationRequest
@@ -12672,7 +12672,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetTargetDatabaseRequest
    * @return GetTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetTargetDatabase.ts.html |here} to see how to use GetTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetTargetDatabase.ts.html |here} to see how to use GetTargetDatabase API.
    */
   public async getTargetDatabase(
     getTargetDatabaseRequest: requests.GetTargetDatabaseRequest
@@ -12748,7 +12748,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetUserAssessmentRequest
    * @return GetUserAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetUserAssessment.ts.html |here} to see how to use GetUserAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetUserAssessment.ts.html |here} to see how to use GetUserAssessment API.
    */
   public async getUserAssessment(
     getUserAssessmentRequest: requests.GetUserAssessmentRequest
@@ -12824,7 +12824,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetUserAssessmentComparisonRequest
    * @return GetUserAssessmentComparisonResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetUserAssessmentComparison.ts.html |here} to see how to use GetUserAssessmentComparison API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetUserAssessmentComparison.ts.html |here} to see how to use GetUserAssessmentComparison API.
    */
   public async getUserAssessmentComparison(
     getUserAssessmentComparisonRequest: requests.GetUserAssessmentComparisonRequest
@@ -12897,7 +12897,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -12979,7 +12979,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param ListAlertAnalyticsRequest
    * @return ListAlertAnalyticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlertAnalytics.ts.html |here} to see how to use ListAlertAnalytics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlertAnalytics.ts.html |here} to see how to use ListAlertAnalytics API.
    */
   public async listAlertAnalytics(
     listAlertAnalyticsRequest: requests.ListAlertAnalyticsRequest
@@ -13070,7 +13070,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param ListAlertPoliciesRequest
    * @return ListAlertPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlertPolicies.ts.html |here} to see how to use ListAlertPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlertPolicies.ts.html |here} to see how to use ListAlertPolicies API.
    */
   public async listAlertPolicies(
     listAlertPoliciesRequest: requests.ListAlertPoliciesRequest
@@ -13171,7 +13171,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param ListAlertPolicyRulesRequest
    * @return ListAlertPolicyRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlertPolicyRules.ts.html |here} to see how to use ListAlertPolicyRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlertPolicyRules.ts.html |here} to see how to use ListAlertPolicyRules API.
    */
   public async listAlertPolicyRules(
     listAlertPolicyRulesRequest: requests.ListAlertPolicyRulesRequest
@@ -13261,7 +13261,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param ListAlertsRequest
    * @return ListAlertsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlerts.ts.html |here} to see how to use ListAlerts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAlerts.ts.html |here} to see how to use ListAlerts API.
    */
   public async listAlerts(
     listAlertsRequest: requests.ListAlertsRequest
@@ -13352,7 +13352,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
    * @param ListAuditArchiveRetrievalsRequest
    * @return ListAuditArchiveRetrievalsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditArchiveRetrievals.ts.html |here} to see how to use ListAuditArchiveRetrievals API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditArchiveRetrievals.ts.html |here} to see how to use ListAuditArchiveRetrievals API.
    */
   public async listAuditArchiveRetrievals(
     listAuditArchiveRetrievalsRequest: requests.ListAuditArchiveRetrievalsRequest
@@ -13458,7 +13458,7 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
      * @param ListAuditEventAnalyticsRequest
      * @return ListAuditEventAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditEventAnalytics.ts.html |here} to see how to use ListAuditEventAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditEventAnalytics.ts.html |here} to see how to use ListAuditEventAnalytics API.
      */
   public async listAuditEventAnalytics(
     listAuditEventAnalyticsRequest: requests.ListAuditEventAnalyticsRequest
@@ -13566,7 +13566,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditEvents 
      * @param ListAuditEventsRequest
      * @return ListAuditEventsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditEvents.ts.html |here} to see how to use ListAuditEvents API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditEvents.ts.html |here} to see how to use ListAuditEvents API.
      */
   public async listAuditEvents(
     listAuditEventsRequest: requests.ListAuditEventsRequest
@@ -13669,7 +13669,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditPolicie
      * @param ListAuditPoliciesRequest
      * @return ListAuditPoliciesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditPolicies.ts.html |here} to see how to use ListAuditPolicies API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditPolicies.ts.html |here} to see how to use ListAuditPolicies API.
      */
   public async listAuditPolicies(
     listAuditPoliciesRequest: requests.ListAuditPoliciesRequest
@@ -13776,7 +13776,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedAuditP
      * @param ListAuditPolicyAnalyticsRequest
      * @return ListAuditPolicyAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditPolicyAnalytics.ts.html |here} to see how to use ListAuditPolicyAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditPolicyAnalytics.ts.html |here} to see how to use ListAuditPolicyAnalytics API.
      */
   public async listAuditPolicyAnalytics(
     listAuditPolicyAnalyticsRequest: requests.ListAuditPolicyAnalyticsRequest
@@ -13880,7 +13880,7 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditProfileAnal
      * @param ListAuditProfileAnalyticsRequest
      * @return ListAuditProfileAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditProfileAnalytics.ts.html |here} to see how to use ListAuditProfileAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditProfileAnalytics.ts.html |here} to see how to use ListAuditProfileAnalytics API.
      */
   public async listAuditProfileAnalytics(
     listAuditProfileAnalyticsRequest: requests.ListAuditProfileAnalyticsRequest
@@ -13982,7 +13982,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditProfile
      * @param ListAuditProfilesRequest
      * @return ListAuditProfilesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditProfiles.ts.html |here} to see how to use ListAuditProfiles API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditProfiles.ts.html |here} to see how to use ListAuditProfiles API.
      */
   public async listAuditProfiles(
     listAuditProfilesRequest: requests.ListAuditProfilesRequest
@@ -14090,7 +14090,7 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditTrailAnalyt
      * @param ListAuditTrailAnalyticsRequest
      * @return ListAuditTrailAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditTrailAnalytics.ts.html |here} to see how to use ListAuditTrailAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditTrailAnalytics.ts.html |here} to see how to use ListAuditTrailAnalytics API.
      */
   public async listAuditTrailAnalytics(
     listAuditTrailAnalyticsRequest: requests.ListAuditTrailAnalyticsRequest
@@ -14191,7 +14191,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
      * @param ListAuditTrailsRequest
      * @return ListAuditTrailsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditTrails.ts.html |here} to see how to use ListAuditTrails API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditTrails.ts.html |here} to see how to use ListAuditTrails API.
      */
   public async listAuditTrails(
     listAuditTrailsRequest: requests.ListAuditTrailsRequest
@@ -14283,7 +14283,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
    * @param ListAvailableAuditVolumesRequest
    * @return ListAvailableAuditVolumesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAvailableAuditVolumes.ts.html |here} to see how to use ListAvailableAuditVolumes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAvailableAuditVolumes.ts.html |here} to see how to use ListAvailableAuditVolumes API.
    */
   public async listAvailableAuditVolumes(
     listAvailableAuditVolumesRequest: requests.ListAvailableAuditVolumesRequest
@@ -14375,7 +14375,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
    * @param ListCollectedAuditVolumesRequest
    * @return ListCollectedAuditVolumesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCollectedAuditVolumes.ts.html |here} to see how to use ListCollectedAuditVolumes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCollectedAuditVolumes.ts.html |here} to see how to use ListCollectedAuditVolumes API.
    */
   public async listCollectedAuditVolumes(
     listCollectedAuditVolumesRequest: requests.ListCollectedAuditVolumesRequest
@@ -14467,7 +14467,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
    * @param ListColumnsRequest
    * @return ListColumnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListColumns.ts.html |here} to see how to use ListColumns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListColumns.ts.html |here} to see how to use ListColumns API.
    */
   public async listColumns(
     listColumnsRequest: requests.ListColumnsRequest
@@ -14613,7 +14613,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
    * @param ListDataSafePrivateEndpointsRequest
    * @return ListDataSafePrivateEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDataSafePrivateEndpoints.ts.html |here} to see how to use ListDataSafePrivateEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDataSafePrivateEndpoints.ts.html |here} to see how to use ListDataSafePrivateEndpoints API.
    */
   public async listDataSafePrivateEndpoints(
     listDataSafePrivateEndpointsRequest: requests.ListDataSafePrivateEndpointsRequest
@@ -14765,7 +14765,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDatabaseSecu
      * @param ListDatabaseSecurityConfigsRequest
      * @return ListDatabaseSecurityConfigsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDatabaseSecurityConfigs.ts.html |here} to see how to use ListDatabaseSecurityConfigs API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDatabaseSecurityConfigs.ts.html |here} to see how to use ListDatabaseSecurityConfigs API.
      */
   public async listDatabaseSecurityConfigs(
     listDatabaseSecurityConfigsRequest: requests.ListDatabaseSecurityConfigsRequest
@@ -14863,7 +14863,7 @@ The ListDatabaseTableAccessEntries operation returns only the database table acc
      * @param ListDatabaseTableAccessEntriesRequest
      * @return ListDatabaseTableAccessEntriesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDatabaseTableAccessEntries.ts.html |here} to see how to use ListDatabaseTableAccessEntries API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDatabaseTableAccessEntries.ts.html |here} to see how to use ListDatabaseTableAccessEntries API.
      */
   public async listDatabaseTableAccessEntries(
     listDatabaseTableAccessEntriesRequest: requests.ListDatabaseTableAccessEntriesRequest
@@ -14954,7 +14954,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
      * @param ListDatabaseViewAccessEntriesRequest
      * @return ListDatabaseViewAccessEntriesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDatabaseViewAccessEntries.ts.html |here} to see how to use ListDatabaseViewAccessEntries API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDatabaseViewAccessEntries.ts.html |here} to see how to use ListDatabaseViewAccessEntries API.
      */
   public async listDatabaseViewAccessEntries(
     listDatabaseViewAccessEntriesRequest: requests.ListDatabaseViewAccessEntriesRequest
@@ -15043,7 +15043,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
    * @param ListDifferenceColumnsRequest
    * @return ListDifferenceColumnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDifferenceColumns.ts.html |here} to see how to use ListDifferenceColumns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDifferenceColumns.ts.html |here} to see how to use ListDifferenceColumns API.
    */
   public async listDifferenceColumns(
     listDifferenceColumnsRequest: requests.ListDifferenceColumnsRequest
@@ -15138,7 +15138,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
    * @param ListDiscoveryAnalyticsRequest
    * @return ListDiscoveryAnalyticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDiscoveryAnalytics.ts.html |here} to see how to use ListDiscoveryAnalytics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDiscoveryAnalytics.ts.html |here} to see how to use ListDiscoveryAnalytics API.
    */
   public async listDiscoveryAnalytics(
     listDiscoveryAnalyticsRequest: requests.ListDiscoveryAnalyticsRequest
@@ -15227,7 +15227,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
    * @param ListDiscoveryJobResultsRequest
    * @return ListDiscoveryJobResultsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDiscoveryJobResults.ts.html |here} to see how to use ListDiscoveryJobResults API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDiscoveryJobResults.ts.html |here} to see how to use ListDiscoveryJobResults API.
    */
   public async listDiscoveryJobResults(
     listDiscoveryJobResultsRequest: requests.ListDiscoveryJobResultsRequest
@@ -15319,7 +15319,7 @@ The ListDatabaseViewAccessEntries operation returns only the database view acces
    * @param ListDiscoveryJobsRequest
    * @return ListDiscoveryJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDiscoveryJobs.ts.html |here} to see how to use ListDiscoveryJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDiscoveryJobs.ts.html |here} to see how to use ListDiscoveryJobs API.
    */
   public async listDiscoveryJobs(
     listDiscoveryJobsRequest: requests.ListDiscoveryJobsRequest
@@ -15421,7 +15421,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
      * @param ListFindingAnalyticsRequest
      * @return ListFindingAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListFindingAnalytics.ts.html |here} to see how to use ListFindingAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListFindingAnalytics.ts.html |here} to see how to use ListFindingAnalytics API.
      */
   public async listFindingAnalytics(
     listFindingAnalyticsRequest: requests.ListFindingAnalyticsRequest
@@ -15512,7 +15512,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListFindingsRequest
    * @return ListFindingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListFindings.ts.html |here} to see how to use ListFindings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListFindings.ts.html |here} to see how to use ListFindings API.
    */
   public async listFindings(
     listFindingsRequest: requests.ListFindingsRequest
@@ -15657,7 +15657,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListFindingsChangeAuditLogsRequest
    * @return ListFindingsChangeAuditLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListFindingsChangeAuditLogs.ts.html |here} to see how to use ListFindingsChangeAuditLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListFindingsChangeAuditLogs.ts.html |here} to see how to use ListFindingsChangeAuditLogs API.
    */
   public async listFindingsChangeAuditLogs(
     listFindingsChangeAuditLogsRequest: requests.ListFindingsChangeAuditLogsRequest
@@ -15759,7 +15759,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListGrantsRequest
    * @return ListGrantsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListGrants.ts.html |here} to see how to use ListGrants API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListGrants.ts.html |here} to see how to use ListGrants API.
    */
   public async listGrants(
     listGrantsRequest: requests.ListGrantsRequest
@@ -15906,7 +15906,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListLibraryMaskingFormatsRequest
    * @return ListLibraryMaskingFormatsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListLibraryMaskingFormats.ts.html |here} to see how to use ListLibraryMaskingFormats API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListLibraryMaskingFormats.ts.html |here} to see how to use ListLibraryMaskingFormats API.
    */
   public async listLibraryMaskingFormats(
     listLibraryMaskingFormatsRequest: requests.ListLibraryMaskingFormatsRequest
@@ -16002,7 +16002,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListMaskedColumnsRequest
    * @return ListMaskedColumnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskedColumns.ts.html |here} to see how to use ListMaskedColumns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskedColumns.ts.html |here} to see how to use ListMaskedColumns API.
    */
   public async listMaskedColumns(
     listMaskedColumnsRequest: requests.ListMaskedColumnsRequest
@@ -16097,7 +16097,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListMaskingAnalyticsRequest
    * @return ListMaskingAnalyticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingAnalytics.ts.html |here} to see how to use ListMaskingAnalytics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingAnalytics.ts.html |here} to see how to use ListMaskingAnalytics API.
    */
   public async listMaskingAnalytics(
     listMaskingAnalyticsRequest: requests.ListMaskingAnalyticsRequest
@@ -16185,7 +16185,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListMaskingColumnsRequest
    * @return ListMaskingColumnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingColumns.ts.html |here} to see how to use ListMaskingColumns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingColumns.ts.html |here} to see how to use ListMaskingColumns API.
    */
   public async listMaskingColumns(
     listMaskingColumnsRequest: requests.ListMaskingColumnsRequest
@@ -16286,7 +16286,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListMaskingObjectsRequest
    * @return ListMaskingObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingObjects.ts.html |here} to see how to use ListMaskingObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingObjects.ts.html |here} to see how to use ListMaskingObjects API.
    */
   public async listMaskingObjects(
     listMaskingObjectsRequest: requests.ListMaskingObjectsRequest
@@ -16375,7 +16375,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListMaskingPoliciesRequest
    * @return ListMaskingPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicies.ts.html |here} to see how to use ListMaskingPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicies.ts.html |here} to see how to use ListMaskingPolicies API.
    */
   public async listMaskingPolicies(
     listMaskingPoliciesRequest: requests.ListMaskingPoliciesRequest
@@ -16470,7 +16470,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListMaskingPolicyHealthReportLogsRequest
    * @return ListMaskingPolicyHealthReportLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicyHealthReportLogs.ts.html |here} to see how to use ListMaskingPolicyHealthReportLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicyHealthReportLogs.ts.html |here} to see how to use ListMaskingPolicyHealthReportLogs API.
    */
   public async listMaskingPolicyHealthReportLogs(
     listMaskingPolicyHealthReportLogsRequest: requests.ListMaskingPolicyHealthReportLogsRequest
@@ -16559,7 +16559,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListMaskingPolicyHealthReportsRequest
    * @return ListMaskingPolicyHealthReportsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicyHealthReports.ts.html |here} to see how to use ListMaskingPolicyHealthReports API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicyHealthReports.ts.html |here} to see how to use ListMaskingPolicyHealthReports API.
    */
   public async listMaskingPolicyHealthReports(
     listMaskingPolicyHealthReportsRequest: requests.ListMaskingPolicyHealthReportsRequest
@@ -16654,7 +16654,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListMaskingPolicyReferentialRelationsRequest
    * @return ListMaskingPolicyReferentialRelationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicyReferentialRelations.ts.html |here} to see how to use ListMaskingPolicyReferentialRelations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingPolicyReferentialRelations.ts.html |here} to see how to use ListMaskingPolicyReferentialRelations API.
    */
   public async listMaskingPolicyReferentialRelations(
     listMaskingPolicyReferentialRelationsRequest: requests.ListMaskingPolicyReferentialRelationsRequest
@@ -16745,7 +16745,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListMaskingReportsRequest
    * @return ListMaskingReportsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingReports.ts.html |here} to see how to use ListMaskingReports API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingReports.ts.html |here} to see how to use ListMaskingReports API.
    */
   public async listMaskingReports(
     listMaskingReportsRequest: requests.ListMaskingReportsRequest
@@ -16835,7 +16835,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListMaskingSchemasRequest
    * @return ListMaskingSchemasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingSchemas.ts.html |here} to see how to use ListMaskingSchemas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingSchemas.ts.html |here} to see how to use ListMaskingSchemas API.
    */
   public async listMaskingSchemas(
     listMaskingSchemasRequest: requests.ListMaskingSchemasRequest
@@ -16923,7 +16923,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
    * @param ListOnPremConnectorsRequest
    * @return ListOnPremConnectorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListOnPremConnectors.ts.html |here} to see how to use ListOnPremConnectors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListOnPremConnectors.ts.html |here} to see how to use ListOnPremConnectors API.
    */
   public async listOnPremConnectors(
     listOnPremConnectorsRequest: requests.ListOnPremConnectorsRequest
@@ -17071,7 +17071,7 @@ To use ListPasswordExpiryDateAnalytics to get a full list of all compartments an
      * @param ListPasswordExpiryDateAnalyticsRequest
      * @return ListPasswordExpiryDateAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListPasswordExpiryDateAnalytics.ts.html |here} to see how to use ListPasswordExpiryDateAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListPasswordExpiryDateAnalytics.ts.html |here} to see how to use ListPasswordExpiryDateAnalytics API.
      */
   public async listPasswordExpiryDateAnalytics(
     listPasswordExpiryDateAnalyticsRequest: requests.ListPasswordExpiryDateAnalyticsRequest
@@ -17154,7 +17154,7 @@ To use ListPasswordExpiryDateAnalytics to get a full list of all compartments an
    * @param ListPeerTargetDatabasesRequest
    * @return ListPeerTargetDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListPeerTargetDatabases.ts.html |here} to see how to use ListPeerTargetDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListPeerTargetDatabases.ts.html |here} to see how to use ListPeerTargetDatabases API.
    */
   public async listPeerTargetDatabases(
     listPeerTargetDatabasesRequest: requests.ListPeerTargetDatabasesRequest
@@ -17260,7 +17260,7 @@ To use ListProfileAnalytics to get a full list of all compartments and subcompar
      * @param ListProfileAnalyticsRequest
      * @return ListProfileAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListProfileAnalytics.ts.html |here} to see how to use ListProfileAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListProfileAnalytics.ts.html |here} to see how to use ListProfileAnalytics API.
      */
   public async listProfileAnalytics(
     listProfileAnalyticsRequest: requests.ListProfileAnalyticsRequest
@@ -17418,7 +17418,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
      * @param ListProfileSummariesRequest
      * @return ListProfileSummariesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListProfileSummaries.ts.html |here} to see how to use ListProfileSummaries API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListProfileSummaries.ts.html |here} to see how to use ListProfileSummaries API.
      */
   public async listProfileSummaries(
     listProfileSummariesRequest: requests.ListProfileSummariesRequest
@@ -17578,7 +17578,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
    * @param ListReferentialRelationsRequest
    * @return ListReferentialRelationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListReferentialRelations.ts.html |here} to see how to use ListReferentialRelations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListReferentialRelations.ts.html |here} to see how to use ListReferentialRelations API.
    */
   public async listReferentialRelations(
     listReferentialRelationsRequest: requests.ListReferentialRelationsRequest
@@ -17673,7 +17673,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
    * @param ListReportDefinitionsRequest
    * @return ListReportDefinitionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListReportDefinitions.ts.html |here} to see how to use ListReportDefinitions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListReportDefinitions.ts.html |here} to see how to use ListReportDefinitions API.
    */
   public async listReportDefinitions(
     listReportDefinitionsRequest: requests.ListReportDefinitionsRequest
@@ -17760,7 +17760,7 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
    * @param ListReportsRequest
    * @return ListReportsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListReports.ts.html |here} to see how to use ListReports API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListReports.ts.html |here} to see how to use ListReports API.
    */
   public async listReports(
     listReportsRequest: requests.ListReportsRequest
@@ -17852,7 +17852,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
      * @param ListRoleGrantPathsRequest
      * @return ListRoleGrantPathsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListRoleGrantPaths.ts.html |here} to see how to use ListRoleGrantPaths API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListRoleGrantPaths.ts.html |here} to see how to use ListRoleGrantPaths API.
      */
   public async listRoleGrantPaths(
     listRoleGrantPathsRequest: requests.ListRoleGrantPathsRequest
@@ -17939,7 +17939,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
    * @param ListRolesRequest
    * @return ListRolesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListRoles.ts.html |here} to see how to use ListRoles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListRoles.ts.html |here} to see how to use ListRoles API.
    */
   public async listRoles(
     listRolesRequest: requests.ListRolesRequest
@@ -18082,7 +18082,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
    * @param ListSchemasRequest
    * @return ListSchemasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSchemas.ts.html |here} to see how to use ListSchemas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSchemas.ts.html |here} to see how to use ListSchemas API.
    */
   public async listSchemas(
     listSchemasRequest: requests.ListSchemasRequest
@@ -18223,7 +18223,7 @@ The ListRoleGrantPaths operation returns only the role grant paths for the speci
    * @param ListSdmMaskingPolicyDifferencesRequest
    * @return ListSdmMaskingPolicyDifferencesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSdmMaskingPolicyDifferences.ts.html |here} to see how to use ListSdmMaskingPolicyDifferences API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSdmMaskingPolicyDifferences.ts.html |here} to see how to use ListSdmMaskingPolicyDifferences API.
    */
   public async listSdmMaskingPolicyDifferences(
     listSdmMaskingPolicyDifferencesRequest: requests.ListSdmMaskingPolicyDifferencesRequest
@@ -18330,7 +18330,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
      * @param ListSecurityAssessmentsRequest
      * @return ListSecurityAssessmentsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityAssessments.ts.html |here} to see how to use ListSecurityAssessments API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityAssessments.ts.html |here} to see how to use ListSecurityAssessments API.
      */
   public async listSecurityAssessments(
     listSecurityAssessmentsRequest: requests.ListSecurityAssessmentsRequest
@@ -18488,7 +18488,7 @@ When you perform the ListSecurityFeatureAnalytics operation, if the parameter co
      * @param ListSecurityFeatureAnalyticsRequest
      * @return ListSecurityFeatureAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityFeatureAnalytics.ts.html |here} to see how to use ListSecurityFeatureAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityFeatureAnalytics.ts.html |here} to see how to use ListSecurityFeatureAnalytics API.
      */
   public async listSecurityFeatureAnalytics(
     listSecurityFeatureAnalyticsRequest: requests.ListSecurityFeatureAnalyticsRequest
@@ -18564,7 +18564,7 @@ When you perform the ListSecurityFeatureAnalytics operation, if the parameter co
    * @param ListSecurityFeaturesRequest
    * @return ListSecurityFeaturesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityFeatures.ts.html |here} to see how to use ListSecurityFeatures API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityFeatures.ts.html |here} to see how to use ListSecurityFeatures API.
    */
   public async listSecurityFeatures(
     listSecurityFeaturesRequest: requests.ListSecurityFeaturesRequest
@@ -18679,7 +18679,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
      * @param ListSecurityPoliciesRequest
      * @return ListSecurityPoliciesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicies.ts.html |here} to see how to use ListSecurityPolicies API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicies.ts.html |here} to see how to use ListSecurityPolicies API.
      */
   public async listSecurityPolicies(
     listSecurityPoliciesRequest: requests.ListSecurityPoliciesRequest
@@ -18783,7 +18783,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
      * @param ListSecurityPolicyDeploymentsRequest
      * @return ListSecurityPolicyDeploymentsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicyDeployments.ts.html |here} to see how to use ListSecurityPolicyDeployments API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicyDeployments.ts.html |here} to see how to use ListSecurityPolicyDeployments API.
      */
   public async listSecurityPolicyDeployments(
     listSecurityPolicyDeploymentsRequest: requests.ListSecurityPolicyDeploymentsRequest
@@ -18879,7 +18879,7 @@ The ListSecurityPolicyEntryStates operation returns only the security policy ent
      * @param ListSecurityPolicyEntryStatesRequest
      * @return ListSecurityPolicyEntryStatesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicyEntryStates.ts.html |here} to see how to use ListSecurityPolicyEntryStates API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicyEntryStates.ts.html |here} to see how to use ListSecurityPolicyEntryStates API.
      */
   public async listSecurityPolicyEntryStates(
     listSecurityPolicyEntryStatesRequest: requests.ListSecurityPolicyEntryStatesRequest
@@ -18981,7 +18981,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
      * @param ListSecurityPolicyReportsRequest
      * @return ListSecurityPolicyReportsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicyReports.ts.html |here} to see how to use ListSecurityPolicyReports API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSecurityPolicyReports.ts.html |here} to see how to use ListSecurityPolicyReports API.
      */
   public async listSecurityPolicyReports(
     listSecurityPolicyReportsRequest: requests.ListSecurityPolicyReportsRequest
@@ -19074,7 +19074,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
    * @param ListSensitiveColumnsRequest
    * @return ListSensitiveColumnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveColumns.ts.html |here} to see how to use ListSensitiveColumns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveColumns.ts.html |here} to see how to use ListSensitiveColumns API.
    */
   public async listSensitiveColumns(
     listSensitiveColumnsRequest: requests.ListSensitiveColumnsRequest
@@ -19179,7 +19179,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
    * @param ListSensitiveDataModelSensitiveTypesRequest
    * @return ListSensitiveDataModelSensitiveTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveDataModelSensitiveTypes.ts.html |here} to see how to use ListSensitiveDataModelSensitiveTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveDataModelSensitiveTypes.ts.html |here} to see how to use ListSensitiveDataModelSensitiveTypes API.
    */
   public async listSensitiveDataModelSensitiveTypes(
     listSensitiveDataModelSensitiveTypesRequest: requests.ListSensitiveDataModelSensitiveTypesRequest
@@ -19268,7 +19268,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
    * @param ListSensitiveDataModelsRequest
    * @return ListSensitiveDataModelsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveDataModels.ts.html |here} to see how to use ListSensitiveDataModels API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveDataModels.ts.html |here} to see how to use ListSensitiveDataModels API.
    */
   public async listSensitiveDataModels(
     listSensitiveDataModelsRequest: requests.ListSensitiveDataModelsRequest
@@ -19363,7 +19363,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
    * @param ListSensitiveObjectsRequest
    * @return ListSensitiveObjectsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveObjects.ts.html |here} to see how to use ListSensitiveObjects API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveObjects.ts.html |here} to see how to use ListSensitiveObjects API.
    */
   public async listSensitiveObjects(
     listSensitiveObjectsRequest: requests.ListSensitiveObjectsRequest
@@ -19453,7 +19453,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
    * @param ListSensitiveSchemasRequest
    * @return ListSensitiveSchemasResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveSchemas.ts.html |here} to see how to use ListSensitiveSchemas API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveSchemas.ts.html |here} to see how to use ListSensitiveSchemas API.
    */
   public async listSensitiveSchemas(
     listSensitiveSchemasRequest: requests.ListSensitiveSchemasRequest
@@ -19541,7 +19541,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
    * @param ListSensitiveTypesRequest
    * @return ListSensitiveTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveTypes.ts.html |here} to see how to use ListSensitiveTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveTypes.ts.html |here} to see how to use ListSensitiveTypes API.
    */
   public async listSensitiveTypes(
     listSensitiveTypesRequest: requests.ListSensitiveTypesRequest
@@ -19640,7 +19640,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityPoli
    * @param ListSensitiveTypesExportsRequest
    * @return ListSensitiveTypesExportsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveTypesExports.ts.html |here} to see how to use ListSensitiveTypesExports API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveTypesExports.ts.html |here} to see how to use ListSensitiveTypesExports API.
    */
   public async listSensitiveTypesExports(
     listSensitiveTypesExportsRequest: requests.ListSensitiveTypesExportsRequest
@@ -19748,7 +19748,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollectio
      * @param ListSqlCollectionAnalyticsRequest
      * @return ListSqlCollectionAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlCollectionAnalytics.ts.html |here} to see how to use ListSqlCollectionAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlCollectionAnalytics.ts.html |here} to see how to use ListSqlCollectionAnalytics API.
      */
   public async listSqlCollectionAnalytics(
     listSqlCollectionAnalyticsRequest: requests.ListSqlCollectionAnalyticsRequest
@@ -19840,7 +19840,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollectio
    * @param ListSqlCollectionLogInsightsRequest
    * @return ListSqlCollectionLogInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlCollectionLogInsights.ts.html |here} to see how to use ListSqlCollectionLogInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlCollectionLogInsights.ts.html |here} to see how to use ListSqlCollectionLogInsights API.
    */
   public async listSqlCollectionLogInsights(
     listSqlCollectionLogInsightsRequest: requests.ListSqlCollectionLogInsightsRequest
@@ -19942,7 +19942,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlCollectio
      * @param ListSqlCollectionsRequest
      * @return ListSqlCollectionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlCollections.ts.html |here} to see how to use ListSqlCollections API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlCollections.ts.html |here} to see how to use ListSqlCollections API.
      */
   public async listSqlCollections(
     listSqlCollectionsRequest: requests.ListSqlCollectionsRequest
@@ -20050,7 +20050,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallA
      * @param ListSqlFirewallAllowedSqlAnalyticsRequest
      * @return ListSqlFirewallAllowedSqlAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallAllowedSqlAnalytics.ts.html |here} to see how to use ListSqlFirewallAllowedSqlAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallAllowedSqlAnalytics.ts.html |here} to see how to use ListSqlFirewallAllowedSqlAnalytics API.
      */
   public async listSqlFirewallAllowedSqlAnalytics(
     listSqlFirewallAllowedSqlAnalyticsRequest: requests.ListSqlFirewallAllowedSqlAnalyticsRequest
@@ -20152,7 +20152,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallP
      * @param ListSqlFirewallAllowedSqlsRequest
      * @return ListSqlFirewallAllowedSqlsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallAllowedSqls.ts.html |here} to see how to use ListSqlFirewallAllowedSqls API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallAllowedSqls.ts.html |here} to see how to use ListSqlFirewallAllowedSqls API.
      */
   public async listSqlFirewallAllowedSqls(
     listSqlFirewallAllowedSqlsRequest: requests.ListSqlFirewallAllowedSqlsRequest
@@ -20255,7 +20255,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSqlFirewallP
      * @param ListSqlFirewallPoliciesRequest
      * @return ListSqlFirewallPoliciesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallPolicies.ts.html |here} to see how to use ListSqlFirewallPolicies API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallPolicies.ts.html |here} to see how to use ListSqlFirewallPolicies API.
      */
   public async listSqlFirewallPolicies(
     listSqlFirewallPoliciesRequest: requests.ListSqlFirewallPoliciesRequest
@@ -20363,7 +20363,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
      * @param ListSqlFirewallPolicyAnalyticsRequest
      * @return ListSqlFirewallPolicyAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallPolicyAnalytics.ts.html |here} to see how to use ListSqlFirewallPolicyAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallPolicyAnalytics.ts.html |here} to see how to use ListSqlFirewallPolicyAnalytics API.
      */
   public async listSqlFirewallPolicyAnalytics(
     listSqlFirewallPolicyAnalyticsRequest: requests.ListSqlFirewallPolicyAnalyticsRequest
@@ -20455,7 +20455,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
    * @param ListSqlFirewallViolationAnalyticsRequest
    * @return ListSqlFirewallViolationAnalyticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallViolationAnalytics.ts.html |here} to see how to use ListSqlFirewallViolationAnalytics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallViolationAnalytics.ts.html |here} to see how to use ListSqlFirewallViolationAnalytics API.
    */
   public async listSqlFirewallViolationAnalytics(
     listSqlFirewallViolationAnalyticsRequest: requests.ListSqlFirewallViolationAnalyticsRequest
@@ -20551,7 +20551,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
    * @param ListSqlFirewallViolationsRequest
    * @return ListSqlFirewallViolationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallViolations.ts.html |here} to see how to use ListSqlFirewallViolations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSqlFirewallViolations.ts.html |here} to see how to use ListSqlFirewallViolations API.
    */
   public async listSqlFirewallViolations(
     listSqlFirewallViolationsRequest: requests.ListSqlFirewallViolationsRequest
@@ -20641,7 +20641,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
    * @param ListTablesRequest
    * @return ListTablesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTables.ts.html |here} to see how to use ListTables API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTables.ts.html |here} to see how to use ListTables API.
    */
   public async listTables(
     listTablesRequest: requests.ListTablesRequest
@@ -20784,7 +20784,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
    * @param ListTargetAlertPolicyAssociationsRequest
    * @return ListTargetAlertPolicyAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTargetAlertPolicyAssociations.ts.html |here} to see how to use ListTargetAlertPolicyAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTargetAlertPolicyAssociations.ts.html |here} to see how to use ListTargetAlertPolicyAssociations API.
    */
   public async listTargetAlertPolicyAssociations(
     listTargetAlertPolicyAssociationsRequest: requests.ListTargetAlertPolicyAssociationsRequest
@@ -20886,7 +20886,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
    * @param ListTargetDatabasesRequest
    * @return ListTargetDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTargetDatabases.ts.html |here} to see how to use ListTargetDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTargetDatabases.ts.html |here} to see how to use ListTargetDatabases API.
    */
   public async listTargetDatabases(
     listTargetDatabasesRequest: requests.ListTargetDatabasesRequest
@@ -21032,7 +21032,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
    * @param ListUserAccessAnalyticsRequest
    * @return ListUserAccessAnalyticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUserAccessAnalytics.ts.html |here} to see how to use ListUserAccessAnalytics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUserAccessAnalytics.ts.html |here} to see how to use ListUserAccessAnalytics API.
    */
   public async listUserAccessAnalytics(
     listUserAccessAnalyticsRequest: requests.ListUserAccessAnalyticsRequest
@@ -21133,7 +21133,7 @@ To use ListUserAnalytics to get a full list of all compartments and subcompartme
      * @param ListUserAnalyticsRequest
      * @return ListUserAnalyticsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUserAnalytics.ts.html |here} to see how to use ListUserAnalytics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUserAnalytics.ts.html |here} to see how to use ListUserAnalytics API.
      */
   public async listUserAnalytics(
     listUserAnalyticsRequest: requests.ListUserAnalyticsRequest
@@ -21301,7 +21301,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
      * @param ListUserAssessmentsRequest
      * @return ListUserAssessmentsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUserAssessments.ts.html |here} to see how to use ListUserAssessments API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUserAssessments.ts.html |here} to see how to use ListUserAssessments API.
      */
   public async listUserAssessments(
     listUserAssessmentsRequest: requests.ListUserAssessmentsRequest
@@ -21454,7 +21454,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param ListUsersRequest
    * @return ListUsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUsers.ts.html |here} to see how to use ListUsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListUsers.ts.html |here} to see how to use ListUsers API.
    */
   public async listUsers(
     listUsersRequest: requests.ListUsersRequest
@@ -21616,7 +21616,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -21748,7 +21748,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -21880,7 +21880,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -22017,7 +22017,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param MaskDataRequest
    * @return MaskDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/MaskData.ts.html |here} to see how to use MaskData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/MaskData.ts.html |here} to see how to use MaskData API.
    */
   public async maskData(
     maskDataRequest: requests.MaskDataRequest
@@ -22095,7 +22095,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param ModifyGlobalSettingsRequest
    * @return ModifyGlobalSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ModifyGlobalSettings.ts.html |here} to see how to use ModifyGlobalSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ModifyGlobalSettings.ts.html |here} to see how to use ModifyGlobalSettings API.
    */
   public async modifyGlobalSettings(
     modifyGlobalSettingsRequest: requests.ModifyGlobalSettingsRequest
@@ -22174,7 +22174,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param PatchAlertsRequest
    * @return PatchAlertsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchAlerts.ts.html |here} to see how to use PatchAlerts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchAlerts.ts.html |here} to see how to use PatchAlerts API.
    */
   public async patchAlerts(
     patchAlertsRequest: requests.PatchAlertsRequest
@@ -22255,7 +22255,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param PatchDiscoveryJobResultsRequest
    * @return PatchDiscoveryJobResultsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchDiscoveryJobResults.ts.html |here} to see how to use PatchDiscoveryJobResults API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchDiscoveryJobResults.ts.html |here} to see how to use PatchDiscoveryJobResults API.
    */
   public async patchDiscoveryJobResults(
     patchDiscoveryJobResultsRequest: requests.PatchDiscoveryJobResultsRequest
@@ -22337,7 +22337,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param PatchMaskingColumnsRequest
    * @return PatchMaskingColumnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchMaskingColumns.ts.html |here} to see how to use PatchMaskingColumns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchMaskingColumns.ts.html |here} to see how to use PatchMaskingColumns API.
    */
   public async patchMaskingColumns(
     patchMaskingColumnsRequest: requests.PatchMaskingColumnsRequest
@@ -22417,7 +22417,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param PatchSdmMaskingPolicyDifferenceColumnsRequest
    * @return PatchSdmMaskingPolicyDifferenceColumnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchSdmMaskingPolicyDifferenceColumns.ts.html |here} to see how to use PatchSdmMaskingPolicyDifferenceColumns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchSdmMaskingPolicyDifferenceColumns.ts.html |here} to see how to use PatchSdmMaskingPolicyDifferenceColumns API.
    */
   public async patchSdmMaskingPolicyDifferenceColumns(
     patchSdmMaskingPolicyDifferenceColumnsRequest: requests.PatchSdmMaskingPolicyDifferenceColumnsRequest
@@ -22500,7 +22500,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param PatchSensitiveColumnsRequest
    * @return PatchSensitiveColumnsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchSensitiveColumns.ts.html |here} to see how to use PatchSensitiveColumns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchSensitiveColumns.ts.html |here} to see how to use PatchSensitiveColumns API.
    */
   public async patchSensitiveColumns(
     patchSensitiveColumnsRequest: requests.PatchSensitiveColumnsRequest
@@ -22580,7 +22580,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param PatchSqlFirewallAllowedSqlRequest
    * @return PatchSqlFirewallAllowedSqlResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchSqlFirewallAllowedSql.ts.html |here} to see how to use PatchSqlFirewallAllowedSql API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchSqlFirewallAllowedSql.ts.html |here} to see how to use PatchSqlFirewallAllowedSql API.
    */
   public async patchSqlFirewallAllowedSql(
     patchSqlFirewallAllowedSqlRequest: requests.PatchSqlFirewallAllowedSqlRequest
@@ -22658,7 +22658,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param PatchTargetAlertPolicyAssociationRequest
    * @return PatchTargetAlertPolicyAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchTargetAlertPolicyAssociation.ts.html |here} to see how to use PatchTargetAlertPolicyAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchTargetAlertPolicyAssociation.ts.html |here} to see how to use PatchTargetAlertPolicyAssociation API.
    */
   public async patchTargetAlertPolicyAssociation(
     patchTargetAlertPolicyAssociationRequest: requests.PatchTargetAlertPolicyAssociationRequest
@@ -22735,7 +22735,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param ProvisionAuditPolicyRequest
    * @return ProvisionAuditPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ProvisionAuditPolicy.ts.html |here} to see how to use ProvisionAuditPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ProvisionAuditPolicy.ts.html |here} to see how to use ProvisionAuditPolicy API.
    */
   public async provisionAuditPolicy(
     provisionAuditPolicyRequest: requests.ProvisionAuditPolicyRequest
@@ -22814,7 +22814,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param PurgeSqlCollectionLogsRequest
    * @return PurgeSqlCollectionLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PurgeSqlCollectionLogs.ts.html |here} to see how to use PurgeSqlCollectionLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PurgeSqlCollectionLogs.ts.html |here} to see how to use PurgeSqlCollectionLogs API.
    */
   public async purgeSqlCollectionLogs(
     purgeSqlCollectionLogsRequest: requests.PurgeSqlCollectionLogsRequest
@@ -22888,7 +22888,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param RefreshDatabaseSecurityConfigurationRequest
    * @return RefreshDatabaseSecurityConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshDatabaseSecurityConfiguration.ts.html |here} to see how to use RefreshDatabaseSecurityConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshDatabaseSecurityConfiguration.ts.html |here} to see how to use RefreshDatabaseSecurityConfiguration API.
    */
   public async refreshDatabaseSecurityConfiguration(
     refreshDatabaseSecurityConfigurationRequest: requests.RefreshDatabaseSecurityConfigurationRequest
@@ -22966,7 +22966,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param RefreshSecurityAssessmentRequest
    * @return RefreshSecurityAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshSecurityAssessment.ts.html |here} to see how to use RefreshSecurityAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshSecurityAssessment.ts.html |here} to see how to use RefreshSecurityAssessment API.
    */
   public async refreshSecurityAssessment(
     refreshSecurityAssessmentRequest: requests.RefreshSecurityAssessmentRequest
@@ -23046,7 +23046,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param RefreshSqlCollectionLogInsightsRequest
    * @return RefreshSqlCollectionLogInsightsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshSqlCollectionLogInsights.ts.html |here} to see how to use RefreshSqlCollectionLogInsights API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshSqlCollectionLogInsights.ts.html |here} to see how to use RefreshSqlCollectionLogInsights API.
    */
   public async refreshSqlCollectionLogInsights(
     refreshSqlCollectionLogInsightsRequest: requests.RefreshSqlCollectionLogInsightsRequest
@@ -23122,7 +23122,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param RefreshTargetDatabaseRequest
    * @return RefreshTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshTargetDatabase.ts.html |here} to see how to use RefreshTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshTargetDatabase.ts.html |here} to see how to use RefreshTargetDatabase API.
    */
   public async refreshTargetDatabase(
     refreshTargetDatabaseRequest: requests.RefreshTargetDatabaseRequest
@@ -23199,7 +23199,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param RefreshUserAssessmentRequest
    * @return RefreshUserAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshUserAssessment.ts.html |here} to see how to use RefreshUserAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshUserAssessment.ts.html |here} to see how to use RefreshUserAssessment API.
    */
   public async refreshUserAssessment(
     refreshUserAssessmentRequest: requests.RefreshUserAssessmentRequest
@@ -23278,7 +23278,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param RemoveScheduleReportRequest
    * @return RemoveScheduleReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RemoveScheduleReport.ts.html |here} to see how to use RemoveScheduleReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RemoveScheduleReport.ts.html |here} to see how to use RemoveScheduleReport API.
    */
   public async removeScheduleReport(
     removeScheduleReportRequest: requests.RemoveScheduleReportRequest
@@ -23352,7 +23352,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param ResumeAuditTrailRequest
    * @return ResumeAuditTrailResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ResumeAuditTrail.ts.html |here} to see how to use ResumeAuditTrail API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ResumeAuditTrail.ts.html |here} to see how to use ResumeAuditTrail API.
    */
   public async resumeAuditTrail(
     resumeAuditTrailRequest: requests.ResumeAuditTrailRequest
@@ -23426,7 +23426,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param ResumeWorkRequestRequest
    * @return ResumeWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ResumeWorkRequest.ts.html |here} to see how to use ResumeWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ResumeWorkRequest.ts.html |here} to see how to use ResumeWorkRequest API.
    */
   public async resumeWorkRequest(
     resumeWorkRequestRequest: requests.ResumeWorkRequestRequest
@@ -23500,7 +23500,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param RetrieveAuditPoliciesRequest
    * @return RetrieveAuditPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RetrieveAuditPolicies.ts.html |here} to see how to use RetrieveAuditPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RetrieveAuditPolicies.ts.html |here} to see how to use RetrieveAuditPolicies API.
    */
   public async retrieveAuditPolicies(
     retrieveAuditPoliciesRequest: requests.RetrieveAuditPoliciesRequest
@@ -23574,7 +23574,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param ScheduleReportRequest
    * @return ScheduleReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ScheduleReport.ts.html |here} to see how to use ScheduleReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ScheduleReport.ts.html |here} to see how to use ScheduleReport API.
    */
   public async scheduleReport(
     scheduleReportRequest: requests.ScheduleReportRequest
@@ -23653,7 +23653,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param SetSecurityAssessmentBaselineRequest
    * @return SetSecurityAssessmentBaselineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/SetSecurityAssessmentBaseline.ts.html |here} to see how to use SetSecurityAssessmentBaseline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/SetSecurityAssessmentBaseline.ts.html |here} to see how to use SetSecurityAssessmentBaseline API.
    */
   public async setSecurityAssessmentBaseline(
     setSecurityAssessmentBaselineRequest: requests.SetSecurityAssessmentBaselineRequest
@@ -23733,7 +23733,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param SetUserAssessmentBaselineRequest
    * @return SetUserAssessmentBaselineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/SetUserAssessmentBaseline.ts.html |here} to see how to use SetUserAssessmentBaseline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/SetUserAssessmentBaseline.ts.html |here} to see how to use SetUserAssessmentBaseline API.
    */
   public async setUserAssessmentBaseline(
     setUserAssessmentBaselineRequest: requests.SetUserAssessmentBaselineRequest
@@ -23813,7 +23813,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param StartAuditTrailRequest
    * @return StartAuditTrailResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StartAuditTrail.ts.html |here} to see how to use StartAuditTrail API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StartAuditTrail.ts.html |here} to see how to use StartAuditTrail API.
    */
   public async startAuditTrail(
     startAuditTrailRequest: requests.StartAuditTrailRequest
@@ -23892,7 +23892,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param StartSqlCollectionRequest
    * @return StartSqlCollectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StartSqlCollection.ts.html |here} to see how to use StartSqlCollection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StartSqlCollection.ts.html |here} to see how to use StartSqlCollection API.
    */
   public async startSqlCollection(
     startSqlCollectionRequest: requests.StartSqlCollectionRequest
@@ -23966,7 +23966,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param StopAuditTrailRequest
    * @return StopAuditTrailResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StopAuditTrail.ts.html |here} to see how to use StopAuditTrail API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StopAuditTrail.ts.html |here} to see how to use StopAuditTrail API.
    */
   public async stopAuditTrail(
     stopAuditTrailRequest: requests.StopAuditTrailRequest
@@ -24039,7 +24039,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param StopSqlCollectionRequest
    * @return StopSqlCollectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StopSqlCollection.ts.html |here} to see how to use StopSqlCollection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/StopSqlCollection.ts.html |here} to see how to use StopSqlCollection API.
    */
   public async stopSqlCollection(
     stopSqlCollectionRequest: requests.StopSqlCollectionRequest
@@ -24114,7 +24114,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param SuspendWorkRequestRequest
    * @return SuspendWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/SuspendWorkRequest.ts.html |here} to see how to use SuspendWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/SuspendWorkRequest.ts.html |here} to see how to use SuspendWorkRequest API.
    */
   public async suspendWorkRequest(
     suspendWorkRequestRequest: requests.SuspendWorkRequestRequest
@@ -24191,7 +24191,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UnsetSecurityAssessmentBaselineRequest
    * @return UnsetSecurityAssessmentBaselineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UnsetSecurityAssessmentBaseline.ts.html |here} to see how to use UnsetSecurityAssessmentBaseline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UnsetSecurityAssessmentBaseline.ts.html |here} to see how to use UnsetSecurityAssessmentBaseline API.
    */
   public async unsetSecurityAssessmentBaseline(
     unsetSecurityAssessmentBaselineRequest: requests.UnsetSecurityAssessmentBaselineRequest
@@ -24274,7 +24274,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UnsetUserAssessmentBaselineRequest
    * @return UnsetUserAssessmentBaselineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UnsetUserAssessmentBaseline.ts.html |here} to see how to use UnsetUserAssessmentBaseline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UnsetUserAssessmentBaseline.ts.html |here} to see how to use UnsetUserAssessmentBaseline API.
    */
   public async unsetUserAssessmentBaseline(
     unsetUserAssessmentBaselineRequest: requests.UnsetUserAssessmentBaselineRequest
@@ -24354,7 +24354,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateAlertRequest
    * @return UpdateAlertResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlert.ts.html |here} to see how to use UpdateAlert API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlert.ts.html |here} to see how to use UpdateAlert API.
    */
   public async updateAlert(
     updateAlertRequest: requests.UpdateAlertRequest
@@ -24436,7 +24436,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateAlertPolicyRequest
    * @return UpdateAlertPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlertPolicy.ts.html |here} to see how to use UpdateAlertPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlertPolicy.ts.html |here} to see how to use UpdateAlertPolicy API.
    */
   public async updateAlertPolicy(
     updateAlertPolicyRequest: requests.UpdateAlertPolicyRequest
@@ -24514,7 +24514,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateAlertPolicyRuleRequest
    * @return UpdateAlertPolicyRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlertPolicyRule.ts.html |here} to see how to use UpdateAlertPolicyRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAlertPolicyRule.ts.html |here} to see how to use UpdateAlertPolicyRule API.
    */
   public async updateAlertPolicyRule(
     updateAlertPolicyRuleRequest: requests.UpdateAlertPolicyRuleRequest
@@ -24593,7 +24593,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateAuditArchiveRetrievalRequest
    * @return UpdateAuditArchiveRetrievalResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditArchiveRetrieval.ts.html |here} to see how to use UpdateAuditArchiveRetrieval API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditArchiveRetrieval.ts.html |here} to see how to use UpdateAuditArchiveRetrieval API.
    */
   public async updateAuditArchiveRetrieval(
     updateAuditArchiveRetrievalRequest: requests.UpdateAuditArchiveRetrievalRequest
@@ -24672,7 +24672,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateAuditPolicyRequest
    * @return UpdateAuditPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditPolicy.ts.html |here} to see how to use UpdateAuditPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditPolicy.ts.html |here} to see how to use UpdateAuditPolicy API.
    */
   public async updateAuditPolicy(
     updateAuditPolicyRequest: requests.UpdateAuditPolicyRequest
@@ -24750,7 +24750,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateAuditProfileRequest
    * @return UpdateAuditProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditProfile.ts.html |here} to see how to use UpdateAuditProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditProfile.ts.html |here} to see how to use UpdateAuditProfile API.
    */
   public async updateAuditProfile(
     updateAuditProfileRequest: requests.UpdateAuditProfileRequest
@@ -24828,7 +24828,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateAuditTrailRequest
    * @return UpdateAuditTrailResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditTrail.ts.html |here} to see how to use UpdateAuditTrail API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateAuditTrail.ts.html |here} to see how to use UpdateAuditTrail API.
    */
   public async updateAuditTrail(
     updateAuditTrailRequest: requests.UpdateAuditTrailRequest
@@ -24906,7 +24906,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateDataSafePrivateEndpointRequest
    * @return UpdateDataSafePrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateDataSafePrivateEndpoint.ts.html |here} to see how to use UpdateDataSafePrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateDataSafePrivateEndpoint.ts.html |here} to see how to use UpdateDataSafePrivateEndpoint API.
    */
   public async updateDataSafePrivateEndpoint(
     updateDataSafePrivateEndpointRequest: requests.UpdateDataSafePrivateEndpointRequest
@@ -24985,7 +24985,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateDatabaseSecurityConfigRequest
    * @return UpdateDatabaseSecurityConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateDatabaseSecurityConfig.ts.html |here} to see how to use UpdateDatabaseSecurityConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateDatabaseSecurityConfig.ts.html |here} to see how to use UpdateDatabaseSecurityConfig API.
    */
   public async updateDatabaseSecurityConfig(
     updateDatabaseSecurityConfigRequest: requests.UpdateDatabaseSecurityConfigRequest
@@ -25064,7 +25064,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateFindingRequest
    * @return UpdateFindingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateFinding.ts.html |here} to see how to use UpdateFinding API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateFinding.ts.html |here} to see how to use UpdateFinding API.
    */
   public async updateFinding(
     updateFindingRequest: requests.UpdateFindingRequest
@@ -25144,7 +25144,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateLibraryMaskingFormatRequest
    * @return UpdateLibraryMaskingFormatResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateLibraryMaskingFormat.ts.html |here} to see how to use UpdateLibraryMaskingFormat API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateLibraryMaskingFormat.ts.html |here} to see how to use UpdateLibraryMaskingFormat API.
    */
   public async updateLibraryMaskingFormat(
     updateLibraryMaskingFormatRequest: requests.UpdateLibraryMaskingFormatRequest
@@ -25225,7 +25225,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateMaskingColumnRequest
    * @return UpdateMaskingColumnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateMaskingColumn.ts.html |here} to see how to use UpdateMaskingColumn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateMaskingColumn.ts.html |here} to see how to use UpdateMaskingColumn API.
    */
   public async updateMaskingColumn(
     updateMaskingColumnRequest: requests.UpdateMaskingColumnRequest
@@ -25304,7 +25304,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateMaskingPolicyRequest
    * @return UpdateMaskingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateMaskingPolicy.ts.html |here} to see how to use UpdateMaskingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateMaskingPolicy.ts.html |here} to see how to use UpdateMaskingPolicy API.
    */
   public async updateMaskingPolicy(
     updateMaskingPolicyRequest: requests.UpdateMaskingPolicyRequest
@@ -25382,7 +25382,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateOnPremConnectorRequest
    * @return UpdateOnPremConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateOnPremConnector.ts.html |here} to see how to use UpdateOnPremConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateOnPremConnector.ts.html |here} to see how to use UpdateOnPremConnector API.
    */
   public async updateOnPremConnector(
     updateOnPremConnectorRequest: requests.UpdateOnPremConnectorRequest
@@ -25461,7 +25461,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateOnPremConnectorWalletRequest
    * @return UpdateOnPremConnectorWalletResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateOnPremConnectorWallet.ts.html |here} to see how to use UpdateOnPremConnectorWallet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateOnPremConnectorWallet.ts.html |here} to see how to use UpdateOnPremConnectorWallet API.
    */
   public async updateOnPremConnectorWallet(
     updateOnPremConnectorWalletRequest: requests.UpdateOnPremConnectorWalletRequest
@@ -25541,7 +25541,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdatePeerTargetDatabaseRequest
    * @return UpdatePeerTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdatePeerTargetDatabase.ts.html |here} to see how to use UpdatePeerTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdatePeerTargetDatabase.ts.html |here} to see how to use UpdatePeerTargetDatabase API.
    */
   public async updatePeerTargetDatabase(
     updatePeerTargetDatabaseRequest: requests.UpdatePeerTargetDatabaseRequest
@@ -25622,7 +25622,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateReportRequest
    * @return UpdateReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateReport.ts.html |here} to see how to use UpdateReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateReport.ts.html |here} to see how to use UpdateReport API.
    */
   public async updateReport(
     updateReportRequest: requests.UpdateReportRequest
@@ -25701,7 +25701,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateReportDefinitionRequest
    * @return UpdateReportDefinitionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateReportDefinition.ts.html |here} to see how to use UpdateReportDefinition API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateReportDefinition.ts.html |here} to see how to use UpdateReportDefinition API.
    */
   public async updateReportDefinition(
     updateReportDefinitionRequest: requests.UpdateReportDefinitionRequest
@@ -25780,7 +25780,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateSdmMaskingPolicyDifferenceRequest
    * @return UpdateSdmMaskingPolicyDifferenceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSdmMaskingPolicyDifference.ts.html |here} to see how to use UpdateSdmMaskingPolicyDifference API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSdmMaskingPolicyDifference.ts.html |here} to see how to use UpdateSdmMaskingPolicyDifference API.
    */
   public async updateSdmMaskingPolicyDifference(
     updateSdmMaskingPolicyDifferenceRequest: requests.UpdateSdmMaskingPolicyDifferenceRequest
@@ -25861,7 +25861,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateSecurityAssessmentRequest
    * @return UpdateSecurityAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSecurityAssessment.ts.html |here} to see how to use UpdateSecurityAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSecurityAssessment.ts.html |here} to see how to use UpdateSecurityAssessment API.
    */
   public async updateSecurityAssessment(
     updateSecurityAssessmentRequest: requests.UpdateSecurityAssessmentRequest
@@ -25940,7 +25940,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateSecurityPolicyRequest
    * @return UpdateSecurityPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSecurityPolicy.ts.html |here} to see how to use UpdateSecurityPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSecurityPolicy.ts.html |here} to see how to use UpdateSecurityPolicy API.
    */
   public async updateSecurityPolicy(
     updateSecurityPolicyRequest: requests.UpdateSecurityPolicyRequest
@@ -26018,7 +26018,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateSecurityPolicyDeploymentRequest
    * @return UpdateSecurityPolicyDeploymentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSecurityPolicyDeployment.ts.html |here} to see how to use UpdateSecurityPolicyDeployment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSecurityPolicyDeployment.ts.html |here} to see how to use UpdateSecurityPolicyDeployment API.
    */
   public async updateSecurityPolicyDeployment(
     updateSecurityPolicyDeploymentRequest: requests.UpdateSecurityPolicyDeploymentRequest
@@ -26098,7 +26098,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateSensitiveColumnRequest
    * @return UpdateSensitiveColumnResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveColumn.ts.html |here} to see how to use UpdateSensitiveColumn API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveColumn.ts.html |here} to see how to use UpdateSensitiveColumn API.
    */
   public async updateSensitiveColumn(
     updateSensitiveColumnRequest: requests.UpdateSensitiveColumnRequest
@@ -26179,7 +26179,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateSensitiveDataModelRequest
    * @return UpdateSensitiveDataModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveDataModel.ts.html |here} to see how to use UpdateSensitiveDataModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveDataModel.ts.html |here} to see how to use UpdateSensitiveDataModel API.
    */
   public async updateSensitiveDataModel(
     updateSensitiveDataModelRequest: requests.UpdateSensitiveDataModelRequest
@@ -26258,7 +26258,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateSensitiveTypeRequest
    * @return UpdateSensitiveTypeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveType.ts.html |here} to see how to use UpdateSensitiveType API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveType.ts.html |here} to see how to use UpdateSensitiveType API.
    */
   public async updateSensitiveType(
     updateSensitiveTypeRequest: requests.UpdateSensitiveTypeRequest
@@ -26336,7 +26336,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateSensitiveTypesExportRequest
    * @return UpdateSensitiveTypesExportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveTypesExport.ts.html |here} to see how to use UpdateSensitiveTypesExport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSensitiveTypesExport.ts.html |here} to see how to use UpdateSensitiveTypesExport API.
    */
   public async updateSensitiveTypesExport(
     updateSensitiveTypesExportRequest: requests.UpdateSensitiveTypesExportRequest
@@ -26415,7 +26415,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateSqlCollectionRequest
    * @return UpdateSqlCollectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSqlCollection.ts.html |here} to see how to use UpdateSqlCollection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSqlCollection.ts.html |here} to see how to use UpdateSqlCollection API.
    */
   public async updateSqlCollection(
     updateSqlCollectionRequest: requests.UpdateSqlCollectionRequest
@@ -26493,7 +26493,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateSqlFirewallPolicyRequest
    * @return UpdateSqlFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSqlFirewallPolicy.ts.html |here} to see how to use UpdateSqlFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSqlFirewallPolicy.ts.html |here} to see how to use UpdateSqlFirewallPolicy API.
    */
   public async updateSqlFirewallPolicy(
     updateSqlFirewallPolicyRequest: requests.UpdateSqlFirewallPolicyRequest
@@ -26571,7 +26571,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateTargetAlertPolicyAssociationRequest
    * @return UpdateTargetAlertPolicyAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateTargetAlertPolicyAssociation.ts.html |here} to see how to use UpdateTargetAlertPolicyAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateTargetAlertPolicyAssociation.ts.html |here} to see how to use UpdateTargetAlertPolicyAssociation API.
    */
   public async updateTargetAlertPolicyAssociation(
     updateTargetAlertPolicyAssociationRequest: requests.UpdateTargetAlertPolicyAssociationRequest
@@ -26651,7 +26651,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateTargetDatabaseRequest
    * @return UpdateTargetDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateTargetDatabase.ts.html |here} to see how to use UpdateTargetDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateTargetDatabase.ts.html |here} to see how to use UpdateTargetDatabase API.
    */
   public async updateTargetDatabase(
     updateTargetDatabaseRequest: requests.UpdateTargetDatabaseRequest
@@ -26731,7 +26731,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UpdateUserAssessmentRequest
    * @return UpdateUserAssessmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateUserAssessment.ts.html |here} to see how to use UpdateUserAssessment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateUserAssessment.ts.html |here} to see how to use UpdateUserAssessment API.
    */
   public async updateUserAssessment(
     updateUserAssessmentRequest: requests.UpdateUserAssessmentRequest
@@ -26814,7 +26814,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UploadMaskingPolicyRequest
    * @return UploadMaskingPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UploadMaskingPolicy.ts.html |here} to see how to use UploadMaskingPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UploadMaskingPolicy.ts.html |here} to see how to use UploadMaskingPolicy API.
    */
   public async uploadMaskingPolicy(
     uploadMaskingPolicyRequest: requests.UploadMaskingPolicyRequest
@@ -26892,7 +26892,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
    * @param UploadSensitiveDataModelRequest
    * @return UploadSensitiveDataModelResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UploadSensitiveDataModel.ts.html |here} to see how to use UploadSensitiveDataModel API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UploadSensitiveDataModel.ts.html |here} to see how to use UploadSensitiveDataModel API.
    */
   public async uploadSensitiveDataModel(
     uploadSensitiveDataModelRequest: requests.UploadSensitiveDataModelRequest

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The node count configuration to update on an existing OpenSearch cluster for [horizontal resizing](https://docs.cloud.oracle.com/iaas/Content/search-opensearch/Tasks/resizingacluster.htm#horizontalresize).
+ * The node count configuration to update on an existing OpenSearch cluster for [horizontal resizing](https://docs.oracle.com/iaas/Content/search-opensearch/Tasks/resizingacluster.htm#horizontalresize).
  */
 export interface ResizeOpensearchClusterHorizontalDetails {
   /**

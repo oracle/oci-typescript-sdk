@@ -2,7 +2,7 @@
  * Database Management API
  * Use the Database Management API to monitor and manage resources such as
 Oracle Databases, MySQL Databases, and External Database Systems. 
-For more information, see [Database Management](/iaas/database-management/home.htm).
+For more information, see [Database Management](https://docs.oracle.com/iaas/database-management/home.htm).
 
  * OpenAPI spec version: 20201101
  * 
@@ -247,7 +247,7 @@ export class DbManagementClient {
    * @param AddDataFilesRequest
    * @return AddDataFilesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/AddDataFiles.ts.html |here} to see how to use AddDataFiles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/AddDataFiles.ts.html |here} to see how to use AddDataFiles API.
    */
   public async addDataFiles(
     addDataFilesRequest: requests.AddDataFilesRequest
@@ -329,7 +329,7 @@ export class DbManagementClient {
    * @param AddManagedDatabaseToManagedDatabaseGroupRequest
    * @return AddManagedDatabaseToManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/AddManagedDatabaseToManagedDatabaseGroup.ts.html |here} to see how to use AddManagedDatabaseToManagedDatabaseGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/AddManagedDatabaseToManagedDatabaseGroup.ts.html |here} to see how to use AddManagedDatabaseToManagedDatabaseGroup API.
    */
   public async addManagedDatabaseToManagedDatabaseGroup(
     addManagedDatabaseToManagedDatabaseGroupRequest: requests.AddManagedDatabaseToManagedDatabaseGroupRequest
@@ -408,7 +408,7 @@ export class DbManagementClient {
    * @param AddmTasksRequest
    * @return AddmTasksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/AddmTasks.ts.html |here} to see how to use AddmTasks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/AddmTasks.ts.html |here} to see how to use AddmTasks API.
    */
   public async addmTasks(
     addmTasksRequest: requests.AddmTasksRequest
@@ -505,7 +505,7 @@ export class DbManagementClient {
      * @param ChangeDatabaseParametersRequest
      * @return ChangeDatabaseParametersResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeDatabaseParameters.ts.html |here} to see how to use ChangeDatabaseParameters API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeDatabaseParameters.ts.html |here} to see how to use ChangeDatabaseParameters API.
      */
   public async changeDatabaseParameters(
     changeDatabaseParametersRequest: requests.ChangeDatabaseParametersRequest
@@ -583,7 +583,7 @@ export class DbManagementClient {
    * @param ChangeDbManagementPrivateEndpointCompartmentRequest
    * @return ChangeDbManagementPrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeDbManagementPrivateEndpointCompartment.ts.html |here} to see how to use ChangeDbManagementPrivateEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeDbManagementPrivateEndpointCompartment.ts.html |here} to see how to use ChangeDbManagementPrivateEndpointCompartment API.
    */
   public async changeDbManagementPrivateEndpointCompartment(
     changeDbManagementPrivateEndpointCompartmentRequest: requests.ChangeDbManagementPrivateEndpointCompartmentRequest
@@ -663,7 +663,7 @@ export class DbManagementClient {
    * @param ChangeExternalDbSystemCompartmentRequest
    * @return ChangeExternalDbSystemCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeExternalDbSystemCompartment.ts.html |here} to see how to use ChangeExternalDbSystemCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeExternalDbSystemCompartment.ts.html |here} to see how to use ChangeExternalDbSystemCompartment API.
    */
   public async changeExternalDbSystemCompartment(
     changeExternalDbSystemCompartmentRequest: requests.ChangeExternalDbSystemCompartmentRequest
@@ -744,7 +744,7 @@ export class DbManagementClient {
    * @param ChangeExternalExadataInfrastructureCompartmentRequest
    * @return ChangeExternalExadataInfrastructureCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeExternalExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeExternalExadataInfrastructureCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeExternalExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeExternalExadataInfrastructureCompartment API.
    */
   public async changeExternalExadataInfrastructureCompartment(
     changeExternalExadataInfrastructureCompartmentRequest: requests.ChangeExternalExadataInfrastructureCompartmentRequest
@@ -829,7 +829,7 @@ export class DbManagementClient {
    * @param ChangeJobCompartmentRequest
    * @return ChangeJobCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeJobCompartment.ts.html |here} to see how to use ChangeJobCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeJobCompartment.ts.html |here} to see how to use ChangeJobCompartment API.
    */
   public async changeJobCompartment(
     changeJobCompartmentRequest: requests.ChangeJobCompartmentRequest
@@ -907,7 +907,7 @@ export class DbManagementClient {
    * @param ChangeManagedDatabaseGroupCompartmentRequest
    * @return ChangeManagedDatabaseGroupCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeManagedDatabaseGroupCompartment.ts.html |here} to see how to use ChangeManagedDatabaseGroupCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeManagedDatabaseGroupCompartment.ts.html |here} to see how to use ChangeManagedDatabaseGroupCompartment API.
    */
   public async changeManagedDatabaseGroupCompartment(
     changeManagedDatabaseGroupCompartmentRequest: requests.ChangeManagedDatabaseGroupCompartmentRequest
@@ -988,7 +988,7 @@ export class DbManagementClient {
    * @param ChangeNamedCredentialCompartmentRequest
    * @return ChangeNamedCredentialCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeNamedCredentialCompartment.ts.html |here} to see how to use ChangeNamedCredentialCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeNamedCredentialCompartment.ts.html |here} to see how to use ChangeNamedCredentialCompartment API.
    */
   public async changeNamedCredentialCompartment(
     changeNamedCredentialCompartmentRequest: requests.ChangeNamedCredentialCompartmentRequest
@@ -1068,7 +1068,7 @@ The database purges plans that have not been used for longer than
      * @param ChangePlanRetentionRequest
      * @return ChangePlanRetentionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangePlanRetention.ts.html |here} to see how to use ChangePlanRetention API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangePlanRetention.ts.html |here} to see how to use ChangePlanRetention API.
      */
   public async changePlanRetention(
     changePlanRetentionRequest: requests.ChangePlanRetentionRequest
@@ -1142,7 +1142,7 @@ The database purges plans that have not been used for longer than
    * @param ChangeSpaceBudgetRequest
    * @return ChangeSpaceBudgetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeSpaceBudget.ts.html |here} to see how to use ChangeSpaceBudget API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeSpaceBudget.ts.html |here} to see how to use ChangeSpaceBudget API.
    */
   public async changeSpaceBudget(
     changeSpaceBudgetRequest: requests.ChangeSpaceBudgetRequest
@@ -1215,7 +1215,7 @@ The database purges plans that have not been used for longer than
    * @param ChangeSqlPlanBaselinesAttributesRequest
    * @return ChangeSqlPlanBaselinesAttributesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeSqlPlanBaselinesAttributes.ts.html |here} to see how to use ChangeSqlPlanBaselinesAttributes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeSqlPlanBaselinesAttributes.ts.html |here} to see how to use ChangeSqlPlanBaselinesAttributes API.
    */
   public async changeSqlPlanBaselinesAttributes(
     changeSqlPlanBaselinesAttributesRequest: requests.ChangeSqlPlanBaselinesAttributesRequest
@@ -1291,7 +1291,7 @@ The database purges plans that have not been used for longer than
    * @param CheckExternalDbSystemConnectorConnectionStatusRequest
    * @return CheckExternalDbSystemConnectorConnectionStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CheckExternalDbSystemConnectorConnectionStatus.ts.html |here} to see how to use CheckExternalDbSystemConnectorConnectionStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CheckExternalDbSystemConnectorConnectionStatus.ts.html |here} to see how to use CheckExternalDbSystemConnectorConnectionStatus API.
    */
   public async checkExternalDbSystemConnectorConnectionStatus(
     checkExternalDbSystemConnectorConnectionStatusRequest: requests.CheckExternalDbSystemConnectorConnectionStatusRequest
@@ -1375,7 +1375,7 @@ The database purges plans that have not been used for longer than
    * @param CheckExternalExadataStorageConnectorRequest
    * @return CheckExternalExadataStorageConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CheckExternalExadataStorageConnector.ts.html |here} to see how to use CheckExternalExadataStorageConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CheckExternalExadataStorageConnector.ts.html |here} to see how to use CheckExternalExadataStorageConnector API.
    */
   public async checkExternalExadataStorageConnector(
     checkExternalExadataStorageConnectorRequest: requests.CheckExternalExadataStorageConnectorRequest
@@ -1460,7 +1460,7 @@ The database purges plans that have not been used for longer than
    * @param CheckExternalMySqlDatabaseConnectorConnectionStatusRequest
    * @return CheckExternalMySqlDatabaseConnectorConnectionStatusResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CheckExternalMySqlDatabaseConnectorConnectionStatus.ts.html |here} to see how to use CheckExternalMySqlDatabaseConnectorConnectionStatus API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CheckExternalMySqlDatabaseConnectorConnectionStatus.ts.html |here} to see how to use CheckExternalMySqlDatabaseConnectorConnectionStatus API.
    */
   public async checkExternalMySqlDatabaseConnectorConnectionStatus(
     checkExternalMySqlDatabaseConnectorConnectionStatusRequest: requests.CheckExternalMySqlDatabaseConnectorConnectionStatusRequest
@@ -1541,7 +1541,7 @@ The database purges plans that have not been used for longer than
    * @param ConfigureAutomaticCaptureFiltersRequest
    * @return ConfigureAutomaticCaptureFiltersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ConfigureAutomaticCaptureFilters.ts.html |here} to see how to use ConfigureAutomaticCaptureFilters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ConfigureAutomaticCaptureFilters.ts.html |here} to see how to use ConfigureAutomaticCaptureFilters API.
    */
   public async configureAutomaticCaptureFilters(
     configureAutomaticCaptureFiltersRequest: requests.ConfigureAutomaticCaptureFiltersRequest
@@ -1618,7 +1618,7 @@ The database purges plans that have not been used for longer than
    * @param ConfigureAutomaticSpmEvolveAdvisorTaskRequest
    * @return ConfigureAutomaticSpmEvolveAdvisorTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ConfigureAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use ConfigureAutomaticSpmEvolveAdvisorTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ConfigureAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use ConfigureAutomaticSpmEvolveAdvisorTask API.
    */
   public async configureAutomaticSpmEvolveAdvisorTask(
     configureAutomaticSpmEvolveAdvisorTaskRequest: requests.ConfigureAutomaticSpmEvolveAdvisorTaskRequest
@@ -1695,7 +1695,7 @@ The database purges plans that have not been used for longer than
    * @param CreateDbManagementPrivateEndpointRequest
    * @return CreateDbManagementPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateDbManagementPrivateEndpoint.ts.html |here} to see how to use CreateDbManagementPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateDbManagementPrivateEndpoint.ts.html |here} to see how to use CreateDbManagementPrivateEndpoint API.
    */
   public async createDbManagementPrivateEndpoint(
     createDbManagementPrivateEndpointRequest: requests.CreateDbManagementPrivateEndpointRequest
@@ -1787,7 +1787,7 @@ The database purges plans that have not been used for longer than
    * @param CreateExternalDbSystemRequest
    * @return CreateExternalDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalDbSystem.ts.html |here} to see how to use CreateExternalDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalDbSystem.ts.html |here} to see how to use CreateExternalDbSystem API.
    */
   public async createExternalDbSystem(
     createExternalDbSystemRequest: requests.CreateExternalDbSystemRequest
@@ -1883,7 +1883,7 @@ The database purges plans that have not been used for longer than
    * @param CreateExternalDbSystemConnectorRequest
    * @return CreateExternalDbSystemConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalDbSystemConnector.ts.html |here} to see how to use CreateExternalDbSystemConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalDbSystemConnector.ts.html |here} to see how to use CreateExternalDbSystemConnector API.
    */
   public async createExternalDbSystemConnector(
     createExternalDbSystemConnectorRequest: requests.CreateExternalDbSystemConnectorRequest
@@ -1965,7 +1965,7 @@ The database purges plans that have not been used for longer than
    * @param CreateExternalDbSystemDiscoveryRequest
    * @return CreateExternalDbSystemDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalDbSystemDiscovery.ts.html |here} to see how to use CreateExternalDbSystemDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalDbSystemDiscovery.ts.html |here} to see how to use CreateExternalDbSystemDiscovery API.
    */
   public async createExternalDbSystemDiscovery(
     createExternalDbSystemDiscoveryRequest: requests.CreateExternalDbSystemDiscoveryRequest
@@ -2067,7 +2067,7 @@ The database purges plans that have not been used for longer than
    * @param CreateExternalExadataInfrastructureRequest
    * @return CreateExternalExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalExadataInfrastructure.ts.html |here} to see how to use CreateExternalExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalExadataInfrastructure.ts.html |here} to see how to use CreateExternalExadataInfrastructure API.
    */
   public async createExternalExadataInfrastructure(
     createExternalExadataInfrastructureRequest: requests.CreateExternalExadataInfrastructureRequest
@@ -2151,7 +2151,7 @@ The database purges plans that have not been used for longer than
    * @param CreateExternalExadataStorageConnectorRequest
    * @return CreateExternalExadataStorageConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalExadataStorageConnector.ts.html |here} to see how to use CreateExternalExadataStorageConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalExadataStorageConnector.ts.html |here} to see how to use CreateExternalExadataStorageConnector API.
    */
   public async createExternalExadataStorageConnector(
     createExternalExadataStorageConnectorRequest: requests.CreateExternalExadataStorageConnectorRequest
@@ -2235,7 +2235,7 @@ The database purges plans that have not been used for longer than
    * @param CreateExternalMySqlDatabaseRequest
    * @return CreateExternalMySqlDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalMySqlDatabase.ts.html |here} to see how to use CreateExternalMySqlDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalMySqlDatabase.ts.html |here} to see how to use CreateExternalMySqlDatabase API.
    */
   public async createExternalMySqlDatabase(
     createExternalMySqlDatabaseRequest: requests.CreateExternalMySqlDatabaseRequest
@@ -2327,7 +2327,7 @@ The database purges plans that have not been used for longer than
    * @param CreateExternalMySqlDatabaseConnectorRequest
    * @return CreateExternalMySqlDatabaseConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalMySqlDatabaseConnector.ts.html |here} to see how to use CreateExternalMySqlDatabaseConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalMySqlDatabaseConnector.ts.html |here} to see how to use CreateExternalMySqlDatabaseConnector API.
    */
   public async createExternalMySqlDatabaseConnector(
     createExternalMySqlDatabaseConnectorRequest: requests.CreateExternalMySqlDatabaseConnectorRequest
@@ -2425,7 +2425,7 @@ The database purges plans that have not been used for longer than
    * @param CreateJobRequest
    * @return CreateJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateJob.ts.html |here} to see how to use CreateJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateJob.ts.html |here} to see how to use CreateJob API.
    */
   public async createJob(
     createJobRequest: requests.CreateJobRequest
@@ -2512,7 +2512,7 @@ The database purges plans that have not been used for longer than
    * @param CreateManagedDatabaseGroupRequest
    * @return CreateManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateManagedDatabaseGroup.ts.html |here} to see how to use CreateManagedDatabaseGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateManagedDatabaseGroup.ts.html |here} to see how to use CreateManagedDatabaseGroup API.
    */
   public async createManagedDatabaseGroup(
     createManagedDatabaseGroupRequest: requests.CreateManagedDatabaseGroupRequest
@@ -2599,7 +2599,7 @@ The database purges plans that have not been used for longer than
    * @param CreateNamedCredentialRequest
    * @return CreateNamedCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateNamedCredential.ts.html |here} to see how to use CreateNamedCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateNamedCredential.ts.html |here} to see how to use CreateNamedCredential API.
    */
   public async createNamedCredential(
     createNamedCredentialRequest: requests.CreateNamedCredentialRequest
@@ -2686,7 +2686,7 @@ The database purges plans that have not been used for longer than
    * @param CreateTablespaceRequest
    * @return CreateTablespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateTablespace.ts.html |here} to see how to use CreateTablespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateTablespace.ts.html |here} to see how to use CreateTablespace API.
    */
   public async createTablespace(
     createTablespaceRequest: requests.CreateTablespaceRequest
@@ -2763,7 +2763,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteDbManagementPrivateEndpointRequest
    * @return DeleteDbManagementPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteDbManagementPrivateEndpoint.ts.html |here} to see how to use DeleteDbManagementPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteDbManagementPrivateEndpoint.ts.html |here} to see how to use DeleteDbManagementPrivateEndpoint API.
    */
   public async deleteDbManagementPrivateEndpoint(
     deleteDbManagementPrivateEndpointRequest: requests.DeleteDbManagementPrivateEndpointRequest
@@ -2839,7 +2839,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteExternalDbSystemRequest
    * @return DeleteExternalDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystem.ts.html |here} to see how to use DeleteExternalDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystem.ts.html |here} to see how to use DeleteExternalDbSystem API.
    */
   public async deleteExternalDbSystem(
     deleteExternalDbSystemRequest: requests.DeleteExternalDbSystemRequest
@@ -2914,7 +2914,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteExternalDbSystemConnectorRequest
    * @return DeleteExternalDbSystemConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystemConnector.ts.html |here} to see how to use DeleteExternalDbSystemConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystemConnector.ts.html |here} to see how to use DeleteExternalDbSystemConnector API.
    */
   public async deleteExternalDbSystemConnector(
     deleteExternalDbSystemConnectorRequest: requests.DeleteExternalDbSystemConnectorRequest
@@ -2985,7 +2985,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteExternalDbSystemDiscoveryRequest
    * @return DeleteExternalDbSystemDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystemDiscovery.ts.html |here} to see how to use DeleteExternalDbSystemDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystemDiscovery.ts.html |here} to see how to use DeleteExternalDbSystemDiscovery API.
    */
   public async deleteExternalDbSystemDiscovery(
     deleteExternalDbSystemDiscoveryRequest: requests.DeleteExternalDbSystemDiscoveryRequest
@@ -3056,7 +3056,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteExternalExadataInfrastructureRequest
    * @return DeleteExternalExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalExadataInfrastructure.ts.html |here} to see how to use DeleteExternalExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalExadataInfrastructure.ts.html |here} to see how to use DeleteExternalExadataInfrastructure API.
    */
   public async deleteExternalExadataInfrastructure(
     deleteExternalExadataInfrastructureRequest: requests.DeleteExternalExadataInfrastructureRequest
@@ -3134,7 +3134,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteExternalExadataStorageConnectorRequest
    * @return DeleteExternalExadataStorageConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalExadataStorageConnector.ts.html |here} to see how to use DeleteExternalExadataStorageConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalExadataStorageConnector.ts.html |here} to see how to use DeleteExternalExadataStorageConnector API.
    */
   public async deleteExternalExadataStorageConnector(
     deleteExternalExadataStorageConnectorRequest: requests.DeleteExternalExadataStorageConnectorRequest
@@ -3207,7 +3207,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteExternalMySqlDatabaseRequest
    * @return DeleteExternalMySqlDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalMySqlDatabase.ts.html |here} to see how to use DeleteExternalMySqlDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalMySqlDatabase.ts.html |here} to see how to use DeleteExternalMySqlDatabase API.
    */
   public async deleteExternalMySqlDatabase(
     deleteExternalMySqlDatabaseRequest: requests.DeleteExternalMySqlDatabaseRequest
@@ -3282,7 +3282,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteExternalMySqlDatabaseConnectorRequest
    * @return DeleteExternalMySqlDatabaseConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalMySqlDatabaseConnector.ts.html |here} to see how to use DeleteExternalMySqlDatabaseConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalMySqlDatabaseConnector.ts.html |here} to see how to use DeleteExternalMySqlDatabaseConnector API.
    */
   public async deleteExternalMySqlDatabaseConnector(
     deleteExternalMySqlDatabaseConnectorRequest: requests.DeleteExternalMySqlDatabaseConnectorRequest
@@ -3359,7 +3359,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteJobRequest
    * @return DeleteJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteJob.ts.html |here} to see how to use DeleteJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteJob.ts.html |here} to see how to use DeleteJob API.
    */
   public async deleteJob(
     deleteJobRequest: requests.DeleteJobRequest
@@ -3429,7 +3429,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteManagedDatabaseGroupRequest
    * @return DeleteManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteManagedDatabaseGroup.ts.html |here} to see how to use DeleteManagedDatabaseGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteManagedDatabaseGroup.ts.html |here} to see how to use DeleteManagedDatabaseGroup API.
    */
   public async deleteManagedDatabaseGroup(
     deleteManagedDatabaseGroupRequest: requests.DeleteManagedDatabaseGroupRequest
@@ -3499,7 +3499,7 @@ The database purges plans that have not been used for longer than
    * @param DeleteNamedCredentialRequest
    * @return DeleteNamedCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteNamedCredential.ts.html |here} to see how to use DeleteNamedCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteNamedCredential.ts.html |here} to see how to use DeleteNamedCredential API.
    */
   public async deleteNamedCredential(
     deleteNamedCredentialRequest: requests.DeleteNamedCredentialRequest
@@ -3569,7 +3569,7 @@ The database purges plans that have not been used for longer than
    * @param DeletePreferredCredentialRequest
    * @return DeletePreferredCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeletePreferredCredential.ts.html |here} to see how to use DeletePreferredCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeletePreferredCredential.ts.html |here} to see how to use DeletePreferredCredential API.
    */
   public async deletePreferredCredential(
     deletePreferredCredentialRequest: requests.DeletePreferredCredentialRequest
@@ -3639,7 +3639,7 @@ The database purges plans that have not been used for longer than
    * @param DisableAutomaticInitialPlanCaptureRequest
    * @return DisableAutomaticInitialPlanCaptureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableAutomaticInitialPlanCapture.ts.html |here} to see how to use DisableAutomaticInitialPlanCapture API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableAutomaticInitialPlanCapture.ts.html |here} to see how to use DisableAutomaticInitialPlanCapture API.
    */
   public async disableAutomaticInitialPlanCapture(
     disableAutomaticInitialPlanCaptureRequest: requests.DisableAutomaticInitialPlanCaptureRequest
@@ -3717,7 +3717,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
      * @param DisableAutomaticSpmEvolveAdvisorTaskRequest
      * @return DisableAutomaticSpmEvolveAdvisorTaskResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use DisableAutomaticSpmEvolveAdvisorTask API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use DisableAutomaticSpmEvolveAdvisorTask API.
      */
   public async disableAutomaticSpmEvolveAdvisorTask(
     disableAutomaticSpmEvolveAdvisorTaskRequest: requests.DisableAutomaticSpmEvolveAdvisorTaskRequest
@@ -3794,7 +3794,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param DisableAutonomousDatabaseManagementFeatureRequest
    * @return DisableAutonomousDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableAutonomousDatabaseManagementFeature.ts.html |here} to see how to use DisableAutonomousDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableAutonomousDatabaseManagementFeature.ts.html |here} to see how to use DisableAutonomousDatabaseManagementFeature API.
    */
   public async disableAutonomousDatabaseManagementFeature(
     disableAutonomousDatabaseManagementFeatureRequest: requests.DisableAutonomousDatabaseManagementFeatureRequest
@@ -3878,7 +3878,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param DisableDatabaseManagementFeatureRequest
    * @return DisableDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableDatabaseManagementFeature.ts.html |here} to see how to use DisableDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableDatabaseManagementFeature.ts.html |here} to see how to use DisableDatabaseManagementFeature API.
    */
   public async disableDatabaseManagementFeature(
     disableDatabaseManagementFeatureRequest: requests.DisableDatabaseManagementFeatureRequest
@@ -3959,7 +3959,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param DisableExternalContainerDatabaseManagementFeatureRequest
    * @return DisableExternalContainerDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalContainerDatabaseManagementFeature.ts.html |here} to see how to use DisableExternalContainerDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalContainerDatabaseManagementFeature.ts.html |here} to see how to use DisableExternalContainerDatabaseManagementFeature API.
    */
   public async disableExternalContainerDatabaseManagementFeature(
     disableExternalContainerDatabaseManagementFeatureRequest: requests.DisableExternalContainerDatabaseManagementFeatureRequest
@@ -4045,7 +4045,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param DisableExternalDbSystemDatabaseManagementRequest
    * @return DisableExternalDbSystemDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalDbSystemDatabaseManagement.ts.html |here} to see how to use DisableExternalDbSystemDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalDbSystemDatabaseManagement.ts.html |here} to see how to use DisableExternalDbSystemDatabaseManagement API.
    */
   public async disableExternalDbSystemDatabaseManagement(
     disableExternalDbSystemDatabaseManagementRequest: requests.DisableExternalDbSystemDatabaseManagementRequest
@@ -4124,7 +4124,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param DisableExternalDbSystemStackMonitoringRequest
    * @return DisableExternalDbSystemStackMonitoringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalDbSystemStackMonitoring.ts.html |here} to see how to use DisableExternalDbSystemStackMonitoring API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalDbSystemStackMonitoring.ts.html |here} to see how to use DisableExternalDbSystemStackMonitoring API.
    */
   public async disableExternalDbSystemStackMonitoring(
     disableExternalDbSystemStackMonitoringRequest: requests.DisableExternalDbSystemStackMonitoringRequest
@@ -4209,7 +4209,7 @@ Note that Database Management will not be disabled for the DB systems within the
      * @param DisableExternalExadataInfrastructureManagementRequest
      * @return DisableExternalExadataInfrastructureManagementResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalExadataInfrastructureManagement.ts.html |here} to see how to use DisableExternalExadataInfrastructureManagement API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalExadataInfrastructureManagement.ts.html |here} to see how to use DisableExternalExadataInfrastructureManagement API.
      */
   public async disableExternalExadataInfrastructureManagement(
     disableExternalExadataInfrastructureManagementRequest: requests.DisableExternalExadataInfrastructureManagementRequest
@@ -4289,7 +4289,7 @@ Note that Database Management will not be disabled for the DB systems within the
    * @param DisableExternalMySqlDatabaseManagementRequest
    * @return DisableExternalMySqlDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalMySqlDatabaseManagement.ts.html |here} to see how to use DisableExternalMySqlDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalMySqlDatabaseManagement.ts.html |here} to see how to use DisableExternalMySqlDatabaseManagement API.
    */
   public async disableExternalMySqlDatabaseManagement(
     disableExternalMySqlDatabaseManagementRequest: requests.DisableExternalMySqlDatabaseManagementRequest
@@ -4368,7 +4368,7 @@ Note that Database Management will not be disabled for the DB systems within the
    * @param DisableExternalNonContainerDatabaseManagementFeatureRequest
    * @return DisableExternalNonContainerDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalNonContainerDatabaseManagementFeature.ts.html |here} to see how to use DisableExternalNonContainerDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalNonContainerDatabaseManagementFeature.ts.html |here} to see how to use DisableExternalNonContainerDatabaseManagementFeature API.
    */
   public async disableExternalNonContainerDatabaseManagementFeature(
     disableExternalNonContainerDatabaseManagementFeatureRequest: requests.DisableExternalNonContainerDatabaseManagementFeatureRequest
@@ -4453,7 +4453,7 @@ Note that Database Management will not be disabled for the DB systems within the
    * @param DisableExternalPluggableDatabaseManagementFeatureRequest
    * @return DisableExternalPluggableDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalPluggableDatabaseManagementFeature.ts.html |here} to see how to use DisableExternalPluggableDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalPluggableDatabaseManagementFeature.ts.html |here} to see how to use DisableExternalPluggableDatabaseManagementFeature API.
    */
   public async disableExternalPluggableDatabaseManagementFeature(
     disableExternalPluggableDatabaseManagementFeatureRequest: requests.DisableExternalPluggableDatabaseManagementFeatureRequest
@@ -4541,7 +4541,7 @@ It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
      * @param DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest
      * @return DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableHighFrequencyAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use DisableHighFrequencyAutomaticSpmEvolveAdvisorTask API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableHighFrequencyAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use DisableHighFrequencyAutomaticSpmEvolveAdvisorTask API.
      */
   public async disableHighFrequencyAutomaticSpmEvolveAdvisorTask(
     disableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest: requests.DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest
@@ -4619,7 +4619,7 @@ It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
    * @param DisablePluggableDatabaseManagementFeatureRequest
    * @return DisablePluggableDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisablePluggableDatabaseManagementFeature.ts.html |here} to see how to use DisablePluggableDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisablePluggableDatabaseManagementFeature.ts.html |here} to see how to use DisablePluggableDatabaseManagementFeature API.
    */
   public async disablePluggableDatabaseManagementFeature(
     disablePluggableDatabaseManagementFeatureRequest: requests.DisablePluggableDatabaseManagementFeatureRequest
@@ -4704,7 +4704,7 @@ When disabled, the optimizer does not use any SQL plan baselines.
      * @param DisableSqlPlanBaselinesUsageRequest
      * @return DisableSqlPlanBaselinesUsageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableSqlPlanBaselinesUsage.ts.html |here} to see how to use DisableSqlPlanBaselinesUsage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableSqlPlanBaselinesUsage.ts.html |here} to see how to use DisableSqlPlanBaselinesUsage API.
      */
   public async disableSqlPlanBaselinesUsage(
     disableSqlPlanBaselinesUsageRequest: requests.DisableSqlPlanBaselinesUsageRequest
@@ -4797,7 +4797,7 @@ The same API covers both new discovery and rediscovery cases.
      * @param DiscoverExternalExadataInfrastructureRequest
      * @return DiscoverExternalExadataInfrastructureResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DiscoverExternalExadataInfrastructure.ts.html |here} to see how to use DiscoverExternalExadataInfrastructure API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DiscoverExternalExadataInfrastructure.ts.html |here} to see how to use DiscoverExternalExadataInfrastructure API.
      */
   public async discoverExternalExadataInfrastructure(
     discoverExternalExadataInfrastructureRequest: requests.DiscoverExternalExadataInfrastructureRequest
@@ -4882,7 +4882,7 @@ The same API covers both new discovery and rediscovery cases.
    * @param DropSqlPlanBaselinesRequest
    * @return DropSqlPlanBaselinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlPlanBaselines.ts.html |here} to see how to use DropSqlPlanBaselines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlPlanBaselines.ts.html |here} to see how to use DropSqlPlanBaselines API.
    */
   public async dropSqlPlanBaselines(
     dropSqlPlanBaselinesRequest: requests.DropSqlPlanBaselinesRequest
@@ -4956,7 +4956,7 @@ The same API covers both new discovery and rediscovery cases.
    * @param DropTablespaceRequest
    * @return DropTablespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropTablespace.ts.html |here} to see how to use DropTablespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropTablespace.ts.html |here} to see how to use DropTablespace API.
    */
   public async dropTablespace(
     dropTablespaceRequest: requests.DropTablespaceRequest
@@ -5043,7 +5043,7 @@ By default, the database creates a SQL plan baseline for every eligible repeatab
      * @param EnableAutomaticInitialPlanCaptureRequest
      * @return EnableAutomaticInitialPlanCaptureResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableAutomaticInitialPlanCapture.ts.html |here} to see how to use EnableAutomaticInitialPlanCapture API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableAutomaticInitialPlanCapture.ts.html |here} to see how to use EnableAutomaticInitialPlanCapture API.
      */
   public async enableAutomaticInitialPlanCapture(
     enableAutomaticInitialPlanCaptureRequest: requests.EnableAutomaticInitialPlanCaptureRequest
@@ -5130,7 +5130,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
      * @param EnableAutomaticSpmEvolveAdvisorTaskRequest
      * @return EnableAutomaticSpmEvolveAdvisorTaskResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use EnableAutomaticSpmEvolveAdvisorTask API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use EnableAutomaticSpmEvolveAdvisorTask API.
      */
   public async enableAutomaticSpmEvolveAdvisorTask(
     enableAutomaticSpmEvolveAdvisorTaskRequest: requests.EnableAutomaticSpmEvolveAdvisorTaskRequest
@@ -5207,7 +5207,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param EnableAutonomousDatabaseManagementFeatureRequest
    * @return EnableAutonomousDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableAutonomousDatabaseManagementFeature.ts.html |here} to see how to use EnableAutonomousDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableAutonomousDatabaseManagementFeature.ts.html |here} to see how to use EnableAutonomousDatabaseManagementFeature API.
    */
   public async enableAutonomousDatabaseManagementFeature(
     enableAutonomousDatabaseManagementFeatureRequest: requests.EnableAutonomousDatabaseManagementFeatureRequest
@@ -5291,7 +5291,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param EnableDatabaseManagementFeatureRequest
    * @return EnableDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableDatabaseManagementFeature.ts.html |here} to see how to use EnableDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableDatabaseManagementFeature.ts.html |here} to see how to use EnableDatabaseManagementFeature API.
    */
   public async enableDatabaseManagementFeature(
     enableDatabaseManagementFeatureRequest: requests.EnableDatabaseManagementFeatureRequest
@@ -5372,7 +5372,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param EnableExternalContainerDatabaseManagementFeatureRequest
    * @return EnableExternalContainerDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalContainerDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalContainerDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalContainerDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalContainerDatabaseManagementFeature API.
    */
   public async enableExternalContainerDatabaseManagementFeature(
     enableExternalContainerDatabaseManagementFeatureRequest: requests.EnableExternalContainerDatabaseManagementFeatureRequest
@@ -5458,7 +5458,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param EnableExternalDbSystemDatabaseManagementRequest
    * @return EnableExternalDbSystemDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalDbSystemDatabaseManagement.ts.html |here} to see how to use EnableExternalDbSystemDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalDbSystemDatabaseManagement.ts.html |here} to see how to use EnableExternalDbSystemDatabaseManagement API.
    */
   public async enableExternalDbSystemDatabaseManagement(
     enableExternalDbSystemDatabaseManagementRequest: requests.EnableExternalDbSystemDatabaseManagementRequest
@@ -5542,7 +5542,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param EnableExternalDbSystemStackMonitoringRequest
    * @return EnableExternalDbSystemStackMonitoringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalDbSystemStackMonitoring.ts.html |here} to see how to use EnableExternalDbSystemStackMonitoring API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalDbSystemStackMonitoring.ts.html |here} to see how to use EnableExternalDbSystemStackMonitoring API.
    */
   public async enableExternalDbSystemStackMonitoring(
     enableExternalDbSystemStackMonitoringRequest: requests.EnableExternalDbSystemStackMonitoringRequest
@@ -5630,7 +5630,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
      * @param EnableExternalExadataInfrastructureManagementRequest
      * @return EnableExternalExadataInfrastructureManagementResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalExadataInfrastructureManagement.ts.html |here} to see how to use EnableExternalExadataInfrastructureManagement API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalExadataInfrastructureManagement.ts.html |here} to see how to use EnableExternalExadataInfrastructureManagement API.
      */
   public async enableExternalExadataInfrastructureManagement(
     enableExternalExadataInfrastructureManagementRequest: requests.EnableExternalExadataInfrastructureManagementRequest
@@ -5715,7 +5715,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param EnableExternalMySqlDatabaseManagementRequest
    * @return EnableExternalMySqlDatabaseManagementResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalMySqlDatabaseManagement.ts.html |here} to see how to use EnableExternalMySqlDatabaseManagement API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalMySqlDatabaseManagement.ts.html |here} to see how to use EnableExternalMySqlDatabaseManagement API.
    */
   public async enableExternalMySqlDatabaseManagement(
     enableExternalMySqlDatabaseManagementRequest: requests.EnableExternalMySqlDatabaseManagementRequest
@@ -5799,7 +5799,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param EnableExternalNonContainerDatabaseManagementFeatureRequest
    * @return EnableExternalNonContainerDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalNonContainerDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalNonContainerDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalNonContainerDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalNonContainerDatabaseManagementFeature API.
    */
   public async enableExternalNonContainerDatabaseManagementFeature(
     enableExternalNonContainerDatabaseManagementFeatureRequest: requests.EnableExternalNonContainerDatabaseManagementFeatureRequest
@@ -5884,7 +5884,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
    * @param EnableExternalPluggableDatabaseManagementFeatureRequest
    * @return EnableExternalPluggableDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalPluggableDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalPluggableDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalPluggableDatabaseManagementFeature.ts.html |here} to see how to use EnableExternalPluggableDatabaseManagementFeature API.
    */
   public async enableExternalPluggableDatabaseManagementFeature(
     enableExternalPluggableDatabaseManagementFeatureRequest: requests.EnableExternalPluggableDatabaseManagementFeatureRequest
@@ -5977,7 +5977,7 @@ It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
      * @param EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest
      * @return EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableHighFrequencyAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use EnableHighFrequencyAutomaticSpmEvolveAdvisorTask API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableHighFrequencyAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use EnableHighFrequencyAutomaticSpmEvolveAdvisorTask API.
      */
   public async enableHighFrequencyAutomaticSpmEvolveAdvisorTask(
     enableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest: requests.EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest
@@ -6055,7 +6055,7 @@ It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
    * @param EnablePluggableDatabaseManagementFeatureRequest
    * @return EnablePluggableDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnablePluggableDatabaseManagementFeature.ts.html |here} to see how to use EnablePluggableDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnablePluggableDatabaseManagementFeature.ts.html |here} to see how to use EnablePluggableDatabaseManagementFeature API.
    */
   public async enablePluggableDatabaseManagementFeature(
     enablePluggableDatabaseManagementFeatureRequest: requests.EnablePluggableDatabaseManagementFeatureRequest
@@ -6141,7 +6141,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
      * @param EnableSqlPlanBaselinesUsageRequest
      * @return EnableSqlPlanBaselinesUsageResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableSqlPlanBaselinesUsage.ts.html |here} to see how to use EnableSqlPlanBaselinesUsage API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableSqlPlanBaselinesUsage.ts.html |here} to see how to use EnableSqlPlanBaselinesUsage API.
      */
   public async enableSqlPlanBaselinesUsage(
     enableSqlPlanBaselinesUsageRequest: requests.EnableSqlPlanBaselinesUsageRequest
@@ -6216,7 +6216,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GenerateAwrSnapshotRequest
    * @return GenerateAwrSnapshotResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GenerateAwrSnapshot.ts.html |here} to see how to use GenerateAwrSnapshot API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GenerateAwrSnapshot.ts.html |here} to see how to use GenerateAwrSnapshot API.
    */
   public async generateAwrSnapshot(
     generateAwrSnapshotRequest: requests.GenerateAwrSnapshotRequest
@@ -6290,7 +6290,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetAwrDbReportRequest
    * @return GetAwrDbReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetAwrDbReport.ts.html |here} to see how to use GetAwrDbReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetAwrDbReport.ts.html |here} to see how to use GetAwrDbReport API.
    */
   public async getAwrDbReport(
     getAwrDbReportRequest: requests.GetAwrDbReportRequest
@@ -6374,7 +6374,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetAwrDbSqlReportRequest
    * @return GetAwrDbSqlReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetAwrDbSqlReport.ts.html |here} to see how to use GetAwrDbSqlReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetAwrDbSqlReport.ts.html |here} to see how to use GetAwrDbSqlReport API.
    */
   public async getAwrDbSqlReport(
     getAwrDbSqlReportRequest: requests.GetAwrDbSqlReportRequest
@@ -6460,7 +6460,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetClusterCacheMetricRequest
    * @return GetClusterCacheMetricResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetClusterCacheMetric.ts.html |here} to see how to use GetClusterCacheMetric API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetClusterCacheMetric.ts.html |here} to see how to use GetClusterCacheMetric API.
    */
   public async getClusterCacheMetric(
     getClusterCacheMetricRequest: requests.GetClusterCacheMetricRequest
@@ -6538,7 +6538,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetDatabaseFleetBackupMetricsRequest
    * @return GetDatabaseFleetBackupMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetBackupMetrics.ts.html |here} to see how to use GetDatabaseFleetBackupMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetBackupMetrics.ts.html |here} to see how to use GetDatabaseFleetBackupMetrics API.
    */
   public async getDatabaseFleetBackupMetrics(
     getDatabaseFleetBackupMetricsRequest: requests.GetDatabaseFleetBackupMetricsRequest
@@ -6630,7 +6630,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetDatabaseFleetDataguardMetricsRequest
    * @return GetDatabaseFleetDataguardMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetDataguardMetrics.ts.html |here} to see how to use GetDatabaseFleetDataguardMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetDataguardMetrics.ts.html |here} to see how to use GetDatabaseFleetDataguardMetrics API.
    */
   public async getDatabaseFleetDataguardMetrics(
     getDatabaseFleetDataguardMetricsRequest: requests.GetDatabaseFleetDataguardMetricsRequest
@@ -6719,7 +6719,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetDatabaseFleetHaOverviewMetricsRequest
    * @return GetDatabaseFleetHaOverviewMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetHaOverviewMetrics.ts.html |here} to see how to use GetDatabaseFleetHaOverviewMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetHaOverviewMetrics.ts.html |here} to see how to use GetDatabaseFleetHaOverviewMetrics API.
    */
   public async getDatabaseFleetHaOverviewMetrics(
     getDatabaseFleetHaOverviewMetricsRequest: requests.GetDatabaseFleetHaOverviewMetricsRequest
@@ -6808,7 +6808,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetDatabaseFleetHealthMetricsRequest
    * @return GetDatabaseFleetHealthMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetHealthMetrics.ts.html |here} to see how to use GetDatabaseFleetHealthMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseFleetHealthMetrics.ts.html |here} to see how to use GetDatabaseFleetHealthMetrics API.
    */
   public async getDatabaseFleetHealthMetrics(
     getDatabaseFleetHealthMetricsRequest: requests.GetDatabaseFleetHealthMetricsRequest
@@ -6904,7 +6904,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetDatabaseHaBackupDetailsRequest
    * @return GetDatabaseHaBackupDetailsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseHaBackupDetails.ts.html |here} to see how to use GetDatabaseHaBackupDetails API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseHaBackupDetails.ts.html |here} to see how to use GetDatabaseHaBackupDetails API.
    */
   public async getDatabaseHaBackupDetails(
     getDatabaseHaBackupDetailsRequest: requests.GetDatabaseHaBackupDetailsRequest
@@ -6977,7 +6977,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetDatabaseHomeMetricsRequest
    * @return GetDatabaseHomeMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseHomeMetrics.ts.html |here} to see how to use GetDatabaseHomeMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDatabaseHomeMetrics.ts.html |here} to see how to use GetDatabaseHomeMetrics API.
    */
   public async getDatabaseHomeMetrics(
     getDatabaseHomeMetricsRequest: requests.GetDatabaseHomeMetricsRequest
@@ -7054,7 +7054,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetDataguardPerformanceMetricsRequest
    * @return GetDataguardPerformanceMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDataguardPerformanceMetrics.ts.html |here} to see how to use GetDataguardPerformanceMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDataguardPerformanceMetrics.ts.html |here} to see how to use GetDataguardPerformanceMetrics API.
    */
   public async getDataguardPerformanceMetrics(
     getDataguardPerformanceMetricsRequest: requests.GetDataguardPerformanceMetricsRequest
@@ -7131,7 +7131,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetDbManagementPrivateEndpointRequest
    * @return GetDbManagementPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDbManagementPrivateEndpoint.ts.html |here} to see how to use GetDbManagementPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetDbManagementPrivateEndpoint.ts.html |here} to see how to use GetDbManagementPrivateEndpoint API.
    */
   public async getDbManagementPrivateEndpoint(
     getDbManagementPrivateEndpointRequest: requests.GetDbManagementPrivateEndpointRequest
@@ -7210,7 +7210,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalAsmRequest
    * @return GetExternalAsmResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalAsm.ts.html |here} to see how to use GetExternalAsm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalAsm.ts.html |here} to see how to use GetExternalAsm API.
    */
   public async getExternalAsm(
     getExternalAsmRequest: requests.GetExternalAsmRequest
@@ -7287,7 +7287,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalAsmConfigurationRequest
    * @return GetExternalAsmConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalAsmConfiguration.ts.html |here} to see how to use GetExternalAsmConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalAsmConfiguration.ts.html |here} to see how to use GetExternalAsmConfiguration API.
    */
   public async getExternalAsmConfiguration(
     getExternalAsmConfigurationRequest: requests.GetExternalAsmConfigurationRequest
@@ -7361,7 +7361,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalAsmInstanceRequest
    * @return GetExternalAsmInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalAsmInstance.ts.html |here} to see how to use GetExternalAsmInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalAsmInstance.ts.html |here} to see how to use GetExternalAsmInstance API.
    */
   public async getExternalAsmInstance(
     getExternalAsmInstanceRequest: requests.GetExternalAsmInstanceRequest
@@ -7439,7 +7439,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalClusterRequest
    * @return GetExternalClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalCluster.ts.html |here} to see how to use GetExternalCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalCluster.ts.html |here} to see how to use GetExternalCluster API.
    */
   public async getExternalCluster(
     getExternalClusterRequest: requests.GetExternalClusterRequest
@@ -7516,7 +7516,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalClusterInstanceRequest
    * @return GetExternalClusterInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalClusterInstance.ts.html |here} to see how to use GetExternalClusterInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalClusterInstance.ts.html |here} to see how to use GetExternalClusterInstance API.
    */
   public async getExternalClusterInstance(
     getExternalClusterInstanceRequest: requests.GetExternalClusterInstanceRequest
@@ -7594,7 +7594,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalDbHomeRequest
    * @return GetExternalDbHomeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbHome.ts.html |here} to see how to use GetExternalDbHome API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbHome.ts.html |here} to see how to use GetExternalDbHome API.
    */
   public async getExternalDbHome(
     getExternalDbHomeRequest: requests.GetExternalDbHomeRequest
@@ -7671,7 +7671,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalDbNodeRequest
    * @return GetExternalDbNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbNode.ts.html |here} to see how to use GetExternalDbNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbNode.ts.html |here} to see how to use GetExternalDbNode API.
    */
   public async getExternalDbNode(
     getExternalDbNodeRequest: requests.GetExternalDbNodeRequest
@@ -7748,7 +7748,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalDbSystemRequest
    * @return GetExternalDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbSystem.ts.html |here} to see how to use GetExternalDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbSystem.ts.html |here} to see how to use GetExternalDbSystem API.
    */
   public async getExternalDbSystem(
     getExternalDbSystemRequest: requests.GetExternalDbSystemRequest
@@ -7825,7 +7825,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalDbSystemConnectorRequest
    * @return GetExternalDbSystemConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbSystemConnector.ts.html |here} to see how to use GetExternalDbSystemConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbSystemConnector.ts.html |here} to see how to use GetExternalDbSystemConnector API.
    */
   public async getExternalDbSystemConnector(
     getExternalDbSystemConnectorRequest: requests.GetExternalDbSystemConnectorRequest
@@ -7904,7 +7904,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalDbSystemDiscoveryRequest
    * @return GetExternalDbSystemDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbSystemDiscovery.ts.html |here} to see how to use GetExternalDbSystemDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbSystemDiscovery.ts.html |here} to see how to use GetExternalDbSystemDiscovery API.
    */
   public async getExternalDbSystemDiscovery(
     getExternalDbSystemDiscoveryRequest: requests.GetExternalDbSystemDiscoveryRequest
@@ -7984,7 +7984,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalExadataInfrastructureRequest
    * @return GetExternalExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalExadataInfrastructure.ts.html |here} to see how to use GetExternalExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalExadataInfrastructure.ts.html |here} to see how to use GetExternalExadataInfrastructure API.
    */
   public async getExternalExadataInfrastructure(
     getExternalExadataInfrastructureRequest: requests.GetExternalExadataInfrastructureRequest
@@ -8063,7 +8063,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalExadataStorageConnectorRequest
    * @return GetExternalExadataStorageConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalExadataStorageConnector.ts.html |here} to see how to use GetExternalExadataStorageConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalExadataStorageConnector.ts.html |here} to see how to use GetExternalExadataStorageConnector API.
    */
   public async getExternalExadataStorageConnector(
     getExternalExadataStorageConnectorRequest: requests.GetExternalExadataStorageConnectorRequest
@@ -8142,7 +8142,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalExadataStorageGridRequest
    * @return GetExternalExadataStorageGridResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalExadataStorageGrid.ts.html |here} to see how to use GetExternalExadataStorageGrid API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalExadataStorageGrid.ts.html |here} to see how to use GetExternalExadataStorageGrid API.
    */
   public async getExternalExadataStorageGrid(
     getExternalExadataStorageGridRequest: requests.GetExternalExadataStorageGridRequest
@@ -8221,7 +8221,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalExadataStorageServerRequest
    * @return GetExternalExadataStorageServerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalExadataStorageServer.ts.html |here} to see how to use GetExternalExadataStorageServer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalExadataStorageServer.ts.html |here} to see how to use GetExternalExadataStorageServer API.
    */
   public async getExternalExadataStorageServer(
     getExternalExadataStorageServerRequest: requests.GetExternalExadataStorageServerRequest
@@ -8300,7 +8300,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalListenerRequest
    * @return GetExternalListenerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalListener.ts.html |here} to see how to use GetExternalListener API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalListener.ts.html |here} to see how to use GetExternalListener API.
    */
   public async getExternalListener(
     getExternalListenerRequest: requests.GetExternalListenerRequest
@@ -8377,7 +8377,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalMySqlDatabaseRequest
    * @return GetExternalMySqlDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalMySqlDatabase.ts.html |here} to see how to use GetExternalMySqlDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalMySqlDatabase.ts.html |here} to see how to use GetExternalMySqlDatabase API.
    */
   public async getExternalMySqlDatabase(
     getExternalMySqlDatabaseRequest: requests.GetExternalMySqlDatabaseRequest
@@ -8455,7 +8455,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetExternalMySqlDatabaseConnectorRequest
    * @return GetExternalMySqlDatabaseConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalMySqlDatabaseConnector.ts.html |here} to see how to use GetExternalMySqlDatabaseConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalMySqlDatabaseConnector.ts.html |here} to see how to use GetExternalMySqlDatabaseConnector API.
    */
   public async getExternalMySqlDatabaseConnector(
     getExternalMySqlDatabaseConnectorRequest: requests.GetExternalMySqlDatabaseConnectorRequest
@@ -8534,7 +8534,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetIormPlanRequest
    * @return GetIormPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetIormPlan.ts.html |here} to see how to use GetIormPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetIormPlan.ts.html |here} to see how to use GetIormPlan API.
    */
   public async getIormPlan(
     getIormPlanRequest: requests.GetIormPlanRequest
@@ -8606,7 +8606,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetJob.ts.html |here} to see how to use GetJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetJob.ts.html |here} to see how to use GetJob API.
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getJob.");
@@ -8686,7 +8686,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetJobExecutionRequest
    * @return GetJobExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetJobExecution.ts.html |here} to see how to use GetJobExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetJobExecution.ts.html |here} to see how to use GetJobExecution API.
    */
   public async getJobExecution(
     getJobExecutionRequest: requests.GetJobExecutionRequest
@@ -8758,7 +8758,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetJobRunRequest
    * @return GetJobRunResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetJobRun.ts.html |here} to see how to use GetJobRun API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetJobRun.ts.html |here} to see how to use GetJobRun API.
    */
   public async getJobRun(
     getJobRunRequest: requests.GetJobRunRequest
@@ -8830,7 +8830,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetManagedDatabaseRequest
    * @return GetManagedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetManagedDatabase.ts.html |here} to see how to use GetManagedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetManagedDatabase.ts.html |here} to see how to use GetManagedDatabase API.
    */
   public async getManagedDatabase(
     getManagedDatabaseRequest: requests.GetManagedDatabaseRequest
@@ -8907,7 +8907,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetManagedDatabaseGroupRequest
    * @return GetManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetManagedDatabaseGroup.ts.html |here} to see how to use GetManagedDatabaseGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetManagedDatabaseGroup.ts.html |here} to see how to use GetManagedDatabaseGroup API.
    */
   public async getManagedDatabaseGroup(
     getManagedDatabaseGroupRequest: requests.GetManagedDatabaseGroupRequest
@@ -8985,7 +8985,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetNamedCredentialRequest
    * @return GetNamedCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetNamedCredential.ts.html |here} to see how to use GetNamedCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetNamedCredential.ts.html |here} to see how to use GetNamedCredential API.
    */
   public async getNamedCredential(
     getNamedCredentialRequest: requests.GetNamedCredentialRequest
@@ -9062,7 +9062,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetOpenAlertHistoryRequest
    * @return GetOpenAlertHistoryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOpenAlertHistory.ts.html |here} to see how to use GetOpenAlertHistory API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOpenAlertHistory.ts.html |here} to see how to use GetOpenAlertHistory API.
    */
   public async getOpenAlertHistory(
     getOpenAlertHistoryRequest: requests.GetOpenAlertHistoryRequest
@@ -9135,7 +9135,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetOptimizerStatisticsAdvisorExecutionRequest
    * @return GetOptimizerStatisticsAdvisorExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOptimizerStatisticsAdvisorExecution.ts.html |here} to see how to use GetOptimizerStatisticsAdvisorExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOptimizerStatisticsAdvisorExecution.ts.html |here} to see how to use GetOptimizerStatisticsAdvisorExecution API.
    */
   public async getOptimizerStatisticsAdvisorExecution(
     getOptimizerStatisticsAdvisorExecutionRequest: requests.GetOptimizerStatisticsAdvisorExecutionRequest
@@ -9214,7 +9214,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetOptimizerStatisticsAdvisorExecutionScriptRequest
    * @return GetOptimizerStatisticsAdvisorExecutionScriptResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOptimizerStatisticsAdvisorExecutionScript.ts.html |here} to see how to use GetOptimizerStatisticsAdvisorExecutionScript API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOptimizerStatisticsAdvisorExecutionScript.ts.html |here} to see how to use GetOptimizerStatisticsAdvisorExecutionScript API.
    */
   public async getOptimizerStatisticsAdvisorExecutionScript(
     getOptimizerStatisticsAdvisorExecutionScriptRequest: requests.GetOptimizerStatisticsAdvisorExecutionScriptRequest
@@ -9294,7 +9294,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetOptimizerStatisticsCollectionOperationRequest
    * @return GetOptimizerStatisticsCollectionOperationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOptimizerStatisticsCollectionOperation.ts.html |here} to see how to use GetOptimizerStatisticsCollectionOperation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOptimizerStatisticsCollectionOperation.ts.html |here} to see how to use GetOptimizerStatisticsCollectionOperation API.
    */
   public async getOptimizerStatisticsCollectionOperation(
     getOptimizerStatisticsCollectionOperationRequest: requests.GetOptimizerStatisticsCollectionOperationRequest
@@ -9377,7 +9377,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetPdbMetricsRequest
    * @return GetPdbMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetPdbMetrics.ts.html |here} to see how to use GetPdbMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetPdbMetrics.ts.html |here} to see how to use GetPdbMetrics API.
    */
   public async getPdbMetrics(
     getPdbMetricsRequest: requests.GetPdbMetricsRequest
@@ -9457,7 +9457,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetPeerDatabaseMetricsRequest
    * @return GetPeerDatabaseMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetPeerDatabaseMetrics.ts.html |here} to see how to use GetPeerDatabaseMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetPeerDatabaseMetrics.ts.html |here} to see how to use GetPeerDatabaseMetrics API.
    */
   public async getPeerDatabaseMetrics(
     getPeerDatabaseMetricsRequest: requests.GetPeerDatabaseMetricsRequest
@@ -9536,7 +9536,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetPreferredCredentialRequest
    * @return GetPreferredCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetPreferredCredential.ts.html |here} to see how to use GetPreferredCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetPreferredCredential.ts.html |here} to see how to use GetPreferredCredential API.
    */
   public async getPreferredCredential(
     getPreferredCredentialRequest: requests.GetPreferredCredentialRequest
@@ -9615,7 +9615,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetSqlPlanBaselineRequest
    * @return GetSqlPlanBaselineResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlPlanBaseline.ts.html |here} to see how to use GetSqlPlanBaseline API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlPlanBaseline.ts.html |here} to see how to use GetSqlPlanBaseline API.
    */
   public async getSqlPlanBaseline(
     getSqlPlanBaselineRequest: requests.GetSqlPlanBaselineRequest
@@ -9691,7 +9691,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetSqlPlanBaselineConfigurationRequest
    * @return GetSqlPlanBaselineConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlPlanBaselineConfiguration.ts.html |here} to see how to use GetSqlPlanBaselineConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlPlanBaselineConfiguration.ts.html |here} to see how to use GetSqlPlanBaselineConfiguration API.
    */
   public async getSqlPlanBaselineConfiguration(
     getSqlPlanBaselineConfigurationRequest: requests.GetSqlPlanBaselineConfigurationRequest
@@ -9765,7 +9765,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetTablespaceRequest
    * @return GetTablespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetTablespace.ts.html |here} to see how to use GetTablespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetTablespace.ts.html |here} to see how to use GetTablespace API.
    */
   public async getTablespace(
     getTablespaceRequest: requests.GetTablespaceRequest
@@ -9839,7 +9839,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetTopSqlCpuActivityRequest
    * @return GetTopSqlCpuActivityResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetTopSqlCpuActivity.ts.html |here} to see how to use GetTopSqlCpuActivity API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetTopSqlCpuActivity.ts.html |here} to see how to use GetTopSqlCpuActivity API.
    */
   public async getTopSqlCpuActivity(
     getTopSqlCpuActivityRequest: requests.GetTopSqlCpuActivityRequest
@@ -9912,7 +9912,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetUserRequest
    * @return GetUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetUser.ts.html |here} to see how to use GetUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetUser.ts.html |here} to see how to use GetUser API.
    */
   public async getUser(
     getUserRequest: requests.GetUserRequest
@@ -9985,7 +9985,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -10061,7 +10061,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ImplementOptimizerStatisticsAdvisorRecommendationsRequest
    * @return ImplementOptimizerStatisticsAdvisorRecommendationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ImplementOptimizerStatisticsAdvisorRecommendations.ts.html |here} to see how to use ImplementOptimizerStatisticsAdvisorRecommendations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ImplementOptimizerStatisticsAdvisorRecommendations.ts.html |here} to see how to use ImplementOptimizerStatisticsAdvisorRecommendations API.
    */
   public async implementOptimizerStatisticsAdvisorRecommendations(
     implementOptimizerStatisticsAdvisorRecommendationsRequest: requests.ImplementOptimizerStatisticsAdvisorRecommendationsRequest
@@ -10143,7 +10143,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListAsmPropertiesRequest
    * @return ListAsmPropertiesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAsmProperties.ts.html |here} to see how to use ListAsmProperties API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAsmProperties.ts.html |here} to see how to use ListAsmProperties API.
    */
   public async listAsmProperties(
     listAsmPropertiesRequest: requests.ListAsmPropertiesRequest
@@ -10225,7 +10225,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListAssociatedDatabasesRequest
    * @return ListAssociatedDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAssociatedDatabases.ts.html |here} to see how to use ListAssociatedDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAssociatedDatabases.ts.html |here} to see how to use ListAssociatedDatabases API.
    */
   public async listAssociatedDatabases(
     listAssociatedDatabasesRequest: requests.ListAssociatedDatabasesRequest
@@ -10310,7 +10310,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListAwrDbSnapshotsRequest
    * @return ListAwrDbSnapshotsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAwrDbSnapshots.ts.html |here} to see how to use ListAwrDbSnapshots API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAwrDbSnapshots.ts.html |here} to see how to use ListAwrDbSnapshots API.
    */
   public async listAwrDbSnapshots(
     listAwrDbSnapshotsRequest: requests.ListAwrDbSnapshotsRequest
@@ -10401,7 +10401,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListAwrDbsRequest
    * @return ListAwrDbsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAwrDbs.ts.html |here} to see how to use ListAwrDbs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAwrDbs.ts.html |here} to see how to use ListAwrDbs API.
    */
   public async listAwrDbs(
     listAwrDbsRequest: requests.ListAwrDbsRequest
@@ -10487,7 +10487,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListConsumerGroupPrivilegesRequest
    * @return ListConsumerGroupPrivilegesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListConsumerGroupPrivileges.ts.html |here} to see how to use ListConsumerGroupPrivileges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListConsumerGroupPrivileges.ts.html |here} to see how to use ListConsumerGroupPrivileges API.
    */
   public async listConsumerGroupPrivileges(
     listConsumerGroupPrivilegesRequest: requests.ListConsumerGroupPrivilegesRequest
@@ -10573,7 +10573,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListCursorCacheStatementsRequest
    * @return ListCursorCacheStatementsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCursorCacheStatements.ts.html |here} to see how to use ListCursorCacheStatements API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCursorCacheStatements.ts.html |here} to see how to use ListCursorCacheStatements API.
    */
   public async listCursorCacheStatements(
     listCursorCacheStatementsRequest: requests.ListCursorCacheStatementsRequest
@@ -10657,7 +10657,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListDataAccessContainersRequest
    * @return ListDataAccessContainersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListDataAccessContainers.ts.html |here} to see how to use ListDataAccessContainers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListDataAccessContainers.ts.html |here} to see how to use ListDataAccessContainers API.
    */
   public async listDataAccessContainers(
     listDataAccessContainersRequest: requests.ListDataAccessContainersRequest
@@ -10743,7 +10743,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListDatabaseParametersRequest
    * @return ListDatabaseParametersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListDatabaseParameters.ts.html |here} to see how to use ListDatabaseParameters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListDatabaseParameters.ts.html |here} to see how to use ListDatabaseParameters API.
    */
   public async listDatabaseParameters(
     listDatabaseParametersRequest: requests.ListDatabaseParametersRequest
@@ -10823,7 +10823,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListDbManagementPrivateEndpointsRequest
    * @return ListDbManagementPrivateEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListDbManagementPrivateEndpoints.ts.html |here} to see how to use ListDbManagementPrivateEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListDbManagementPrivateEndpoints.ts.html |here} to see how to use ListDbManagementPrivateEndpoints API.
    */
   public async listDbManagementPrivateEndpoints(
     listDbManagementPrivateEndpointsRequest: requests.ListDbManagementPrivateEndpointsRequest
@@ -10910,7 +10910,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalAsmDiskGroupsRequest
    * @return ListExternalAsmDiskGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsmDiskGroups.ts.html |here} to see how to use ListExternalAsmDiskGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsmDiskGroups.ts.html |here} to see how to use ListExternalAsmDiskGroups API.
    */
   public async listExternalAsmDiskGroups(
     listExternalAsmDiskGroupsRequest: requests.ListExternalAsmDiskGroupsRequest
@@ -10993,7 +10993,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalAsmInstancesRequest
    * @return ListExternalAsmInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsmInstances.ts.html |here} to see how to use ListExternalAsmInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsmInstances.ts.html |here} to see how to use ListExternalAsmInstances API.
    */
   public async listExternalAsmInstances(
     listExternalAsmInstancesRequest: requests.ListExternalAsmInstancesRequest
@@ -11077,7 +11077,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalAsmUsersRequest
    * @return ListExternalAsmUsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsmUsers.ts.html |here} to see how to use ListExternalAsmUsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsmUsers.ts.html |here} to see how to use ListExternalAsmUsers API.
    */
   public async listExternalAsmUsers(
     listExternalAsmUsersRequest: requests.ListExternalAsmUsersRequest
@@ -11160,7 +11160,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalAsmsRequest
    * @return ListExternalAsmsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsms.ts.html |here} to see how to use ListExternalAsms API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsms.ts.html |here} to see how to use ListExternalAsms API.
    */
   public async listExternalAsms(
     listExternalAsmsRequest: requests.ListExternalAsmsRequest
@@ -11242,7 +11242,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalClusterInstancesRequest
    * @return ListExternalClusterInstancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalClusterInstances.ts.html |here} to see how to use ListExternalClusterInstances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalClusterInstances.ts.html |here} to see how to use ListExternalClusterInstances API.
    */
   public async listExternalClusterInstances(
     listExternalClusterInstancesRequest: requests.ListExternalClusterInstancesRequest
@@ -11325,7 +11325,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalClustersRequest
    * @return ListExternalClustersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalClusters.ts.html |here} to see how to use ListExternalClusters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalClusters.ts.html |here} to see how to use ListExternalClusters API.
    */
   public async listExternalClusters(
     listExternalClustersRequest: requests.ListExternalClustersRequest
@@ -11408,7 +11408,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalDatabasesRequest
    * @return ListExternalDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDatabases.ts.html |here} to see how to use ListExternalDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDatabases.ts.html |here} to see how to use ListExternalDatabases API.
    */
   public async listExternalDatabases(
     listExternalDatabasesRequest: requests.ListExternalDatabasesRequest
@@ -11492,7 +11492,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalDbHomesRequest
    * @return ListExternalDbHomesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbHomes.ts.html |here} to see how to use ListExternalDbHomes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbHomes.ts.html |here} to see how to use ListExternalDbHomes API.
    */
   public async listExternalDbHomes(
     listExternalDbHomesRequest: requests.ListExternalDbHomesRequest
@@ -11574,7 +11574,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalDbNodesRequest
    * @return ListExternalDbNodesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbNodes.ts.html |here} to see how to use ListExternalDbNodes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbNodes.ts.html |here} to see how to use ListExternalDbNodes API.
    */
   public async listExternalDbNodes(
     listExternalDbNodesRequest: requests.ListExternalDbNodesRequest
@@ -11656,7 +11656,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalDbSystemConnectorsRequest
    * @return ListExternalDbSystemConnectorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbSystemConnectors.ts.html |here} to see how to use ListExternalDbSystemConnectors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbSystemConnectors.ts.html |here} to see how to use ListExternalDbSystemConnectors API.
    */
   public async listExternalDbSystemConnectors(
     listExternalDbSystemConnectorsRequest: requests.ListExternalDbSystemConnectorsRequest
@@ -11739,7 +11739,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalDbSystemDiscoveriesRequest
    * @return ListExternalDbSystemDiscoveriesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbSystemDiscoveries.ts.html |here} to see how to use ListExternalDbSystemDiscoveries API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbSystemDiscoveries.ts.html |here} to see how to use ListExternalDbSystemDiscoveries API.
    */
   public async listExternalDbSystemDiscoveries(
     listExternalDbSystemDiscoveriesRequest: requests.ListExternalDbSystemDiscoveriesRequest
@@ -11821,7 +11821,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalDbSystemsRequest
    * @return ListExternalDbSystemsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbSystems.ts.html |here} to see how to use ListExternalDbSystems API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbSystems.ts.html |here} to see how to use ListExternalDbSystems API.
    */
   public async listExternalDbSystems(
     listExternalDbSystemsRequest: requests.ListExternalDbSystemsRequest
@@ -11904,7 +11904,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalExadataInfrastructuresRequest
    * @return ListExternalExadataInfrastructuresResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalExadataInfrastructures.ts.html |here} to see how to use ListExternalExadataInfrastructures API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalExadataInfrastructures.ts.html |here} to see how to use ListExternalExadataInfrastructures API.
    */
   public async listExternalExadataInfrastructures(
     listExternalExadataInfrastructuresRequest: requests.ListExternalExadataInfrastructuresRequest
@@ -11987,7 +11987,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalExadataStorageConnectorsRequest
    * @return ListExternalExadataStorageConnectorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalExadataStorageConnectors.ts.html |here} to see how to use ListExternalExadataStorageConnectors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalExadataStorageConnectors.ts.html |here} to see how to use ListExternalExadataStorageConnectors API.
    */
   public async listExternalExadataStorageConnectors(
     listExternalExadataStorageConnectorsRequest: requests.ListExternalExadataStorageConnectorsRequest
@@ -12074,7 +12074,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalExadataStorageServersRequest
    * @return ListExternalExadataStorageServersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalExadataStorageServers.ts.html |here} to see how to use ListExternalExadataStorageServers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalExadataStorageServers.ts.html |here} to see how to use ListExternalExadataStorageServers API.
    */
   public async listExternalExadataStorageServers(
     listExternalExadataStorageServersRequest: requests.ListExternalExadataStorageServersRequest
@@ -12160,7 +12160,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalListenerServicesRequest
    * @return ListExternalListenerServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalListenerServices.ts.html |here} to see how to use ListExternalListenerServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalListenerServices.ts.html |here} to see how to use ListExternalListenerServices API.
    */
   public async listExternalListenerServices(
     listExternalListenerServicesRequest: requests.ListExternalListenerServicesRequest
@@ -12244,7 +12244,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalListenersRequest
    * @return ListExternalListenersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalListeners.ts.html |here} to see how to use ListExternalListeners API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalListeners.ts.html |here} to see how to use ListExternalListeners API.
    */
   public async listExternalListeners(
     listExternalListenersRequest: requests.ListExternalListenersRequest
@@ -12328,7 +12328,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListExternalMySqlDatabasesRequest
    * @return ListExternalMySqlDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalMySqlDatabases.ts.html |here} to see how to use ListExternalMySqlDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalMySqlDatabases.ts.html |here} to see how to use ListExternalMySqlDatabases API.
    */
   public async listExternalMySqlDatabases(
     listExternalMySqlDatabasesRequest: requests.ListExternalMySqlDatabasesRequest
@@ -12414,7 +12414,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListJobExecutionsRequest
    * @return ListJobExecutionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListJobExecutions.ts.html |here} to see how to use ListJobExecutions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListJobExecutions.ts.html |here} to see how to use ListJobExecutions API.
    */
   public async listJobExecutions(
     listJobExecutionsRequest: requests.ListJobExecutionsRequest
@@ -12505,7 +12505,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListJobRunsRequest
    * @return ListJobRunsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListJobRuns.ts.html |here} to see how to use ListJobRuns API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListJobRuns.ts.html |here} to see how to use ListJobRuns API.
    */
   public async listJobRuns(
     listJobRunsRequest: requests.ListJobRunsRequest
@@ -12595,7 +12595,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListJobsRequest
    * @return ListJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListJobs.ts.html |here} to see how to use ListJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListJobs.ts.html |here} to see how to use ListJobs API.
    */
   public async listJobs(
     listJobsRequest: requests.ListJobsRequest
@@ -12684,7 +12684,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListManagedDatabaseGroupsRequest
    * @return ListManagedDatabaseGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedDatabaseGroups.ts.html |here} to see how to use ListManagedDatabaseGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedDatabaseGroups.ts.html |here} to see how to use ListManagedDatabaseGroups API.
    */
   public async listManagedDatabaseGroups(
     listManagedDatabaseGroupsRequest: requests.ListManagedDatabaseGroupsRequest
@@ -12774,7 +12774,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListManagedDatabasesRequest
    * @return ListManagedDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedDatabases.ts.html |here} to see how to use ListManagedDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedDatabases.ts.html |here} to see how to use ListManagedDatabases API.
    */
   public async listManagedDatabases(
     listManagedDatabasesRequest: requests.ListManagedDatabasesRequest
@@ -12862,7 +12862,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListMySqlDatabaseConnectorsRequest
    * @return ListMySqlDatabaseConnectorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListMySqlDatabaseConnectors.ts.html |here} to see how to use ListMySqlDatabaseConnectors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListMySqlDatabaseConnectors.ts.html |here} to see how to use ListMySqlDatabaseConnectors API.
    */
   public async listMySqlDatabaseConnectors(
     listMySqlDatabaseConnectorsRequest: requests.ListMySqlDatabaseConnectorsRequest
@@ -12946,7 +12946,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListNamedCredentialsRequest
    * @return ListNamedCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListNamedCredentials.ts.html |here} to see how to use ListNamedCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListNamedCredentials.ts.html |here} to see how to use ListNamedCredentials API.
    */
   public async listNamedCredentials(
     listNamedCredentialsRequest: requests.ListNamedCredentialsRequest
@@ -13031,7 +13031,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListObjectPrivilegesRequest
    * @return ListObjectPrivilegesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListObjectPrivileges.ts.html |here} to see how to use ListObjectPrivileges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListObjectPrivileges.ts.html |here} to see how to use ListObjectPrivileges API.
    */
   public async listObjectPrivileges(
     listObjectPrivilegesRequest: requests.ListObjectPrivilegesRequest
@@ -13119,7 +13119,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListOptimizerStatisticsAdvisorExecutionsRequest
    * @return ListOptimizerStatisticsAdvisorExecutionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListOptimizerStatisticsAdvisorExecutions.ts.html |here} to see how to use ListOptimizerStatisticsAdvisorExecutions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListOptimizerStatisticsAdvisorExecutions.ts.html |here} to see how to use ListOptimizerStatisticsAdvisorExecutions API.
    */
   public async listOptimizerStatisticsAdvisorExecutions(
     listOptimizerStatisticsAdvisorExecutionsRequest: requests.ListOptimizerStatisticsAdvisorExecutionsRequest
@@ -13206,7 +13206,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListOptimizerStatisticsCollectionAggregationsRequest
    * @return ListOptimizerStatisticsCollectionAggregationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListOptimizerStatisticsCollectionAggregations.ts.html |here} to see how to use ListOptimizerStatisticsCollectionAggregations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListOptimizerStatisticsCollectionAggregations.ts.html |here} to see how to use ListOptimizerStatisticsCollectionAggregations API.
    */
   public async listOptimizerStatisticsCollectionAggregations(
     listOptimizerStatisticsCollectionAggregationsRequest: requests.ListOptimizerStatisticsCollectionAggregationsRequest
@@ -13303,7 +13303,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListOptimizerStatisticsCollectionOperationsRequest
    * @return ListOptimizerStatisticsCollectionOperationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListOptimizerStatisticsCollectionOperations.ts.html |here} to see how to use ListOptimizerStatisticsCollectionOperations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListOptimizerStatisticsCollectionOperations.ts.html |here} to see how to use ListOptimizerStatisticsCollectionOperations API.
    */
   public async listOptimizerStatisticsCollectionOperations(
     listOptimizerStatisticsCollectionOperationsRequest: requests.ListOptimizerStatisticsCollectionOperationsRequest
@@ -13396,7 +13396,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListPreferredCredentialsRequest
    * @return ListPreferredCredentialsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListPreferredCredentials.ts.html |here} to see how to use ListPreferredCredentials API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListPreferredCredentials.ts.html |here} to see how to use ListPreferredCredentials API.
    */
   public async listPreferredCredentials(
     listPreferredCredentialsRequest: requests.ListPreferredCredentialsRequest
@@ -13473,7 +13473,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListProxiedForUsersRequest
    * @return ListProxiedForUsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListProxiedForUsers.ts.html |here} to see how to use ListProxiedForUsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListProxiedForUsers.ts.html |here} to see how to use ListProxiedForUsers API.
    */
   public async listProxiedForUsers(
     listProxiedForUsersRequest: requests.ListProxiedForUsersRequest
@@ -13557,7 +13557,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListProxyUsersRequest
    * @return ListProxyUsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListProxyUsers.ts.html |here} to see how to use ListProxyUsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListProxyUsers.ts.html |here} to see how to use ListProxyUsers API.
    */
   public async listProxyUsers(
     listProxyUsersRequest: requests.ListProxyUsersRequest
@@ -13641,7 +13641,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListRolesRequest
    * @return ListRolesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListRoles.ts.html |here} to see how to use ListRoles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListRoles.ts.html |here} to see how to use ListRoles API.
    */
   public async listRoles(
     listRolesRequest: requests.ListRolesRequest
@@ -13726,7 +13726,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListSqlPlanBaselineJobsRequest
    * @return ListSqlPlanBaselineJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlPlanBaselineJobs.ts.html |here} to see how to use ListSqlPlanBaselineJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlPlanBaselineJobs.ts.html |here} to see how to use ListSqlPlanBaselineJobs API.
    */
   public async listSqlPlanBaselineJobs(
     listSqlPlanBaselineJobsRequest: requests.ListSqlPlanBaselineJobsRequest
@@ -13811,7 +13811,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListSqlPlanBaselinesRequest
    * @return ListSqlPlanBaselinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlPlanBaselines.ts.html |here} to see how to use ListSqlPlanBaselines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlPlanBaselines.ts.html |here} to see how to use ListSqlPlanBaselines API.
    */
   public async listSqlPlanBaselines(
     listSqlPlanBaselinesRequest: requests.ListSqlPlanBaselinesRequest
@@ -13907,7 +13907,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListSystemPrivilegesRequest
    * @return ListSystemPrivilegesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSystemPrivileges.ts.html |here} to see how to use ListSystemPrivileges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSystemPrivileges.ts.html |here} to see how to use ListSystemPrivileges API.
    */
   public async listSystemPrivileges(
     listSystemPrivilegesRequest: requests.ListSystemPrivilegesRequest
@@ -13994,7 +13994,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListTableStatisticsRequest
    * @return ListTableStatisticsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListTableStatistics.ts.html |here} to see how to use ListTableStatistics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListTableStatistics.ts.html |here} to see how to use ListTableStatistics API.
    */
   public async listTableStatistics(
     listTableStatisticsRequest: requests.ListTableStatisticsRequest
@@ -14066,7 +14066,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListTablespacesRequest
    * @return ListTablespacesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListTablespaces.ts.html |here} to see how to use ListTablespaces API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListTablespaces.ts.html |here} to see how to use ListTablespaces API.
    */
   public async listTablespaces(
     listTablespacesRequest: requests.ListTablespacesRequest
@@ -14149,7 +14149,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListUsersRequest
    * @return ListUsersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListUsers.ts.html |here} to see how to use ListUsers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListUsers.ts.html |here} to see how to use ListUsers API.
    */
   public async listUsers(
     listUsersRequest: requests.ListUsersRequest
@@ -14233,7 +14233,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -14316,7 +14316,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -14398,7 +14398,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -14486,7 +14486,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param LoadSqlPlanBaselinesFromAwrRequest
    * @return LoadSqlPlanBaselinesFromAwrResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/LoadSqlPlanBaselinesFromAwr.ts.html |here} to see how to use LoadSqlPlanBaselinesFromAwr API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/LoadSqlPlanBaselinesFromAwr.ts.html |here} to see how to use LoadSqlPlanBaselinesFromAwr API.
    */
   public async loadSqlPlanBaselinesFromAwr(
     loadSqlPlanBaselinesFromAwrRequest: requests.LoadSqlPlanBaselinesFromAwrRequest
@@ -14567,7 +14567,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param LoadSqlPlanBaselinesFromCursorCacheRequest
    * @return LoadSqlPlanBaselinesFromCursorCacheResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/LoadSqlPlanBaselinesFromCursorCache.ts.html |here} to see how to use LoadSqlPlanBaselinesFromCursorCache API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/LoadSqlPlanBaselinesFromCursorCache.ts.html |here} to see how to use LoadSqlPlanBaselinesFromCursorCache API.
    */
   public async loadSqlPlanBaselinesFromCursorCache(
     loadSqlPlanBaselinesFromCursorCacheRequest: requests.LoadSqlPlanBaselinesFromCursorCacheRequest
@@ -14648,7 +14648,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ModifyAutonomousDatabaseManagementFeatureRequest
    * @return ModifyAutonomousDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyAutonomousDatabaseManagementFeature.ts.html |here} to see how to use ModifyAutonomousDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyAutonomousDatabaseManagementFeature.ts.html |here} to see how to use ModifyAutonomousDatabaseManagementFeature API.
    */
   public async modifyAutonomousDatabaseManagementFeature(
     modifyAutonomousDatabaseManagementFeatureRequest: requests.ModifyAutonomousDatabaseManagementFeatureRequest
@@ -14732,7 +14732,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ModifyDatabaseManagementFeatureRequest
    * @return ModifyDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyDatabaseManagementFeature.ts.html |here} to see how to use ModifyDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyDatabaseManagementFeature.ts.html |here} to see how to use ModifyDatabaseManagementFeature API.
    */
   public async modifyDatabaseManagementFeature(
     modifyDatabaseManagementFeatureRequest: requests.ModifyDatabaseManagementFeatureRequest
@@ -14813,7 +14813,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ModifyPluggableDatabaseManagementFeatureRequest
    * @return ModifyPluggableDatabaseManagementFeatureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyPluggableDatabaseManagementFeature.ts.html |here} to see how to use ModifyPluggableDatabaseManagementFeature API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyPluggableDatabaseManagementFeature.ts.html |here} to see how to use ModifyPluggableDatabaseManagementFeature API.
    */
   public async modifyPluggableDatabaseManagementFeature(
     modifyPluggableDatabaseManagementFeatureRequest: requests.ModifyPluggableDatabaseManagementFeatureRequest
@@ -14896,7 +14896,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param PatchExternalDbSystemDiscoveryRequest
    * @return PatchExternalDbSystemDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/PatchExternalDbSystemDiscovery.ts.html |here} to see how to use PatchExternalDbSystemDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/PatchExternalDbSystemDiscovery.ts.html |here} to see how to use PatchExternalDbSystemDiscovery API.
    */
   public async patchExternalDbSystemDiscovery(
     patchExternalDbSystemDiscoveryRequest: requests.PatchExternalDbSystemDiscoveryRequest
@@ -14981,7 +14981,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param RemoveDataFileRequest
    * @return RemoveDataFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/RemoveDataFile.ts.html |here} to see how to use RemoveDataFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/RemoveDataFile.ts.html |here} to see how to use RemoveDataFile API.
    */
   public async removeDataFile(
     removeDataFileRequest: requests.RemoveDataFileRequest
@@ -15064,7 +15064,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param RemoveManagedDatabaseFromManagedDatabaseGroupRequest
    * @return RemoveManagedDatabaseFromManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/RemoveManagedDatabaseFromManagedDatabaseGroup.ts.html |here} to see how to use RemoveManagedDatabaseFromManagedDatabaseGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/RemoveManagedDatabaseFromManagedDatabaseGroup.ts.html |here} to see how to use RemoveManagedDatabaseFromManagedDatabaseGroup API.
    */
   public async removeManagedDatabaseFromManagedDatabaseGroup(
     removeManagedDatabaseFromManagedDatabaseGroupRequest: requests.RemoveManagedDatabaseFromManagedDatabaseGroupRequest
@@ -15142,7 +15142,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ResetDatabaseParametersRequest
    * @return ResetDatabaseParametersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ResetDatabaseParameters.ts.html |here} to see how to use ResetDatabaseParameters API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ResetDatabaseParameters.ts.html |here} to see how to use ResetDatabaseParameters API.
    */
   public async resetDatabaseParameters(
     resetDatabaseParametersRequest: requests.ResetDatabaseParametersRequest
@@ -15221,7 +15221,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param ResizeDataFileRequest
    * @return ResizeDataFileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ResizeDataFile.ts.html |here} to see how to use ResizeDataFile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ResizeDataFile.ts.html |here} to see how to use ResizeDataFile API.
    */
   public async resizeDataFile(
     resizeDataFileRequest: requests.ResizeDataFileRequest
@@ -15302,7 +15302,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param RunHistoricAddmRequest
    * @return RunHistoricAddmResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/RunHistoricAddm.ts.html |here} to see how to use RunHistoricAddm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/RunHistoricAddm.ts.html |here} to see how to use RunHistoricAddm API.
    */
   public async runHistoricAddm(
     runHistoricAddmRequest: requests.RunHistoricAddmRequest
@@ -15381,7 +15381,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param SummarizeAwrDbCpuUsagesRequest
    * @return SummarizeAwrDbCpuUsagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbCpuUsages.ts.html |here} to see how to use SummarizeAwrDbCpuUsages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbCpuUsages.ts.html |here} to see how to use SummarizeAwrDbCpuUsages API.
    */
   public async summarizeAwrDbCpuUsages(
     summarizeAwrDbCpuUsagesRequest: requests.SummarizeAwrDbCpuUsagesRequest
@@ -15474,7 +15474,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param SummarizeAwrDbMetricsRequest
    * @return SummarizeAwrDbMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbMetrics.ts.html |here} to see how to use SummarizeAwrDbMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbMetrics.ts.html |here} to see how to use SummarizeAwrDbMetrics API.
    */
   public async summarizeAwrDbMetrics(
     summarizeAwrDbMetricsRequest: requests.SummarizeAwrDbMetricsRequest
@@ -15571,7 +15571,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
    * @param SummarizeAwrDbParameterChangesRequest
    * @return SummarizeAwrDbParameterChangesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbParameterChanges.ts.html |here} to see how to use SummarizeAwrDbParameterChanges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbParameterChanges.ts.html |here} to see how to use SummarizeAwrDbParameterChanges API.
    */
   public async summarizeAwrDbParameterChanges(
     summarizeAwrDbParameterChangesRequest: requests.SummarizeAwrDbParameterChangesRequest
@@ -15675,7 +15675,7 @@ Note that this API does not return information on the number of times each datab
      * @param SummarizeAwrDbParametersRequest
      * @return SummarizeAwrDbParametersResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbParameters.ts.html |here} to see how to use SummarizeAwrDbParameters API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbParameters.ts.html |here} to see how to use SummarizeAwrDbParameters API.
      */
   public async summarizeAwrDbParameters(
     summarizeAwrDbParametersRequest: requests.SummarizeAwrDbParametersRequest
@@ -15773,7 +15773,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrDbSnapshotRangesRequest
    * @return SummarizeAwrDbSnapshotRangesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbSnapshotRanges.ts.html |here} to see how to use SummarizeAwrDbSnapshotRanges API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbSnapshotRanges.ts.html |here} to see how to use SummarizeAwrDbSnapshotRanges API.
    */
   public async summarizeAwrDbSnapshotRanges(
     summarizeAwrDbSnapshotRangesRequest: requests.SummarizeAwrDbSnapshotRangesRequest
@@ -15861,7 +15861,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrDbSysstatsRequest
    * @return SummarizeAwrDbSysstatsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbSysstats.ts.html |here} to see how to use SummarizeAwrDbSysstats API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbSysstats.ts.html |here} to see how to use SummarizeAwrDbSysstats API.
    */
   public async summarizeAwrDbSysstats(
     summarizeAwrDbSysstatsRequest: requests.SummarizeAwrDbSysstatsRequest
@@ -15954,7 +15954,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrDbTopWaitEventsRequest
    * @return SummarizeAwrDbTopWaitEventsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbTopWaitEvents.ts.html |here} to see how to use SummarizeAwrDbTopWaitEvents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbTopWaitEvents.ts.html |here} to see how to use SummarizeAwrDbTopWaitEvents API.
    */
   public async summarizeAwrDbTopWaitEvents(
     summarizeAwrDbTopWaitEventsRequest: requests.SummarizeAwrDbTopWaitEventsRequest
@@ -16047,7 +16047,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrDbWaitEventBucketsRequest
    * @return SummarizeAwrDbWaitEventBucketsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbWaitEventBuckets.ts.html |here} to see how to use SummarizeAwrDbWaitEventBuckets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbWaitEventBuckets.ts.html |here} to see how to use SummarizeAwrDbWaitEventBuckets API.
    */
   public async summarizeAwrDbWaitEventBuckets(
     summarizeAwrDbWaitEventBucketsRequest: requests.SummarizeAwrDbWaitEventBucketsRequest
@@ -16144,7 +16144,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeAwrDbWaitEventsRequest
    * @return SummarizeAwrDbWaitEventsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbWaitEvents.ts.html |here} to see how to use SummarizeAwrDbWaitEvents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAwrDbWaitEvents.ts.html |here} to see how to use SummarizeAwrDbWaitEvents API.
    */
   public async summarizeAwrDbWaitEvents(
     summarizeAwrDbWaitEventsRequest: requests.SummarizeAwrDbWaitEventsRequest
@@ -16239,7 +16239,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExternalAsmMetricsRequest
    * @return SummarizeExternalAsmMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalAsmMetrics.ts.html |here} to see how to use SummarizeExternalAsmMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalAsmMetrics.ts.html |here} to see how to use SummarizeExternalAsmMetrics API.
    */
   public async summarizeExternalAsmMetrics(
     summarizeExternalAsmMetricsRequest: requests.SummarizeExternalAsmMetricsRequest
@@ -16323,7 +16323,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExternalClusterMetricsRequest
    * @return SummarizeExternalClusterMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalClusterMetrics.ts.html |here} to see how to use SummarizeExternalClusterMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalClusterMetrics.ts.html |here} to see how to use SummarizeExternalClusterMetrics API.
    */
   public async summarizeExternalClusterMetrics(
     summarizeExternalClusterMetricsRequest: requests.SummarizeExternalClusterMetricsRequest
@@ -16407,7 +16407,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExternalDbNodeMetricsRequest
    * @return SummarizeExternalDbNodeMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalDbNodeMetrics.ts.html |here} to see how to use SummarizeExternalDbNodeMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalDbNodeMetrics.ts.html |here} to see how to use SummarizeExternalDbNodeMetrics API.
    */
   public async summarizeExternalDbNodeMetrics(
     summarizeExternalDbNodeMetricsRequest: requests.SummarizeExternalDbNodeMetricsRequest
@@ -16491,7 +16491,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExternalDbSystemAvailabilityMetricsRequest
    * @return SummarizeExternalDbSystemAvailabilityMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalDbSystemAvailabilityMetrics.ts.html |here} to see how to use SummarizeExternalDbSystemAvailabilityMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalDbSystemAvailabilityMetrics.ts.html |here} to see how to use SummarizeExternalDbSystemAvailabilityMetrics API.
    */
   public async summarizeExternalDbSystemAvailabilityMetrics(
     summarizeExternalDbSystemAvailabilityMetricsRequest: requests.SummarizeExternalDbSystemAvailabilityMetricsRequest
@@ -16578,7 +16578,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeExternalListenerMetricsRequest
    * @return SummarizeExternalListenerMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalListenerMetrics.ts.html |here} to see how to use SummarizeExternalListenerMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalListenerMetrics.ts.html |here} to see how to use SummarizeExternalListenerMetrics API.
    */
   public async summarizeExternalListenerMetrics(
     summarizeExternalListenerMetricsRequest: requests.SummarizeExternalListenerMetricsRequest
@@ -16661,7 +16661,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeJobExecutionsStatusesRequest
    * @return SummarizeJobExecutionsStatusesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeJobExecutionsStatuses.ts.html |here} to see how to use SummarizeJobExecutionsStatuses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeJobExecutionsStatuses.ts.html |here} to see how to use SummarizeJobExecutionsStatuses API.
    */
   public async summarizeJobExecutionsStatuses(
     summarizeJobExecutionsStatusesRequest: requests.SummarizeJobExecutionsStatusesRequest
@@ -16743,7 +16743,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeManagedDatabaseAvailabilityMetricsRequest
    * @return SummarizeManagedDatabaseAvailabilityMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeManagedDatabaseAvailabilityMetrics.ts.html |here} to see how to use SummarizeManagedDatabaseAvailabilityMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeManagedDatabaseAvailabilityMetrics.ts.html |here} to see how to use SummarizeManagedDatabaseAvailabilityMetrics API.
    */
   public async summarizeManagedDatabaseAvailabilityMetrics(
     summarizeManagedDatabaseAvailabilityMetricsRequest: requests.SummarizeManagedDatabaseAvailabilityMetricsRequest
@@ -16828,7 +16828,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeSqlPlanBaselinesRequest
    * @return SummarizeSqlPlanBaselinesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeSqlPlanBaselines.ts.html |here} to see how to use SummarizeSqlPlanBaselines API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeSqlPlanBaselines.ts.html |here} to see how to use SummarizeSqlPlanBaselines API.
    */
   public async summarizeSqlPlanBaselines(
     summarizeSqlPlanBaselinesRequest: requests.SummarizeSqlPlanBaselinesRequest
@@ -16909,7 +16909,7 @@ Note that this API does not return information on the number of times each datab
    * @param SummarizeSqlPlanBaselinesByLastExecutionRequest
    * @return SummarizeSqlPlanBaselinesByLastExecutionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeSqlPlanBaselinesByLastExecution.ts.html |here} to see how to use SummarizeSqlPlanBaselinesByLastExecution API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeSqlPlanBaselinesByLastExecution.ts.html |here} to see how to use SummarizeSqlPlanBaselinesByLastExecution API.
    */
   public async summarizeSqlPlanBaselinesByLastExecution(
     summarizeSqlPlanBaselinesByLastExecutionRequest: requests.SummarizeSqlPlanBaselinesByLastExecutionRequest
@@ -16993,7 +16993,7 @@ Note that this API does not return information on the number of times each datab
    * @param TestNamedCredentialRequest
    * @return TestNamedCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/TestNamedCredential.ts.html |here} to see how to use TestNamedCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/TestNamedCredential.ts.html |here} to see how to use TestNamedCredential API.
    */
   public async testNamedCredential(
     testNamedCredentialRequest: requests.TestNamedCredentialRequest
@@ -17070,7 +17070,7 @@ Note that this API does not return information on the number of times each datab
    * @param TestPreferredCredentialRequest
    * @return TestPreferredCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/TestPreferredCredential.ts.html |here} to see how to use TestPreferredCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/TestPreferredCredential.ts.html |here} to see how to use TestPreferredCredential API.
    */
   public async testPreferredCredential(
     testPreferredCredentialRequest: requests.TestPreferredCredentialRequest
@@ -17149,7 +17149,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateDbManagementPrivateEndpointRequest
    * @return UpdateDbManagementPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateDbManagementPrivateEndpoint.ts.html |here} to see how to use UpdateDbManagementPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateDbManagementPrivateEndpoint.ts.html |here} to see how to use UpdateDbManagementPrivateEndpoint API.
    */
   public async updateDbManagementPrivateEndpoint(
     updateDbManagementPrivateEndpointRequest: requests.UpdateDbManagementPrivateEndpointRequest
@@ -17234,7 +17234,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalAsmRequest
    * @return UpdateExternalAsmResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalAsm.ts.html |here} to see how to use UpdateExternalAsm API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalAsm.ts.html |here} to see how to use UpdateExternalAsm API.
    */
   public async updateExternalAsm(
     updateExternalAsmRequest: requests.UpdateExternalAsmRequest
@@ -17313,7 +17313,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalAsmInstanceRequest
    * @return UpdateExternalAsmInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalAsmInstance.ts.html |here} to see how to use UpdateExternalAsmInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalAsmInstance.ts.html |here} to see how to use UpdateExternalAsmInstance API.
    */
   public async updateExternalAsmInstance(
     updateExternalAsmInstanceRequest: requests.UpdateExternalAsmInstanceRequest
@@ -17397,7 +17397,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalClusterRequest
    * @return UpdateExternalClusterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalCluster.ts.html |here} to see how to use UpdateExternalCluster API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalCluster.ts.html |here} to see how to use UpdateExternalCluster API.
    */
   public async updateExternalCluster(
     updateExternalClusterRequest: requests.UpdateExternalClusterRequest
@@ -17477,7 +17477,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalClusterInstanceRequest
    * @return UpdateExternalClusterInstanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalClusterInstance.ts.html |here} to see how to use UpdateExternalClusterInstance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalClusterInstance.ts.html |here} to see how to use UpdateExternalClusterInstance API.
    */
   public async updateExternalClusterInstance(
     updateExternalClusterInstanceRequest: requests.UpdateExternalClusterInstanceRequest
@@ -17557,7 +17557,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalDbHomeRequest
    * @return UpdateExternalDbHomeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbHome.ts.html |here} to see how to use UpdateExternalDbHome API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbHome.ts.html |here} to see how to use UpdateExternalDbHome API.
    */
   public async updateExternalDbHome(
     updateExternalDbHomeRequest: requests.UpdateExternalDbHomeRequest
@@ -17641,7 +17641,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalDbNodeRequest
    * @return UpdateExternalDbNodeResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbNode.ts.html |here} to see how to use UpdateExternalDbNode API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbNode.ts.html |here} to see how to use UpdateExternalDbNode API.
    */
   public async updateExternalDbNode(
     updateExternalDbNodeRequest: requests.UpdateExternalDbNodeRequest
@@ -17721,7 +17721,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalDbSystemRequest
    * @return UpdateExternalDbSystemResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbSystem.ts.html |here} to see how to use UpdateExternalDbSystem API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbSystem.ts.html |here} to see how to use UpdateExternalDbSystem API.
    */
   public async updateExternalDbSystem(
     updateExternalDbSystemRequest: requests.UpdateExternalDbSystemRequest
@@ -17804,7 +17804,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalDbSystemConnectorRequest
    * @return UpdateExternalDbSystemConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbSystemConnector.ts.html |here} to see how to use UpdateExternalDbSystemConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbSystemConnector.ts.html |here} to see how to use UpdateExternalDbSystemConnector API.
    */
   public async updateExternalDbSystemConnector(
     updateExternalDbSystemConnectorRequest: requests.UpdateExternalDbSystemConnectorRequest
@@ -17885,7 +17885,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalDbSystemDiscoveryRequest
    * @return UpdateExternalDbSystemDiscoveryResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbSystemDiscovery.ts.html |here} to see how to use UpdateExternalDbSystemDiscovery API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbSystemDiscovery.ts.html |here} to see how to use UpdateExternalDbSystemDiscovery API.
    */
   public async updateExternalDbSystemDiscovery(
     updateExternalDbSystemDiscoveryRequest: requests.UpdateExternalDbSystemDiscoveryRequest
@@ -17970,7 +17970,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalExadataInfrastructureRequest
    * @return UpdateExternalExadataInfrastructureResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataInfrastructure.ts.html |here} to see how to use UpdateExternalExadataInfrastructure API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataInfrastructure.ts.html |here} to see how to use UpdateExternalExadataInfrastructure API.
    */
   public async updateExternalExadataInfrastructure(
     updateExternalExadataInfrastructureRequest: requests.UpdateExternalExadataInfrastructureRequest
@@ -18058,7 +18058,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalExadataStorageConnectorRequest
    * @return UpdateExternalExadataStorageConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataStorageConnector.ts.html |here} to see how to use UpdateExternalExadataStorageConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataStorageConnector.ts.html |here} to see how to use UpdateExternalExadataStorageConnector API.
    */
   public async updateExternalExadataStorageConnector(
     updateExternalExadataStorageConnectorRequest: requests.UpdateExternalExadataStorageConnectorRequest
@@ -18145,7 +18145,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalExadataStorageGridRequest
    * @return UpdateExternalExadataStorageGridResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataStorageGrid.ts.html |here} to see how to use UpdateExternalExadataStorageGrid API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataStorageGrid.ts.html |here} to see how to use UpdateExternalExadataStorageGrid API.
    */
   public async updateExternalExadataStorageGrid(
     updateExternalExadataStorageGridRequest: requests.UpdateExternalExadataStorageGridRequest
@@ -18230,7 +18230,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalExadataStorageServerRequest
    * @return UpdateExternalExadataStorageServerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataStorageServer.ts.html |here} to see how to use UpdateExternalExadataStorageServer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalExadataStorageServer.ts.html |here} to see how to use UpdateExternalExadataStorageServer API.
    */
   public async updateExternalExadataStorageServer(
     updateExternalExadataStorageServerRequest: requests.UpdateExternalExadataStorageServerRequest
@@ -18315,7 +18315,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalListenerRequest
    * @return UpdateExternalListenerResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalListener.ts.html |here} to see how to use UpdateExternalListener API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalListener.ts.html |here} to see how to use UpdateExternalListener API.
    */
   public async updateExternalListener(
     updateExternalListenerRequest: requests.UpdateExternalListenerRequest
@@ -18395,7 +18395,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalMysqlDatabaseRequest
    * @return UpdateExternalMysqlDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalMysqlDatabase.ts.html |here} to see how to use UpdateExternalMysqlDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalMysqlDatabase.ts.html |here} to see how to use UpdateExternalMysqlDatabase API.
    */
   public async updateExternalMysqlDatabase(
     updateExternalMysqlDatabaseRequest: requests.UpdateExternalMysqlDatabaseRequest
@@ -18479,7 +18479,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateExternalMysqlDatabaseConnectorRequest
    * @return UpdateExternalMysqlDatabaseConnectorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalMysqlDatabaseConnector.ts.html |here} to see how to use UpdateExternalMysqlDatabaseConnector API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalMysqlDatabaseConnector.ts.html |here} to see how to use UpdateExternalMysqlDatabaseConnector API.
    */
   public async updateExternalMysqlDatabaseConnector(
     updateExternalMysqlDatabaseConnectorRequest: requests.UpdateExternalMysqlDatabaseConnectorRequest
@@ -18571,7 +18571,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateJobRequest
    * @return UpdateJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateJob.ts.html |here} to see how to use UpdateJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateJob.ts.html |here} to see how to use UpdateJob API.
    */
   public async updateJob(
     updateJobRequest: requests.UpdateJobRequest
@@ -18654,7 +18654,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateManagedDatabaseRequest
    * @return UpdateManagedDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateManagedDatabase.ts.html |here} to see how to use UpdateManagedDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateManagedDatabase.ts.html |here} to see how to use UpdateManagedDatabase API.
    */
   public async updateManagedDatabase(
     updateManagedDatabaseRequest: requests.UpdateManagedDatabaseRequest
@@ -18738,7 +18738,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateManagedDatabaseGroupRequest
    * @return UpdateManagedDatabaseGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateManagedDatabaseGroup.ts.html |here} to see how to use UpdateManagedDatabaseGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateManagedDatabaseGroup.ts.html |here} to see how to use UpdateManagedDatabaseGroup API.
    */
   public async updateManagedDatabaseGroup(
     updateManagedDatabaseGroupRequest: requests.UpdateManagedDatabaseGroupRequest
@@ -18822,7 +18822,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateNamedCredentialRequest
    * @return UpdateNamedCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateNamedCredential.ts.html |here} to see how to use UpdateNamedCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateNamedCredential.ts.html |here} to see how to use UpdateNamedCredential API.
    */
   public async updateNamedCredential(
     updateNamedCredentialRequest: requests.UpdateNamedCredentialRequest
@@ -18906,7 +18906,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdatePreferredCredentialRequest
    * @return UpdatePreferredCredentialResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdatePreferredCredential.ts.html |here} to see how to use UpdatePreferredCredential API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdatePreferredCredential.ts.html |here} to see how to use UpdatePreferredCredential API.
    */
   public async updatePreferredCredential(
     updatePreferredCredentialRequest: requests.UpdatePreferredCredentialRequest
@@ -18991,7 +18991,7 @@ Note that this API does not return information on the number of times each datab
    * @param UpdateTablespaceRequest
    * @return UpdateTablespaceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateTablespace.ts.html |here} to see how to use UpdateTablespace API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateTablespace.ts.html |here} to see how to use UpdateTablespace API.
    */
   public async updateTablespace(
     updateTablespaceRequest: requests.UpdateTablespaceRequest
@@ -19253,7 +19253,7 @@ export class DiagnosabilityClient {
    * @param ListAlertLogsRequest
    * @return ListAlertLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAlertLogs.ts.html |here} to see how to use ListAlertLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAlertLogs.ts.html |here} to see how to use ListAlertLogs API.
    */
   public async listAlertLogs(
     listAlertLogsRequest: requests.ListAlertLogsRequest
@@ -19342,7 +19342,7 @@ export class DiagnosabilityClient {
    * @param ListAttentionLogsRequest
    * @return ListAttentionLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAttentionLogs.ts.html |here} to see how to use ListAttentionLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAttentionLogs.ts.html |here} to see how to use ListAttentionLogs API.
    */
   public async listAttentionLogs(
     listAttentionLogsRequest: requests.ListAttentionLogsRequest
@@ -19431,7 +19431,7 @@ export class DiagnosabilityClient {
    * @param SummarizeAlertLogCountsRequest
    * @return SummarizeAlertLogCountsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAlertLogCounts.ts.html |here} to see how to use SummarizeAlertLogCounts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAlertLogCounts.ts.html |here} to see how to use SummarizeAlertLogCounts API.
    */
   public async summarizeAlertLogCounts(
     summarizeAlertLogCountsRequest: requests.SummarizeAlertLogCountsRequest
@@ -19520,7 +19520,7 @@ export class DiagnosabilityClient {
    * @param SummarizeAttentionLogCountsRequest
    * @return SummarizeAttentionLogCountsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAttentionLogCounts.ts.html |here} to see how to use SummarizeAttentionLogCounts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAttentionLogCounts.ts.html |here} to see how to use SummarizeAttentionLogCounts API.
    */
   public async summarizeAttentionLogCounts(
     summarizeAttentionLogCountsRequest: requests.SummarizeAttentionLogCountsRequest
@@ -19818,7 +19818,7 @@ export class ManagedMySqlDatabasesClient {
    * @param DisableExternalMysqlAssociatedServiceRequest
    * @return DisableExternalMysqlAssociatedServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalMysqlAssociatedService.ts.html |here} to see how to use DisableExternalMysqlAssociatedService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalMysqlAssociatedService.ts.html |here} to see how to use DisableExternalMysqlAssociatedService API.
    */
   public async disableExternalMysqlAssociatedService(
     disableExternalMysqlAssociatedServiceRequest: requests.DisableExternalMysqlAssociatedServiceRequest
@@ -19898,7 +19898,7 @@ export class ManagedMySqlDatabasesClient {
    * @param EnableExternalMysqlAssociatedServiceRequest
    * @return EnableExternalMysqlAssociatedServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalMysqlAssociatedService.ts.html |here} to see how to use EnableExternalMysqlAssociatedService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalMysqlAssociatedService.ts.html |here} to see how to use EnableExternalMysqlAssociatedService API.
    */
   public async enableExternalMysqlAssociatedService(
     enableExternalMysqlAssociatedServiceRequest: requests.EnableExternalMysqlAssociatedServiceRequest
@@ -19978,7 +19978,7 @@ export class ManagedMySqlDatabasesClient {
    * @param GetHeatWaveFleetMetricRequest
    * @return GetHeatWaveFleetMetricResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetHeatWaveFleetMetric.ts.html |here} to see how to use GetHeatWaveFleetMetric API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetHeatWaveFleetMetric.ts.html |here} to see how to use GetHeatWaveFleetMetric API.
    */
   public async getHeatWaveFleetMetric(
     getHeatWaveFleetMetricRequest: requests.GetHeatWaveFleetMetricRequest
@@ -20057,7 +20057,7 @@ export class ManagedMySqlDatabasesClient {
    * @param GetManagedMySqlDatabaseRequest
    * @return GetManagedMySqlDatabaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetManagedMySqlDatabase.ts.html |here} to see how to use GetManagedMySqlDatabase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetManagedMySqlDatabase.ts.html |here} to see how to use GetManagedMySqlDatabase API.
    */
   public async getManagedMySqlDatabase(
     getManagedMySqlDatabaseRequest: requests.GetManagedMySqlDatabaseRequest
@@ -20130,7 +20130,7 @@ export class ManagedMySqlDatabasesClient {
    * @param GetMySqlFleetMetricRequest
    * @return GetMySqlFleetMetricResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetMySqlFleetMetric.ts.html |here} to see how to use GetMySqlFleetMetric API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetMySqlFleetMetric.ts.html |here} to see how to use GetMySqlFleetMetric API.
    */
   public async getMySqlFleetMetric(
     getMySqlFleetMetricRequest: requests.GetMySqlFleetMetricRequest
@@ -20213,7 +20213,7 @@ export class ManagedMySqlDatabasesClient {
    * @param ListManagedMySqlDatabaseConfigurationDataRequest
    * @return ListManagedMySqlDatabaseConfigurationDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabaseConfigurationData.ts.html |here} to see how to use ListManagedMySqlDatabaseConfigurationData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabaseConfigurationData.ts.html |here} to see how to use ListManagedMySqlDatabaseConfigurationData API.
    */
   public async listManagedMySqlDatabaseConfigurationData(
     listManagedMySqlDatabaseConfigurationDataRequest: requests.ListManagedMySqlDatabaseConfigurationDataRequest
@@ -20299,7 +20299,7 @@ export class ManagedMySqlDatabasesClient {
    * @param ListManagedMySqlDatabaseSqlDataRequest
    * @return ListManagedMySqlDatabaseSqlDataResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabaseSqlData.ts.html |here} to see how to use ListManagedMySqlDatabaseSqlData API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabaseSqlData.ts.html |here} to see how to use ListManagedMySqlDatabaseSqlData API.
    */
   public async listManagedMySqlDatabaseSqlData(
     listManagedMySqlDatabaseSqlDataRequest: requests.ListManagedMySqlDatabaseSqlDataRequest
@@ -20387,7 +20387,7 @@ export class ManagedMySqlDatabasesClient {
    * @param ListManagedMySqlDatabasesRequest
    * @return ListManagedMySqlDatabasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabases.ts.html |here} to see how to use ListManagedMySqlDatabases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListManagedMySqlDatabases.ts.html |here} to see how to use ListManagedMySqlDatabases API.
    */
   public async listManagedMySqlDatabases(
     listManagedMySqlDatabasesRequest: requests.ListManagedMySqlDatabasesRequest
@@ -20471,7 +20471,7 @@ export class ManagedMySqlDatabasesClient {
    * @param SummarizeManagedMySqlDatabaseAvailabilityMetricsRequest
    * @return SummarizeManagedMySqlDatabaseAvailabilityMetricsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeManagedMySqlDatabaseAvailabilityMetrics.ts.html |here} to see how to use SummarizeManagedMySqlDatabaseAvailabilityMetrics API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeManagedMySqlDatabaseAvailabilityMetrics.ts.html |here} to see how to use SummarizeManagedMySqlDatabaseAvailabilityMetrics API.
    */
   public async summarizeManagedMySqlDatabaseAvailabilityMetrics(
     summarizeManagedMySqlDatabaseAvailabilityMetricsRequest: requests.SummarizeManagedMySqlDatabaseAvailabilityMetricsRequest
@@ -20741,7 +20741,7 @@ export class PerfhubClient {
    * @param ModifySnapshotSettingsRequest
    * @return ModifySnapshotSettingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifySnapshotSettings.ts.html |here} to see how to use ModifySnapshotSettings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifySnapshotSettings.ts.html |here} to see how to use ModifySnapshotSettings API.
    */
   public async modifySnapshotSettings(
     modifySnapshotSettingsRequest: requests.ModifySnapshotSettingsRequest
@@ -20999,7 +20999,7 @@ export class SqlTuningClient {
    * @param CloneSqlTuningTaskRequest
    * @return CloneSqlTuningTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CloneSqlTuningTask.ts.html |here} to see how to use CloneSqlTuningTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CloneSqlTuningTask.ts.html |here} to see how to use CloneSqlTuningTask API.
    */
   public async cloneSqlTuningTask(
     cloneSqlTuningTaskRequest: requests.CloneSqlTuningTaskRequest
@@ -21077,7 +21077,7 @@ export class SqlTuningClient {
    * @param CreateSqlTuningSetRequest
    * @return CreateSqlTuningSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateSqlTuningSet.ts.html |here} to see how to use CreateSqlTuningSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateSqlTuningSet.ts.html |here} to see how to use CreateSqlTuningSet API.
    */
   public async createSqlTuningSet(
     createSqlTuningSetRequest: requests.CreateSqlTuningSetRequest
@@ -21155,7 +21155,7 @@ export class SqlTuningClient {
    * @param DropSqlTuningSetRequest
    * @return DropSqlTuningSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlTuningSet.ts.html |here} to see how to use DropSqlTuningSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlTuningSet.ts.html |here} to see how to use DropSqlTuningSet API.
    */
   public async dropSqlTuningSet(
     dropSqlTuningSetRequest: requests.DropSqlTuningSetRequest
@@ -21235,7 +21235,7 @@ export class SqlTuningClient {
    * @param DropSqlTuningTaskRequest
    * @return DropSqlTuningTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlTuningTask.ts.html |here} to see how to use DropSqlTuningTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlTuningTask.ts.html |here} to see how to use DropSqlTuningTask API.
    */
   public async dropSqlTuningTask(
     dropSqlTuningTaskRequest: requests.DropSqlTuningTaskRequest
@@ -21310,7 +21310,7 @@ export class SqlTuningClient {
    * @param DropSqlsInSqlTuningSetRequest
    * @return DropSqlsInSqlTuningSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlsInSqlTuningSet.ts.html |here} to see how to use DropSqlsInSqlTuningSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlsInSqlTuningSet.ts.html |here} to see how to use DropSqlsInSqlTuningSet API.
    */
   public async dropSqlsInSqlTuningSet(
     dropSqlsInSqlTuningSetRequest: requests.DropSqlsInSqlTuningSetRequest
@@ -21390,7 +21390,7 @@ export class SqlTuningClient {
    * @param FetchSqlTuningSetRequest
    * @return FetchSqlTuningSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/FetchSqlTuningSet.ts.html |here} to see how to use FetchSqlTuningSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/FetchSqlTuningSet.ts.html |here} to see how to use FetchSqlTuningSet API.
    */
   public async fetchSqlTuningSet(
     fetchSqlTuningSetRequest: requests.FetchSqlTuningSetRequest
@@ -21471,7 +21471,7 @@ export class SqlTuningClient {
    * @param GetExecutionPlanStatsComparisionRequest
    * @return GetExecutionPlanStatsComparisionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExecutionPlanStatsComparision.ts.html |here} to see how to use GetExecutionPlanStatsComparision API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExecutionPlanStatsComparision.ts.html |here} to see how to use GetExecutionPlanStatsComparision API.
    */
   public async getExecutionPlanStatsComparision(
     getExecutionPlanStatsComparisionRequest: requests.GetExecutionPlanStatsComparisionRequest
@@ -21550,7 +21550,7 @@ export class SqlTuningClient {
    * @param GetSqlExecutionPlanRequest
    * @return GetSqlExecutionPlanResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlExecutionPlan.ts.html |here} to see how to use GetSqlExecutionPlan API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlExecutionPlan.ts.html |here} to see how to use GetSqlExecutionPlan API.
    */
   public async getSqlExecutionPlan(
     getSqlExecutionPlanRequest: requests.GetSqlExecutionPlanRequest
@@ -21628,7 +21628,7 @@ export class SqlTuningClient {
    * @param GetSqlTuningAdvisorTaskSummaryReportRequest
    * @return GetSqlTuningAdvisorTaskSummaryReportResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlTuningAdvisorTaskSummaryReport.ts.html |here} to see how to use GetSqlTuningAdvisorTaskSummaryReport API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlTuningAdvisorTaskSummaryReport.ts.html |here} to see how to use GetSqlTuningAdvisorTaskSummaryReport API.
    */
   public async getSqlTuningAdvisorTaskSummaryReport(
     getSqlTuningAdvisorTaskSummaryReportRequest: requests.GetSqlTuningAdvisorTaskSummaryReportRequest
@@ -21713,7 +21713,7 @@ export class SqlTuningClient {
    * @param ListSqlTuningAdvisorTaskFindingsRequest
    * @return ListSqlTuningAdvisorTaskFindingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTaskFindings.ts.html |here} to see how to use ListSqlTuningAdvisorTaskFindings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTaskFindings.ts.html |here} to see how to use ListSqlTuningAdvisorTaskFindings API.
    */
   public async listSqlTuningAdvisorTaskFindings(
     listSqlTuningAdvisorTaskFindingsRequest: requests.ListSqlTuningAdvisorTaskFindingsRequest
@@ -21806,7 +21806,7 @@ export class SqlTuningClient {
    * @param ListSqlTuningAdvisorTaskRecommendationsRequest
    * @return ListSqlTuningAdvisorTaskRecommendationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTaskRecommendations.ts.html |here} to see how to use ListSqlTuningAdvisorTaskRecommendations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTaskRecommendations.ts.html |here} to see how to use ListSqlTuningAdvisorTaskRecommendations API.
    */
   public async listSqlTuningAdvisorTaskRecommendations(
     listSqlTuningAdvisorTaskRecommendationsRequest: requests.ListSqlTuningAdvisorTaskRecommendationsRequest
@@ -21897,7 +21897,7 @@ export class SqlTuningClient {
    * @param ListSqlTuningAdvisorTasksRequest
    * @return ListSqlTuningAdvisorTasksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTasks.ts.html |here} to see how to use ListSqlTuningAdvisorTasks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningAdvisorTasks.ts.html |here} to see how to use ListSqlTuningAdvisorTasks API.
    */
   public async listSqlTuningAdvisorTasks(
     listSqlTuningAdvisorTasksRequest: requests.ListSqlTuningAdvisorTasksRequest
@@ -21985,7 +21985,7 @@ export class SqlTuningClient {
    * @param ListSqlTuningSetsRequest
    * @return ListSqlTuningSetsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningSets.ts.html |here} to see how to use ListSqlTuningSets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningSets.ts.html |here} to see how to use ListSqlTuningSets API.
    */
   public async listSqlTuningSets(
     listSqlTuningSetsRequest: requests.ListSqlTuningSetsRequest
@@ -22070,7 +22070,7 @@ export class SqlTuningClient {
    * @param LoadSqlTuningSetRequest
    * @return LoadSqlTuningSetResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/LoadSqlTuningSet.ts.html |here} to see how to use LoadSqlTuningSet API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/LoadSqlTuningSet.ts.html |here} to see how to use LoadSqlTuningSet API.
    */
   public async loadSqlTuningSet(
     loadSqlTuningSetRequest: requests.LoadSqlTuningSetRequest
@@ -22150,7 +22150,7 @@ export class SqlTuningClient {
    * @param SaveSqlTuningSetAsRequest
    * @return SaveSqlTuningSetAsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SaveSqlTuningSetAs.ts.html |here} to see how to use SaveSqlTuningSetAs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SaveSqlTuningSetAs.ts.html |here} to see how to use SaveSqlTuningSetAs API.
    */
   public async saveSqlTuningSetAs(
     saveSqlTuningSetAsRequest: requests.SaveSqlTuningSetAsRequest
@@ -22229,7 +22229,7 @@ export class SqlTuningClient {
    * @param StartSqlTuningTaskRequest
    * @return StartSqlTuningTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/StartSqlTuningTask.ts.html |here} to see how to use StartSqlTuningTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/StartSqlTuningTask.ts.html |here} to see how to use StartSqlTuningTask API.
    */
   public async startSqlTuningTask(
     startSqlTuningTaskRequest: requests.StartSqlTuningTaskRequest
@@ -22307,7 +22307,7 @@ export class SqlTuningClient {
    * @param ValidateBasicFilterRequest
    * @return ValidateBasicFilterResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ValidateBasicFilter.ts.html |here} to see how to use ValidateBasicFilter API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ValidateBasicFilter.ts.html |here} to see how to use ValidateBasicFilter API.
    */
   public async validateBasicFilter(
     validateBasicFilterRequest: requests.ValidateBasicFilterRequest

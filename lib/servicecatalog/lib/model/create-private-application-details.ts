@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreatePrivateApplicationDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the private application.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the private application.
    *
    */
   "compartmentId": string;

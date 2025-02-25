@@ -221,7 +221,7 @@ export class BillingScheduleClient {
    * @param ListBillingSchedulesRequest
    * @return ListBillingSchedulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListBillingSchedules.ts.html |here} to see how to use ListBillingSchedules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListBillingSchedules.ts.html |here} to see how to use ListBillingSchedules API.
    */
   public async listBillingSchedules(
     listBillingSchedulesRequest: requests.ListBillingSchedulesRequest
@@ -540,7 +540,7 @@ export class CommitmentClient {
    * @param GetCommitmentRequest
    * @return GetCommitmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/GetCommitment.ts.html |here} to see how to use GetCommitment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/GetCommitment.ts.html |here} to see how to use GetCommitment API.
    */
   public async getCommitment(
     getCommitmentRequest: requests.GetCommitmentRequest
@@ -611,7 +611,7 @@ export class CommitmentClient {
    * @param ListCommitmentsRequest
    * @return ListCommitmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListCommitments.ts.html |here} to see how to use ListCommitments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListCommitments.ts.html |here} to see how to use ListCommitments API.
    */
   public async listCommitments(
     listCommitmentsRequest: requests.ListCommitmentsRequest
@@ -928,7 +928,7 @@ export class ComputedUsageClient {
    * @param GetComputedUsageRequest
    * @return GetComputedUsageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/GetComputedUsage.ts.html |here} to see how to use GetComputedUsage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/GetComputedUsage.ts.html |here} to see how to use GetComputedUsage API.
    */
   public async getComputedUsage(
     getComputedUsageRequest: requests.GetComputedUsageRequest
@@ -1002,7 +1002,7 @@ export class ComputedUsageClient {
    * @param ListAggregatedComputedUsagesRequest
    * @return ListAggregatedComputedUsagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListAggregatedComputedUsages.ts.html |here} to see how to use ListAggregatedComputedUsages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListAggregatedComputedUsages.ts.html |here} to see how to use ListAggregatedComputedUsages API.
    */
   public async listAggregatedComputedUsages(
     listAggregatedComputedUsagesRequest: requests.ListAggregatedComputedUsagesRequest
@@ -1138,7 +1138,7 @@ export class ComputedUsageClient {
    * @param ListComputedUsagesRequest
    * @return ListComputedUsagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListComputedUsages.ts.html |here} to see how to use ListComputedUsages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListComputedUsages.ts.html |here} to see how to use ListComputedUsages API.
    */
   public async listComputedUsages(
     listComputedUsagesRequest: requests.ListComputedUsagesRequest
@@ -1459,7 +1459,7 @@ export class InvoiceSummaryClient {
    * @param ListInvoicelineComputedUsagesRequest
    * @return ListInvoicelineComputedUsagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListInvoicelineComputedUsages.ts.html |here} to see how to use ListInvoicelineComputedUsages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListInvoicelineComputedUsages.ts.html |here} to see how to use ListInvoicelineComputedUsages API.
    */
   public async listInvoicelineComputedUsages(
     listInvoicelineComputedUsagesRequest: requests.ListInvoicelineComputedUsagesRequest
@@ -1594,7 +1594,7 @@ export class InvoiceSummaryClient {
    * @param ListInvoicesRequest
    * @return ListInvoicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListInvoices.ts.html |here} to see how to use ListInvoices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListInvoices.ts.html |here} to see how to use ListInvoices API.
    */
   public async listInvoices(
     listInvoicesRequest: requests.ListInvoicesRequest
@@ -1915,7 +1915,7 @@ export class OrganizationSubscriptionClient {
    * @param ListOrganizationSubscriptionsRequest
    * @return ListOrganizationSubscriptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListOrganizationSubscriptions.ts.html |here} to see how to use ListOrganizationSubscriptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListOrganizationSubscriptions.ts.html |here} to see how to use ListOrganizationSubscriptions API.
    */
   public async listOrganizationSubscriptions(
     listOrganizationSubscriptionsRequest: requests.ListOrganizationSubscriptionsRequest
@@ -2235,7 +2235,7 @@ export class RatecardClient {
    * @param ListRateCardsRequest
    * @return ListRateCardsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListRateCards.ts.html |here} to see how to use ListRateCards API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListRateCards.ts.html |here} to see how to use ListRateCards API.
    */
   public async listRateCards(
     listRateCardsRequest: requests.ListRateCardsRequest
@@ -2555,7 +2555,7 @@ export class SubscribedServiceClient {
    * @param GetSubscribedServiceRequest
    * @return GetSubscribedServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/GetSubscribedService.ts.html |here} to see how to use GetSubscribedService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/GetSubscribedService.ts.html |here} to see how to use GetSubscribedService API.
    */
   public async getSubscribedService(
     getSubscribedServiceRequest: requests.GetSubscribedServiceRequest
@@ -2629,7 +2629,7 @@ export class SubscribedServiceClient {
    * @param ListSubscribedServicesRequest
    * @return ListSubscribedServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListSubscribedServices.ts.html |here} to see how to use ListSubscribedServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListSubscribedServices.ts.html |here} to see how to use ListSubscribedServices API.
    */
   public async listSubscribedServices(
     listSubscribedServicesRequest: requests.ListSubscribedServicesRequest
@@ -2952,7 +2952,7 @@ export class SubscriptionClient {
    * @param ListSubscriptionsRequest
    * @return ListSubscriptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListSubscriptions.ts.html |here} to see how to use ListSubscriptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListSubscriptions.ts.html |here} to see how to use ListSubscriptions API.
    */
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest

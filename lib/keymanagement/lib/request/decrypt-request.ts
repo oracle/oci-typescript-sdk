@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Decrypt.ts.html |here} to see how to use DecryptRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/Decrypt.ts.html |here} to see how to use DecryptRequest.
  */
 export interface DecryptRequest extends common.BaseRequest {
   /**

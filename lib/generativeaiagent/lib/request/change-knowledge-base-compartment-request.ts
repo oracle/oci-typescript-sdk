@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeKnowledgeBaseCompartment.ts.html |here} to see how to use ChangeKnowledgeBaseCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeKnowledgeBaseCompartment.ts.html |here} to see how to use ChangeKnowledgeBaseCompartmentRequest.
  */
 export interface ChangeKnowledgeBaseCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the knowledge base.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the knowledge base.
    */
   "knowledgeBaseId": string;
   /**

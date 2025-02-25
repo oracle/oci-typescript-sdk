@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/UpdateSession.ts.html |here} to see how to use UpdateSessionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/UpdateSession.ts.html |here} to see how to use UpdateSessionRequest.
  */
 export interface UpdateSessionRequest extends common.BaseRequest {
   /**

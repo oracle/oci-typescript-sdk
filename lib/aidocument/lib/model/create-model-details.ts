@@ -50,7 +50,7 @@ export interface CreateModelDetails {
   "testingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "validationDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) list of active custom Key Value models that need to be composed.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) list of active custom Key Value models that need to be composed.
    */
   "componentModels"?: Array<model.ComponentModel>;
   /**
@@ -58,7 +58,7 @@ export interface CreateModelDetails {
    */
   "aliasName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project that contains the model.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project that contains the model.
    */
   "projectId": string;
   /**

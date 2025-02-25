@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteManagementStation.ts.html |here} to see how to use DeleteManagementStationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagementhub/DeleteManagementStation.ts.html |here} to see how to use DeleteManagementStationRequest.
  */
 export interface DeleteManagementStationRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station.
    */
   "managementStationId": string;
   /**
@@ -31,6 +31,15 @@ export interface DeleteManagementStationRequest extends common.BaseRequest {
    *
    */
   "ifMatch"?: string;
+  /**
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or
+   * server error without risk of executing that same action again. Retry tokens expire after 24
+   * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
+   * has been deleted and purged from the system, then a retry of the original creation request
+   * might be rejected.
+   *
+   */
+  "opcRetryToken"?: string;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */

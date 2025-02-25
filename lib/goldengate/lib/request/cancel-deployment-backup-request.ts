@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelDeploymentBackup.ts.html |here} to see how to use CancelDeploymentBackupRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelDeploymentBackup.ts.html |here} to see how to use CancelDeploymentBackupRequest.
  */
 export interface CancelDeploymentBackupRequest extends common.BaseRequest {
   /**

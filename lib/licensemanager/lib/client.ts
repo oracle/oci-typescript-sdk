@@ -1,6 +1,6 @@
 /**
  * License Manager API
- * Use the License Manager API to manage product licenses and license records. For more information, see [License Manager Overview](/iaas/Content/LicenseManager/Concepts/licensemanageroverview.htm).
+ * Use the License Manager API to manage product licenses and license records. For more information, see [License Manager Overview](https://docs.oracle.com/iaas/Content/LicenseManager/Concepts/licensemanageroverview.htm).
  * OpenAPI spec version: 20220430
  *
  *
@@ -243,7 +243,7 @@ export class LicenseManagerClient {
    * @param BulkUploadLicenseRecordsRequest
    * @return BulkUploadLicenseRecordsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/BulkUploadLicenseRecords.ts.html |here} to see how to use BulkUploadLicenseRecords API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/BulkUploadLicenseRecords.ts.html |here} to see how to use BulkUploadLicenseRecords API.
    */
   public async bulkUploadLicenseRecords(
     bulkUploadLicenseRecordsRequest: requests.BulkUploadLicenseRecordsRequest
@@ -317,7 +317,7 @@ export class LicenseManagerClient {
    * @param CreateLicenseRecordRequest
    * @return CreateLicenseRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/CreateLicenseRecord.ts.html |here} to see how to use CreateLicenseRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/CreateLicenseRecord.ts.html |here} to see how to use CreateLicenseRecord API.
    */
   public async createLicenseRecord(
     createLicenseRecordRequest: requests.CreateLicenseRecordRequest
@@ -409,7 +409,7 @@ export class LicenseManagerClient {
    * @param CreateProductLicenseRequest
    * @return CreateProductLicenseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/CreateProductLicense.ts.html |here} to see how to use CreateProductLicense API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/CreateProductLicense.ts.html |here} to see how to use CreateProductLicense API.
    */
   public async createProductLicense(
     createProductLicenseRequest: requests.CreateProductLicenseRequest
@@ -499,7 +499,7 @@ export class LicenseManagerClient {
    * @param DeleteLicenseRecordRequest
    * @return DeleteLicenseRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/DeleteLicenseRecord.ts.html |here} to see how to use DeleteLicenseRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/DeleteLicenseRecord.ts.html |here} to see how to use DeleteLicenseRecord API.
    */
   public async deleteLicenseRecord(
     deleteLicenseRecordRequest: requests.DeleteLicenseRecordRequest
@@ -577,7 +577,7 @@ export class LicenseManagerClient {
    * @param DeleteProductLicenseRequest
    * @return DeleteProductLicenseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/DeleteProductLicense.ts.html |here} to see how to use DeleteProductLicense API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/DeleteProductLicense.ts.html |here} to see how to use DeleteProductLicense API.
    */
   public async deleteProductLicense(
     deleteProductLicenseRequest: requests.DeleteProductLicenseRequest
@@ -655,7 +655,7 @@ export class LicenseManagerClient {
    * @param GetBulkUploadTemplateRequest
    * @return GetBulkUploadTemplateResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetBulkUploadTemplate.ts.html |here} to see how to use GetBulkUploadTemplate API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetBulkUploadTemplate.ts.html |here} to see how to use GetBulkUploadTemplate API.
    */
   public async getBulkUploadTemplate(
     getBulkUploadTemplateRequest: requests.GetBulkUploadTemplateRequest
@@ -729,7 +729,7 @@ export class LicenseManagerClient {
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
    */
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
@@ -804,7 +804,7 @@ export class LicenseManagerClient {
    * @param GetLicenseMetricRequest
    * @return GetLicenseMetricResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetLicenseMetric.ts.html |here} to see how to use GetLicenseMetric API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetLicenseMetric.ts.html |here} to see how to use GetLicenseMetric API.
    */
   public async getLicenseMetric(
     getLicenseMetricRequest: requests.GetLicenseMetricRequest
@@ -880,7 +880,7 @@ export class LicenseManagerClient {
    * @param GetLicenseRecordRequest
    * @return GetLicenseRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetLicenseRecord.ts.html |here} to see how to use GetLicenseRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetLicenseRecord.ts.html |here} to see how to use GetLicenseRecord API.
    */
   public async getLicenseRecord(
     getLicenseRecordRequest: requests.GetLicenseRecordRequest
@@ -955,7 +955,7 @@ export class LicenseManagerClient {
    * @param GetProductLicenseRequest
    * @return GetProductLicenseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetProductLicense.ts.html |here} to see how to use GetProductLicense API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/GetProductLicense.ts.html |here} to see how to use GetProductLicense API.
    */
   public async getProductLicense(
     getProductLicenseRequest: requests.GetProductLicenseRequest
@@ -1030,7 +1030,7 @@ export class LicenseManagerClient {
    * @param ListLicenseRecordsRequest
    * @return ListLicenseRecordsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListLicenseRecords.ts.html |here} to see how to use ListLicenseRecords API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListLicenseRecords.ts.html |here} to see how to use ListLicenseRecords API.
    */
   public async listLicenseRecords(
     listLicenseRecordsRequest: requests.ListLicenseRecordsRequest
@@ -1110,7 +1110,7 @@ export class LicenseManagerClient {
    * @param ListProductLicenseConsumersRequest
    * @return ListProductLicenseConsumersResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListProductLicenseConsumers.ts.html |here} to see how to use ListProductLicenseConsumers API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListProductLicenseConsumers.ts.html |here} to see how to use ListProductLicenseConsumers API.
    */
   public async listProductLicenseConsumers(
     listProductLicenseConsumersRequest: requests.ListProductLicenseConsumersRequest
@@ -1192,7 +1192,7 @@ export class LicenseManagerClient {
    * @param ListProductLicensesRequest
    * @return ListProductLicensesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListProductLicenses.ts.html |here} to see how to use ListProductLicenses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListProductLicenses.ts.html |here} to see how to use ListProductLicenses API.
    */
   public async listProductLicenses(
     listProductLicensesRequest: requests.ListProductLicensesRequest
@@ -1273,7 +1273,7 @@ export class LicenseManagerClient {
    * @param ListTopUtilizedProductLicensesRequest
    * @return ListTopUtilizedProductLicensesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListTopUtilizedProductLicenses.ts.html |here} to see how to use ListTopUtilizedProductLicenses API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListTopUtilizedProductLicenses.ts.html |here} to see how to use ListTopUtilizedProductLicenses API.
    */
   public async listTopUtilizedProductLicenses(
     listTopUtilizedProductLicensesRequest: requests.ListTopUtilizedProductLicensesRequest
@@ -1354,7 +1354,7 @@ export class LicenseManagerClient {
    * @param ListTopUtilizedResourcesRequest
    * @return ListTopUtilizedResourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListTopUtilizedResources.ts.html |here} to see how to use ListTopUtilizedResources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/ListTopUtilizedResources.ts.html |here} to see how to use ListTopUtilizedResources API.
    */
   public async listTopUtilizedResources(
     listTopUtilizedResourcesRequest: requests.ListTopUtilizedResourcesRequest
@@ -1436,7 +1436,7 @@ export class LicenseManagerClient {
    * @param UpdateConfigurationRequest
    * @return UpdateConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
    */
   public async updateConfiguration(
     updateConfigurationRequest: requests.UpdateConfigurationRequest
@@ -1518,7 +1518,7 @@ export class LicenseManagerClient {
    * @param UpdateLicenseRecordRequest
    * @return UpdateLicenseRecordResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/UpdateLicenseRecord.ts.html |here} to see how to use UpdateLicenseRecord API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/UpdateLicenseRecord.ts.html |here} to see how to use UpdateLicenseRecord API.
    */
   public async updateLicenseRecord(
     updateLicenseRecordRequest: requests.UpdateLicenseRecordRequest
@@ -1600,7 +1600,7 @@ export class LicenseManagerClient {
    * @param UpdateProductLicenseRequest
    * @return UpdateProductLicenseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/UpdateProductLicense.ts.html |here} to see how to use UpdateProductLicense API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/licensemanager/UpdateProductLicense.ts.html |here} to see how to use UpdateProductLicense API.
    */
   public async updateProductLicense(
     updateProductLicenseRequest: requests.UpdateProductLicenseRequest

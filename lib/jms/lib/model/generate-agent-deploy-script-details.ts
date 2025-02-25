@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GenerateAgentDeployScriptDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the install key for which to generate the script.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the install key for which to generate the script.
    */
   "installKeyId": string;
   /**

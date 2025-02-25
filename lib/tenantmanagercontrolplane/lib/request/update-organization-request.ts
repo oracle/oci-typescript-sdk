@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateOrganization.ts.html |here} to see how to use UpdateOrganizationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateOrganization.ts.html |here} to see how to use UpdateOrganizationRequest.
  */
 export interface UpdateOrganizationRequest extends common.BaseRequest {
   /**

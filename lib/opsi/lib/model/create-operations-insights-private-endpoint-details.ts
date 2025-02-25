@@ -2,7 +2,7 @@
  * Ops Insights API
  * Use the Ops Insights API to perform data extraction operations to obtain database
 resource utilization, performance statistics, and reference information. For more information,
-see [About Oracle Cloud Infrastructure Ops Insights](https://docs.cloud.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html).
+see [About Oracle Cloud Infrastructure Ops Insights](https://docs.oracle.com/iaas/en-us/iaas/operations-insights/doc/operations-insights.html).
 
  * OpenAPI spec version: 20200630
  * 
@@ -26,15 +26,15 @@ export interface CreateOperationsInsightsPrivateEndpointDetails {
    */
   "displayName": string;
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Private service accessed database.
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Private service accessed database.
    */
   "compartmentId": string;
   /**
-   * The VCN [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Private service accessed database.
+   * The VCN [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Private service accessed database.
    */
   "vcnId": string;
   /**
-   * The Subnet [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Private service accessed database.
+   * The Subnet [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Private service accessed database.
    */
   "subnetId": string;
   /**
@@ -48,7 +48,7 @@ export interface CreateOperationsInsightsPrivateEndpointDetails {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the network security groups that the private endpoint belongs to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the network security groups that the private endpoint belongs to.
    *
    */
   "nsgIds"?: Array<string>;

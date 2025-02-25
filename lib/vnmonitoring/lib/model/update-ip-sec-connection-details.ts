@@ -1,7 +1,7 @@
 /**
  * Network Monitoring API
  * Use the Network Monitoring API to troubleshoot routing and security issues for resources such as virtual cloud networks (VCNs) and compute instances. For more information, see the console
-documentation for the [Network Path Analyzer](/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
+documentation for the [Network Path Analyzer](https://docs.oracle.com/iaas/Content/Network/Concepts/path_analyzer.htm) tool.
 
  * OpenAPI spec version: 20160918
  * 
@@ -41,7 +41,7 @@ export interface UpdateIPSecConnectionDetails {
 * to the value for {@code cpeLocalIdentifierType}.
 * <p>
 For information about why you'd provide this value, see
-* [If Your CPE Is Behind a NAT Device](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm#nat).
+* [If Your CPE Is Behind a NAT Device](https://docs.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm#nat).
 * <p>
 Example IP address: {@code 10.0.3.3}
 * <p>
@@ -60,7 +60,7 @@ Example hostname: {@code cpe.example.com}
 * static routes. A static route's CIDR must not be a multicast address or class E address.
 * The CIDR can be either IPv4 or IPv6.
 * IPv6 addressing is supported for all commercial and government regions.
-* See [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+* See [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: {@code 10.0.1.0/24}
 * <p>

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaAssetDistributionChannelAttachment.ts.html |here} to see how to use DeleteMediaAssetDistributionChannelAttachmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mediaservices/DeleteMediaAssetDistributionChannelAttachment.ts.html |here} to see how to use DeleteMediaAssetDistributionChannelAttachmentRequest.
  */
 export interface DeleteMediaAssetDistributionChannelAttachmentRequest extends common.BaseRequest {
   /**

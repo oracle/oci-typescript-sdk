@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPublicationPackages.ts.html |here} to see how to use ListPublicationPackagesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListPublicationPackages.ts.html |here} to see how to use ListPublicationPackagesRequest.
  */
 export interface ListPublicationPackagesRequest extends common.BaseRequest {
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ReplicationScheduleSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the replication schedule.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the replication schedule.
    */
   "id": string;
   /**
@@ -27,7 +27,7 @@ export interface ReplicationScheduleSummary {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which the replication schedule exists.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which the replication schedule exists.
    */
   "compartmentId": string;
   /**

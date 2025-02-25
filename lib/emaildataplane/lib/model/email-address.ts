@@ -1,7 +1,7 @@
 /**
  * Email Delivery Submission API
  * Use the Email Delivery API to send high-volume and application-generated emails.
-For more information, see [Overview of the Email Delivery Service](/iaas/Content/Email/Concepts/overview.htm).
+For more information, see [Overview of the Email Delivery Service](https://docs.oracle.com/iaas/Content/Email/Concepts/overview.htm).
 
  * OpenAPI spec version: 20220926
  * Contact: email-dev_us_grp@oracle.com

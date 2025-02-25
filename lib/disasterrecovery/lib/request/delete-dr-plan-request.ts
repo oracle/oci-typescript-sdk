@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DeleteDrPlan.ts.html |here} to see how to use DeleteDrPlanRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DeleteDrPlan.ts.html |here} to see how to use DeleteDrPlanRequest.
  */
 export interface DeleteDrPlanRequest extends common.BaseRequest {
   /**

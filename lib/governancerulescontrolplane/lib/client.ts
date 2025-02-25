@@ -245,7 +245,7 @@ export class GovernanceRuleClient {
    * @param CreateGovernanceRuleRequest
    * @return CreateGovernanceRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/CreateGovernanceRule.ts.html |here} to see how to use CreateGovernanceRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/CreateGovernanceRule.ts.html |here} to see how to use CreateGovernanceRule API.
    */
   public async createGovernanceRule(
     createGovernanceRuleRequest: requests.CreateGovernanceRuleRequest
@@ -336,7 +336,7 @@ export class GovernanceRuleClient {
    * @param CreateInclusionCriterionRequest
    * @return CreateInclusionCriterionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/CreateInclusionCriterion.ts.html |here} to see how to use CreateInclusionCriterion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/CreateInclusionCriterion.ts.html |here} to see how to use CreateInclusionCriterion API.
    */
   public async createInclusionCriterion(
     createInclusionCriterionRequest: requests.CreateInclusionCriterionRequest
@@ -426,7 +426,7 @@ export class GovernanceRuleClient {
    * @param DeleteGovernanceRuleRequest
    * @return DeleteGovernanceRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/DeleteGovernanceRule.ts.html |here} to see how to use DeleteGovernanceRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/DeleteGovernanceRule.ts.html |here} to see how to use DeleteGovernanceRule API.
    */
   public async deleteGovernanceRule(
     deleteGovernanceRuleRequest: requests.DeleteGovernanceRuleRequest
@@ -499,7 +499,7 @@ export class GovernanceRuleClient {
    * @param DeleteInclusionCriterionRequest
    * @return DeleteInclusionCriterionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/DeleteInclusionCriterion.ts.html |here} to see how to use DeleteInclusionCriterion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/DeleteInclusionCriterion.ts.html |here} to see how to use DeleteInclusionCriterion API.
    */
   public async deleteInclusionCriterion(
     deleteInclusionCriterionRequest: requests.DeleteInclusionCriterionRequest
@@ -572,7 +572,7 @@ export class GovernanceRuleClient {
    * @param GetEnforcedGovernanceRuleRequest
    * @return GetEnforcedGovernanceRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/GetEnforcedGovernanceRule.ts.html |here} to see how to use GetEnforcedGovernanceRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/GetEnforcedGovernanceRule.ts.html |here} to see how to use GetEnforcedGovernanceRule API.
    */
   public async getEnforcedGovernanceRule(
     getEnforcedGovernanceRuleRequest: requests.GetEnforcedGovernanceRuleRequest
@@ -648,7 +648,7 @@ export class GovernanceRuleClient {
    * @param GetGovernanceRuleRequest
    * @return GetGovernanceRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/GetGovernanceRule.ts.html |here} to see how to use GetGovernanceRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/GetGovernanceRule.ts.html |here} to see how to use GetGovernanceRule API.
    */
   public async getGovernanceRule(
     getGovernanceRuleRequest: requests.GetGovernanceRuleRequest
@@ -723,7 +723,7 @@ export class GovernanceRuleClient {
    * @param GetInclusionCriterionRequest
    * @return GetInclusionCriterionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/GetInclusionCriterion.ts.html |here} to see how to use GetInclusionCriterion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/GetInclusionCriterion.ts.html |here} to see how to use GetInclusionCriterion API.
    */
   public async getInclusionCriterion(
     getInclusionCriterionRequest: requests.GetInclusionCriterionRequest
@@ -799,7 +799,7 @@ export class GovernanceRuleClient {
    * @param GetTenancyAttachmentRequest
    * @return GetTenancyAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/GetTenancyAttachment.ts.html |here} to see how to use GetTenancyAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/GetTenancyAttachment.ts.html |here} to see how to use GetTenancyAttachment API.
    */
   public async getTenancyAttachment(
     getTenancyAttachmentRequest: requests.GetTenancyAttachmentRequest
@@ -877,7 +877,7 @@ export class GovernanceRuleClient {
    * @param ListEnforcedGovernanceRulesRequest
    * @return ListEnforcedGovernanceRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListEnforcedGovernanceRules.ts.html |here} to see how to use ListEnforcedGovernanceRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListEnforcedGovernanceRules.ts.html |here} to see how to use ListEnforcedGovernanceRules API.
    */
   public async listEnforcedGovernanceRules(
     listEnforcedGovernanceRulesRequest: requests.ListEnforcedGovernanceRulesRequest
@@ -962,7 +962,7 @@ export class GovernanceRuleClient {
    * @param ListGovernanceRulesRequest
    * @return ListGovernanceRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListGovernanceRules.ts.html |here} to see how to use ListGovernanceRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListGovernanceRules.ts.html |here} to see how to use ListGovernanceRules API.
    */
   public async listGovernanceRules(
     listGovernanceRulesRequest: requests.ListGovernanceRulesRequest
@@ -1048,7 +1048,7 @@ export class GovernanceRuleClient {
    * @param ListInclusionCriteriaRequest
    * @return ListInclusionCriteriaResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListInclusionCriteria.ts.html |here} to see how to use ListInclusionCriteria API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListInclusionCriteria.ts.html |here} to see how to use ListInclusionCriteria API.
    */
   public async listInclusionCriteria(
     listInclusionCriteriaRequest: requests.ListInclusionCriteriaRequest
@@ -1132,7 +1132,7 @@ export class GovernanceRuleClient {
    * @param ListTenancyAttachmentsRequest
    * @return ListTenancyAttachmentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListTenancyAttachments.ts.html |here} to see how to use ListTenancyAttachments API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListTenancyAttachments.ts.html |here} to see how to use ListTenancyAttachments API.
    */
   public async listTenancyAttachments(
     listTenancyAttachmentsRequest: requests.ListTenancyAttachmentsRequest
@@ -1219,7 +1219,7 @@ export class GovernanceRuleClient {
    * @param RetryGovernanceRuleRequest
    * @return RetryGovernanceRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/RetryGovernanceRule.ts.html |here} to see how to use RetryGovernanceRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/RetryGovernanceRule.ts.html |here} to see how to use RetryGovernanceRule API.
    */
   public async retryGovernanceRule(
     retryGovernanceRuleRequest: requests.RetryGovernanceRuleRequest
@@ -1295,7 +1295,7 @@ export class GovernanceRuleClient {
    * @param RetryTenancyAttachmentRequest
    * @return RetryTenancyAttachmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/RetryTenancyAttachment.ts.html |here} to see how to use RetryTenancyAttachment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/RetryTenancyAttachment.ts.html |here} to see how to use RetryTenancyAttachment API.
    */
   public async retryTenancyAttachment(
     retryTenancyAttachmentRequest: requests.RetryTenancyAttachmentRequest
@@ -1369,7 +1369,7 @@ export class GovernanceRuleClient {
    * @param UpdateGovernanceRuleRequest
    * @return UpdateGovernanceRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/UpdateGovernanceRule.ts.html |here} to see how to use UpdateGovernanceRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/UpdateGovernanceRule.ts.html |here} to see how to use UpdateGovernanceRule API.
    */
   public async updateGovernanceRule(
     updateGovernanceRuleRequest: requests.UpdateGovernanceRuleRequest
@@ -1656,7 +1656,7 @@ export class WorkRequestClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -1723,7 +1723,7 @@ export class WorkRequestClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1804,7 +1804,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1886,7 +1886,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1967,7 +1967,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/governancerulescontrolplane/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest

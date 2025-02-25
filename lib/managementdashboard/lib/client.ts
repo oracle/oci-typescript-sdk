@@ -246,7 +246,7 @@ export class DashxApisClient {
    * @param ChangeManagementDashboardsCompartmentRequest
    * @return ChangeManagementDashboardsCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ChangeManagementDashboardsCompartment.ts.html |here} to see how to use ChangeManagementDashboardsCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ChangeManagementDashboardsCompartment.ts.html |here} to see how to use ChangeManagementDashboardsCompartment API.
    */
   public async changeManagementDashboardsCompartment(
     changeManagementDashboardsCompartmentRequest: requests.ChangeManagementDashboardsCompartmentRequest
@@ -336,7 +336,7 @@ export class DashxApisClient {
    * @param ChangeManagementSavedSearchesCompartmentRequest
    * @return ChangeManagementSavedSearchesCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ChangeManagementSavedSearchesCompartment.ts.html |here} to see how to use ChangeManagementSavedSearchesCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ChangeManagementSavedSearchesCompartment.ts.html |here} to see how to use ChangeManagementSavedSearchesCompartment API.
    */
   public async changeManagementSavedSearchesCompartment(
     changeManagementSavedSearchesCompartmentRequest: requests.ChangeManagementSavedSearchesCompartmentRequest
@@ -432,7 +432,7 @@ export class DashxApisClient {
    * @param CreateManagementDashboardRequest
    * @return CreateManagementDashboardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementDashboard.ts.html |here} to see how to use CreateManagementDashboard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementDashboard.ts.html |here} to see how to use CreateManagementDashboard API.
    */
   public async createManagementDashboard(
     createManagementDashboardRequest: requests.CreateManagementDashboardRequest
@@ -522,7 +522,7 @@ export class DashxApisClient {
    * @param CreateManagementSavedSearchRequest
    * @return CreateManagementSavedSearchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementSavedSearch.ts.html |here} to see how to use CreateManagementSavedSearch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/CreateManagementSavedSearch.ts.html |here} to see how to use CreateManagementSavedSearch API.
    */
   public async createManagementSavedSearch(
     createManagementSavedSearchRequest: requests.CreateManagementSavedSearchRequest
@@ -608,7 +608,7 @@ export class DashxApisClient {
    * @param DeleteManagementDashboardRequest
    * @return DeleteManagementDashboardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/DeleteManagementDashboard.ts.html |here} to see how to use DeleteManagementDashboard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/DeleteManagementDashboard.ts.html |here} to see how to use DeleteManagementDashboard API.
    */
   public async deleteManagementDashboard(
     deleteManagementDashboardRequest: requests.DeleteManagementDashboardRequest
@@ -682,7 +682,7 @@ export class DashxApisClient {
    * @param DeleteManagementSavedSearchRequest
    * @return DeleteManagementSavedSearchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/DeleteManagementSavedSearch.ts.html |here} to see how to use DeleteManagementSavedSearch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/DeleteManagementSavedSearch.ts.html |here} to see how to use DeleteManagementSavedSearch API.
    */
   public async deleteManagementSavedSearch(
     deleteManagementSavedSearchRequest: requests.DeleteManagementSavedSearchRequest
@@ -759,7 +759,7 @@ export class DashxApisClient {
    * @param ExportDashboardRequest
    * @return ExportDashboardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ExportDashboard.ts.html |here} to see how to use ExportDashboard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ExportDashboard.ts.html |here} to see how to use ExportDashboard API.
    */
   public async exportDashboard(
     exportDashboardRequest: requests.ExportDashboardRequest
@@ -836,7 +836,7 @@ export class DashxApisClient {
    * @param GetManagementDashboardRequest
    * @return GetManagementDashboardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/GetManagementDashboard.ts.html |here} to see how to use GetManagementDashboard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/GetManagementDashboard.ts.html |here} to see how to use GetManagementDashboard API.
    */
   public async getManagementDashboard(
     getManagementDashboardRequest: requests.GetManagementDashboardRequest
@@ -918,7 +918,7 @@ export class DashxApisClient {
    * @param GetManagementSavedSearchRequest
    * @return GetManagementSavedSearchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/GetManagementSavedSearch.ts.html |here} to see how to use GetManagementSavedSearch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/GetManagementSavedSearch.ts.html |here} to see how to use GetManagementSavedSearch API.
    */
   public async getManagementSavedSearch(
     getManagementSavedSearchRequest: requests.GetManagementSavedSearchRequest
@@ -1007,7 +1007,7 @@ export class DashxApisClient {
    * @param ImportDashboardRequest
    * @return ImportDashboardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ImportDashboard.ts.html |here} to see how to use ImportDashboard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ImportDashboard.ts.html |here} to see how to use ImportDashboard API.
    */
   public async importDashboard(
     importDashboardRequest: requests.ImportDashboardRequest
@@ -1084,7 +1084,7 @@ export class DashxApisClient {
    * @param ListManagementDashboardsRequest
    * @return ListManagementDashboardsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ListManagementDashboards.ts.html |here} to see how to use ListManagementDashboards API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ListManagementDashboards.ts.html |here} to see how to use ListManagementDashboards API.
    */
   public async listManagementDashboards(
     listManagementDashboardsRequest: requests.ListManagementDashboardsRequest
@@ -1166,7 +1166,7 @@ export class DashxApisClient {
    * @param ListManagementSavedSearchesRequest
    * @return ListManagementSavedSearchesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ListManagementSavedSearches.ts.html |here} to see how to use ListManagementSavedSearches API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ListManagementSavedSearches.ts.html |here} to see how to use ListManagementSavedSearches API.
    */
   public async listManagementSavedSearches(
     listManagementSavedSearchesRequest: requests.ListManagementSavedSearchesRequest
@@ -1249,7 +1249,7 @@ export class DashxApisClient {
    * @param UpdateManagementDashboardRequest
    * @return UpdateManagementDashboardResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/UpdateManagementDashboard.ts.html |here} to see how to use UpdateManagementDashboard API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/UpdateManagementDashboard.ts.html |here} to see how to use UpdateManagementDashboard API.
    */
   public async updateManagementDashboard(
     updateManagementDashboardRequest: requests.UpdateManagementDashboardRequest
@@ -1339,7 +1339,7 @@ export class DashxApisClient {
    * @param UpdateManagementSavedSearchRequest
    * @return UpdateManagementSavedSearchResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/UpdateManagementSavedSearch.ts.html |here} to see how to use UpdateManagementSavedSearch API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/UpdateManagementSavedSearch.ts.html |here} to see how to use UpdateManagementSavedSearch API.
    */
   public async updateManagementSavedSearch(
     updateManagementSavedSearchRequest: requests.UpdateManagementSavedSearchRequest

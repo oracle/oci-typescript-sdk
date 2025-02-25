@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface WorkerSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the On-premise VP worker.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the On-premise VP worker.
    */
   "id": string;
   /**

@@ -1,6 +1,6 @@
 /**
  * Organizations API
- * Use the Organizations API to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and organization resources. For more information, see [Organization Management Overview](/iaas/Content/General/Concepts/organization_management_overview.htm).
+ * Use the Organizations API to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and organization resources. For more information, see [Organization Management Overview](https://docs.oracle.com/iaas/Content/General/Concepts/organization_management_overview.htm).
  * OpenAPI spec version: 20230401
  *
  *
@@ -250,7 +250,7 @@ export class DomainClient {
    * @param CreateDomainRequest
    * @return CreateDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateDomain.ts.html |here} to see how to use CreateDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateDomain.ts.html |here} to see how to use CreateDomain API.
    */
   public async createDomain(
     createDomainRequest: requests.CreateDomainRequest
@@ -334,7 +334,7 @@ export class DomainClient {
    * @param DeleteDomainRequest
    * @return DeleteDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteDomain.ts.html |here} to see how to use DeleteDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteDomain.ts.html |here} to see how to use DeleteDomain API.
    */
   public async deleteDomain(
     deleteDomainRequest: requests.DeleteDomainRequest
@@ -402,7 +402,7 @@ export class DomainClient {
    * @param GetDomainRequest
    * @return GetDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetDomain.ts.html |here} to see how to use GetDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetDomain.ts.html |here} to see how to use GetDomain API.
    */
   public async getDomain(
     getDomainRequest: requests.GetDomainRequest
@@ -479,7 +479,7 @@ export class DomainClient {
    * @param ListDomainsRequest
    * @return ListDomainsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListDomains.ts.html |here} to see how to use ListDomains API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListDomains.ts.html |here} to see how to use ListDomains API.
    */
   public async listDomains(
     listDomainsRequest: requests.ListDomainsRequest
@@ -563,7 +563,7 @@ export class DomainClient {
    * @param UpdateDomainRequest
    * @return UpdateDomainResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateDomain.ts.html |here} to see how to use UpdateDomain API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateDomain.ts.html |here} to see how to use UpdateDomain API.
    */
   public async updateDomain(
     updateDomainRequest: requests.UpdateDomainRequest
@@ -854,7 +854,7 @@ export class DomainGovernanceClient {
    * @param CreateDomainGovernanceRequest
    * @return CreateDomainGovernanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateDomainGovernance.ts.html |here} to see how to use CreateDomainGovernance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateDomainGovernance.ts.html |here} to see how to use CreateDomainGovernance API.
    */
   public async createDomainGovernance(
     createDomainGovernanceRequest: requests.CreateDomainGovernanceRequest
@@ -935,7 +935,7 @@ export class DomainGovernanceClient {
    * @param DeleteDomainGovernanceRequest
    * @return DeleteDomainGovernanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteDomainGovernance.ts.html |here} to see how to use DeleteDomainGovernance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteDomainGovernance.ts.html |here} to see how to use DeleteDomainGovernance API.
    */
   public async deleteDomainGovernance(
     deleteDomainGovernanceRequest: requests.DeleteDomainGovernanceRequest
@@ -1004,7 +1004,7 @@ export class DomainGovernanceClient {
    * @param GetDomainGovernanceRequest
    * @return GetDomainGovernanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetDomainGovernance.ts.html |here} to see how to use GetDomainGovernance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetDomainGovernance.ts.html |here} to see how to use GetDomainGovernance API.
    */
   public async getDomainGovernance(
     getDomainGovernanceRequest: requests.GetDomainGovernanceRequest
@@ -1082,7 +1082,7 @@ export class DomainGovernanceClient {
    * @param ListDomainGovernancesRequest
    * @return ListDomainGovernancesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListDomainGovernances.ts.html |here} to see how to use ListDomainGovernances API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListDomainGovernances.ts.html |here} to see how to use ListDomainGovernances API.
    */
   public async listDomainGovernances(
     listDomainGovernancesRequest: requests.ListDomainGovernancesRequest
@@ -1167,7 +1167,7 @@ export class DomainGovernanceClient {
    * @param UpdateDomainGovernanceRequest
    * @return UpdateDomainGovernanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateDomainGovernance.ts.html |here} to see how to use UpdateDomainGovernance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateDomainGovernance.ts.html |here} to see how to use UpdateDomainGovernance API.
    */
   public async updateDomainGovernance(
     updateDomainGovernanceRequest: requests.UpdateDomainGovernanceRequest
@@ -1435,7 +1435,7 @@ export class GovernanceClient {
    * @param AddGovernanceRequest
    * @return AddGovernanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/AddGovernance.ts.html |here} to see how to use AddGovernance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/AddGovernance.ts.html |here} to see how to use AddGovernance API.
    */
   public async addGovernance(
     addGovernanceRequest: requests.AddGovernanceRequest
@@ -1511,7 +1511,7 @@ export class GovernanceClient {
    * @param RemoveGovernanceRequest
    * @return RemoveGovernanceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/RemoveGovernance.ts.html |here} to see how to use RemoveGovernance API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/RemoveGovernance.ts.html |here} to see how to use RemoveGovernance API.
    */
   public async removeGovernance(
     removeGovernanceRequest: requests.RemoveGovernanceRequest
@@ -1796,7 +1796,7 @@ export class LinkClient {
    * @param DeleteLinkRequest
    * @return DeleteLinkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteLink.ts.html |here} to see how to use DeleteLink API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteLink.ts.html |here} to see how to use DeleteLink API.
    */
   public async deleteLink(
     deleteLinkRequest: requests.DeleteLinkRequest
@@ -1869,7 +1869,7 @@ export class LinkClient {
    * @param GetLinkRequest
    * @return GetLinkResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetLink.ts.html |here} to see how to use GetLink API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetLink.ts.html |here} to see how to use GetLink API.
    */
   public async getLink(
     getLinkRequest: requests.GetLinkRequest
@@ -1945,7 +1945,7 @@ export class LinkClient {
    * @param ListLinksRequest
    * @return ListLinksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListLinks.ts.html |here} to see how to use ListLinks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListLinks.ts.html |here} to see how to use ListLinks API.
    */
   public async listLinks(
     listLinksRequest: requests.ListLinksRequest
@@ -2211,7 +2211,7 @@ export class OrdersClient {
    * @param ActivateOrderRequest
    * @return ActivateOrderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ActivateOrder.ts.html |here} to see how to use ActivateOrder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ActivateOrder.ts.html |here} to see how to use ActivateOrder API.
    */
   public async activateOrder(
     activateOrderRequest: requests.ActivateOrderRequest
@@ -2290,7 +2290,7 @@ export class OrdersClient {
    * @param GetOrderRequest
    * @return GetOrderResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrder.ts.html |here} to see how to use GetOrder API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrder.ts.html |here} to see how to use GetOrder API.
    */
   public async getOrder(
     getOrderRequest: requests.GetOrderRequest
@@ -2570,7 +2570,7 @@ export class OrganizationClient {
    * @param ApproveOrganizationTenancyForTransferRequest
    * @return ApproveOrganizationTenancyForTransferResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ApproveOrganizationTenancyForTransfer.ts.html |here} to see how to use ApproveOrganizationTenancyForTransfer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ApproveOrganizationTenancyForTransfer.ts.html |here} to see how to use ApproveOrganizationTenancyForTransfer API.
    */
   public async approveOrganizationTenancyForTransfer(
     approveOrganizationTenancyForTransferRequest: requests.ApproveOrganizationTenancyForTransferRequest
@@ -2653,7 +2653,7 @@ export class OrganizationClient {
    * @param CreateChildTenancyRequest
    * @return CreateChildTenancyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateChildTenancy.ts.html |here} to see how to use CreateChildTenancy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateChildTenancy.ts.html |here} to see how to use CreateChildTenancy API.
    */
   public async createChildTenancy(
     createChildTenancyRequest: requests.CreateChildTenancyRequest
@@ -2728,7 +2728,7 @@ export class OrganizationClient {
    * @param DeleteOrganizationTenancyRequest
    * @return DeleteOrganizationTenancyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteOrganizationTenancy.ts.html |here} to see how to use DeleteOrganizationTenancy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteOrganizationTenancy.ts.html |here} to see how to use DeleteOrganizationTenancy API.
    */
   public async deleteOrganizationTenancy(
     deleteOrganizationTenancyRequest: requests.DeleteOrganizationTenancyRequest
@@ -2803,7 +2803,7 @@ export class OrganizationClient {
    * @param GetOrganizationRequest
    * @return GetOrganizationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrganization.ts.html |here} to see how to use GetOrganization API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrganization.ts.html |here} to see how to use GetOrganization API.
    */
   public async getOrganization(
     getOrganizationRequest: requests.GetOrganizationRequest
@@ -2879,7 +2879,7 @@ export class OrganizationClient {
    * @param GetOrganizationTenancyRequest
    * @return GetOrganizationTenancyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrganizationTenancy.ts.html |here} to see how to use GetOrganizationTenancy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetOrganizationTenancy.ts.html |here} to see how to use GetOrganizationTenancy API.
    */
   public async getOrganizationTenancy(
     getOrganizationTenancyRequest: requests.GetOrganizationTenancyRequest
@@ -2957,7 +2957,7 @@ export class OrganizationClient {
    * @param ListOrganizationTenanciesRequest
    * @return ListOrganizationTenanciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListOrganizationTenancies.ts.html |here} to see how to use ListOrganizationTenancies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListOrganizationTenancies.ts.html |here} to see how to use ListOrganizationTenancies API.
    */
   public async listOrganizationTenancies(
     listOrganizationTenanciesRequest: requests.ListOrganizationTenanciesRequest
@@ -3037,7 +3037,7 @@ export class OrganizationClient {
    * @param ListOrganizationsRequest
    * @return ListOrganizationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListOrganizations.ts.html |here} to see how to use ListOrganizations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListOrganizations.ts.html |here} to see how to use ListOrganizations API.
    */
   public async listOrganizations(
     listOrganizationsRequest: requests.ListOrganizationsRequest
@@ -3115,7 +3115,7 @@ export class OrganizationClient {
    * @param RestoreOrganizationTenancyRequest
    * @return RestoreOrganizationTenancyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/RestoreOrganizationTenancy.ts.html |here} to see how to use RestoreOrganizationTenancy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/RestoreOrganizationTenancy.ts.html |here} to see how to use RestoreOrganizationTenancy API.
    */
   public async restoreOrganizationTenancy(
     restoreOrganizationTenancyRequest: requests.RestoreOrganizationTenancyRequest
@@ -3189,7 +3189,7 @@ export class OrganizationClient {
    * @param UnapproveOrganizationTenancyForTransferRequest
    * @return UnapproveOrganizationTenancyForTransferResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UnapproveOrganizationTenancyForTransfer.ts.html |here} to see how to use UnapproveOrganizationTenancyForTransfer API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UnapproveOrganizationTenancyForTransfer.ts.html |here} to see how to use UnapproveOrganizationTenancyForTransfer API.
    */
   public async unapproveOrganizationTenancyForTransfer(
     unapproveOrganizationTenancyForTransferRequest: requests.UnapproveOrganizationTenancyForTransferRequest
@@ -3273,7 +3273,7 @@ export class OrganizationClient {
    * @param UpdateOrganizationRequest
    * @return UpdateOrganizationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateOrganization.ts.html |here} to see how to use UpdateOrganization API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateOrganization.ts.html |here} to see how to use UpdateOrganization API.
    */
   public async updateOrganization(
     updateOrganizationRequest: requests.UpdateOrganizationRequest
@@ -3562,7 +3562,7 @@ export class RecipientInvitationClient {
    * @param AcceptRecipientInvitationRequest
    * @return AcceptRecipientInvitationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/AcceptRecipientInvitation.ts.html |here} to see how to use AcceptRecipientInvitation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/AcceptRecipientInvitation.ts.html |here} to see how to use AcceptRecipientInvitation API.
    */
   public async acceptRecipientInvitation(
     acceptRecipientInvitationRequest: requests.AcceptRecipientInvitationRequest
@@ -3637,7 +3637,7 @@ export class RecipientInvitationClient {
    * @param GetRecipientInvitationRequest
    * @return GetRecipientInvitationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetRecipientInvitation.ts.html |here} to see how to use GetRecipientInvitation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetRecipientInvitation.ts.html |here} to see how to use GetRecipientInvitation API.
    */
   public async getRecipientInvitation(
     getRecipientInvitationRequest: requests.GetRecipientInvitationRequest
@@ -3714,7 +3714,7 @@ export class RecipientInvitationClient {
    * @param IgnoreRecipientInvitationRequest
    * @return IgnoreRecipientInvitationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/IgnoreRecipientInvitation.ts.html |here} to see how to use IgnoreRecipientInvitation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/IgnoreRecipientInvitation.ts.html |here} to see how to use IgnoreRecipientInvitation API.
    */
   public async ignoreRecipientInvitation(
     ignoreRecipientInvitationRequest: requests.IgnoreRecipientInvitationRequest
@@ -3794,7 +3794,7 @@ export class RecipientInvitationClient {
    * @param ListRecipientInvitationsRequest
    * @return ListRecipientInvitationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListRecipientInvitations.ts.html |here} to see how to use ListRecipientInvitations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListRecipientInvitations.ts.html |here} to see how to use ListRecipientInvitations API.
    */
   public async listRecipientInvitations(
     listRecipientInvitationsRequest: requests.ListRecipientInvitationsRequest
@@ -3875,7 +3875,7 @@ export class RecipientInvitationClient {
    * @param UpdateRecipientInvitationRequest
    * @return UpdateRecipientInvitationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateRecipientInvitation.ts.html |here} to see how to use UpdateRecipientInvitation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateRecipientInvitation.ts.html |here} to see how to use UpdateRecipientInvitation API.
    */
   public async updateRecipientInvitation(
     updateRecipientInvitationRequest: requests.UpdateRecipientInvitationRequest
@@ -4167,7 +4167,7 @@ export class SenderInvitationClient {
    * @param CancelSenderInvitationRequest
    * @return CancelSenderInvitationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CancelSenderInvitation.ts.html |here} to see how to use CancelSenderInvitation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CancelSenderInvitation.ts.html |here} to see how to use CancelSenderInvitation API.
    */
   public async cancelSenderInvitation(
     cancelSenderInvitationRequest: requests.CancelSenderInvitationRequest
@@ -4242,7 +4242,7 @@ export class SenderInvitationClient {
    * @param CreateSenderInvitationRequest
    * @return CreateSenderInvitationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateSenderInvitation.ts.html |here} to see how to use CreateSenderInvitation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateSenderInvitation.ts.html |here} to see how to use CreateSenderInvitation API.
    */
   public async createSenderInvitation(
     createSenderInvitationRequest: requests.CreateSenderInvitationRequest
@@ -4328,7 +4328,7 @@ export class SenderInvitationClient {
    * @param GetSenderInvitationRequest
    * @return GetSenderInvitationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetSenderInvitation.ts.html |here} to see how to use GetSenderInvitation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetSenderInvitation.ts.html |here} to see how to use GetSenderInvitation API.
    */
   public async getSenderInvitation(
     getSenderInvitationRequest: requests.GetSenderInvitationRequest
@@ -4406,7 +4406,7 @@ export class SenderInvitationClient {
    * @param ListSenderInvitationsRequest
    * @return ListSenderInvitationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSenderInvitations.ts.html |here} to see how to use ListSenderInvitations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSenderInvitations.ts.html |here} to see how to use ListSenderInvitations API.
    */
   public async listSenderInvitations(
     listSenderInvitationsRequest: requests.ListSenderInvitationsRequest
@@ -4491,7 +4491,7 @@ export class SenderInvitationClient {
    * @param UpdateSenderInvitationRequest
    * @return UpdateSenderInvitationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateSenderInvitation.ts.html |here} to see how to use UpdateSenderInvitation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/UpdateSenderInvitation.ts.html |here} to see how to use UpdateSenderInvitation API.
    */
   public async updateSenderInvitation(
     updateSenderInvitationRequest: requests.UpdateSenderInvitationRequest
@@ -4783,7 +4783,7 @@ export class SubscriptionClient {
    * @param CreateSubscriptionMappingRequest
    * @return CreateSubscriptionMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateSubscriptionMapping.ts.html |here} to see how to use CreateSubscriptionMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/CreateSubscriptionMapping.ts.html |here} to see how to use CreateSubscriptionMapping API.
    */
   public async createSubscriptionMapping(
     createSubscriptionMappingRequest: requests.CreateSubscriptionMappingRequest
@@ -4870,7 +4870,7 @@ export class SubscriptionClient {
    * @param DeleteSubscriptionMappingRequest
    * @return DeleteSubscriptionMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteSubscriptionMapping.ts.html |here} to see how to use DeleteSubscriptionMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/DeleteSubscriptionMapping.ts.html |here} to see how to use DeleteSubscriptionMapping API.
    */
   public async deleteSubscriptionMapping(
     deleteSubscriptionMappingRequest: requests.DeleteSubscriptionMappingRequest
@@ -4939,7 +4939,7 @@ export class SubscriptionClient {
    * @param GetAssignedSubscriptionRequest
    * @return GetAssignedSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetAssignedSubscription.ts.html |here} to see how to use GetAssignedSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetAssignedSubscription.ts.html |here} to see how to use GetAssignedSubscription API.
    */
   public async getAssignedSubscription(
     getAssignedSubscriptionRequest: requests.GetAssignedSubscriptionRequest
@@ -5016,7 +5016,7 @@ export class SubscriptionClient {
    * @param GetSubscriptionRequest
    * @return GetSubscriptionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetSubscription.ts.html |here} to see how to use GetSubscription API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetSubscription.ts.html |here} to see how to use GetSubscription API.
    */
   public async getSubscription(
     getSubscriptionRequest: requests.GetSubscriptionRequest
@@ -5092,7 +5092,7 @@ export class SubscriptionClient {
    * @param GetSubscriptionMappingRequest
    * @return GetSubscriptionMappingResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetSubscriptionMapping.ts.html |here} to see how to use GetSubscriptionMapping API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetSubscriptionMapping.ts.html |here} to see how to use GetSubscriptionMapping API.
    */
   public async getSubscriptionMapping(
     getSubscriptionMappingRequest: requests.GetSubscriptionMappingRequest
@@ -5169,7 +5169,7 @@ export class SubscriptionClient {
    * @param ListAssignedSubscriptionLineItemsRequest
    * @return ListAssignedSubscriptionLineItemsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListAssignedSubscriptionLineItems.ts.html |here} to see how to use ListAssignedSubscriptionLineItems API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListAssignedSubscriptionLineItems.ts.html |here} to see how to use ListAssignedSubscriptionLineItems API.
    */
   public async listAssignedSubscriptionLineItems(
     listAssignedSubscriptionLineItemsRequest: requests.ListAssignedSubscriptionLineItemsRequest
@@ -5251,7 +5251,7 @@ export class SubscriptionClient {
    * @param ListAssignedSubscriptionsRequest
    * @return ListAssignedSubscriptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListAssignedSubscriptions.ts.html |here} to see how to use ListAssignedSubscriptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListAssignedSubscriptions.ts.html |here} to see how to use ListAssignedSubscriptions API.
    */
   public async listAssignedSubscriptions(
     listAssignedSubscriptionsRequest: requests.ListAssignedSubscriptionsRequest
@@ -5334,7 +5334,7 @@ export class SubscriptionClient {
    * @param ListAvailableRegionsRequest
    * @return ListAvailableRegionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListAvailableRegions.ts.html |here} to see how to use ListAvailableRegions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListAvailableRegions.ts.html |here} to see how to use ListAvailableRegions API.
    */
   public async listAvailableRegions(
     listAvailableRegionsRequest: requests.ListAvailableRegionsRequest
@@ -5413,7 +5413,7 @@ export class SubscriptionClient {
    * @param ListSubscriptionLineItemsRequest
    * @return ListSubscriptionLineItemsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSubscriptionLineItems.ts.html |here} to see how to use ListSubscriptionLineItems API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSubscriptionLineItems.ts.html |here} to see how to use ListSubscriptionLineItems API.
    */
   public async listSubscriptionLineItems(
     listSubscriptionLineItemsRequest: requests.ListSubscriptionLineItemsRequest
@@ -5495,7 +5495,7 @@ export class SubscriptionClient {
    * @param ListSubscriptionMappingsRequest
    * @return ListSubscriptionMappingsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSubscriptionMappings.ts.html |here} to see how to use ListSubscriptionMappings API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSubscriptionMappings.ts.html |here} to see how to use ListSubscriptionMappings API.
    */
   public async listSubscriptionMappings(
     listSubscriptionMappingsRequest: requests.ListSubscriptionMappingsRequest
@@ -5579,7 +5579,7 @@ export class SubscriptionClient {
    * @param ListSubscriptionsRequest
    * @return ListSubscriptionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSubscriptions.ts.html |here} to see how to use ListSubscriptions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListSubscriptions.ts.html |here} to see how to use ListSubscriptions API.
    */
   public async listSubscriptions(
     listSubscriptionsRequest: requests.ListSubscriptionsRequest
@@ -5870,7 +5870,7 @@ export class WorkRequestClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -5947,7 +5947,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -6029,7 +6029,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -6110,7 +6110,7 @@ export class WorkRequestClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest

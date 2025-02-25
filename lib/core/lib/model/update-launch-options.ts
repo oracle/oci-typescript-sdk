@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -53,7 +53,7 @@ Before you change the networking type, detach all VNICs and block volumes except
 * VNIC and the boot volume.
 * <p>
 The image must have paravirtualized drivers installed. For more information, see
-* [Editing an Instance](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/resizinginstances.htm).
+* [Editing an Instance](https://docs.oracle.com/iaas/Content/Compute/Tasks/resizinginstances.htm).
 * <p>
 If the instance is running when you change the network type, it will be rebooted.
 * <p>
@@ -74,7 +74,7 @@ Data in transit is transferred over an internal and highly secure network. If yo
 * <p>
 All boot volumes and block volumes are encrypted at rest.
 * <p>
-For more information, see [Block Volume Encryption](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/overview.htm#Encrypti).
+For more information, see [Block Volume Encryption](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm#Encrypti).
 * 
     */
   "isPvEncryptionInTransitEnabled"?: boolean;

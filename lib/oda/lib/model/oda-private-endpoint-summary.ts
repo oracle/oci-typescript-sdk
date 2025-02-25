@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface OdaPrivateEndpointSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that was assigned when the ODA private endpoint was created.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that was assigned when the ODA private endpoint was created.
    */
   "id": string;
   /**
@@ -33,7 +33,7 @@ export interface OdaPrivateEndpointSummary {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that the ODA private endpoint belongs to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that the ODA private endpoint belongs to.
    */
   "compartmentId": string;
   /**

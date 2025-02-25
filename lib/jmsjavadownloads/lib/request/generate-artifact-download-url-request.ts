@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GenerateArtifactDownloadUrl.ts.html |here} to see how to use GenerateArtifactDownloadUrlRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jmsjavadownloads/GenerateArtifactDownloadUrl.ts.html |here} to see how to use GenerateArtifactDownloadUrlRequest.
  */
 export interface GenerateArtifactDownloadUrlRequest extends common.BaseRequest {
   /**

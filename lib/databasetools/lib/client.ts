@@ -242,7 +242,7 @@ export class DatabaseToolsClient {
    * @param AddDatabaseToolsConnectionLockRequest
    * @return AddDatabaseToolsConnectionLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsConnectionLock.ts.html |here} to see how to use AddDatabaseToolsConnectionLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsConnectionLock.ts.html |here} to see how to use AddDatabaseToolsConnectionLock API.
    */
   public async addDatabaseToolsConnectionLock(
     addDatabaseToolsConnectionLockRequest: requests.AddDatabaseToolsConnectionLockRequest
@@ -325,7 +325,7 @@ export class DatabaseToolsClient {
    * @param AddDatabaseToolsPrivateEndpointLockRequest
    * @return AddDatabaseToolsPrivateEndpointLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsPrivateEndpointLock.ts.html |here} to see how to use AddDatabaseToolsPrivateEndpointLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsPrivateEndpointLock.ts.html |here} to see how to use AddDatabaseToolsPrivateEndpointLock API.
    */
   public async addDatabaseToolsPrivateEndpointLock(
     addDatabaseToolsPrivateEndpointLockRequest: requests.AddDatabaseToolsPrivateEndpointLockRequest
@@ -408,13 +408,13 @@ export class DatabaseToolsClient {
   /**
    * Moves the specified Database Tools connection to a different compartment in the same tenancy.
    * For information about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDatabaseToolsConnectionCompartmentRequest
    * @return ChangeDatabaseToolsConnectionCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ChangeDatabaseToolsConnectionCompartment.ts.html |here} to see how to use ChangeDatabaseToolsConnectionCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ChangeDatabaseToolsConnectionCompartment.ts.html |here} to see how to use ChangeDatabaseToolsConnectionCompartment API.
    */
   public async changeDatabaseToolsConnectionCompartment(
     changeDatabaseToolsConnectionCompartmentRequest: requests.ChangeDatabaseToolsConnectionCompartmentRequest
@@ -495,13 +495,13 @@ export class DatabaseToolsClient {
   /**
    * Moves a Database Tools private endpoint into a different compartment in the same tenancy.
    * For information about moving resources between compartments, see
-   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDatabaseToolsPrivateEndpointCompartmentRequest
    * @return ChangeDatabaseToolsPrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ChangeDatabaseToolsPrivateEndpointCompartment.ts.html |here} to see how to use ChangeDatabaseToolsPrivateEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ChangeDatabaseToolsPrivateEndpointCompartment.ts.html |here} to see how to use ChangeDatabaseToolsPrivateEndpointCompartment API.
    */
   public async changeDatabaseToolsPrivateEndpointCompartment(
     changeDatabaseToolsPrivateEndpointCompartmentRequest: requests.ChangeDatabaseToolsPrivateEndpointCompartmentRequest
@@ -587,7 +587,7 @@ export class DatabaseToolsClient {
    * @param CreateDatabaseToolsConnectionRequest
    * @return CreateDatabaseToolsConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/CreateDatabaseToolsConnection.ts.html |here} to see how to use CreateDatabaseToolsConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/CreateDatabaseToolsConnection.ts.html |here} to see how to use CreateDatabaseToolsConnection API.
    */
   public async createDatabaseToolsConnection(
     createDatabaseToolsConnectionRequest: requests.CreateDatabaseToolsConnectionRequest
@@ -678,7 +678,7 @@ export class DatabaseToolsClient {
    * @param CreateDatabaseToolsPrivateEndpointRequest
    * @return CreateDatabaseToolsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/CreateDatabaseToolsPrivateEndpoint.ts.html |here} to see how to use CreateDatabaseToolsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/CreateDatabaseToolsPrivateEndpoint.ts.html |here} to see how to use CreateDatabaseToolsPrivateEndpoint API.
    */
   public async createDatabaseToolsPrivateEndpoint(
     createDatabaseToolsPrivateEndpointRequest: requests.CreateDatabaseToolsPrivateEndpointRequest
@@ -770,7 +770,7 @@ export class DatabaseToolsClient {
    * @param DeleteDatabaseToolsConnectionRequest
    * @return DeleteDatabaseToolsConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/DeleteDatabaseToolsConnection.ts.html |here} to see how to use DeleteDatabaseToolsConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/DeleteDatabaseToolsConnection.ts.html |here} to see how to use DeleteDatabaseToolsConnection API.
    */
   public async deleteDatabaseToolsConnection(
     deleteDatabaseToolsConnectionRequest: requests.DeleteDatabaseToolsConnectionRequest
@@ -846,7 +846,7 @@ export class DatabaseToolsClient {
    * @param DeleteDatabaseToolsPrivateEndpointRequest
    * @return DeleteDatabaseToolsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/DeleteDatabaseToolsPrivateEndpoint.ts.html |here} to see how to use DeleteDatabaseToolsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/DeleteDatabaseToolsPrivateEndpoint.ts.html |here} to see how to use DeleteDatabaseToolsPrivateEndpoint API.
    */
   public async deleteDatabaseToolsPrivateEndpoint(
     deleteDatabaseToolsPrivateEndpointRequest: requests.DeleteDatabaseToolsPrivateEndpointRequest
@@ -925,7 +925,7 @@ export class DatabaseToolsClient {
    * @param GetDatabaseToolsConnectionRequest
    * @return GetDatabaseToolsConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsConnection.ts.html |here} to see how to use GetDatabaseToolsConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsConnection.ts.html |here} to see how to use GetDatabaseToolsConnection API.
    */
   public async getDatabaseToolsConnection(
     getDatabaseToolsConnectionRequest: requests.GetDatabaseToolsConnectionRequest
@@ -1002,7 +1002,7 @@ export class DatabaseToolsClient {
    * @param GetDatabaseToolsEndpointServiceRequest
    * @return GetDatabaseToolsEndpointServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsEndpointService.ts.html |here} to see how to use GetDatabaseToolsEndpointService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsEndpointService.ts.html |here} to see how to use GetDatabaseToolsEndpointService API.
    */
   public async getDatabaseToolsEndpointService(
     getDatabaseToolsEndpointServiceRequest: requests.GetDatabaseToolsEndpointServiceRequest
@@ -1080,7 +1080,7 @@ export class DatabaseToolsClient {
    * @param GetDatabaseToolsPrivateEndpointRequest
    * @return GetDatabaseToolsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsPrivateEndpoint.ts.html |here} to see how to use GetDatabaseToolsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsPrivateEndpoint.ts.html |here} to see how to use GetDatabaseToolsPrivateEndpoint API.
    */
   public async getDatabaseToolsPrivateEndpoint(
     getDatabaseToolsPrivateEndpointRequest: requests.GetDatabaseToolsPrivateEndpointRequest
@@ -1158,7 +1158,7 @@ export class DatabaseToolsClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1235,7 +1235,7 @@ export class DatabaseToolsClient {
    * @param ListDatabaseToolsConnectionsRequest
    * @return ListDatabaseToolsConnectionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsConnections.ts.html |here} to see how to use ListDatabaseToolsConnections API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsConnections.ts.html |here} to see how to use ListDatabaseToolsConnections API.
    */
   public async listDatabaseToolsConnections(
     listDatabaseToolsConnectionsRequest: requests.ListDatabaseToolsConnectionsRequest
@@ -1322,7 +1322,7 @@ export class DatabaseToolsClient {
    * @param ListDatabaseToolsEndpointServicesRequest
    * @return ListDatabaseToolsEndpointServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsEndpointServices.ts.html |here} to see how to use ListDatabaseToolsEndpointServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsEndpointServices.ts.html |here} to see how to use ListDatabaseToolsEndpointServices API.
    */
   public async listDatabaseToolsEndpointServices(
     listDatabaseToolsEndpointServicesRequest: requests.ListDatabaseToolsEndpointServicesRequest
@@ -1407,7 +1407,7 @@ export class DatabaseToolsClient {
    * @param ListDatabaseToolsPrivateEndpointsRequest
    * @return ListDatabaseToolsPrivateEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsPrivateEndpoints.ts.html |here} to see how to use ListDatabaseToolsPrivateEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsPrivateEndpoints.ts.html |here} to see how to use ListDatabaseToolsPrivateEndpoints API.
    */
   public async listDatabaseToolsPrivateEndpoints(
     listDatabaseToolsPrivateEndpointsRequest: requests.ListDatabaseToolsPrivateEndpointsRequest
@@ -1493,7 +1493,7 @@ export class DatabaseToolsClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1576,7 +1576,7 @@ export class DatabaseToolsClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -1659,7 +1659,7 @@ export class DatabaseToolsClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -1740,7 +1740,7 @@ export class DatabaseToolsClient {
    * @param RemoveDatabaseToolsConnectionLockRequest
    * @return RemoveDatabaseToolsConnectionLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsConnectionLock.ts.html |here} to see how to use RemoveDatabaseToolsConnectionLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsConnectionLock.ts.html |here} to see how to use RemoveDatabaseToolsConnectionLock API.
    */
   public async removeDatabaseToolsConnectionLock(
     removeDatabaseToolsConnectionLockRequest: requests.RemoveDatabaseToolsConnectionLockRequest
@@ -1824,7 +1824,7 @@ export class DatabaseToolsClient {
    * @param RemoveDatabaseToolsPrivateEndpointLockRequest
    * @return RemoveDatabaseToolsPrivateEndpointLockResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsPrivateEndpointLock.ts.html |here} to see how to use RemoveDatabaseToolsPrivateEndpointLock API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsPrivateEndpointLock.ts.html |here} to see how to use RemoveDatabaseToolsPrivateEndpointLock API.
    */
   public async removeDatabaseToolsPrivateEndpointLock(
     removeDatabaseToolsPrivateEndpointLockRequest: requests.RemoveDatabaseToolsPrivateEndpointLockRequest
@@ -1910,7 +1910,7 @@ export class DatabaseToolsClient {
    * @param UpdateDatabaseToolsConnectionRequest
    * @return UpdateDatabaseToolsConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/UpdateDatabaseToolsConnection.ts.html |here} to see how to use UpdateDatabaseToolsConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/UpdateDatabaseToolsConnection.ts.html |here} to see how to use UpdateDatabaseToolsConnection API.
    */
   public async updateDatabaseToolsConnection(
     updateDatabaseToolsConnectionRequest: requests.UpdateDatabaseToolsConnectionRequest
@@ -1991,7 +1991,7 @@ export class DatabaseToolsClient {
    * @param UpdateDatabaseToolsPrivateEndpointRequest
    * @return UpdateDatabaseToolsPrivateEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/UpdateDatabaseToolsPrivateEndpoint.ts.html |here} to see how to use UpdateDatabaseToolsPrivateEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/UpdateDatabaseToolsPrivateEndpoint.ts.html |here} to see how to use UpdateDatabaseToolsPrivateEndpoint API.
    */
   public async updateDatabaseToolsPrivateEndpoint(
     updateDatabaseToolsPrivateEndpointRequest: requests.UpdateDatabaseToolsPrivateEndpointRequest
@@ -2076,7 +2076,7 @@ export class DatabaseToolsClient {
    * @param ValidateDatabaseToolsConnectionRequest
    * @return ValidateDatabaseToolsConnectionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ValidateDatabaseToolsConnection.ts.html |here} to see how to use ValidateDatabaseToolsConnection API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ValidateDatabaseToolsConnection.ts.html |here} to see how to use ValidateDatabaseToolsConnection API.
    */
   public async validateDatabaseToolsConnection(
     validateDatabaseToolsConnectionRequest: requests.ValidateDatabaseToolsConnectionRequest

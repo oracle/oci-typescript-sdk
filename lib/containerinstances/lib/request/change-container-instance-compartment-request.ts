@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ChangeContainerInstanceCompartment.ts.html |here} to see how to use ChangeContainerInstanceCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerinstances/ChangeContainerInstanceCompartment.ts.html |here} to see how to use ChangeContainerInstanceCompartmentRequest.
  */
 export interface ChangeContainerInstanceCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container instance.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container instance.
    */
   "containerInstanceId": string;
   /**

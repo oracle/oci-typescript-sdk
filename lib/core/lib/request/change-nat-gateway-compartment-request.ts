@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeNatGatewayCompartment.ts.html |here} to see how to use ChangeNatGatewayCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeNatGatewayCompartment.ts.html |here} to see how to use ChangeNatGatewayCompartmentRequest.
  */
 export interface ChangeNatGatewayCompartmentRequest extends common.BaseRequest {
   /**
-   * The NAT gateway's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The NAT gateway's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "natGatewayId": string;
   /**

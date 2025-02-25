@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalPluggableDatabaseCompartment.ts.html |here} to see how to use ChangeExternalPluggableDatabaseCompartmentRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExternalPluggableDatabaseCompartment.ts.html |here} to see how to use ChangeExternalPluggableDatabaseCompartmentRequest.
  */
 export interface ChangeExternalPluggableDatabaseCompartmentRequest extends common.BaseRequest {
   /**
@@ -26,7 +26,7 @@ export interface ChangeExternalPluggableDatabaseCompartmentRequest extends commo
    */
   "changeCompartmentDetails": model.ChangeCompartmentDetails;
   /**
-   * The ExternalPluggableDatabaseId [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The ExternalPluggableDatabaseId [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "externalPluggableDatabaseId": string;
   /**

@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface ChangeDetectAnomalyJobCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
    * the resource should be moved to.
    *
    */

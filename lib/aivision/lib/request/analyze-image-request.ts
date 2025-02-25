@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/AnalyzeImage.ts.html |here} to see how to use AnalyzeImageRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/AnalyzeImage.ts.html |here} to see how to use AnalyzeImageRequest.
  */
 export interface AnalyzeImageRequest extends common.BaseRequest {
   /**

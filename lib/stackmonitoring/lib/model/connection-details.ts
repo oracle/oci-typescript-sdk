@@ -28,7 +28,7 @@ export interface ConnectionDetails {
    */
   "port": number;
   /**
-   * Database connector Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Database connector Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "connectorId"?: string;
@@ -46,7 +46,7 @@ export interface ConnectionDetails {
    */
   "dbId"?: string;
   /**
-   * SSL Secret Identifier for TCPS connector in OCI Vault[OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * SSL Secret Identifier for TCPS connector in OCI Vault[OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "sslSecretId"?: string;

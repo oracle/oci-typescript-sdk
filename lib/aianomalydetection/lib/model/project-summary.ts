@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface ProjectSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project.
    */
   "id": string;
   /**

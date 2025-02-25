@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetKnowledgeBase.ts.html |here} to see how to use GetKnowledgeBaseRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/GetKnowledgeBase.ts.html |here} to see how to use GetKnowledgeBaseRequest.
  */
 export interface GetKnowledgeBaseRequest extends common.BaseRequest {
   /**
-   * The Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of a Knowledge Base, as a URL path parameter.
+   * The Oracle Cloud Identifier ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of a Knowledge Base, as a URL path parameter.
    */
   "knowledgeBaseId": string;
   /**

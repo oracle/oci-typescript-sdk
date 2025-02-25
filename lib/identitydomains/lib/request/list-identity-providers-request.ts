@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListIdentityProviders.ts.html |here} to see how to use ListIdentityProvidersRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListIdentityProviders.ts.html |here} to see how to use ListIdentityProvidersRequest.
  */
 export interface ListIdentityProvidersRequest extends common.BaseRequest {
   /**

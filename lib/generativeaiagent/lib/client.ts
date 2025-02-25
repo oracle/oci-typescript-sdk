@@ -6,9 +6,9 @@ OCI Generative AI Agents supports several ways to onboard your data and then all
 
 Use the Generative AI Agents API to create and manage agents, knowledge bases, data sources, endpoints, data ingestion jobs, and work requests.
 
-For creating and managing client chat sessions see the [Generative AI Agents Client API](#/EN/generative-ai-agents-client/latest/).
+For creating and managing client chat sessions see the {@link #eNGenerative-ai-agents-clientLatest(ENGenerative-ai-agents-clientLatestRequest) eNGenerative-ai-agents-clientLatest}.
 
-To learn more about the service, see the [Generative AI Agents documentation](/iaas/Content/generative-ai-agents/home.htm).
+To learn more about the service, see the [Generative AI Agents documentation](https://docs.oracle.com/iaas/Content/generative-ai-agents/home.htm).
 
  * OpenAPI spec version: 20240531
  * 
@@ -253,7 +253,7 @@ export class GenerativeAiAgentClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -317,13 +317,13 @@ export class GenerativeAiAgentClient {
 
   /**
    * Moves an agent into a different compartment within the same tenancy. For information about moving resources between
-   * compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAgentCompartmentRequest
    * @return ChangeAgentCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeAgentCompartment.ts.html |here} to see how to use ChangeAgentCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeAgentCompartment.ts.html |here} to see how to use ChangeAgentCompartment API.
    */
   public async changeAgentCompartment(
     changeAgentCompartmentRequest: requests.ChangeAgentCompartmentRequest
@@ -398,13 +398,13 @@ export class GenerativeAiAgentClient {
 
   /**
    * Moves an endpoint into a different compartment within the same tenancy. For information about moving resources between
-   * compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAgentEndpointCompartmentRequest
    * @return ChangeAgentEndpointCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeAgentEndpointCompartment.ts.html |here} to see how to use ChangeAgentEndpointCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeAgentEndpointCompartment.ts.html |here} to see how to use ChangeAgentEndpointCompartment API.
    */
   public async changeAgentEndpointCompartment(
     changeAgentEndpointCompartmentRequest: requests.ChangeAgentEndpointCompartmentRequest
@@ -481,13 +481,13 @@ export class GenerativeAiAgentClient {
 
   /**
    * Moves a knowledge base into a different compartment within the same tenancy. For information about moving resources between
-   * compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeKnowledgeBaseCompartmentRequest
    * @return ChangeKnowledgeBaseCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeKnowledgeBaseCompartment.ts.html |here} to see how to use ChangeKnowledgeBaseCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeKnowledgeBaseCompartment.ts.html |here} to see how to use ChangeKnowledgeBaseCompartment API.
    */
   public async changeKnowledgeBaseCompartment(
     changeKnowledgeBaseCompartmentRequest: requests.ChangeKnowledgeBaseCompartmentRequest
@@ -569,7 +569,7 @@ export class GenerativeAiAgentClient {
    * @param CreateAgentRequest
    * @return CreateAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateAgent.ts.html |here} to see how to use CreateAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateAgent.ts.html |here} to see how to use CreateAgent API.
    */
   public async createAgent(
     createAgentRequest: requests.CreateAgentRequest
@@ -664,7 +664,7 @@ export class GenerativeAiAgentClient {
    * @param CreateAgentEndpointRequest
    * @return CreateAgentEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateAgentEndpoint.ts.html |here} to see how to use CreateAgentEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateAgentEndpoint.ts.html |here} to see how to use CreateAgentEndpoint API.
    */
   public async createAgentEndpoint(
     createAgentEndpointRequest: requests.CreateAgentEndpointRequest
@@ -760,7 +760,7 @@ export class GenerativeAiAgentClient {
    * @param CreateDataIngestionJobRequest
    * @return CreateDataIngestionJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateDataIngestionJob.ts.html |here} to see how to use CreateDataIngestionJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateDataIngestionJob.ts.html |here} to see how to use CreateDataIngestionJob API.
    */
   public async createDataIngestionJob(
     createDataIngestionJobRequest: requests.CreateDataIngestionJobRequest
@@ -856,7 +856,7 @@ export class GenerativeAiAgentClient {
    * @param CreateDataSourceRequest
    * @return CreateDataSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateDataSource.ts.html |here} to see how to use CreateDataSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateDataSource.ts.html |here} to see how to use CreateDataSource API.
    */
   public async createDataSource(
     createDataSourceRequest: requests.CreateDataSourceRequest
@@ -952,7 +952,7 @@ export class GenerativeAiAgentClient {
    * @param CreateKnowledgeBaseRequest
    * @return CreateKnowledgeBaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateKnowledgeBase.ts.html |here} to see how to use CreateKnowledgeBase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateKnowledgeBase.ts.html |here} to see how to use CreateKnowledgeBase API.
    */
   public async createKnowledgeBase(
     createKnowledgeBaseRequest: requests.CreateKnowledgeBaseRequest
@@ -1048,7 +1048,7 @@ export class GenerativeAiAgentClient {
    * @param DeleteAgentRequest
    * @return DeleteAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteAgent.ts.html |here} to see how to use DeleteAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteAgent.ts.html |here} to see how to use DeleteAgent API.
    */
   public async deleteAgent(
     deleteAgentRequest: requests.DeleteAgentRequest
@@ -1121,7 +1121,7 @@ export class GenerativeAiAgentClient {
    * @param DeleteAgentEndpointRequest
    * @return DeleteAgentEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteAgentEndpoint.ts.html |here} to see how to use DeleteAgentEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteAgentEndpoint.ts.html |here} to see how to use DeleteAgentEndpoint API.
    */
   public async deleteAgentEndpoint(
     deleteAgentEndpointRequest: requests.DeleteAgentEndpointRequest
@@ -1195,7 +1195,7 @@ export class GenerativeAiAgentClient {
    * @param DeleteDataIngestionJobRequest
    * @return DeleteDataIngestionJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteDataIngestionJob.ts.html |here} to see how to use DeleteDataIngestionJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteDataIngestionJob.ts.html |here} to see how to use DeleteDataIngestionJob API.
    */
   public async deleteDataIngestionJob(
     deleteDataIngestionJobRequest: requests.DeleteDataIngestionJobRequest
@@ -1269,7 +1269,7 @@ export class GenerativeAiAgentClient {
    * @param DeleteDataSourceRequest
    * @return DeleteDataSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteDataSource.ts.html |here} to see how to use DeleteDataSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteDataSource.ts.html |here} to see how to use DeleteDataSource API.
    */
   public async deleteDataSource(
     deleteDataSourceRequest: requests.DeleteDataSourceRequest
@@ -1343,7 +1343,7 @@ export class GenerativeAiAgentClient {
    * @param DeleteKnowledgeBaseRequest
    * @return DeleteKnowledgeBaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteKnowledgeBase.ts.html |here} to see how to use DeleteKnowledgeBase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteKnowledgeBase.ts.html |here} to see how to use DeleteKnowledgeBase API.
    */
   public async deleteKnowledgeBase(
     deleteKnowledgeBaseRequest: requests.DeleteKnowledgeBaseRequest
@@ -1417,7 +1417,7 @@ export class GenerativeAiAgentClient {
    * @param GetAgentRequest
    * @return GetAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetAgent.ts.html |here} to see how to use GetAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetAgent.ts.html |here} to see how to use GetAgent API.
    */
   public async getAgent(
     getAgentRequest: requests.GetAgentRequest
@@ -1493,7 +1493,7 @@ export class GenerativeAiAgentClient {
    * @param GetAgentEndpointRequest
    * @return GetAgentEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetAgentEndpoint.ts.html |here} to see how to use GetAgentEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetAgentEndpoint.ts.html |here} to see how to use GetAgentEndpoint API.
    */
   public async getAgentEndpoint(
     getAgentEndpointRequest: requests.GetAgentEndpointRequest
@@ -1570,7 +1570,7 @@ export class GenerativeAiAgentClient {
    * @param GetDataIngestionJobRequest
    * @return GetDataIngestionJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataIngestionJob.ts.html |here} to see how to use GetDataIngestionJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataIngestionJob.ts.html |here} to see how to use GetDataIngestionJob API.
    */
   public async getDataIngestionJob(
     getDataIngestionJobRequest: requests.GetDataIngestionJobRequest
@@ -1647,7 +1647,7 @@ export class GenerativeAiAgentClient {
    * @param GetDataIngestionJobLogContentRequest
    * @return GetDataIngestionJobLogContentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataIngestionJobLogContent.ts.html |here} to see how to use GetDataIngestionJobLogContent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataIngestionJobLogContent.ts.html |here} to see how to use GetDataIngestionJobLogContent API.
    */
   public async getDataIngestionJobLogContent(
     getDataIngestionJobLogContentRequest: requests.GetDataIngestionJobLogContentRequest
@@ -1719,7 +1719,7 @@ export class GenerativeAiAgentClient {
    * @param GetDataSourceRequest
    * @return GetDataSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataSource.ts.html |here} to see how to use GetDataSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetDataSource.ts.html |here} to see how to use GetDataSource API.
    */
   public async getDataSource(
     getDataSourceRequest: requests.GetDataSourceRequest
@@ -1795,7 +1795,7 @@ export class GenerativeAiAgentClient {
    * @param GetKnowledgeBaseRequest
    * @return GetKnowledgeBaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetKnowledgeBase.ts.html |here} to see how to use GetKnowledgeBase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetKnowledgeBase.ts.html |here} to see how to use GetKnowledgeBase API.
    */
   public async getKnowledgeBase(
     getKnowledgeBaseRequest: requests.GetKnowledgeBaseRequest
@@ -1872,7 +1872,7 @@ export class GenerativeAiAgentClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1953,7 +1953,7 @@ export class GenerativeAiAgentClient {
    * @param ListAgentEndpointsRequest
    * @return ListAgentEndpointsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListAgentEndpoints.ts.html |here} to see how to use ListAgentEndpoints API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListAgentEndpoints.ts.html |here} to see how to use ListAgentEndpoints API.
    */
   public async listAgentEndpoints(
     listAgentEndpointsRequest: requests.ListAgentEndpointsRequest
@@ -2037,7 +2037,7 @@ export class GenerativeAiAgentClient {
    * @param ListAgentsRequest
    * @return ListAgentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListAgents.ts.html |here} to see how to use ListAgents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListAgents.ts.html |here} to see how to use ListAgents API.
    */
   public async listAgents(
     listAgentsRequest: requests.ListAgentsRequest
@@ -2119,7 +2119,7 @@ export class GenerativeAiAgentClient {
    * @param ListDataIngestionJobsRequest
    * @return ListDataIngestionJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListDataIngestionJobs.ts.html |here} to see how to use ListDataIngestionJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListDataIngestionJobs.ts.html |here} to see how to use ListDataIngestionJobs API.
    */
   public async listDataIngestionJobs(
     listDataIngestionJobsRequest: requests.ListDataIngestionJobsRequest
@@ -2203,7 +2203,7 @@ export class GenerativeAiAgentClient {
    * @param ListDataSourcesRequest
    * @return ListDataSourcesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListDataSources.ts.html |here} to see how to use ListDataSources API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListDataSources.ts.html |here} to see how to use ListDataSources API.
    */
   public async listDataSources(
     listDataSourcesRequest: requests.ListDataSourcesRequest
@@ -2287,7 +2287,7 @@ export class GenerativeAiAgentClient {
    * @param ListKnowledgeBasesRequest
    * @return ListKnowledgeBasesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListKnowledgeBases.ts.html |here} to see how to use ListKnowledgeBases API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListKnowledgeBases.ts.html |here} to see how to use ListKnowledgeBases API.
    */
   public async listKnowledgeBases(
     listKnowledgeBasesRequest: requests.ListKnowledgeBasesRequest
@@ -2370,7 +2370,7 @@ export class GenerativeAiAgentClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -2452,7 +2452,7 @@ export class GenerativeAiAgentClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2534,7 +2534,7 @@ export class GenerativeAiAgentClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2618,7 +2618,7 @@ export class GenerativeAiAgentClient {
    * @param UpdateAgentRequest
    * @return UpdateAgentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateAgent.ts.html |here} to see how to use UpdateAgent API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateAgent.ts.html |here} to see how to use UpdateAgent API.
    */
   public async updateAgent(
     updateAgentRequest: requests.UpdateAgentRequest
@@ -2696,7 +2696,7 @@ export class GenerativeAiAgentClient {
    * @param UpdateAgentEndpointRequest
    * @return UpdateAgentEndpointResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateAgentEndpoint.ts.html |here} to see how to use UpdateAgentEndpoint API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateAgentEndpoint.ts.html |here} to see how to use UpdateAgentEndpoint API.
    */
   public async updateAgentEndpoint(
     updateAgentEndpointRequest: requests.UpdateAgentEndpointRequest
@@ -2775,7 +2775,7 @@ export class GenerativeAiAgentClient {
    * @param UpdateDataSourceRequest
    * @return UpdateDataSourceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateDataSource.ts.html |here} to see how to use UpdateDataSource API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateDataSource.ts.html |here} to see how to use UpdateDataSource API.
    */
   public async updateDataSource(
     updateDataSourceRequest: requests.UpdateDataSourceRequest
@@ -2854,7 +2854,7 @@ export class GenerativeAiAgentClient {
    * @param UpdateKnowledgeBaseRequest
    * @return UpdateKnowledgeBaseResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateKnowledgeBase.ts.html |here} to see how to use UpdateKnowledgeBase API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateKnowledgeBase.ts.html |here} to see how to use UpdateKnowledgeBase API.
    */
   public async updateKnowledgeBase(
     updateKnowledgeBaseRequest: requests.UpdateKnowledgeBaseRequest

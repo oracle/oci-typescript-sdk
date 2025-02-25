@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystemConnector.ts.html |here} to see how to use DeleteExternalDbSystemConnectorRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystemConnector.ts.html |here} to see how to use DeleteExternalDbSystemConnectorRequest.
  */
 export interface DeleteExternalDbSystemConnectorRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the external connector.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the external connector.
    */
   "externalDbSystemConnectorId": string;
   /**

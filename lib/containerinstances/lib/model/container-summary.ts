@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ContainerSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container.
    */
   "id": string;
   /**
@@ -28,7 +28,7 @@ export interface ContainerSummary {
    */
   "displayName": string;
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId": string;
   /**
@@ -76,7 +76,7 @@ export interface ContainerSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container instance on which the container is running.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container instance on which the container is running.
    */
   "containerInstanceId": string;
   "resourceConfig"?: model.ContainerResourceConfig;

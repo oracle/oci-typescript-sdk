@@ -1,7 +1,7 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for instances in OCI, your private data center, or 3rd-party clouds. 
-For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
+For more information, see [Overview of OS Management Hub](https://docs.oracle.com/iaas/osmh/doc/overview.htm).
 
  * OpenAPI spec version: 20220901
  * 
@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface CreateScheduledJobDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the scheduled job.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the scheduled job.
    */
   "compartmentId": string;
   /**
@@ -49,21 +49,21 @@ export interface CreateScheduledJobDetails {
    */
   "recurringRule"?: string;
   /**
-   * The managed instance [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * The managed instance [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
    * A scheduled job can only operate on one type of target, therefore you must supply either this or
    * managedInstanceGroupIds, or managedCompartmentIds, or lifecycleStageIds.
    *
    */
   "managedInstanceIds"?: Array<string>;
   /**
-   * The managed instance group [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * The managed instance group [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
    * A scheduled job can only operate on one type of target, therefore you must supply either this or managedInstanceIds,
    * or managedCompartmentIds, or lifecycleStageIds.
    *
    */
   "managedInstanceGroupIds"?: Array<string>;
   /**
-   * The compartment [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * The compartment [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
    * To apply the job to all compartments in the tenancy, set this to the tenancy OCID (root compartment) and set
    * isSubcompartmentIncluded to true. A scheduled job can only operate on one type of target, therefore you must
    * supply either this or managedInstanceIds, or managedInstanceGroupIds, or lifecycleStageIds.
@@ -71,7 +71,7 @@ export interface CreateScheduledJobDetails {
    */
   "managedCompartmentIds"?: Array<string>;
   /**
-   * The lifecycle stage [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * The lifecycle stage [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
    * A scheduled job can only operate on one type of target, therefore you must supply either this or managedInstanceIds,
    * or managedInstanceGroupIds, or managedCompartmentIds.
    *
@@ -79,7 +79,7 @@ export interface CreateScheduledJobDetails {
   "lifecycleStageIds"?: Array<string>;
   /**
    * Indicates whether to apply the scheduled job to all compartments in the tenancy when managedCompartmentIds specifies
-   * the tenancy [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) (root compartment).
+   * the tenancy [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) (root compartment).
    *
    */
   "isSubcompartmentIncluded"?: boolean;
@@ -99,14 +99,14 @@ export interface CreateScheduledJobDetails {
   "operations": Array<model.ScheduledJobOperation>;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
@@ -123,6 +123,10 @@ export interface CreateScheduledJobDetails {
    * Indicates whether this scheduled job is managed by the Autonomous Linux service.
    */
   "isManagedByAutonomousLinux"?: boolean;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the work request that will be rerun.
+   */
+  "workRequestId"?: string;
 }
 
 export namespace CreateScheduledJobDetails {

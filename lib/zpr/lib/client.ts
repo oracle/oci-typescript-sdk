@@ -1,6 +1,6 @@
 /**
  * Zero Trust Packet Routing Control Plane API
- * Use the Zero Trust Packet Routing Control Plane API to manage ZPR configuration and policy. See the [Zero Trust Packet Routing](/iaas/Content/zero-trust-packet-routing/home.htm) documentation for more information.
+ * Use the Zero Trust Packet Routing Control Plane API to manage ZPR configuration and policy. See the [Zero Trust Packet Routing](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/home.htm) documentation for more information.
  * OpenAPI spec version: 20240301
  *
  *
@@ -244,7 +244,7 @@ export class ZprClient {
    * @param CreateConfigurationRequest
    * @return CreateConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/CreateConfiguration.ts.html |here} to see how to use CreateConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/CreateConfiguration.ts.html |here} to see how to use CreateConfiguration API.
    */
   public async createConfiguration(
     createConfigurationRequest: requests.CreateConfigurationRequest
@@ -321,7 +321,7 @@ export class ZprClient {
    * @param CreateZprPolicyRequest
    * @return CreateZprPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/CreateZprPolicy.ts.html |here} to see how to use CreateZprPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/CreateZprPolicy.ts.html |here} to see how to use CreateZprPolicy API.
    */
   public async createZprPolicy(
     createZprPolicyRequest: requests.CreateZprPolicyRequest
@@ -411,7 +411,7 @@ export class ZprClient {
    * @param DeleteZprPolicyRequest
    * @return DeleteZprPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/DeleteZprPolicy.ts.html |here} to see how to use DeleteZprPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/DeleteZprPolicy.ts.html |here} to see how to use DeleteZprPolicy API.
    */
   public async deleteZprPolicy(
     deleteZprPolicyRequest: requests.DeleteZprPolicyRequest
@@ -486,7 +486,7 @@ export class ZprClient {
    * @param GetConfigurationRequest
    * @return GetConfigurationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
    */
   public async getConfiguration(
     getConfigurationRequest: requests.GetConfigurationRequest
@@ -561,7 +561,7 @@ export class ZprClient {
    * @param GetZprConfigurationWorkRequestRequest
    * @return GetZprConfigurationWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/GetZprConfigurationWorkRequest.ts.html |here} to see how to use GetZprConfigurationWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/GetZprConfigurationWorkRequest.ts.html |here} to see how to use GetZprConfigurationWorkRequest API.
    */
   public async getZprConfigurationWorkRequest(
     getZprConfigurationWorkRequestRequest: requests.GetZprConfigurationWorkRequestRequest
@@ -642,7 +642,7 @@ export class ZprClient {
    * @param GetZprPolicyRequest
    * @return GetZprPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/GetZprPolicy.ts.html |here} to see how to use GetZprPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/GetZprPolicy.ts.html |here} to see how to use GetZprPolicy API.
    */
   public async getZprPolicy(
     getZprPolicyRequest: requests.GetZprPolicyRequest
@@ -717,7 +717,7 @@ export class ZprClient {
    * @param GetZprPolicyWorkRequestRequest
    * @return GetZprPolicyWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/GetZprPolicyWorkRequest.ts.html |here} to see how to use GetZprPolicyWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/GetZprPolicyWorkRequest.ts.html |here} to see how to use GetZprPolicyWorkRequest API.
    */
   public async getZprPolicyWorkRequest(
     getZprPolicyWorkRequestRequest: requests.GetZprPolicyWorkRequestRequest
@@ -798,7 +798,7 @@ export class ZprClient {
    * @param ListZprConfigurationWorkRequestErrorsRequest
    * @return ListZprConfigurationWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprConfigurationWorkRequestErrors.ts.html |here} to see how to use ListZprConfigurationWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprConfigurationWorkRequestErrors.ts.html |here} to see how to use ListZprConfigurationWorkRequestErrors API.
    */
   public async listZprConfigurationWorkRequestErrors(
     listZprConfigurationWorkRequestErrorsRequest: requests.ListZprConfigurationWorkRequestErrorsRequest
@@ -880,7 +880,7 @@ export class ZprClient {
    * @param ListZprConfigurationWorkRequestLogsRequest
    * @return ListZprConfigurationWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprConfigurationWorkRequestLogs.ts.html |here} to see how to use ListZprConfigurationWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprConfigurationWorkRequestLogs.ts.html |here} to see how to use ListZprConfigurationWorkRequestLogs API.
    */
   public async listZprConfigurationWorkRequestLogs(
     listZprConfigurationWorkRequestLogsRequest: requests.ListZprConfigurationWorkRequestLogsRequest
@@ -962,7 +962,7 @@ export class ZprClient {
    * @param ListZprConfigurationWorkRequestsRequest
    * @return ListZprConfigurationWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprConfigurationWorkRequests.ts.html |here} to see how to use ListZprConfigurationWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprConfigurationWorkRequests.ts.html |here} to see how to use ListZprConfigurationWorkRequests API.
    */
   public async listZprConfigurationWorkRequests(
     listZprConfigurationWorkRequestsRequest: requests.ListZprConfigurationWorkRequestsRequest
@@ -1046,7 +1046,7 @@ export class ZprClient {
    * @param ListZprPoliciesRequest
    * @return ListZprPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprPolicies.ts.html |here} to see how to use ListZprPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprPolicies.ts.html |here} to see how to use ListZprPolicies API.
    */
   public async listZprPolicies(
     listZprPoliciesRequest: requests.ListZprPoliciesRequest
@@ -1129,7 +1129,7 @@ export class ZprClient {
    * @param ListZprPolicyWorkRequestErrorsRequest
    * @return ListZprPolicyWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprPolicyWorkRequestErrors.ts.html |here} to see how to use ListZprPolicyWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprPolicyWorkRequestErrors.ts.html |here} to see how to use ListZprPolicyWorkRequestErrors API.
    */
   public async listZprPolicyWorkRequestErrors(
     listZprPolicyWorkRequestErrorsRequest: requests.ListZprPolicyWorkRequestErrorsRequest
@@ -1211,7 +1211,7 @@ export class ZprClient {
    * @param ListZprPolicyWorkRequestLogsRequest
    * @return ListZprPolicyWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprPolicyWorkRequestLogs.ts.html |here} to see how to use ListZprPolicyWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprPolicyWorkRequestLogs.ts.html |here} to see how to use ListZprPolicyWorkRequestLogs API.
    */
   public async listZprPolicyWorkRequestLogs(
     listZprPolicyWorkRequestLogsRequest: requests.ListZprPolicyWorkRequestLogsRequest
@@ -1292,7 +1292,7 @@ export class ZprClient {
    * @param ListZprPolicyWorkRequestsRequest
    * @return ListZprPolicyWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprPolicyWorkRequests.ts.html |here} to see how to use ListZprPolicyWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/ListZprPolicyWorkRequests.ts.html |here} to see how to use ListZprPolicyWorkRequests API.
    */
   public async listZprPolicyWorkRequests(
     listZprPolicyWorkRequestsRequest: requests.ListZprPolicyWorkRequestsRequest
@@ -1374,7 +1374,7 @@ export class ZprClient {
    * @param UpdateZprPolicyRequest
    * @return UpdateZprPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/UpdateZprPolicy.ts.html |here} to see how to use UpdateZprPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/zpr/UpdateZprPolicy.ts.html |here} to see how to use UpdateZprPolicy API.
    */
   public async updateZprPolicy(
     updateZprPolicyRequest: requests.UpdateZprPolicyRequest

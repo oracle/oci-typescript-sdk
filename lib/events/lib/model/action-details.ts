@@ -1,7 +1,7 @@
 /**
  * Events API
  * API for the Events Service. Use this API to manage rules and actions that create automation 
-in your tenancy. For more information, see [Overview of Events](/iaas/Content/Events/Concepts/eventsoverview.htm).
+in your tenancy. For more information, see [Overview of Events](https://docs.oracle.com/iaas/Content/Events/Concepts/eventsoverview.htm).
 
  * OpenAPI spec version: 20181201
  * 

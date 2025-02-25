@@ -243,7 +243,7 @@ export class AIServiceSpeechClient {
    * @param CancelTranscriptionJobRequest
    * @return CancelTranscriptionJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CancelTranscriptionJob.ts.html |here} to see how to use CancelTranscriptionJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CancelTranscriptionJob.ts.html |here} to see how to use CancelTranscriptionJob API.
    */
   public async cancelTranscriptionJob(
     cancelTranscriptionJobRequest: requests.CancelTranscriptionJobRequest
@@ -313,7 +313,7 @@ export class AIServiceSpeechClient {
    * @param CancelTranscriptionTaskRequest
    * @return CancelTranscriptionTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CancelTranscriptionTask.ts.html |here} to see how to use CancelTranscriptionTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CancelTranscriptionTask.ts.html |here} to see how to use CancelTranscriptionTask API.
    */
   public async cancelTranscriptionTask(
     cancelTranscriptionTaskRequest: requests.CancelTranscriptionTaskRequest
@@ -385,7 +385,7 @@ export class AIServiceSpeechClient {
    * @param ChangeCustomizationCompartmentRequest
    * @return ChangeCustomizationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ChangeCustomizationCompartment.ts.html |here} to see how to use ChangeCustomizationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ChangeCustomizationCompartment.ts.html |here} to see how to use ChangeCustomizationCompartment API.
    */
   public async changeCustomizationCompartment(
     changeCustomizationCompartmentRequest: requests.ChangeCustomizationCompartmentRequest
@@ -460,7 +460,7 @@ export class AIServiceSpeechClient {
    * @param ChangeTranscriptionJobCompartmentRequest
    * @return ChangeTranscriptionJobCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ChangeTranscriptionJobCompartment.ts.html |here} to see how to use ChangeTranscriptionJobCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ChangeTranscriptionJobCompartment.ts.html |here} to see how to use ChangeTranscriptionJobCompartment API.
    */
   public async changeTranscriptionJobCompartment(
     changeTranscriptionJobCompartmentRequest: requests.ChangeTranscriptionJobCompartmentRequest
@@ -538,7 +538,7 @@ export class AIServiceSpeechClient {
    * @param CreateCustomizationRequest
    * @return CreateCustomizationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CreateCustomization.ts.html |here} to see how to use CreateCustomization API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CreateCustomization.ts.html |here} to see how to use CreateCustomization API.
    */
   public async createCustomization(
     createCustomizationRequest: requests.CreateCustomizationRequest
@@ -620,7 +620,7 @@ export class AIServiceSpeechClient {
    * @param CreateRealtimeSessionTokenRequest
    * @return CreateRealtimeSessionTokenResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CreateRealtimeSessionToken.ts.html |here} to see how to use CreateRealtimeSessionToken API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CreateRealtimeSessionToken.ts.html |here} to see how to use CreateRealtimeSessionToken API.
    */
   public async createRealtimeSessionToken(
     createRealtimeSessionTokenRequest: requests.CreateRealtimeSessionTokenRequest
@@ -702,7 +702,7 @@ export class AIServiceSpeechClient {
    * @param CreateTranscriptionJobRequest
    * @return CreateTranscriptionJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CreateTranscriptionJob.ts.html |here} to see how to use CreateTranscriptionJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/CreateTranscriptionJob.ts.html |here} to see how to use CreateTranscriptionJob API.
    */
   public async createTranscriptionJob(
     createTranscriptionJobRequest: requests.CreateTranscriptionJobRequest
@@ -783,7 +783,7 @@ export class AIServiceSpeechClient {
    * @param DeleteCustomizationRequest
    * @return DeleteCustomizationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/DeleteCustomization.ts.html |here} to see how to use DeleteCustomization API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/DeleteCustomization.ts.html |here} to see how to use DeleteCustomization API.
    */
   public async deleteCustomization(
     deleteCustomizationRequest: requests.DeleteCustomizationRequest
@@ -853,7 +853,7 @@ export class AIServiceSpeechClient {
    * @param DeleteTranscriptionJobRequest
    * @return DeleteTranscriptionJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/DeleteTranscriptionJob.ts.html |here} to see how to use DeleteTranscriptionJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/DeleteTranscriptionJob.ts.html |here} to see how to use DeleteTranscriptionJob API.
    */
   public async deleteTranscriptionJob(
     deleteTranscriptionJobRequest: requests.DeleteTranscriptionJobRequest
@@ -923,7 +923,7 @@ export class AIServiceSpeechClient {
    * @param GetCustomizationRequest
    * @return GetCustomizationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/GetCustomization.ts.html |here} to see how to use GetCustomization API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/GetCustomization.ts.html |here} to see how to use GetCustomization API.
    */
   public async getCustomization(
     getCustomizationRequest: requests.GetCustomizationRequest
@@ -999,7 +999,7 @@ export class AIServiceSpeechClient {
    * @param GetTranscriptionJobRequest
    * @return GetTranscriptionJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/GetTranscriptionJob.ts.html |here} to see how to use GetTranscriptionJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/GetTranscriptionJob.ts.html |here} to see how to use GetTranscriptionJob API.
    */
   public async getTranscriptionJob(
     getTranscriptionJobRequest: requests.GetTranscriptionJobRequest
@@ -1076,7 +1076,7 @@ export class AIServiceSpeechClient {
    * @param GetTranscriptionTaskRequest
    * @return GetTranscriptionTaskResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/GetTranscriptionTask.ts.html |here} to see how to use GetTranscriptionTask API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/GetTranscriptionTask.ts.html |here} to see how to use GetTranscriptionTask API.
    */
   public async getTranscriptionTask(
     getTranscriptionTaskRequest: requests.GetTranscriptionTaskRequest
@@ -1155,7 +1155,7 @@ export class AIServiceSpeechClient {
    * @param ListCustomizationsRequest
    * @return ListCustomizationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ListCustomizations.ts.html |here} to see how to use ListCustomizations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ListCustomizations.ts.html |here} to see how to use ListCustomizations API.
    */
   public async listCustomizations(
     listCustomizationsRequest: requests.ListCustomizationsRequest
@@ -1245,7 +1245,7 @@ export class AIServiceSpeechClient {
    * @param ListTranscriptionJobsRequest
    * @return ListTranscriptionJobsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ListTranscriptionJobs.ts.html |here} to see how to use ListTranscriptionJobs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ListTranscriptionJobs.ts.html |here} to see how to use ListTranscriptionJobs API.
    */
   public async listTranscriptionJobs(
     listTranscriptionJobsRequest: requests.ListTranscriptionJobsRequest
@@ -1335,7 +1335,7 @@ export class AIServiceSpeechClient {
    * @param ListTranscriptionTasksRequest
    * @return ListTranscriptionTasksResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ListTranscriptionTasks.ts.html |here} to see how to use ListTranscriptionTasks API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ListTranscriptionTasks.ts.html |here} to see how to use ListTranscriptionTasks API.
    */
   public async listTranscriptionTasks(
     listTranscriptionTasksRequest: requests.ListTranscriptionTasksRequest
@@ -1426,7 +1426,7 @@ export class AIServiceSpeechClient {
    * @param ListVoicesRequest
    * @return ListVoicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ListVoices.ts.html |here} to see how to use ListVoices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/ListVoices.ts.html |here} to see how to use ListVoices API.
    */
   public async listVoices(
     listVoicesRequest: requests.ListVoicesRequest
@@ -1500,7 +1500,7 @@ export class AIServiceSpeechClient {
    * @param SynthesizeSpeechRequest
    * @return SynthesizeSpeechResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/SynthesizeSpeech.ts.html |here} to see how to use SynthesizeSpeech API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/SynthesizeSpeech.ts.html |here} to see how to use SynthesizeSpeech API.
    */
   public async synthesizeSpeech(
     synthesizeSpeechRequest: requests.SynthesizeSpeechRequest
@@ -1574,7 +1574,7 @@ export class AIServiceSpeechClient {
    * @param UpdateCustomizationRequest
    * @return UpdateCustomizationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/UpdateCustomization.ts.html |here} to see how to use UpdateCustomization API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/UpdateCustomization.ts.html |here} to see how to use UpdateCustomization API.
    */
   public async updateCustomization(
     updateCustomizationRequest: requests.UpdateCustomizationRequest
@@ -1657,7 +1657,7 @@ export class AIServiceSpeechClient {
    * @param UpdateTranscriptionJobRequest
    * @return UpdateTranscriptionJobResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/UpdateTranscriptionJob.ts.html |here} to see how to use UpdateTranscriptionJob API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aispeech/UpdateTranscriptionJob.ts.html |here} to see how to use UpdateTranscriptionJob API.
    */
   public async updateTranscriptionJob(
     updateTranscriptionJobRequest: requests.UpdateTranscriptionJobRequest

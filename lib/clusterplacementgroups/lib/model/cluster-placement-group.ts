@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ClusterPlacementGroup {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster placement group.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster placement group.
    *
    */
   "id": string;
@@ -34,7 +34,7 @@ export interface ClusterPlacementGroup {
    */
   "description": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the cluster placement group.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the cluster placement group.
    *
    */
   "compartmentId": string;

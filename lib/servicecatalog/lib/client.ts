@@ -243,7 +243,7 @@ export class ServiceCatalogClient {
    * @param BulkReplaceServiceCatalogAssociationsRequest
    * @return BulkReplaceServiceCatalogAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/BulkReplaceServiceCatalogAssociations.ts.html |here} to see how to use BulkReplaceServiceCatalogAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/BulkReplaceServiceCatalogAssociations.ts.html |here} to see how to use BulkReplaceServiceCatalogAssociations API.
    */
   public async bulkReplaceServiceCatalogAssociations(
     bulkReplaceServiceCatalogAssociationsRequest: requests.BulkReplaceServiceCatalogAssociationsRequest
@@ -319,7 +319,7 @@ export class ServiceCatalogClient {
    * @param ChangePrivateApplicationCompartmentRequest
    * @return ChangePrivateApplicationCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ChangePrivateApplicationCompartment.ts.html |here} to see how to use ChangePrivateApplicationCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ChangePrivateApplicationCompartment.ts.html |here} to see how to use ChangePrivateApplicationCompartment API.
    */
   public async changePrivateApplicationCompartment(
     changePrivateApplicationCompartmentRequest: requests.ChangePrivateApplicationCompartmentRequest
@@ -400,7 +400,7 @@ export class ServiceCatalogClient {
    * @param ChangeServiceCatalogCompartmentRequest
    * @return ChangeServiceCatalogCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ChangeServiceCatalogCompartment.ts.html |here} to see how to use ChangeServiceCatalogCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ChangeServiceCatalogCompartment.ts.html |here} to see how to use ChangeServiceCatalogCompartment API.
    */
   public async changeServiceCatalogCompartment(
     changeServiceCatalogCompartmentRequest: requests.ChangeServiceCatalogCompartmentRequest
@@ -474,7 +474,7 @@ export class ServiceCatalogClient {
    * @param CreatePrivateApplicationRequest
    * @return CreatePrivateApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/CreatePrivateApplication.ts.html |here} to see how to use CreatePrivateApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/CreatePrivateApplication.ts.html |here} to see how to use CreatePrivateApplication API.
    */
   public async createPrivateApplication(
     createPrivateApplicationRequest: requests.CreatePrivateApplicationRequest
@@ -560,7 +560,7 @@ export class ServiceCatalogClient {
    * @param CreateServiceCatalogRequest
    * @return CreateServiceCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/CreateServiceCatalog.ts.html |here} to see how to use CreateServiceCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/CreateServiceCatalog.ts.html |here} to see how to use CreateServiceCatalog API.
    */
   public async createServiceCatalog(
     createServiceCatalogRequest: requests.CreateServiceCatalogRequest
@@ -641,7 +641,7 @@ export class ServiceCatalogClient {
    * @param CreateServiceCatalogAssociationRequest
    * @return CreateServiceCatalogAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/CreateServiceCatalogAssociation.ts.html |here} to see how to use CreateServiceCatalogAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/CreateServiceCatalogAssociation.ts.html |here} to see how to use CreateServiceCatalogAssociation API.
    */
   public async createServiceCatalogAssociation(
     createServiceCatalogAssociationRequest: requests.CreateServiceCatalogAssociationRequest
@@ -722,7 +722,7 @@ export class ServiceCatalogClient {
    * @param DeletePrivateApplicationRequest
    * @return DeletePrivateApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/DeletePrivateApplication.ts.html |here} to see how to use DeletePrivateApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/DeletePrivateApplication.ts.html |here} to see how to use DeletePrivateApplication API.
    */
   public async deletePrivateApplication(
     deletePrivateApplicationRequest: requests.DeletePrivateApplicationRequest
@@ -796,7 +796,7 @@ export class ServiceCatalogClient {
    * @param DeleteServiceCatalogRequest
    * @return DeleteServiceCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/DeleteServiceCatalog.ts.html |here} to see how to use DeleteServiceCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/DeleteServiceCatalog.ts.html |here} to see how to use DeleteServiceCatalog API.
    */
   public async deleteServiceCatalog(
     deleteServiceCatalogRequest: requests.DeleteServiceCatalogRequest
@@ -865,7 +865,7 @@ export class ServiceCatalogClient {
    * @param DeleteServiceCatalogAssociationRequest
    * @return DeleteServiceCatalogAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/DeleteServiceCatalogAssociation.ts.html |here} to see how to use DeleteServiceCatalogAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/DeleteServiceCatalogAssociation.ts.html |here} to see how to use DeleteServiceCatalogAssociation API.
    */
   public async deleteServiceCatalogAssociation(
     deleteServiceCatalogAssociationRequest: requests.DeleteServiceCatalogAssociationRequest
@@ -935,7 +935,7 @@ export class ServiceCatalogClient {
    * @param GetPrivateApplicationRequest
    * @return GetPrivateApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetPrivateApplication.ts.html |here} to see how to use GetPrivateApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetPrivateApplication.ts.html |here} to see how to use GetPrivateApplication API.
    */
   public async getPrivateApplication(
     getPrivateApplicationRequest: requests.GetPrivateApplicationRequest
@@ -1012,7 +1012,7 @@ export class ServiceCatalogClient {
    * @param GetPrivateApplicationActionDownloadLogoRequest
    * @return GetPrivateApplicationActionDownloadLogoResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetPrivateApplicationActionDownloadLogo.ts.html |here} to see how to use GetPrivateApplicationActionDownloadLogo API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetPrivateApplicationActionDownloadLogo.ts.html |here} to see how to use GetPrivateApplicationActionDownloadLogo API.
    */
   public async getPrivateApplicationActionDownloadLogo(
     getPrivateApplicationActionDownloadLogoRequest: requests.GetPrivateApplicationActionDownloadLogoRequest
@@ -1086,7 +1086,7 @@ export class ServiceCatalogClient {
    * @param GetPrivateApplicationPackageRequest
    * @return GetPrivateApplicationPackageResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetPrivateApplicationPackage.ts.html |here} to see how to use GetPrivateApplicationPackage API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetPrivateApplicationPackage.ts.html |here} to see how to use GetPrivateApplicationPackage API.
    */
   public async getPrivateApplicationPackage(
     getPrivateApplicationPackageRequest: requests.GetPrivateApplicationPackageRequest
@@ -1164,7 +1164,7 @@ export class ServiceCatalogClient {
    * @param GetPrivateApplicationPackageActionDownloadConfigRequest
    * @return GetPrivateApplicationPackageActionDownloadConfigResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetPrivateApplicationPackageActionDownloadConfig.ts.html |here} to see how to use GetPrivateApplicationPackageActionDownloadConfig API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetPrivateApplicationPackageActionDownloadConfig.ts.html |here} to see how to use GetPrivateApplicationPackageActionDownloadConfig API.
    */
   public async getPrivateApplicationPackageActionDownloadConfig(
     getPrivateApplicationPackageActionDownloadConfigRequest: requests.GetPrivateApplicationPackageActionDownloadConfigRequest
@@ -1239,7 +1239,7 @@ export class ServiceCatalogClient {
    * @param GetServiceCatalogRequest
    * @return GetServiceCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetServiceCatalog.ts.html |here} to see how to use GetServiceCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetServiceCatalog.ts.html |here} to see how to use GetServiceCatalog API.
    */
   public async getServiceCatalog(
     getServiceCatalogRequest: requests.GetServiceCatalogRequest
@@ -1315,7 +1315,7 @@ export class ServiceCatalogClient {
    * @param GetServiceCatalogAssociationRequest
    * @return GetServiceCatalogAssociationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetServiceCatalogAssociation.ts.html |here} to see how to use GetServiceCatalogAssociation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetServiceCatalogAssociation.ts.html |here} to see how to use GetServiceCatalogAssociation API.
    */
   public async getServiceCatalogAssociation(
     getServiceCatalogAssociationRequest: requests.GetServiceCatalogAssociationRequest
@@ -1393,7 +1393,7 @@ export class ServiceCatalogClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -1477,7 +1477,7 @@ export class ServiceCatalogClient {
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListApplications.ts.html |here} to see how to use ListApplications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListApplications.ts.html |here} to see how to use ListApplications API.
    */
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
@@ -1564,7 +1564,7 @@ export class ServiceCatalogClient {
    * @param ListPrivateApplicationPackagesRequest
    * @return ListPrivateApplicationPackagesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListPrivateApplicationPackages.ts.html |here} to see how to use ListPrivateApplicationPackages API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListPrivateApplicationPackages.ts.html |here} to see how to use ListPrivateApplicationPackages API.
    */
   public async listPrivateApplicationPackages(
     listPrivateApplicationPackagesRequest: requests.ListPrivateApplicationPackagesRequest
@@ -1649,7 +1649,7 @@ export class ServiceCatalogClient {
    * @param ListPrivateApplicationsRequest
    * @return ListPrivateApplicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListPrivateApplications.ts.html |here} to see how to use ListPrivateApplications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListPrivateApplications.ts.html |here} to see how to use ListPrivateApplications API.
    */
   public async listPrivateApplications(
     listPrivateApplicationsRequest: requests.ListPrivateApplicationsRequest
@@ -1732,7 +1732,7 @@ export class ServiceCatalogClient {
    * @param ListServiceCatalogAssociationsRequest
    * @return ListServiceCatalogAssociationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListServiceCatalogAssociations.ts.html |here} to see how to use ListServiceCatalogAssociations API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListServiceCatalogAssociations.ts.html |here} to see how to use ListServiceCatalogAssociations API.
    */
   public async listServiceCatalogAssociations(
     listServiceCatalogAssociationsRequest: requests.ListServiceCatalogAssociationsRequest
@@ -1817,7 +1817,7 @@ export class ServiceCatalogClient {
    * @param ListServiceCatalogsRequest
    * @return ListServiceCatalogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListServiceCatalogs.ts.html |here} to see how to use ListServiceCatalogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListServiceCatalogs.ts.html |here} to see how to use ListServiceCatalogs API.
    */
   public async listServiceCatalogs(
     listServiceCatalogsRequest: requests.ListServiceCatalogsRequest
@@ -1901,7 +1901,7 @@ export class ServiceCatalogClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -1984,7 +1984,7 @@ export class ServiceCatalogClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -2067,7 +2067,7 @@ export class ServiceCatalogClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -2150,7 +2150,7 @@ export class ServiceCatalogClient {
    * @param UpdatePrivateApplicationRequest
    * @return UpdatePrivateApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/UpdatePrivateApplication.ts.html |here} to see how to use UpdatePrivateApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/UpdatePrivateApplication.ts.html |here} to see how to use UpdatePrivateApplication API.
    */
   public async updatePrivateApplication(
     updatePrivateApplicationRequest: requests.UpdatePrivateApplicationRequest
@@ -2238,7 +2238,7 @@ export class ServiceCatalogClient {
    * @param UpdateServiceCatalogRequest
    * @return UpdateServiceCatalogResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/UpdateServiceCatalog.ts.html |here} to see how to use UpdateServiceCatalog API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/servicecatalog/UpdateServiceCatalog.ts.html |here} to see how to use UpdateServiceCatalog API.
    */
   public async updateServiceCatalog(
     updateServiceCatalogRequest: requests.UpdateServiceCatalogRequest

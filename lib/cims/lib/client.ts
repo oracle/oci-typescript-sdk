@@ -1,7 +1,7 @@
 /**
  * Support Management API
  * Use the Support Management API to manage support requests.
-For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+For more information, see [Getting Help and Contacting Support](https://docs.oracle.com/iaas/Content/GSG/Tasks/contactingsupport.htm).
 **Note**: Before you can create service requests with this API,
 complete user registration at My Oracle Cloud Support 
 and then ask your tenancy administrator to provide you authorization for the related user groups.
@@ -220,13 +220,13 @@ export class IncidentClient {
 
   /**
    * Creates a support ticket in the specified tenancy.
-   * For more information, see [Creating Support Requests](https://docs.cloud.oracle.com/iaas/Content/GSG/support/create-incident.htm).
+   * For more information, see [Creating Support Requests](https://docs.oracle.com/iaas/Content/GSG/support/create-incident.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateIncidentRequest
    * @return CreateIncidentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/CreateIncident.ts.html |here} to see how to use CreateIncident API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/CreateIncident.ts.html |here} to see how to use CreateIncident API.
    */
   public async createIncident(
     createIncidentRequest: requests.CreateIncidentRequest
@@ -302,13 +302,13 @@ export class IncidentClient {
 
   /**
    * Gets the specified support ticket.
-   * For more information, see [Getting Details for a Support Request](https://docs.cloud.oracle.com/iaas/Content/GSG/support/get-incident.htm).
+   * For more information, see [Getting Details for a Support Request](https://docs.oracle.com/iaas/Content/GSG/support/get-incident.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIncidentRequest
    * @return GetIncidentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/GetIncident.ts.html |here} to see how to use GetIncident API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/GetIncident.ts.html |here} to see how to use GetIncident API.
    */
   public async getIncident(
     getIncidentRequest: requests.GetIncidentRequest
@@ -389,15 +389,15 @@ export class IncidentClient {
    * lists limits and current usage for limit increase tickets.
    * This operation is called during creation of technical support and limit increase tickets.
    * For more information about listing products, see
-   * [Listing Products for Support Requests](https://docs.cloud.oracle.com/iaas/Content/GSG/support/list-incident-resource-types-taxonomy.htm).
+   * [Listing Products for Support Requests](https://docs.oracle.com/iaas/Content/GSG/support/list-incident-resource-types-taxonomy.htm).
    * For more information about listing limits, see
-   * [Listing Limits for Service Limit Increase Requests](https://docs.cloud.oracle.com/iaas/Content/GSG/support/list-incident-resource-types-limit.htm).
+   * [Listing Limits for Service Limit Increase Requests](https://docs.oracle.com/iaas/Content/GSG/support/list-incident-resource-types-limit.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIncidentResourceTypesRequest
    * @return ListIncidentResourceTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/ListIncidentResourceTypes.ts.html |here} to see how to use ListIncidentResourceTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/ListIncidentResourceTypes.ts.html |here} to see how to use ListIncidentResourceTypes API.
    */
   public async listIncidentResourceTypes(
     listIncidentResourceTypesRequest: requests.ListIncidentResourceTypesRequest
@@ -532,13 +532,13 @@ export class IncidentClient {
 
   /**
    * Lists support tickets for the specified tenancy.
-   * For more information, see [Listing Support Requests](https://docs.cloud.oracle.com/iaas/Content/GSG/support/list-incidents.htm).
+   * For more information, see [Listing Support Requests](https://docs.oracle.com/iaas/Content/GSG/support/list-incidents.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListIncidentsRequest
    * @return ListIncidentsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/ListIncidents.ts.html |here} to see how to use ListIncidents API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/ListIncidents.ts.html |here} to see how to use ListIncidents API.
    */
   public async listIncidents(
     listIncidentsRequest: requests.ListIncidentsRequest
@@ -685,13 +685,13 @@ export class IncidentClient {
 
   /**
    * Updates the specified support ticket.
-   * For more information, see [Updating Support Requests](https://docs.cloud.oracle.com/iaas/Content/GSG/support/update-incident.htm).
+   * For more information, see [Updating Support Requests](https://docs.oracle.com/iaas/Content/GSG/support/update-incident.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateIncidentRequest
    * @return UpdateIncidentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/UpdateIncident.ts.html |here} to see how to use UpdateIncident API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/UpdateIncident.ts.html |here} to see how to use UpdateIncident API.
    */
   public async updateIncident(
     updateIncidentRequest: requests.UpdateIncidentRequest
@@ -773,13 +773,13 @@ export class IncidentClient {
 
   /**
    * Checks whether the requested user is valid.
-   * For more information, see [Validating a User](https://docs.cloud.oracle.com/iaas/Content/GSG/support/validate-user.htm).
+   * For more information, see [Validating a User](https://docs.oracle.com/iaas/Content/GSG/support/validate-user.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ValidateUserRequest
    * @return ValidateUserResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/ValidateUser.ts.html |here} to see how to use ValidateUser API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/ValidateUser.ts.html |here} to see how to use ValidateUser API.
    */
   public async validateUser(
     validateUserRequest: requests.ValidateUserRequest

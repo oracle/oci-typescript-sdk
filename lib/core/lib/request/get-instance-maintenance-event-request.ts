@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceMaintenanceEvent.ts.html |here} to see how to use GetInstanceMaintenanceEventRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceMaintenanceEvent.ts.html |here} to see how to use GetInstanceMaintenanceEventRequest.
  */
 export interface GetInstanceMaintenanceEventRequest extends common.BaseRequest {
   /**

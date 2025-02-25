@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use DeleteAutonomousDatabaseSoftwareImageRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabaseSoftwareImage.ts.html |here} to see how to use DeleteAutonomousDatabaseSoftwareImageRequest.
  */
 export interface DeleteAutonomousDatabaseSoftwareImageRequest extends common.BaseRequest {
   /**
-   * The Autonomous Database Software Image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Autonomous Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousDatabaseSoftwareImageId": string;
   /**

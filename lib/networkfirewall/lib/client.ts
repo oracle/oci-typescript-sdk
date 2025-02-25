@@ -243,7 +243,7 @@ export class NetworkFirewallClient {
    * @param ApplyNetworkFirewallPolicyRequest
    * @return ApplyNetworkFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ApplyNetworkFirewallPolicy.ts.html |here} to see how to use ApplyNetworkFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ApplyNetworkFirewallPolicy.ts.html |here} to see how to use ApplyNetworkFirewallPolicy API.
    */
   public async applyNetworkFirewallPolicy(
     applyNetworkFirewallPolicyRequest: requests.ApplyNetworkFirewallPolicyRequest
@@ -332,7 +332,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadAddressListsRequest
    * @return BulkUploadAddressListsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadAddressLists.ts.html |here} to see how to use BulkUploadAddressLists API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadAddressLists.ts.html |here} to see how to use BulkUploadAddressLists API.
    */
   public async bulkUploadAddressLists(
     bulkUploadAddressListsRequest: requests.BulkUploadAddressListsRequest
@@ -408,7 +408,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadApplicationGroupsRequest
    * @return BulkUploadApplicationGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadApplicationGroups.ts.html |here} to see how to use BulkUploadApplicationGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadApplicationGroups.ts.html |here} to see how to use BulkUploadApplicationGroups API.
    */
   public async bulkUploadApplicationGroups(
     bulkUploadApplicationGroupsRequest: requests.BulkUploadApplicationGroupsRequest
@@ -485,7 +485,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadApplicationsRequest
    * @return BulkUploadApplicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadApplications.ts.html |here} to see how to use BulkUploadApplications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadApplications.ts.html |here} to see how to use BulkUploadApplications API.
    */
   public async bulkUploadApplications(
     bulkUploadApplicationsRequest: requests.BulkUploadApplicationsRequest
@@ -561,7 +561,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadDecryptionProfilesRequest
    * @return BulkUploadDecryptionProfilesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadDecryptionProfiles.ts.html |here} to see how to use BulkUploadDecryptionProfiles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadDecryptionProfiles.ts.html |here} to see how to use BulkUploadDecryptionProfiles API.
    */
   public async bulkUploadDecryptionProfiles(
     bulkUploadDecryptionProfilesRequest: requests.BulkUploadDecryptionProfilesRequest
@@ -638,7 +638,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadDecryptionRulesRequest
    * @return BulkUploadDecryptionRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadDecryptionRules.ts.html |here} to see how to use BulkUploadDecryptionRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadDecryptionRules.ts.html |here} to see how to use BulkUploadDecryptionRules API.
    */
   public async bulkUploadDecryptionRules(
     bulkUploadDecryptionRulesRequest: requests.BulkUploadDecryptionRulesRequest
@@ -714,7 +714,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadMappedSecretsRequest
    * @return BulkUploadMappedSecretsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadMappedSecrets.ts.html |here} to see how to use BulkUploadMappedSecrets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadMappedSecrets.ts.html |here} to see how to use BulkUploadMappedSecrets API.
    */
   public async bulkUploadMappedSecrets(
     bulkUploadMappedSecretsRequest: requests.BulkUploadMappedSecretsRequest
@@ -790,7 +790,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadSecurityRulesRequest
    * @return BulkUploadSecurityRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadSecurityRules.ts.html |here} to see how to use BulkUploadSecurityRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadSecurityRules.ts.html |here} to see how to use BulkUploadSecurityRules API.
    */
   public async bulkUploadSecurityRules(
     bulkUploadSecurityRulesRequest: requests.BulkUploadSecurityRulesRequest
@@ -866,7 +866,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadServiceListsRequest
    * @return BulkUploadServiceListsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadServiceLists.ts.html |here} to see how to use BulkUploadServiceLists API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadServiceLists.ts.html |here} to see how to use BulkUploadServiceLists API.
    */
   public async bulkUploadServiceLists(
     bulkUploadServiceListsRequest: requests.BulkUploadServiceListsRequest
@@ -942,7 +942,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadServicesRequest
    * @return BulkUploadServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadServices.ts.html |here} to see how to use BulkUploadServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadServices.ts.html |here} to see how to use BulkUploadServices API.
    */
   public async bulkUploadServices(
     bulkUploadServicesRequest: requests.BulkUploadServicesRequest
@@ -1018,7 +1018,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadTunnelInspectionRulesRequest
    * @return BulkUploadTunnelInspectionRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadTunnelInspectionRules.ts.html |here} to see how to use BulkUploadTunnelInspectionRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadTunnelInspectionRules.ts.html |here} to see how to use BulkUploadTunnelInspectionRules API.
    */
   public async bulkUploadTunnelInspectionRules(
     bulkUploadTunnelInspectionRulesRequest: requests.BulkUploadTunnelInspectionRulesRequest
@@ -1095,7 +1095,7 @@ export class NetworkFirewallClient {
    * @param BulkUploadUrlListsRequest
    * @return BulkUploadUrlListsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadUrlLists.ts.html |here} to see how to use BulkUploadUrlLists API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadUrlLists.ts.html |here} to see how to use BulkUploadUrlLists API.
    */
   public async bulkUploadUrlLists(
     bulkUploadUrlListsRequest: requests.BulkUploadUrlListsRequest
@@ -1170,7 +1170,7 @@ export class NetworkFirewallClient {
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
    */
   public async cancelWorkRequest(
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
@@ -1238,7 +1238,7 @@ export class NetworkFirewallClient {
    * @param ChangeNetworkFirewallCompartmentRequest
    * @return ChangeNetworkFirewallCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ChangeNetworkFirewallCompartment.ts.html |here} to see how to use ChangeNetworkFirewallCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ChangeNetworkFirewallCompartment.ts.html |here} to see how to use ChangeNetworkFirewallCompartment API.
    */
   public async changeNetworkFirewallCompartment(
     changeNetworkFirewallCompartmentRequest: requests.ChangeNetworkFirewallCompartmentRequest
@@ -1319,7 +1319,7 @@ export class NetworkFirewallClient {
    * @param ChangeNetworkFirewallPolicyCompartmentRequest
    * @return ChangeNetworkFirewallPolicyCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ChangeNetworkFirewallPolicyCompartment.ts.html |here} to see how to use ChangeNetworkFirewallPolicyCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ChangeNetworkFirewallPolicyCompartment.ts.html |here} to see how to use ChangeNetworkFirewallPolicyCompartment API.
    */
   public async changeNetworkFirewallPolicyCompartment(
     changeNetworkFirewallPolicyCompartmentRequest: requests.ChangeNetworkFirewallPolicyCompartmentRequest
@@ -1396,7 +1396,7 @@ export class NetworkFirewallClient {
    * @param CloneNetworkFirewallPolicyRequest
    * @return CloneNetworkFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CloneNetworkFirewallPolicy.ts.html |here} to see how to use CloneNetworkFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CloneNetworkFirewallPolicy.ts.html |here} to see how to use CloneNetworkFirewallPolicy API.
    */
   public async cloneNetworkFirewallPolicy(
     cloneNetworkFirewallPolicyRequest: requests.CloneNetworkFirewallPolicyRequest
@@ -1485,7 +1485,7 @@ export class NetworkFirewallClient {
    * @param CreateAddressListRequest
    * @return CreateAddressListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateAddressList.ts.html |here} to see how to use CreateAddressList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateAddressList.ts.html |here} to see how to use CreateAddressList API.
    */
   public async createAddressList(
     createAddressListRequest: requests.CreateAddressListRequest
@@ -1568,7 +1568,7 @@ export class NetworkFirewallClient {
    * @param CreateApplicationRequest
    * @return CreateApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateApplication.ts.html |here} to see how to use CreateApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateApplication.ts.html |here} to see how to use CreateApplication API.
    */
   public async createApplication(
     createApplicationRequest: requests.CreateApplicationRequest
@@ -1651,7 +1651,7 @@ export class NetworkFirewallClient {
    * @param CreateApplicationGroupRequest
    * @return CreateApplicationGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateApplicationGroup.ts.html |here} to see how to use CreateApplicationGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateApplicationGroup.ts.html |here} to see how to use CreateApplicationGroup API.
    */
   public async createApplicationGroup(
     createApplicationGroupRequest: requests.CreateApplicationGroupRequest
@@ -1734,7 +1734,7 @@ export class NetworkFirewallClient {
    * @param CreateDecryptionProfileRequest
    * @return CreateDecryptionProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateDecryptionProfile.ts.html |here} to see how to use CreateDecryptionProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateDecryptionProfile.ts.html |here} to see how to use CreateDecryptionProfile API.
    */
   public async createDecryptionProfile(
     createDecryptionProfileRequest: requests.CreateDecryptionProfileRequest
@@ -1817,7 +1817,7 @@ export class NetworkFirewallClient {
    * @param CreateDecryptionRuleRequest
    * @return CreateDecryptionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateDecryptionRule.ts.html |here} to see how to use CreateDecryptionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateDecryptionRule.ts.html |here} to see how to use CreateDecryptionRule API.
    */
   public async createDecryptionRule(
     createDecryptionRuleRequest: requests.CreateDecryptionRuleRequest
@@ -1900,7 +1900,7 @@ export class NetworkFirewallClient {
    * @param CreateMappedSecretRequest
    * @return CreateMappedSecretResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateMappedSecret.ts.html |here} to see how to use CreateMappedSecret API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateMappedSecret.ts.html |here} to see how to use CreateMappedSecret API.
    */
   public async createMappedSecret(
     createMappedSecretRequest: requests.CreateMappedSecretRequest
@@ -1983,7 +1983,7 @@ export class NetworkFirewallClient {
    * @param CreateNetworkFirewallRequest
    * @return CreateNetworkFirewallResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateNetworkFirewall.ts.html |here} to see how to use CreateNetworkFirewall API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateNetworkFirewall.ts.html |here} to see how to use CreateNetworkFirewall API.
    */
   public async createNetworkFirewall(
     createNetworkFirewallRequest: requests.CreateNetworkFirewallRequest
@@ -2069,7 +2069,7 @@ export class NetworkFirewallClient {
    * @param CreateNetworkFirewallPolicyRequest
    * @return CreateNetworkFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateNetworkFirewallPolicy.ts.html |here} to see how to use CreateNetworkFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateNetworkFirewallPolicy.ts.html |here} to see how to use CreateNetworkFirewallPolicy API.
    */
   public async createNetworkFirewallPolicy(
     createNetworkFirewallPolicyRequest: requests.CreateNetworkFirewallPolicyRequest
@@ -2155,7 +2155,7 @@ export class NetworkFirewallClient {
    * @param CreateSecurityRuleRequest
    * @return CreateSecurityRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateSecurityRule.ts.html |here} to see how to use CreateSecurityRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateSecurityRule.ts.html |here} to see how to use CreateSecurityRule API.
    */
   public async createSecurityRule(
     createSecurityRuleRequest: requests.CreateSecurityRuleRequest
@@ -2238,7 +2238,7 @@ export class NetworkFirewallClient {
    * @param CreateServiceRequest
    * @return CreateServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateService.ts.html |here} to see how to use CreateService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateService.ts.html |here} to see how to use CreateService API.
    */
   public async createService(
     createServiceRequest: requests.CreateServiceRequest
@@ -2320,7 +2320,7 @@ export class NetworkFirewallClient {
    * @param CreateServiceListRequest
    * @return CreateServiceListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateServiceList.ts.html |here} to see how to use CreateServiceList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateServiceList.ts.html |here} to see how to use CreateServiceList API.
    */
   public async createServiceList(
     createServiceListRequest: requests.CreateServiceListRequest
@@ -2403,7 +2403,7 @@ export class NetworkFirewallClient {
    * @param CreateTunnelInspectionRuleRequest
    * @return CreateTunnelInspectionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateTunnelInspectionRule.ts.html |here} to see how to use CreateTunnelInspectionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateTunnelInspectionRule.ts.html |here} to see how to use CreateTunnelInspectionRule API.
    */
   public async createTunnelInspectionRule(
     createTunnelInspectionRuleRequest: requests.CreateTunnelInspectionRuleRequest
@@ -2486,7 +2486,7 @@ export class NetworkFirewallClient {
    * @param CreateUrlListRequest
    * @return CreateUrlListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateUrlList.ts.html |here} to see how to use CreateUrlList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateUrlList.ts.html |here} to see how to use CreateUrlList API.
    */
   public async createUrlList(
     createUrlListRequest: requests.CreateUrlListRequest
@@ -2567,7 +2567,7 @@ export class NetworkFirewallClient {
    * @param DeleteAddressListRequest
    * @return DeleteAddressListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteAddressList.ts.html |here} to see how to use DeleteAddressList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteAddressList.ts.html |here} to see how to use DeleteAddressList API.
    */
   public async deleteAddressList(
     deleteAddressListRequest: requests.DeleteAddressListRequest
@@ -2636,7 +2636,7 @@ export class NetworkFirewallClient {
    * @param DeleteApplicationRequest
    * @return DeleteApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteApplication.ts.html |here} to see how to use DeleteApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteApplication.ts.html |here} to see how to use DeleteApplication API.
    */
   public async deleteApplication(
     deleteApplicationRequest: requests.DeleteApplicationRequest
@@ -2705,7 +2705,7 @@ export class NetworkFirewallClient {
    * @param DeleteApplicationGroupRequest
    * @return DeleteApplicationGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteApplicationGroup.ts.html |here} to see how to use DeleteApplicationGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteApplicationGroup.ts.html |here} to see how to use DeleteApplicationGroup API.
    */
   public async deleteApplicationGroup(
     deleteApplicationGroupRequest: requests.DeleteApplicationGroupRequest
@@ -2775,7 +2775,7 @@ export class NetworkFirewallClient {
    * @param DeleteDecryptionProfileRequest
    * @return DeleteDecryptionProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteDecryptionProfile.ts.html |here} to see how to use DeleteDecryptionProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteDecryptionProfile.ts.html |here} to see how to use DeleteDecryptionProfile API.
    */
   public async deleteDecryptionProfile(
     deleteDecryptionProfileRequest: requests.DeleteDecryptionProfileRequest
@@ -2845,7 +2845,7 @@ export class NetworkFirewallClient {
    * @param DeleteDecryptionRuleRequest
    * @return DeleteDecryptionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteDecryptionRule.ts.html |here} to see how to use DeleteDecryptionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteDecryptionRule.ts.html |here} to see how to use DeleteDecryptionRule API.
    */
   public async deleteDecryptionRule(
     deleteDecryptionRuleRequest: requests.DeleteDecryptionRuleRequest
@@ -2915,7 +2915,7 @@ export class NetworkFirewallClient {
    * @param DeleteMappedSecretRequest
    * @return DeleteMappedSecretResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteMappedSecret.ts.html |here} to see how to use DeleteMappedSecret API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteMappedSecret.ts.html |here} to see how to use DeleteMappedSecret API.
    */
   public async deleteMappedSecret(
     deleteMappedSecretRequest: requests.DeleteMappedSecretRequest
@@ -2984,7 +2984,7 @@ export class NetworkFirewallClient {
    * @param DeleteNetworkFirewallRequest
    * @return DeleteNetworkFirewallResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteNetworkFirewall.ts.html |here} to see how to use DeleteNetworkFirewall API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteNetworkFirewall.ts.html |here} to see how to use DeleteNetworkFirewall API.
    */
   public async deleteNetworkFirewall(
     deleteNetworkFirewallRequest: requests.DeleteNetworkFirewallRequest
@@ -3057,7 +3057,7 @@ export class NetworkFirewallClient {
    * @param DeleteNetworkFirewallPolicyRequest
    * @return DeleteNetworkFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteNetworkFirewallPolicy.ts.html |here} to see how to use DeleteNetworkFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteNetworkFirewallPolicy.ts.html |here} to see how to use DeleteNetworkFirewallPolicy API.
    */
   public async deleteNetworkFirewallPolicy(
     deleteNetworkFirewallPolicyRequest: requests.DeleteNetworkFirewallPolicyRequest
@@ -3130,7 +3130,7 @@ export class NetworkFirewallClient {
    * @param DeleteSecurityRuleRequest
    * @return DeleteSecurityRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteSecurityRule.ts.html |here} to see how to use DeleteSecurityRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteSecurityRule.ts.html |here} to see how to use DeleteSecurityRule API.
    */
   public async deleteSecurityRule(
     deleteSecurityRuleRequest: requests.DeleteSecurityRuleRequest
@@ -3199,7 +3199,7 @@ export class NetworkFirewallClient {
    * @param DeleteServiceRequest
    * @return DeleteServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteService.ts.html |here} to see how to use DeleteService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteService.ts.html |here} to see how to use DeleteService API.
    */
   public async deleteService(
     deleteServiceRequest: requests.DeleteServiceRequest
@@ -3267,7 +3267,7 @@ export class NetworkFirewallClient {
    * @param DeleteServiceListRequest
    * @return DeleteServiceListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteServiceList.ts.html |here} to see how to use DeleteServiceList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteServiceList.ts.html |here} to see how to use DeleteServiceList API.
    */
   public async deleteServiceList(
     deleteServiceListRequest: requests.DeleteServiceListRequest
@@ -3336,7 +3336,7 @@ export class NetworkFirewallClient {
    * @param DeleteTunnelInspectionRuleRequest
    * @return DeleteTunnelInspectionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteTunnelInspectionRule.ts.html |here} to see how to use DeleteTunnelInspectionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteTunnelInspectionRule.ts.html |here} to see how to use DeleteTunnelInspectionRule API.
    */
   public async deleteTunnelInspectionRule(
     deleteTunnelInspectionRuleRequest: requests.DeleteTunnelInspectionRuleRequest
@@ -3406,7 +3406,7 @@ export class NetworkFirewallClient {
    * @param DeleteUrlListRequest
    * @return DeleteUrlListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteUrlList.ts.html |here} to see how to use DeleteUrlList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteUrlList.ts.html |here} to see how to use DeleteUrlList API.
    */
   public async deleteUrlList(
     deleteUrlListRequest: requests.DeleteUrlListRequest
@@ -3474,7 +3474,7 @@ export class NetworkFirewallClient {
    * @param GetAddressListRequest
    * @return GetAddressListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetAddressList.ts.html |here} to see how to use GetAddressList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetAddressList.ts.html |here} to see how to use GetAddressList API.
    */
   public async getAddressList(
     getAddressListRequest: requests.GetAddressListRequest
@@ -3550,7 +3550,7 @@ export class NetworkFirewallClient {
    * @param GetApplicationRequest
    * @return GetApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetApplication.ts.html |here} to see how to use GetApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetApplication.ts.html |here} to see how to use GetApplication API.
    */
   public async getApplication(
     getApplicationRequest: requests.GetApplicationRequest
@@ -3629,7 +3629,7 @@ export class NetworkFirewallClient {
    * @param GetApplicationGroupRequest
    * @return GetApplicationGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetApplicationGroup.ts.html |here} to see how to use GetApplicationGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetApplicationGroup.ts.html |here} to see how to use GetApplicationGroup API.
    */
   public async getApplicationGroup(
     getApplicationGroupRequest: requests.GetApplicationGroupRequest
@@ -3707,7 +3707,7 @@ export class NetworkFirewallClient {
    * @param GetDecryptionProfileRequest
    * @return GetDecryptionProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetDecryptionProfile.ts.html |here} to see how to use GetDecryptionProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetDecryptionProfile.ts.html |here} to see how to use GetDecryptionProfile API.
    */
   public async getDecryptionProfile(
     getDecryptionProfileRequest: requests.GetDecryptionProfileRequest
@@ -3785,7 +3785,7 @@ export class NetworkFirewallClient {
    * @param GetDecryptionRuleRequest
    * @return GetDecryptionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetDecryptionRule.ts.html |here} to see how to use GetDecryptionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetDecryptionRule.ts.html |here} to see how to use GetDecryptionRule API.
    */
   public async getDecryptionRule(
     getDecryptionRuleRequest: requests.GetDecryptionRuleRequest
@@ -3866,7 +3866,7 @@ export class NetworkFirewallClient {
    * @param GetMappedSecretRequest
    * @return GetMappedSecretResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetMappedSecret.ts.html |here} to see how to use GetMappedSecret API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetMappedSecret.ts.html |here} to see how to use GetMappedSecret API.
    */
   public async getMappedSecret(
     getMappedSecretRequest: requests.GetMappedSecretRequest
@@ -3945,7 +3945,7 @@ export class NetworkFirewallClient {
    * @param GetNetworkFirewallRequest
    * @return GetNetworkFirewallResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetNetworkFirewall.ts.html |here} to see how to use GetNetworkFirewall API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetNetworkFirewall.ts.html |here} to see how to use GetNetworkFirewall API.
    */
   public async getNetworkFirewall(
     getNetworkFirewallRequest: requests.GetNetworkFirewallRequest
@@ -4021,7 +4021,7 @@ export class NetworkFirewallClient {
    * @param GetNetworkFirewallPolicyRequest
    * @return GetNetworkFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetNetworkFirewallPolicy.ts.html |here} to see how to use GetNetworkFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetNetworkFirewallPolicy.ts.html |here} to see how to use GetNetworkFirewallPolicy API.
    */
   public async getNetworkFirewallPolicy(
     getNetworkFirewallPolicyRequest: requests.GetNetworkFirewallPolicyRequest
@@ -4097,7 +4097,7 @@ export class NetworkFirewallClient {
    * @param GetSecurityRuleRequest
    * @return GetSecurityRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetSecurityRule.ts.html |here} to see how to use GetSecurityRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetSecurityRule.ts.html |here} to see how to use GetSecurityRule API.
    */
   public async getSecurityRule(
     getSecurityRuleRequest: requests.GetSecurityRuleRequest
@@ -4173,7 +4173,7 @@ export class NetworkFirewallClient {
    * @param GetServiceRequest
    * @return GetServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetService.ts.html |here} to see how to use GetService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetService.ts.html |here} to see how to use GetService API.
    */
   public async getService(
     getServiceRequest: requests.GetServiceRequest
@@ -4252,7 +4252,7 @@ export class NetworkFirewallClient {
    * @param GetServiceListRequest
    * @return GetServiceListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetServiceList.ts.html |here} to see how to use GetServiceList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetServiceList.ts.html |here} to see how to use GetServiceList API.
    */
   public async getServiceList(
     getServiceListRequest: requests.GetServiceListRequest
@@ -4328,7 +4328,7 @@ export class NetworkFirewallClient {
    * @param GetTunnelInspectionRuleRequest
    * @return GetTunnelInspectionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetTunnelInspectionRule.ts.html |here} to see how to use GetTunnelInspectionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetTunnelInspectionRule.ts.html |here} to see how to use GetTunnelInspectionRule API.
    */
   public async getTunnelInspectionRule(
     getTunnelInspectionRuleRequest: requests.GetTunnelInspectionRuleRequest
@@ -4406,7 +4406,7 @@ export class NetworkFirewallClient {
    * @param GetUrlListRequest
    * @return GetUrlListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetUrlList.ts.html |here} to see how to use GetUrlList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetUrlList.ts.html |here} to see how to use GetUrlList API.
    */
   public async getUrlList(
     getUrlListRequest: requests.GetUrlListRequest
@@ -4482,7 +4482,7 @@ export class NetworkFirewallClient {
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
    */
   public async getWorkRequest(
     getWorkRequestRequest: requests.GetWorkRequestRequest
@@ -4563,7 +4563,7 @@ export class NetworkFirewallClient {
    * @param ListAddressListsRequest
    * @return ListAddressListsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListAddressLists.ts.html |here} to see how to use ListAddressLists API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListAddressLists.ts.html |here} to see how to use ListAddressLists API.
    */
   public async listAddressLists(
     listAddressListsRequest: requests.ListAddressListsRequest
@@ -4660,7 +4660,7 @@ export class NetworkFirewallClient {
    * @param ListApplicationGroupsRequest
    * @return ListApplicationGroupsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListApplicationGroups.ts.html |here} to see how to use ListApplicationGroups API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListApplicationGroups.ts.html |here} to see how to use ListApplicationGroups API.
    */
   public async listApplicationGroups(
     listApplicationGroupsRequest: requests.ListApplicationGroupsRequest
@@ -4758,7 +4758,7 @@ export class NetworkFirewallClient {
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListApplications.ts.html |here} to see how to use ListApplications API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListApplications.ts.html |here} to see how to use ListApplications API.
    */
   public async listApplications(
     listApplicationsRequest: requests.ListApplicationsRequest
@@ -4855,7 +4855,7 @@ export class NetworkFirewallClient {
    * @param ListDecryptionProfilesRequest
    * @return ListDecryptionProfilesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListDecryptionProfiles.ts.html |here} to see how to use ListDecryptionProfiles API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListDecryptionProfiles.ts.html |here} to see how to use ListDecryptionProfiles API.
    */
   public async listDecryptionProfiles(
     listDecryptionProfilesRequest: requests.ListDecryptionProfilesRequest
@@ -4953,7 +4953,7 @@ export class NetworkFirewallClient {
    * @param ListDecryptionRulesRequest
    * @return ListDecryptionRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListDecryptionRules.ts.html |here} to see how to use ListDecryptionRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListDecryptionRules.ts.html |here} to see how to use ListDecryptionRules API.
    */
   public async listDecryptionRules(
     listDecryptionRulesRequest: requests.ListDecryptionRulesRequest
@@ -5052,7 +5052,7 @@ export class NetworkFirewallClient {
    * @param ListMappedSecretsRequest
    * @return ListMappedSecretsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListMappedSecrets.ts.html |here} to see how to use ListMappedSecrets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListMappedSecrets.ts.html |here} to see how to use ListMappedSecrets API.
    */
   public async listMappedSecrets(
     listMappedSecretsRequest: requests.ListMappedSecretsRequest
@@ -5150,7 +5150,7 @@ export class NetworkFirewallClient {
    * @param ListNetworkFirewallPoliciesRequest
    * @return ListNetworkFirewallPoliciesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListNetworkFirewallPolicies.ts.html |here} to see how to use ListNetworkFirewallPolicies API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListNetworkFirewallPolicies.ts.html |here} to see how to use ListNetworkFirewallPolicies API.
    */
   public async listNetworkFirewallPolicies(
     listNetworkFirewallPoliciesRequest: requests.ListNetworkFirewallPoliciesRequest
@@ -5249,7 +5249,7 @@ export class NetworkFirewallClient {
    * @param ListNetworkFirewallsRequest
    * @return ListNetworkFirewallsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListNetworkFirewalls.ts.html |here} to see how to use ListNetworkFirewalls API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListNetworkFirewalls.ts.html |here} to see how to use ListNetworkFirewalls API.
    */
   public async listNetworkFirewalls(
     listNetworkFirewallsRequest: requests.ListNetworkFirewallsRequest
@@ -5350,7 +5350,7 @@ export class NetworkFirewallClient {
    * @param ListSecurityRulesRequest
    * @return ListSecurityRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListSecurityRules.ts.html |here} to see how to use ListSecurityRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListSecurityRules.ts.html |here} to see how to use ListSecurityRules API.
    */
   public async listSecurityRules(
     listSecurityRulesRequest: requests.ListSecurityRulesRequest
@@ -5449,7 +5449,7 @@ export class NetworkFirewallClient {
    * @param ListServiceListsRequest
    * @return ListServiceListsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListServiceLists.ts.html |here} to see how to use ListServiceLists API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListServiceLists.ts.html |here} to see how to use ListServiceLists API.
    */
   public async listServiceLists(
     listServiceListsRequest: requests.ListServiceListsRequest
@@ -5546,7 +5546,7 @@ export class NetworkFirewallClient {
    * @param ListServicesRequest
    * @return ListServicesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListServices.ts.html |here} to see how to use ListServices API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListServices.ts.html |here} to see how to use ListServices API.
    */
   public async listServices(
     listServicesRequest: requests.ListServicesRequest
@@ -5643,7 +5643,7 @@ export class NetworkFirewallClient {
    * @param ListTunnelInspectionRulesRequest
    * @return ListTunnelInspectionRulesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListTunnelInspectionRules.ts.html |here} to see how to use ListTunnelInspectionRules API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListTunnelInspectionRules.ts.html |here} to see how to use ListTunnelInspectionRules API.
    */
   public async listTunnelInspectionRules(
     listTunnelInspectionRulesRequest: requests.ListTunnelInspectionRulesRequest
@@ -5743,7 +5743,7 @@ export class NetworkFirewallClient {
    * @param ListUrlListsRequest
    * @return ListUrlListsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListUrlLists.ts.html |here} to see how to use ListUrlLists API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListUrlLists.ts.html |here} to see how to use ListUrlLists API.
    */
   public async listUrlLists(
     listUrlListsRequest: requests.ListUrlListsRequest
@@ -5840,7 +5840,7 @@ export class NetworkFirewallClient {
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
    */
   public async listWorkRequestErrors(
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
@@ -5927,7 +5927,7 @@ export class NetworkFirewallClient {
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
    */
   public async listWorkRequestLogs(
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
@@ -6014,7 +6014,7 @@ export class NetworkFirewallClient {
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
    */
   public async listWorkRequests(
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
@@ -6101,7 +6101,7 @@ export class NetworkFirewallClient {
    * @param MigrateNetworkFirewallPolicyRequest
    * @return MigrateNetworkFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/MigrateNetworkFirewallPolicy.ts.html |here} to see how to use MigrateNetworkFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/MigrateNetworkFirewallPolicy.ts.html |here} to see how to use MigrateNetworkFirewallPolicy API.
    */
   public async migrateNetworkFirewallPolicy(
     migrateNetworkFirewallPolicyRequest: requests.MigrateNetworkFirewallPolicyRequest
@@ -6175,7 +6175,7 @@ export class NetworkFirewallClient {
    * @param UpdateAddressListRequest
    * @return UpdateAddressListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateAddressList.ts.html |here} to see how to use UpdateAddressList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateAddressList.ts.html |here} to see how to use UpdateAddressList API.
    */
   public async updateAddressList(
     updateAddressListRequest: requests.UpdateAddressListRequest
@@ -6268,7 +6268,7 @@ export class NetworkFirewallClient {
    * @param UpdateApplicationRequest
    * @return UpdateApplicationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateApplication.ts.html |here} to see how to use UpdateApplication API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateApplication.ts.html |here} to see how to use UpdateApplication API.
    */
   public async updateApplication(
     updateApplicationRequest: requests.UpdateApplicationRequest
@@ -6361,7 +6361,7 @@ export class NetworkFirewallClient {
    * @param UpdateApplicationGroupRequest
    * @return UpdateApplicationGroupResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateApplicationGroup.ts.html |here} to see how to use UpdateApplicationGroup API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateApplicationGroup.ts.html |here} to see how to use UpdateApplicationGroup API.
    */
   public async updateApplicationGroup(
     updateApplicationGroupRequest: requests.UpdateApplicationGroupRequest
@@ -6455,7 +6455,7 @@ export class NetworkFirewallClient {
    * @param UpdateDecryptionProfileRequest
    * @return UpdateDecryptionProfileResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateDecryptionProfile.ts.html |here} to see how to use UpdateDecryptionProfile API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateDecryptionProfile.ts.html |here} to see how to use UpdateDecryptionProfile API.
    */
   public async updateDecryptionProfile(
     updateDecryptionProfileRequest: requests.UpdateDecryptionProfileRequest
@@ -6539,7 +6539,7 @@ export class NetworkFirewallClient {
    * @param UpdateDecryptionRuleRequest
    * @return UpdateDecryptionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateDecryptionRule.ts.html |here} to see how to use UpdateDecryptionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateDecryptionRule.ts.html |here} to see how to use UpdateDecryptionRule API.
    */
   public async updateDecryptionRule(
     updateDecryptionRuleRequest: requests.UpdateDecryptionRuleRequest
@@ -6623,7 +6623,7 @@ export class NetworkFirewallClient {
    * @param UpdateMappedSecretRequest
    * @return UpdateMappedSecretResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateMappedSecret.ts.html |here} to see how to use UpdateMappedSecret API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateMappedSecret.ts.html |here} to see how to use UpdateMappedSecret API.
    */
   public async updateMappedSecret(
     updateMappedSecretRequest: requests.UpdateMappedSecretRequest
@@ -6716,7 +6716,7 @@ export class NetworkFirewallClient {
    * @param UpdateNetworkFirewallRequest
    * @return UpdateNetworkFirewallResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateNetworkFirewall.ts.html |here} to see how to use UpdateNetworkFirewall API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateNetworkFirewall.ts.html |here} to see how to use UpdateNetworkFirewall API.
    */
   public async updateNetworkFirewall(
     updateNetworkFirewallRequest: requests.UpdateNetworkFirewallRequest
@@ -6794,7 +6794,7 @@ export class NetworkFirewallClient {
    * @param UpdateNetworkFirewallPolicyRequest
    * @return UpdateNetworkFirewallPolicyResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateNetworkFirewallPolicy.ts.html |here} to see how to use UpdateNetworkFirewallPolicy API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateNetworkFirewallPolicy.ts.html |here} to see how to use UpdateNetworkFirewallPolicy API.
    */
   public async updateNetworkFirewallPolicy(
     updateNetworkFirewallPolicyRequest: requests.UpdateNetworkFirewallPolicyRequest
@@ -6872,7 +6872,7 @@ export class NetworkFirewallClient {
    * @param UpdateSecurityRuleRequest
    * @return UpdateSecurityRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateSecurityRule.ts.html |here} to see how to use UpdateSecurityRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateSecurityRule.ts.html |here} to see how to use UpdateSecurityRule API.
    */
   public async updateSecurityRule(
     updateSecurityRuleRequest: requests.UpdateSecurityRuleRequest
@@ -6955,7 +6955,7 @@ export class NetworkFirewallClient {
    * @param UpdateServiceRequest
    * @return UpdateServiceResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateService.ts.html |here} to see how to use UpdateService API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateService.ts.html |here} to see how to use UpdateService API.
    */
   public async updateService(
     updateServiceRequest: requests.UpdateServiceRequest
@@ -7047,7 +7047,7 @@ export class NetworkFirewallClient {
    * @param UpdateServiceListRequest
    * @return UpdateServiceListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateServiceList.ts.html |here} to see how to use UpdateServiceList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateServiceList.ts.html |here} to see how to use UpdateServiceList API.
    */
   public async updateServiceList(
     updateServiceListRequest: requests.UpdateServiceListRequest
@@ -7130,7 +7130,7 @@ export class NetworkFirewallClient {
    * @param UpdateTunnelInspectionRuleRequest
    * @return UpdateTunnelInspectionRuleResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateTunnelInspectionRule.ts.html |here} to see how to use UpdateTunnelInspectionRule API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateTunnelInspectionRule.ts.html |here} to see how to use UpdateTunnelInspectionRule API.
    */
   public async updateTunnelInspectionRule(
     updateTunnelInspectionRuleRequest: requests.UpdateTunnelInspectionRuleRequest
@@ -7214,7 +7214,7 @@ export class NetworkFirewallClient {
    * @param UpdateUrlListRequest
    * @return UpdateUrlListResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateUrlList.ts.html |here} to see how to use UpdateUrlList API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateUrlList.ts.html |here} to see how to use UpdateUrlList API.
    */
   public async updateUrlList(
     updateUrlListRequest: requests.UpdateUrlListRequest

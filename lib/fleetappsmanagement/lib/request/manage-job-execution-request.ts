@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ManageJobExecution.ts.html |here} to see how to use ManageJobExecutionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ManageJobExecution.ts.html |here} to see how to use ManageJobExecutionRequest.
  */
 export interface ManageJobExecutionRequest extends common.BaseRequest {
   /**

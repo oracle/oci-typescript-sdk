@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface Principal {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the principal.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the principal.
    */
   "id": string;
   /**

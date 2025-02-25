@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromExadbVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromExadbVmClusterRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromExadbVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromExadbVmClusterRequest.
  */
 export interface RemoveVirtualMachineFromExadbVmClusterRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface RemoveVirtualMachineFromExadbVmClusterRequest extends common.Ba
    */
   "removeVirtualMachineFromExadbVmClusterDetails": model.RemoveVirtualMachineFromExadbVmClusterDetails;
   /**
-   * The Exadata VM cluster [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) on Exascale Infrastructure.
+   * The Exadata VM cluster [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) on Exascale Infrastructure.
    */
   "exadbVmClusterId": string;
   /**

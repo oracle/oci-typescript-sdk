@@ -23,7 +23,7 @@ If you delete a container, the record remains visible for a short period
 */
 export interface Container {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container.
    */
   "id": string;
   /**
@@ -87,7 +87,7 @@ export interface Container {
    */
   "timeUpdated"?: Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container instance that the container is running on.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container instance that the container is running on.
    */
   "containerInstanceId": string;
   /**

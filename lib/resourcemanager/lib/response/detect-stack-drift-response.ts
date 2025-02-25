@@ -20,7 +20,7 @@ export interface DetectStackDriftResponse {
    */
   "opcRequestId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    */
   "opcWorkRequestId": string;
 }

@@ -1,7 +1,7 @@
 /**
  * Compute Cloud@Customer API
  * Use the Compute Cloud@Customer API to manage Compute Cloud@Customer infrastructures and upgrade schedules.
-For more information see [Compute Cloud@Customer documentation](/iaas/compute-cloud-at-customer/home.htm).
+For more information see [Compute Cloud@Customer documentation](https://docs.oracle.com/iaas/compute-cloud-at-customer/home.htm).
 
  * OpenAPI spec version: 20221208
  * 
@@ -34,7 +34,7 @@ export interface CreateCccInfrastructureDetails {
    */
   "description"?: string;
   /**
-   * The compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) associated with
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) associated with
    * the infrastructure.
    *
    */

@@ -1,9 +1,9 @@
 /**
  * Monitoring API
  * Use the Monitoring API to manage metric queries and alarms for assessing the health, capacity, and performance of your cloud resources.
-Endpoints vary by operation. For PostMetricData, use the `telemetry-ingestion` endpoints; for all other operations, use the `telemetry` endpoints.
+Endpoints vary by operation. For PostMetricData, use the {@code telemetry-ingestion} endpoints; for all other operations, use the {@code telemetry} endpoints.
 For more information, see
-[the Monitoring documentation](/iaas/Content/Monitoring/home.htm).
+[the Monitoring documentation](https://docs.oracle.com/iaas/Content/Monitoring/home.htm).
 
  * OpenAPI spec version: 20180401
  * 
@@ -244,13 +244,13 @@ export class MonitoringClient {
   /**
    * Moves an alarm into a different compartment within the same tenancy.
    * For more information, see
-   * [Moving an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/change-compartment-alarm.htm).
+   * [Moving an Alarm](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/change-compartment-alarm.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAlarmCompartmentRequest
    * @return ChangeAlarmCompartmentResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ChangeAlarmCompartment.ts.html |here} to see how to use ChangeAlarmCompartment API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ChangeAlarmCompartment.ts.html |here} to see how to use ChangeAlarmCompartment API.
    */
   public async changeAlarmCompartment(
     changeAlarmCompartmentRequest: requests.ChangeAlarmCompartmentRequest
@@ -322,9 +322,9 @@ export class MonitoringClient {
   /**
      * Creates a new alarm in the specified compartment.
 * For more information, see
-* [Creating an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/create-alarm.htm).
+* [Creating an Alarm](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/create-alarm.htm).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -334,7 +334,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param CreateAlarmRequest
      * @return CreateAlarmResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/CreateAlarm.ts.html |here} to see how to use CreateAlarm API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/CreateAlarm.ts.html |here} to see how to use CreateAlarm API.
      */
   public async createAlarm(
     createAlarmRequest: requests.CreateAlarmRequest
@@ -411,11 +411,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
   /**
      * Creates a new alarm suppression at the specified level (alarm-wide or dimension-specific).
 * For more information, see
-* [Adding an Alarm-wide Suppression](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/add-alarm-suppression.htm) and
-* [Adding a Dimension-Specific Alarm Suppression](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/create-alarm-suppression.htm).
+* [Adding an Alarm-wide Suppression](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/add-alarm-suppression.htm) and
+* [Adding a Dimension-Specific Alarm Suppression](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/create-alarm-suppression.htm).
 * <p>
 For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -425,7 +425,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param CreateAlarmSuppressionRequest
      * @return CreateAlarmSuppressionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/CreateAlarmSuppression.ts.html |here} to see how to use CreateAlarmSuppression API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/CreateAlarmSuppression.ts.html |here} to see how to use CreateAlarmSuppression API.
      */
   public async createAlarmSuppression(
     createAlarmSuppressionRequest: requests.CreateAlarmSuppressionRequest
@@ -503,9 +503,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
   /**
      * Deletes the specified alarm.
 * For more information, see
-* [Deleting an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/delete-alarm.htm).
+* [Deleting an Alarm](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/delete-alarm.htm).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -515,7 +515,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param DeleteAlarmRequest
      * @return DeleteAlarmResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/DeleteAlarm.ts.html |here} to see how to use DeleteAlarm API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/DeleteAlarm.ts.html |here} to see how to use DeleteAlarm API.
      */
   public async deleteAlarm(
     deleteAlarmRequest: requests.DeleteAlarmRequest
@@ -579,11 +579,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
 
   /**
      * Deletes the specified alarm suppression. For more information, see
-* [Removing an Alarm-wide Suppression](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/remove-alarm-suppression.htm) and
-* [Removing a Dimension-Specific Alarm Suppression](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/delete-alarm-suppression.htm).
+* [Removing an Alarm-wide Suppression](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/remove-alarm-suppression.htm) and
+* [Removing a Dimension-Specific Alarm Suppression](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/delete-alarm-suppression.htm).
 * <p>
 For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -593,7 +593,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param DeleteAlarmSuppressionRequest
      * @return DeleteAlarmSuppressionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/DeleteAlarmSuppression.ts.html |here} to see how to use DeleteAlarmSuppression API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/DeleteAlarmSuppression.ts.html |here} to see how to use DeleteAlarmSuppression API.
      */
   public async deleteAlarmSuppression(
     deleteAlarmSuppressionRequest: requests.DeleteAlarmSuppressionRequest
@@ -659,9 +659,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
   /**
      * Gets the specified alarm.
 * For more information, see
-* [Getting an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/get-alarm.htm).
+* [Getting an Alarm](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/get-alarm.htm).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -671,7 +671,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param GetAlarmRequest
      * @return GetAlarmResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarm.ts.html |here} to see how to use GetAlarm API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarm.ts.html |here} to see how to use GetAlarm API.
      */
   public async getAlarm(
     getAlarmRequest: requests.GetAlarmRequest
@@ -744,9 +744,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
   /**
      * Get the history of the specified alarm.
 * For more information, see
-* [Getting History of an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/get-alarm-history.htm).
+* [Getting History of an Alarm](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/get-alarm-history.htm).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -756,7 +756,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param GetAlarmHistoryRequest
      * @return GetAlarmHistoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarmHistory.ts.html |here} to see how to use GetAlarmHistory API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarmHistory.ts.html |here} to see how to use GetAlarmHistory API.
      */
   public async getAlarmHistory(
     getAlarmHistoryRequest: requests.GetAlarmHistoryRequest
@@ -834,10 +834,10 @@ This call is subject to a Monitoring limit that applies to the total number of r
 
   /**
      * Gets the specified alarm suppression. For more information, see
-* [Getting an Alarm-wide Suppression](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/get-alarm-suppression.htm).
+* [Getting an Alarm-wide Suppression](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/get-alarm-suppression.htm).
 * <p>
 For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -847,7 +847,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param GetAlarmSuppressionRequest
      * @return GetAlarmSuppressionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarmSuppression.ts.html |here} to see how to use GetAlarmSuppression API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/GetAlarmSuppression.ts.html |here} to see how to use GetAlarmSuppression API.
      */
   public async getAlarmSuppression(
     getAlarmSuppressionRequest: requests.GetAlarmSuppressionRequest
@@ -919,10 +919,10 @@ This call is subject to a Monitoring limit that applies to the total number of r
 
   /**
      * Lists alarm suppressions for the specified alarm. For more information, see
-* [Listing Alarm Suppressions](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm-suppression.htm).
+* [Listing Alarm Suppressions](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm-suppression.htm).
 * <p>
 For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -932,7 +932,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param ListAlarmSuppressionsRequest
      * @return ListAlarmSuppressionsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarmSuppressions.ts.html |here} to see how to use ListAlarmSuppressions API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarmSuppressions.ts.html |here} to see how to use ListAlarmSuppressions API.
      */
   public async listAlarmSuppressions(
     listAlarmSuppressionsRequest: requests.ListAlarmSuppressionsRequest
@@ -1021,9 +1021,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
   /**
      * Lists the alarms for the specified compartment.
 * For more information, see
-* [Listing Alarms](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm.htm).
+* [Listing Alarms](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm.htm).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -1033,7 +1033,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param ListAlarmsRequest
      * @return ListAlarmsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarms.ts.html |here} to see how to use ListAlarms API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarms.ts.html |here} to see how to use ListAlarms API.
      */
   public async listAlarms(
     listAlarmsRequest: requests.ListAlarmsRequest
@@ -1169,9 +1169,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * Optionally filter by resource or status value.
 * <p>
 For more information, see
-* [Listing Alarm Statuses](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm-status.htm).
+* [Listing Alarm Statuses](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm-status.htm).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -1181,7 +1181,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param ListAlarmsStatusRequest
      * @return ListAlarmsStatusResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarmsStatus.ts.html |here} to see how to use ListAlarmsStatus API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListAlarmsStatus.ts.html |here} to see how to use ListAlarmsStatus API.
      */
   public async listAlarmsStatus(
     listAlarmsStatusRequest: requests.ListAlarmsStatusRequest
@@ -1316,11 +1316,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
   /**
      * Returns metric definitions that match the criteria specified in the request. Compartment OCID required.
 * For more information, see
-* [Listing Metric Definitions](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-metric.htm).
+* [Listing Metric Definitions](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/list-metric.htm).
 * For information about metrics, see
-* [Metrics Overview](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#MetricsOverview).
+* [Metrics Overview](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#MetricsOverview).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
 * 
@@ -1328,7 +1328,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
      * @param ListMetricsRequest
      * @return ListMetricsResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListMetrics.ts.html |here} to see how to use ListMetrics API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/ListMetrics.ts.html |here} to see how to use ListMetrics API.
      */
   public async listMetrics(
     listMetricsRequest: requests.ListMetricsRequest
@@ -1461,15 +1461,15 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
 * For a data point to be posted, its timestamp must be near current time (less than two hours in the past and less than 10 minutes in the future).
 * <p>
 For more information about publishing metrics, see 
-* [Publishing Custom Metrics](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/publishingcustommetrics.htm)
+* [Publishing Custom Metrics](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/publishingcustommetrics.htm)
 * and
-* [Custom Metrics Walkthrough](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/custom-metrics-walkthrough.htm).
+* [Custom Metrics Walkthrough](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/custom-metrics-walkthrough.htm).
 * For information about developing a metric-posting client, see
-* [Developer Guide](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/devtoolslanding.htm).
+* [Developer Guide](https://docs.oracle.com/iaas/Content/API/Concepts/devtoolslanding.htm).
 * For an example client, see
 * [MonitoringMetricPostExample.java](https://github.com/oracle/oci-java-sdk/blob/master/bmc-examples/src/main/java/MonitoringMetricPostExample.java).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 Per-call limits information follows.
 * <p>
@@ -1481,7 +1481,7 @@ Per-call limits information follows.
 * A dimension is a qualifier provided in a metric definition.
 * A metric stream is an individual set of aggregated data for a metric with zero or more dimension values.
 * For more information about metric-related concepts, see
-* [Monitoring Concepts](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#concepts).
+* [Monitoring Concepts](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#concepts).
 * <p>
 **Note:** The endpoints for this operation differ from other Monitoring operations. Replace the string `telemetry` with `telemetry-ingestion` in the endpoint, as in the following example:
 * <p>
@@ -1491,7 +1491,7 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
      * @param PostMetricDataRequest
      * @return PostMetricDataResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/PostMetricData.ts.html |here} to see how to use PostMetricData API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/PostMetricData.ts.html |here} to see how to use PostMetricData API.
      */
   public async postMetricData(
     postMetricDataRequest: requests.PostMetricDataRequest
@@ -1563,9 +1563,9 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
   /**
      * Removes any existing suppression for the specified alarm.
 * For more information, see
-* [Removing Suppression from an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/remove-alarm-suppression.htm).
+* [Removing Suppression from an Alarm](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/remove-alarm-suppression.htm).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -1575,7 +1575,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param RemoveAlarmSuppressionRequest
      * @return RemoveAlarmSuppressionResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/RemoveAlarmSuppression.ts.html |here} to see how to use RemoveAlarmSuppression API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/RemoveAlarmSuppression.ts.html |here} to see how to use RemoveAlarmSuppression API.
      */
   public async removeAlarmSuppression(
     removeAlarmSuppressionRequest: requests.RemoveAlarmSuppressionRequest
@@ -1643,10 +1643,10 @@ This call is subject to a Monitoring limit that applies to the total number of r
 * Optionally filter by status value and one or more dimension key-value pairs.
 * <p>
 For more information, see
-* [Listing Metric Stream Status in an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm-status-metric-stream.htm).
+* [Listing Metric Stream Status in an Alarm](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/list-alarm-status-metric-stream.htm).
 * <p>
 For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -1656,7 +1656,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param RetrieveDimensionStatesRequest
      * @return RetrieveDimensionStatesResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/RetrieveDimensionStates.ts.html |here} to see how to use RetrieveDimensionStates API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/RetrieveDimensionStates.ts.html |here} to see how to use RetrieveDimensionStates API.
      */
   public async retrieveDimensionStates(
     retrieveDimensionStatesRequest: requests.RetrieveDimensionStatesRequest
@@ -1737,10 +1737,10 @@ This call is subject to a Monitoring limit that applies to the total number of r
 
   /**
      * Returns history of suppressions for the specified alarm, including both dimension-specific and and alarm-wide suppressions. For more information, see
-* [Getting Suppression History for an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/summarize-alarm-suppression-history.htm).
+* [Getting Suppression History for an Alarm](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/summarize-alarm-suppression-history.htm).
 * <p>
 For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -1750,7 +1750,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param SummarizeAlarmSuppressionHistoryRequest
      * @return SummarizeAlarmSuppressionHistoryResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/SummarizeAlarmSuppressionHistory.ts.html |here} to see how to use SummarizeAlarmSuppressionHistory API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/SummarizeAlarmSuppressionHistory.ts.html |here} to see how to use SummarizeAlarmSuppressionHistory API.
      */
   public async summarizeAlarmSuppressionHistory(
     summarizeAlarmSuppressionHistoryRequest: requests.SummarizeAlarmSuppressionHistoryRequest
@@ -1837,11 +1837,11 @@ This call is subject to a Monitoring limit that applies to the total number of r
   /**
      * Returns aggregated data that match the criteria specified in the request. Compartment OCID required.
 * For more information, see
-* [Querying Metric Data](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/query-metric-landing.htm)
+* [Querying Metric Data](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/query-metric-landing.htm)
 * and
-* [Creating a Query](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/query-metric.htm).
+* [Creating a Query](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/query-metric.htm).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
 * 
@@ -1849,7 +1849,7 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
      * @param SummarizeMetricsDataRequest
      * @return SummarizeMetricsDataResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/SummarizeMetricsData.ts.html |here} to see how to use SummarizeMetricsData API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/SummarizeMetricsData.ts.html |here} to see how to use SummarizeMetricsData API.
      */
   public async summarizeMetricsData(
     summarizeMetricsDataRequest: requests.SummarizeMetricsDataRequest
@@ -1923,9 +1923,9 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
   /**
      * Updates the specified alarm.
 * For more information, see
-* [Updating an Alarm](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Tasks/update-alarm.htm).
+* [Updating an Alarm](https://docs.oracle.com/iaas/Content/Monitoring/Tasks/update-alarm.htm).
 * For important limits information, see
-* [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
+* [Limits on Monitoring](https://docs.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
 * Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
@@ -1935,7 +1935,7 @@ This call is subject to a Monitoring limit that applies to the total number of r
      * @param UpdateAlarmRequest
      * @return UpdateAlarmResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/UpdateAlarm.ts.html |here} to see how to use UpdateAlarm API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/UpdateAlarm.ts.html |here} to see how to use UpdateAlarm API.
      */
   public async updateAlarm(
     updateAlarmRequest: requests.UpdateAlarmRequest

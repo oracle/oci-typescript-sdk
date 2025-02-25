@@ -2,7 +2,7 @@
  * Connector Hub API
  * Use the Connector Hub API to transfer data between services in Oracle Cloud Infrastructure.
 For more information about Connector Hub, see
-[the Connector Hub documentation](/iaas/Content/connector-hub/home.htm).
+[the Connector Hub documentation](https://docs.oracle.com/iaas/Content/connector-hub/home.htm).
 Connector Hub is formerly known as Service Connector Hub.
 
  * OpenAPI spec version: 20200909
@@ -27,7 +27,7 @@ Many of the API requests you use to create and configure
 * the request. WorkRequest objects provide visibility for
 * in-progress work flows. For more information about work
 * requests, see
-* [Viewing the State of a Work Request](https://docs.cloud.oracle.com/iaas/Content/connector-hub/workrequests.htm).
+* [Viewing the State of a Work Request](https://docs.oracle.com/iaas/Content/connector-hub/workrequests.htm).
 * 
 */
 export interface WorkRequest {
@@ -42,12 +42,12 @@ export interface WorkRequest {
    */
   "status": model.OperationStatus;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
    *
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
    * containing the work request.
    *
    */

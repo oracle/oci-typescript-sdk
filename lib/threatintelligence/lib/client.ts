@@ -1,6 +1,6 @@
 /**
  * Threat Intelligence API
- * Use the Threat Intelligence API to search for information about known threat indicators, including suspicious IP addresses, domain names, and other digital fingerprints. Threat Intelligence is a managed database of curated threat intelligence that comes from first party Oracle security insights, open source feeds, and vendor-procured data. For more information, see the [Threat Intelligence documentation](/iaas/Content/threat-intel/home.htm).
+ * Use the Threat Intelligence API to search for information about known threat indicators, including suspicious IP addresses, domain names, and other digital fingerprints. Threat Intelligence is a managed database of curated threat intelligence that comes from first party Oracle security insights, open source feeds, and vendor-procured data. For more information, see the [Threat Intelligence documentation](https://docs.oracle.com/iaas/Content/threat-intel/home.htm).
  * OpenAPI spec version: 20220901
  *
  *
@@ -243,7 +243,7 @@ export class ThreatintelClient {
    * @param GetIndicatorRequest
    * @return GetIndicatorResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/threatintelligence/GetIndicator.ts.html |here} to see how to use GetIndicator API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/threatintelligence/GetIndicator.ts.html |here} to see how to use GetIndicator API.
    */
   public async getIndicator(
     getIndicatorRequest: requests.GetIndicatorRequest
@@ -316,7 +316,7 @@ export class ThreatintelClient {
    * @param ListIndicatorCountsRequest
    * @return ListIndicatorCountsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/threatintelligence/ListIndicatorCounts.ts.html |here} to see how to use ListIndicatorCounts API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/threatintelligence/ListIndicatorCounts.ts.html |here} to see how to use ListIndicatorCounts API.
    */
   public async listIndicatorCounts(
     listIndicatorCountsRequest: requests.ListIndicatorCountsRequest
@@ -389,7 +389,7 @@ export class ThreatintelClient {
    * @param ListIndicatorsRequest
    * @return ListIndicatorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/threatintelligence/ListIndicators.ts.html |here} to see how to use ListIndicators API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/threatintelligence/ListIndicators.ts.html |here} to see how to use ListIndicators API.
    */
   public async listIndicators(
     listIndicatorsRequest: requests.ListIndicatorsRequest
@@ -481,7 +481,7 @@ export class ThreatintelClient {
    * @param ListThreatTypesRequest
    * @return ListThreatTypesResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/threatintelligence/ListThreatTypes.ts.html |here} to see how to use ListThreatTypes API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/threatintelligence/ListThreatTypes.ts.html |here} to see how to use ListThreatTypes API.
    */
   public async listThreatTypes(
     listThreatTypesRequest: requests.ListThreatTypesRequest
@@ -560,7 +560,7 @@ export class ThreatintelClient {
    * @param SummarizeIndicatorsRequest
    * @return SummarizeIndicatorsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/threatintelligence/SummarizeIndicators.ts.html |here} to see how to use SummarizeIndicators API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/threatintelligence/SummarizeIndicators.ts.html |here} to see how to use SummarizeIndicators API.
    */
   public async summarizeIndicators(
     summarizeIndicatorsRequest: requests.SummarizeIndicatorsRequest

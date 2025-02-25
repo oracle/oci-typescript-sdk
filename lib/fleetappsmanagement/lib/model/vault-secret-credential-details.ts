@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface VaultSecretCredentialDetails extends model.CredentialDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the secret.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the secret.
    */
   "secretId": string;
   /**

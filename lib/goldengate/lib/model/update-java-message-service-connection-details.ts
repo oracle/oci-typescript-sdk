@@ -57,7 +57,7 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
    */
   "jndiSecurityCredentials"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the security credentials are stored associated to the principal.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the security credentials are stored associated to the principal.
    * Note: When provided, 'jndiSecurityCredentials' field must not be provided.
    *
    */
@@ -88,7 +88,7 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
    */
   "password"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored,
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored,
    * that Oracle GoldenGate uses to connect the associated Java Message Service.
    * Note: When provided, 'password' field must not be provided.
    *
@@ -113,7 +113,7 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
    */
   "trustStore"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the content of the TrustStore file is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the content of the TrustStore file is stored.
    * Note: When provided, 'trustStore' field must not be provided.
    *
    */
@@ -125,7 +125,7 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
    */
   "trustStorePassword"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the TrustStore password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the TrustStore password is stored.
    * Note: When provided, 'trustStorePassword' field must not be provided.
    *
    */
@@ -137,7 +137,7 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
    */
   "keyStore"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the content of the KeyStore file is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the content of the KeyStore file is stored.
    * Note: When provided, 'keyStore' field must not be provided.
    *
    */
@@ -149,7 +149,7 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
    */
   "keyStorePassword"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the KeyStore password is stored.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the KeyStore password is stored.
    * Note: When provided, 'keyStorePassword' field must not be provided.
    *
    */
@@ -162,7 +162,7 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
    */
   "sslKeyPassword"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored for the cert inside of the Keystore.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored for the cert inside of the Keystore.
    * In case it differs from the KeyStore password, it should be provided.
    * Note: When provided, 'sslKeyPassword' field must not be provided.
    *

@@ -28,7 +28,7 @@ export interface UpdateGovernanceRuleDetails {
   "description"?: string;
   "template"?: model.TagTemplate | model.QuotaTemplate | model.AllowedRegionsTemplate;
   /**
-   * The Oracle ID ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)) of the resource, which was used as a template to create this governance rule.
+   * The Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the resource, which was used as a template to create this governance rule.
    */
   "relatedResourceId"?: string;
   /**

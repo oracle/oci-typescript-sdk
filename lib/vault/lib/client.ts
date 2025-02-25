@@ -1,6 +1,6 @@
 /**
  * Vault Secret Management API
- * Use the Secret Management API to manage secrets and secret versions. For more information, see [Managing Secrets](/Content/KeyManagement/Tasks/managingsecrets.htm).
+ * Use the Secret Management API to manage secrets and secret versions. For more information, see [Managing Secrets](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingsecrets.htm).
  * OpenAPI spec version: 20180608
  *
  *
@@ -251,7 +251,7 @@ export class VaultsClient {
    * @param CancelSecretDeletionRequest
    * @return CancelSecretDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/CancelSecretDeletion.ts.html |here} to see how to use CancelSecretDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/CancelSecretDeletion.ts.html |here} to see how to use CancelSecretDeletion API.
    */
   public async cancelSecretDeletion(
     cancelSecretDeletionRequest: requests.CancelSecretDeletionRequest
@@ -327,7 +327,7 @@ export class VaultsClient {
    * @param CancelSecretRotationRequest
    * @return CancelSecretRotationResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/CancelSecretRotation.ts.html |here} to see how to use CancelSecretRotation API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/CancelSecretRotation.ts.html |here} to see how to use CancelSecretRotation API.
    */
   public async cancelSecretRotation(
     cancelSecretRotationRequest: requests.CancelSecretRotationRequest
@@ -395,7 +395,7 @@ export class VaultsClient {
    * @param CancelSecretVersionDeletionRequest
    * @return CancelSecretVersionDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/CancelSecretVersionDeletion.ts.html |here} to see how to use CancelSecretVersionDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/CancelSecretVersionDeletion.ts.html |here} to see how to use CancelSecretVersionDeletion API.
    */
   public async cancelSecretVersionDeletion(
     cancelSecretVersionDeletionRequest: requests.CancelSecretVersionDeletionRequest
@@ -466,7 +466,7 @@ export class VaultsClient {
 
   /**
      * Moves a secret into a different compartment within the same tenancy. For information about
-* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
 When provided, if-match is checked against the ETag values of the secret.
 * 
@@ -474,7 +474,7 @@ When provided, if-match is checked against the ETag values of the secret.
      * @param ChangeSecretCompartmentRequest
      * @return ChangeSecretCompartmentResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/ChangeSecretCompartment.ts.html |here} to see how to use ChangeSecretCompartment API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/ChangeSecretCompartment.ts.html |here} to see how to use ChangeSecretCompartment API.
      */
   public async changeSecretCompartment(
     changeSecretCompartmentRequest: requests.ChangeSecretCompartmentRequest
@@ -556,7 +556,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
      * @param CreateSecretRequest
      * @return CreateSecretResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/CreateSecret.ts.html |here} to see how to use CreateSecret API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/CreateSecret.ts.html |here} to see how to use CreateSecret API.
      */
   public async createSecret(
     createSecretRequest: requests.CreateSecretRequest
@@ -636,7 +636,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    * @param GetSecretRequest
    * @return GetSecretResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/GetSecret.ts.html |here} to see how to use GetSecret API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/GetSecret.ts.html |here} to see how to use GetSecret API.
    */
   public async getSecret(
     getSecretRequest: requests.GetSecretRequest
@@ -713,7 +713,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    * @param GetSecretVersionRequest
    * @return GetSecretVersionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/GetSecretVersion.ts.html |here} to see how to use GetSecretVersion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/GetSecretVersion.ts.html |here} to see how to use GetSecretVersion API.
    */
   public async getSecretVersion(
     getSecretVersionRequest: requests.GetSecretVersionRequest
@@ -790,7 +790,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    * @param ListSecretVersionsRequest
    * @return ListSecretVersionsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/ListSecretVersions.ts.html |here} to see how to use ListSecretVersions API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/ListSecretVersions.ts.html |here} to see how to use ListSecretVersions API.
    */
   public async listSecretVersions(
     listSecretVersionsRequest: requests.ListSecretVersionsRequest
@@ -923,7 +923,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    * @param ListSecretsRequest
    * @return ListSecretsResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/ListSecrets.ts.html |here} to see how to use ListSecrets API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/ListSecrets.ts.html |here} to see how to use ListSecrets API.
    */
   public async listSecrets(
     listSecretsRequest: requests.ListSecretsRequest
@@ -1059,7 +1059,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    * @param RotateSecretRequest
    * @return RotateSecretResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/RotateSecret.ts.html |here} to see how to use RotateSecret API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/RotateSecret.ts.html |here} to see how to use RotateSecret API.
    */
   public async rotateSecret(
     rotateSecretRequest: requests.RotateSecretRequest
@@ -1135,7 +1135,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    * @param ScheduleSecretDeletionRequest
    * @return ScheduleSecretDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/ScheduleSecretDeletion.ts.html |here} to see how to use ScheduleSecretDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/ScheduleSecretDeletion.ts.html |here} to see how to use ScheduleSecretDeletion API.
    */
   public async scheduleSecretDeletion(
     scheduleSecretDeletionRequest: requests.ScheduleSecretDeletionRequest
@@ -1215,7 +1215,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
    * @param ScheduleSecretVersionDeletionRequest
    * @return ScheduleSecretVersionDeletionResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/ScheduleSecretVersionDeletion.ts.html |here} to see how to use ScheduleSecretVersionDeletion API.
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/ScheduleSecretVersionDeletion.ts.html |here} to see how to use ScheduleSecretVersionDeletion API.
    */
   public async scheduleSecretVersionDeletion(
     scheduleSecretVersionDeletionRequest: requests.ScheduleSecretVersionDeletionRequest
@@ -1301,7 +1301,7 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
      * @param UpdateSecretRequest
      * @return UpdateSecretResponse
      * @throws OciError when an error occurs
-     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/UpdateSecret.ts.html |here} to see how to use UpdateSecret API.
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/vault/UpdateSecret.ts.html |here} to see how to use UpdateSecret API.
      */
   public async updateSecret(
     updateSecretRequest: requests.UpdateSecretRequest

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DetachManagedInstanceFromManagedInstanceGroup.ts.html |here} to see how to use DetachManagedInstanceFromManagedInstanceGroupRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DetachManagedInstanceFromManagedInstanceGroup.ts.html |here} to see how to use DetachManagedInstanceFromManagedInstanceGroupRequest.
  */
 export interface DetachManagedInstanceFromManagedInstanceGroupRequest extends common.BaseRequest {
   /**

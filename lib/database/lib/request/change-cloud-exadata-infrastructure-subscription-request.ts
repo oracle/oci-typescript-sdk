@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudExadataInfrastructureSubscription.ts.html |here} to see how to use ChangeCloudExadataInfrastructureSubscriptionRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudExadataInfrastructureSubscription.ts.html |here} to see how to use ChangeCloudExadataInfrastructureSubscriptionRequest.
  */
 export interface ChangeCloudExadataInfrastructureSubscriptionRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface ChangeCloudExadataInfrastructureSubscriptionRequest extends com
    */
   "changeCloudExadataInfrastructureSubscriptionDetails": model.ChangeCloudExadataInfrastructureSubscriptionDetails;
   /**
-   * The cloud Exadata infrastructure [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The cloud Exadata infrastructure [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "cloudExadataInfrastructureId": string;
   /**

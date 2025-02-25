@@ -2,7 +2,7 @@
  * Kubernetes Engine API
  * API for the Kubernetes Engine service (also known as the Container Engine for Kubernetes service). Use this API to build, deploy,
 and manage cloud-native applications. For more information, see
-[Overview of Kubernetes Engine](/iaas/Content/ContEng/Concepts/contengoverview.htm).
+[Overview of Kubernetes Engine](https://docs.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm).
 
  * OpenAPI spec version: 20180222
  * 
@@ -81,6 +81,11 @@ export interface OpenIdConnectTokenAuthenticationConfig {
    *
    */
   "isOpenIdConnectAuthEnabled": boolean;
+  /**
+   * A Base64 encoded string of a Kubernetes OIDC Auth Config file. More info [here](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration)
+   *
+   */
+  "configurationFile"?: string;
 }
 
 export namespace OpenIdConnectTokenAuthenticationConfig {

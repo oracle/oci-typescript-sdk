@@ -39,7 +39,7 @@ export interface DatabaseToolsConnectionMySqlSummary extends model.DatabaseTools
    */
   "keyStores"?: Array<model.DatabaseToolsKeyStoreMySqlSummary>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsPrivateEndpoint} used to access the database in the customer VCN.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsPrivateEndpoint} used to access the database in the customer VCN.
    */
   "privateEndpointId"?: string;
 

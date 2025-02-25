@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeImageCapabilitySchemas.ts.html |here} to see how to use ListComputeImageCapabilitySchemasRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeImageCapabilitySchemas.ts.html |here} to see how to use ListComputeImageCapabilitySchemasRequest.
  */
 export interface ListComputeImageCapabilitySchemasRequest extends common.BaseRequest {
   /**
@@ -24,7 +24,7 @@ export interface ListComputeImageCapabilitySchemasRequest extends common.BaseReq
    */
   "compartmentId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of an image.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of an image.
    */
   "imageId"?: string;
   /**
@@ -35,7 +35,7 @@ export interface ListComputeImageCapabilitySchemasRequest extends common.BaseReq
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated
 * \"List\" call. For important details about how pagination works, see
-* [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+* [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
 * <p>
 Example: {@code 50}
 * 
@@ -44,7 +44,7 @@ Example: {@code 50}
   /**
    * For list pagination. The value of the {@code opc-next-page} response header from the previous \"List\"
    * call. For important details about how pagination works, see
-   * [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
    */
   "page"?: string;

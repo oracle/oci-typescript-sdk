@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateAuthenticationProvider.ts.html |here} to see how to use UpdateAuthenticationProviderRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateAuthenticationProvider.ts.html |here} to see how to use UpdateAuthenticationProviderRequest.
  */
 export interface UpdateAuthenticationProviderRequest extends common.BaseRequest {
   /**

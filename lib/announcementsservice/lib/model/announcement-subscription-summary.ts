@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface AnnouncementSubscriptionSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the announcement subscription.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the announcement subscription.
    */
   "id": string;
   /**

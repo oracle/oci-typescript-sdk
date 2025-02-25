@@ -1,6 +1,6 @@
 /**
  * Database Service API
- * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](/iaas/Content/Database/Concepts/databaseoverview.htm).
+ * The API for the Database Service. Use this API to manage resources such as databases and DB Systems. For more information, see [Overview of the Database Service](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: sic_dbaas_cp_us_grp@oracle.com
@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface DatabaseUpgradeWithDatabaseSoftwareImageDetails
   extends model.DatabaseUpgradeSourceBase {
   /**
-   * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the image to be used to upgrade a database.
+   * The database software image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the image to be used to upgrade a database.
    */
   "databaseSoftwareImageId": string;
 

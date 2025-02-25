@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeGroup.ts.html |here} to see how to use GetVolumeGroupRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetVolumeGroup.ts.html |here} to see how to use GetVolumeGroupRequest.
  */
 export interface GetVolumeGroupRequest extends common.BaseRequest {
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface WorkRequestError {
   /**
-   * A machine-usable error code. For a list of common errors, see [API Errors](https://docs.us-phoenix-1.oraclecloud.com/Content/API/References/apierrors.htm).
+   * A machine-usable error code. For a list of common errors, see [API Errors](https://docs.oracle.com/iaas/Content/API/References/apierrors.htm).
    *
    */
   "code": string;

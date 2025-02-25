@@ -2,11 +2,11 @@
  * Core Services API
  * Use the Core Services API to manage resources such as virtual cloud networks (VCNs),
 compute instances, and block storage volumes. For more information, see the console
-documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
-[Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
-[Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/Concepts/overview.htm),
+[Compute](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm), and
+[Block Volume](https://docs.oracle.com/iaas/Content/Block/Concepts/overview.htm) services.
 The required permissions are documented in the
-[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
+[Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -716,6 +716,8 @@ import * as GetVnicResponse from "./get-vnic-response";
 export import GetVnicResponse = GetVnicResponse.GetVnicResponse;
 import * as GetVtapResponse from "./get-vtap-response";
 export import GetVtapResponse = GetVtapResponse.GetVtapResponse;
+import * as Ipv6VnicDetachResponse from "./ipv6-vnic-detach-response";
+export import Ipv6VnicDetachResponse = Ipv6VnicDetachResponse.Ipv6VnicDetachResponse;
 import * as ListAllowedPeerRegionsForRemotePeeringResponse from "./list-allowed-peer-regions-for-remote-peering-response";
 export import ListAllowedPeerRegionsForRemotePeeringResponse = ListAllowedPeerRegionsForRemotePeeringResponse.ListAllowedPeerRegionsForRemotePeeringResponse;
 import * as ListByoasnsResponse from "./list-byoasns-response";
@@ -816,6 +818,8 @@ import * as ListVtapsResponse from "./list-vtaps-response";
 export import ListVtapsResponse = ListVtapsResponse.ListVtapsResponse;
 import * as ModifyVcnCidrResponse from "./modify-vcn-cidr-response";
 export import ModifyVcnCidrResponse = ModifyVcnCidrResponse.ModifyVcnCidrResponse;
+import * as PrivateIpVnicDetachResponse from "./private-ip-vnic-detach-response";
+export import PrivateIpVnicDetachResponse = PrivateIpVnicDetachResponse.PrivateIpVnicDetachResponse;
 import * as RemoveDrgRouteDistributionStatementsResponse from "./remove-drg-route-distribution-statements-response";
 export import RemoveDrgRouteDistributionStatementsResponse = RemoveDrgRouteDistributionStatementsResponse.RemoveDrgRouteDistributionStatementsResponse;
 import * as RemoveDrgRouteRulesResponse from "./remove-drg-route-rules-response";

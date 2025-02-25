@@ -21,7 +21,7 @@ import common = require("oci-common");
 export interface InvokeMlApplicationProviderTriggerScheduleActionDetails
   extends model.ScheduleHttpActionDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the schedule.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the schedule.
    */
   "mlApplicationInstanceViewId": string;
   "triggerMlApplicationInstanceViewFlowDetails": model.TriggerMlApplicationInstanceViewFlowDetails;

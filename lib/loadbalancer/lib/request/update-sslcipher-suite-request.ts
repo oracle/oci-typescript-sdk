@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateSSLCipherSuite.ts.html |here} to see how to use UpdateSSLCipherSuiteRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loadbalancer/UpdateSSLCipherSuite.ts.html |here} to see how to use UpdateSSLCipherSuiteRequest.
  */
 export interface UpdateSSLCipherSuiteRequest extends common.BaseRequest {
   /**
@@ -23,7 +23,7 @@ export interface UpdateSSLCipherSuiteRequest extends common.BaseRequest {
    */
   "updateSSLCipherSuiteDetails": model.UpdateSSLCipherSuiteDetails;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the associated load balancer.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated load balancer.
    *
    */
   "loadBalancerId": string;

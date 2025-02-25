@@ -1,8 +1,8 @@
 /**
  * Object Storage Service API
  * Use Object Storage and Archive Storage APIs to manage buckets, objects, and related resources.
-For more information, see [Overview of Object Storage](/Content/Object/Concepts/objectstorageoverview.htm) and
-[Overview of Archive Storage](/Content/Archive/Concepts/archivestorageoverview.htm).
+For more information, see [Overview of Object Storage](https://docs.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) and
+[Overview of Archive Storage](https://docs.oracle.com/iaas/Content/Archive/Concepts/archivestorageoverview.htm).
 
  * OpenAPI spec version: 20160918
  * Contact: opc_casper_users_us_grp@oracle.com
@@ -33,7 +33,7 @@ import common = require("oci-common");
 */
 export interface ReencryptObjectDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the master encryption key used to call the Vault
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the master encryption key used to call the Vault
    * service to re-encrypt the data encryption keys associated with the object and its chunks. If the kmsKeyId value is
    * empty, whether null or an empty string, the API will perform re-encryption by using the kmsKeyId associated with the
    * bucket or the master encryption key managed by Oracle, depending on the bucket encryption mechanism.

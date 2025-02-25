@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectLanguageEntities.ts.html |here} to see how to use DetectLanguageEntitiesRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/DetectLanguageEntities.ts.html |here} to see how to use DetectLanguageEntitiesRequest.
  */
 export interface DetectLanguageEntitiesRequest extends common.BaseRequest {
   /**

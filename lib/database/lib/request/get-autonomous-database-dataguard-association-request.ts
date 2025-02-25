@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseDataguardAssociation.ts.html |here} to see how to use GetAutonomousDatabaseDataguardAssociationRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousDatabaseDataguardAssociation.ts.html |here} to see how to use GetAutonomousDatabaseDataguardAssociationRequest.
  */
 export interface GetAutonomousDatabaseDataguardAssociationRequest extends common.BaseRequest {
   /**
-   * The database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousDatabaseId": string;
   /**
-   * The Autonomous Container Database-Autonomous Data Guard association [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * The Autonomous Container Database-Autonomous Data Guard association [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousDatabaseDataguardAssociationId": string;
   /**

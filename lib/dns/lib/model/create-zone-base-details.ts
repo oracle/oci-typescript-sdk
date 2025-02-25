@@ -1,7 +1,7 @@
 /**
  * DNS API
  * API for the DNS service. Use this API to manage DNS zones, records, and other DNS resources.
-For more information, see [Overview of the DNS Service](/iaas/Content/DNS/Concepts/dnszonemanagement.htm).
+For more information, see [Overview of the DNS Service](https://docs.oracle.com/iaas/Content/DNS/Concepts/dnszonemanagement.htm).
 
  * OpenAPI spec version: 20180115
  * 
@@ -40,7 +40,7 @@ Unicode characters will be converted into punycode, see [RFC 3492](https://tools
   "compartmentId": string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 
 * **Example:** {@code {\"Department\": \"Finance\"}}
@@ -49,7 +49,7 @@ Unicode characters will be converted into punycode, see [RFC 3492](https://tools
   "freeformTags"?: { [key: string]: string };
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-* For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
 
 * **Example:** {@code {\"Operations\": {\"CostCenter\": \"42\"}}}

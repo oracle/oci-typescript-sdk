@@ -2,7 +2,7 @@
  * Health Checks API
  * API for the Health Checks service. Use this API to manage endpoint probes and monitors.
 For more information, see
-[Overview of the Health Checks Service](/iaas/Content/HealthChecks/Concepts/healthchecks.htm).
+[Overview of the Health Checks Service](https://docs.oracle.com/iaas/Content/HealthChecks/Concepts/healthchecks.htm).
 
  * OpenAPI spec version: 20180501
  * 
@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface ChangePingMonitorCompartmentDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
    * into which the resource should be moved.
    *
    */

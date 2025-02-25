@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteInventory.ts.html |here} to see how to use DeleteInventoryRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudbridge/DeleteInventory.ts.html |here} to see how to use DeleteInventoryRequest.
  */
 export interface DeleteInventoryRequest extends common.BaseRequest {
   /**

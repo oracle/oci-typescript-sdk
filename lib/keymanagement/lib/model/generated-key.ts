@@ -1,6 +1,6 @@
 /**
  * Vault Key Management API
- * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](https://docs.oracle.com/iaas/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -25,14 +25,14 @@ export interface GeneratedKey {
   "ciphertext": string;
   /**
    * The plaintext data encryption key, a base64-encoded sequence of random bytes, which is
-   * included if the [GenerateDataEncryptionKey](https://docs.cloud.oracle.com/api/#/en/key/latest/GeneratedKey/GenerateDataEncryptionKey)
+   * included if the [GenerateDataEncryptionKey](https://docs.oracle.com/iaas/api/#/en/key/latest/GeneratedKey/GenerateDataEncryptionKey)
    * request includes the {@code includePlaintextKey} parameter and sets its value to \"true\".
    *
    */
   "plaintext"?: string;
   /**
    * The checksum of the plaintext data encryption key, which is included if the
-   * [GenerateDataEncryptionKey](https://docs.cloud.oracle.com/api/#/en/key/latest/GeneratedKey/GenerateDataEncryptionKey)
+   * [GenerateDataEncryptionKey](https://docs.oracle.com/iaas/api/#/en/key/latest/GeneratedKey/GenerateDataEncryptionKey)
    * request includes the {@code includePlaintextKey} parameter and sets its value to \"true\".
    *
    */
