@@ -15,6 +15,8 @@ import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
 import * as ActivateOrderDetails from "./activate-order-details";
 export import ActivateOrderDetails = ActivateOrderDetails.ActivateOrderDetails;
+import * as AdditionalAssignedRegionCollection from "./additional-assigned-region-collection";
+export import AdditionalAssignedRegionCollection = AdditionalAssignedRegionCollection.AdditionalAssignedRegionCollection;
 import * as AssignedSubscription from "./assigned-subscription";
 export import AssignedSubscription = AssignedSubscription.AssignedSubscription;
 import * as AssignedSubscriptionCollection from "./assigned-subscription-collection";

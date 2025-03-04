@@ -38,6 +38,30 @@ export interface ListBackupsRequest extends common.BaseRequest {
    * If provided, filters the results to the set of database versions which are supported for the given shape family.
    */
   "shapeFamily"?: ListBackupsRequest.ShapeFamily;
+  /**
+   * A filter to return only resources that match the given database version.
+   */
+  "version"?: string;
+  /**
+   * A filter to return only backups that matches with the given type of Backup.
+   */
+  "type"?: string;
+  /**
+   * A filter to return only resources that match the given lifecycle state exactly.
+   */
+  "lifecycleState"?: string;
+  /**
+   * The start of date-time range of expiration for the long term backups to be fetched.
+   */
+  "timeExpiryScheduledGreaterThanOrEqualTo"?: Date;
+  /**
+   * The end of date-time range of expiration for the long term backups to be fetched.
+   */
+  "timeExpiryScheduledLessThan"?: Date;
+  /**
+   * A filter to return only resources that match the given backup destination type.
+   */
+  "backupDestinationType"?: string;
 }
 
 export namespace ListBackupsRequest {

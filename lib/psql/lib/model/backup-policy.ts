@@ -24,13 +24,19 @@ export interface BackupPolicy {
    * How many days the data should be stored after the database system deletion. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionDays"?: number;
+  "copyPolicy"?: model.BackupCopyPolicy;
 
   "kind": string;
 }
 
 export namespace BackupPolicy {
   export function getJsonObj(obj: BackupPolicy): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "copyPolicy": obj.copyPolicy ? model.BackupCopyPolicy.getJsonObj(obj.copyPolicy) : undefined
+      }
+    };
 
     if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
@@ -58,7 +64,14 @@ export namespace BackupPolicy {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: BackupPolicy): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "copyPolicy": obj.copyPolicy
+          ? model.BackupCopyPolicy.getDeserializedJsonObj(obj.copyPolicy)
+          : undefined
+      }
+    };
 
     if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {

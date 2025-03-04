@@ -4846,11 +4846,6 @@ export class SubscriptionClient {
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          },
-          {
             value: response.headers.get("etag"),
             key: "etag",
             dataType: "string"

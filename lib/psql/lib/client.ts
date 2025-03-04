@@ -239,6 +239,84 @@ export class PostgresqlClient {
   }
 
   /**
+   * Backup Copy Request to copy back up in remote region. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BackupCopyRequest
+   * @return BackupCopyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/BackupCopy.ts.html |here} to see how to use BackupCopy API.
+   */
+  public async backupCopy(
+    backupCopyRequest: requests.BackupCopyRequest
+  ): Promise<responses.BackupCopyResponse> {
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#backupCopy.");
+    const operationName = "backupCopy";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{backupId}": backupCopyRequest.backupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": backupCopyRequest.opcRequestId,
+      "if-match": backupCopyRequest.ifMatch,
+      "opc-retry-token": backupCopyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      backupCopyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/backups/{backupId}/actions/copy",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        backupCopyRequest.backupCopyDetails,
+        "BackupCopyDetails",
+        model.BackupCopyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BackupCopyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a backup from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeBackupCompartmentRequest
@@ -1639,6 +1717,7 @@ export class PostgresqlClient {
     const queryParams = {
       "compartmentId": listConfigurationsRequest.compartmentId,
       "lifecycleState": listConfigurationsRequest.lifecycleState,
+      "configType": listConfigurationsRequest.configType,
       "displayName": listConfigurationsRequest.displayName,
       "dbVersion": listConfigurationsRequest.dbVersion,
       "shape": listConfigurationsRequest.shape,

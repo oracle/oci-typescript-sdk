@@ -58,6 +58,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forAddStandbyAutonomousContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns AddStandbyAutonomousContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddStandbyAutonomousContainerDatabase(
+    request: serviceRequests.AddStandbyAutonomousContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.AddStandbyAutonomousContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addStandbyAutonomousContainerDatabaseResponse = await this.client.addStandbyAutonomousContainerDatabase(
+      request
+    );
+    if (addStandbyAutonomousContainerDatabaseResponse.opcWorkRequestId === undefined)
+      return {
+        response: addStandbyAutonomousContainerDatabaseResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addStandbyAutonomousContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: addStandbyAutonomousContainerDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forAddStorageCapacityCloudExadataInfrastructure
    *
    * @param request the request to send
@@ -866,6 +897,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeExadbVmClusterSubscription
+   *
+   * @param request the request to send
+   * @return response returns ChangeExadbVmClusterSubscriptionResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeExadbVmClusterSubscription(
+    request: serviceRequests.ChangeExadbVmClusterSubscriptionRequest
+  ): Promise<{
+    response: serviceResponses.ChangeExadbVmClusterSubscriptionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeExadbVmClusterSubscriptionResponse = await this.client.changeExadbVmClusterSubscription(
+      request
+    );
+    if (changeExadbVmClusterSubscriptionResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeExadbVmClusterSubscriptionResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeExadbVmClusterSubscriptionResponse.opcWorkRequestId
+    );
+    return {
+      response: changeExadbVmClusterSubscriptionResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeExascaleDbStorageVaultCompartment
    *
    * @param request the request to send
@@ -892,6 +954,37 @@ export class DatabaseWaiter {
     );
     return {
       response: changeExascaleDbStorageVaultCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeExascaleDbStorageVaultSubscription
+   *
+   * @param request the request to send
+   * @return response returns ChangeExascaleDbStorageVaultSubscriptionResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeExascaleDbStorageVaultSubscription(
+    request: serviceRequests.ChangeExascaleDbStorageVaultSubscriptionRequest
+  ): Promise<{
+    response: serviceResponses.ChangeExascaleDbStorageVaultSubscriptionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeExascaleDbStorageVaultSubscriptionResponse = await this.client.changeExascaleDbStorageVaultSubscription(
+      request
+    );
+    if (changeExascaleDbStorageVaultSubscriptionResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeExascaleDbStorageVaultSubscriptionResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeExascaleDbStorageVaultSubscriptionResponse.opcWorkRequestId
+    );
+    return {
+      response: changeExascaleDbStorageVaultSubscriptionResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -1334,6 +1427,37 @@ export class DatabaseWaiter {
     );
     return {
       response: confirmKeyStoreDetailsAreCorrectResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forConvertStandbyAutonomousContainerDatabase
+   *
+   * @param request the request to send
+   * @return response returns ConvertStandbyAutonomousContainerDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forConvertStandbyAutonomousContainerDatabase(
+    request: serviceRequests.ConvertStandbyAutonomousContainerDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.ConvertStandbyAutonomousContainerDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const convertStandbyAutonomousContainerDatabaseResponse = await this.client.convertStandbyAutonomousContainerDatabase(
+      request
+    );
+    if (convertStandbyAutonomousContainerDatabaseResponse.opcWorkRequestId === undefined)
+      return {
+        response: convertStandbyAutonomousContainerDatabaseResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      convertStandbyAutonomousContainerDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: convertStandbyAutonomousContainerDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -3531,6 +3655,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forEditAutonomousContainerDatabaseDataguard
+   *
+   * @param request the request to send
+   * @return response returns EditAutonomousContainerDatabaseDataguardResponse, GetWorkRequestResponse tuple
+   */
+  public async forEditAutonomousContainerDatabaseDataguard(
+    request: serviceRequests.EditAutonomousContainerDatabaseDataguardRequest
+  ): Promise<{
+    response: serviceResponses.EditAutonomousContainerDatabaseDataguardResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const editAutonomousContainerDatabaseDataguardResponse = await this.client.editAutonomousContainerDatabaseDataguard(
+      request
+    );
+    if (editAutonomousContainerDatabaseDataguardResponse.opcWorkRequestId === undefined)
+      return {
+        response: editAutonomousContainerDatabaseDataguardResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      editAutonomousContainerDatabaseDataguardResponse.opcWorkRequestId
+    );
+    return {
+      response: editAutonomousContainerDatabaseDataguardResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forEnableAutonomousDatabaseManagement
    *
    * @param request the request to send
@@ -3924,6 +4079,37 @@ export class DatabaseWaiter {
     );
     return {
       response: failOverAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forFailoverAutonomousContainerDatabaseDataguard
+   *
+   * @param request the request to send
+   * @return response returns FailoverAutonomousContainerDatabaseDataguardResponse, GetWorkRequestResponse tuple
+   */
+  public async forFailoverAutonomousContainerDatabaseDataguard(
+    request: serviceRequests.FailoverAutonomousContainerDatabaseDataguardRequest
+  ): Promise<{
+    response: serviceResponses.FailoverAutonomousContainerDatabaseDataguardResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const failoverAutonomousContainerDatabaseDataguardResponse = await this.client.failoverAutonomousContainerDatabaseDataguard(
+      request
+    );
+    if (failoverAutonomousContainerDatabaseDataguardResponse.opcWorkRequestId === undefined)
+      return {
+        response: failoverAutonomousContainerDatabaseDataguardResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      failoverAutonomousContainerDatabaseDataguardResponse.opcWorkRequestId
+    );
+    return {
+      response: failoverAutonomousContainerDatabaseDataguardResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -5104,6 +5290,39 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forMigrateAutonomousContainerDatabaseDataguardAssociation
+   *
+   * @param request the request to send
+   * @return response returns MigrateAutonomousContainerDatabaseDataguardAssociationResponse, GetWorkRequestResponse tuple
+   */
+  public async forMigrateAutonomousContainerDatabaseDataguardAssociation(
+    request: serviceRequests.MigrateAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<{
+    response: serviceResponses.MigrateAutonomousContainerDatabaseDataguardAssociationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const migrateAutonomousContainerDatabaseDataguardAssociationResponse = await this.client.migrateAutonomousContainerDatabaseDataguardAssociation(
+      request
+    );
+    if (
+      migrateAutonomousContainerDatabaseDataguardAssociationResponse.opcWorkRequestId === undefined
+    )
+      return {
+        response: migrateAutonomousContainerDatabaseDataguardAssociationResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      migrateAutonomousContainerDatabaseDataguardAssociationResponse.opcWorkRequestId
+    );
+    return {
+      response: migrateAutonomousContainerDatabaseDataguardAssociationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forMigrateDataGuardAssociationToMultiDataGuards
    *
    * @param request the request to send
@@ -5324,6 +5543,37 @@ export class DatabaseWaiter {
     );
     return {
       response: registerAutonomousDatabaseDataSafeResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forReinstateAutonomousContainerDatabaseDataguard
+   *
+   * @param request the request to send
+   * @return response returns ReinstateAutonomousContainerDatabaseDataguardResponse, GetWorkRequestResponse tuple
+   */
+  public async forReinstateAutonomousContainerDatabaseDataguard(
+    request: serviceRequests.ReinstateAutonomousContainerDatabaseDataguardRequest
+  ): Promise<{
+    response: serviceResponses.ReinstateAutonomousContainerDatabaseDataguardResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const reinstateAutonomousContainerDatabaseDataguardResponse = await this.client.reinstateAutonomousContainerDatabaseDataguard(
+      request
+    );
+    if (reinstateAutonomousContainerDatabaseDataguardResponse.opcWorkRequestId === undefined)
+      return {
+        response: reinstateAutonomousContainerDatabaseDataguardResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      reinstateAutonomousContainerDatabaseDataguardResponse.opcWorkRequestId
+    );
+    return {
+      response: reinstateAutonomousContainerDatabaseDataguardResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -6238,6 +6488,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forSwitchoverAutonomousContainerDatabaseDataguard
+   *
+   * @param request the request to send
+   * @return response returns SwitchoverAutonomousContainerDatabaseDataguardResponse, GetWorkRequestResponse tuple
+   */
+  public async forSwitchoverAutonomousContainerDatabaseDataguard(
+    request: serviceRequests.SwitchoverAutonomousContainerDatabaseDataguardRequest
+  ): Promise<{
+    response: serviceResponses.SwitchoverAutonomousContainerDatabaseDataguardResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const switchoverAutonomousContainerDatabaseDataguardResponse = await this.client.switchoverAutonomousContainerDatabaseDataguard(
+      request
+    );
+    if (switchoverAutonomousContainerDatabaseDataguardResponse.opcWorkRequestId === undefined)
+      return {
+        response: switchoverAutonomousContainerDatabaseDataguardResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      switchoverAutonomousContainerDatabaseDataguardResponse.opcWorkRequestId
+    );
+    return {
+      response: switchoverAutonomousContainerDatabaseDataguardResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forSwitchoverAutonomousContainerDatabaseDataguardAssociation
    *
    * @param request the request to send
@@ -6656,6 +6937,29 @@ export class DatabaseWaiter {
       response: updateAutonomousVmClusterResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forUpdateBackup
+   *
+   * @param request the request to send
+   * @return response returns UpdateBackupResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateBackup(
+    request: serviceRequests.UpdateBackupRequest
+  ): Promise<{
+    response: serviceResponses.UpdateBackupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateBackupResponse = await this.client.updateBackup(request);
+    if (updateBackupResponse.opcWorkRequestId === undefined)
+      return { response: updateBackupResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateBackupResponse.opcWorkRequestId
+    );
+    return { response: updateBackupResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

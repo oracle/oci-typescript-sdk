@@ -28,6 +28,10 @@ export interface DbSystemDetails {
    * The major and minor versions of the database system software.
    */
   "dbVersion": string;
+  /**
+   * OCID of the configuration that was applied on the source dbSystem at the time when backup was taken.
+   */
+  "configId"?: string;
 }
 
 export namespace DbSystemDetails {

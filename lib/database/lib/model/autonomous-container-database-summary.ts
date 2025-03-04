@@ -241,6 +241,21 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Enabling SHARED server architecture enables a database server to allow many client processes to share very few server processes, thereby increasing the number of supported users.
    */
   "netServicesArchitecture"?: AutonomousContainerDatabaseSummary.NetServicesArchitecture;
+  /**
+   * Whether it is multiple standby Autonomous Dataguard
+   *
+   */
+  "isMultipleStandby"?: boolean;
+  /**
+   * **Deprecated.** Indicates whether the Autonomous Database has local (in-region) Data Guard enabled. Not applicable to cross-region Autonomous Data Guard associations, or to Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
+   *
+   */
+  "isDataGuardEnabled"?: boolean;
+  "dataguard"?: model.AutonomousContainerDatabaseDataguard;
+  /**
+   * Array of Dg associations.
+   */
+  "dataguardGroupMembers"?: Array<model.AutonomousContainerDatabaseDataguard>;
 }
 
 export namespace AutonomousContainerDatabaseSummary {
@@ -379,6 +394,15 @@ export namespace AutonomousContainerDatabaseSummary {
           : undefined,
         "recoveryApplianceDetails": obj.recoveryApplianceDetails
           ? model.RecoveryApplianceDetails.getJsonObj(obj.recoveryApplianceDetails)
+          : undefined,
+
+        "dataguard": obj.dataguard
+          ? model.AutonomousContainerDatabaseDataguard.getJsonObj(obj.dataguard)
+          : undefined,
+        "dataguardGroupMembers": obj.dataguardGroupMembers
+          ? obj.dataguardGroupMembers.map(item => {
+              return model.AutonomousContainerDatabaseDataguard.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -414,6 +438,15 @@ export namespace AutonomousContainerDatabaseSummary {
           : undefined,
         "recoveryApplianceDetails": obj.recoveryApplianceDetails
           ? model.RecoveryApplianceDetails.getDeserializedJsonObj(obj.recoveryApplianceDetails)
+          : undefined,
+
+        "dataguard": obj.dataguard
+          ? model.AutonomousContainerDatabaseDataguard.getDeserializedJsonObj(obj.dataguard)
+          : undefined,
+        "dataguardGroupMembers": obj.dataguardGroupMembers
+          ? obj.dataguardGroupMembers.map(item => {
+              return model.AutonomousContainerDatabaseDataguard.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

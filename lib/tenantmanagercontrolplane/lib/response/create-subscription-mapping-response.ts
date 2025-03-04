@@ -22,11 +22,6 @@ export interface CreateSubscriptionMappingResponse {
    */
   "opcRequestId": string;
   /**
-   * Unique Oracle-assigned identifier for the asynchronous request. You can use this to query the status of the asynchronous operation.
-   *
-   */
-  "opcWorkRequestId": string;
-  /**
    * For optimistic concurrency control. See {@code if-match}.
    *
    */

@@ -14,6 +14,8 @@
 
 import * as ActivateExadataInfrastructureResponse from "./activate-exadata-infrastructure-response";
 export import ActivateExadataInfrastructureResponse = ActivateExadataInfrastructureResponse.ActivateExadataInfrastructureResponse;
+import * as AddStandbyAutonomousContainerDatabaseResponse from "./add-standby-autonomous-container-database-response";
+export import AddStandbyAutonomousContainerDatabaseResponse = AddStandbyAutonomousContainerDatabaseResponse.AddStandbyAutonomousContainerDatabaseResponse;
 import * as AddStorageCapacityCloudExadataInfrastructureResponse from "./add-storage-capacity-cloud-exadata-infrastructure-response";
 export import AddStorageCapacityCloudExadataInfrastructureResponse = AddStorageCapacityCloudExadataInfrastructureResponse.AddStorageCapacityCloudExadataInfrastructureResponse;
 import * as AddStorageCapacityExadataInfrastructureResponse from "./add-storage-capacity-exadata-infrastructure-response";
@@ -68,8 +70,12 @@ import * as ChangeExadataInfrastructureCompartmentResponse from "./change-exadat
 export import ChangeExadataInfrastructureCompartmentResponse = ChangeExadataInfrastructureCompartmentResponse.ChangeExadataInfrastructureCompartmentResponse;
 import * as ChangeExadbVmClusterCompartmentResponse from "./change-exadb-vm-cluster-compartment-response";
 export import ChangeExadbVmClusterCompartmentResponse = ChangeExadbVmClusterCompartmentResponse.ChangeExadbVmClusterCompartmentResponse;
+import * as ChangeExadbVmClusterSubscriptionResponse from "./change-exadb-vm-cluster-subscription-response";
+export import ChangeExadbVmClusterSubscriptionResponse = ChangeExadbVmClusterSubscriptionResponse.ChangeExadbVmClusterSubscriptionResponse;
 import * as ChangeExascaleDbStorageVaultCompartmentResponse from "./change-exascale-db-storage-vault-compartment-response";
 export import ChangeExascaleDbStorageVaultCompartmentResponse = ChangeExascaleDbStorageVaultCompartmentResponse.ChangeExascaleDbStorageVaultCompartmentResponse;
+import * as ChangeExascaleDbStorageVaultSubscriptionResponse from "./change-exascale-db-storage-vault-subscription-response";
+export import ChangeExascaleDbStorageVaultSubscriptionResponse = ChangeExascaleDbStorageVaultSubscriptionResponse.ChangeExascaleDbStorageVaultSubscriptionResponse;
 import * as ChangeExternalContainerDatabaseCompartmentResponse from "./change-external-container-database-compartment-response";
 export import ChangeExternalContainerDatabaseCompartmentResponse = ChangeExternalContainerDatabaseCompartmentResponse.ChangeExternalContainerDatabaseCompartmentResponse;
 import * as ChangeExternalNonContainerDatabaseCompartmentResponse from "./change-external-non-container-database-compartment-response";
@@ -100,6 +106,8 @@ import * as ConfigureSaasAdminUserResponse from "./configure-saas-admin-user-res
 export import ConfigureSaasAdminUserResponse = ConfigureSaasAdminUserResponse.ConfigureSaasAdminUserResponse;
 import * as ConfirmKeyStoreDetailsAreCorrectResponse from "./confirm-key-store-details-are-correct-response";
 export import ConfirmKeyStoreDetailsAreCorrectResponse = ConfirmKeyStoreDetailsAreCorrectResponse.ConfirmKeyStoreDetailsAreCorrectResponse;
+import * as ConvertStandbyAutonomousContainerDatabaseResponse from "./convert-standby-autonomous-container-database-response";
+export import ConvertStandbyAutonomousContainerDatabaseResponse = ConvertStandbyAutonomousContainerDatabaseResponse.ConvertStandbyAutonomousContainerDatabaseResponse;
 import * as ConvertToPdbResponse from "./convert-to-pdb-response";
 export import ConvertToPdbResponse = ConvertToPdbResponse.ConvertToPdbResponse;
 import * as ConvertToRegularPluggableDatabaseResponse from "./convert-to-regular-pluggable-database-response";
@@ -284,6 +292,8 @@ import * as DownloadValidationReportResponse from "./download-validation-report-
 export import DownloadValidationReportResponse = DownloadValidationReportResponse.DownloadValidationReportResponse;
 import * as DownloadVmClusterNetworkConfigFileResponse from "./download-vm-cluster-network-config-file-response";
 export import DownloadVmClusterNetworkConfigFileResponse = DownloadVmClusterNetworkConfigFileResponse.DownloadVmClusterNetworkConfigFileResponse;
+import * as EditAutonomousContainerDatabaseDataguardResponse from "./edit-autonomous-container-database-dataguard-response";
+export import EditAutonomousContainerDatabaseDataguardResponse = EditAutonomousContainerDatabaseDataguardResponse.EditAutonomousContainerDatabaseDataguardResponse;
 import * as EnableAutonomousDatabaseManagementResponse from "./enable-autonomous-database-management-response";
 export import EnableAutonomousDatabaseManagementResponse = EnableAutonomousDatabaseManagementResponse.EnableAutonomousDatabaseManagementResponse;
 import * as EnableAutonomousDatabaseOperationsInsightsResponse from "./enable-autonomous-database-operations-insights-response";
@@ -310,6 +320,8 @@ import * as EnablePluggableDatabaseManagementResponse from "./enable-pluggable-d
 export import EnablePluggableDatabaseManagementResponse = EnablePluggableDatabaseManagementResponse.EnablePluggableDatabaseManagementResponse;
 import * as FailOverAutonomousDatabaseResponse from "./fail-over-autonomous-database-response";
 export import FailOverAutonomousDatabaseResponse = FailOverAutonomousDatabaseResponse.FailOverAutonomousDatabaseResponse;
+import * as FailoverAutonomousContainerDatabaseDataguardResponse from "./failover-autonomous-container-database-dataguard-response";
+export import FailoverAutonomousContainerDatabaseDataguardResponse = FailoverAutonomousContainerDatabaseDataguardResponse.FailoverAutonomousContainerDatabaseDataguardResponse;
 import * as FailoverAutonomousContainerDatabaseDataguardAssociationResponse from "./failover-autonomous-container-database-dataguard-association-response";
 export import FailoverAutonomousContainerDatabaseDataguardAssociationResponse = FailoverAutonomousContainerDatabaseDataguardAssociationResponse.FailoverAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as FailoverDataGuardResponse from "./failover-data-guard-response";
@@ -632,6 +644,8 @@ import * as ListVmClustersResponse from "./list-vm-clusters-response";
 export import ListVmClustersResponse = ListVmClustersResponse.ListVmClustersResponse;
 import * as LocalClonePluggableDatabaseResponse from "./local-clone-pluggable-database-response";
 export import LocalClonePluggableDatabaseResponse = LocalClonePluggableDatabaseResponse.LocalClonePluggableDatabaseResponse;
+import * as MigrateAutonomousContainerDatabaseDataguardAssociationResponse from "./migrate-autonomous-container-database-dataguard-association-response";
+export import MigrateAutonomousContainerDatabaseDataguardAssociationResponse = MigrateAutonomousContainerDatabaseDataguardAssociationResponse.MigrateAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as MigrateDataGuardAssociationToMultiDataGuardsResponse from "./migrate-data-guard-association-to-multi-data-guards-response";
 export import MigrateDataGuardAssociationToMultiDataGuardsResponse = MigrateDataGuardAssociationToMultiDataGuardsResponse.MigrateDataGuardAssociationToMultiDataGuardsResponse;
 import * as MigrateExadataDbSystemResourceModelResponse from "./migrate-exadata-db-system-resource-model-response";
@@ -648,6 +662,8 @@ import * as RefreshPluggableDatabaseResponse from "./refresh-pluggable-database-
 export import RefreshPluggableDatabaseResponse = RefreshPluggableDatabaseResponse.RefreshPluggableDatabaseResponse;
 import * as RegisterAutonomousDatabaseDataSafeResponse from "./register-autonomous-database-data-safe-response";
 export import RegisterAutonomousDatabaseDataSafeResponse = RegisterAutonomousDatabaseDataSafeResponse.RegisterAutonomousDatabaseDataSafeResponse;
+import * as ReinstateAutonomousContainerDatabaseDataguardResponse from "./reinstate-autonomous-container-database-dataguard-response";
+export import ReinstateAutonomousContainerDatabaseDataguardResponse = ReinstateAutonomousContainerDatabaseDataguardResponse.ReinstateAutonomousContainerDatabaseDataguardResponse;
 import * as ReinstateAutonomousContainerDatabaseDataguardAssociationResponse from "./reinstate-autonomous-container-database-dataguard-association-response";
 export import ReinstateAutonomousContainerDatabaseDataguardAssociationResponse = ReinstateAutonomousContainerDatabaseDataguardAssociationResponse.ReinstateAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as ReinstateDataGuardResponse from "./reinstate-data-guard-response";
@@ -718,6 +734,8 @@ import * as StopPluggableDatabaseResponse from "./stop-pluggable-database-respon
 export import StopPluggableDatabaseResponse = StopPluggableDatabaseResponse.StopPluggableDatabaseResponse;
 import * as SwitchOverDataGuardResponse from "./switch-over-data-guard-response";
 export import SwitchOverDataGuardResponse = SwitchOverDataGuardResponse.SwitchOverDataGuardResponse;
+import * as SwitchoverAutonomousContainerDatabaseDataguardResponse from "./switchover-autonomous-container-database-dataguard-response";
+export import SwitchoverAutonomousContainerDatabaseDataguardResponse = SwitchoverAutonomousContainerDatabaseDataguardResponse.SwitchoverAutonomousContainerDatabaseDataguardResponse;
 import * as SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse from "./switchover-autonomous-container-database-dataguard-association-response";
 export import SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse = SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse.SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as SwitchoverAutonomousDatabaseResponse from "./switchover-autonomous-database-response";
@@ -748,6 +766,8 @@ import * as UpdateAutonomousExadataInfrastructureResponse from "./update-autonom
 export import UpdateAutonomousExadataInfrastructureResponse = UpdateAutonomousExadataInfrastructureResponse.UpdateAutonomousExadataInfrastructureResponse;
 import * as UpdateAutonomousVmClusterResponse from "./update-autonomous-vm-cluster-response";
 export import UpdateAutonomousVmClusterResponse = UpdateAutonomousVmClusterResponse.UpdateAutonomousVmClusterResponse;
+import * as UpdateBackupResponse from "./update-backup-response";
+export import UpdateBackupResponse = UpdateBackupResponse.UpdateBackupResponse;
 import * as UpdateBackupDestinationResponse from "./update-backup-destination-response";
 export import UpdateBackupDestinationResponse = UpdateBackupDestinationResponse.UpdateBackupDestinationResponse;
 import * as UpdateCloudAutonomousVmClusterResponse from "./update-cloud-autonomous-vm-cluster-response";

@@ -95,6 +95,30 @@ export interface Backup {
    * The wallet name for Oracle Key Vault.
    */
   "keyStoreWalletName"?: string;
+  /**
+   * List of OCIDs of the key containers used as the secondary encryption key in database transparent data encryption (TDE) operations.
+   */
+  "secondaryKmsKeyIds"?: Array<string>;
+  /**
+   * The retention period of the long term backup in days. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "retentionPeriodInDays"?: number;
+  /**
+   * The retention period of the long term backup in years. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "retentionPeriodInYears"?: number;
+  /**
+   * Expiration time of the long term database backup.
+   */
+  "timeExpiryScheduled"?: Date;
+  /**
+   * True if Oracle Managed Keys is required for restore of the backup.
+   */
+  "isUsingOracleManagedKeys"?: boolean;
+  /**
+   * Type of the backup destination.
+   */
+  "backupDestinationType"?: Backup.BackupDestinationType;
   "encryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
 }
 
@@ -117,6 +141,7 @@ export namespace Backup {
     Deleted = "DELETED",
     Failed = "FAILED",
     Restoring = "RESTORING",
+    Updating = "UPDATING",
     Canceling = "CANCELING",
     Canceled = "CANCELED",
     /**
@@ -131,6 +156,16 @@ export namespace Backup {
     EnterpriseEdition = "ENTERPRISE_EDITION",
     EnterpriseEditionHighPerformance = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
     EnterpriseEditionExtremePerformance = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum BackupDestinationType {
+    ObjectStore = "OBJECT_STORE",
+    Dbrs = "DBRS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

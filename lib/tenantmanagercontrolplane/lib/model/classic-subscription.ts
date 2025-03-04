@@ -82,6 +82,10 @@ export interface ClassicSubscription extends model.Subscription {
    * Subscription end time.
    */
   "endDate"?: Date;
+  /**
+   * This list will contain up to 5 regions where the subscription has a physical presence
+   */
+  "regionAssignments"?: Array<string>;
 
   "entityVersion": string;
 }

@@ -1779,6 +1779,91 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * Create a file system, user, or group quota rule given the `fileSystemId`, `principalId`, `principalType` and
+   * `isHardQuota` parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateQuotaRuleRequest
+   * @return CreateQuotaRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateQuotaRule.ts.html |here} to see how to use CreateQuotaRule API.
+   */
+  public async createQuotaRule(
+    createQuotaRuleRequest: requests.CreateQuotaRuleRequest
+  ): Promise<responses.CreateQuotaRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createQuotaRule.");
+    const operationName = "createQuotaRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/CreateQuotaRule";
+    const pathParams = {
+      "{fileSystemId}": createQuotaRuleRequest.fileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": createQuotaRuleRequest.ifMatch,
+      "opc-request-id": createQuotaRuleRequest.opcRequestId,
+      "opc-retry-token": createQuotaRuleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createQuotaRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fileSystems/{fileSystemId}/quotaRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createQuotaRuleRequest.createQuotaRuleDetails,
+        "CreateQuotaRuleDetails",
+        model.CreateQuotaRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateQuotaRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "quotaRule",
+        bodyModel: model.QuotaRule,
+        type: "model.QuotaRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Creates a new replication in the specified compartment.
 * Replications are the primary resource that governs the policy of cross-region replication between source
 * and target file systems. Replications are associated with a secondary resource called a {@link ReplicationTarget}
@@ -2314,6 +2399,76 @@ All Oracle Cloud Infrastructure Services resources, including
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOutboundConnectorResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a file system, user, or group quota rule given the `fileSystemId` and `quotaRuleId` parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteQuotaRuleRequest
+   * @return DeleteQuotaRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteQuotaRule.ts.html |here} to see how to use DeleteQuotaRule API.
+   */
+  public async deleteQuotaRule(
+    deleteQuotaRuleRequest: requests.DeleteQuotaRuleRequest
+  ): Promise<responses.DeleteQuotaRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteQuotaRule.");
+    const operationName = "deleteQuotaRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/DeleteQuotaRule";
+    const pathParams = {
+      "{fileSystemId}": deleteQuotaRuleRequest.fileSystemId,
+      "{quotaRuleId}": deleteQuotaRuleRequest.quotaRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteQuotaRuleRequest.ifMatch,
+      "opc-request-id": deleteQuotaRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteQuotaRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fileSystems/{fileSystemId}/quotaRules/{quotaRuleId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteQuotaRuleResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3133,6 +3288,85 @@ All Oracle Cloud Infrastructure Services resources, including
         bodyKey: "outboundConnector",
         bodyModel: model.OutboundConnector,
         type: "model.OutboundConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a file system, user, or group quota rule given the `fileSystemId` and `quotaRuleId` parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetQuotaRuleRequest
+   * @return GetQuotaRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetQuotaRule.ts.html |here} to see how to use GetQuotaRule API.
+   */
+  public async getQuotaRule(
+    getQuotaRuleRequest: requests.GetQuotaRuleRequest
+  ): Promise<responses.GetQuotaRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getQuotaRule.");
+    const operationName = "getQuotaRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/GetQuotaRule";
+    const pathParams = {
+      "{fileSystemId}": getQuotaRuleRequest.fileSystemId,
+      "{quotaRuleId}": getQuotaRuleRequest.quotaRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": getQuotaRuleRequest.ifMatch,
+      "opc-request-id": getQuotaRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getQuotaRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fileSystems/{fileSystemId}/quotaRules/{quotaRuleId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetQuotaRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "quotaRule",
+        bodyModel: model.QuotaRule,
+        type: "model.QuotaRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -4210,6 +4444,143 @@ All Oracle Cloud Infrastructure Services resources, including
     request: requests.ListOutboundConnectorsRequest
   ): AsyncIterableIterator<responses.ListOutboundConnectorsResponse> {
     return paginateResponses(request, req => this.listOutboundConnectors(req));
+  }
+
+  /**
+   * List user or group usages and their quota rules by certain principal type.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListQuotaRulesRequest
+   * @return ListQuotaRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListQuotaRules.ts.html |here} to see how to use ListQuotaRules API.
+   */
+  public async listQuotaRules(
+    listQuotaRulesRequest: requests.ListQuotaRulesRequest
+  ): Promise<responses.ListQuotaRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listQuotaRules.");
+    const operationName = "listQuotaRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/ListQuotaRules";
+    const pathParams = {
+      "{fileSystemId}": listQuotaRulesRequest.fileSystemId
+    };
+
+    const queryParams = {
+      "limit": listQuotaRulesRequest.limit,
+      "page": listQuotaRulesRequest.page,
+      "principalType": listQuotaRulesRequest.principalType,
+      "principalId": listQuotaRulesRequest.principalId,
+      "areViolatorsOnly": listQuotaRulesRequest.areViolatorsOnly,
+      "sortOrder": listQuotaRulesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": listQuotaRulesRequest.ifMatch,
+      "opc-request-id": listQuotaRulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listQuotaRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fileSystems/{fileSystemId}/quotaRules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListQuotaRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.QuotaRuleSummary,
+        type: "Array<model.QuotaRuleSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listQuotaRulesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.QuotaRuleSummary objects
+   * contained in responses from the listQuotaRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllQuotaRules(
+    request: requests.ListQuotaRulesRequest
+  ): AsyncIterableIterator<model.QuotaRuleSummary> {
+    return paginateRecords(request, req => this.listQuotaRules(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listQuotaRulesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listQuotaRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllQuotaRulesResponses(
+    request: requests.ListQuotaRulesRequest
+  ): AsyncIterableIterator<responses.ListQuotaRulesResponse> {
+    return paginateResponses(request, req => this.listQuotaRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.QuotaRuleSummary objects
+   * contained in responses from the listQuotaRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listQuotaRulesRecordIterator(
+    request: requests.ListQuotaRulesRequest
+  ): AsyncIterableIterator<model.QuotaRuleSummary> {
+    return paginateRecords(request, req => this.listQuotaRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listQuotaRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listQuotaRulesResponseIterator(
+    request: requests.ListQuotaRulesRequest
+  ): AsyncIterableIterator<responses.ListQuotaRulesResponse> {
+    return paginateResponses(request, req => this.listQuotaRules(req));
   }
 
   /**
@@ -5381,6 +5752,83 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
   }
 
   /**
+   * Enable or disable quota enforcement for the file system.
+   * If `areQuotaRulesEnabled` = `true`, then the quota enforcement will be enabled.
+   * If `areQuotaRulesEnabled` = `false`, then the quota enforcement will be disabled.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ToggleQuotaRulesRequest
+   * @return ToggleQuotaRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ToggleQuotaRules.ts.html |here} to see how to use ToggleQuotaRules API.
+   */
+  public async toggleQuotaRules(
+    toggleQuotaRulesRequest: requests.ToggleQuotaRulesRequest
+  ): Promise<responses.ToggleQuotaRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#toggleQuotaRules.");
+    const operationName = "toggleQuotaRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/ToggleQuotaRules";
+    const pathParams = {
+      "{fileSystemId}": toggleQuotaRulesRequest.fileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": toggleQuotaRulesRequest.ifMatch,
+      "opc-retry-token": toggleQuotaRulesRequest.opcRetryToken,
+      "opc-request-id": toggleQuotaRulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      toggleQuotaRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fileSystems/{fileSystemId}/actions/toggleQuotaRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        toggleQuotaRulesRequest.toggleQuotaRulesDetails,
+        "ToggleQuotaRulesDetails",
+        model.ToggleQuotaRulesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ToggleQuotaRulesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * This operation unpauses a paused file system snapshot policy and updates the lifecycle state of the file system snapshot policy from 
 * INACTIVE to ACTIVE. By default, file system snapshot policies are in the ACTIVE state. When a file system snapshot policy is not paused, or in the ACTIVE state, file systems that are associated with the
 * policy will have snapshots created and deleted according to the schedules defined in the policy.
@@ -5953,6 +6401,90 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
         bodyKey: "outboundConnector",
         bodyModel: model.OutboundConnector,
         type: "model.OutboundConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Edit a file system, user, or group quota rule given the `fileSystemId` and `quotaRuleId` parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateQuotaRuleRequest
+   * @return UpdateQuotaRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateQuotaRule.ts.html |here} to see how to use UpdateQuotaRule API.
+   */
+  public async updateQuotaRule(
+    updateQuotaRuleRequest: requests.UpdateQuotaRuleRequest
+  ): Promise<responses.UpdateQuotaRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateQuotaRule.");
+    const operationName = "updateQuotaRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/UpdateQuotaRule";
+    const pathParams = {
+      "{fileSystemId}": updateQuotaRuleRequest.fileSystemId,
+      "{quotaRuleId}": updateQuotaRuleRequest.quotaRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateQuotaRuleRequest.ifMatch,
+      "opc-request-id": updateQuotaRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateQuotaRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fileSystems/{fileSystemId}/quotaRules/{quotaRuleId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateQuotaRuleRequest.updateQuotaRuleDetails,
+        "UpdateQuotaRuleDetails",
+        model.UpdateQuotaRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateQuotaRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "quotaRule",
+        bodyModel: model.QuotaRule,
+        type: "model.QuotaRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

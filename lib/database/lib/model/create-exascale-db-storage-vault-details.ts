@@ -65,6 +65,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure.
    */
   "exadataInfrastructureId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Exadata Infrastructure.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
 }
 
 export namespace CreateExascaleDbStorageVaultDetails {
