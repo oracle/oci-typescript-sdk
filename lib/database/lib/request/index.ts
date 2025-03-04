@@ -14,6 +14,8 @@
 
 import * as ActivateExadataInfrastructureRequest from "./activate-exadata-infrastructure-request";
 export import ActivateExadataInfrastructureRequest = ActivateExadataInfrastructureRequest.ActivateExadataInfrastructureRequest;
+import * as AddStandbyAutonomousContainerDatabaseRequest from "./add-standby-autonomous-container-database-request";
+export import AddStandbyAutonomousContainerDatabaseRequest = AddStandbyAutonomousContainerDatabaseRequest.AddStandbyAutonomousContainerDatabaseRequest;
 import * as AddStorageCapacityCloudExadataInfrastructureRequest from "./add-storage-capacity-cloud-exadata-infrastructure-request";
 export import AddStorageCapacityCloudExadataInfrastructureRequest = AddStorageCapacityCloudExadataInfrastructureRequest.AddStorageCapacityCloudExadataInfrastructureRequest;
 import * as AddStorageCapacityExadataInfrastructureRequest from "./add-storage-capacity-exadata-infrastructure-request";
@@ -68,8 +70,12 @@ import * as ChangeExadataInfrastructureCompartmentRequest from "./change-exadata
 export import ChangeExadataInfrastructureCompartmentRequest = ChangeExadataInfrastructureCompartmentRequest.ChangeExadataInfrastructureCompartmentRequest;
 import * as ChangeExadbVmClusterCompartmentRequest from "./change-exadb-vm-cluster-compartment-request";
 export import ChangeExadbVmClusterCompartmentRequest = ChangeExadbVmClusterCompartmentRequest.ChangeExadbVmClusterCompartmentRequest;
+import * as ChangeExadbVmClusterSubscriptionRequest from "./change-exadb-vm-cluster-subscription-request";
+export import ChangeExadbVmClusterSubscriptionRequest = ChangeExadbVmClusterSubscriptionRequest.ChangeExadbVmClusterSubscriptionRequest;
 import * as ChangeExascaleDbStorageVaultCompartmentRequest from "./change-exascale-db-storage-vault-compartment-request";
 export import ChangeExascaleDbStorageVaultCompartmentRequest = ChangeExascaleDbStorageVaultCompartmentRequest.ChangeExascaleDbStorageVaultCompartmentRequest;
+import * as ChangeExascaleDbStorageVaultSubscriptionRequest from "./change-exascale-db-storage-vault-subscription-request";
+export import ChangeExascaleDbStorageVaultSubscriptionRequest = ChangeExascaleDbStorageVaultSubscriptionRequest.ChangeExascaleDbStorageVaultSubscriptionRequest;
 import * as ChangeExternalContainerDatabaseCompartmentRequest from "./change-external-container-database-compartment-request";
 export import ChangeExternalContainerDatabaseCompartmentRequest = ChangeExternalContainerDatabaseCompartmentRequest.ChangeExternalContainerDatabaseCompartmentRequest;
 import * as ChangeExternalNonContainerDatabaseCompartmentRequest from "./change-external-non-container-database-compartment-request";
@@ -100,6 +106,8 @@ import * as ConfigureSaasAdminUserRequest from "./configure-saas-admin-user-requ
 export import ConfigureSaasAdminUserRequest = ConfigureSaasAdminUserRequest.ConfigureSaasAdminUserRequest;
 import * as ConfirmKeyStoreDetailsAreCorrectRequest from "./confirm-key-store-details-are-correct-request";
 export import ConfirmKeyStoreDetailsAreCorrectRequest = ConfirmKeyStoreDetailsAreCorrectRequest.ConfirmKeyStoreDetailsAreCorrectRequest;
+import * as ConvertStandbyAutonomousContainerDatabaseRequest from "./convert-standby-autonomous-container-database-request";
+export import ConvertStandbyAutonomousContainerDatabaseRequest = ConvertStandbyAutonomousContainerDatabaseRequest.ConvertStandbyAutonomousContainerDatabaseRequest;
 import * as ConvertToPdbRequest from "./convert-to-pdb-request";
 export import ConvertToPdbRequest = ConvertToPdbRequest.ConvertToPdbRequest;
 import * as ConvertToRegularPluggableDatabaseRequest from "./convert-to-regular-pluggable-database-request";
@@ -284,6 +292,8 @@ import * as DownloadValidationReportRequest from "./download-validation-report-r
 export import DownloadValidationReportRequest = DownloadValidationReportRequest.DownloadValidationReportRequest;
 import * as DownloadVmClusterNetworkConfigFileRequest from "./download-vm-cluster-network-config-file-request";
 export import DownloadVmClusterNetworkConfigFileRequest = DownloadVmClusterNetworkConfigFileRequest.DownloadVmClusterNetworkConfigFileRequest;
+import * as EditAutonomousContainerDatabaseDataguardRequest from "./edit-autonomous-container-database-dataguard-request";
+export import EditAutonomousContainerDatabaseDataguardRequest = EditAutonomousContainerDatabaseDataguardRequest.EditAutonomousContainerDatabaseDataguardRequest;
 import * as EnableAutonomousDatabaseManagementRequest from "./enable-autonomous-database-management-request";
 export import EnableAutonomousDatabaseManagementRequest = EnableAutonomousDatabaseManagementRequest.EnableAutonomousDatabaseManagementRequest;
 import * as EnableAutonomousDatabaseOperationsInsightsRequest from "./enable-autonomous-database-operations-insights-request";
@@ -310,6 +320,8 @@ import * as EnablePluggableDatabaseManagementRequest from "./enable-pluggable-da
 export import EnablePluggableDatabaseManagementRequest = EnablePluggableDatabaseManagementRequest.EnablePluggableDatabaseManagementRequest;
 import * as FailOverAutonomousDatabaseRequest from "./fail-over-autonomous-database-request";
 export import FailOverAutonomousDatabaseRequest = FailOverAutonomousDatabaseRequest.FailOverAutonomousDatabaseRequest;
+import * as FailoverAutonomousContainerDatabaseDataguardRequest from "./failover-autonomous-container-database-dataguard-request";
+export import FailoverAutonomousContainerDatabaseDataguardRequest = FailoverAutonomousContainerDatabaseDataguardRequest.FailoverAutonomousContainerDatabaseDataguardRequest;
 import * as FailoverAutonomousContainerDatabaseDataguardAssociationRequest from "./failover-autonomous-container-database-dataguard-association-request";
 export import FailoverAutonomousContainerDatabaseDataguardAssociationRequest = FailoverAutonomousContainerDatabaseDataguardAssociationRequest.FailoverAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as FailoverDataGuardRequest from "./failover-data-guard-request";
@@ -632,6 +644,8 @@ import * as ListVmClustersRequest from "./list-vm-clusters-request";
 export import ListVmClustersRequest = ListVmClustersRequest.ListVmClustersRequest;
 import * as LocalClonePluggableDatabaseRequest from "./local-clone-pluggable-database-request";
 export import LocalClonePluggableDatabaseRequest = LocalClonePluggableDatabaseRequest.LocalClonePluggableDatabaseRequest;
+import * as MigrateAutonomousContainerDatabaseDataguardAssociationRequest from "./migrate-autonomous-container-database-dataguard-association-request";
+export import MigrateAutonomousContainerDatabaseDataguardAssociationRequest = MigrateAutonomousContainerDatabaseDataguardAssociationRequest.MigrateAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as MigrateDataGuardAssociationToMultiDataGuardsRequest from "./migrate-data-guard-association-to-multi-data-guards-request";
 export import MigrateDataGuardAssociationToMultiDataGuardsRequest = MigrateDataGuardAssociationToMultiDataGuardsRequest.MigrateDataGuardAssociationToMultiDataGuardsRequest;
 import * as MigrateExadataDbSystemResourceModelRequest from "./migrate-exadata-db-system-resource-model-request";
@@ -648,6 +662,8 @@ import * as RefreshPluggableDatabaseRequest from "./refresh-pluggable-database-r
 export import RefreshPluggableDatabaseRequest = RefreshPluggableDatabaseRequest.RefreshPluggableDatabaseRequest;
 import * as RegisterAutonomousDatabaseDataSafeRequest from "./register-autonomous-database-data-safe-request";
 export import RegisterAutonomousDatabaseDataSafeRequest = RegisterAutonomousDatabaseDataSafeRequest.RegisterAutonomousDatabaseDataSafeRequest;
+import * as ReinstateAutonomousContainerDatabaseDataguardRequest from "./reinstate-autonomous-container-database-dataguard-request";
+export import ReinstateAutonomousContainerDatabaseDataguardRequest = ReinstateAutonomousContainerDatabaseDataguardRequest.ReinstateAutonomousContainerDatabaseDataguardRequest;
 import * as ReinstateAutonomousContainerDatabaseDataguardAssociationRequest from "./reinstate-autonomous-container-database-dataguard-association-request";
 export import ReinstateAutonomousContainerDatabaseDataguardAssociationRequest = ReinstateAutonomousContainerDatabaseDataguardAssociationRequest.ReinstateAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as ReinstateDataGuardRequest from "./reinstate-data-guard-request";
@@ -718,6 +734,8 @@ import * as StopPluggableDatabaseRequest from "./stop-pluggable-database-request
 export import StopPluggableDatabaseRequest = StopPluggableDatabaseRequest.StopPluggableDatabaseRequest;
 import * as SwitchOverDataGuardRequest from "./switch-over-data-guard-request";
 export import SwitchOverDataGuardRequest = SwitchOverDataGuardRequest.SwitchOverDataGuardRequest;
+import * as SwitchoverAutonomousContainerDatabaseDataguardRequest from "./switchover-autonomous-container-database-dataguard-request";
+export import SwitchoverAutonomousContainerDatabaseDataguardRequest = SwitchoverAutonomousContainerDatabaseDataguardRequest.SwitchoverAutonomousContainerDatabaseDataguardRequest;
 import * as SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest from "./switchover-autonomous-container-database-dataguard-association-request";
 export import SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest = SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest.SwitchoverAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as SwitchoverAutonomousDatabaseRequest from "./switchover-autonomous-database-request";
@@ -748,6 +766,8 @@ import * as UpdateAutonomousExadataInfrastructureRequest from "./update-autonomo
 export import UpdateAutonomousExadataInfrastructureRequest = UpdateAutonomousExadataInfrastructureRequest.UpdateAutonomousExadataInfrastructureRequest;
 import * as UpdateAutonomousVmClusterRequest from "./update-autonomous-vm-cluster-request";
 export import UpdateAutonomousVmClusterRequest = UpdateAutonomousVmClusterRequest.UpdateAutonomousVmClusterRequest;
+import * as UpdateBackupRequest from "./update-backup-request";
+export import UpdateBackupRequest = UpdateBackupRequest.UpdateBackupRequest;
 import * as UpdateBackupDestinationRequest from "./update-backup-destination-request";
 export import UpdateBackupDestinationRequest = UpdateBackupDestinationRequest.UpdateBackupDestinationRequest;
 import * as UpdateCloudAutonomousVmClusterRequest from "./update-cloud-autonomous-vm-cluster-request";

@@ -333,6 +333,99 @@ export class DatabaseClient {
   }
 
   /**
+   * Create Standby Autonomous Container Database.
+   * For more information about changing Autonomous Container Databases Add Standby, see
+   * [Create Standby Autonomous Container Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcl/index.html#ADBCL-GUID-D3B503F1-0032-4B0D-9F00-ACAE8151AB80) and [Convert Snapshot Standby to Physical Standby](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcl/index.html#ADBCL-GUID-E8D7E0EE-8244-467D-B33A-1BC6F969A0A4).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddStandbyAutonomousContainerDatabaseRequest
+   * @return AddStandbyAutonomousContainerDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddStandbyAutonomousContainerDatabase.ts.html |here} to see how to use AddStandbyAutonomousContainerDatabase API.
+   */
+  public async addStandbyAutonomousContainerDatabase(
+    addStandbyAutonomousContainerDatabaseRequest: requests.AddStandbyAutonomousContainerDatabaseRequest
+  ): Promise<responses.AddStandbyAutonomousContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#addStandbyAutonomousContainerDatabase.");
+    const operationName = "addStandbyAutonomousContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/AddStandbyAutonomousContainerDatabase";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        addStandbyAutonomousContainerDatabaseRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addStandbyAutonomousContainerDatabaseRequest.opcRequestId,
+      "opc-retry-token": addStandbyAutonomousContainerDatabaseRequest.opcRetryToken,
+      "if-match": addStandbyAutonomousContainerDatabaseRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addStandbyAutonomousContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/actions/addStandby",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addStandbyAutonomousContainerDatabaseRequest.addStandbyAutonomousContainerDatabaseDetails,
+        "AddStandbyAutonomousContainerDatabaseDetails",
+        model.AddStandbyAutonomousContainerDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddStandbyAutonomousContainerDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Makes the storage capacity from additional storage servers available for Cloud VM Cluster consumption. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2648,6 +2741,87 @@ export class DatabaseClient {
   }
 
   /**
+   * Associate a Exadata VM cluster on Exascale Infrastructure with a different subscription.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeExadbVmClusterSubscriptionRequest
+   * @return ChangeExadbVmClusterSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExadbVmClusterSubscription.ts.html |here} to see how to use ChangeExadbVmClusterSubscription API.
+   */
+  public async changeExadbVmClusterSubscription(
+    changeExadbVmClusterSubscriptionRequest: requests.ChangeExadbVmClusterSubscriptionRequest
+  ): Promise<responses.ChangeExadbVmClusterSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeExadbVmClusterSubscription.");
+    const operationName = "changeExadbVmClusterSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/ChangeExadbVmClusterSubscription";
+    const pathParams = {
+      "{exadbVmClusterId}": changeExadbVmClusterSubscriptionRequest.exadbVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeExadbVmClusterSubscriptionRequest.opcRetryToken,
+      "opc-request-id": changeExadbVmClusterSubscriptionRequest.opcRequestId,
+      "if-match": changeExadbVmClusterSubscriptionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExadbVmClusterSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}/actions/changeSubscription",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeExadbVmClusterSubscriptionRequest.changeExadbVmClusterSubscriptionDetails,
+        "ChangeExadbVmClusterSubscriptionDetails",
+        model.ChangeExadbVmClusterSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeExadbVmClusterSubscriptionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a Exadata Database Storage Vault to another compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2711,6 +2885,90 @@ export class DatabaseClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeExascaleDbStorageVaultCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Associate a Exadata Database Storage Vault with a different subscription.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeExascaleDbStorageVaultSubscriptionRequest
+   * @return ChangeExascaleDbStorageVaultSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeExascaleDbStorageVaultSubscription.ts.html |here} to see how to use ChangeExascaleDbStorageVaultSubscription API.
+   */
+  public async changeExascaleDbStorageVaultSubscription(
+    changeExascaleDbStorageVaultSubscriptionRequest: requests.ChangeExascaleDbStorageVaultSubscriptionRequest
+  ): Promise<responses.ChangeExascaleDbStorageVaultSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#changeExascaleDbStorageVaultSubscription."
+      );
+    const operationName = "changeExascaleDbStorageVaultSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExascaleDbStorageVault/ChangeExascaleDbStorageVaultSubscription";
+    const pathParams = {
+      "{exascaleDbStorageVaultId}":
+        changeExascaleDbStorageVaultSubscriptionRequest.exascaleDbStorageVaultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeExascaleDbStorageVaultSubscriptionRequest.opcRetryToken,
+      "opc-request-id": changeExascaleDbStorageVaultSubscriptionRequest.opcRequestId,
+      "if-match": changeExascaleDbStorageVaultSubscriptionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExascaleDbStorageVaultSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exascaleDbStorageVaults/{exascaleDbStorageVaultId}/actions/changeSubscription",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeExascaleDbStorageVaultSubscriptionRequest.changeExascaleDbStorageVaultSubscriptionDetails,
+        "ChangeExascaleDbStorageVaultSubscriptionDetails",
+        model.ChangeExascaleDbStorageVaultSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeExascaleDbStorageVaultSubscriptionResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3989,6 +4247,101 @@ export class DatabaseClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.ConfirmKeyStoreDetailsAreCorrectResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Convert between and SnapshotStandby Standby Autonomous Container Database .
+   * For more information about changing Autonomous Container Databases Add Standby, see
+   * [Convert Standby Autonomous Container Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcl/index.html#ADBCL-GUID-D3B503F1-0032-4B0D-9F00-ACAE8151AB80) and [Convert Snapshot Standby to Physical Standby](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcl/index.html#ADBCL-GUID-E8D7E0EE-8244-467D-B33A-1BC6F969A0A4).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ConvertStandbyAutonomousContainerDatabaseRequest
+   * @return ConvertStandbyAutonomousContainerDatabaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertStandbyAutonomousContainerDatabase.ts.html |here} to see how to use ConvertStandbyAutonomousContainerDatabase API.
+   */
+  public async convertStandbyAutonomousContainerDatabase(
+    convertStandbyAutonomousContainerDatabaseRequest: requests.ConvertStandbyAutonomousContainerDatabaseRequest
+  ): Promise<responses.ConvertStandbyAutonomousContainerDatabaseResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#convertStandbyAutonomousContainerDatabase."
+      );
+    const operationName = "convertStandbyAutonomousContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/ConvertStandbyAutonomousContainerDatabase";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        convertStandbyAutonomousContainerDatabaseRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": convertStandbyAutonomousContainerDatabaseRequest.opcRequestId,
+      "opc-retry-token": convertStandbyAutonomousContainerDatabaseRequest.opcRetryToken,
+      "if-match": convertStandbyAutonomousContainerDatabaseRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      convertStandbyAutonomousContainerDatabaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/actions/snapshotStandby",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        convertStandbyAutonomousContainerDatabaseRequest.convertStandbyAutonomousContainerDatabaseDetails,
+        "ConvertStandbyAutonomousContainerDatabaseDetails",
+        model.ConvertStandbyAutonomousContainerDatabaseDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConvertStandbyAutonomousContainerDatabaseResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -11549,6 +11902,101 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Edit Autonomous Container Database Dataguard.
+   * For more information about changing Autonomous Container Databases Add Standby, see
+   * [Update Autonomous Container Database Dataguard](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcl/index.html#ADBCL-GUID-D3B503F1-0032-4B0D-9F00-ACAE8151AB80) and [Convert Snapshot Standby to Physical Standby](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcl/index.html#ADBCL-GUID-E8D7E0EE-8244-467D-B33A-1BC6F969A0A4).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EditAutonomousContainerDatabaseDataguardRequest
+   * @return EditAutonomousContainerDatabaseDataguardResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EditAutonomousContainerDatabaseDataguard.ts.html |here} to see how to use EditAutonomousContainerDatabaseDataguard API.
+   */
+  public async editAutonomousContainerDatabaseDataguard(
+    editAutonomousContainerDatabaseDataguardRequest: requests.EditAutonomousContainerDatabaseDataguardRequest
+  ): Promise<responses.EditAutonomousContainerDatabaseDataguardResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#editAutonomousContainerDatabaseDataguard."
+      );
+    const operationName = "editAutonomousContainerDatabaseDataguard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/EditAutonomousContainerDatabaseDataguard";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        editAutonomousContainerDatabaseDataguardRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": editAutonomousContainerDatabaseDataguardRequest.opcRequestId,
+      "opc-retry-token": editAutonomousContainerDatabaseDataguardRequest.opcRetryToken,
+      "if-match": editAutonomousContainerDatabaseDataguardRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      editAutonomousContainerDatabaseDataguardRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/actions/editDataguard",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        editAutonomousContainerDatabaseDataguardRequest.editAutonomousContainerDatabaseDataguardDetails,
+        "EditAutonomousContainerDatabaseDataguardDetails",
+        model.EditAutonomousContainerDatabaseDataguardDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EditAutonomousContainerDatabaseDataguardResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Enables Database Management for Autonomous Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -12655,6 +13103,93 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
         bodyKey: "autonomousDatabase",
         bodyModel: model.AutonomousDatabase,
         type: "model.AutonomousDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Failover Autonomous Container Database, identified by the autonomousContainerDatabaseId parameter, to an active standby Autonomous Container Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param FailoverAutonomousContainerDatabaseDataguardRequest
+   * @return FailoverAutonomousContainerDatabaseDataguardResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/FailoverAutonomousContainerDatabaseDataguard.ts.html |here} to see how to use FailoverAutonomousContainerDatabaseDataguard API.
+   */
+  public async failoverAutonomousContainerDatabaseDataguard(
+    failoverAutonomousContainerDatabaseDataguardRequest: requests.FailoverAutonomousContainerDatabaseDataguardRequest
+  ): Promise<responses.FailoverAutonomousContainerDatabaseDataguardResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#failoverAutonomousContainerDatabaseDataguard."
+      );
+    const operationName = "failoverAutonomousContainerDatabaseDataguard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/FailoverAutonomousContainerDatabaseDataguard";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        failoverAutonomousContainerDatabaseDataguardRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": failoverAutonomousContainerDatabaseDataguardRequest.ifMatch,
+      "opc-request-id": failoverAutonomousContainerDatabaseDataguardRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      failoverAutonomousContainerDatabaseDataguardRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/actions/failover",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.FailoverAutonomousContainerDatabaseDataguardResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -21510,7 +22045,14 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "compartmentId": listBackupsRequest.compartmentId,
       "limit": listBackupsRequest.limit,
       "page": listBackupsRequest.page,
-      "shapeFamily": listBackupsRequest.shapeFamily
+      "shapeFamily": listBackupsRequest.shapeFamily,
+      "version": listBackupsRequest.version,
+      "type": listBackupsRequest.type,
+      "lifecycleState": listBackupsRequest.lifecycleState,
+      "timeExpiryScheduledGreaterThanOrEqualTo":
+        listBackupsRequest.timeExpiryScheduledGreaterThanOrEqualTo,
+      "timeExpiryScheduledLessThan": listBackupsRequest.timeExpiryScheduledLessThan,
+      "backupDestinationType": listBackupsRequest.backupDestinationType
     };
 
     let headerParams = {
@@ -25348,6 +25890,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "sortOrder": listExadbVmClustersRequest.sortOrder,
       "lifecycleState": listExadbVmClustersRequest.lifecycleState,
       "exascaleDbStorageVaultId": listExadbVmClustersRequest.exascaleDbStorageVaultId,
+      "clusterPlacementGroupId": listExadbVmClustersRequest.clusterPlacementGroupId,
       "displayName": listExadbVmClustersRequest.displayName
     };
 
@@ -25484,6 +26027,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "sortBy": listExascaleDbStorageVaultsRequest.sortBy,
       "sortOrder": listExascaleDbStorageVaultsRequest.sortOrder,
       "lifecycleState": listExascaleDbStorageVaultsRequest.lifecycleState,
+      "clusterPlacementGroupId": listExascaleDbStorageVaultsRequest.clusterPlacementGroupId,
       "displayName": listExascaleDbStorageVaultsRequest.displayName,
       "exadataInfrastructureId": listExascaleDbStorageVaultsRequest.exadataInfrastructureId
     };
@@ -29169,6 +29713,98 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Migrate Autonomous Container Database, identified by the autonomousContainerDatabaseId parameter.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param MigrateAutonomousContainerDatabaseDataguardAssociationRequest
+   * @return MigrateAutonomousContainerDatabaseDataguardAssociationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MigrateAutonomousContainerDatabaseDataguardAssociation.ts.html |here} to see how to use MigrateAutonomousContainerDatabaseDataguardAssociation API.
+   */
+  public async migrateAutonomousContainerDatabaseDataguardAssociation(
+    migrateAutonomousContainerDatabaseDataguardAssociationRequest: requests.MigrateAutonomousContainerDatabaseDataguardAssociationRequest
+  ): Promise<responses.MigrateAutonomousContainerDatabaseDataguardAssociationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#migrateAutonomousContainerDatabaseDataguardAssociation."
+      );
+    const operationName = "migrateAutonomousContainerDatabaseDataguardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/MigrateAutonomousContainerDatabaseDataguardAssociation";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        migrateAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
+      "{autonomousContainerDatabaseDataguardAssociationId}":
+        migrateAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseDataguardAssociationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": migrateAutonomousContainerDatabaseDataguardAssociationRequest.ifMatch,
+      "opc-request-id": migrateAutonomousContainerDatabaseDataguardAssociationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      migrateAutonomousContainerDatabaseDataguardAssociationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/autonomousContainerDatabaseDataguardAssociations/{autonomousContainerDatabaseDataguardAssociationId}/actions/migrate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <
+          responses.MigrateAutonomousContainerDatabaseDataguardAssociationResponse
+        >{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseDataguardAssociation",
+        bodyModel: model.AutonomousContainerDatabaseDataguardAssociation,
+        type: "model.AutonomousContainerDatabaseDataguardAssociation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Migrates the existing Data Guard association to new Data Guard model to support multiple standby databases functionality.        
 * <p>
 This operation should always be performed on primary.
@@ -29855,6 +30491,93 @@ This operation should always be performed on primary.
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Reinstates a disabled standby Autonomous Container Database, identified by the autonomousContainerDatabaseId parameter, to an active standby Autonomous Container Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ReinstateAutonomousContainerDatabaseDataguardRequest
+   * @return ReinstateAutonomousContainerDatabaseDataguardResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ReinstateAutonomousContainerDatabaseDataguard.ts.html |here} to see how to use ReinstateAutonomousContainerDatabaseDataguard API.
+   */
+  public async reinstateAutonomousContainerDatabaseDataguard(
+    reinstateAutonomousContainerDatabaseDataguardRequest: requests.ReinstateAutonomousContainerDatabaseDataguardRequest
+  ): Promise<responses.ReinstateAutonomousContainerDatabaseDataguardResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#reinstateAutonomousContainerDatabaseDataguard."
+      );
+    const operationName = "reinstateAutonomousContainerDatabaseDataguard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/ReinstateAutonomousContainerDatabaseDataguard";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        reinstateAutonomousContainerDatabaseDataguardRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": reinstateAutonomousContainerDatabaseDataguardRequest.ifMatch,
+      "opc-request-id": reinstateAutonomousContainerDatabaseDataguardRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reinstateAutonomousContainerDatabaseDataguardRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/actions/reinstate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReinstateAutonomousContainerDatabaseDataguardResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -32866,6 +33589,93 @@ This operation should be performed on respective standby database.
   }
 
   /**
+   * Switchover Autonomous Container Database, identified by the autonomousContainerDatabaseId parameter, to an active standby Autonomous Container Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SwitchoverAutonomousContainerDatabaseDataguardRequest
+   * @return SwitchoverAutonomousContainerDatabaseDataguardResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/SwitchoverAutonomousContainerDatabaseDataguard.ts.html |here} to see how to use SwitchoverAutonomousContainerDatabaseDataguard API.
+   */
+  public async switchoverAutonomousContainerDatabaseDataguard(
+    switchoverAutonomousContainerDatabaseDataguardRequest: requests.SwitchoverAutonomousContainerDatabaseDataguardRequest
+  ): Promise<responses.SwitchoverAutonomousContainerDatabaseDataguardResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#switchoverAutonomousContainerDatabaseDataguard."
+      );
+    const operationName = "switchoverAutonomousContainerDatabaseDataguard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/SwitchoverAutonomousContainerDatabaseDataguard";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        switchoverAutonomousContainerDatabaseDataguardRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": switchoverAutonomousContainerDatabaseDataguardRequest.ifMatch,
+      "opc-request-id": switchoverAutonomousContainerDatabaseDataguardRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      switchoverAutonomousContainerDatabaseDataguardRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/actions/switchover",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SwitchoverAutonomousContainerDatabaseDataguardResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Switches over the primary Autonomous Container Database of an Autonomous Data Guard peer association to standby role. The standby Autonomous Container Database associated with autonomousContainerDatabaseDataguardAssociationId assumes the primary Autonomous Container Database role.
 * <p>
 A switchover incurs no data loss.
@@ -34135,6 +34945,93 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates database backup details.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateBackupRequest
+   * @return UpdateBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateBackup.ts.html |here} to see how to use UpdateBackup API.
+   */
+  public async updateBackup(
+    updateBackupRequest: requests.UpdateBackupRequest
+  ): Promise<responses.UpdateBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateBackup.");
+    const operationName = "updateBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/UpdateBackup";
+    const pathParams = {
+      "{backupId}": updateBackupRequest.backupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateBackupRequest.ifMatch,
+      "opc-request-id": updateBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/backups/{backupId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateBackupRequest.updateBackupDetails,
+        "UpdateBackupDetails",
+        model.UpdateBackupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "backup",
+        bodyModel: model.Backup,
+        type: "model.Backup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

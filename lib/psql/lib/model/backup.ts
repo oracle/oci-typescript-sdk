@@ -37,7 +37,7 @@ export interface Backup {
    */
   "compartmentId": string;
   /**
-   * Specifies whether the backup was created manually, or by a management policy.
+   * Specifies whether the backup was created manually, taken on schedule defined in the a backup policy, or copied from the remote location.
    */
   "sourceType"?: Backup.SourceType;
   /**
@@ -48,6 +48,15 @@ Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
+  /**
+    * The date and time the backup was created.
+* This is the time the actual point-in-time data snapshot was taken,
+* expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
+* <p>
+Example: {@code 2016-08-25T21:10:29.600Z}
+* 
+    */
+  "timeCreatedPrecise"?: Date;
   /**
     * The date and time the backup was updated, expressed in
 * [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
@@ -77,6 +86,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "dbSystemId"?: string;
   "dbSystemDetails": model.DbSystemDetails;
+  "sourceBackupDetails"?: model.SourceBackupDetails;
   /**
    * lastAcceptedRequestToken from MP.
    */
@@ -85,6 +95,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * lastCompletedRequestToken from MP.
    */
   "lastCompletedRequestToken"?: string;
+  /**
+   * List of status for Backup Copy
+   */
+  "copyStatus"?: Array<model.BackupCopyStatusDetails>;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -109,6 +123,7 @@ export namespace Backup {
   export enum SourceType {
     Scheduled = "SCHEDULED",
     Manual = "MANUAL",
+    Copied = "COPIED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -135,6 +150,15 @@ export namespace Backup {
       ...{
         "dbSystemDetails": obj.dbSystemDetails
           ? model.DbSystemDetails.getJsonObj(obj.dbSystemDetails)
+          : undefined,
+        "sourceBackupDetails": obj.sourceBackupDetails
+          ? model.SourceBackupDetails.getJsonObj(obj.sourceBackupDetails)
+          : undefined,
+
+        "copyStatus": obj.copyStatus
+          ? obj.copyStatus.map(item => {
+              return model.BackupCopyStatusDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -147,6 +171,15 @@ export namespace Backup {
       ...{
         "dbSystemDetails": obj.dbSystemDetails
           ? model.DbSystemDetails.getDeserializedJsonObj(obj.dbSystemDetails)
+          : undefined,
+        "sourceBackupDetails": obj.sourceBackupDetails
+          ? model.SourceBackupDetails.getDeserializedJsonObj(obj.sourceBackupDetails)
+          : undefined,
+
+        "copyStatus": obj.copyStatus
+          ? obj.copyStatus.map(item => {
+              return model.BackupCopyStatusDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

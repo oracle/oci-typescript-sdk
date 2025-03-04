@@ -30,6 +30,14 @@ export interface CreateBackupDetails {
    * The user-friendly name for the backup. The name does not have to be unique.
    */
   "displayName": string;
+  /**
+   * The retention period of the long term backup in days. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "retentionPeriodInDays"?: number;
+  /**
+   * The retention period of the long term backup in years. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "retentionPeriodInYears"?: number;
 }
 
 export namespace CreateBackupDetails {

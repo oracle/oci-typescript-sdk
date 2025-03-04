@@ -91,6 +91,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Specifies the total number of replications for which this file system is a source. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "replicationSourceCount"?: number;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the KMS key used to encrypt the encryption keys associated with this file system.
    *
    */
@@ -118,6 +122,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * Specifies whether the file system is attached to its parent file system.
    */
   "cloneAttachStatus"?: FileSystemSummary.CloneAttachStatus;
+  /**
+   * Displays the state of enforcement of quota rules on the file system.
+   */
+  "quotaEnforcementState"?: FileSystemSummary.QuotaEnforcementState;
 }
 
 export namespace FileSystemSummary {
@@ -139,6 +147,20 @@ export namespace FileSystemSummary {
     Attached = "ATTACHED",
     Detaching = "DETACHING",
     Detached = "DETACHED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum QuotaEnforcementState {
+    Enabling = "ENABLING",
+    Enabled = "ENABLED",
+    Disabling = "DISABLING",
+    Disabled = "DISABLED",
+    Syncing = "SYNCING",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

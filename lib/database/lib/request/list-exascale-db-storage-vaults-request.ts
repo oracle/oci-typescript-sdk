@@ -44,6 +44,10 @@ export interface ListExascaleDbStorageVaultsRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
+   * A filter to return only resources that match the given cluster placement group ID exactly.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
    * A filter to return only resources that match the entire display name given. The match is not case sensitive.
    */
   "displayName"?: string;

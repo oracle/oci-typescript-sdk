@@ -84,6 +84,10 @@ May be unset as a blank value.
 * 
     */
   "filesystemSnapshotPolicyId"?: string;
+  /**
+   * Specifies the enforcement of quota rules on the file system.
+   */
+  "areQuotaRulesEnabled"?: boolean;
 }
 
 export namespace CreateFileSystemDetails {

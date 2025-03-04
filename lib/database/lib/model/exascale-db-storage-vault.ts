@@ -98,6 +98,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "additionalFlashCacheInPercent"?: number;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Exadata Infrastructure.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
 }
 
 export namespace ExascaleDbStorageVault {

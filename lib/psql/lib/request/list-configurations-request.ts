@@ -27,6 +27,10 @@ export interface ListConfigurationsRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
+   * A filter to return only resources if their {@code configType} matches the given {@code configType}.
+   */
+  "configType"?: string;
+  /**
    * A filter to return only resources that match the entire display name given.
    */
   "displayName"?: string;

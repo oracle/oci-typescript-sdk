@@ -1,6 +1,6 @@
 {
   "name": "oci-marketplaceprivateoffer",
-  "version": "2.103.0",
+  "version": "2.104.0",
   "description": "OCI NodeJS client for Marketplace Private Offer Service",
   "repository": {
     "type": "git",

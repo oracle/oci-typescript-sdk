@@ -90,10 +90,8 @@ Example: {@code {\"Department\": \"Finance\"}}
   /**
     * Grid Setup will be done using this grid image id.
 * <p>
-The grid image id can be extracted from
-* 1. Obtain the supported major versions using API /20160918/giVersions?compartmentId=<compartmentId>&shape=EXADB_XS&availabilityDomain=<AD name>
-* 2. Replace {version} with one of the supported major versions and obtain the supported minor versions using 
-* API /20160918/giVersions/{version}/minorVersions?compartmentId=<compartmentId>&shapeFamily=EXADB_XS&availabilityDomain=<AD name>
+The grid image ID can be obtained using the API /20160918/giVersions/{majorVersion}/minorVersions?compartmentId=<compartmentId>&shapeFamily=EXADB_XS&availabilityDomain=<AD name>.
+* The list of supported major versions can be obtained using the API /20160918/giVersions?compartmentId=<compartmentId>&shape=ExaDbXS&availabilityDomain=<AD name>
 * 
     */
   "gridImageId"?: string;

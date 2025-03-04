@@ -61,6 +61,15 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "sourceType"?: string;
   /**
+    * The date and time the backup was created.
+* This is the time the actual point-in-time data snapshot was taken,
+* expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
+* <p>
+Example: {@code 2016-08-25T21:10:29.600Z}
+* 
+    */
+  "timeCreatedPrecise"?: Date;
+  /**
    * The size of the backup, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "backupSize"?: number;
@@ -72,6 +81,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * Backup retention period in days. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "retentionPeriod"?: number;
+  /**
+   * List of status for Backup Copy
+   */
+  "copyStatus"?: Array<model.BackupCopyStatusDetails>;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -94,12 +107,30 @@ Example: {@code 2016-08-25T21:10:29.600Z}
 
 export namespace BackupSummary {
   export function getJsonObj(obj: BackupSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "copyStatus": obj.copyStatus
+          ? obj.copyStatus.map(item => {
+              return model.BackupCopyStatusDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: BackupSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "copyStatus": obj.copyStatus
+          ? obj.copyStatus.map(item => {
+              return model.BackupCopyStatusDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

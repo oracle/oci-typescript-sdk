@@ -150,6 +150,18 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "filesystemSnapshotPolicyId"?: string;
+  /**
+   * Specifies the enforcement of quota rules on the file system.
+   */
+  "areQuotaRulesEnabled"?: boolean;
+  /**
+   * Displays the state of enforcement of quota rules on the file system.
+   */
+  "quotaEnforcementState"?: FileSystem.QuotaEnforcementState;
+  /**
+   * Specifies the total number of replications for which this file system is a source. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "replicationSourceCount"?: number;
 }
 
 export namespace FileSystem {
@@ -171,6 +183,20 @@ export namespace FileSystem {
     Attached = "ATTACHED",
     Detaching = "DETACHING",
     Detached = "DETACHED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum QuotaEnforcementState {
+    Enabling = "ENABLING",
+    Enabled = "ENABLED",
+    Disabling = "DISABLING",
+    Disabled = "DISABLED",
+    Syncing = "SYNCING",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
