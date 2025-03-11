@@ -45,6 +45,8 @@ import * as ConfigurationVariables from "./configuration-variables";
 export import ConfigurationVariables = ConfigurationVariables.ConfigurationVariables;
 import * as CopyBackupDetails from "./copy-backup-details";
 export import CopyBackupDetails = CopyBackupDetails.CopyBackupDetails;
+import * as CopyPolicy from "./copy-policy";
+export import CopyPolicy = CopyPolicy.CopyPolicy;
 import * as CrashRecoveryStatus from "./crash-recovery-status";
 export import CrashRecoveryStatus = CrashRecoveryStatus.CrashRecoveryStatus;
 import * as CreateBackupDetails from "./create-backup-details";

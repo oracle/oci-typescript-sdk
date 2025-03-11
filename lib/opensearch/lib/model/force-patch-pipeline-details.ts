@@ -15,27 +15,26 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for validating pipeline configuration provided as input.
+ * force patching a pipeline.
  */
-export interface ValidateOpensearchPipelineDetails {
+export interface ForcePatchPipelineDetails {
   /**
-   * The OCID of the compartment where the pipeline will be created.
+   * OCID of the Opensearch Pipeline.
    */
-  "compartmentId": string;
+  "pipelineId": string;
   /**
-   * The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\.
-   *
+   * flex shape name for the instances in the pipeline
    */
-  "pipelineConfigurationBody": string;
+  "flexShape"?: string;
 }
 
-export namespace ValidateOpensearchPipelineDetails {
-  export function getJsonObj(obj: ValidateOpensearchPipelineDetails): object {
+export namespace ForcePatchPipelineDetails {
+  export function getJsonObj(obj: ForcePatchPipelineDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: ValidateOpensearchPipelineDetails): object {
+  export function getDeserializedJsonObj(obj: ForcePatchPipelineDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The list of cluster pieplines returned in a cluster pipeline search.
+ * The list of cluster pipelines returned in a cluster pipeline search.
  */
 export interface OpensearchClusterPipelineCollection {
   /**

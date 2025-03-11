@@ -23,26 +23,27 @@ export interface CreateOpensearchClusterPipelineDetails {
    */
   "displayName": string;
   /**
-   * The maximum pipeline capacity, in OCPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of OCPUs configured for each pipeline node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "maxOcpuCount": number;
+  "ocpuCount": number;
   /**
-   * The minimum pipeline capacity, in OCPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory in GB, for each pipeline node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "minOcpuCount": number;
+  "memoryGB": number;
   /**
-   * The maximum amount of memory in GB, for the pipeline. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of nodes configured for the pipeline. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "maxMemoryGB": number;
-  /**
-   * The minimum amount of memory in GB, for the pipeline. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "minMemoryGB": number;
+  "nodeCount": number;
   /**
    * The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\.
    *
    */
   "pipelineConfigurationBody": string;
+  /**
+   * The data prepper config in YAML format. The command accepts the data prepper config as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\.
+   *
+   */
+  "dataPrepperConfigurationBody": string;
   /**
    * The OCID of the compartment to create the pipeline in.
    */
@@ -50,19 +51,27 @@ export interface CreateOpensearchClusterPipelineDetails {
   /**
    * The OCID of the pipeline's VCN.
    */
-  "vcnId": string;
+  "vcnId"?: string;
   /**
    * The OCID of the pipeline's subnet.
    */
-  "subnetId": string;
+  "subnetId"?: string;
   /**
    * The OCID for the compartment where the pipeline's VCN is located.
    */
-  "vcnCompartmentId": string;
+  "vcnCompartmentId"?: string;
   /**
-   * The OCID for the compartment where the pipwline's subnet is located.
+   * The OCID for the compartment where the pipeline's subnet is located.
    */
-  "subnetCompartmentId": string;
+  "subnetCompartmentId"?: string;
+  /**
+   * The OCID of the NSG where the pipeline private endpoint vnic will be attached.
+   */
+  "nsgId"?: string;
+  /**
+   * The customer IP and the corresponding fully qualified domain name that the pipeline will connect to.
+   */
+  "reverseConnectionEndpoints"?: Array<model.OpensearchPipelineReverseConnectionEndpoint>;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -75,22 +84,34 @@ export interface CreateOpensearchClusterPipelineDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
-  /**
-   * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
-   *
-   */
-  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace CreateOpensearchClusterPipelineDetails {
   export function getJsonObj(obj: CreateOpensearchClusterPipelineDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "reverseConnectionEndpoints": obj.reverseConnectionEndpoints
+          ? obj.reverseConnectionEndpoints.map(item => {
+              return model.OpensearchPipelineReverseConnectionEndpoint.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateOpensearchClusterPipelineDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "reverseConnectionEndpoints": obj.reverseConnectionEndpoints
+          ? obj.reverseConnectionEndpoints.map(item => {
+              return model.OpensearchPipelineReverseConnectionEndpoint.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

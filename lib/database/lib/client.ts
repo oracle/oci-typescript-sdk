@@ -22873,7 +22873,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "sortBy": listCloudVmClustersRequest.sortBy,
       "sortOrder": listCloudVmClustersRequest.sortOrder,
       "lifecycleState": listCloudVmClustersRequest.lifecycleState,
-      "displayName": listCloudVmClustersRequest.displayName
+      "displayName": listCloudVmClustersRequest.displayName,
+      "vmClusterType": listCloudVmClustersRequest.vmClusterType
     };
 
     let headerParams = {
@@ -23441,6 +23442,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "imageShapeFamily": listDatabaseSoftwareImagesRequest.imageShapeFamily,
       "patchSetGreaterThanOrEqualTo":
         listDatabaseSoftwareImagesRequest.patchSetGreaterThanOrEqualTo,
+      "dbSystemId": listDatabaseSoftwareImagesRequest.dbSystemId,
       "isUpgradeSupported": listDatabaseSoftwareImagesRequest.isUpgradeSupported
     };
 
@@ -29511,7 +29513,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "sortBy": listVmClustersRequest.sortBy,
       "sortOrder": listVmClustersRequest.sortOrder,
       "lifecycleState": listVmClustersRequest.lifecycleState,
-      "displayName": listVmClustersRequest.displayName
+      "displayName": listVmClustersRequest.displayName,
+      "vmClusterType": listVmClustersRequest.vmClusterType
     };
 
     let headerParams = {

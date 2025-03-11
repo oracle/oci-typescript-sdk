@@ -31,6 +31,11 @@ export interface ListModelsRequest extends common.BaseRequest {
    */
   "versionLabel"?: string;
   /**
+   * Specifies the type of models to list. By default, user models are listed.
+   *
+   */
+  "category"?: ListModelsRequest.Category;
+  /**
    * <b>Filter</b> results by [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Must be an OCID of the correct type for the resource type.
    *
    */
@@ -91,6 +96,11 @@ See [List Pagination](https://docs.oracle.com/iaas/Content/General/Concepts/usin
 }
 
 export namespace ListModelsRequest {
+  export enum Category {
+    User = "USER",
+    Service = "SERVICE"
+  }
+
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"

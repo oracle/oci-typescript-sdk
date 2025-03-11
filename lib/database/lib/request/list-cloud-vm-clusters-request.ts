@@ -56,6 +56,10 @@ export interface ListCloudVmClustersRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only cloud vmclusters that match the given cloud vmcluster type exactly.
+   */
+  "vmClusterType"?: string;
 }
 
 export namespace ListCloudVmClustersRequest {

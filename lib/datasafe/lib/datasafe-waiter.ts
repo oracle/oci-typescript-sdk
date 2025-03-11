@@ -585,6 +585,25 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forSensitiveTypeGroup till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSensitiveTypeGroupResponse | null (null in case of 404 response)
+   */
+  public async forSensitiveTypeGroup(
+    request: serviceRequests.GetSensitiveTypeGroupRequest,
+    ...targetStates: models.SensitiveTypeGroupLifecycleState[]
+  ): Promise<serviceResponses.GetSensitiveTypeGroupResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSensitiveTypeGroup(request),
+      response => targetStates.includes(response.sensitiveTypeGroup.lifecycleState!),
+      targetStates.includes(models.SensitiveTypeGroupLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forSensitiveTypesExport till it reaches any of the provided states
    *
    * @param request the request to send

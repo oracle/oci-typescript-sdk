@@ -41,6 +41,14 @@ export interface MaskDataDetails {
    */
   "isRerun"?: boolean;
   /**
+   * Specifies the step from which masking needs to be rerun. This param will be used only when isRerun attribute is true.
+   * If PRE_MASKING_SCRIPT is passed, it will rerun the pre-masking script, followed by masking, and then the post-masking script.
+   * If POST_MASKING_SCRIPT is passed, it will rerun only the post-masking script.
+   * If this field is not set and isRerun is set to true, then it will default to the last failed step.
+   *
+   */
+  "reRunFromStep"?: MaskDataDetails.ReRunFromStep;
+  /**
    * The tablespace that should be used to create the mapping tables, DMASK objects, and other temporary tables for data masking.
    * If no tablespace is provided, the DEFAULT tablespace is used.
    *
@@ -117,6 +125,11 @@ export interface MaskDataDetails {
 }
 
 export namespace MaskDataDetails {
+  export enum ReRunFromStep {
+    PreMaskingScript = "PRE_MASKING_SCRIPT",
+    PostMaskingScript = "POST_MASKING_SCRIPT"
+  }
+
   export function getJsonObj(obj: MaskDataDetails): object {
     const jsonObj = { ...obj, ...{} };
 

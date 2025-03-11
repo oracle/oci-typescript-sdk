@@ -192,12 +192,21 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
   "cloudAutomationUpdateDetails"?: model.CloudAutomationUpdateDetails;
+  /**
+   * The vmcluster type for the VM cluster/Cloud VM cluster.
+   */
+  "vmClusterType"?: CreateCloudVmClusterDetails.VmClusterType;
 }
 
 export namespace CreateCloudVmClusterDetails {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+  }
+
+  export enum VmClusterType {
+    Regular = "REGULAR",
+    Developer = "DEVELOPER"
   }
 
   export function getJsonObj(obj: CreateCloudVmClusterDetails): object {

@@ -69,6 +69,42 @@ export interface ListFindingsRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
+ * The scimQuery query parameter accepts filter expressions that use the syntax described in Section 3.2.2.2
+* of the System for Cross-Domain Identity Management (SCIM) specification, which is available
+* at [RFC3339](https://tools.ietf.org/html/draft-ietf-scim-api-12). In SCIM filtering expressions,
+* text, date, and time values must be enclosed in quotation marks, with date and time values using ISO-8601 format.
+* (Numeric and boolean values should not be quoted.)
+* <p>
+**Example:** |
+* scimQuery=(severity eq 'high') and (targetId eq 'target_1')
+* scimQuery=(category eq \"Users\") and (targetId eq \"target_1\")
+* scimQuery=(reference eq 'CIS') and (targetId eq 'target_1')
+* <p>
+Supported fields:
+* severity
+* findingKey
+* reference
+* targetId
+* isTopFinding
+* title
+* category
+* remarks
+* details
+* summary
+* isRiskModified    
+* 
+ */
+  "scimQuery"?: string;
+  /**
+   * Specifies a subset of fields to be returned in the response.
+   */
+  "field"?: Array<ListFindingsRequest.Field>;
+  /**
+   * The field to sort by. You can specify only one sort order(sortOrder). The default order for category is alphabetical.
+   *
+   */
+  "sortBy"?: ListFindingsRequest.SortBy;
+  /**
    * Each finding in security assessment has an associated key (think of key as a finding's name).
    * For a given finding, the key will be the same across targets. The user can use these keys to filter the findings.
    *
@@ -90,5 +126,25 @@ export namespace ListFindingsRequest {
   export enum AccessLevel {
     Restricted = "RESTRICTED",
     Accessible = "ACCESSIBLE"
+  }
+
+  export enum Field {
+    Severity = "severity",
+    FindingKey = "findingKey",
+    Reference = "reference",
+    TargetId = "targetId",
+    IsTopFinding = "isTopFinding",
+    Title = "title",
+    Category = "category",
+    Remarks = "remarks",
+    Details = "details",
+    Summary = "summary",
+    IsRiskModified = "isRiskModified"
+  }
+
+  export enum SortBy {
+    Category = "category",
+    FindingKey = "findingKey",
+    Severity = "severity"
   }
 }

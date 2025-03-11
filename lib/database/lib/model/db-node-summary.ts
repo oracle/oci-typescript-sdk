@@ -41,8 +41,8 @@ export interface DbNodeSummary {
    */
   "backupVnicId"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host IP address associated with the database node. Use this OCID with either the
-   * {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp} or the {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest) getPublicIpByPrivateIpId} API to get the IP address
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host IPv4 address associated with the database node. Use this OCID with either the
+   * {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp} or the {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest) getPublicIpByPrivateIpId} API to get the IPv4 address
    * needed to make a database connection.
    * <p>
    **Note:** Applies only to Exadata Cloud Service.
@@ -50,14 +50,30 @@ export interface DbNodeSummary {
    */
   "hostIpId"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup IP address associated with the database node. Use this OCID with either the
-   * {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp} or the {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest) getPublicIpByPrivateIpId} API to get the IP address
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup IPv4 address associated with the database node. Use this OCID with either the
+   * {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp} or the {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest) getPublicIpByPrivateIpId} API to get the IPv4 address
    * needed to make a database connection.
    * <p>
    **Note:** Applies only to Exadata Cloud Service.
    *
    */
   "backupIpId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host IPv6 address associated with the database node. Use this OCID with the
+   * {@link #getIpv6(GetIpv6Request) getIpv6} API to get the IPv6 address needed to make a database connection.
+   * <p>
+   **Note:** Applies only to Exadata Cloud Service.
+   *
+   */
+  "hostIpv6Id"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup IPv6 address associated with the database node. Use this OCID with the
+   * {@link #getIpv6(GetIpv6Request) getIpv6} API to get the IPv6 address needed to make a database connection.
+   * <p>
+   **Note:** Applies only to Exadata Cloud Service.
+   *
+   */
+  "backupIpv6Id"?: string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the second VNIC.
    * <p>

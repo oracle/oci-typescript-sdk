@@ -147,6 +147,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Details of the file system configuration of the VM cluster.
    */
   "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
+  /**
+   * The vmcluster type for the VM cluster/Cloud VM cluster.
+   */
+  "vmClusterType"?: VmCluster.VmClusterType;
   "cloudAutomationUpdateDetails"?: model.CloudAutomationUpdateDetails;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Database Storage Vault.
@@ -188,6 +192,16 @@ export namespace VmCluster {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum VmClusterType {
+    Regular = "REGULAR",
+    Developer = "DEVELOPER",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum StorageManagementType {
     Asm = "ASM",
     Exascale = "EXASCALE",
@@ -221,6 +235,7 @@ export namespace VmCluster {
               return model.FileSystemConfigurationDetail.getJsonObj(item);
             })
           : undefined,
+
         "cloudAutomationUpdateDetails": obj.cloudAutomationUpdateDetails
           ? model.CloudAutomationUpdateDetails.getJsonObj(obj.cloudAutomationUpdateDetails)
           : undefined
@@ -242,6 +257,7 @@ export namespace VmCluster {
               return model.FileSystemConfigurationDetail.getDeserializedJsonObj(item);
             })
           : undefined,
+
         "cloudAutomationUpdateDetails": obj.cloudAutomationUpdateDetails
           ? model.CloudAutomationUpdateDetails.getDeserializedJsonObj(
               obj.cloudAutomationUpdateDetails

@@ -2071,6 +2071,164 @@ export class DataScienceClient {
   }
 
   /**
+   * Creates model custom metadata artifact for specified model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateModelCustomMetadatumArtifactRequest
+   * @return CreateModelCustomMetadatumArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModelCustomMetadatumArtifact.ts.html |here} to see how to use CreateModelCustomMetadatumArtifact API.
+   */
+  public async createModelCustomMetadatumArtifact(
+    createModelCustomMetadatumArtifactRequest: requests.CreateModelCustomMetadatumArtifactRequest
+  ): Promise<responses.CreateModelCustomMetadatumArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createModelCustomMetadatumArtifact.");
+    const operationName = "createModelCustomMetadatumArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/CreateModelCustomMetadatumArtifact";
+    const pathParams = {
+      "{modelId}": createModelCustomMetadatumArtifactRequest.modelId,
+      "{metadatumKeyName}": createModelCustomMetadatumArtifactRequest.metadatumKeyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": createModelCustomMetadatumArtifactRequest.opcRequestId,
+      "content-length": createModelCustomMetadatumArtifactRequest.contentLength,
+      "content-disposition": createModelCustomMetadatumArtifactRequest.contentDisposition,
+      "if-match": createModelCustomMetadatumArtifactRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelCustomMetadatumArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/customMetadata/{metadatumKeyName}/artifact",
+      method: "POST",
+      bodyContent: createModelCustomMetadatumArtifactRequest.modelCustomMetadatumArtifact,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateModelCustomMetadatumArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates model defined metadata artifact for specified model.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateModelDefinedMetadatumArtifactRequest
+   * @return CreateModelDefinedMetadatumArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModelDefinedMetadatumArtifact.ts.html |here} to see how to use CreateModelDefinedMetadatumArtifact API.
+   */
+  public async createModelDefinedMetadatumArtifact(
+    createModelDefinedMetadatumArtifactRequest: requests.CreateModelDefinedMetadatumArtifactRequest
+  ): Promise<responses.CreateModelDefinedMetadatumArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createModelDefinedMetadatumArtifact.");
+    const operationName = "createModelDefinedMetadatumArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/CreateModelDefinedMetadatumArtifact";
+    const pathParams = {
+      "{modelId}": createModelDefinedMetadatumArtifactRequest.modelId,
+      "{metadatumKeyName}": createModelDefinedMetadatumArtifactRequest.metadatumKeyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": createModelDefinedMetadatumArtifactRequest.opcRequestId,
+      "content-length": createModelDefinedMetadatumArtifactRequest.contentLength,
+      "content-disposition": createModelDefinedMetadatumArtifactRequest.contentDisposition,
+      "if-match": createModelDefinedMetadatumArtifactRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelDefinedMetadatumArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/definedMetadata/{metadatumKeyName}/artifact",
+      method: "POST",
+      bodyContent: createModelDefinedMetadatumArtifactRequest.modelDefinedMetadatumArtifact,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateModelDefinedMetadatumArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new model deployment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateModelDeploymentRequest
@@ -3421,6 +3579,146 @@ export class DataScienceClient {
   }
 
   /**
+   * Deletes model custom metadata artifact for specified model metadata key.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteModelCustomMetadatumArtifactRequest
+   * @return DeleteModelCustomMetadatumArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteModelCustomMetadatumArtifact.ts.html |here} to see how to use DeleteModelCustomMetadatumArtifact API.
+   */
+  public async deleteModelCustomMetadatumArtifact(
+    deleteModelCustomMetadatumArtifactRequest: requests.DeleteModelCustomMetadatumArtifactRequest
+  ): Promise<responses.DeleteModelCustomMetadatumArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteModelCustomMetadatumArtifact.");
+    const operationName = "deleteModelCustomMetadatumArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/DeleteModelCustomMetadatumArtifact";
+    const pathParams = {
+      "{modelId}": deleteModelCustomMetadatumArtifactRequest.modelId,
+      "{metadatumKeyName}": deleteModelCustomMetadatumArtifactRequest.metadatumKeyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteModelCustomMetadatumArtifactRequest.opcRequestId,
+      "if-match": deleteModelCustomMetadatumArtifactRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteModelCustomMetadatumArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/customMetadata/{metadatumKeyName}/artifact",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteModelCustomMetadatumArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes model defined metadata artifact for specified model metadata key.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteModelDefinedMetadatumArtifactRequest
+   * @return DeleteModelDefinedMetadatumArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteModelDefinedMetadatumArtifact.ts.html |here} to see how to use DeleteModelDefinedMetadatumArtifact API.
+   */
+  public async deleteModelDefinedMetadatumArtifact(
+    deleteModelDefinedMetadatumArtifactRequest: requests.DeleteModelDefinedMetadatumArtifactRequest
+  ): Promise<responses.DeleteModelDefinedMetadatumArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteModelDefinedMetadatumArtifact.");
+    const operationName = "deleteModelDefinedMetadatumArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/DeleteModelDefinedMetadatumArtifact";
+    const pathParams = {
+      "{modelId}": deleteModelDefinedMetadatumArtifactRequest.modelId,
+      "{metadatumKeyName}": deleteModelDefinedMetadatumArtifactRequest.metadatumKeyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteModelDefinedMetadatumArtifactRequest.opcRequestId,
+      "if-match": deleteModelDefinedMetadatumArtifactRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteModelDefinedMetadatumArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/definedMetadata/{metadatumKeyName}/artifact",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteModelDefinedMetadatumArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified model deployment. Any unsaved work in this model deployment is lost.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteModelDeploymentRequest
@@ -4517,6 +4815,208 @@ export class DataScienceClient {
   }
 
   /**
+   * Downloads model custom metadata artifact content for specified model metadata key.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetModelCustomMetadatumArtifactContentRequest
+   * @return GetModelCustomMetadatumArtifactContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetModelCustomMetadatumArtifactContent.ts.html |here} to see how to use GetModelCustomMetadatumArtifactContent API.
+   */
+  public async getModelCustomMetadatumArtifactContent(
+    getModelCustomMetadatumArtifactContentRequest: requests.GetModelCustomMetadatumArtifactContentRequest
+  ): Promise<responses.GetModelCustomMetadatumArtifactContentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#getModelCustomMetadatumArtifactContent."
+      );
+    const operationName = "getModelCustomMetadatumArtifactContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/GetModelCustomMetadatumArtifactContent";
+    const pathParams = {
+      "{modelId}": getModelCustomMetadatumArtifactContentRequest.modelId,
+      "{metadatumKeyName}": getModelCustomMetadatumArtifactContentRequest.metadatumKeyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getModelCustomMetadatumArtifactContentRequest.opcRequestId,
+      "range": getModelCustomMetadatumArtifactContentRequest.range
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelCustomMetadatumArtifactContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/customMetadata/{metadatumKeyName}/artifact/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetModelCustomMetadatumArtifactContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads model defined metadata artifact content for specified model metadata key.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetModelDefinedMetadatumArtifactContentRequest
+   * @return GetModelDefinedMetadatumArtifactContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetModelDefinedMetadatumArtifactContent.ts.html |here} to see how to use GetModelDefinedMetadatumArtifactContent API.
+   */
+  public async getModelDefinedMetadatumArtifactContent(
+    getModelDefinedMetadatumArtifactContentRequest: requests.GetModelDefinedMetadatumArtifactContentRequest
+  ): Promise<responses.GetModelDefinedMetadatumArtifactContentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#getModelDefinedMetadatumArtifactContent."
+      );
+    const operationName = "getModelDefinedMetadatumArtifactContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/GetModelDefinedMetadatumArtifactContent";
+    const pathParams = {
+      "{modelId}": getModelDefinedMetadatumArtifactContentRequest.modelId,
+      "{metadatumKeyName}": getModelDefinedMetadatumArtifactContentRequest.metadatumKeyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getModelDefinedMetadatumArtifactContentRequest.opcRequestId,
+      "range": getModelDefinedMetadatumArtifactContentRequest.range
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelDefinedMetadatumArtifactContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/definedMetadata/{metadatumKeyName}/artifact/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetModelDefinedMetadatumArtifactContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves the model deployment for the specified `modelDeploymentId`.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetModelDeploymentRequest
@@ -5449,6 +5949,194 @@ export class DataScienceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.HeadModelArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets custom metadata artifact metadata for specified model metadata key.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param HeadModelCustomMetadatumArtifactRequest
+   * @return HeadModelCustomMetadatumArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/HeadModelCustomMetadatumArtifact.ts.html |here} to see how to use HeadModelCustomMetadatumArtifact API.
+   */
+  public async headModelCustomMetadatumArtifact(
+    headModelCustomMetadatumArtifactRequest: requests.HeadModelCustomMetadatumArtifactRequest
+  ): Promise<responses.HeadModelCustomMetadatumArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#headModelCustomMetadatumArtifact.");
+    const operationName = "headModelCustomMetadatumArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/HeadModelCustomMetadatumArtifact";
+    const pathParams = {
+      "{modelId}": headModelCustomMetadatumArtifactRequest.modelId,
+      "{metadatumKeyName}": headModelCustomMetadatumArtifactRequest.metadatumKeyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": headModelCustomMetadatumArtifactRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      headModelCustomMetadatumArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/customMetadata/{metadatumKeyName}/artifact/content",
+      method: "HEAD",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.HeadModelCustomMetadatumArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets defined metadata artifact metadata for specified model metadata key.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param HeadModelDefinedMetadatumArtifactRequest
+   * @return HeadModelDefinedMetadatumArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/HeadModelDefinedMetadatumArtifact.ts.html |here} to see how to use HeadModelDefinedMetadatumArtifact API.
+   */
+  public async headModelDefinedMetadatumArtifact(
+    headModelDefinedMetadatumArtifactRequest: requests.HeadModelDefinedMetadatumArtifactRequest
+  ): Promise<responses.HeadModelDefinedMetadatumArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#headModelDefinedMetadatumArtifact.");
+    const operationName = "headModelDefinedMetadatumArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/HeadModelDefinedMetadatumArtifact";
+    const pathParams = {
+      "{modelId}": headModelDefinedMetadatumArtifactRequest.modelId,
+      "{metadatumKeyName}": headModelDefinedMetadatumArtifactRequest.metadatumKeyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": headModelDefinedMetadatumArtifactRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      headModelDefinedMetadatumArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/definedMetadata/{metadatumKeyName}/artifact/content",
+      method: "HEAD",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.HeadModelDefinedMetadatumArtifactResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6795,6 +7483,7 @@ export class DataScienceClient {
 
     const queryParams = {
       "compartmentId": listModelVersionSetsRequest.compartmentId,
+      "category": listModelVersionSetsRequest.category,
       "id": listModelVersionSetsRequest.id,
       "projectId": listModelVersionSetsRequest.projectId,
       "name": listModelVersionSetsRequest.name,
@@ -6939,6 +7628,7 @@ export class DataScienceClient {
       "compartmentId": listModelsRequest.compartmentId,
       "modelVersionSetName": listModelsRequest.modelVersionSetName,
       "versionLabel": listModelsRequest.versionLabel,
+      "category": listModelsRequest.category,
       "id": listModelsRequest.id,
       "projectId": listModelsRequest.projectId,
       "displayName": listModelsRequest.displayName,
@@ -8316,6 +9006,86 @@ export class DataScienceClient {
   }
 
   /**
+   * Registers model artifact reference metadata
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RegisterModelArtifactReferenceRequest
+   * @return RegisterModelArtifactReferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/RegisterModelArtifactReference.ts.html |here} to see how to use RegisterModelArtifactReference API.
+   */
+  public async registerModelArtifactReference(
+    registerModelArtifactReferenceRequest: requests.RegisterModelArtifactReferenceRequest
+  ): Promise<responses.RegisterModelArtifactReferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#registerModelArtifactReference.");
+    const operationName = "registerModelArtifactReference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/RegisterModelArtifactReferenceDetails/RegisterModelArtifactReference";
+    const pathParams = {
+      "{modelId}": registerModelArtifactReferenceRequest.modelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": registerModelArtifactReferenceRequest.opcRequestId,
+      "opc-retry-token": registerModelArtifactReferenceRequest.opcRetryToken,
+      "if-match": registerModelArtifactReferenceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      registerModelArtifactReferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/actions/registerArtifactReference",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        registerModelArtifactReferenceRequest.registerModelArtifactReferenceDetails,
+        "RegisterModelArtifactReferenceDetails",
+        model.RegisterModelArtifactReferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RegisterModelArtifactReferenceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Restore archived model artifact
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RestoreArchivedModelArtifactRequest
@@ -8706,6 +9476,164 @@ export class DataScienceClient {
         bodyKey: "model",
         bodyModel: model.Model,
         type: "model.Model",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates model custom metadata artifact for specified model metadata key.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateModelCustomMetadatumArtifactRequest
+   * @return UpdateModelCustomMetadatumArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateModelCustomMetadatumArtifact.ts.html |here} to see how to use UpdateModelCustomMetadatumArtifact API.
+   */
+  public async updateModelCustomMetadatumArtifact(
+    updateModelCustomMetadatumArtifactRequest: requests.UpdateModelCustomMetadatumArtifactRequest
+  ): Promise<responses.UpdateModelCustomMetadatumArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateModelCustomMetadatumArtifact.");
+    const operationName = "updateModelCustomMetadatumArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/UpdateModelCustomMetadatumArtifact";
+    const pathParams = {
+      "{modelId}": updateModelCustomMetadatumArtifactRequest.modelId,
+      "{metadatumKeyName}": updateModelCustomMetadatumArtifactRequest.metadatumKeyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": updateModelCustomMetadatumArtifactRequest.opcRequestId,
+      "content-length": updateModelCustomMetadatumArtifactRequest.contentLength,
+      "content-disposition": updateModelCustomMetadatumArtifactRequest.contentDisposition,
+      "if-match": updateModelCustomMetadatumArtifactRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateModelCustomMetadatumArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/customMetadata/{metadatumKeyName}/artifact",
+      method: "PUT",
+      bodyContent: updateModelCustomMetadatumArtifactRequest.modelCustomMetadatumArtifact,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateModelCustomMetadatumArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates model defined metadata artifact for specified model metadata key.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateModelDefinedMetadatumArtifactRequest
+   * @return UpdateModelDefinedMetadatumArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateModelDefinedMetadatumArtifact.ts.html |here} to see how to use UpdateModelDefinedMetadatumArtifact API.
+   */
+  public async updateModelDefinedMetadatumArtifact(
+    updateModelDefinedMetadatumArtifactRequest: requests.UpdateModelDefinedMetadatumArtifactRequest
+  ): Promise<responses.UpdateModelDefinedMetadatumArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateModelDefinedMetadatumArtifact.");
+    const operationName = "updateModelDefinedMetadatumArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/UpdateModelDefinedMetadatumArtifact";
+    const pathParams = {
+      "{modelId}": updateModelDefinedMetadatumArtifactRequest.modelId,
+      "{metadatumKeyName}": updateModelDefinedMetadatumArtifactRequest.metadatumKeyName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": updateModelDefinedMetadatumArtifactRequest.opcRequestId,
+      "content-length": updateModelDefinedMetadatumArtifactRequest.contentLength,
+      "content-disposition": updateModelDefinedMetadatumArtifactRequest.contentDisposition,
+      "if-match": updateModelDefinedMetadatumArtifactRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateModelDefinedMetadatumArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/definedMetadata/{metadatumKeyName}/artifact",
+      method: "PUT",
+      bodyContent: updateModelDefinedMetadatumArtifactRequest.modelDefinedMetadatumArtifact,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateModelDefinedMetadatumArtifactResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("etag"),

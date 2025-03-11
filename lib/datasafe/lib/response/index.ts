@@ -75,6 +75,8 @@ import * as ChangeSensitiveDataModelCompartmentResponse from "./change-sensitive
 export import ChangeSensitiveDataModelCompartmentResponse = ChangeSensitiveDataModelCompartmentResponse.ChangeSensitiveDataModelCompartmentResponse;
 import * as ChangeSensitiveTypeCompartmentResponse from "./change-sensitive-type-compartment-response";
 export import ChangeSensitiveTypeCompartmentResponse = ChangeSensitiveTypeCompartmentResponse.ChangeSensitiveTypeCompartmentResponse;
+import * as ChangeSensitiveTypeGroupCompartmentResponse from "./change-sensitive-type-group-compartment-response";
+export import ChangeSensitiveTypeGroupCompartmentResponse = ChangeSensitiveTypeGroupCompartmentResponse.ChangeSensitiveTypeGroupCompartmentResponse;
 import * as ChangeSensitiveTypesExportCompartmentResponse from "./change-sensitive-types-export-compartment-response";
 export import ChangeSensitiveTypesExportCompartmentResponse = ChangeSensitiveTypesExportCompartmentResponse.ChangeSensitiveTypesExportCompartmentResponse;
 import * as ChangeSqlCollectionCompartmentResponse from "./change-sql-collection-compartment-response";
@@ -125,6 +127,8 @@ import * as CreateSensitiveDataModelResponse from "./create-sensitive-data-model
 export import CreateSensitiveDataModelResponse = CreateSensitiveDataModelResponse.CreateSensitiveDataModelResponse;
 import * as CreateSensitiveTypeResponse from "./create-sensitive-type-response";
 export import CreateSensitiveTypeResponse = CreateSensitiveTypeResponse.CreateSensitiveTypeResponse;
+import * as CreateSensitiveTypeGroupResponse from "./create-sensitive-type-group-response";
+export import CreateSensitiveTypeGroupResponse = CreateSensitiveTypeGroupResponse.CreateSensitiveTypeGroupResponse;
 import * as CreateSensitiveTypesExportResponse from "./create-sensitive-types-export-response";
 export import CreateSensitiveTypesExportResponse = CreateSensitiveTypesExportResponse.CreateSensitiveTypesExportResponse;
 import * as CreateSqlCollectionResponse from "./create-sql-collection-response";
@@ -159,6 +163,8 @@ import * as DeleteMaskingPolicyResponse from "./delete-masking-policy-response";
 export import DeleteMaskingPolicyResponse = DeleteMaskingPolicyResponse.DeleteMaskingPolicyResponse;
 import * as DeleteMaskingPolicyHealthReportResponse from "./delete-masking-policy-health-report-response";
 export import DeleteMaskingPolicyHealthReportResponse = DeleteMaskingPolicyHealthReportResponse.DeleteMaskingPolicyHealthReportResponse;
+import * as DeleteMaskingReportResponse from "./delete-masking-report-response";
+export import DeleteMaskingReportResponse = DeleteMaskingReportResponse.DeleteMaskingReportResponse;
 import * as DeleteOnPremConnectorResponse from "./delete-on-prem-connector-response";
 export import DeleteOnPremConnectorResponse = DeleteOnPremConnectorResponse.DeleteOnPremConnectorResponse;
 import * as DeletePeerTargetDatabaseResponse from "./delete-peer-target-database-response";
@@ -177,6 +183,8 @@ import * as DeleteSensitiveDataModelResponse from "./delete-sensitive-data-model
 export import DeleteSensitiveDataModelResponse = DeleteSensitiveDataModelResponse.DeleteSensitiveDataModelResponse;
 import * as DeleteSensitiveTypeResponse from "./delete-sensitive-type-response";
 export import DeleteSensitiveTypeResponse = DeleteSensitiveTypeResponse.DeleteSensitiveTypeResponse;
+import * as DeleteSensitiveTypeGroupResponse from "./delete-sensitive-type-group-response";
+export import DeleteSensitiveTypeGroupResponse = DeleteSensitiveTypeGroupResponse.DeleteSensitiveTypeGroupResponse;
 import * as DeleteSensitiveTypesExportResponse from "./delete-sensitive-types-export-response";
 export import DeleteSensitiveTypesExportResponse = DeleteSensitiveTypesExportResponse.DeleteSensitiveTypesExportResponse;
 import * as DeleteSqlCollectionResponse from "./delete-sql-collection-response";
@@ -311,6 +319,8 @@ import * as GetSensitiveDataModelResponse from "./get-sensitive-data-model-respo
 export import GetSensitiveDataModelResponse = GetSensitiveDataModelResponse.GetSensitiveDataModelResponse;
 import * as GetSensitiveTypeResponse from "./get-sensitive-type-response";
 export import GetSensitiveTypeResponse = GetSensitiveTypeResponse.GetSensitiveTypeResponse;
+import * as GetSensitiveTypeGroupResponse from "./get-sensitive-type-group-response";
+export import GetSensitiveTypeGroupResponse = GetSensitiveTypeGroupResponse.GetSensitiveTypeGroupResponse;
 import * as GetSensitiveTypesExportResponse from "./get-sensitive-types-export-response";
 export import GetSensitiveTypesExportResponse = GetSensitiveTypesExportResponse.GetSensitiveTypesExportResponse;
 import * as GetSqlCollectionResponse from "./get-sql-collection-response";
@@ -385,6 +395,8 @@ import * as ListFindingsChangeAuditLogsResponse from "./list-findings-change-aud
 export import ListFindingsChangeAuditLogsResponse = ListFindingsChangeAuditLogsResponse.ListFindingsChangeAuditLogsResponse;
 import * as ListGrantsResponse from "./list-grants-response";
 export import ListGrantsResponse = ListGrantsResponse.ListGrantsResponse;
+import * as ListGroupedSensitiveTypesResponse from "./list-grouped-sensitive-types-response";
+export import ListGroupedSensitiveTypesResponse = ListGroupedSensitiveTypesResponse.ListGroupedSensitiveTypesResponse;
 import * as ListLibraryMaskingFormatsResponse from "./list-library-masking-formats-response";
 export import ListLibraryMaskingFormatsResponse = ListLibraryMaskingFormatsResponse.ListLibraryMaskingFormatsResponse;
 import * as ListMaskedColumnsResponse from "./list-masked-columns-response";
@@ -393,6 +405,8 @@ import * as ListMaskingAnalyticsResponse from "./list-masking-analytics-response
 export import ListMaskingAnalyticsResponse = ListMaskingAnalyticsResponse.ListMaskingAnalyticsResponse;
 import * as ListMaskingColumnsResponse from "./list-masking-columns-response";
 export import ListMaskingColumnsResponse = ListMaskingColumnsResponse.ListMaskingColumnsResponse;
+import * as ListMaskingErrorsResponse from "./list-masking-errors-response";
+export import ListMaskingErrorsResponse = ListMaskingErrorsResponse.ListMaskingErrorsResponse;
 import * as ListMaskingObjectsResponse from "./list-masking-objects-response";
 export import ListMaskingObjectsResponse = ListMaskingObjectsResponse.ListMaskingObjectsResponse;
 import * as ListMaskingPoliciesResponse from "./list-masking-policies-response";
@@ -445,6 +459,8 @@ import * as ListSecurityPolicyEntryStatesResponse from "./list-security-policy-e
 export import ListSecurityPolicyEntryStatesResponse = ListSecurityPolicyEntryStatesResponse.ListSecurityPolicyEntryStatesResponse;
 import * as ListSecurityPolicyReportsResponse from "./list-security-policy-reports-response";
 export import ListSecurityPolicyReportsResponse = ListSecurityPolicyReportsResponse.ListSecurityPolicyReportsResponse;
+import * as ListSensitiveColumnAnalyticsResponse from "./list-sensitive-column-analytics-response";
+export import ListSensitiveColumnAnalyticsResponse = ListSensitiveColumnAnalyticsResponse.ListSensitiveColumnAnalyticsResponse;
 import * as ListSensitiveColumnsResponse from "./list-sensitive-columns-response";
 export import ListSensitiveColumnsResponse = ListSensitiveColumnsResponse.ListSensitiveColumnsResponse;
 import * as ListSensitiveDataModelSensitiveTypesResponse from "./list-sensitive-data-model-sensitive-types-response";
@@ -455,6 +471,8 @@ import * as ListSensitiveObjectsResponse from "./list-sensitive-objects-response
 export import ListSensitiveObjectsResponse = ListSensitiveObjectsResponse.ListSensitiveObjectsResponse;
 import * as ListSensitiveSchemasResponse from "./list-sensitive-schemas-response";
 export import ListSensitiveSchemasResponse = ListSensitiveSchemasResponse.ListSensitiveSchemasResponse;
+import * as ListSensitiveTypeGroupsResponse from "./list-sensitive-type-groups-response";
+export import ListSensitiveTypeGroupsResponse = ListSensitiveTypeGroupsResponse.ListSensitiveTypeGroupsResponse;
 import * as ListSensitiveTypesResponse from "./list-sensitive-types-response";
 export import ListSensitiveTypesResponse = ListSensitiveTypesResponse.ListSensitiveTypesResponse;
 import * as ListSensitiveTypesExportsResponse from "./list-sensitive-types-exports-response";
@@ -505,6 +523,8 @@ import * as PatchAlertsResponse from "./patch-alerts-response";
 export import PatchAlertsResponse = PatchAlertsResponse.PatchAlertsResponse;
 import * as PatchDiscoveryJobResultsResponse from "./patch-discovery-job-results-response";
 export import PatchDiscoveryJobResultsResponse = PatchDiscoveryJobResultsResponse.PatchDiscoveryJobResultsResponse;
+import * as PatchGroupedSensitiveTypesResponse from "./patch-grouped-sensitive-types-response";
+export import PatchGroupedSensitiveTypesResponse = PatchGroupedSensitiveTypesResponse.PatchGroupedSensitiveTypesResponse;
 import * as PatchMaskingColumnsResponse from "./patch-masking-columns-response";
 export import PatchMaskingColumnsResponse = PatchMaskingColumnsResponse.PatchMaskingColumnsResponse;
 import * as PatchSdmMaskingPolicyDifferenceColumnsResponse from "./patch-sdm-masking-policy-difference-columns-response";
@@ -607,6 +627,8 @@ import * as UpdateSensitiveDataModelResponse from "./update-sensitive-data-model
 export import UpdateSensitiveDataModelResponse = UpdateSensitiveDataModelResponse.UpdateSensitiveDataModelResponse;
 import * as UpdateSensitiveTypeResponse from "./update-sensitive-type-response";
 export import UpdateSensitiveTypeResponse = UpdateSensitiveTypeResponse.UpdateSensitiveTypeResponse;
+import * as UpdateSensitiveTypeGroupResponse from "./update-sensitive-type-group-response";
+export import UpdateSensitiveTypeGroupResponse = UpdateSensitiveTypeGroupResponse.UpdateSensitiveTypeGroupResponse;
 import * as UpdateSensitiveTypesExportResponse from "./update-sensitive-types-export-response";
 export import UpdateSensitiveTypesExportResponse = UpdateSensitiveTypesExportResponse.UpdateSensitiveTypesExportResponse;
 import * as UpdateSqlCollectionResponse from "./update-sql-collection-response";

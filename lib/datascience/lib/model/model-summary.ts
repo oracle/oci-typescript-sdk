@@ -70,6 +70,14 @@ export interface ModelSummary {
    */
   "versionLabel": string;
   /**
+   * The category of the model.
+   */
+  "category": model.ModelCategory;
+  /**
+   * Identifier to indicate whether a model artifact resides in the Service Tenancy or Customer Tenancy.
+   */
+  "isModelByReference": boolean;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *

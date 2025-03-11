@@ -56,6 +56,10 @@ export interface ListVmClustersRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only vmclusters that match the given vmcluster type exactly.
+   */
+  "vmClusterType"?: string;
 }
 
 export namespace ListVmClustersRequest {

@@ -51,3 +51,13 @@ import * as ListOpensearchClusterBackupsRequest from "./list-opensearch-cluster-
 export import ListOpensearchClusterBackupsRequest = ListOpensearchClusterBackupsRequest.ListOpensearchClusterBackupsRequest;
 import * as UpdateOpensearchClusterBackupRequest from "./update-opensearch-cluster-backup-request";
 export import UpdateOpensearchClusterBackupRequest = UpdateOpensearchClusterBackupRequest.UpdateOpensearchClusterBackupRequest;
+import * as CreateOpensearchClusterPipelineRequest from "./create-opensearch-cluster-pipeline-request";
+export import CreateOpensearchClusterPipelineRequest = CreateOpensearchClusterPipelineRequest.CreateOpensearchClusterPipelineRequest;
+import * as DeleteOpensearchClusterPipelineRequest from "./delete-opensearch-cluster-pipeline-request";
+export import DeleteOpensearchClusterPipelineRequest = DeleteOpensearchClusterPipelineRequest.DeleteOpensearchClusterPipelineRequest;
+import * as GetOpensearchClusterPipelineRequest from "./get-opensearch-cluster-pipeline-request";
+export import GetOpensearchClusterPipelineRequest = GetOpensearchClusterPipelineRequest.GetOpensearchClusterPipelineRequest;
+import * as ListOpensearchClusterPipelinesRequest from "./list-opensearch-cluster-pipelines-request";
+export import ListOpensearchClusterPipelinesRequest = ListOpensearchClusterPipelinesRequest.ListOpensearchClusterPipelinesRequest;
+import * as UpdateOpensearchClusterPipelineRequest from "./update-opensearch-cluster-pipeline-request";
+export import UpdateOpensearchClusterPipelineRequest = UpdateOpensearchClusterPipelineRequest.UpdateOpensearchClusterPipelineRequest;

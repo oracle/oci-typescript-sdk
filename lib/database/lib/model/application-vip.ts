@@ -36,9 +36,13 @@ export interface ApplicationVip {
    */
   "subnetId"?: string;
   /**
-   * The application virtual IP (VIP) address.
+   * The application virtual IP (VIP) IPv4 address.
    */
   "ipAddress"?: string;
+  /**
+   * The application virtual IP (VIP) IPv6 address.
+   */
+  "ipv6Address"?: string;
   /**
    * The hostname of the application virtual IP (VIP) address.
    */

@@ -20,6 +20,7 @@ import common = require("oci-common");
 export enum ReportDefinitionDataSource {
   Events = "EVENTS",
   Alerts = "ALERTS",
+  SecurityAssessment = "SECURITY_ASSESSMENT",
   Violations = "VIOLATIONS",
   AllowedSql = "ALLOWED_SQL",
 

@@ -23,6 +23,11 @@ export interface ListModelVersionSetsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * Specifies the type of model version sets to list. By default, user model version sets are listed.
+   *
+   */
+  "category"?: ListModelVersionSetsRequest.Category;
+  /**
    * <b>Filter</b> results by [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Must be an OCID of the correct type for the resource type.
    *
    */
@@ -82,6 +87,11 @@ See [List Pagination](https://docs.oracle.com/iaas/Content/General/Concepts/usin
 }
 
 export namespace ListModelVersionSetsRequest {
+  export enum Category {
+    User = "USER",
+    Service = "SERVICE"
+  }
+
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"

@@ -1,6 +1,6 @@
 /**
  * Security Attribute API
- * Use the Security Attributes API to manage security attributes and security attribute namespaces. For more information, see the documentation for [Security Attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attributes.htm) and [Security Attribute Nampespaces](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
+ * Use the Security Attributes API to manage security attributes and security attribute namespaces. For more information, see the documentation for [Security Attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attributes.htm) and [Security Attribute Namespaces](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
  * OpenAPI spec version: 20240815
  *
  *
@@ -251,9 +251,9 @@ export class SecurityAttributeClient {
    * When all security attributes have been removed, the state changes to DELETED. You cannot restore a deleted security attribute. After the security attribute state
    * changes to DELETED, you can use the same security attribute name again.
    *
-   * After you start this operation, you cannot start either the {@link #deleteSecurityAttribute(DeleteSecurityAttributeRequest) deleteSecurityAttribute} or the {@link #cascadeDeleteSecurityAttributeNamespace(CascadeDeleteSecurityAttributeNamespaceRequest) cascadeDeleteSecurityAttributeNamespace} operation until this process completes.
+   * After you start this operation, you cannot start either the {@link #deleteSecurityAttribute(DeleteSecurityAttributeRequest) deleteSecurityAttribute} or the {@link #cascadingDeleteSecurityAttributeNamespace(CascadingDeleteSecurityAttributeNamespaceRequest) cascadingDeleteSecurityAttributeNamespace} operation until this process completes.
    *
-   * In order to delete security attribute, you must first retire the security attribute. Use {@link #updateSecurityAttribute(UpdateSecurityAttributeRequest) updateSecurityAttribute}
+   * In order to delete security attribute, you must first retire the security attribute. Use {@link #updateSecurityAttributeNamespace(UpdateSecurityAttributeNamespaceRequest) updateSecurityAttributeNamespace}
    * to retire a security attribute.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -708,7 +708,7 @@ You must also specify a *name* for the namespace, which must be unique across al
 * <p>
 You must also specify a *description* for the namespace.
 * It does not have to be unique, and you can change it with
-* {@link #securityAttributeNamespace(SecurityAttributeNamespaceRequest) securityAttributeNamespace}.
+* {@link #updateSecurityAttributeNamespace(UpdateSecurityAttributeNamespaceRequest) updateSecurityAttributeNamespace}.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateSecurityAttributeNamespaceRequest
@@ -801,7 +801,7 @@ When you start the delete operation, the state of the security attribute changes
 When all attributes have been removed, the state changes to DELETED. You cannot restore a deleted attribute. Once the deleted attribute
 * changes its state to DELETED, you can use the same security attribute name again.
 * <p>
-After you start this operation, you cannot start either the {@link #bulkDeleteSecurityAttributes(BulkDeleteSecurityAttributesRequest) bulkDeleteSecurityAttributes} or the {@link #cascadeDeleteTagNamespace(CascadeDeleteTagNamespaceRequest) cascadeDeleteTagNamespace} operation until this process completes.
+After you start this operation, you cannot start either the {@link #bulkDeleteSecurityAttributes(BulkDeleteSecurityAttributesRequest) bulkDeleteSecurityAttributes} or the {@link #cascadingDeleteSecurityAttributeNamespace(CascadingDeleteSecurityAttributeNamespaceRequest) cascadingDeleteSecurityAttributeNamespace} operation until this process completes.
 * <p>
 To delete a security attribute, you must first retire it. Use {@link #updateSecurityAttribute(UpdateSecurityAttributeRequest) updateSecurityAttribute}
 * to retire a security attribute.
@@ -1966,7 +1966,7 @@ To delete a security attribute, you must first retire it. Use {@link #updateSecu
 Updating `isRetired` to 'true' retires the namespace and all the security attributes in the namespace. Reactivating a
 * namespace (changing `isRetired` from 'true' to 'false') does not reactivate security attributes.
 * To reactivate the security attributes, you must reactivate each one individually *after* you reactivate the namespace,
-* using {@link #updateTag(UpdateTagRequest) updateTag}. For more information about retiring security attribute namespaces, see
+* using {@link #updateSecurityAttribute(UpdateSecurityAttributeRequest) updateSecurityAttribute}. For more information about retiring security attribute namespaces, see
 * [Managing Security Attribute Namespaces](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/managing-security-attribute-namespaces.htm).
 * <p>
 You can't add a namespace with the same name as a retired namespace in the same tenancy.
