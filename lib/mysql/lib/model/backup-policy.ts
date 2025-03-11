@@ -23,6 +23,16 @@ export interface BackupPolicy {
    */
   "isEnabled": boolean;
   /**
+    * List of policies of a DB system to schedule cross-region DB system backup copy.
+* <p>
+The policy includes the name of the destination region to which the DB system backup will be copied, and
+* an optional parameter which specifies the retention period of the copied DB system backup in days.
+* <p>
+**Note:** Currently, only one policy can be specified in the list.
+* 
+    */
+  "copyPolicies"?: Array<model.CopyPolicy>;
+  /**
     * The start of a 30-minute window of time in which daily, automated backups occur.
 * <p>
 This should be in the format of the \"Time\" portion of an RFC3339-formatted timestamp. Any second or sub-second time data will be truncated to zero.
@@ -69,6 +79,12 @@ export namespace BackupPolicy {
     const jsonObj = {
       ...obj,
       ...{
+        "copyPolicies": obj.copyPolicies
+          ? obj.copyPolicies.map(item => {
+              return model.CopyPolicy.getJsonObj(item);
+            })
+          : undefined,
+
         "pitrPolicy": obj.pitrPolicy ? model.PitrPolicy.getJsonObj(obj.pitrPolicy) : undefined
       }
     };
@@ -79,6 +95,12 @@ export namespace BackupPolicy {
     const jsonObj = {
       ...obj,
       ...{
+        "copyPolicies": obj.copyPolicies
+          ? obj.copyPolicies.map(item => {
+              return model.CopyPolicy.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "pitrPolicy": obj.pitrPolicy
           ? model.PitrPolicy.getDeserializedJsonObj(obj.pitrPolicy)
           : undefined

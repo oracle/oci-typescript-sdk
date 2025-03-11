@@ -101,6 +101,14 @@ export interface Model {
    * The version label can add an additional description of the lifecycle state of the model or the application using and training the model.
    */
   "versionLabel": string;
+  /**
+   * The category of the model.
+   */
+  "category": model.ModelCategory;
+  /**
+   * Identifier to indicate whether a model artifact resides in the Service Tenancy or Customer Tenancy.
+   */
+  "isModelByReference": boolean;
   "retentionSetting": model.RetentionSetting;
   "backupSetting": model.BackupSetting;
   "retentionOperationDetails": model.RetentionOperationDetails;

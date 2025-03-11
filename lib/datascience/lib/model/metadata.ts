@@ -28,6 +28,11 @@ export interface Metadata {
    *          * estimatorClass
    *          * hyperParameters
    *          * testArtifactresults
+   *          * fineTuningConfiguration
+   *          * deploymentConfiguration
+   *          * readme
+   *          * license
+   *          * evaluationConfiguration
    *
    */
   "key"?: string;
@@ -52,6 +57,14 @@ Allowed values for libraryName:
    * Category of model metadata which should be null for defined metadata.For custom metadata is should be one of the following values \"Performance,Training Profile,Training and Validation Datasets,Training Environment,Reports,Readme,other\".
    */
   "category"?: string;
+  /**
+   * list of keywords for searching
+   */
+  "keywords"?: Array<string>;
+  /**
+   * Is there any artifact present for the metadata.
+   */
+  "hasArtifact"?: boolean;
 }
 
 export namespace Metadata {

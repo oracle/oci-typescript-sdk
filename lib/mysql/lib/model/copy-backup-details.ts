@@ -38,6 +38,13 @@ export interface CopyBackupDetails {
    */
   "displayName"?: string;
   /**
+   * Number of days to retain the copied DB system backup.
+   * <p>
+   **Note:** The maximum value for an automatic backup is 35, and the maximum value for a manual backup is 365.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "backupCopyRetentionInDays"?: number;
+  /**
    * The OCID of DB system backup to be copied.
    *
    */

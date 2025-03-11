@@ -100,9 +100,31 @@ export interface MaskingReportSummary {
    *
    */
   "recompile"?: string;
+  /**
+   * The status of the masking job.
+   */
+  "maskingStatus": MaskingReportSummary.MaskingStatus;
+  /**
+   * The total number of errors in pre-masking script. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalPreMaskingScriptErrors"?: number;
+  /**
+   * The total number of errors in post-masking script. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalPostMaskingScriptErrors"?: number;
 }
 
 export namespace MaskingReportSummary {
+  export enum MaskingStatus {
+    Failed = "FAILED",
+    Success = "SUCCESS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: MaskingReportSummary): object {
     const jsonObj = { ...obj, ...{} };
 

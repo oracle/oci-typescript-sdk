@@ -1,6 +1,6 @@
 /**
- * Application Performance Monitoring Synthetic Monitoring API
- * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
+ * APM Availability Monitoring API
+ * Use the APM Availability Monitoring API to query Scripts, Monitors, Dedicated Vantage Points and On-Premise Vantage Points resources. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
  * OpenAPI spec version: 20200630
  *
  *
@@ -227,8 +227,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#aggregateNetworkData.");
     const operationName = "aggregateNetworkData";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/AggregatedNetworkDataResult/AggregateNetworkData";
+    const apiReferenceLink = "";
     const pathParams = {
       "{monitorId}": aggregateNetworkDataRequest.monitorId
     };
@@ -313,8 +312,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#createDedicatedVantagePoint.");
     const operationName = "createDedicatedVantagePoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/CreateDedicatedVantagePoint";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -396,8 +394,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.CreateMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#createMonitor.");
     const operationName = "createMonitor";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/CreateMonitor";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -480,8 +477,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#createOnPremiseVantagePoint.");
     const operationName = "createOnPremiseVantagePoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/OnPremiseVantagePoint/CreateOnPremiseVantagePoint";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -563,8 +559,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.CreateScriptResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#createScript.");
     const operationName = "createScript";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/CreateScript";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -646,8 +641,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.CreateWorkerResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#createWorker.");
     const operationName = "createWorker";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Worker/CreateWorker";
+    const apiReferenceLink = "";
     const pathParams = {
       "{onPremiseVantagePointId}": createWorkerRequest.onPremiseVantagePointId
     };
@@ -731,8 +725,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#deleteDedicatedVantagePoint.");
     const operationName = "deleteDedicatedVantagePoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/DeleteDedicatedVantagePoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{dedicatedVantagePointId}": deleteDedicatedVantagePointRequest.dedicatedVantagePointId
     };
@@ -801,8 +794,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.DeleteMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#deleteMonitor.");
     const operationName = "deleteMonitor";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/DeleteMonitor";
+    const apiReferenceLink = "";
     const pathParams = {
       "{monitorId}": deleteMonitorRequest.monitorId
     };
@@ -872,8 +864,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#deleteOnPremiseVantagePoint.");
     const operationName = "deleteOnPremiseVantagePoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/OnPremiseVantagePoint/DeleteOnPremiseVantagePoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{onPremiseVantagePointId}": deleteOnPremiseVantagePointRequest.onPremiseVantagePointId
     };
@@ -942,8 +933,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.DeleteScriptResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#deleteScript.");
     const operationName = "deleteScript";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/DeleteScript";
+    const apiReferenceLink = "";
     const pathParams = {
       "{scriptId}": deleteScriptRequest.scriptId
     };
@@ -1012,8 +1002,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.DeleteWorkerResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#deleteWorker.");
     const operationName = "deleteWorker";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Worker/DeleteWorker";
+    const apiReferenceLink = "";
     const pathParams = {
       "{onPremiseVantagePointId}": deleteWorkerRequest.onPremiseVantagePointId,
       "{workerId}": deleteWorkerRequest.workerId
@@ -1084,8 +1073,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#getDedicatedVantagePoint.");
     const operationName = "getDedicatedVantagePoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/GetDedicatedVantagePoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{dedicatedVantagePointId}": getDedicatedVantagePointRequest.dedicatedVantagePointId
     };
@@ -1162,8 +1150,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.GetMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getMonitor.");
     const operationName = "getMonitor";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/GetMonitor";
+    const apiReferenceLink = "";
     const pathParams = {
       "{monitorId}": getMonitorRequest.monitorId
     };
@@ -1241,8 +1228,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.GetMonitorResultResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getMonitorResult.");
     const operationName = "getMonitorResult";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/MonitorResult/GetMonitorResult";
+    const apiReferenceLink = "";
     const pathParams = {
       "{monitorId}": getMonitorResultRequest.monitorId,
       "{executionTime}": getMonitorResultRequest.executionTime
@@ -1319,8 +1305,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#getOnPremiseVantagePoint.");
     const operationName = "getOnPremiseVantagePoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/OnPremiseVantagePoint/GetOnPremiseVantagePoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{onPremiseVantagePointId}": getOnPremiseVantagePointRequest.onPremiseVantagePointId
     };
@@ -1397,8 +1382,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.GetScriptResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getScript.");
     const operationName = "getScript";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/GetScript";
+    const apiReferenceLink = "";
     const pathParams = {
       "{scriptId}": getScriptRequest.scriptId
     };
@@ -1475,8 +1459,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.GetWorkerResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getWorker.");
     const operationName = "getWorker";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Worker/GetWorker";
+    const apiReferenceLink = "";
     const pathParams = {
       "{onPremiseVantagePointId}": getWorkerRequest.onPremiseVantagePointId,
       "{workerId}": getWorkerRequest.workerId
@@ -1556,8 +1539,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#listDedicatedVantagePoints.");
     const operationName = "listDedicatedVantagePoints";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePointCollection/ListDedicatedVantagePoints";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1640,8 +1622,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.ListMonitorsResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#listMonitors.");
     const operationName = "listMonitors";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/MonitorCollection/ListMonitors";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1729,8 +1710,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#listOnPremiseVantagePoints.");
     const operationName = "listOnPremiseVantagePoints";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/OnPremiseVantagePointCollection/ListOnPremiseVantagePoints";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1813,8 +1793,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#listPublicVantagePoints.");
     const operationName = "listPublicVantagePoints";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/PublicVantagePointCollection/ListPublicVantagePoints";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1896,8 +1875,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.ListScriptsResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#listScripts.");
     const operationName = "listScripts";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/ScriptCollection/ListScripts";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1979,8 +1957,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.ListWorkersResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#listWorkers.");
     const operationName = "listWorkers";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/WorkerCollection/ListWorkers";
+    const apiReferenceLink = "";
     const pathParams = {
       "{onPremiseVantagePointId}": listWorkersRequest.onPremiseVantagePointId
     };
@@ -2066,8 +2043,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#updateDedicatedVantagePoint.");
     const operationName = "updateDedicatedVantagePoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/UpdateDedicatedVantagePoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{dedicatedVantagePointId}": updateDedicatedVantagePointRequest.dedicatedVantagePointId
     };
@@ -2150,8 +2126,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.UpdateMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#updateMonitor.");
     const operationName = "updateMonitor";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/UpdateMonitor";
+    const apiReferenceLink = "";
     const pathParams = {
       "{monitorId}": updateMonitorRequest.monitorId
     };
@@ -2235,8 +2210,7 @@ export class ApmSyntheticClient {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#updateOnPremiseVantagePoint.");
     const operationName = "updateOnPremiseVantagePoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/OnPremiseVantagePoint/UpdateOnPremiseVantagePoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{onPremiseVantagePointId}": updateOnPremiseVantagePointRequest.onPremiseVantagePointId
     };
@@ -2319,8 +2293,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.UpdateScriptResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#updateScript.");
     const operationName = "updateScript";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/UpdateScript";
+    const apiReferenceLink = "";
     const pathParams = {
       "{scriptId}": updateScriptRequest.scriptId
     };
@@ -2403,8 +2376,7 @@ export class ApmSyntheticClient {
   ): Promise<responses.UpdateWorkerResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#updateWorker.");
     const operationName = "updateWorker";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Worker/UpdateWorker";
+    const apiReferenceLink = "";
     const pathParams = {
       "{onPremiseVantagePointId}": updateWorkerRequest.onPremiseVantagePointId,
       "{workerId}": updateWorkerRequest.workerId

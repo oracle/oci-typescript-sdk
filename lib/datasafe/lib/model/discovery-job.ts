@@ -73,6 +73,11 @@ export interface DiscoveryJob {
    */
   "sensitiveTypeIdsForDiscovery"?: Array<string>;
   /**
+   * The OCIDs of the sensitive type groups to be used by data discovery jobs.
+   *
+   */
+  "sensitiveTypeGroupIdsForDiscovery"?: Array<string>;
+  /**
    * Indicates if the discovery job should collect and store sample data values for the discovered columns.
    * Sample data helps review the discovered columns and ensure that they actually contain sensitive data.
    * As it collects original data from the target database, it's disabled by default and should be used only

@@ -168,6 +168,7 @@ export namespace ReportDefinition {
     CustomReports = "CUSTOM_REPORTS",
     Summary = "SUMMARY",
     ActivityAuditing = "ACTIVITY_AUDITING",
+    SecurityAssessment = "SECURITY_ASSESSMENT",
     FirewallViolations = "FIREWALL_VIOLATIONS",
     AllowedSql = "ALLOWED_SQL",
     /**

@@ -17,6 +17,7 @@ import * as responses from "./lib/response";
 import * as client from "./lib/client";
 import * as opensearchcluster_waiter from "./lib/opensearchcluster-waiter";
 import * as opensearchclusterbackup_waiter from "./lib/opensearchclusterbackup-waiter";
+import * as opensearchclusterpipeline_waiter from "./lib/opensearchclusterpipeline-waiter";
 
 export { models };
 export { requests };
@@ -25,3 +26,5 @@ export import OpensearchClusterClient = client.OpensearchClusterClient;
 export import OpensearchClusterWaiter = opensearchcluster_waiter.OpensearchClusterWaiter;
 export import OpensearchClusterBackupClient = client.OpensearchClusterBackupClient;
 export import OpensearchClusterBackupWaiter = opensearchclusterbackup_waiter.OpensearchClusterBackupWaiter;
+export import OpensearchClusterPipelineClient = client.OpensearchClusterPipelineClient;
+export import OpensearchClusterPipelineWaiter = opensearchclusterpipeline_waiter.OpensearchClusterPipelineWaiter;

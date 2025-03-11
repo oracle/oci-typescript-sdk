@@ -1,6 +1,6 @@
 /**
- * Application Performance Monitoring Synthetic Monitoring API
- * Use the Application Performance Monitoring Synthetic Monitoring API to query synthetic scripts and monitors. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
+ * APM Availability Monitoring API
+ * Use the APM Availability Monitoring API to query Scripts, Monitors, Dedicated Vantage Points and On-Premise Vantage Points resources. For more information, see [Application Performance Monitoring](https://docs.oracle.com/iaas/application-performance-monitoring/index.html).
  * OpenAPI spec version: 20200630
  *
  *
@@ -27,7 +27,7 @@ export interface FtpMonitorConfiguration extends model.MonitorConfiguration {
    */
   "ftpRequestType"?: model.FtpRequestType;
   /**
-   * If enabled, Active mode will be used for the FTP connection.
+   * If enabled, Active mode will be used for the FTP connection. Not supported for SFTP protocol.
    */
   "isActiveMode"?: boolean;
   "ftpBasicAuthenticationDetails"?: model.BasicAuthenticationDetails;

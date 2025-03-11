@@ -61,6 +61,10 @@ export interface ListDatabaseSoftwareImagesRequest extends common.BaseRequest {
    */
   "patchSetGreaterThanOrEqualTo"?: string;
   /**
+   * The DB system [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). If provided, filters the results to the set of database versions which are supported for the DB system.
+   */
+  "dbSystemId"?: string;
+  /**
    * If provided, filters the results to the set of database versions which are supported for Upgrade.
    */
   "isUpgradeSupported"?: boolean;

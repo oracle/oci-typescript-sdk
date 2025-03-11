@@ -45,30 +45,31 @@ export interface OpensearchClusterPipeline {
    */
   "vcnCompartmentId": string;
   /**
-   * The OCID for the compartment where the pipwline's subnet is located.
+   * The OCID for the compartment where the pipeline's subnet is located.
    */
   "subnetCompartmentId": string;
   /**
-   * The maximum pipeline capacity, in OCPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of OCPUs configured for each pipeline node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "maxOcpuCount": number;
+  "ocpuCount": number;
   /**
-   * The maximum pipeline capacity, in OCPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory in GB, for each pipeline node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "minOcpuCount": number;
+  "memoryGB": number;
   /**
-   * The maximum amount of memory in GB, for the pipeline. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of nodes configured for the pipeline. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "maxMemoryGB": number;
-  /**
-   * The minimum amount of memory in GB, for the pipeline. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "minMemoryGB": number;
+  "nodeCount": number;
   /**
    * The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\.
    *
    */
   "pipelineConfigurationBody": string;
+  /**
+   * The data prepper config in YAML format. The command accepts the data prepper config as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\.
+   *
+   */
+  "dataPrepperConfigurationBody": string;
   /**
    * The fully qualified domain name (FQDN) for the cluster's API endpoint.
    */
@@ -82,6 +83,10 @@ export interface OpensearchClusterPipeline {
    */
   "lifecycleState": OpensearchClusterPipeline.LifecycleState;
   /**
+   * The current state of the pipeline.
+   */
+  "pipelineMode": OpensearchClusterPipeline.PipelineMode;
+  /**
    * The date and time the cluster pipeline was created. Format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    */
   "timeCreated"?: Date;
@@ -89,6 +94,14 @@ export interface OpensearchClusterPipeline {
    * The amount of time in milliseconds since the pipeline was updated.
    */
   "timeUpdated"?: Date;
+  /**
+   * The customer IP and the corresponding fully qualified domain name that the pipeline will connect to.
+   */
+  "reverseConnectionEndpoints"?: Array<model.OpensearchPipelineReverseConnectionEndpoint>;
+  /**
+   * The OCID of the NSG where the pipeline private endpoint vnic will be attached.
+   */
+  "nsgId"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -116,16 +129,49 @@ export namespace OpensearchClusterPipeline {
     Active = "ACTIVE",
     Deleting = "DELETING",
     Deleted = "DELETED",
-    Failed = "FAILED"
+    Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PipelineMode {
+    Running = "RUNNING",
+    Stopped = "STOPPED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: OpensearchClusterPipeline): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "reverseConnectionEndpoints": obj.reverseConnectionEndpoints
+          ? obj.reverseConnectionEndpoints.map(item => {
+              return model.OpensearchPipelineReverseConnectionEndpoint.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: OpensearchClusterPipeline): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "reverseConnectionEndpoints": obj.reverseConnectionEndpoints
+          ? obj.reverseConnectionEndpoints.map(item => {
+              return model.OpensearchPipelineReverseConnectionEndpoint.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
