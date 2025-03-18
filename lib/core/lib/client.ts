@@ -6555,6 +6555,164 @@ For information about moving resources between compartments, see
   }
 
   /**
+   * Moves a compute GPU memory cluster into a different compartment. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeComputeGpuMemoryClusterCompartmentRequest
+   * @return ChangeComputeGpuMemoryClusterCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeGpuMemoryClusterCompartment.ts.html |here} to see how to use ChangeComputeGpuMemoryClusterCompartment API.
+   */
+  public async changeComputeGpuMemoryClusterCompartment(
+    changeComputeGpuMemoryClusterCompartmentRequest: requests.ChangeComputeGpuMemoryClusterCompartmentRequest
+  ): Promise<responses.ChangeComputeGpuMemoryClusterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeClient#changeComputeGpuMemoryClusterCompartment."
+      );
+    const operationName = "changeComputeGpuMemoryClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryCluster/ChangeComputeGpuMemoryClusterCompartment";
+    const pathParams = {
+      "{computeGpuMemoryClusterId}":
+        changeComputeGpuMemoryClusterCompartmentRequest.computeGpuMemoryClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeComputeGpuMemoryClusterCompartmentRequest.ifMatch,
+      "opc-request-id": changeComputeGpuMemoryClusterCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeComputeGpuMemoryClusterCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeComputeGpuMemoryClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryClusters/{computeGpuMemoryClusterId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeComputeGpuMemoryClusterCompartmentRequest.changeComputeGpuMemoryClusterCompartmentDetails,
+        "ChangeComputeGpuMemoryClusterCompartmentDetails",
+        model.ChangeComputeGpuMemoryClusterCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeComputeGpuMemoryClusterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a compute GPU memory fabric into a different compartment. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeComputeGpuMemoryFabricCompartmentRequest
+   * @return ChangeComputeGpuMemoryFabricCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeGpuMemoryFabricCompartment.ts.html |here} to see how to use ChangeComputeGpuMemoryFabricCompartment API.
+   */
+  public async changeComputeGpuMemoryFabricCompartment(
+    changeComputeGpuMemoryFabricCompartmentRequest: requests.ChangeComputeGpuMemoryFabricCompartmentRequest
+  ): Promise<responses.ChangeComputeGpuMemoryFabricCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#changeComputeGpuMemoryFabricCompartment.");
+    const operationName = "changeComputeGpuMemoryFabricCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryFabric/ChangeComputeGpuMemoryFabricCompartment";
+    const pathParams = {
+      "{computeGpuMemoryFabricId}":
+        changeComputeGpuMemoryFabricCompartmentRequest.computeGpuMemoryFabricId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeComputeGpuMemoryFabricCompartmentRequest.ifMatch,
+      "opc-request-id": changeComputeGpuMemoryFabricCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeComputeGpuMemoryFabricCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeComputeGpuMemoryFabricCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryFabrics/{computeGpuMemoryFabricId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeComputeGpuMemoryFabricCompartmentRequest.changeComputeGpuMemoryFabricCompartmentDetails,
+        "ChangeComputeGpuMemoryFabricCompartmentDetails",
+        model.ChangeComputeGpuMemoryFabricCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeComputeGpuMemoryFabricCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a compute image capability schema into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see
    *         [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -7341,6 +7499,93 @@ If you want predictable capacity for a specific number of identical instances th
   }
 
   /**
+   * Create a compute GPU memory cluster instance on a specific compute GPU memory fabric
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateComputeGpuMemoryClusterRequest
+   * @return CreateComputeGpuMemoryClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeGpuMemoryCluster.ts.html |here} to see how to use CreateComputeGpuMemoryCluster API.
+   */
+  public async createComputeGpuMemoryCluster(
+    createComputeGpuMemoryClusterRequest: requests.CreateComputeGpuMemoryClusterRequest
+  ): Promise<responses.CreateComputeGpuMemoryClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createComputeGpuMemoryCluster.");
+    const operationName = "createComputeGpuMemoryCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryCluster/CreateComputeGpuMemoryCluster";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createComputeGpuMemoryClusterRequest.opcRetryToken,
+      "opc-request-id": createComputeGpuMemoryClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createComputeGpuMemoryClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryClusters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createComputeGpuMemoryClusterRequest.createComputeGpuMemoryClusterDetails,
+        "CreateComputeGpuMemoryClusterDetails",
+        model.CreateComputeGpuMemoryClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateComputeGpuMemoryClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "computeGpuMemoryCluster",
+        bodyModel: model.ComputeGpuMemoryCluster,
+        type: "model.ComputeGpuMemoryCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates compute image capability schema.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -7980,6 +8225,80 @@ Before you delete a compute cluster, first delete all instances in the cluster b
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Terminates and deletes the specified compute GPU memory cluster and underlying instances.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteComputeGpuMemoryClusterRequest
+   * @return DeleteComputeGpuMemoryClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeGpuMemoryCluster.ts.html |here} to see how to use DeleteComputeGpuMemoryCluster API.
+   */
+  public async deleteComputeGpuMemoryCluster(
+    deleteComputeGpuMemoryClusterRequest: requests.DeleteComputeGpuMemoryClusterRequest
+  ): Promise<responses.DeleteComputeGpuMemoryClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#deleteComputeGpuMemoryCluster.");
+    const operationName = "deleteComputeGpuMemoryCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryCluster/DeleteComputeGpuMemoryCluster";
+    const pathParams = {
+      "{computeGpuMemoryClusterId}": deleteComputeGpuMemoryClusterRequest.computeGpuMemoryClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteComputeGpuMemoryClusterRequest.ifMatch,
+      "opc-request-id": deleteComputeGpuMemoryClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteComputeGpuMemoryClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryClusters/{computeGpuMemoryClusterId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteComputeGpuMemoryClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -9330,6 +9649,162 @@ See [Object Storage URLs](https://docs.oracle.com/iaas/Content/Compute/Tasks/ima
         bodyKey: "computeGlobalImageCapabilitySchemaVersion",
         bodyModel: model.ComputeGlobalImageCapabilitySchemaVersion,
         type: "model.ComputeGlobalImageCapabilitySchemaVersion",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified compute GPU memory cluster
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetComputeGpuMemoryClusterRequest
+   * @return GetComputeGpuMemoryClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeGpuMemoryCluster.ts.html |here} to see how to use GetComputeGpuMemoryCluster API.
+   */
+  public async getComputeGpuMemoryCluster(
+    getComputeGpuMemoryClusterRequest: requests.GetComputeGpuMemoryClusterRequest
+  ): Promise<responses.GetComputeGpuMemoryClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getComputeGpuMemoryCluster.");
+    const operationName = "getComputeGpuMemoryCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryCluster/GetComputeGpuMemoryCluster";
+    const pathParams = {
+      "{computeGpuMemoryClusterId}": getComputeGpuMemoryClusterRequest.computeGpuMemoryClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getComputeGpuMemoryClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeGpuMemoryClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryClusters/{computeGpuMemoryClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeGpuMemoryClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "computeGpuMemoryCluster",
+        bodyModel: model.ComputeGpuMemoryCluster,
+        type: "model.ComputeGpuMemoryCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified compute GPU memory fabric
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetComputeGpuMemoryFabricRequest
+   * @return GetComputeGpuMemoryFabricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeGpuMemoryFabric.ts.html |here} to see how to use GetComputeGpuMemoryFabric API.
+   */
+  public async getComputeGpuMemoryFabric(
+    getComputeGpuMemoryFabricRequest: requests.GetComputeGpuMemoryFabricRequest
+  ): Promise<responses.GetComputeGpuMemoryFabricResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getComputeGpuMemoryFabric.");
+    const operationName = "getComputeGpuMemoryFabric";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryFabric/GetComputeGpuMemoryFabric";
+    const pathParams = {
+      "{computeGpuMemoryFabricId}": getComputeGpuMemoryFabricRequest.computeGpuMemoryFabricId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getComputeGpuMemoryFabricRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeGpuMemoryFabricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryFabrics/{computeGpuMemoryFabricId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeGpuMemoryFabricResponse>{},
+        body: await response.json(),
+        bodyKey: "computeGpuMemoryFabric",
+        bodyModel: model.ComputeGpuMemoryFabric,
+        type: "model.ComputeGpuMemoryFabric",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -12346,6 +12821,276 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * List all of the GPU memory cluster instances.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeGpuMemoryClusterInstancesRequest
+   * @return ListComputeGpuMemoryClusterInstancesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeGpuMemoryClusterInstances.ts.html |here} to see how to use ListComputeGpuMemoryClusterInstances API.
+   */
+  public async listComputeGpuMemoryClusterInstances(
+    listComputeGpuMemoryClusterInstancesRequest: requests.ListComputeGpuMemoryClusterInstancesRequest
+  ): Promise<responses.ListComputeGpuMemoryClusterInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeGpuMemoryClusterInstances.");
+    const operationName = "listComputeGpuMemoryClusterInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryClusterInstanceSummary/ListComputeGpuMemoryClusterInstances";
+    const pathParams = {
+      "{computeGpuMemoryClusterId}":
+        listComputeGpuMemoryClusterInstancesRequest.computeGpuMemoryClusterId
+    };
+
+    const queryParams = {
+      "page": listComputeGpuMemoryClusterInstancesRequest.page,
+      "sortBy": listComputeGpuMemoryClusterInstancesRequest.sortBy,
+      "sortOrder": listComputeGpuMemoryClusterInstancesRequest.sortOrder,
+      "limit": listComputeGpuMemoryClusterInstancesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeGpuMemoryClusterInstancesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeGpuMemoryClusterInstancesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryClusters/{computeGpuMemoryClusterId}/instances",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeGpuMemoryClusterInstancesResponse>{},
+        body: await response.json(),
+        bodyKey: "computeGpuMemoryClusterInstanceCollection",
+        bodyModel: model.ComputeGpuMemoryClusterInstanceCollection,
+        type: "model.ComputeGpuMemoryClusterInstanceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List all of the compute GPU memory clusters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeGpuMemoryClustersRequest
+   * @return ListComputeGpuMemoryClustersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeGpuMemoryClusters.ts.html |here} to see how to use ListComputeGpuMemoryClusters API.
+   */
+  public async listComputeGpuMemoryClusters(
+    listComputeGpuMemoryClustersRequest: requests.ListComputeGpuMemoryClustersRequest
+  ): Promise<responses.ListComputeGpuMemoryClustersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeGpuMemoryClusters.");
+    const operationName = "listComputeGpuMemoryClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryClusterCollection/ListComputeGpuMemoryClusters";
+    const pathParams = {};
+
+    const queryParams = {
+      "computeGpuMemoryClusterId": listComputeGpuMemoryClustersRequest.computeGpuMemoryClusterId,
+      "availabilityDomain": listComputeGpuMemoryClustersRequest.availabilityDomain,
+      "compartmentId": listComputeGpuMemoryClustersRequest.compartmentId,
+      "displayName": listComputeGpuMemoryClustersRequest.displayName,
+      "computeClusterId": listComputeGpuMemoryClustersRequest.computeClusterId,
+      "page": listComputeGpuMemoryClustersRequest.page,
+      "sortBy": listComputeGpuMemoryClustersRequest.sortBy,
+      "sortOrder": listComputeGpuMemoryClustersRequest.sortOrder,
+      "limit": listComputeGpuMemoryClustersRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeGpuMemoryClustersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeGpuMemoryClustersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeGpuMemoryClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "computeGpuMemoryClusterCollection",
+        bodyModel: model.ComputeGpuMemoryClusterCollection,
+        type: "model.ComputeGpuMemoryClusterCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the compute GPU memory fabrics that match the specified criteria and compartmentId.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeGpuMemoryFabricsRequest
+   * @return ListComputeGpuMemoryFabricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeGpuMemoryFabrics.ts.html |here} to see how to use ListComputeGpuMemoryFabrics API.
+   */
+  public async listComputeGpuMemoryFabrics(
+    listComputeGpuMemoryFabricsRequest: requests.ListComputeGpuMemoryFabricsRequest
+  ): Promise<responses.ListComputeGpuMemoryFabricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#listComputeGpuMemoryFabrics.");
+    const operationName = "listComputeGpuMemoryFabrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryFabric/ListComputeGpuMemoryFabrics";
+    const pathParams = {};
+
+    const queryParams = {
+      "computeGpuMemoryFabricId": listComputeGpuMemoryFabricsRequest.computeGpuMemoryFabricId,
+      "availabilityDomain": listComputeGpuMemoryFabricsRequest.availabilityDomain,
+      "compartmentId": listComputeGpuMemoryFabricsRequest.compartmentId,
+      "displayName": listComputeGpuMemoryFabricsRequest.displayName,
+      "computeHpcIslandId": listComputeGpuMemoryFabricsRequest.computeHpcIslandId,
+      "computeNetworkBlockId": listComputeGpuMemoryFabricsRequest.computeNetworkBlockId,
+      "computeGpuMemoryFabricLifecycleState":
+        listComputeGpuMemoryFabricsRequest.computeGpuMemoryFabricLifecycleState,
+      "computeGpuMemoryFabricHealth":
+        listComputeGpuMemoryFabricsRequest.computeGpuMemoryFabricHealth,
+      "limit": listComputeGpuMemoryFabricsRequest.limit,
+      "page": listComputeGpuMemoryFabricsRequest.page,
+      "sortBy": listComputeGpuMemoryFabricsRequest.sortBy,
+      "sortOrder": listComputeGpuMemoryFabricsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeGpuMemoryFabricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeGpuMemoryFabricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryFabrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeGpuMemoryFabricsResponse>{},
+        body: await response.json(),
+        bodyKey: "computeGpuMemoryFabricCollection",
+        bodyModel: model.ComputeGpuMemoryFabricCollection,
+        type: "model.ComputeGpuMemoryFabricCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists Compute Image Capability Schema in the specified compartment. You can also query by a specific imageId.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -14779,6 +15524,181 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
         bodyKey: "computeCluster",
         bodyModel: model.ComputeCluster,
         type: "model.ComputeCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a compute gpu memory cluster resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateComputeGpuMemoryClusterRequest
+   * @return UpdateComputeGpuMemoryClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeGpuMemoryCluster.ts.html |here} to see how to use UpdateComputeGpuMemoryCluster API.
+   */
+  public async updateComputeGpuMemoryCluster(
+    updateComputeGpuMemoryClusterRequest: requests.UpdateComputeGpuMemoryClusterRequest
+  ): Promise<responses.UpdateComputeGpuMemoryClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateComputeGpuMemoryCluster.");
+    const operationName = "updateComputeGpuMemoryCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryCluster/UpdateComputeGpuMemoryCluster";
+    const pathParams = {
+      "{computeGpuMemoryClusterId}": updateComputeGpuMemoryClusterRequest.computeGpuMemoryClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateComputeGpuMemoryClusterRequest.ifMatch,
+      "opc-request-id": updateComputeGpuMemoryClusterRequest.opcRequestId,
+      "opc-retry-token": updateComputeGpuMemoryClusterRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateComputeGpuMemoryClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryClusters/{computeGpuMemoryClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateComputeGpuMemoryClusterRequest.updateComputeGpuMemoryClusterDetails,
+        "UpdateComputeGpuMemoryClusterDetails",
+        model.UpdateComputeGpuMemoryClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateComputeGpuMemoryClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "computeGpuMemoryCluster",
+        bodyModel: model.ComputeGpuMemoryCluster,
+        type: "model.ComputeGpuMemoryCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Customer can update displayName and tags for compute GPU memory fabric record
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateComputeGpuMemoryFabricRequest
+   * @return UpdateComputeGpuMemoryFabricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeGpuMemoryFabric.ts.html |here} to see how to use UpdateComputeGpuMemoryFabric API.
+   */
+  public async updateComputeGpuMemoryFabric(
+    updateComputeGpuMemoryFabricRequest: requests.UpdateComputeGpuMemoryFabricRequest
+  ): Promise<responses.UpdateComputeGpuMemoryFabricResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#updateComputeGpuMemoryFabric.");
+    const operationName = "updateComputeGpuMemoryFabric";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryFabric/UpdateComputeGpuMemoryFabric";
+    const pathParams = {
+      "{computeGpuMemoryFabricId}": updateComputeGpuMemoryFabricRequest.computeGpuMemoryFabricId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateComputeGpuMemoryFabricRequest.ifMatch,
+      "opc-request-id": updateComputeGpuMemoryFabricRequest.opcRequestId,
+      "opc-retry-token": updateComputeGpuMemoryFabricRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateComputeGpuMemoryFabricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeGpuMemoryFabrics/{computeGpuMemoryFabricId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateComputeGpuMemoryFabricRequest.updateComputeGpuMemoryFabricDetails,
+        "UpdateComputeGpuMemoryFabricDetails",
+        model.UpdateComputeGpuMemoryFabricDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateComputeGpuMemoryFabricResponse>{},
+        body: await response.json(),
+        bodyKey: "computeGpuMemoryFabric",
+        bodyModel: model.ComputeGpuMemoryFabric,
+        type: "model.ComputeGpuMemoryFabric",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

@@ -118,6 +118,7 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
   "oggData"?: model.CreateOggDeploymentDetails;
   "maintenanceWindow"?: model.CreateMaintenanceWindowDetails;
   "maintenanceConfiguration"?: model.CreateMaintenanceConfigurationDetails;
+  "backupSchedule"?: model.CreateBackupScheduleDetails;
 }
 
 export namespace CreateDeploymentDetails {
@@ -139,6 +140,9 @@ export namespace CreateDeploymentDetails {
           : undefined,
         "maintenanceConfiguration": obj.maintenanceConfiguration
           ? model.CreateMaintenanceConfigurationDetails.getJsonObj(obj.maintenanceConfiguration)
+          : undefined,
+        "backupSchedule": obj.backupSchedule
+          ? model.CreateBackupScheduleDetails.getJsonObj(obj.backupSchedule)
           : undefined
       }
     };
@@ -165,6 +169,9 @@ export namespace CreateDeploymentDetails {
           ? model.CreateMaintenanceConfigurationDetails.getDeserializedJsonObj(
               obj.maintenanceConfiguration
             )
+          : undefined,
+        "backupSchedule": obj.backupSchedule
+          ? model.CreateBackupScheduleDetails.getDeserializedJsonObj(obj.backupSchedule)
           : undefined
       }
     };

@@ -214,6 +214,37 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forCreateComputeGpuMemoryCluster
+   *
+   * @param request the request to send
+   * @return response returns CreateComputeGpuMemoryClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateComputeGpuMemoryCluster(
+    request: serviceRequests.CreateComputeGpuMemoryClusterRequest
+  ): Promise<{
+    response: serviceResponses.CreateComputeGpuMemoryClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createComputeGpuMemoryClusterResponse = await this.client.createComputeGpuMemoryCluster(
+      request
+    );
+    if (createComputeGpuMemoryClusterResponse.opcWorkRequestId === undefined)
+      return {
+        response: createComputeGpuMemoryClusterResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createComputeGpuMemoryClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: createComputeGpuMemoryClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateDedicatedVmHost
    *
    * @param request the request to send
@@ -317,6 +348,37 @@ export class ComputeWaiter {
     );
     return {
       response: deleteComputeCapacityTopologyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeleteComputeGpuMemoryCluster
+   *
+   * @param request the request to send
+   * @return response returns DeleteComputeGpuMemoryClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteComputeGpuMemoryCluster(
+    request: serviceRequests.DeleteComputeGpuMemoryClusterRequest
+  ): Promise<{
+    response: serviceResponses.DeleteComputeGpuMemoryClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteComputeGpuMemoryClusterResponse = await this.client.deleteComputeGpuMemoryCluster(
+      request
+    );
+    if (deleteComputeGpuMemoryClusterResponse.opcWorkRequestId === undefined)
+      return {
+        response: deleteComputeGpuMemoryClusterResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteComputeGpuMemoryClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteComputeGpuMemoryClusterResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -439,6 +501,43 @@ export class ComputeWaiter {
       () => this.client.getComputeCluster(request),
       response => targetStates.includes(response.computeCluster.lifecycleState!),
       targetStates.includes(models.ComputeCluster.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forComputeGpuMemoryCluster till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetComputeGpuMemoryClusterResponse | null (null in case of 404 response)
+   */
+  public async forComputeGpuMemoryCluster(
+    request: serviceRequests.GetComputeGpuMemoryClusterRequest,
+    ...targetStates: models.ComputeGpuMemoryCluster.LifecycleState[]
+  ): Promise<serviceResponses.GetComputeGpuMemoryClusterResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getComputeGpuMemoryCluster(request),
+      response => targetStates.includes(response.computeGpuMemoryCluster.lifecycleState!),
+      targetStates.includes(models.ComputeGpuMemoryCluster.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forComputeGpuMemoryFabric till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetComputeGpuMemoryFabricResponse
+   */
+  public async forComputeGpuMemoryFabric(
+    request: serviceRequests.GetComputeGpuMemoryFabricRequest,
+    ...targetStates: models.ComputeGpuMemoryFabric.LifecycleState[]
+  ): Promise<serviceResponses.GetComputeGpuMemoryFabricResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getComputeGpuMemoryFabric(request),
+      response => targetStates.includes(response.computeGpuMemoryFabric.lifecycleState!)
     );
   }
 
@@ -671,6 +770,37 @@ export class ComputeWaiter {
     );
     return {
       response: updateComputeCapacityTopologyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateComputeGpuMemoryCluster
+   *
+   * @param request the request to send
+   * @return response returns UpdateComputeGpuMemoryClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateComputeGpuMemoryCluster(
+    request: serviceRequests.UpdateComputeGpuMemoryClusterRequest
+  ): Promise<{
+    response: serviceResponses.UpdateComputeGpuMemoryClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateComputeGpuMemoryClusterResponse = await this.client.updateComputeGpuMemoryCluster(
+      request
+    );
+    if (updateComputeGpuMemoryClusterResponse.opcWorkRequestId === undefined)
+      return {
+        response: updateComputeGpuMemoryClusterResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateComputeGpuMemoryClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: updateComputeGpuMemoryClusterResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

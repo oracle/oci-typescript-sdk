@@ -170,7 +170,8 @@
     "oci-generativeaiagentruntime": "file:lib/generativeaiagentruntime",
     "oci-securityattribute": "file:lib/securityattribute",
     "oci-zpr": "file:lib/zpr",
-    "oci-dblm": "file:lib/dblm"
+    "oci-dblm": "file:lib/dblm",
+    "oci-mngdmac": "file:lib/mngdmac"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
