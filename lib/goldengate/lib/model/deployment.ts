@@ -243,6 +243,19 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    *
    */
   "timeOggVersionSupportedUntil"?: Date;
+  "backupSchedule"?: model.BackupSchedule;
+  /**
+   * The timestamp of last deployment backup scheduled. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2024-10-25T18:19:29.600Z}.
+   *
+   */
+  "timeLastBackupScheduled"?: Date;
+  /**
+   * The timestamp of next deployment backup scheduled. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2024-10-26T20:19:29.600Z}.
+   *
+   */
+  "timeNextBackupScheduled"?: Date;
   /**
    * List of ingress IP addresses from where the GoldenGate deployment connects to this connection's privateIp.
    * Customers may optionally set up ingress security rules to restrict traffic from these IP addresses.
@@ -272,6 +285,10 @@ export namespace Deployment {
 
         "maintenanceConfiguration": obj.maintenanceConfiguration
           ? model.MaintenanceConfiguration.getJsonObj(obj.maintenanceConfiguration)
+          : undefined,
+
+        "backupSchedule": obj.backupSchedule
+          ? model.BackupSchedule.getJsonObj(obj.backupSchedule)
           : undefined,
 
         "ingressIps": obj.ingressIps
@@ -306,6 +323,10 @@ export namespace Deployment {
 
         "maintenanceConfiguration": obj.maintenanceConfiguration
           ? model.MaintenanceConfiguration.getDeserializedJsonObj(obj.maintenanceConfiguration)
+          : undefined,
+
+        "backupSchedule": obj.backupSchedule
+          ? model.BackupSchedule.getDeserializedJsonObj(obj.backupSchedule)
           : undefined,
 
         "ingressIps": obj.ingressIps

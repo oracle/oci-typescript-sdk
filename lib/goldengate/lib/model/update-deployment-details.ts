@@ -97,6 +97,7 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
   "oggData"?: model.UpdateOggDeploymentDetails;
   "maintenanceWindow"?: model.UpdateMaintenanceWindowDetails;
   "maintenanceConfiguration"?: model.UpdateMaintenanceConfigurationDetails;
+  "backupSchedule"?: model.UpdateBackupScheduleDetails;
 }
 
 export namespace UpdateDeploymentDetails {
@@ -112,6 +113,9 @@ export namespace UpdateDeploymentDetails {
           : undefined,
         "maintenanceConfiguration": obj.maintenanceConfiguration
           ? model.UpdateMaintenanceConfigurationDetails.getJsonObj(obj.maintenanceConfiguration)
+          : undefined,
+        "backupSchedule": obj.backupSchedule
+          ? model.UpdateBackupScheduleDetails.getJsonObj(obj.backupSchedule)
           : undefined
       }
     };
@@ -132,6 +136,9 @@ export namespace UpdateDeploymentDetails {
           ? model.UpdateMaintenanceConfigurationDetails.getDeserializedJsonObj(
               obj.maintenanceConfiguration
             )
+          : undefined,
+        "backupSchedule": obj.backupSchedule
+          ? model.UpdateBackupScheduleDetails.getDeserializedJsonObj(obj.backupSchedule)
           : undefined
       }
     };

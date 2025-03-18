@@ -53,6 +53,11 @@ export interface DeploymentBackup {
    */
   "isAutomatic"?: boolean;
   /**
+   * Possible deployment backup source types.
+   *
+   */
+  "backupSourceType"?: DeploymentBackup.BackupSourceType;
+  /**
    * Possible lifecycle states.
    *
    */
@@ -149,6 +154,17 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
 }
 
 export namespace DeploymentBackup {
+  export enum BackupSourceType {
+    Manual = "MANUAL",
+    Automatic = "AUTOMATIC",
+    Scheduled = "SCHEDULED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: DeploymentBackup): object {
     const jsonObj = {
       ...obj,

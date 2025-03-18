@@ -37,14 +37,6 @@ export interface CreateByoipRangeDetails {
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code IpAnycast} resource.
-   */
-  "ipAnycastId"?: string;
-  /**
-   * The IP address of the CIDR for Prefix Monitoring.
-   */
-  "monitorIp"?: string;
-  /**
    * The BYOIPv6 prefix. You can assign some or all of it to a VCN after it is validated.
    *
    */

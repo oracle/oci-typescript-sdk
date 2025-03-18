@@ -47,14 +47,6 @@ Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code IpAnycast} resource.
-   */
-  "ipAnycastId"?: string;
-  /**
-   * The IP address of the CIDR for Prefix Monitoring.
-   */
-  "monitorIp"?: string;
 }
 
 export namespace UpdateByoipRangeDetails {
