@@ -43,10 +43,21 @@ export interface MonitoredResourceType {
    */
   "metricNamespace"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tenancy containing the resource type.
+   * Compartment Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId": string;
+  /**
+   * Tenancy Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "tenancyId"?: string;
+  "availabilityMetricsConfig"?: model.AvailabilityMetricsDetails;
+  "handlerConfig"?: model.AgentExtensionHandlerConfiguration;
+  /**
+   * If boolean flag is true, then the resource type cannot be modified or deleted.
+   */
+  "isSystemDefined"?: boolean;
   /**
    * Lifecycle state of the monitored resource type.
    */
@@ -103,6 +114,13 @@ export namespace MonitoredResourceType {
     const jsonObj = {
       ...obj,
       ...{
+        "availabilityMetricsConfig": obj.availabilityMetricsConfig
+          ? model.AvailabilityMetricsDetails.getJsonObj(obj.availabilityMetricsConfig)
+          : undefined,
+        "handlerConfig": obj.handlerConfig
+          ? model.AgentExtensionHandlerConfiguration.getJsonObj(obj.handlerConfig)
+          : undefined,
+
         "metadata": obj.metadata
           ? model.ResourceTypeMetadataDetails.getJsonObj(obj.metadata)
           : undefined
@@ -115,6 +133,13 @@ export namespace MonitoredResourceType {
     const jsonObj = {
       ...obj,
       ...{
+        "availabilityMetricsConfig": obj.availabilityMetricsConfig
+          ? model.AvailabilityMetricsDetails.getDeserializedJsonObj(obj.availabilityMetricsConfig)
+          : undefined,
+        "handlerConfig": obj.handlerConfig
+          ? model.AgentExtensionHandlerConfiguration.getDeserializedJsonObj(obj.handlerConfig)
+          : undefined,
+
         "metadata": obj.metadata
           ? model.ResourceTypeMetadataDetails.getDeserializedJsonObj(obj.metadata)
           : undefined

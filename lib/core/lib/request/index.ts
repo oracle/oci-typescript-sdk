@@ -160,6 +160,8 @@ import * as ChangeComputeGpuMemoryClusterCompartmentRequest from "./change-compu
 export import ChangeComputeGpuMemoryClusterCompartmentRequest = ChangeComputeGpuMemoryClusterCompartmentRequest.ChangeComputeGpuMemoryClusterCompartmentRequest;
 import * as ChangeComputeGpuMemoryFabricCompartmentRequest from "./change-compute-gpu-memory-fabric-compartment-request";
 export import ChangeComputeGpuMemoryFabricCompartmentRequest = ChangeComputeGpuMemoryFabricCompartmentRequest.ChangeComputeGpuMemoryFabricCompartmentRequest;
+import * as ChangeComputeHostCompartmentRequest from "./change-compute-host-compartment-request";
+export import ChangeComputeHostCompartmentRequest = ChangeComputeHostCompartmentRequest.ChangeComputeHostCompartmentRequest;
 import * as ChangeComputeImageCapabilitySchemaCompartmentRequest from "./change-compute-image-capability-schema-compartment-request";
 export import ChangeComputeImageCapabilitySchemaCompartmentRequest = ChangeComputeImageCapabilitySchemaCompartmentRequest.ChangeComputeImageCapabilitySchemaCompartmentRequest;
 import * as ChangeDedicatedVmHostCompartmentRequest from "./change-dedicated-vm-host-compartment-request";
@@ -238,6 +240,8 @@ import * as GetComputeGpuMemoryClusterRequest from "./get-compute-gpu-memory-clu
 export import GetComputeGpuMemoryClusterRequest = GetComputeGpuMemoryClusterRequest.GetComputeGpuMemoryClusterRequest;
 import * as GetComputeGpuMemoryFabricRequest from "./get-compute-gpu-memory-fabric-request";
 export import GetComputeGpuMemoryFabricRequest = GetComputeGpuMemoryFabricRequest.GetComputeGpuMemoryFabricRequest;
+import * as GetComputeHostRequest from "./get-compute-host-request";
+export import GetComputeHostRequest = GetComputeHostRequest.GetComputeHostRequest;
 import * as GetComputeImageCapabilitySchemaRequest from "./get-compute-image-capability-schema-request";
 export import GetComputeImageCapabilitySchemaRequest = GetComputeImageCapabilitySchemaRequest.GetComputeImageCapabilitySchemaRequest;
 import * as GetConsoleHistoryRequest from "./get-console-history-request";
@@ -304,6 +308,8 @@ import * as ListComputeGpuMemoryClustersRequest from "./list-compute-gpu-memory-
 export import ListComputeGpuMemoryClustersRequest = ListComputeGpuMemoryClustersRequest.ListComputeGpuMemoryClustersRequest;
 import * as ListComputeGpuMemoryFabricsRequest from "./list-compute-gpu-memory-fabrics-request";
 export import ListComputeGpuMemoryFabricsRequest = ListComputeGpuMemoryFabricsRequest.ListComputeGpuMemoryFabricsRequest;
+import * as ListComputeHostsRequest from "./list-compute-hosts-request";
+export import ListComputeHostsRequest = ListComputeHostsRequest.ListComputeHostsRequest;
 import * as ListComputeImageCapabilitySchemasRequest from "./list-compute-image-capability-schemas-request";
 export import ListComputeImageCapabilitySchemasRequest = ListComputeImageCapabilitySchemasRequest.ListComputeImageCapabilitySchemasRequest;
 import * as ListConsoleHistoriesRequest from "./list-console-histories-request";
@@ -348,6 +354,8 @@ import * as UpdateComputeGpuMemoryClusterRequest from "./update-compute-gpu-memo
 export import UpdateComputeGpuMemoryClusterRequest = UpdateComputeGpuMemoryClusterRequest.UpdateComputeGpuMemoryClusterRequest;
 import * as UpdateComputeGpuMemoryFabricRequest from "./update-compute-gpu-memory-fabric-request";
 export import UpdateComputeGpuMemoryFabricRequest = UpdateComputeGpuMemoryFabricRequest.UpdateComputeGpuMemoryFabricRequest;
+import * as UpdateComputeHostRequest from "./update-compute-host-request";
+export import UpdateComputeHostRequest = UpdateComputeHostRequest.UpdateComputeHostRequest;
 import * as UpdateComputeImageCapabilitySchemaRequest from "./update-compute-image-capability-schema-request";
 export import UpdateComputeImageCapabilitySchemaRequest = UpdateComputeImageCapabilitySchemaRequest.UpdateComputeImageCapabilitySchemaRequest;
 import * as UpdateConsoleHistoryRequest from "./update-console-history-request";

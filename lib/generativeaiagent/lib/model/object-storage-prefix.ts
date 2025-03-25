@@ -37,7 +37,7 @@ export interface ObjectStoragePrefix {
    */
   "bucketName": string;
   /**
-   * The name of the object (file) or prefix (folder).
+   * The prefix of file object(s) or folder prefix.
    */
   "prefix"?: string;
 }

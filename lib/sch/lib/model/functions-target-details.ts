@@ -32,11 +32,13 @@ export interface FunctionsTargetDetails extends model.TargetDetails {
   "functionId": string;
   /**
    * The batch rollover size in kilobytes.
+   * Only one size option can be specified: {@code batchSizeInKbs} or {@code batchSizeInNum}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "batchSizeInKbs"?: number;
   /**
    * The batch rollover size in number of messages.
+   * Only one size option can be specified: {@code batchSizeInKbs} or {@code batchSizeInNum}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "batchSizeInNum"?: number;

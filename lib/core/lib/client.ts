@@ -6713,6 +6713,88 @@ For information about moving resources between compartments, see
   }
 
   /**
+   * Moves a compute host into a different compartment. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeComputeHostCompartmentRequest
+   * @return ChangeComputeHostCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeHostCompartment.ts.html |here} to see how to use ChangeComputeHostCompartment API.
+   */
+  public async changeComputeHostCompartment(
+    changeComputeHostCompartmentRequest: requests.ChangeComputeHostCompartmentRequest
+  ): Promise<responses.ChangeComputeHostCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#changeComputeHostCompartment.");
+    const operationName = "changeComputeHostCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/ChangeComputeHostCompartment";
+    const pathParams = {
+      "{computeHostId}": changeComputeHostCompartmentRequest.computeHostId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeComputeHostCompartmentRequest.ifMatch,
+      "opc-request-id": changeComputeHostCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeComputeHostCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeComputeHostCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHosts/{computeHostId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeComputeHostCompartmentRequest.changeComputeHostCompartmentDetails,
+        "ChangeComputeHostCompartmentDetails",
+        model.ChangeComputeHostCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeComputeHostCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a compute image capability schema into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see
    *         [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -9805,6 +9887,83 @@ See [Object Storage URLs](https://docs.oracle.com/iaas/Content/Compute/Tasks/ima
         bodyKey: "computeGpuMemoryFabric",
         bodyModel: model.ComputeGpuMemoryFabric,
         type: "model.ComputeGpuMemoryFabric",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified compute host
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetComputeHostRequest
+   * @return GetComputeHostResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeHost.ts.html |here} to see how to use GetComputeHost API.
+   */
+  public async getComputeHost(
+    getComputeHostRequest: requests.GetComputeHostRequest
+  ): Promise<responses.GetComputeHostResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getComputeHost.");
+    const operationName = "getComputeHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/GetComputeHost";
+    const pathParams = {
+      "{computeHostId}": getComputeHostRequest.computeHostId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getComputeHostRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeHostRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHosts/{computeHostId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeHostResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHost",
+        bodyModel: model.ComputeHost,
+        type: "model.ComputeHost",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -13091,6 +13250,92 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * Generates a list of summary host details
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeHostsRequest
+   * @return ListComputeHostsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeHosts.ts.html |here} to see how to use ListComputeHosts API.
+   */
+  public async listComputeHosts(
+    listComputeHostsRequest: requests.ListComputeHostsRequest
+  ): Promise<responses.ListComputeHostsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listComputeHosts.");
+    const operationName = "listComputeHosts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/ListComputeHosts";
+    const pathParams = {};
+
+    const queryParams = {
+      "availabilityDomain": listComputeHostsRequest.availabilityDomain,
+      "compartmentId": listComputeHostsRequest.compartmentId,
+      "displayName": listComputeHostsRequest.displayName,
+      "networkResourceId": listComputeHostsRequest.networkResourceId,
+      "limit": listComputeHostsRequest.limit,
+      "page": listComputeHostsRequest.page,
+      "sortBy": listComputeHostsRequest.sortBy,
+      "sortOrder": listComputeHostsRequest.sortOrder,
+      "computeHostLifecycleState": listComputeHostsRequest.computeHostLifecycleState,
+      "computeHostHealth": listComputeHostsRequest.computeHostHealth
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeHostsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeHostsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHosts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeHostsResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHostCollection",
+        bodyModel: model.ComputeHostCollection,
+        type: "model.ComputeHostCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists Compute Image Capability Schema in the specified compartment. You can also query by a specific imageId.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -15708,6 +15953,90 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Customer can update the some fields for ComputeHost record
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateComputeHostRequest
+   * @return UpdateComputeHostResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeHost.ts.html |here} to see how to use UpdateComputeHost API.
+   */
+  public async updateComputeHost(
+    updateComputeHostRequest: requests.UpdateComputeHostRequest
+  ): Promise<responses.UpdateComputeHostResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateComputeHost.");
+    const operationName = "updateComputeHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/UpdateComputeHost";
+    const pathParams = {
+      "{computeHostId}": updateComputeHostRequest.computeHostId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateComputeHostRequest.ifMatch,
+      "opc-request-id": updateComputeHostRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateComputeHostRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHosts/{computeHostId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateComputeHostRequest.updateComputeHostDetails,
+        "UpdateComputeHostDetails",
+        model.UpdateComputeHostDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateComputeHostResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

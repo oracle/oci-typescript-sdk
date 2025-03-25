@@ -32,6 +32,16 @@ export namespace MonitoredResourceTaskDetails {
             <model.ImportOciTelemetryResourcesTaskDetails>(<object>jsonObj),
             true
           );
+        case "UPDATE_AGENT_RECEIVER":
+          return model.UpdateAgentReceiverTaskDetails.getJsonObj(
+            <model.UpdateAgentReceiverTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "UPDATE_RESOURCE_TYPE_CONFIGS":
+          return model.UpdateResourceTypeConfigTaskDetails.getJsonObj(
+            <model.UpdateResourceTypeConfigTaskDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -46,6 +56,16 @@ export namespace MonitoredResourceTaskDetails {
         case "IMPORT_OCI_TELEMETRY_RESOURCES":
           return model.ImportOciTelemetryResourcesTaskDetails.getDeserializedJsonObj(
             <model.ImportOciTelemetryResourcesTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "UPDATE_AGENT_RECEIVER":
+          return model.UpdateAgentReceiverTaskDetails.getDeserializedJsonObj(
+            <model.UpdateAgentReceiverTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "UPDATE_RESOURCE_TYPE_CONFIGS":
+          return model.UpdateResourceTypeConfigTaskDetails.getDeserializedJsonObj(
+            <model.UpdateResourceTypeConfigTaskDetails>(<object>jsonObj),
             true
           );
         default:

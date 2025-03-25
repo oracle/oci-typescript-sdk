@@ -38,6 +38,18 @@ export interface CreateMaintenanceWindowDetails {
    */
   "resources": Array<model.CreateMaintenanceWindowResourceDetails>;
   "schedule": model.RecurrentMaintenanceWindowSchedule | model.OneTimeMaintenanceWindowSchedule;
+  /**
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Example: {@code {\"bar-key\": \"value\"}}
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace CreateMaintenanceWindowDetails {

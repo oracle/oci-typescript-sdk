@@ -28,5 +28,7 @@ import * as DeleteSessionResponse from "./delete-session-response";
 export import DeleteSessionResponse = DeleteSessionResponse.DeleteSessionResponse;
 import * as GetSessionResponse from "./get-session-response";
 export import GetSessionResponse = GetSessionResponse.GetSessionResponse;
+import * as RetrieveMetadataResponse from "./retrieve-metadata-response";
+export import RetrieveMetadataResponse = RetrieveMetadataResponse.RetrieveMetadataResponse;
 import * as UpdateSessionResponse from "./update-session-response";
 export import UpdateSessionResponse = UpdateSessionResponse.UpdateSessionResponse;

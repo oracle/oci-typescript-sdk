@@ -162,6 +162,8 @@ import * as ChangeComputeGpuMemoryClusterCompartmentDetails from "./change-compu
 export import ChangeComputeGpuMemoryClusterCompartmentDetails = ChangeComputeGpuMemoryClusterCompartmentDetails.ChangeComputeGpuMemoryClusterCompartmentDetails;
 import * as ChangeComputeGpuMemoryFabricCompartmentDetails from "./change-compute-gpu-memory-fabric-compartment-details";
 export import ChangeComputeGpuMemoryFabricCompartmentDetails = ChangeComputeGpuMemoryFabricCompartmentDetails.ChangeComputeGpuMemoryFabricCompartmentDetails;
+import * as ChangeComputeHostCompartmentDetails from "./change-compute-host-compartment-details";
+export import ChangeComputeHostCompartmentDetails = ChangeComputeHostCompartmentDetails.ChangeComputeHostCompartmentDetails;
 import * as ChangeComputeImageCapabilitySchemaCompartmentDetails from "./change-compute-image-capability-schema-compartment-details";
 export import ChangeComputeImageCapabilitySchemaCompartmentDetails = ChangeComputeImageCapabilitySchemaCompartmentDetails.ChangeComputeImageCapabilitySchemaCompartmentDetails;
 import * as ChangeCpeCompartmentDetails from "./change-cpe-compartment-details";
@@ -286,6 +288,12 @@ import * as ComputeGpuMemoryFabricCollection from "./compute-gpu-memory-fabric-c
 export import ComputeGpuMemoryFabricCollection = ComputeGpuMemoryFabricCollection.ComputeGpuMemoryFabricCollection;
 import * as ComputeGpuMemoryFabricSummary from "./compute-gpu-memory-fabric-summary";
 export import ComputeGpuMemoryFabricSummary = ComputeGpuMemoryFabricSummary.ComputeGpuMemoryFabricSummary;
+import * as ComputeHost from "./compute-host";
+export import ComputeHost = ComputeHost.ComputeHost;
+import * as ComputeHostCollection from "./compute-host-collection";
+export import ComputeHostCollection = ComputeHostCollection.ComputeHostCollection;
+import * as ComputeHostSummary from "./compute-host-summary";
+export import ComputeHostSummary = ComputeHostSummary.ComputeHostSummary;
 import * as ComputeHpcIsland from "./compute-hpc-island";
 export import ComputeHpcIsland = ComputeHpcIsland.ComputeHpcIsland;
 import * as ComputeHpcIslandCollection from "./compute-hpc-island-collection";
@@ -904,6 +912,8 @@ import * as UpdateComputeGpuMemoryClusterDetails from "./update-compute-gpu-memo
 export import UpdateComputeGpuMemoryClusterDetails = UpdateComputeGpuMemoryClusterDetails.UpdateComputeGpuMemoryClusterDetails;
 import * as UpdateComputeGpuMemoryFabricDetails from "./update-compute-gpu-memory-fabric-details";
 export import UpdateComputeGpuMemoryFabricDetails = UpdateComputeGpuMemoryFabricDetails.UpdateComputeGpuMemoryFabricDetails;
+import * as UpdateComputeHostDetails from "./update-compute-host-details";
+export import UpdateComputeHostDetails = UpdateComputeHostDetails.UpdateComputeHostDetails;
 import * as UpdateComputeImageCapabilitySchemaDetails from "./update-compute-image-capability-schema-details";
 export import UpdateComputeImageCapabilitySchemaDetails = UpdateComputeImageCapabilitySchemaDetails.UpdateComputeImageCapabilitySchemaDetails;
 import * as UpdateConsoleHistoryDetails from "./update-console-history-details";

@@ -4749,6 +4749,8 @@ For example, when a new Management Agent gets registered in a certain compartmen
       "status": listMonitoredResourceTypesRequest.status,
       "isExcludeSystemTypes": listMonitoredResourceTypesRequest.isExcludeSystemTypes,
       "metricNamespace": listMonitoredResourceTypesRequest.metricNamespace,
+      "sourceType": listMonitoredResourceTypesRequest.sourceType,
+      "resourceCategory": listMonitoredResourceTypesRequest.resourceCategory,
       "sortBy": listMonitoredResourceTypesRequest.sortBy,
       "sortOrder": listMonitoredResourceTypesRequest.sortOrder,
       "limit": listMonitoredResourceTypesRequest.limit,

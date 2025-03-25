@@ -72,7 +72,8 @@ export namespace RequestMonitoredResourcesSummarizedCountRequest {
   export enum GroupBy {
     ResourceType = "resourceType",
     License = "license",
-    ParentResourceId = "parentResourceId"
+    ParentResourceId = "parentResourceId",
+    Namespace = "namespace"
   }
 
   export enum SortBy {

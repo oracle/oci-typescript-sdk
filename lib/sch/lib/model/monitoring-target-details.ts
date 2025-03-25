@@ -31,18 +31,16 @@ export interface MonitoringTargetDetails extends model.TargetDetails {
    */
   "compartmentId": string;
   /**
-    * The namespace of the metric.
-* <p>
-Example: {@code oci_computeagent}
-* 
-    */
+   * The namespace of the metric.
+   * Example: {@code oci_computeagent}
+   *
+   */
   "metricNamespace": string;
   /**
-    * The name of the metric.
-* <p>
-Example: {@code CpuUtilization}
-* 
-    */
+   * The name of the metric.
+   * Example: {@code CpuUtilization}
+   *
+   */
   "metric": string;
   /**
    * List of dimension names and values.

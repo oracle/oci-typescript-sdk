@@ -37,6 +37,13 @@ export interface UpdateAgentEndpointDetails {
    */
   "description"?: string;
   "contentModerationConfig"?: model.ContentModerationConfig;
+  "guardrailConfig"?: model.GuardrailConfig;
+  /**
+   * Key-value pairs to allow additional configurations.
+   */
+  "metadata"?: { [key: string]: string };
+  "humanInputConfig"?: model.HumanInputConfig;
+  "outputConfig"?: model.OutputConfig;
   /**
    * Whether to show traces in the chat result.
    */
@@ -45,6 +52,10 @@ export interface UpdateAgentEndpointDetails {
    * Whether to show citations in the chat result.
    */
   "shouldEnableCitation"?: boolean;
+  /**
+   * Whether to enable multi-language for chat.
+   */
+  "shouldEnableMultiLanguage"?: boolean;
   "sessionConfig"?: model.SessionConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
@@ -72,6 +83,16 @@ export namespace UpdateAgentEndpointDetails {
         "contentModerationConfig": obj.contentModerationConfig
           ? model.ContentModerationConfig.getJsonObj(obj.contentModerationConfig)
           : undefined,
+        "guardrailConfig": obj.guardrailConfig
+          ? model.GuardrailConfig.getJsonObj(obj.guardrailConfig)
+          : undefined,
+
+        "humanInputConfig": obj.humanInputConfig
+          ? model.HumanInputConfig.getJsonObj(obj.humanInputConfig)
+          : undefined,
+        "outputConfig": obj.outputConfig
+          ? model.OutputConfig.getJsonObj(obj.outputConfig)
+          : undefined,
 
         "sessionConfig": obj.sessionConfig
           ? model.SessionConfig.getJsonObj(obj.sessionConfig)
@@ -87,6 +108,16 @@ export namespace UpdateAgentEndpointDetails {
       ...{
         "contentModerationConfig": obj.contentModerationConfig
           ? model.ContentModerationConfig.getDeserializedJsonObj(obj.contentModerationConfig)
+          : undefined,
+        "guardrailConfig": obj.guardrailConfig
+          ? model.GuardrailConfig.getDeserializedJsonObj(obj.guardrailConfig)
+          : undefined,
+
+        "humanInputConfig": obj.humanInputConfig
+          ? model.HumanInputConfig.getDeserializedJsonObj(obj.humanInputConfig)
+          : undefined,
+        "outputConfig": obj.outputConfig
+          ? model.OutputConfig.getDeserializedJsonObj(obj.outputConfig)
           : undefined,
 
         "sessionConfig": obj.sessionConfig

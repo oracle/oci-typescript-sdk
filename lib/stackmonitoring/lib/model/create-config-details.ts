@@ -53,9 +53,19 @@ export namespace CreateConfigDetails {
             <model.CreateLicenseAutoAssignConfigDetails>(<object>jsonObj),
             true
           );
+        case "ONBOARD":
+          return model.CreateOnboardConfigDetails.getJsonObj(
+            <model.CreateOnboardConfigDetails>(<object>jsonObj),
+            true
+          );
         case "AUTO_PROMOTE":
           return model.CreateAutoPromoteConfigDetails.getJsonObj(
             <model.CreateAutoPromoteConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_AUTO_ACTIVATE_PLUGIN":
+          return model.CreateComputeAutoActivatePluginConfigDetails.getJsonObj(
+            <model.CreateComputeAutoActivatePluginConfigDetails>(<object>jsonObj),
             true
           );
         case "LICENSE_ENTERPRISE_EXTENSIBILITY":
@@ -79,9 +89,19 @@ export namespace CreateConfigDetails {
             <model.CreateLicenseAutoAssignConfigDetails>(<object>jsonObj),
             true
           );
+        case "ONBOARD":
+          return model.CreateOnboardConfigDetails.getDeserializedJsonObj(
+            <model.CreateOnboardConfigDetails>(<object>jsonObj),
+            true
+          );
         case "AUTO_PROMOTE":
           return model.CreateAutoPromoteConfigDetails.getDeserializedJsonObj(
             <model.CreateAutoPromoteConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_AUTO_ACTIVATE_PLUGIN":
+          return model.CreateComputeAutoActivatePluginConfigDetails.getDeserializedJsonObj(
+            <model.CreateComputeAutoActivatePluginConfigDetails>(<object>jsonObj),
             true
           );
         case "LICENSE_ENTERPRISE_EXTENSIBILITY":

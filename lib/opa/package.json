@@ -1,6 +1,6 @@
 {
   "name": "oci-opa",
-  "version": "2.106.0",
+  "version": "2.106.1",
   "description": "OCI NodeJS client for Opa Service",
   "repository": {
     "type": "git",
