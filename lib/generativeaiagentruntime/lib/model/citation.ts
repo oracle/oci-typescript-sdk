@@ -24,7 +24,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The citation displays the location of source text that is the agent uses to create the responses.
+ * The source of information for the agent's response.
  *
  */
 export interface Citation {
@@ -48,6 +48,10 @@ export interface Citation {
    * The page numbers on the retrieved document, if available.
    */
   "pageNumbers"?: Array<number>;
+  /**
+   * The metadata of the retrieved document, if available.
+   */
+  "metadata"?: { [key: string]: any };
 }
 
 export namespace Citation {

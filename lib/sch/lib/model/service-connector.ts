@@ -71,6 +71,14 @@ export interface ServiceConnector {
    * information for a resource in a {@code FAILED} state.
    *
    */
+  "lifecycleDetails"?: string;
+  /**
+   * *Please note this property is deprecated and will be removed on January 27, 2026. Use {@code lifecycleDetails} instead.*
+   * A message describing the current state in more detail.
+   * For example, the message might provide actionable
+   * information for a resource in a {@code FAILED} state.
+   *
+   */
   "lifecyleDetails"?: string;
   "source"?:
     | model.LoggingSourceDetails

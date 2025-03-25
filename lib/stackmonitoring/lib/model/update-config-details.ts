@@ -44,6 +44,11 @@ export namespace UpdateConfigDetails {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "COMPUTE_AUTO_ACTIVATE_PLUGIN":
+          return model.UpdateComputeAutoActivatePluginConfigDetails.getJsonObj(
+            <model.UpdateComputeAutoActivatePluginConfigDetails>(<object>jsonObj),
+            true
+          );
         case "LICENSE_ENTERPRISE_EXTENSIBILITY":
           return model.UpdateLicenseEnterpriseExtensibilityConfigDetails.getJsonObj(
             <model.UpdateLicenseEnterpriseExtensibilityConfigDetails>(<object>jsonObj),
@@ -59,6 +64,11 @@ export namespace UpdateConfigDetails {
             <model.UpdateLicenseAutoAssignConfigDetails>(<object>jsonObj),
             true
           );
+        case "ONBOARD":
+          return model.UpdateOnboardConfigDetails.getJsonObj(
+            <model.UpdateOnboardConfigDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.configType}`);
       }
@@ -70,6 +80,11 @@ export namespace UpdateConfigDetails {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "COMPUTE_AUTO_ACTIVATE_PLUGIN":
+          return model.UpdateComputeAutoActivatePluginConfigDetails.getDeserializedJsonObj(
+            <model.UpdateComputeAutoActivatePluginConfigDetails>(<object>jsonObj),
+            true
+          );
         case "LICENSE_ENTERPRISE_EXTENSIBILITY":
           return model.UpdateLicenseEnterpriseExtensibilityConfigDetails.getDeserializedJsonObj(
             <model.UpdateLicenseEnterpriseExtensibilityConfigDetails>(<object>jsonObj),
@@ -83,6 +98,11 @@ export namespace UpdateConfigDetails {
         case "LICENSE_AUTO_ASSIGN":
           return model.UpdateLicenseAutoAssignConfigDetails.getDeserializedJsonObj(
             <model.UpdateLicenseAutoAssignConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "ONBOARD":
+          return model.UpdateOnboardConfigDetails.getDeserializedJsonObj(
+            <model.UpdateOnboardConfigDetails>(<object>jsonObj),
             true
           );
         default:

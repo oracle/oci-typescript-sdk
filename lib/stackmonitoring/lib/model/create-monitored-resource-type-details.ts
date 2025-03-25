@@ -36,7 +36,7 @@ export interface CreateMonitoredResourceTypeDetails {
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the tenancy containing the resource type.
+   * Compartment Identifier [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId": string;

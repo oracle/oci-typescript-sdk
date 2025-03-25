@@ -26,9 +26,11 @@ export interface UpdateConfigRequest extends common.BaseRequest {
    * The details of the configuration to be updated.
    */
   "updateConfigDetails":
+    | model.UpdateComputeAutoActivatePluginConfigDetails
     | model.UpdateLicenseEnterpriseExtensibilityConfigDetails
     | model.UpdateAutoPromoteConfigDetails
-    | model.UpdateLicenseAutoAssignConfigDetails;
+    | model.UpdateLicenseAutoAssignConfigDetails
+    | model.UpdateOnboardConfigDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
    * for a resource, set the {@code if-match} parameter to the value of the

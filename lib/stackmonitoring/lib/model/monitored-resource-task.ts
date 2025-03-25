@@ -27,6 +27,10 @@ export interface MonitoredResourceTask {
    */
   "name": string;
   /**
+   * Type of the task.
+   */
+  "type"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment identifier.
    *
    */
@@ -36,7 +40,10 @@ export interface MonitoredResourceTask {
    *
    */
   "tenantId"?: string;
-  "taskDetails": model.ImportOciTelemetryResourcesTaskDetails;
+  "taskDetails":
+    | model.ImportOciTelemetryResourcesTaskDetails
+    | model.UpdateAgentReceiverTaskDetails
+    | model.UpdateResourceTypeConfigTaskDetails;
   /**
    * Identifiers [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for work requests submitted for this task.
    *

@@ -27,7 +27,14 @@ export interface MonitoredResourceTaskSummary {
    * Name of the task.
    */
   "name": string;
-  "taskDetails": model.ImportOciTelemetryResourcesTaskDetails;
+  /**
+   * Type of the task.
+   */
+  "type"?: string;
+  "taskDetails":
+    | model.ImportOciTelemetryResourcesTaskDetails
+    | model.UpdateAgentReceiverTaskDetails
+    | model.UpdateResourceTypeConfigTaskDetails;
   /**
    * Identifiers [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for work requests submitted for this task.
    *

@@ -31,7 +31,7 @@ export interface ChatDetails {
   /**
    * The input user message content for the chat.
    */
-  "userMessage": string;
+  "userMessage"?: string;
   /**
    * Whether to stream the response.
    */
@@ -40,16 +40,42 @@ export interface ChatDetails {
    * Optional sessionId. If not provided, will chat without any prior context.
    */
   "sessionId"?: string;
+  /**
+   * A map where each key is a toolId and the value contains tool type and additional dynamic parameters.
+   */
+  "toolParameters"?: { [key: string]: string };
+  /**
+   * A list of actions that have been performed based on prior required actions.
+   */
+  "performedActions"?: Array<model.PerformedAction>;
 }
 
 export namespace ChatDetails {
   export function getJsonObj(obj: ChatDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "performedActions": obj.performedActions
+          ? obj.performedActions.map(item => {
+              return model.PerformedAction.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ChatDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "performedActions": obj.performedActions
+          ? obj.performedActions.map(item => {
+              return model.PerformedAction.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

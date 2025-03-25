@@ -36,6 +36,10 @@ export interface MessageContent {
    * Citations to data sources used for generating an agent's message.
    */
   "citations"?: Array<model.Citation>;
+  /**
+   * A list of citations used to generate the paragraphs of the agent message.
+   */
+  "paragraphCitations"?: Array<model.ParagraphCitation>;
 }
 
 export namespace MessageContent {
@@ -46,6 +50,11 @@ export namespace MessageContent {
         "citations": obj.citations
           ? obj.citations.map(item => {
               return model.Citation.getJsonObj(item);
+            })
+          : undefined,
+        "paragraphCitations": obj.paragraphCitations
+          ? obj.paragraphCitations.map(item => {
+              return model.ParagraphCitation.getJsonObj(item);
             })
           : undefined
       }
@@ -60,6 +69,11 @@ export namespace MessageContent {
         "citations": obj.citations
           ? obj.citations.map(item => {
               return model.Citation.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "paragraphCitations": obj.paragraphCitations
+          ? obj.paragraphCitations.map(item => {
+              return model.ParagraphCitation.getDeserializedJsonObj(item);
             })
           : undefined
       }

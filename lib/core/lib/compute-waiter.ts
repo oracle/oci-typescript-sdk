@@ -95,6 +95,37 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forChangeComputeHostCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeComputeHostCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeComputeHostCompartment(
+    request: serviceRequests.ChangeComputeHostCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeComputeHostCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeComputeHostCompartmentResponse = await this.client.changeComputeHostCompartment(
+      request
+    );
+    if (changeComputeHostCompartmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeComputeHostCompartmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeComputeHostCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeComputeHostCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeDedicatedVmHostCompartment
    *
    * @param request the request to send
@@ -542,6 +573,24 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forComputeHost till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetComputeHostResponse
+   */
+  public async forComputeHost(
+    request: serviceRequests.GetComputeHostRequest,
+    ...targetStates: models.ComputeHost.LifecycleState[]
+  ): Promise<serviceResponses.GetComputeHostResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getComputeHost(request),
+      response => targetStates.includes(response.computeHost.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forConsoleHistory till it reaches any of the provided states
    *
    * @param request the request to send
@@ -803,6 +852,29 @@ export class ComputeWaiter {
       response: updateComputeGpuMemoryClusterResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forUpdateComputeHost
+   *
+   * @param request the request to send
+   * @return response returns UpdateComputeHostResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateComputeHost(
+    request: serviceRequests.UpdateComputeHostRequest
+  ): Promise<{
+    response: serviceResponses.UpdateComputeHostResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateComputeHostResponse = await this.client.updateComputeHost(request);
+    if (updateComputeHostResponse.opcWorkRequestId === undefined)
+      return { response: updateComputeHostResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateComputeHostResponse.opcWorkRequestId
+    );
+    return { response: updateComputeHostResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

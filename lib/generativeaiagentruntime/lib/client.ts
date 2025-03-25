@@ -42,7 +42,7 @@ export enum GenerativeAiAgentRuntimeApiKeys {}
  */
 export class GenerativeAiAgentRuntimeClient {
   protected static serviceEndpointTemplate =
-    "https://genai-agent-service.{region}.oci.{secondLevelDomain}";
+    "https://agent-runtime.generativeai.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
@@ -520,6 +520,90 @@ Use this API to create an agent session.
         bodyKey: "session",
         bodyModel: model.Session,
         type: "model.Session",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns metadata of provided knowledgeBase. Return available metadata with information of field names, their types, supported operations, and possible values.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RetrieveMetadataRequest
+   * @return RetrieveMetadataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagentruntime/RetrieveMetadata.ts.html |here} to see how to use RetrieveMetadata API.
+   */
+  public async retrieveMetadata(
+    retrieveMetadataRequest: requests.RetrieveMetadataRequest
+  ): Promise<responses.RetrieveMetadataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiAgentRuntimeClient#retrieveMetadata.");
+    const operationName = "retrieveMetadata";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{knowledgeBaseId}": retrieveMetadataRequest.knowledgeBaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": retrieveMetadataRequest.opcRequestId,
+      "if-match": retrieveMetadataRequest.ifMatch,
+      "opc-retry-token": retrieveMetadataRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      retrieveMetadataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/knowledgeBases/{knowledgeBaseId}/actions/retrieveMetadata",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        retrieveMetadataRequest.retrieveMetadataDetails,
+        "RetrieveMetadataDetails",
+        model.RetrieveMetadataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RetrieveMetadataResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.KnowledgeBaseMetadataSummary,
+        type: "Array<model.KnowledgeBaseMetadataSummary>",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

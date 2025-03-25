@@ -1042,6 +1042,101 @@ export class GenerativeAiAgentClient {
   }
 
   /**
+   * Creates a tool.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateToolRequest
+   * @return CreateToolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateTool.ts.html |here} to see how to use CreateTool API.
+   */
+  public async createTool(
+    createToolRequest: requests.CreateToolRequest
+  ): Promise<responses.CreateToolResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiAgentClient#createTool.");
+    const operationName = "createTool";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createToolRequest.opcRetryToken,
+      "opc-request-id": createToolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createToolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tools",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createToolRequest.createToolDetails,
+        "CreateToolDetails",
+        model.CreateToolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateToolResponse>{},
+        body: await response.json(),
+        bodyKey: "tool",
+        bodyModel: model.Tool,
+        type: "model.Tool",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes an agent.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1390,6 +1485,79 @@ export class GenerativeAiAgentClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteKnowledgeBaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a tool.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteToolRequest
+   * @return DeleteToolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteTool.ts.html |here} to see how to use DeleteTool API.
+   */
+  public async deleteTool(
+    deleteToolRequest: requests.DeleteToolRequest
+  ): Promise<responses.DeleteToolResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiAgentClient#deleteTool.");
+    const operationName = "deleteTool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{toolId}": deleteToolRequest.toolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteToolRequest.ifMatch,
+      "opc-request-id": deleteToolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteToolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tools/{toolId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteToolResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1845,6 +2013,82 @@ export class GenerativeAiAgentClient {
         bodyKey: "knowledgeBase",
         bodyModel: model.KnowledgeBase,
         type: "model.KnowledgeBase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a tool.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetToolRequest
+   * @return GetToolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetTool.ts.html |here} to see how to use GetTool API.
+   */
+  public async getTool(
+    getToolRequest: requests.GetToolRequest
+  ): Promise<responses.GetToolResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiAgentClient#getTool.");
+    const operationName = "getTool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{toolId}": getToolRequest.toolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getToolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getToolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tools/{toolId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetToolResponse>{},
+        body: await response.json(),
+        bodyKey: "tool",
+        bodyModel: model.Tool,
+        type: "model.Tool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2343,6 +2587,89 @@ export class GenerativeAiAgentClient {
         bodyKey: "knowledgeBaseCollection",
         bodyModel: model.KnowledgeBaseCollection,
         type: "model.KnowledgeBaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of tools.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListToolsRequest
+   * @return ListToolsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListTools.ts.html |here} to see how to use ListTools API.
+   */
+  public async listTools(
+    listToolsRequest: requests.ListToolsRequest
+  ): Promise<responses.ListToolsResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiAgentClient#listTools.");
+    const operationName = "listTools";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listToolsRequest.compartmentId,
+      "lifecycleState": listToolsRequest.lifecycleState,
+      "displayName": listToolsRequest.displayName,
+      "agentId": listToolsRequest.agentId,
+      "limit": listToolsRequest.limit,
+      "page": listToolsRequest.page,
+      "sortOrder": listToolsRequest.sortOrder,
+      "sortBy": listToolsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listToolsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listToolsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tools",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListToolsResponse>{},
+        body: await response.json(),
+        bodyKey: "toolCollection",
+        bodyModel: model.ToolCollection,
+        type: "model.ToolCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2906,6 +3233,84 @@ export class GenerativeAiAgentClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateKnowledgeBaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a tool.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateToolRequest
+   * @return UpdateToolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateTool.ts.html |here} to see how to use UpdateTool API.
+   */
+  public async updateTool(
+    updateToolRequest: requests.UpdateToolRequest
+  ): Promise<responses.UpdateToolResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiAgentClient#updateTool.");
+    const operationName = "updateTool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{toolId}": updateToolRequest.toolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateToolRequest.ifMatch,
+      "opc-request-id": updateToolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateToolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tools/{toolId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateToolRequest.updateToolDetails,
+        "UpdateToolDetails",
+        model.UpdateToolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateToolResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

@@ -52,6 +52,10 @@ export interface DataSource {
   "knowledgeBaseId": string;
   "dataSourceConfig": model.OciObjectStorageDataSourceConfig;
   /**
+   * Key-value pairs to allow additional configurations.
+   */
+  "metadata"?: { [key: string]: string };
+  /**
     * The date and time the data source was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}

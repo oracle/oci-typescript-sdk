@@ -42,6 +42,10 @@ export interface CreateDataSourceDetails {
   "knowledgeBaseId": string;
   "dataSourceConfig": model.OciObjectStorageDataSourceConfig;
   /**
+   * Key-value pairs to allow additional configurations.
+   */
+  "metadata"?: { [key: string]: string };
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to create the data source in.
    *
    */

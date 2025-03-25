@@ -44,6 +44,14 @@ export interface ListMonitoredResourceTypesRequest extends common.BaseRequest {
    */
   "metricNamespace"?: string;
   /**
+   * A filter to return only resources with matching source type.
+   */
+  "sourceType"?: model.SourceType;
+  /**
+   * A filter to return only resources with matching resource category.
+   */
+  "resourceCategory"?: model.ResourceCategory;
+  /**
    * The field to sort by. Only one sort order may be provided.
    * Default order for 'timeUpdated' is descending. Default order for 'name' is ascending.
    *

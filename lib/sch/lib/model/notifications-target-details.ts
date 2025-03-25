@@ -31,11 +31,10 @@ export interface NotificationsTargetDetails extends model.TargetDetails {
    */
   "topicId": string;
   /**
-    * Whether to apply a simplified, user-friendly format to the message. Applies only when friendly formatting is supported by the connector source and the subscription protocol.
-* <p>
-Example: {@code true}
-* 
-    */
+   * Whether to apply a simplified, user-friendly format to the message. Applies only when friendly formatting is supported by the connector source and the subscription protocol.
+   * Example: {@code true}
+   *
+   */
   "enableFormattedMessaging"?: boolean;
 
   "kind": string;

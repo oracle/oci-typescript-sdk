@@ -23,7 +23,9 @@ export interface CreateConfigRequest extends common.BaseRequest {
    */
   "createConfigDetails":
     | model.CreateLicenseAutoAssignConfigDetails
+    | model.CreateOnboardConfigDetails
     | model.CreateAutoPromoteConfigDetails
+    | model.CreateComputeAutoActivatePluginConfigDetails
     | model.CreateLicenseEnterpriseExtensibilityConfigDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or

@@ -28,5 +28,7 @@ import * as DeleteSessionRequest from "./delete-session-request";
 export import DeleteSessionRequest = DeleteSessionRequest.DeleteSessionRequest;
 import * as GetSessionRequest from "./get-session-request";
 export import GetSessionRequest = GetSessionRequest.GetSessionRequest;
+import * as RetrieveMetadataRequest from "./retrieve-metadata-request";
+export import RetrieveMetadataRequest = RetrieveMetadataRequest.RetrieveMetadataRequest;
 import * as UpdateSessionRequest from "./update-session-request";
 export import UpdateSessionRequest = UpdateSessionRequest.UpdateSessionRequest;

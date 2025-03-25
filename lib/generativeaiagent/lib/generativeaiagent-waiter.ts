@@ -128,6 +128,25 @@ export class GenerativeAiAgentWaiter {
   }
 
   /**
+   * Waits forTool till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetToolResponse | null (null in case of 404 response)
+   */
+  public async forTool(
+    request: serviceRequests.GetToolRequest,
+    ...targetStates: models.Tool.LifecycleState[]
+  ): Promise<serviceResponses.GetToolResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getTool(request),
+      response => targetStates.includes(response.tool.lifecycleState!),
+      targetStates.includes(models.Tool.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

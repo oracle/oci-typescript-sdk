@@ -47,13 +47,14 @@ export interface Agent {
    */
   "compartmentId": string;
   /**
-   * List of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the knowledgeBases associated with agent.
+   * List of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the knowledgeBases associated with agent. This field is deprecated and will be removed after March 26 2026.
    */
   "knowledgeBaseIds"?: Array<string>;
   /**
    * Details about purpose and responsibility of the agent
    */
   "welcomeMessage"?: string;
+  "llmConfig"?: model.LlmConfig;
   /**
     * The date and time the agent was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
@@ -119,12 +120,24 @@ export namespace Agent {
   }
 
   export function getJsonObj(obj: Agent): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "llmConfig": obj.llmConfig ? model.LlmConfig.getJsonObj(obj.llmConfig) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Agent): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "llmConfig": obj.llmConfig
+          ? model.LlmConfig.getDeserializedJsonObj(obj.llmConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

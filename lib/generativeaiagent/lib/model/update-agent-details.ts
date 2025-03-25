@@ -37,13 +37,14 @@ export interface UpdateAgentDetails {
    */
   "description"?: string;
   /**
-   * List of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the knowledgeBases associated with agent.
+   * List of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the knowledgeBases associated with agent. This field is deprecated and will be removed after March 26 2026.
    */
   "knowledgeBaseIds"?: Array<string>;
   /**
    * Details about purpose and responsibility of the agent
    */
   "welcomeMessage"?: string;
+  "llmConfig"?: model.LlmConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -64,12 +65,24 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 
 export namespace UpdateAgentDetails {
   export function getJsonObj(obj: UpdateAgentDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "llmConfig": obj.llmConfig ? model.LlmConfig.getJsonObj(obj.llmConfig) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateAgentDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "llmConfig": obj.llmConfig
+          ? model.LlmConfig.getDeserializedJsonObj(obj.llmConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

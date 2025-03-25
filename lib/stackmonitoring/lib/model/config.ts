@@ -90,9 +90,19 @@ export namespace Config {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "ONBOARD":
+          return model.OnboardConfigDetails.getJsonObj(
+            <model.OnboardConfigDetails>(<object>jsonObj),
+            true
+          );
         case "LICENSE_ENTERPRISE_EXTENSIBILITY":
           return model.LicenseEnterpriseExtensibilityConfigDetails.getJsonObj(
             <model.LicenseEnterpriseExtensibilityConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_AUTO_ACTIVATE_PLUGIN":
+          return model.ComputeAutoActivatePluginConfigDetails.getJsonObj(
+            <model.ComputeAutoActivatePluginConfigDetails>(<object>jsonObj),
             true
           );
         case "LICENSE_AUTO_ASSIGN":
@@ -116,9 +126,19 @@ export namespace Config {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "ONBOARD":
+          return model.OnboardConfigDetails.getDeserializedJsonObj(
+            <model.OnboardConfigDetails>(<object>jsonObj),
+            true
+          );
         case "LICENSE_ENTERPRISE_EXTENSIBILITY":
           return model.LicenseEnterpriseExtensibilityConfigDetails.getDeserializedJsonObj(
             <model.LicenseEnterpriseExtensibilityConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_AUTO_ACTIVATE_PLUGIN":
+          return model.ComputeAutoActivatePluginConfigDetails.getDeserializedJsonObj(
+            <model.ComputeAutoActivatePluginConfigDetails>(<object>jsonObj),
             true
           );
         case "LICENSE_AUTO_ASSIGN":
