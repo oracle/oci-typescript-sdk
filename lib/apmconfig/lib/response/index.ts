@@ -13,12 +13,18 @@ configuration. For more information, see [Application Performance Monitoring](ht
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CopyConfigurationResponse from "./copy-configuration-response";
+export import CopyConfigurationResponse = CopyConfigurationResponse.CopyConfigurationResponse;
 import * as CreateConfigResponse from "./create-config-response";
 export import CreateConfigResponse = CreateConfigResponse.CreateConfigResponse;
 import * as DeleteConfigResponse from "./delete-config-response";
 export import DeleteConfigResponse = DeleteConfigResponse.DeleteConfigResponse;
+import * as ExportConfigurationResponse from "./export-configuration-response";
+export import ExportConfigurationResponse = ExportConfigurationResponse.ExportConfigurationResponse;
 import * as GetConfigResponse from "./get-config-response";
 export import GetConfigResponse = GetConfigResponse.GetConfigResponse;
+import * as ImportConfigurationResponse from "./import-configuration-response";
+export import ImportConfigurationResponse = ImportConfigurationResponse.ImportConfigurationResponse;
 import * as ListConfigsResponse from "./list-configs-response";
 export import ListConfigsResponse = ListConfigsResponse.ListConfigsResponse;
 import * as RetrieveNamespaceMetricsResponse from "./retrieve-namespace-metrics-response";

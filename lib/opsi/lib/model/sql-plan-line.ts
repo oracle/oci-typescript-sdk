@@ -37,6 +37,18 @@ export interface SqlPlanLine {
    */
   "planHash": number;
   /**
+   * Force matching signature
+   * Example: {@code \"18067345456756876713\"}
+   *
+   */
+  "forceMatchingSignature"?: string;
+  /**
+   * Generation time stamp
+   * Example: {@code \"2020-05-05T02:10:00.000Z\"}
+   *
+   */
+  "timeGenerated"?: Date;
+  /**
    * Collection time stamp
    * Example: {@code \"2020-05-06T00:00:00.000Z\"}
    *

@@ -1,6 +1,6 @@
 {
   "name": "oci-clusterplacementgroups",
-  "version": "2.106.1",
+  "version": "2.106.2",
   "description": "OCI NodeJS client for Cluster Placement Groups Service",
   "repository": {
     "type": "git",

@@ -13,12 +13,18 @@ configuration. For more information, see [Application Performance Monitoring](ht
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CopyConfigurationRequest from "./copy-configuration-request";
+export import CopyConfigurationRequest = CopyConfigurationRequest.CopyConfigurationRequest;
 import * as CreateConfigRequest from "./create-config-request";
 export import CreateConfigRequest = CreateConfigRequest.CreateConfigRequest;
 import * as DeleteConfigRequest from "./delete-config-request";
 export import DeleteConfigRequest = DeleteConfigRequest.DeleteConfigRequest;
+import * as ExportConfigurationRequest from "./export-configuration-request";
+export import ExportConfigurationRequest = ExportConfigurationRequest.ExportConfigurationRequest;
 import * as GetConfigRequest from "./get-config-request";
 export import GetConfigRequest = GetConfigRequest.GetConfigRequest;
+import * as ImportConfigurationRequest from "./import-configuration-request";
+export import ImportConfigurationRequest = ImportConfigurationRequest.ImportConfigurationRequest;
 import * as ListConfigsRequest from "./list-configs-request";
 export import ListConfigsRequest = ListConfigsRequest.ListConfigsRequest;
 import * as RetrieveNamespaceMetricsRequest from "./retrieve-namespace-metrics-request";

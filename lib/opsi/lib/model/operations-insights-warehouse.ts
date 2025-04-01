@@ -34,10 +34,14 @@ export interface OperationsInsightsWarehouse {
    */
   "displayName": string;
   /**
-   * Number of OCPUs allocated to OPSI Warehouse ADW.
+   * Number of CPUs allocated to OPSI Warehouse ADW.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuAllocated": number;
+  /**
+   * The compute model for the OPSI warehouse ADW (OCPU or ECPU)
+   */
+  "computeModel"?: OperationsInsightsWarehouse.ComputeModel;
   /**
    * Number of OCPUs used by OPSI Warehouse ADW. Can be fractional.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -102,6 +106,16 @@ export interface OperationsInsightsWarehouse {
 }
 
 export namespace OperationsInsightsWarehouse {
+  export enum ComputeModel {
+    Ocpu = "OCPU",
+    Ecpu = "ECPU",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: OperationsInsightsWarehouse): object {
     const jsonObj = { ...obj, ...{} };
 

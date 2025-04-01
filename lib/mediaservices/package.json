@@ -1,6 +1,6 @@
 {
   "name": "oci-mediaservices",
-  "version": "2.106.1",
+  "version": "2.106.2",
   "description": "OCI NodeJS client for Media Services Service",
   "repository": {
     "type": "git",
