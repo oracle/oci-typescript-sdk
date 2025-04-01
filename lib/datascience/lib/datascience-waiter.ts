@@ -82,6 +82,98 @@ export class DataScienceWaiter {
   }
 
   /**
+   * Waits forMlApplication till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMlApplicationResponse
+   */
+  public async forMlApplication(
+    request: serviceRequests.GetMlApplicationRequest,
+    ...targetStates: models.MlApplication.LifecycleState[]
+  ): Promise<serviceResponses.GetMlApplicationResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getMlApplication(request),
+      response => targetStates.includes(response.mlApplication.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forMlApplicationImplementation till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMlApplicationImplementationResponse
+   */
+  public async forMlApplicationImplementation(
+    request: serviceRequests.GetMlApplicationImplementationRequest,
+    ...targetStates: models.MlApplicationImplementation.LifecycleState[]
+  ): Promise<serviceResponses.GetMlApplicationImplementationResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getMlApplicationImplementation(request),
+      response => targetStates.includes(response.mlApplicationImplementation.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forMlApplicationImplementationVersion till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMlApplicationImplementationVersionResponse
+   */
+  public async forMlApplicationImplementationVersion(
+    request: serviceRequests.GetMlApplicationImplementationVersionRequest,
+    ...targetStates: models.MlApplicationImplementationVersion.LifecycleState[]
+  ): Promise<serviceResponses.GetMlApplicationImplementationVersionResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getMlApplicationImplementationVersion(request),
+      response => targetStates.includes(response.mlApplicationImplementationVersion.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forMlApplicationInstance till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMlApplicationInstanceResponse | null (null in case of 404 response)
+   */
+  public async forMlApplicationInstance(
+    request: serviceRequests.GetMlApplicationInstanceRequest,
+    ...targetStates: models.MlApplicationInstance.LifecycleState[]
+  ): Promise<serviceResponses.GetMlApplicationInstanceResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getMlApplicationInstance(request),
+      response => targetStates.includes(response.mlApplicationInstance.lifecycleState!),
+      targetStates.includes(models.MlApplicationInstance.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forMlApplicationInstanceView till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMlApplicationInstanceViewResponse | null (null in case of 404 response)
+   */
+  public async forMlApplicationInstanceView(
+    request: serviceRequests.GetMlApplicationInstanceViewRequest,
+    ...targetStates: models.MlApplicationInstanceView.LifecycleState[]
+  ): Promise<serviceResponses.GetMlApplicationInstanceViewResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getMlApplicationInstanceView(request),
+      response => targetStates.includes(response.mlApplicationInstanceView.lifecycleState!),
+      targetStates.includes(models.MlApplicationInstanceView.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forModel till it reaches any of the provided states
    *
    * @param request the request to send

@@ -976,6 +976,331 @@ export class DataScienceClient {
   }
 
   /**
+   * Moves a MlApplication resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeMlApplicationCompartmentRequest
+   * @return ChangeMlApplicationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeMlApplicationCompartment.ts.html |here} to see how to use ChangeMlApplicationCompartment API.
+   */
+  public async changeMlApplicationCompartment(
+    changeMlApplicationCompartmentRequest: requests.ChangeMlApplicationCompartmentRequest
+  ): Promise<responses.ChangeMlApplicationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeMlApplicationCompartment.");
+    const operationName = "changeMlApplicationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplication/ChangeMlApplicationCompartment";
+    const pathParams = {
+      "{mlApplicationId}": changeMlApplicationCompartmentRequest.mlApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMlApplicationCompartmentRequest.ifMatch,
+      "opc-request-id": changeMlApplicationCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeMlApplicationCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMlApplicationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplications/{mlApplicationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMlApplicationCompartmentRequest.changeMlApplicationCompartmentDetails,
+        "ChangeMlApplicationCompartmentDetails",
+        model.ChangeMlApplicationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMlApplicationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a MlApplicationImplementation resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeMlApplicationImplementationCompartmentRequest
+   * @return ChangeMlApplicationImplementationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeMlApplicationImplementationCompartment.ts.html |here} to see how to use ChangeMlApplicationImplementationCompartment API.
+   */
+  public async changeMlApplicationImplementationCompartment(
+    changeMlApplicationImplementationCompartmentRequest: requests.ChangeMlApplicationImplementationCompartmentRequest
+  ): Promise<responses.ChangeMlApplicationImplementationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#changeMlApplicationImplementationCompartment."
+      );
+    const operationName = "changeMlApplicationImplementationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementation/ChangeMlApplicationImplementationCompartment";
+    const pathParams = {
+      "{mlApplicationImplementationId}":
+        changeMlApplicationImplementationCompartmentRequest.mlApplicationImplementationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMlApplicationImplementationCompartmentRequest.ifMatch,
+      "opc-request-id": changeMlApplicationImplementationCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeMlApplicationImplementationCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMlApplicationImplementationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/mlApplicationImplementations/{mlApplicationImplementationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMlApplicationImplementationCompartmentRequest.changeMlApplicationImplementationCompartmentDetails,
+        "ChangeMlApplicationImplementationCompartmentDetails",
+        model.ChangeMlApplicationImplementationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMlApplicationImplementationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a MlApplicationInstance resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeMlApplicationInstanceCompartmentRequest
+   * @return ChangeMlApplicationInstanceCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeMlApplicationInstanceCompartment.ts.html |here} to see how to use ChangeMlApplicationInstanceCompartment API.
+   */
+  public async changeMlApplicationInstanceCompartment(
+    changeMlApplicationInstanceCompartmentRequest: requests.ChangeMlApplicationInstanceCompartmentRequest
+  ): Promise<responses.ChangeMlApplicationInstanceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#changeMlApplicationInstanceCompartment."
+      );
+    const operationName = "changeMlApplicationInstanceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstance/ChangeMlApplicationInstanceCompartment";
+    const pathParams = {
+      "{mlApplicationInstanceId}":
+        changeMlApplicationInstanceCompartmentRequest.mlApplicationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMlApplicationInstanceCompartmentRequest.ifMatch,
+      "opc-request-id": changeMlApplicationInstanceCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeMlApplicationInstanceCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMlApplicationInstanceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstances/{mlApplicationInstanceId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMlApplicationInstanceCompartmentRequest.changeMlApplicationInstanceCompartmentDetails,
+        "ChangeMlApplicationInstanceCompartmentDetails",
+        model.ChangeMlApplicationInstanceCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMlApplicationInstanceCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a MlApplicationInstanceView resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeMlApplicationInstanceViewCompartmentRequest
+   * @return ChangeMlApplicationInstanceViewCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeMlApplicationInstanceViewCompartment.ts.html |here} to see how to use ChangeMlApplicationInstanceViewCompartment API.
+   */
+  public async changeMlApplicationInstanceViewCompartment(
+    changeMlApplicationInstanceViewCompartmentRequest: requests.ChangeMlApplicationInstanceViewCompartmentRequest
+  ): Promise<responses.ChangeMlApplicationInstanceViewCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#changeMlApplicationInstanceViewCompartment."
+      );
+    const operationName = "changeMlApplicationInstanceViewCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstanceView/ChangeMlApplicationInstanceViewCompartment";
+    const pathParams = {
+      "{mlApplicationInstanceViewId}":
+        changeMlApplicationInstanceViewCompartmentRequest.mlApplicationInstanceViewId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMlApplicationInstanceViewCompartmentRequest.ifMatch,
+      "opc-request-id": changeMlApplicationInstanceViewCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeMlApplicationInstanceViewCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMlApplicationInstanceViewCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstanceViews/{mlApplicationInstanceViewId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMlApplicationInstanceViewCompartmentRequest.changeMlApplicationInstanceViewCompartmentDetails,
+        "ChangeMlApplicationInstanceViewCompartmentDetails",
+        model.ChangeMlApplicationInstanceViewCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMlApplicationInstanceViewCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a model resource into a different compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeModelCompartmentRequest
@@ -1901,6 +2226,266 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new MlApplication.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateMlApplicationRequest
+   * @return CreateMlApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateMlApplication.ts.html |here} to see how to use CreateMlApplication API.
+   */
+  public async createMlApplication(
+    createMlApplicationRequest: requests.CreateMlApplicationRequest
+  ): Promise<responses.CreateMlApplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createMlApplication.");
+    const operationName = "createMlApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplication/CreateMlApplication";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createMlApplicationRequest.opcRetryToken,
+      "opc-request-id": createMlApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMlApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplications",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMlApplicationRequest.createMlApplicationDetails,
+        "CreateMlApplicationDetails",
+        model.CreateMlApplicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMlApplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplication",
+        bodyModel: model.MlApplication,
+        type: "model.MlApplication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new MlApplicationImplementation.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateMlApplicationImplementationRequest
+   * @return CreateMlApplicationImplementationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateMlApplicationImplementation.ts.html |here} to see how to use CreateMlApplicationImplementation API.
+   */
+  public async createMlApplicationImplementation(
+    createMlApplicationImplementationRequest: requests.CreateMlApplicationImplementationRequest
+  ): Promise<responses.CreateMlApplicationImplementationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createMlApplicationImplementation.");
+    const operationName = "createMlApplicationImplementation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementation/CreateMlApplicationImplementation";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createMlApplicationImplementationRequest.opcRetryToken,
+      "opc-request-id": createMlApplicationImplementationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMlApplicationImplementationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationImplementations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMlApplicationImplementationRequest.createMlApplicationImplementationDetails,
+        "CreateMlApplicationImplementationDetails",
+        model.CreateMlApplicationImplementationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMlApplicationImplementationResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationImplementation",
+        bodyModel: model.MlApplicationImplementation,
+        type: "model.MlApplicationImplementation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new MlApplicationInstance.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateMlApplicationInstanceRequest
+   * @return CreateMlApplicationInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateMlApplicationInstance.ts.html |here} to see how to use CreateMlApplicationInstance API.
+   */
+  public async createMlApplicationInstance(
+    createMlApplicationInstanceRequest: requests.CreateMlApplicationInstanceRequest
+  ): Promise<responses.CreateMlApplicationInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createMlApplicationInstance.");
+    const operationName = "createMlApplicationInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstance/CreateMlApplicationInstance";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createMlApplicationInstanceRequest.opcRetryToken,
+      "opc-request-id": createMlApplicationInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMlApplicationInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstances",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMlApplicationInstanceRequest.createMlApplicationInstanceDetails,
+        "CreateMlApplicationInstanceDetails",
+        model.CreateMlApplicationInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMlApplicationInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationInstance",
+        bodyModel: model.MlApplicationInstance,
+        type: "model.MlApplicationInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -3511,6 +4096,223 @@ export class DataScienceClient {
   }
 
   /**
+   * Deletes a MlApplication resource by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteMlApplicationRequest
+   * @return DeleteMlApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteMlApplication.ts.html |here} to see how to use DeleteMlApplication API.
+   */
+  public async deleteMlApplication(
+    deleteMlApplicationRequest: requests.DeleteMlApplicationRequest
+  ): Promise<responses.DeleteMlApplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteMlApplication.");
+    const operationName = "deleteMlApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplication/DeleteMlApplication";
+    const pathParams = {
+      "{mlApplicationId}": deleteMlApplicationRequest.mlApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMlApplicationRequest.ifMatch,
+      "opc-request-id": deleteMlApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMlApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplications/{mlApplicationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMlApplicationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a MlApplicationImplementation resource by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteMlApplicationImplementationRequest
+   * @return DeleteMlApplicationImplementationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteMlApplicationImplementation.ts.html |here} to see how to use DeleteMlApplicationImplementation API.
+   */
+  public async deleteMlApplicationImplementation(
+    deleteMlApplicationImplementationRequest: requests.DeleteMlApplicationImplementationRequest
+  ): Promise<responses.DeleteMlApplicationImplementationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteMlApplicationImplementation.");
+    const operationName = "deleteMlApplicationImplementation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementation/DeleteMlApplicationImplementation";
+    const pathParams = {
+      "{mlApplicationImplementationId}":
+        deleteMlApplicationImplementationRequest.mlApplicationImplementationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMlApplicationImplementationRequest.ifMatch,
+      "opc-request-id": deleteMlApplicationImplementationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMlApplicationImplementationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationImplementations/{mlApplicationImplementationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMlApplicationImplementationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a MlApplicationInstance resource by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteMlApplicationInstanceRequest
+   * @return DeleteMlApplicationInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteMlApplicationInstance.ts.html |here} to see how to use DeleteMlApplicationInstance API.
+   */
+  public async deleteMlApplicationInstance(
+    deleteMlApplicationInstanceRequest: requests.DeleteMlApplicationInstanceRequest
+  ): Promise<responses.DeleteMlApplicationInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteMlApplicationInstance.");
+    const operationName = "deleteMlApplicationInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstance/DeleteMlApplicationInstance";
+    const pathParams = {
+      "{mlApplicationInstanceId}": deleteMlApplicationInstanceRequest.mlApplicationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMlApplicationInstanceRequest.ifMatch,
+      "opc-request-id": deleteMlApplicationInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMlApplicationInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstances/{mlApplicationInstanceId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMlApplicationInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified model.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteModelRequest
@@ -4235,6 +5037,180 @@ export class DataScienceClient {
   }
 
   /**
+   * Disable trigger of given name for given ML Application Instance View flow
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableMlApplicationInstanceViewTriggerRequest
+   * @return DisableMlApplicationInstanceViewTriggerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DisableMlApplicationInstanceViewTrigger.ts.html |here} to see how to use DisableMlApplicationInstanceViewTrigger API.
+   */
+  public async disableMlApplicationInstanceViewTrigger(
+    disableMlApplicationInstanceViewTriggerRequest: requests.DisableMlApplicationInstanceViewTriggerRequest
+  ): Promise<responses.DisableMlApplicationInstanceViewTriggerResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#disableMlApplicationInstanceViewTrigger."
+      );
+    const operationName = "disableMlApplicationInstanceViewTrigger";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstanceView/DisableMlApplicationInstanceViewTrigger";
+    const pathParams = {
+      "{mlApplicationInstanceViewId}":
+        disableMlApplicationInstanceViewTriggerRequest.mlApplicationInstanceViewId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableMlApplicationInstanceViewTriggerRequest.ifMatch,
+      "opc-request-id": disableMlApplicationInstanceViewTriggerRequest.opcRequestId,
+      "opc-retry-token": disableMlApplicationInstanceViewTriggerRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableMlApplicationInstanceViewTriggerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstanceViews/{mlApplicationInstanceViewId}/actions/disableTrigger",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableMlApplicationInstanceViewTriggerRequest.disableMlApplicationInstanceViewTriggerDetails,
+        "DisableMlApplicationInstanceViewTriggerDetails",
+        model.DisableMlApplicationInstanceViewTriggerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableMlApplicationInstanceViewTriggerResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationInstanceView",
+        bodyModel: model.MlApplicationInstanceView,
+        type: "model.MlApplicationInstanceView",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enable trigger of given name for given ML Application Instance View flow
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableMlApplicationInstanceViewTriggerRequest
+   * @return EnableMlApplicationInstanceViewTriggerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/EnableMlApplicationInstanceViewTrigger.ts.html |here} to see how to use EnableMlApplicationInstanceViewTrigger API.
+   */
+  public async enableMlApplicationInstanceViewTrigger(
+    enableMlApplicationInstanceViewTriggerRequest: requests.EnableMlApplicationInstanceViewTriggerRequest
+  ): Promise<responses.EnableMlApplicationInstanceViewTriggerResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#enableMlApplicationInstanceViewTrigger."
+      );
+    const operationName = "enableMlApplicationInstanceViewTrigger";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstanceView/EnableMlApplicationInstanceViewTrigger";
+    const pathParams = {
+      "{mlApplicationInstanceViewId}":
+        enableMlApplicationInstanceViewTriggerRequest.mlApplicationInstanceViewId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableMlApplicationInstanceViewTriggerRequest.ifMatch,
+      "opc-request-id": enableMlApplicationInstanceViewTriggerRequest.opcRequestId,
+      "opc-retry-token": enableMlApplicationInstanceViewTriggerRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableMlApplicationInstanceViewTriggerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstanceViews/{mlApplicationInstanceViewId}/actions/enableTrigger",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableMlApplicationInstanceViewTriggerRequest.enableMlApplicationInstanceViewTriggerDetails,
+        "EnableMlApplicationInstanceViewTriggerDetails",
+        model.EnableMlApplicationInstanceViewTriggerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableMlApplicationInstanceViewTriggerResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationInstanceView",
+        bodyModel: model.MlApplicationInstanceView,
+        type: "model.MlApplicationInstanceView",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Export model artifact from source to the service bucket
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ExportModelArtifactRequest
@@ -4629,6 +5605,555 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a MlApplication by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMlApplicationRequest
+   * @return GetMlApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetMlApplication.ts.html |here} to see how to use GetMlApplication API.
+   */
+  public async getMlApplication(
+    getMlApplicationRequest: requests.GetMlApplicationRequest
+  ): Promise<responses.GetMlApplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getMlApplication.");
+    const operationName = "getMlApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplication/GetMlApplication";
+    const pathParams = {
+      "{mlApplicationId}": getMlApplicationRequest.mlApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMlApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMlApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplications/{mlApplicationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMlApplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplication",
+        bodyModel: model.MlApplication,
+        type: "model.MlApplication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves ML Application package for MlApplicationImplementationVersion with given id.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMlApplicationHistoricalPackageContentRequest
+   * @return GetMlApplicationHistoricalPackageContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetMlApplicationHistoricalPackageContent.ts.html |here} to see how to use GetMlApplicationHistoricalPackageContent API.
+   */
+  public async getMlApplicationHistoricalPackageContent(
+    getMlApplicationHistoricalPackageContentRequest: requests.GetMlApplicationHistoricalPackageContentRequest
+  ): Promise<responses.GetMlApplicationHistoricalPackageContentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#getMlApplicationHistoricalPackageContent."
+      );
+    const operationName = "getMlApplicationHistoricalPackageContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementationVersion/GetMlApplicationHistoricalPackageContent";
+    const pathParams = {
+      "{mlApplicationImplementationVersionId}":
+        getMlApplicationHistoricalPackageContentRequest.mlApplicationImplementationVersionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMlApplicationHistoricalPackageContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMlApplicationHistoricalPackageContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/mlApplicationImplementationVersions/{mlApplicationImplementationVersionId}/mlApplicationHistoricalPackage/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMlApplicationHistoricalPackageContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a MlApplicationImplementation by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMlApplicationImplementationRequest
+   * @return GetMlApplicationImplementationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetMlApplicationImplementation.ts.html |here} to see how to use GetMlApplicationImplementation API.
+   */
+  public async getMlApplicationImplementation(
+    getMlApplicationImplementationRequest: requests.GetMlApplicationImplementationRequest
+  ): Promise<responses.GetMlApplicationImplementationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getMlApplicationImplementation.");
+    const operationName = "getMlApplicationImplementation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementation/GetMlApplicationImplementation";
+    const pathParams = {
+      "{mlApplicationImplementationId}":
+        getMlApplicationImplementationRequest.mlApplicationImplementationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMlApplicationImplementationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMlApplicationImplementationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationImplementations/{mlApplicationImplementationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMlApplicationImplementationResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationImplementation",
+        bodyModel: model.MlApplicationImplementation,
+        type: "model.MlApplicationImplementation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a MlApplicationImplementationVersion by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMlApplicationImplementationVersionRequest
+   * @return GetMlApplicationImplementationVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetMlApplicationImplementationVersion.ts.html |here} to see how to use GetMlApplicationImplementationVersion API.
+   */
+  public async getMlApplicationImplementationVersion(
+    getMlApplicationImplementationVersionRequest: requests.GetMlApplicationImplementationVersionRequest
+  ): Promise<responses.GetMlApplicationImplementationVersionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#getMlApplicationImplementationVersion."
+      );
+    const operationName = "getMlApplicationImplementationVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementationVersion/GetMlApplicationImplementationVersion";
+    const pathParams = {
+      "{mlApplicationImplementationVersionId}":
+        getMlApplicationImplementationVersionRequest.mlApplicationImplementationVersionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMlApplicationImplementationVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMlApplicationImplementationVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationImplementationVersions/{mlApplicationImplementationVersionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMlApplicationImplementationVersionResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationImplementationVersion",
+        bodyModel: model.MlApplicationImplementationVersion,
+        type: "model.MlApplicationImplementationVersion",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a MlApplicationInstance by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMlApplicationInstanceRequest
+   * @return GetMlApplicationInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetMlApplicationInstance.ts.html |here} to see how to use GetMlApplicationInstance API.
+   */
+  public async getMlApplicationInstance(
+    getMlApplicationInstanceRequest: requests.GetMlApplicationInstanceRequest
+  ): Promise<responses.GetMlApplicationInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getMlApplicationInstance.");
+    const operationName = "getMlApplicationInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstance/GetMlApplicationInstance";
+    const pathParams = {
+      "{mlApplicationInstanceId}": getMlApplicationInstanceRequest.mlApplicationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMlApplicationInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMlApplicationInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstances/{mlApplicationInstanceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMlApplicationInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationInstance",
+        bodyModel: model.MlApplicationInstance,
+        type: "model.MlApplicationInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a MlApplicationInstanceView by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMlApplicationInstanceViewRequest
+   * @return GetMlApplicationInstanceViewResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetMlApplicationInstanceView.ts.html |here} to see how to use GetMlApplicationInstanceView API.
+   */
+  public async getMlApplicationInstanceView(
+    getMlApplicationInstanceViewRequest: requests.GetMlApplicationInstanceViewRequest
+  ): Promise<responses.GetMlApplicationInstanceViewResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getMlApplicationInstanceView.");
+    const operationName = "getMlApplicationInstanceView";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstanceView/GetMlApplicationInstanceView";
+    const pathParams = {
+      "{mlApplicationInstanceViewId}":
+        getMlApplicationInstanceViewRequest.mlApplicationInstanceViewId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMlApplicationInstanceViewRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMlApplicationInstanceViewRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstanceViews/{mlApplicationInstanceViewId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMlApplicationInstanceViewResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationInstanceView",
+        bodyModel: model.MlApplicationInstanceView,
+        type: "model.MlApplicationInstanceView",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves last ML Application package uploaded for given ML Application Implementation
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMlApplicationPackageContentRequest
+   * @return GetMlApplicationPackageContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetMlApplicationPackageContent.ts.html |here} to see how to use GetMlApplicationPackageContent API.
+   */
+  public async getMlApplicationPackageContent(
+    getMlApplicationPackageContentRequest: requests.GetMlApplicationPackageContentRequest
+  ): Promise<responses.GetMlApplicationPackageContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getMlApplicationPackageContent.");
+    const operationName = "getMlApplicationPackageContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementation/GetMlApplicationPackageContent";
+    const pathParams = {
+      "{mlApplicationImplementationId}":
+        getMlApplicationPackageContentRequest.mlApplicationImplementationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMlApplicationPackageContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMlApplicationPackageContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/mlApplicationImplementations/{mlApplicationImplementationId}/mlApplicationPackage/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMlApplicationPackageContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-ml-app-package-args"),
+            key: "opcMlAppPackageArgs",
             dataType: "string"
           }
         ]
@@ -7186,6 +8711,437 @@ export class DataScienceClient {
   }
 
   /**
+   * Returns a list of MlApplicationImplementationVersions.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMlApplicationImplementationVersionsRequest
+   * @return ListMlApplicationImplementationVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListMlApplicationImplementationVersions.ts.html |here} to see how to use ListMlApplicationImplementationVersions API.
+   */
+  public async listMlApplicationImplementationVersions(
+    listMlApplicationImplementationVersionsRequest: requests.ListMlApplicationImplementationVersionsRequest
+  ): Promise<responses.ListMlApplicationImplementationVersionsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#listMlApplicationImplementationVersions."
+      );
+    const operationName = "listMlApplicationImplementationVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementationVersion/ListMlApplicationImplementationVersions";
+    const pathParams = {};
+
+    const queryParams = {
+      "mlApplicationImplementationId":
+        listMlApplicationImplementationVersionsRequest.mlApplicationImplementationId,
+      "lifecycleState": listMlApplicationImplementationVersionsRequest.lifecycleState,
+      "limit": listMlApplicationImplementationVersionsRequest.limit,
+      "page": listMlApplicationImplementationVersionsRequest.page,
+      "sortOrder": listMlApplicationImplementationVersionsRequest.sortOrder,
+      "sortBy": listMlApplicationImplementationVersionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMlApplicationImplementationVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMlApplicationImplementationVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationImplementationVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMlApplicationImplementationVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationImplementationVersionCollection",
+        bodyModel: model.MlApplicationImplementationVersionCollection,
+        type: "model.MlApplicationImplementationVersionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of MlApplicationImplementations.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMlApplicationImplementationsRequest
+   * @return ListMlApplicationImplementationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListMlApplicationImplementations.ts.html |here} to see how to use ListMlApplicationImplementations API.
+   */
+  public async listMlApplicationImplementations(
+    listMlApplicationImplementationsRequest: requests.ListMlApplicationImplementationsRequest
+  ): Promise<responses.ListMlApplicationImplementationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listMlApplicationImplementations.");
+    const operationName = "listMlApplicationImplementations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementation/ListMlApplicationImplementations";
+    const pathParams = {};
+
+    const queryParams = {
+      "mlApplicationImplementationId":
+        listMlApplicationImplementationsRequest.mlApplicationImplementationId,
+      "name": listMlApplicationImplementationsRequest.name,
+      "mlApplicationId": listMlApplicationImplementationsRequest.mlApplicationId,
+      "compartmentId": listMlApplicationImplementationsRequest.compartmentId,
+      "compartmentIdInSubtree": listMlApplicationImplementationsRequest.compartmentIdInSubtree,
+      "lifecycleState": listMlApplicationImplementationsRequest.lifecycleState,
+      "limit": listMlApplicationImplementationsRequest.limit,
+      "page": listMlApplicationImplementationsRequest.page,
+      "sortOrder": listMlApplicationImplementationsRequest.sortOrder,
+      "sortBy": listMlApplicationImplementationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMlApplicationImplementationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMlApplicationImplementationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationImplementations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMlApplicationImplementationsResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationImplementationCollection",
+        bodyModel: model.MlApplicationImplementationCollection,
+        type: "model.MlApplicationImplementationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of MlApplicationInstanceViews.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMlApplicationInstanceViewsRequest
+   * @return ListMlApplicationInstanceViewsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListMlApplicationInstanceViews.ts.html |here} to see how to use ListMlApplicationInstanceViews API.
+   */
+  public async listMlApplicationInstanceViews(
+    listMlApplicationInstanceViewsRequest: requests.ListMlApplicationInstanceViewsRequest
+  ): Promise<responses.ListMlApplicationInstanceViewsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listMlApplicationInstanceViews.");
+    const operationName = "listMlApplicationInstanceViews";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstanceView/ListMlApplicationInstanceViews";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMlApplicationInstanceViewsRequest.compartmentId,
+      "displayName": listMlApplicationInstanceViewsRequest.displayName,
+      "mlApplicationId": listMlApplicationInstanceViewsRequest.mlApplicationId,
+      "mlApplicationImplementationId":
+        listMlApplicationInstanceViewsRequest.mlApplicationImplementationId,
+      "lifecycleState": listMlApplicationInstanceViewsRequest.lifecycleState,
+      "limit": listMlApplicationInstanceViewsRequest.limit,
+      "page": listMlApplicationInstanceViewsRequest.page,
+      "sortOrder": listMlApplicationInstanceViewsRequest.sortOrder,
+      "sortBy": listMlApplicationInstanceViewsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMlApplicationInstanceViewsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMlApplicationInstanceViewsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstanceViews",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMlApplicationInstanceViewsResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationInstanceViewCollection",
+        bodyModel: model.MlApplicationInstanceViewCollection,
+        type: "model.MlApplicationInstanceViewCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of MlApplicationsInstances.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMlApplicationInstancesRequest
+   * @return ListMlApplicationInstancesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListMlApplicationInstances.ts.html |here} to see how to use ListMlApplicationInstances API.
+   */
+  public async listMlApplicationInstances(
+    listMlApplicationInstancesRequest: requests.ListMlApplicationInstancesRequest
+  ): Promise<responses.ListMlApplicationInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listMlApplicationInstances.");
+    const operationName = "listMlApplicationInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstance/ListMlApplicationInstances";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMlApplicationInstancesRequest.compartmentId,
+      "displayName": listMlApplicationInstancesRequest.displayName,
+      "mlApplicationId": listMlApplicationInstancesRequest.mlApplicationId,
+      "lifecycleState": listMlApplicationInstancesRequest.lifecycleState,
+      "limit": listMlApplicationInstancesRequest.limit,
+      "page": listMlApplicationInstancesRequest.page,
+      "sortOrder": listMlApplicationInstancesRequest.sortOrder,
+      "sortBy": listMlApplicationInstancesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMlApplicationInstancesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMlApplicationInstancesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstances",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMlApplicationInstancesResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationInstanceCollection",
+        bodyModel: model.MlApplicationInstanceCollection,
+        type: "model.MlApplicationInstanceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of MlApplications.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMlApplicationsRequest
+   * @return ListMlApplicationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListMlApplications.ts.html |here} to see how to use ListMlApplications API.
+   */
+  public async listMlApplications(
+    listMlApplicationsRequest: requests.ListMlApplicationsRequest
+  ): Promise<responses.ListMlApplicationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listMlApplications.");
+    const operationName = "listMlApplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplication/ListMlApplications";
+    const pathParams = {};
+
+    const queryParams = {
+      "mlApplicationId": listMlApplicationsRequest.mlApplicationId,
+      "compartmentId": listMlApplicationsRequest.compartmentId,
+      "compartmentIdInSubtree": listMlApplicationsRequest.compartmentIdInSubtree,
+      "name": listMlApplicationsRequest.name,
+      "lifecycleState": listMlApplicationsRequest.lifecycleState,
+      "limit": listMlApplicationsRequest.limit,
+      "page": listMlApplicationsRequest.page,
+      "sortOrder": listMlApplicationsRequest.sortOrder,
+      "sortBy": listMlApplicationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMlApplicationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMlApplicationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplications",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMlApplicationsResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationCollection",
+        bodyModel: model.MlApplicationCollection,
+        type: "model.MlApplicationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the valid model deployment shapes.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListModelDeploymentShapesRequest
@@ -9006,6 +10962,163 @@ export class DataScienceClient {
   }
 
   /**
+   * Upload ML Application Package
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PutMlApplicationPackageRequest
+   * @return PutMlApplicationPackageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/PutMlApplicationPackage.ts.html |here} to see how to use PutMlApplicationPackage API.
+   */
+  public async putMlApplicationPackage(
+    putMlApplicationPackageRequest: requests.PutMlApplicationPackageRequest
+  ): Promise<responses.PutMlApplicationPackageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#putMlApplicationPackage.");
+    const operationName = "putMlApplicationPackage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementation/PutMlApplicationPackage";
+    const pathParams = {
+      "{mlApplicationImplementationId}":
+        putMlApplicationPackageRequest.mlApplicationImplementationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": putMlApplicationPackageRequest.opcRequestId,
+      "opc-retry-token": putMlApplicationPackageRequest.opcRetryToken,
+      "content-length": putMlApplicationPackageRequest.contentLength,
+      "content-disposition": putMlApplicationPackageRequest.contentDisposition,
+      "opc-ml-app-package-args": putMlApplicationPackageRequest.opcMlAppPackageArgs
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putMlApplicationPackageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationImplementations/{mlApplicationImplementationId}/mlApplicationPackage",
+      method: "PUT",
+      bodyContent: putMlApplicationPackageRequest.putMlApplicationPackage,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutMlApplicationPackageResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Provider can initiate recovery of the resource only if MlApplicationInstanceView is in one of the recoverable sub-states (RECOVERABLE_PROVIDER_ISSUE, RECOVERABLE_SERVICE_ISSUE).
+   * Provider should investigate (using MlApplicationInstanceView lifecycleDetails, relevant logs and metrics) and fix the issue before the recovery is initiated.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RecoverMlApplicationInstanceViewRequest
+   * @return RecoverMlApplicationInstanceViewResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/RecoverMlApplicationInstanceView.ts.html |here} to see how to use RecoverMlApplicationInstanceView API.
+   */
+  public async recoverMlApplicationInstanceView(
+    recoverMlApplicationInstanceViewRequest: requests.RecoverMlApplicationInstanceViewRequest
+  ): Promise<responses.RecoverMlApplicationInstanceViewResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#recoverMlApplicationInstanceView.");
+    const operationName = "recoverMlApplicationInstanceView";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstanceView/RecoverMlApplicationInstanceView";
+    const pathParams = {
+      "{mlApplicationInstanceViewId}":
+        recoverMlApplicationInstanceViewRequest.mlApplicationInstanceViewId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": recoverMlApplicationInstanceViewRequest.ifMatch,
+      "opc-request-id": recoverMlApplicationInstanceViewRequest.opcRequestId,
+      "opc-retry-token": recoverMlApplicationInstanceViewRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      recoverMlApplicationInstanceViewRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstanceViews/{mlApplicationInstanceViewId}/actions/recover",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RecoverMlApplicationInstanceViewResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Registers model artifact reference metadata
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RegisterModelArtifactReferenceRequest
@@ -9144,6 +11257,167 @@ export class DataScienceClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreArchivedModelArtifactResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Trigger ML Application Instance flow if possible
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param TriggerMlApplicationInstanceFlowRequest
+   * @return TriggerMlApplicationInstanceFlowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/TriggerMlApplicationInstanceFlow.ts.html |here} to see how to use TriggerMlApplicationInstanceFlow API.
+   */
+  public async triggerMlApplicationInstanceFlow(
+    triggerMlApplicationInstanceFlowRequest: requests.TriggerMlApplicationInstanceFlowRequest
+  ): Promise<responses.TriggerMlApplicationInstanceFlowResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#triggerMlApplicationInstanceFlow.");
+    const operationName = "triggerMlApplicationInstanceFlow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstance/TriggerMlApplicationInstanceFlow";
+    const pathParams = {
+      "{mlApplicationInstanceId}": triggerMlApplicationInstanceFlowRequest.mlApplicationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": triggerMlApplicationInstanceFlowRequest.opcRequestId,
+      "opc-retry-token": triggerMlApplicationInstanceFlowRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      triggerMlApplicationInstanceFlowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstances/{mlApplicationInstanceId}/actions/trigger",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        triggerMlApplicationInstanceFlowRequest.triggerMlApplicationInstanceFlowDetails,
+        "TriggerMlApplicationInstanceFlowDetails",
+        model.TriggerMlApplicationInstanceFlowDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TriggerMlApplicationInstanceFlowResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Trigger ML Application Instance View flow if possible
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param TriggerMlApplicationInstanceViewFlowRequest
+   * @return TriggerMlApplicationInstanceViewFlowResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/TriggerMlApplicationInstanceViewFlow.ts.html |here} to see how to use TriggerMlApplicationInstanceViewFlow API.
+   */
+  public async triggerMlApplicationInstanceViewFlow(
+    triggerMlApplicationInstanceViewFlowRequest: requests.TriggerMlApplicationInstanceViewFlowRequest
+  ): Promise<responses.TriggerMlApplicationInstanceViewFlowResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#triggerMlApplicationInstanceViewFlow."
+      );
+    const operationName = "triggerMlApplicationInstanceViewFlow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstanceView/TriggerMlApplicationInstanceViewFlow";
+    const pathParams = {
+      "{mlApplicationInstanceViewId}":
+        triggerMlApplicationInstanceViewFlowRequest.mlApplicationInstanceViewId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": triggerMlApplicationInstanceViewFlowRequest.opcRequestId,
+      "opc-retry-token": triggerMlApplicationInstanceViewFlowRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      triggerMlApplicationInstanceViewFlowRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstanceViews/{mlApplicationInstanceViewId}/actions/trigger",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        triggerMlApplicationInstanceViewFlowRequest.triggerMlApplicationInstanceViewFlowDetails,
+        "TriggerMlApplicationInstanceViewFlowDetails",
+        model.TriggerMlApplicationInstanceViewFlowDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TriggerMlApplicationInstanceViewFlowResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -9394,6 +11668,417 @@ export class DataScienceClient {
         bodyKey: "jobRun",
         bodyModel: model.JobRun,
         type: "model.JobRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the MlApplication
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateMlApplicationRequest
+   * @return UpdateMlApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateMlApplication.ts.html |here} to see how to use UpdateMlApplication API.
+   */
+  public async updateMlApplication(
+    updateMlApplicationRequest: requests.UpdateMlApplicationRequest
+  ): Promise<responses.UpdateMlApplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateMlApplication.");
+    const operationName = "updateMlApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplication/UpdateMlApplication";
+    const pathParams = {
+      "{mlApplicationId}": updateMlApplicationRequest.mlApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMlApplicationRequest.ifMatch,
+      "opc-request-id": updateMlApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMlApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplications/{mlApplicationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMlApplicationRequest.updateMlApplicationDetails,
+        "UpdateMlApplicationDetails",
+        model.UpdateMlApplicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMlApplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplication",
+        bodyModel: model.MlApplication,
+        type: "model.MlApplication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the MlApplicationImplementation
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateMlApplicationImplementationRequest
+   * @return UpdateMlApplicationImplementationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateMlApplicationImplementation.ts.html |here} to see how to use UpdateMlApplicationImplementation API.
+   */
+  public async updateMlApplicationImplementation(
+    updateMlApplicationImplementationRequest: requests.UpdateMlApplicationImplementationRequest
+  ): Promise<responses.UpdateMlApplicationImplementationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateMlApplicationImplementation.");
+    const operationName = "updateMlApplicationImplementation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementation/UpdateMlApplicationImplementation";
+    const pathParams = {
+      "{mlApplicationImplementationId}":
+        updateMlApplicationImplementationRequest.mlApplicationImplementationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMlApplicationImplementationRequest.ifMatch,
+      "opc-request-id": updateMlApplicationImplementationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMlApplicationImplementationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationImplementations/{mlApplicationImplementationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMlApplicationImplementationRequest.updateMlApplicationImplementationDetails,
+        "UpdateMlApplicationImplementationDetails",
+        model.UpdateMlApplicationImplementationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMlApplicationImplementationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the MlApplicationImplementationVersion
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateMlApplicationImplementationVersionRequest
+   * @return UpdateMlApplicationImplementationVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateMlApplicationImplementationVersion.ts.html |here} to see how to use UpdateMlApplicationImplementationVersion API.
+   */
+  public async updateMlApplicationImplementationVersion(
+    updateMlApplicationImplementationVersionRequest: requests.UpdateMlApplicationImplementationVersionRequest
+  ): Promise<responses.UpdateMlApplicationImplementationVersionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#updateMlApplicationImplementationVersion."
+      );
+    const operationName = "updateMlApplicationImplementationVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationImplementationVersion/UpdateMlApplicationImplementationVersion";
+    const pathParams = {
+      "{mlApplicationImplementationVersionId}":
+        updateMlApplicationImplementationVersionRequest.mlApplicationImplementationVersionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMlApplicationImplementationVersionRequest.ifMatch,
+      "opc-request-id": updateMlApplicationImplementationVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMlApplicationImplementationVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationImplementationVersions/{mlApplicationImplementationVersionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMlApplicationImplementationVersionRequest.updateMlApplicationImplementationVersionDetails,
+        "UpdateMlApplicationImplementationVersionDetails",
+        model.UpdateMlApplicationImplementationVersionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMlApplicationImplementationVersionResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationImplementationVersion",
+        bodyModel: model.MlApplicationImplementationVersion,
+        type: "model.MlApplicationImplementationVersion",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the MlApplicationInstance
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateMlApplicationInstanceRequest
+   * @return UpdateMlApplicationInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateMlApplicationInstance.ts.html |here} to see how to use UpdateMlApplicationInstance API.
+   */
+  public async updateMlApplicationInstance(
+    updateMlApplicationInstanceRequest: requests.UpdateMlApplicationInstanceRequest
+  ): Promise<responses.UpdateMlApplicationInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateMlApplicationInstance.");
+    const operationName = "updateMlApplicationInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstance/UpdateMlApplicationInstance";
+    const pathParams = {
+      "{mlApplicationInstanceId}": updateMlApplicationInstanceRequest.mlApplicationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMlApplicationInstanceRequest.ifMatch,
+      "opc-request-id": updateMlApplicationInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMlApplicationInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstances/{mlApplicationInstanceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMlApplicationInstanceRequest.updateMlApplicationInstanceDetails,
+        "UpdateMlApplicationInstanceDetails",
+        model.UpdateMlApplicationInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMlApplicationInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the MlApplicationInstanceView
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateMlApplicationInstanceViewRequest
+   * @return UpdateMlApplicationInstanceViewResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateMlApplicationInstanceView.ts.html |here} to see how to use UpdateMlApplicationInstanceView API.
+   */
+  public async updateMlApplicationInstanceView(
+    updateMlApplicationInstanceViewRequest: requests.UpdateMlApplicationInstanceViewRequest
+  ): Promise<responses.UpdateMlApplicationInstanceViewResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateMlApplicationInstanceView.");
+    const operationName = "updateMlApplicationInstanceView";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/MlApplicationInstanceView/UpdateMlApplicationInstanceView";
+    const pathParams = {
+      "{mlApplicationInstanceViewId}":
+        updateMlApplicationInstanceViewRequest.mlApplicationInstanceViewId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMlApplicationInstanceViewRequest.ifMatch,
+      "opc-request-id": updateMlApplicationInstanceViewRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMlApplicationInstanceViewRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mlApplicationInstanceViews/{mlApplicationInstanceViewId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMlApplicationInstanceViewRequest.updateMlApplicationInstanceViewDetails,
+        "UpdateMlApplicationInstanceViewDetails",
+        model.UpdateMlApplicationInstanceViewDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMlApplicationInstanceViewResponse>{},
+        body: await response.json(),
+        bodyKey: "mlApplicationInstanceView",
+        bodyModel: model.MlApplicationInstanceView,
+        type: "model.MlApplicationInstanceView",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

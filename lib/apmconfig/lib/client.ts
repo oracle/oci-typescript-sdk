@@ -214,6 +214,89 @@ export class ConfigClient {
   }
 
   /**
+   * Fast importing configuration items to a destination APM domain ID.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CopyConfigurationRequest
+   * @return CopyConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/CopyConfiguration.ts.html |here} to see how to use CopyConfiguration API.
+   */
+  public async copyConfiguration(
+    copyConfigurationRequest: requests.CopyConfigurationRequest
+  ): Promise<responses.CopyConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#copyConfiguration.");
+    const operationName = "copyConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/ExportConfigurationDetails/CopyConfiguration";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": copyConfigurationRequest.apmDomainId,
+      "apmTargetDomainId": copyConfigurationRequest.apmTargetDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": copyConfigurationRequest.opcRetryToken,
+      "opc-request-id": copyConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      copyConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/copyConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        copyConfigurationRequest.copyConfigurationDetails,
+        "CopyConfigurationDetails",
+        model.CopyConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CopyConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "importConfigurationFailedItemsCollection",
+        bodyModel: model.ImportConfigurationFailedItemsCollection,
+        type: "model.ImportConfigurationFailedItemsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new configuration item.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateConfigRequest
@@ -367,6 +450,88 @@ export class ConfigClient {
   }
 
   /**
+   * Exports configurations for the whole domain by domainId.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExportConfigurationRequest
+   * @return ExportConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/ExportConfiguration.ts.html |here} to see how to use ExportConfiguration API.
+   */
+  public async exportConfiguration(
+    exportConfigurationRequest: requests.ExportConfigurationRequest
+  ): Promise<responses.ExportConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#exportConfiguration.");
+    const operationName = "exportConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/ExportConfigurationDetails/ExportConfiguration";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": exportConfigurationRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": exportConfigurationRequest.opcRetryToken,
+      "opc-request-id": exportConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/exportConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        exportConfigurationRequest.exportConfigurationDetails,
+        "ExportConfigurationDetails",
+        model.ExportConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "exportConfigurationResponseDetails",
+        bodyModel: model.ExportConfigurationResponseDetails,
+        type: "model.ExportConfigurationResponseDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the configuration item identified by the OCID.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetConfigRequest
@@ -424,6 +589,88 @@ export class ConfigClient {
         bodyKey: "config",
         bodyModel: model.Config,
         type: "model.Config",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Import configurations Item(s) with its dependencies into a destination domain.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ImportConfigurationRequest
+   * @return ImportConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/ImportConfiguration.ts.html |here} to see how to use ImportConfiguration API.
+   */
+  public async importConfiguration(
+    importConfigurationRequest: requests.ImportConfigurationRequest
+  ): Promise<responses.ImportConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#importConfiguration.");
+    const operationName = "importConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/ImportConfigurationDetails/ImportConfiguration";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": importConfigurationRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": importConfigurationRequest.opcRetryToken,
+      "opc-request-id": importConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/importConfiguration",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importConfigurationRequest.importConfigurationDetails,
+        "ImportConfigurationDetails",
+        model.ImportConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "importConfigurationFailedItemsCollection",
+        bodyModel: model.ImportConfigurationFailedItemsCollection,
+        type: "model.ImportConfigurationFailedItemsCollection",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

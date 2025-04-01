@@ -26,10 +26,14 @@ export interface UpdateOperationsInsightsWarehouseDetails {
    */
   "displayName"?: string;
   /**
-   * Number of OCPUs allocated to OPSI Warehouse ADW.
+   * Number of CPUs allocated to OPSI Warehouse ADW.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuAllocated"?: number;
+  /**
+   * The compute model for the OPSI warehouse ADW (OCPU or ECPU)
+   */
+  "computeModel"?: string;
   /**
    * Storage allocated to OPSI Warehouse ADW.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
