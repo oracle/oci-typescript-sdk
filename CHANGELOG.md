@@ -927,7 +927,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Support for Java Management Service Downloads
 - Support for creating autonomous dataguard associations in the Database service
 - Support for SaaS administrative user configurations for autonomous database in the Database service
-- Support for macOS in the the Java Management service
+- Support for macOS in the Java Management service
 - Support for distribution and management of deployment rule sets in the Java Management service
 - Support for new download location of Oracle Java runtime binaries in the Java Management service
 - Support for exporting data across regions in the Java Management service
@@ -1037,7 +1037,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Fixed
 
-- Fixed an issue that causes http request failures when requesting certificates from the server in `URLBasedX509CertificateSupplier` with NodeJS 20
+- Fixed an issue that causes http request failures when requesting certificates from the server in `URLBasedX509CertificateSupplier` with Node.js 20
 
 ## 2.70.1 - 2023-09-12
 
@@ -1126,7 +1126,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Support for support field in class metric in the AI Language service
 - Support for Compute Cloud at Customer resource type in the Operator Access Control service
 - Support for managing account management info, account recovery settings, app roles, apps, app status changers, grants, identity propagation trusts and settings, request-able groups, requests, security questions, OAuth tokens, and user attribute settings in the Identity Domains service
-- Added support for NodeJS 20
+- Added support for Node.js 20
 
 ### Breaking Changes
 
@@ -1313,7 +1313,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Breaking Changes
 
 - The `AttachExistingInstanceDetails`, `CreateNewInstanceDetails`, `CreateOaxServiceInstanceDetails`, `CreateOicServiceInstanceDetails`, and `CreateServiceInstanceDetails` models were removed in the Fusion Apps as a Service service
-- The `action` property was removed in the `CreateServiceAttachmentDetails` model in the Fusion Apps as a Service service- The `action` property was removed in the `CreateServiceAttachmentDetails` model in the Fusion Apps as a Service service
+- The `action` property was removed in the `CreateServiceAttachmentDetails` model in the Fusion Apps as a Service service. The `action` property was removed in the `CreateServiceAttachmentDetails` model in the Fusion Apps as a Service service
 - The `action` property was removed in the `ServiceAttachment` model in the Fusion Apps as a Service service
 
 ## 2.59.1 - 2023-05-09
@@ -2731,7 +2731,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Breaking Changes
 
 - Updated the property `name` to use enum `model.Sku` instead of `SupportedSkuSummary.Name` from the model `SupportedSkuSummary` in the ocvp service
-- Update the property `initialSku` from required to optionnal in the model `sddc` in ocvp service.
+- Update the property `initialSku` from required to optional in the model `sddc` in ocvp service.
 
 ## 1.19.5 - 2021-05-18
 
@@ -3013,7 +3013,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Support for listing flex components in Database service
 - Support for APEX service for ADBS on OCI console for Database service
 - Support for Customer-Managed Key features as a part of the Database service
-- Support for Github configuration source provider as part of the Resource Manager service
+- Support for GitHub configuration source provider as part of the Resource Manager service
 
 ### Breaking Changes
 
