@@ -81,22 +81,22 @@ export interface ServiceConnector {
    */
   "lifecyleDetails"?: string;
   "source"?:
-    | model.LoggingSourceDetails
-    | model.MonitoringSourceDetails
-    | model.StreamingSourceDetails
-    | model.PluginSourceDetails;
+    | model.LoggingSourceDetailsResponse
+    | model.MonitoringSourceDetailsResponse
+    | model.StreamingSourceDetailsResponse
+    | model.PluginSourceDetailsResponse;
   /**
    * The list of tasks.
    *
    */
-  "tasks"?: Array<model.TaskDetails>;
+  "tasks"?: Array<model.TaskDetailsResponse>;
   "target"?:
-    | model.NotificationsTargetDetails
-    | model.ObjectStorageTargetDetails
-    | model.MonitoringTargetDetails
-    | model.FunctionsTargetDetails
-    | model.LoggingAnalyticsTargetDetails
-    | model.StreamingTargetDetails;
+    | model.MonitoringTargetDetailsResponse
+    | model.LoggingAnalyticsTargetDetailsResponse
+    | model.FunctionsTargetDetailsResponse
+    | model.ObjectStorageTargetDetailsResponse
+    | model.StreamingTargetDetailsResponse
+    | model.NotificationsTargetDetailsResponse;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -123,13 +123,13 @@ export namespace ServiceConnector {
     const jsonObj = {
       ...obj,
       ...{
-        "source": obj.source ? model.SourceDetails.getJsonObj(obj.source) : undefined,
+        "source": obj.source ? model.SourceDetailsResponse.getJsonObj(obj.source) : undefined,
         "tasks": obj.tasks
           ? obj.tasks.map(item => {
-              return model.TaskDetails.getJsonObj(item);
+              return model.TaskDetailsResponse.getJsonObj(item);
             })
           : undefined,
-        "target": obj.target ? model.TargetDetails.getJsonObj(obj.target) : undefined
+        "target": obj.target ? model.TargetDetailsResponse.getJsonObj(obj.target) : undefined
       }
     };
 
@@ -139,13 +139,17 @@ export namespace ServiceConnector {
     const jsonObj = {
       ...obj,
       ...{
-        "source": obj.source ? model.SourceDetails.getDeserializedJsonObj(obj.source) : undefined,
+        "source": obj.source
+          ? model.SourceDetailsResponse.getDeserializedJsonObj(obj.source)
+          : undefined,
         "tasks": obj.tasks
           ? obj.tasks.map(item => {
-              return model.TaskDetails.getDeserializedJsonObj(item);
+              return model.TaskDetailsResponse.getDeserializedJsonObj(item);
             })
           : undefined,
-        "target": obj.target ? model.TargetDetails.getDeserializedJsonObj(obj.target) : undefined
+        "target": obj.target
+          ? model.TargetDetailsResponse.getDeserializedJsonObj(obj.target)
+          : undefined
       }
     };
 

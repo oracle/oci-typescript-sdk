@@ -29,7 +29,7 @@ export interface CreateDeploymentDetails {
    * The Oracle license model that applies to a Deployment.
    *
    */
-  "licenseModel": model.LicenseModel;
+  "licenseModel"?: model.LicenseModel;
   /**
    * Specifies whether the deployment is used in a production or development/testing environment.
    *
@@ -45,6 +45,24 @@ export interface CreateDeploymentDetails {
    *
    */
   "compartmentId": string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the deployment being referenced.
+   *
+   */
+  "sourceDeploymentId"?: string;
+  /**
+   * The availability domain of a placement.
+   */
+  "availabilityDomain"?: string;
+  /**
+   * The fault domain of a placement.
+   */
+  "faultDomain"?: string;
+  /**
+   * An array of local peers of deployment
+   *
+   */
+  "placements"?: Array<model.DeploymentPlacementDetails>;
   /**
     * A simple key-value pair that is applied without any predefined name, type, or scope. Exists
 * for cross-compatibility only.
@@ -102,19 +120,19 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    * The Minimum number of OCPUs to be made available for this Deployment.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "cpuCoreCount": number;
+  "cpuCoreCount"?: number;
   /**
    * Indicates if auto scaling is enabled for the Deployment's CPU core count.
    *
    */
-  "isAutoScalingEnabled": boolean;
+  "isAutoScalingEnabled"?: boolean;
   /**
    * The type of deployment, which can be any one of the Allowed values.
    * NOTE: Use of the value 'OGG' is maintained for backward compatibility purposes.
    *     Its use is discouraged in favor of 'DATABASE_ORACLE'.
    *
    */
-  "deploymentType": model.DeploymentType;
+  "deploymentType"?: model.DeploymentType;
   "oggData"?: model.CreateOggDeploymentDetails;
   "maintenanceWindow"?: model.CreateMaintenanceWindowDetails;
   "maintenanceConfiguration"?: model.CreateMaintenanceConfigurationDetails;
@@ -126,6 +144,12 @@ export namespace CreateDeploymentDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "placements": obj.placements
+          ? obj.placements.map(item => {
+              return model.DeploymentPlacementDetails.getJsonObj(item);
+            })
+          : undefined,
+
         "locks": obj.locks
           ? obj.locks.map(item => {
               return model.AddResourceLockDetails.getJsonObj(item);
@@ -153,6 +177,12 @@ export namespace CreateDeploymentDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "placements": obj.placements
+          ? obj.placements.map(item => {
+              return model.DeploymentPlacementDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "locks": obj.locks
           ? obj.locks.map(item => {
               return model.AddResourceLockDetails.getDeserializedJsonObj(item);

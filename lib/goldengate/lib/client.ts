@@ -404,6 +404,87 @@ export class GoldenGateClient {
   }
 
   /**
+   * Adds a new local peer to the deployment, this will add the given placement to deployment placement attribute. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddDeploymentLocalPeerRequest
+   * @return AddDeploymentLocalPeerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/AddDeploymentLocalPeer.ts.html |here} to see how to use AddDeploymentLocalPeer API.
+   */
+  public async addDeploymentLocalPeer(
+    addDeploymentLocalPeerRequest: requests.AddDeploymentLocalPeerRequest
+  ): Promise<responses.AddDeploymentLocalPeerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#addDeploymentLocalPeer.");
+    const operationName = "addDeploymentLocalPeer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/AddDeploymentLocalPeer";
+    const pathParams = {
+      "{deploymentId}": addDeploymentLocalPeerRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addDeploymentLocalPeerRequest.ifMatch,
+      "opc-request-id": addDeploymentLocalPeerRequest.opcRequestId,
+      "opc-retry-token": addDeploymentLocalPeerRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDeploymentLocalPeerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/addLocalPeer",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDeploymentLocalPeerRequest.addDeploymentLocalPeerDetails,
+        "AddDeploymentLocalPeerDetails",
+        model.AddDeploymentLocalPeerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDeploymentLocalPeerResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Adds a lock to a Deployment resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddDeploymentLockRequest
@@ -1220,6 +1301,87 @@ export class GoldenGateClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.CollectDeploymentDiagnosticResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Collects diagnostics for the pipeline
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CollectPipelineDiagnosticRequest
+   * @return CollectPipelineDiagnosticResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CollectPipelineDiagnostic.ts.html |here} to see how to use CollectPipelineDiagnostic API.
+   */
+  public async collectPipelineDiagnostic(
+    collectPipelineDiagnosticRequest: requests.CollectPipelineDiagnosticRequest
+  ): Promise<responses.CollectPipelineDiagnosticResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#collectPipelineDiagnostic.");
+    const operationName = "collectPipelineDiagnostic";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/CollectPipelineDiagnostic";
+    const pathParams = {
+      "{pipelineId}": collectPipelineDiagnosticRequest.pipelineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": collectPipelineDiagnosticRequest.ifMatch,
+      "opc-request-id": collectPipelineDiagnosticRequest.opcRequestId,
+      "opc-retry-token": collectPipelineDiagnosticRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      collectPipelineDiagnosticRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/actions/collectDiagnostics",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        collectPipelineDiagnosticRequest.collectPipelineDiagnosticDetails,
+        "CollectPipelineDiagnosticDetails",
+        model.CollectPipelineDiagnosticDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CollectPipelineDiagnosticResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -4020,6 +4182,90 @@ export class GoldenGateClient {
   }
 
   /**
+   * Lists the local and remote peers in a deployment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDeploymentPeersRequest
+   * @return ListDeploymentPeersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentPeers.ts.html |here} to see how to use ListDeploymentPeers API.
+   */
+  public async listDeploymentPeers(
+    listDeploymentPeersRequest: requests.ListDeploymentPeersRequest
+  ): Promise<responses.ListDeploymentPeersResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listDeploymentPeers.");
+    const operationName = "listDeploymentPeers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentPeerSummary/ListDeploymentPeers";
+    const pathParams = {
+      "{deploymentId}": listDeploymentPeersRequest.deploymentId
+    };
+
+    const queryParams = {
+      "lifecycleState": listDeploymentPeersRequest.lifecycleState,
+      "displayName": listDeploymentPeersRequest.displayName,
+      "limit": listDeploymentPeersRequest.limit,
+      "page": listDeploymentPeersRequest.page,
+      "sortOrder": listDeploymentPeersRequest.sortOrder,
+      "sortBy": listDeploymentPeersRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDeploymentPeersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeploymentPeersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/peers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDeploymentPeersResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentPeerCollection",
+        bodyModel: model.DeploymentPeerCollection,
+        type: "model.DeploymentPeerCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns an array of DeploymentTypeDescriptor
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4597,7 +4843,7 @@ export class GoldenGateClient {
   }
 
   /**
-   * Retrieves a Pipeline's running replication process's status like extracts/replicats.
+   * Retrieves a Pipeline's running replication process's status like Capture/Apply.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListPipelineRunningProcessesRequest
@@ -5827,6 +6073,87 @@ export class GoldenGateClient {
   }
 
   /**
+   * Removes a local peer of the deployment, this will remove the given placement entry from the deployment placement attribute. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveDeploymentLocalPeerRequest
+   * @return RemoveDeploymentLocalPeerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RemoveDeploymentLocalPeer.ts.html |here} to see how to use RemoveDeploymentLocalPeer API.
+   */
+  public async removeDeploymentLocalPeer(
+    removeDeploymentLocalPeerRequest: requests.RemoveDeploymentLocalPeerRequest
+  ): Promise<responses.RemoveDeploymentLocalPeerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#removeDeploymentLocalPeer.");
+    const operationName = "removeDeploymentLocalPeer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/RemoveDeploymentLocalPeer";
+    const pathParams = {
+      "{deploymentId}": removeDeploymentLocalPeerRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeDeploymentLocalPeerRequest.ifMatch,
+      "opc-request-id": removeDeploymentLocalPeerRequest.opcRequestId,
+      "opc-retry-token": removeDeploymentLocalPeerRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDeploymentLocalPeerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/removeLocalPeer",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDeploymentLocalPeerRequest.removeDeploymentLocalPeerDetails,
+        "RemoveDeploymentLocalPeerDetails",
+        model.RemoveDeploymentLocalPeerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDeploymentLocalPeerResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a lock from a Deployment resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveDeploymentLockRequest
@@ -6541,6 +6868,87 @@ export class GoldenGateClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopPipelineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Switchover to the selected standby peer, which can be a local placement or a standby deployment in different region. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SwitchoverDeploymentPeerRequest
+   * @return SwitchoverDeploymentPeerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/SwitchoverDeploymentPeer.ts.html |here} to see how to use SwitchoverDeploymentPeer API.
+   */
+  public async switchoverDeploymentPeer(
+    switchoverDeploymentPeerRequest: requests.SwitchoverDeploymentPeerRequest
+  ): Promise<responses.SwitchoverDeploymentPeerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#switchoverDeploymentPeer.");
+    const operationName = "switchoverDeploymentPeer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/SwitchoverDeploymentPeer";
+    const pathParams = {
+      "{deploymentId}": switchoverDeploymentPeerRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": switchoverDeploymentPeerRequest.ifMatch,
+      "opc-request-id": switchoverDeploymentPeerRequest.opcRequestId,
+      "opc-retry-token": switchoverDeploymentPeerRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      switchoverDeploymentPeerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/switchover",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        switchoverDeploymentPeerRequest.switchoverDeploymentPeerDetails,
+        "SwitchoverDeploymentPeerDetails",
+        model.SwitchoverDeploymentPeerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SwitchoverDeploymentPeerResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

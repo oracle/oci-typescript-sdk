@@ -94,6 +94,11 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "isAutoScalingEnabled"?: boolean;
+  /**
+   * An array of local peers of deployment
+   *
+   */
+  "placements"?: Array<model.DeploymentPlacementDetails>;
   "oggData"?: model.UpdateOggDeploymentDetails;
   "maintenanceWindow"?: model.UpdateMaintenanceWindowDetails;
   "maintenanceConfiguration"?: model.UpdateMaintenanceConfigurationDetails;
@@ -105,6 +110,11 @@ export namespace UpdateDeploymentDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "placements": obj.placements
+          ? obj.placements.map(item => {
+              return model.DeploymentPlacementDetails.getJsonObj(item);
+            })
+          : undefined,
         "oggData": obj.oggData
           ? model.UpdateOggDeploymentDetails.getJsonObj(obj.oggData)
           : undefined,
@@ -126,6 +136,11 @@ export namespace UpdateDeploymentDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "placements": obj.placements
+          ? obj.placements.map(item => {
+              return model.DeploymentPlacementDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
         "oggData": obj.oggData
           ? model.UpdateOggDeploymentDetails.getDeserializedJsonObj(obj.oggData)
           : undefined,

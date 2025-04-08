@@ -24,16 +24,31 @@ export interface CreateVaultReplicaDetails {
    *
    */
   "replicaRegion": string;
+  "replicaVaultMetadata"?: model.ReplicaExternalVaultMetadata;
 }
 
 export namespace CreateVaultReplicaDetails {
   export function getJsonObj(obj: CreateVaultReplicaDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaVaultMetadata": obj.replicaVaultMetadata
+          ? model.ReplicaVaultMetadata.getJsonObj(obj.replicaVaultMetadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateVaultReplicaDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaVaultMetadata": obj.replicaVaultMetadata
+          ? model.ReplicaVaultMetadata.getDeserializedJsonObj(obj.replicaVaultMetadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

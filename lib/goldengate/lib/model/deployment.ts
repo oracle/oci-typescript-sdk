@@ -41,6 +41,35 @@ export interface Deployment {
    */
   "compartmentId": string;
   /**
+   * The availability domain of a placement.
+   */
+  "availabilityDomain"?: string;
+  /**
+   * The fault domain of a placement.
+   */
+  "faultDomain"?: string;
+  /**
+   * The type of the deployment role.
+   *
+   */
+  "deploymentRole"?: model.DeploymentRole;
+  /**
+   * The time of the last role change. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
+   *
+   */
+  "timeRoleChanged"?: Date;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the deployment being referenced.
+   *
+   */
+  "sourceDeploymentId"?: string;
+  /**
+   * An array of local peers of deployment
+   *
+   */
+  "placements"?: Array<model.DeploymentPlacementInfo>;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup being referenced.
    *
    */
@@ -269,6 +298,12 @@ export namespace Deployment {
     const jsonObj = {
       ...obj,
       ...{
+        "placements": obj.placements
+          ? obj.placements.map(item => {
+              return model.DeploymentPlacementInfo.getJsonObj(item);
+            })
+          : undefined,
+
         "locks": obj.locks
           ? obj.locks.map(item => {
               return model.ResourceLock.getJsonObj(item);
@@ -305,6 +340,12 @@ export namespace Deployment {
     const jsonObj = {
       ...obj,
       ...{
+        "placements": obj.placements
+          ? obj.placements.map(item => {
+              return model.DeploymentPlacementInfo.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "locks": obj.locks
           ? obj.locks.map(item => {
               return model.ResourceLock.getDeserializedJsonObj(item);
