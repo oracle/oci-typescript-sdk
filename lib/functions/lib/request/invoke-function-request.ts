@@ -47,6 +47,11 @@ export interface InvokeFunctionRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Indicates that the request is a dry run, if set to \"true\". A dry run request does not execute the function.
+   *
+   */
+  "isDryRun"?: boolean;
 }
 
 export namespace InvokeFunctionRequest {

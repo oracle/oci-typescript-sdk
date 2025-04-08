@@ -179,7 +179,8 @@ export class FunctionsInvokeClient {
     let headerParams = {
       "fn-intent": invokeFunctionRequest.fnIntent,
       "fn-invoke-type": invokeFunctionRequest.fnInvokeType,
-      "opc-request-id": invokeFunctionRequest.opcRequestId
+      "opc-request-id": invokeFunctionRequest.opcRequestId,
+      "is-dry-run": invokeFunctionRequest.isDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;

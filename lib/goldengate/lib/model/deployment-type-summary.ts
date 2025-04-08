@@ -75,6 +75,11 @@ export interface DeploymentTypeSummary {
    *
    */
   "defaultUsername"?: string;
+  /**
+   * Specifies supported capabilities or features by a deployment type .
+   *
+   */
+  "supportedCapabilities"?: Array<DeploymentTypeSummary.SupportedCapabilities>;
 }
 
 export namespace DeploymentTypeSummary {
@@ -106,6 +111,21 @@ export namespace DeploymentTypeSummary {
     Databricks = "DATABRICKS",
     GooglePubsub = "GOOGLE_PUBSUB",
     MicrosoftFabric = "MICROSOFT_FABRIC",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum SupportedCapabilities {
+    Placement = "PLACEMENT",
+    DisasterRecovery = "DISASTER_RECOVERY",
+    GroupToRole = "GROUP_TO_ROLE",
+    BackupRestore = "BACKUP_RESTORE",
+    CopyBackup = "COPY_BACKUP",
+    ManualBackup = "MANUAL_BACKUP",
+    ScheduleManualBackup = "SCHEDULE_MANUAL_BACKUP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -27,10 +27,25 @@ export interface ProcessOptions {
    *
    */
   "shouldRestartOnFailure": ProcessOptions.ShouldRestartOnFailure;
+  /**
+   * If ENABLED, then the pipeline is started as part of pipeline creation. It uses default mapping. This option applies when creating or updating a pipeline.
+   *
+   */
+  "startUsingDefaultMapping"?: ProcessOptions.StartUsingDefaultMapping;
 }
 
 export namespace ProcessOptions {
   export enum ShouldRestartOnFailure {
+    Enabled = "ENABLED",
+    Disabled = "DISABLED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum StartUsingDefaultMapping {
     Enabled = "ENABLED",
     Disabled = "DISABLED",
     /**

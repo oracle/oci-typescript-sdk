@@ -57,6 +57,7 @@ export interface Pipeline {
   "isAutoScalingEnabled": boolean;
   "sourceConnectionDetails": model.SourcePipelineConnectionDetails;
   "targetConnectionDetails": model.TargetPipelineConnectionDetails;
+  "pipelineDiagnosticData"?: model.PipelineDiagnosticData;
   /**
     * A simple key-value pair that is applied without any predefined name, type, or scope. Exists
 * for cross-compatibility only.
@@ -143,6 +144,9 @@ export namespace Pipeline {
         "targetConnectionDetails": obj.targetConnectionDetails
           ? model.TargetPipelineConnectionDetails.getJsonObj(obj.targetConnectionDetails)
           : undefined,
+        "pipelineDiagnosticData": obj.pipelineDiagnosticData
+          ? model.PipelineDiagnosticData.getJsonObj(obj.pipelineDiagnosticData)
+          : undefined,
 
         "locks": obj.locks
           ? obj.locks.map(item => {
@@ -175,6 +179,9 @@ export namespace Pipeline {
           ? model.TargetPipelineConnectionDetails.getDeserializedJsonObj(
               obj.targetConnectionDetails
             )
+          : undefined,
+        "pipelineDiagnosticData": obj.pipelineDiagnosticData
+          ? model.PipelineDiagnosticData.getDeserializedJsonObj(obj.pipelineDiagnosticData)
           : undefined,
 
         "locks": obj.locks

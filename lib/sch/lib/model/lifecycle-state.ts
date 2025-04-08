@@ -27,6 +27,7 @@ export enum LifecycleState {
   Updating = "UPDATING",
   Active = "ACTIVE",
   Inactive = "INACTIVE",
+  NeedsAttention = "NEEDS_ATTENTION",
   Deleting = "DELETING",
   Deleted = "DELETED",
   Failed = "FAILED",
