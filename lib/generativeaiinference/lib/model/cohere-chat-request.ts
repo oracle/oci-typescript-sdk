@@ -142,6 +142,11 @@ Similar to frequency penalty, a penalty is applied to previously present tokens,
    *
    */
   "citationQuality"?: CohereChatRequest.CitationQuality;
+  /**
+   * Used to select the safety instruction inserted into the prompt. When selected CONTEXTUAL mode, It is appropriate for wide-ranging interactions with fewer constraints on output while maintaining core protections by rejecting harmful or illegal suggestions. When selected STRICT mode, it aims to avoid all sensitive topics, such as violent or sexual acts and profanity. When selected OFF, the safety instruction will be omitted. Note: This parameter is only compatible with models Command R 08-2024, Command R+ 08-2024 and newer. Also, command-r7b-12-2024 only supports \"CONTEXTUAL\" and \"STRICT\" modes.
+   *
+   */
+  "safetyMode"?: CohereChatRequest.SafetyMode;
 
   "apiFormat": string;
 }
@@ -155,6 +160,12 @@ export namespace CohereChatRequest {
   export enum CitationQuality {
     Accurate = "ACCURATE",
     Fast = "FAST"
+  }
+
+  export enum SafetyMode {
+    Contextual = "CONTEXTUAL",
+    Strict = "STRICT",
+    Off = "OFF"
   }
 
   export function getJsonObj(obj: CohereChatRequest, isParentJsonObj?: boolean): object {

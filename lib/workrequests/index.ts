@@ -28,5 +28,6 @@ export { requests };
 export { responses };
 export import WorkRequestClient = client.WorkRequestClient;
 export import WorkRequestWaiter = workrequest_waiter.WorkRequestWaiter;
+
 import { waitForWorkRequest } from "./lib/workrequest-helper";
 export { waitForWorkRequest };

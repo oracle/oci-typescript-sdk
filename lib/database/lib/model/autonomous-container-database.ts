@@ -29,6 +29,11 @@ export interface AutonomousContainerDatabase {
    */
   "displayName": string;
   /**
+   * Customer Contacts. Setting this to an empty list removes all customer contacts.
+   *
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
+  /**
    * **Deprecated.** The {@code DB_UNIQUE_NAME} value is set by Oracle Cloud Infrastructure.  Do not specify a value for this parameter. Specifying a value for this field will cause Terraform operations to fail.
    *
    */
@@ -365,6 +370,12 @@ export namespace AutonomousContainerDatabase {
     const jsonObj = {
       ...obj,
       ...{
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
+          : undefined,
+
         "keyHistoryEntry": obj.keyHistoryEntry
           ? obj.keyHistoryEntry.map(item => {
               return model.AutonomousDatabaseKeyHistoryEntry.getJsonObj(item);
@@ -409,6 +420,12 @@ export namespace AutonomousContainerDatabase {
     const jsonObj = {
       ...obj,
       ...{
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "keyHistoryEntry": obj.keyHistoryEntry
           ? obj.keyHistoryEntry.map(item => {
               return model.AutonomousDatabaseKeyHistoryEntry.getDeserializedJsonObj(item);
