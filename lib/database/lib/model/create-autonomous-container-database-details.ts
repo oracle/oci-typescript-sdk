@@ -21,6 +21,11 @@ import common = require("oci-common");
  */
 export interface CreateAutonomousContainerDatabaseDetails {
   /**
+   * Customer Contacts. Setting this to an empty list removes all customer contacts.
+   *
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
+  /**
    * The display name for the Autonomous Container Database.
    */
   "displayName": string;
@@ -213,6 +218,12 @@ export namespace CreateAutonomousContainerDatabaseDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
+          : undefined,
+
         "peerAutonomousContainerDatabaseBackupConfig": obj.peerAutonomousContainerDatabaseBackupConfig
           ? model.PeerAutonomousContainerDatabaseBackupConfig.getJsonObj(
               obj.peerAutonomousContainerDatabaseBackupConfig
@@ -235,6 +246,12 @@ export namespace CreateAutonomousContainerDatabaseDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "peerAutonomousContainerDatabaseBackupConfig": obj.peerAutonomousContainerDatabaseBackupConfig
           ? model.PeerAutonomousContainerDatabaseBackupConfig.getDeserializedJsonObj(
               obj.peerAutonomousContainerDatabaseBackupConfig

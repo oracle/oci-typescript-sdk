@@ -1,6 +1,6 @@
 {
   "name": "oci-aianomalydetection",
-  "version": "2.107.0",
+  "version": "2.107.1",
   "description": "OCI NodeJS client for Ai Anomaly Detection Service",
   "repository": {
     "type": "git",

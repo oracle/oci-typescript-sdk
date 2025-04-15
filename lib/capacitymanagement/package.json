@@ -1,6 +1,6 @@
 {
   "name": "oci-capacitymanagement",
-  "version": "2.107.0",
+  "version": "2.107.1",
   "description": "OCI NodeJS client for Capacity Management Service",
   "repository": {
     "type": "git",

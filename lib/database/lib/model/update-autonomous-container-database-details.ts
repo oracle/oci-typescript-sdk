@@ -25,6 +25,11 @@ export interface UpdateAutonomousContainerDatabaseDetails {
    */
   "displayName"?: string;
   /**
+   * Customer Contacts. Setting this to an empty list removes all customer contacts.
+   *
+   */
+  "customerContacts"?: Array<model.CustomerContact>;
+  /**
    * Database Patch model preference.
    */
   "patchModel"?: UpdateAutonomousContainerDatabaseDetails.PatchModel;
@@ -76,6 +81,12 @@ export namespace UpdateAutonomousContainerDatabaseDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getJsonObj(item);
+            })
+          : undefined,
+
         "maintenanceWindowDetails": obj.maintenanceWindowDetails
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindowDetails)
           : undefined,
@@ -92,6 +103,12 @@ export namespace UpdateAutonomousContainerDatabaseDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "customerContacts": obj.customerContacts
+          ? obj.customerContacts.map(item => {
+              return model.CustomerContact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "maintenanceWindowDetails": obj.maintenanceWindowDetails
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
           : undefined,
