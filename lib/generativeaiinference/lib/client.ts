@@ -221,6 +221,82 @@ export class GenerativeAiInferenceClient {
   }
 
   /**
+   * Applies guardrails to the input text, including content moderation, PII detection, and prompt injection protection.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ApplyGuardrailsRequest
+   * @return ApplyGuardrailsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiinference/ApplyGuardrails.ts.html |here} to see how to use ApplyGuardrails API.
+   */
+  public async applyGuardrails(
+    applyGuardrailsRequest: requests.ApplyGuardrailsRequest
+  ): Promise<responses.ApplyGuardrailsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiInferenceClient#applyGuardrails.");
+    const operationName = "applyGuardrails";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": applyGuardrailsRequest.opcRetryToken,
+      "opc-request-id": applyGuardrailsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      applyGuardrailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/applyGuardrails",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        applyGuardrailsRequest.applyGuardrailsDetails,
+        "ApplyGuardrailsDetails",
+        model.ApplyGuardrailsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ApplyGuardrailsResponse>{},
+        body: await response.json(),
+        bodyKey: "applyGuardrailsResult",
+        bodyModel: model.ApplyGuardrailsResult,
+        type: "model.ApplyGuardrailsResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a response for the given conversation.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

@@ -18,6 +18,8 @@ To learn more about the service, see the [Generative AI documentation](https://d
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ApplyGuardrailsRequest from "./apply-guardrails-request";
+export import ApplyGuardrailsRequest = ApplyGuardrailsRequest.ApplyGuardrailsRequest;
 import * as ChatRequest from "./chat-request";
 export import ChatRequest = ChatRequest.ChatRequest;
 import * as EmbedTextRequest from "./embed-text-request";

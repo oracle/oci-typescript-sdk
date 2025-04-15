@@ -22,8 +22,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Represents a single instance of assistant message.
- */
+* Represents a single instance of assistant message.
+* <p>
+Note: When responding to a tool call, set {@code content} to {@code null} (not {@code \"\"}).  
+* This ensures the model correctly processes tool call messages in multi-step interactions.
+* 
+*/
 export interface AssistantMessage extends model.Message {
   /**
    * An optional name for the participant. Provides the model information to differentiate between participants of the same role.
