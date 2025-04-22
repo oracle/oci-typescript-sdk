@@ -83,6 +83,11 @@ For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/
    * The list of autotune policies enabled for this volume.
    */
   "autotunePolicies"?: Array<model.AutotunePolicy>;
+  /**
+   * Reservations-enabled is a boolean field that allows to enable PR (Persistent Reservation) on a volume.
+   *
+   */
+  "isReservationsEnabled"?: boolean;
 }
 
 export namespace UpdateVolumeDetails {

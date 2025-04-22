@@ -36,6 +36,11 @@ export namespace NetworkEndpointDetails {
             <model.PrivateEndpointDetails>(<object>jsonObj),
             true
           );
+        case "PUBLIC":
+          return model.PublicEndpointDetails.getJsonObj(
+            <model.PublicEndpointDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger)
             common.LOG.logger.info(`Unknown value for: ${obj.networkEndpointType}`);
@@ -51,6 +56,11 @@ export namespace NetworkEndpointDetails {
         case "PRIVATE":
           return model.PrivateEndpointDetails.getDeserializedJsonObj(
             <model.PrivateEndpointDetails>(<object>jsonObj),
+            true
+          );
+        case "PUBLIC":
+          return model.PublicEndpointDetails.getDeserializedJsonObj(
+            <model.PublicEndpointDetails>(<object>jsonObj),
             true
           );
         default:

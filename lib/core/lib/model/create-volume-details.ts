@@ -141,6 +141,11 @@ For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/
    *
    */
   "xrcKmsKeyId"?: string;
+  /**
+   * Reservations-enabled is a boolean field that allows to enable PR (Persistent Reservation) on a volume.
+   *
+   */
+  "isReservationsEnabled"?: boolean;
 }
 
 export namespace CreateVolumeDetails {

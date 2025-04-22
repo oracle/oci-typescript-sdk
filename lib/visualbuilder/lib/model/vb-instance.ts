@@ -104,7 +104,7 @@ export interface VbInstance {
    * The Oracle Cloud ID (OCID) of the Visual Builder management VCN
    */
   "managementVcnId"?: string;
-  "networkEndpointDetails"?: model.PrivateEndpointDetails;
+  "networkEndpointDetails"?: model.PrivateEndpointDetails | model.PublicEndpointDetails;
 }
 
 export namespace VbInstance {

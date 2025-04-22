@@ -1386,7 +1386,9 @@ export class ContainerEngineClient {
       "{clusterId}": getClusterRequest.clusterId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "shouldIncludeOidcConfigFile": getClusterRequest.shouldIncludeOidcConfigFile
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3549,6 +3551,164 @@ export class ContainerEngineClient {
     request: requests.ListWorkloadMappingsRequest
   ): AsyncIterableIterator<responses.ListWorkloadMappingsResponse> {
     return paginateResponses(request, req => this.listWorkloadMappings(req));
+  }
+
+  /**
+   * perform reboot action to node in cluster
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RebootClusterNodeRequest
+   * @return RebootClusterNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/RebootClusterNode.ts.html |here} to see how to use RebootClusterNode API.
+   */
+  public async rebootClusterNode(
+    rebootClusterNodeRequest: requests.RebootClusterNodeRequest
+  ): Promise<responses.RebootClusterNodeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#rebootClusterNode.");
+    const operationName = "rebootClusterNode";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{clusterId}": rebootClusterNodeRequest.clusterId,
+      "{nodeId}": rebootClusterNodeRequest.nodeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": rebootClusterNodeRequest.opcRequestId,
+      "opc-retry-token": rebootClusterNodeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rebootClusterNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/nodes/{nodeId}/actions/reboot",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rebootClusterNodeRequest.rebootClusterNodeDetails,
+        "RebootClusterNodeDetails",
+        model.RebootClusterNodeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RebootClusterNodeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * perform cycle action to node in cluster
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReplaceBootVolumeClusterNodeRequest
+   * @return ReplaceBootVolumeClusterNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ReplaceBootVolumeClusterNode.ts.html |here} to see how to use ReplaceBootVolumeClusterNode API.
+   */
+  public async replaceBootVolumeClusterNode(
+    replaceBootVolumeClusterNodeRequest: requests.ReplaceBootVolumeClusterNodeRequest
+  ): Promise<responses.ReplaceBootVolumeClusterNodeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#replaceBootVolumeClusterNode.");
+    const operationName = "replaceBootVolumeClusterNode";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{clusterId}": replaceBootVolumeClusterNodeRequest.clusterId,
+      "{nodeId}": replaceBootVolumeClusterNodeRequest.nodeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": replaceBootVolumeClusterNodeRequest.opcRequestId,
+      "opc-retry-token": replaceBootVolumeClusterNodeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      replaceBootVolumeClusterNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/nodes/{nodeId}/actions/replaceBootVolume",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        replaceBootVolumeClusterNodeRequest.replaceBootVolumeClusterNodeDetails,
+        "ReplaceBootVolumeClusterNodeDetails",
+        model.ReplaceBootVolumeClusterNodeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReplaceBootVolumeClusterNodeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

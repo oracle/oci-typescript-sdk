@@ -36,19 +36,42 @@ export interface NodePoolCyclingDetails {
    */
   "maximumSurge"?: string;
   /**
-   * If nodes in the nodepool will be cycled to have new changes.
+   * If cycling operation should be performed on the nodes in the node pool.
    */
   "isNodeCyclingEnabled"?: boolean;
+  /**
+   * An ordered list of cycle modes that should be performed on the OKE nodes.
+   *
+   */
+  "cycleModes"?: Array<model.CycleMode>;
 }
 
 export namespace NodePoolCyclingDetails {
   export function getJsonObj(obj: NodePoolCyclingDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "cycleModes": obj.cycleModes
+          ? obj.cycleModes.map(item => {
+              return model.CycleMode.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: NodePoolCyclingDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "cycleModes": obj.cycleModes
+          ? obj.cycleModes.map(item => {
+              return model.CycleMode.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

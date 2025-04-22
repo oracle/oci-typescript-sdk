@@ -21,6 +21,7 @@ import common = require("oci-common");
  *
  **/
 export enum NetworkEndpointType {
+  Public = "PUBLIC",
   Private = "PRIVATE",
 
   /**

@@ -28,4 +28,9 @@ export interface GetClusterRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Boolean value to determine if the OpenIdConnectAuth configuration file should be displayed for the provided cluster.
+   *
+   */
+  "shouldIncludeOidcConfigFile"?: boolean;
 }
