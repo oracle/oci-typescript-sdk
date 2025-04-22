@@ -114,6 +114,9 @@ export class Region {
     public static SA_VALPARAISO_1: Region = Region.register("sa-valparaiso-1", Realm.OC1, "vap");
     public static AP_SINGAPORE_2: Region = Region.register("ap-singapore-2", Realm.OC1, "xsp");
     public static ME_RIYADH_1: Region = Region.register("me-riyadh-1", Realm.OC1, "ruh");
+    public static AP_BATAM_1: Region = Region.register("ap-batam-1", Realm.OC1, "hsg");
+    public static US_DALLAS_1: Region = Region.register("us-dallas-1", Realm.OC1, "dfw");
+    public static US_ABILENE_1: Region = Region.register("us-abilene-1", Realm.OC1, "abl");
 
     // OC2
     public static US_LANGLEY_1: Region = Region.register("us-langley-1", Realm.OC2, "lfi");

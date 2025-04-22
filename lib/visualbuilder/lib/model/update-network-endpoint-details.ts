@@ -31,6 +31,11 @@ export namespace UpdateNetworkEndpointDetails {
 
     if (obj && "networkEndpointType" in obj && obj.networkEndpointType) {
       switch (obj.networkEndpointType) {
+        case "PUBLIC":
+          return model.UpdatePublicEndpointDetails.getJsonObj(
+            <model.UpdatePublicEndpointDetails>(<object>jsonObj),
+            true
+          );
         case "PRIVATE":
           return model.UpdatePrivateEndpointDetails.getJsonObj(
             <model.UpdatePrivateEndpointDetails>(<object>jsonObj),
@@ -48,6 +53,11 @@ export namespace UpdateNetworkEndpointDetails {
 
     if (obj && "networkEndpointType" in obj && obj.networkEndpointType) {
       switch (obj.networkEndpointType) {
+        case "PUBLIC":
+          return model.UpdatePublicEndpointDetails.getDeserializedJsonObj(
+            <model.UpdatePublicEndpointDetails>(<object>jsonObj),
+            true
+          );
         case "PRIVATE":
           return model.UpdatePrivateEndpointDetails.getDeserializedJsonObj(
             <model.UpdatePrivateEndpointDetails>(<object>jsonObj),

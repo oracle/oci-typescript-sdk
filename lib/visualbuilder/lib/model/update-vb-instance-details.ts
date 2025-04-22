@@ -57,7 +57,7 @@ export interface UpdateVbInstanceDetails {
    *
    */
   "alternateCustomEndpoints"?: Array<model.UpdateCustomEndpointDetails>;
-  "networkEndpointDetails"?: model.UpdatePrivateEndpointDetails;
+  "networkEndpointDetails"?: model.UpdatePublicEndpointDetails | model.UpdatePrivateEndpointDetails;
 }
 
 export namespace UpdateVbInstanceDetails {

@@ -23,23 +23,23 @@ export interface VulnerabilitiesSummary {
    */
   "total": number;
   /**
-   * Cummulative number of resources that have critical level vulnerabilities. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Cumulative number of resources that have critical level vulnerabilities. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "critical": number;
   /**
-   * Cummulative number of resources that have high level vulnerabilities. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Cumulative number of resources that have high level vulnerabilities. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "high": number;
   /**
-   * Cummulative number of resources that have medium level vulnerabilities. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Cumulative number of resources that have medium level vulnerabilities. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "medium": number;
   /**
-   * Cummulative number of resources that have info level vulnerabilities. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Cumulative number of resources that have info level vulnerabilities. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "info": number;
   /**
-   * Cummulative number of resources that have low level vulnerabilities. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Cumulative number of resources that have low level vulnerabilities. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "low": number;
 }

@@ -43,6 +43,8 @@ import * as VbInstanceSummary from "./vb-instance-summary";
 export import VbInstanceSummary = VbInstanceSummary.VbInstanceSummary;
 import * as VbInstanceSummaryCollection from "./vb-instance-summary-collection";
 export import VbInstanceSummaryCollection = VbInstanceSummaryCollection.VbInstanceSummaryCollection;
+import * as VirtualCloudNetwork from "./virtual-cloud-network";
+export import VirtualCloudNetwork = VirtualCloudNetwork.VirtualCloudNetwork;
 import * as WorkRequest from "./work-request";
 export import WorkRequest = WorkRequest.WorkRequest;
 import * as WorkRequestError from "./work-request-error";
@@ -62,5 +64,9 @@ export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRe
 
 import * as PrivateEndpointDetails from "./private-endpoint-details";
 export import PrivateEndpointDetails = PrivateEndpointDetails.PrivateEndpointDetails;
+import * as PublicEndpointDetails from "./public-endpoint-details";
+export import PublicEndpointDetails = PublicEndpointDetails.PublicEndpointDetails;
 import * as UpdatePrivateEndpointDetails from "./update-private-endpoint-details";
 export import UpdatePrivateEndpointDetails = UpdatePrivateEndpointDetails.UpdatePrivateEndpointDetails;
+import * as UpdatePublicEndpointDetails from "./update-public-endpoint-details";
+export import UpdatePublicEndpointDetails = UpdatePublicEndpointDetails.UpdatePublicEndpointDetails;

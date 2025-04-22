@@ -334,6 +334,87 @@ export class DbLifeCycleManagementClient {
   }
 
   /**
+   * Overview of Patch Management.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPatchManagementRequest
+   * @return GetPatchManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dblm/GetPatchManagement.ts.html |here} to see how to use GetPatchManagement API.
+   */
+  public async getPatchManagement(
+    getPatchManagementRequest: requests.GetPatchManagementRequest
+  ): Promise<responses.GetPatchManagementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbLifeCycleManagementClient#getPatchManagement.");
+    const operationName = "getPatchManagement";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getPatchManagementRequest.compartmentId,
+      "databaseRelease": getPatchManagementRequest.databaseRelease,
+      "lifecycleState": getPatchManagementRequest.lifecycleState,
+      "timeStartedGreaterThanOrEqualTo": getPatchManagementRequest.timeStartedGreaterThanOrEqualTo,
+      "timeStartedLessThan": getPatchManagementRequest.timeStartedLessThan
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPatchManagementRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPatchManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/patchManagement",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPatchManagementResponse>{},
+        body: await response.json(),
+        bodyKey: "dblmPatchManagement",
+        bodyModel: model.DblmPatchManagement,
+        type: "model.DblmPatchManagement",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a Vulnerability
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetVulnerabilityRequest
@@ -641,6 +722,95 @@ export class DbLifeCycleManagementClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of databases
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDatabasesRequest
+   * @return ListDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dblm/ListDatabases.ts.html |here} to see how to use ListDatabases API.
+   */
+  public async listDatabases(
+    listDatabasesRequest: requests.ListDatabasesRequest
+  ): Promise<responses.ListDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbLifeCycleManagementClient#listDatabases.");
+    const operationName = "listDatabases";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabasesRequest.compartmentId,
+      "lifecycleState": listDatabasesRequest.lifecycleState,
+      "databaseRelease": listDatabasesRequest.databaseRelease,
+      "databaseType": listDatabasesRequest.databaseType,
+      "limit": listDatabasesRequest.limit,
+      "page": listDatabasesRequest.page,
+      "sortOrder": listDatabasesRequest.sortOrder,
+      "sortBy": listDatabasesRequest.sortBy,
+      "imageId": listDatabasesRequest.imageId,
+      "displayName": listDatabasesRequest.displayName,
+      "drifterPatchId": listDatabasesRequest.drifterPatchId,
+      "imageCompliance": listDatabasesRequest.imageCompliance,
+      "severityType": listDatabasesRequest.severityType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabasesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/patchManagement/databases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "patchDatabasesCollection",
+        bodyModel: model.PatchDatabasesCollection,
+        type: "model.PatchDatabasesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]

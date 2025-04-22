@@ -88,7 +88,7 @@ export interface VbInstanceSummary {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
-  "networkEndpointDetails"?: model.PrivateEndpointDetails;
+  "networkEndpointDetails"?: model.PrivateEndpointDetails | model.PublicEndpointDetails;
 }
 
 export namespace VbInstanceSummary {

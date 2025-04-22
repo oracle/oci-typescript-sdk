@@ -31,6 +31,10 @@ export interface NodeEvictionNodePoolSettings {
    * If the underlying compute instance should be deleted if you cannot evict all the pods in grace period
    */
   "isForceDeleteAfterGraceDuration"?: boolean;
+  /**
+   * If the node action should be performed if not all the pods can be evicted in the grace period
+   */
+  "isForceActionAfterGraceDuration"?: boolean;
 }
 
 export namespace NodeEvictionNodePoolSettings {

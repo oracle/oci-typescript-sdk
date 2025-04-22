@@ -62,6 +62,10 @@ export interface ResourceInfo {
    * The License Type of the resource.
    */
   "licenseType": string;
+  /**
+   * The agent Id of the agent managing the resource.
+   */
+  "agentId"?: string;
 }
 
 export namespace ResourceInfo {

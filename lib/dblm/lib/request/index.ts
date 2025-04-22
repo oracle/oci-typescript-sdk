@@ -13,6 +13,8 @@
 
 import * as CreateVulnerabilityScanRequest from "./create-vulnerability-scan-request";
 export import CreateVulnerabilityScanRequest = CreateVulnerabilityScanRequest.CreateVulnerabilityScanRequest;
+import * as GetPatchManagementRequest from "./get-patch-management-request";
+export import GetPatchManagementRequest = GetPatchManagementRequest.GetPatchManagementRequest;
 import * as GetVulnerabilityRequest from "./get-vulnerability-request";
 export import GetVulnerabilityRequest = GetVulnerabilityRequest.GetVulnerabilityRequest;
 import * as GetVulnerabilityScanRequest from "./get-vulnerability-scan-request";
@@ -21,6 +23,8 @@ import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
 import * as ListAggregatedVulnerabilityDataRequest from "./list-aggregated-vulnerability-data-request";
 export import ListAggregatedVulnerabilityDataRequest = ListAggregatedVulnerabilityDataRequest.ListAggregatedVulnerabilityDataRequest;
+import * as ListDatabasesRequest from "./list-databases-request";
+export import ListDatabasesRequest = ListDatabasesRequest.ListDatabasesRequest;
 import * as ListNotificationsRequest from "./list-notifications-request";
 export import ListNotificationsRequest = ListNotificationsRequest.ListNotificationsRequest;
 import * as ListVulnerabilitiesRequest from "./list-vulnerabilities-request";

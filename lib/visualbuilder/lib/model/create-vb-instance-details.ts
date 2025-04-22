@@ -65,7 +65,7 @@ export interface CreateVbInstanceDetails {
    * Optional parameter specifying which entitlement to use for billing purposes. Only required if the account possesses more than one entitlement.
    */
   "consumptionModel"?: CreateVbInstanceDetails.ConsumptionModel;
-  "networkEndpointDetails"?: model.PrivateEndpointDetails;
+  "networkEndpointDetails"?: model.PrivateEndpointDetails | model.PublicEndpointDetails;
 }
 
 export namespace CreateVbInstanceDetails {
