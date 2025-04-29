@@ -80,6 +80,7 @@ Example:
    * The full prompt that was sent to the model if isEcho is true when request.
    */
   "prompt"?: string;
+  "usage"?: model.Usage;
 
   "apiFormat": string;
 }
@@ -124,7 +125,9 @@ export namespace CohereChatResponse {
           ? obj.toolCalls.map(item => {
               return model.CohereToolCall.getJsonObj(item);
             })
-          : undefined
+          : undefined,
+
+        "usage": obj.usage ? model.Usage.getJsonObj(obj.usage) : undefined
       }
     };
 
@@ -161,7 +164,9 @@ export namespace CohereChatResponse {
           ? obj.toolCalls.map(item => {
               return model.CohereToolCall.getDeserializedJsonObj(item);
             })
-          : undefined
+          : undefined,
+
+        "usage": obj.usage ? model.Usage.getDeserializedJsonObj(obj.usage) : undefined
       }
     };
 

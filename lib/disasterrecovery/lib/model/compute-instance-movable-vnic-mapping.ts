@@ -54,6 +54,13 @@ Example: {@code myhost1}
     */
   "destinationPrimaryPrivateIpHostnameLabel"?: string;
   /**
+    * The OCID of the reserved public IP address to be assigned to the compute instance in the destination region.
+* <p>
+Example: {@code ocid1.publicip.oc1..uniqueID}
+* 
+    */
+  "destinationReservedPublicIpId"?: string;
+  /**
     * A list of OCIDs of network security groups (NSG) in the destination region which should be assigned to
 * the source VNIC.
 * <p>

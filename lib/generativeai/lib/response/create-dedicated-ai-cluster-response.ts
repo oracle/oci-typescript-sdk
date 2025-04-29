@@ -33,6 +33,10 @@ export interface CreateDedicatedAiClusterResponse {
    */
   "opcRequestId": string;
   /**
+   * Provides deprecation details for models, included only when a model is deprecated.
+   */
+  "modelDeprecationInfo": string;
+  /**
    * The returned model.DedicatedAiCluster instance.
    */
   "dedicatedAiCluster": model.DedicatedAiCluster;

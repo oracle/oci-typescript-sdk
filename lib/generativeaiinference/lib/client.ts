@@ -373,6 +373,11 @@ export class GenerativeAiInferenceClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("model-deprecation-info"),
+            key: "modelDeprecationInfo",
+            dataType: "string"
           }
         ]
       });
@@ -454,6 +459,11 @@ An embedding is numeric representation of a piece of text. This text can be a ph
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("model-deprecation-info"),
+            key: "modelDeprecationInfo",
             dataType: "string"
           }
         ]
@@ -543,6 +553,11 @@ An embedding is numeric representation of a piece of text. This text can be a ph
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("model-deprecation-info"),
+            key: "modelDeprecationInfo",
+            dataType: "string"
           }
         ]
       });
@@ -625,6 +640,11 @@ Rerank assigns an index and a relevance score to each document, indicating which
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("model-deprecation-info"),
+            key: "modelDeprecationInfo",
+            dataType: "string"
           }
         ]
       });
@@ -705,6 +725,11 @@ Rerank assigns an index and a relevance score to each document, indicating which
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("model-deprecation-info"),
+            key: "modelDeprecationInfo",
             dataType: "string"
           }
         ]

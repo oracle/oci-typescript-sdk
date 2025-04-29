@@ -45,16 +45,27 @@ export interface EmbedTextResult {
    * The version of the model.
    */
   "modelVersion"?: string;
+  "usage"?: model.Usage;
 }
 
 export namespace EmbedTextResult {
   export function getJsonObj(obj: EmbedTextResult): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "usage": obj.usage ? model.Usage.getJsonObj(obj.usage) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: EmbedTextResult): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "usage": obj.usage ? model.Usage.getDeserializedJsonObj(obj.usage) : undefined
+      }
+    };
 
     return jsonObj;
   }

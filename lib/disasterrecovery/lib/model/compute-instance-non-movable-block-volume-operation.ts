@@ -19,6 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Deprecated. Use the 'ComputeInstanceNonMovableBlockVolumeAttachAndMountOperationsDetails' definition instead of this.
  * The details of operations performed on a block volume.
  *
  */

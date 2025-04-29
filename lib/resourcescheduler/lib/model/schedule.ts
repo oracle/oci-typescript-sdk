@@ -105,6 +105,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeNextRun"?: Date;
   /**
+   * This is the status of the last work request.
+   */
+  "lastRunStatus"?: model.OperationStatus;
+  /**
    * This is the current state of a schedule.
    */
   "lifecycleState": Schedule.LifecycleState;

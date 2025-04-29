@@ -48,6 +48,13 @@ Example: {@code DATABASE_SWITCHOVER}
 * 
     */
   "displayName": string;
+  /**
+    * The display name of the DR Plan step type.
+* <p>
+Example: {@code Database Switchover}
+* 
+    */
+  "typeDisplayName": string;
   "logLocation": model.ObjectStorageLogLocation;
   /**
    * The status of the step execution.

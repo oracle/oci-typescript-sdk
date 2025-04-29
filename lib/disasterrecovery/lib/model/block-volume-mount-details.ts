@@ -19,6 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Deprecated. Use the 'ComputeInstanceNonMovableBlockVolumeMountOperationDetails' definition instead of this.
  * The details for mounting or unmounting the file system on a block volume.
  *
  */

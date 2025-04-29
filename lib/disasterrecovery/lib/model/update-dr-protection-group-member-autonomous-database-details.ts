@@ -38,6 +38,7 @@ Example: {@code ocid1.vaultsecret.oc1..uniqueID}
 * 
     */
   "passwordVaultSecretId"?: string;
+  "destinationEncryptionKey"?: model.UpdateVaultAndEncryptionKeyDetails;
 
   "memberType": string;
 }
@@ -53,7 +54,11 @@ export namespace UpdateDrProtectionGroupMemberAutonomousDatabaseDetails {
         : (model.UpdateDrProtectionGroupMemberDetails.getJsonObj(
             obj
           ) as UpdateDrProtectionGroupMemberAutonomousDatabaseDetails)),
-      ...{}
+      ...{
+        "destinationEncryptionKey": obj.destinationEncryptionKey
+          ? model.UpdateVaultAndEncryptionKeyDetails.getJsonObj(obj.destinationEncryptionKey)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -69,7 +74,13 @@ export namespace UpdateDrProtectionGroupMemberAutonomousDatabaseDetails {
         : (model.UpdateDrProtectionGroupMemberDetails.getDeserializedJsonObj(
             obj
           ) as UpdateDrProtectionGroupMemberAutonomousDatabaseDetails)),
-      ...{}
+      ...{
+        "destinationEncryptionKey": obj.destinationEncryptionKey
+          ? model.UpdateVaultAndEncryptionKeyDetails.getDeserializedJsonObj(
+              obj.destinationEncryptionKey
+            )
+          : undefined
+      }
     };
 
     return jsonObj;

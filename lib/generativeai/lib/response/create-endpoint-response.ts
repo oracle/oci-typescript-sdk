@@ -33,6 +33,10 @@ export interface CreateEndpointResponse {
    */
   "opcRequestId": string;
   /**
+   * Provides deprecation details for models, included only when a model is deprecated.
+   */
+  "modelDeprecationInfo": string;
+  /**
    * The returned model.Endpoint instance.
    */
   "endpoint": model.Endpoint;

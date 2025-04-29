@@ -35,6 +35,14 @@ Example: {@code BBTh:region-AD}
    *
    */
   "exportMappings"?: Array<model.FileSystemExportMappingDetails>;
+  "destinationEncryptionKey"?: model.CreateVaultAndEncryptionKeyDetails;
+  /**
+    * The OCID of the snapshot policy to use in the destination region. This policy will be attached to the file system after it moves to the destination region.
+* <p>
+Example: {@code ocid1.filesystemsnapshotpolicy.oc1..uniqueID}
+* 
+    */
+  "destinationSnapshotPolicyId"?: string;
 
   "memberType": string;
 }
@@ -55,6 +63,9 @@ export namespace CreateDrProtectionGroupMemberFileSystemDetails {
           ? obj.exportMappings.map(item => {
               return model.FileSystemExportMappingDetails.getJsonObj(item);
             })
+          : undefined,
+        "destinationEncryptionKey": obj.destinationEncryptionKey
+          ? model.CreateVaultAndEncryptionKeyDetails.getJsonObj(obj.destinationEncryptionKey)
           : undefined
       }
     };
@@ -77,6 +88,11 @@ export namespace CreateDrProtectionGroupMemberFileSystemDetails {
           ? obj.exportMappings.map(item => {
               return model.FileSystemExportMappingDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "destinationEncryptionKey": obj.destinationEncryptionKey
+          ? model.CreateVaultAndEncryptionKeyDetails.getDeserializedJsonObj(
+              obj.destinationEncryptionKey
+            )
           : undefined
       }
     };

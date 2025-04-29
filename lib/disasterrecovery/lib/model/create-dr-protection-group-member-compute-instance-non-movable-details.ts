@@ -35,10 +35,12 @@ export interface CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails
    */
   "fileSystemOperations"?: Array<model.CreateComputeInstanceNonMovableFileSystemOperationDetails>;
   /**
+   * Deprecated. Use the 'blockVolumeAttachAndMountOperations' attribute instead of this.
    * A list of operations performed on block volumes used by the compute instance.
    *
    */
   "blockVolumeOperations"?: Array<model.CreateComputeInstanceNonMovableBlockVolumeOperationDetails>;
+  "blockVolumeAttachAndMountOperations"?: model.CreateComputeInstanceNonMovableBlockVolumeAttachAndMountOperationsDetails;
 
   "memberType": string;
 }
@@ -68,6 +70,11 @@ export namespace CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails {
                 item
               );
             })
+          : undefined,
+        "blockVolumeAttachAndMountOperations": obj.blockVolumeAttachAndMountOperations
+          ? model.CreateComputeInstanceNonMovableBlockVolumeAttachAndMountOperationsDetails.getJsonObj(
+              obj.blockVolumeAttachAndMountOperations
+            )
           : undefined
       }
     };
@@ -99,6 +106,11 @@ export namespace CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails {
                 item
               );
             })
+          : undefined,
+        "blockVolumeAttachAndMountOperations": obj.blockVolumeAttachAndMountOperations
+          ? model.CreateComputeInstanceNonMovableBlockVolumeAttachAndMountOperationsDetails.getDeserializedJsonObj(
+              obj.blockVolumeAttachAndMountOperations
+            )
           : undefined
       }
     };

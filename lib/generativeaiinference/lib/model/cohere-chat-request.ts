@@ -62,6 +62,7 @@ Example: {@code You are a travel advisor. Answer with a pirate tone.}
    * Whether to stream the partial progress of the model's response. When set to true, as tokens become available, they are sent as data-only server-sent events.
    */
   "isStream"?: boolean;
+  "streamOptions"?: model.StreamOptions;
   /**
    * The maximum number of output tokens that the model will generate for the response. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -143,7 +144,11 @@ Similar to frequency penalty, a penalty is applied to previously present tokens,
    */
   "citationQuality"?: CohereChatRequest.CitationQuality;
   /**
-   * Used to select the safety instruction inserted into the prompt. When selected CONTEXTUAL mode, It is appropriate for wide-ranging interactions with fewer constraints on output while maintaining core protections by rejecting harmful or illegal suggestions. When selected STRICT mode, it aims to avoid all sensitive topics, such as violent or sexual acts and profanity. When selected OFF, the safety instruction will be omitted. Note: This parameter is only compatible with models Command R 08-2024, Command R+ 08-2024 and newer. Also, command-r7b-12-2024 only supports \"CONTEXTUAL\" and \"STRICT\" modes.
+   * Safety mode: Adds a safety instruction for the model to use when generating responses.
+   * Contextual: (Default) Puts fewer constraints on the output. It maintains core protections by aiming to reject harmful or illegal suggestions, but it allows profanity and some toxic content, sexually explicit and violent content, and content that contains medical, financial, or legal information. Contextual mode is suited for entertainment, creative, or academic use.
+   * Strict: Aims to avoid sensitive topics, such as violent or sexual acts and profanity. This mode aims to provide a safer experience by prohibiting responses or recommendations that it finds inappropriate. Strict mode is suited for corporate use, such as for corporate communications and customer service.
+   * Off: No safety mode is applied.
+   * Note: This parameter is only compatible with models cohere.command-r-08-2024, cohere.command-r-plus-08-2024 and Cohere models released after these models. See [release dates](https://docs.oracle.com/iaas/Content/generative-ai/deprecating.htm).
    *
    */
   "safetyMode"?: CohereChatRequest.SafetyMode;
@@ -182,6 +187,10 @@ export namespace CohereChatRequest {
           ? model.CohereResponseFormat.getJsonObj(obj.responseFormat)
           : undefined,
 
+        "streamOptions": obj.streamOptions
+          ? model.StreamOptions.getJsonObj(obj.streamOptions)
+          : undefined,
+
         "tools": obj.tools
           ? obj.tools.map(item => {
               return model.CohereTool.getJsonObj(item);
@@ -215,6 +224,10 @@ export namespace CohereChatRequest {
 
         "responseFormat": obj.responseFormat
           ? model.CohereResponseFormat.getDeserializedJsonObj(obj.responseFormat)
+          : undefined,
+
+        "streamOptions": obj.streamOptions
+          ? model.StreamOptions.getDeserializedJsonObj(obj.streamOptions)
           : undefined,
 
         "tools": obj.tools
