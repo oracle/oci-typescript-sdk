@@ -15,6 +15,8 @@ import * as ActivateScheduleRequest from "./activate-schedule-request";
 export import ActivateScheduleRequest = ActivateScheduleRequest.ActivateScheduleRequest;
 import * as CancelWorkRequestRequest from "./cancel-work-request-request";
 export import CancelWorkRequestRequest = CancelWorkRequestRequest.CancelWorkRequestRequest;
+import * as ChangeScheduleCompartmentRequest from "./change-schedule-compartment-request";
+export import ChangeScheduleCompartmentRequest = ChangeScheduleCompartmentRequest.ChangeScheduleCompartmentRequest;
 import * as CreateScheduleRequest from "./create-schedule-request";
 export import CreateScheduleRequest = CreateScheduleRequest.CreateScheduleRequest;
 import * as DeactivateScheduleRequest from "./deactivate-schedule-request";

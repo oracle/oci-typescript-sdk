@@ -37,16 +37,79 @@ export interface Resource {
 * 
     */
   "metadata"?: { [key: string]: string };
+  /**
+    * This is the user input parameters to use when acting on the resource.
+* <p>
+{
+*     \"parameters\": [
+*         {
+*             \"parameterType\": \"BODY\",
+*             \"value\": {
+*                 \"ip\": \"192.168.44.44\",
+*                 \"memory\": \"1024\",
+*                 \"synced_folders\": [
+*                     {
+*                         \"host_path\": \"data/\",
+*                         \"guest_path\": \"/var/www\",
+*                         \"type\": \"default\"
+*                     }
+*                 ],
+*                 \"forwarded_ports\": []
+*             }
+*         },
+*         {
+*             \"parameterType\": \"PATH\",
+*             \"value\": {
+*                 \"compartmentId\": \"ocid1.compartment.oc1..xxxxx\",
+*                 \"instanceId\": \"ocid1.vcn.oc1..yyyy\"
+*             }
+*         },
+*         {
+*             \"parameterType\": \"QUERY\",
+*             \"value\": {
+*                 \"limit\": \"10\",
+*                 \"tenantId\": \"ocid1.tenant.oc1..zzzz\"
+*             }
+*         },
+*         {
+*             \"parameterType\": \"HEADER\",
+*             \"value\": {
+*               \"token\": \"xxxx\"
+*             }
+*         }
+*     ]
+* }
+* 
+    */
+  "parameters"?: Array<model.Parameter>;
 }
 
 export namespace Resource {
   export function getJsonObj(obj: Resource): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.Parameter.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Resource): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "parameters": obj.parameters
+          ? obj.parameters.map(item => {
+              return model.Parameter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

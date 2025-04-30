@@ -63,6 +63,13 @@ Example: {@code DATABASE_SWITCHOVER}
     */
   "displayName": string;
   /**
+    * The display name of the DR Plan step type.
+* <p>
+Example: {@code Database Switchover}
+* 
+    */
+  "typeDisplayName": string;
+  /**
    * The error mode for this step.
    *
    */
@@ -82,11 +89,14 @@ Example: {@code true}
     */
   "isEnabled": boolean;
   "userDefinedStep"?:
+    | model.InvokeFunctionUserDefinedCustomPrecheckStep
     | model.InvokeFunctionStep
     | model.InvokeFunctionPrecheckStep
+    | model.RunObjectStoreScriptUserDefinedCustomPrecheckStep
     | model.RunLocalScriptUserDefinedStep
     | model.LocalScriptPrecheckStep
     | model.ObjectStoreScriptPrecheckStep
+    | model.RunLocalScriptUserDefinedCustomPrecheckStep
     | model.RunObjectStoreScriptUserDefinedStep;
 }
 

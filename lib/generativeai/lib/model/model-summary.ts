@@ -94,6 +94,14 @@ Allowed values are:
    */
   "timeDeprecated"?: Date;
   /**
+   * The timestamp indicating when the base model will no longer be available for on-demand usage.
+   */
+  "timeOnDemandRetired"?: Date;
+  /**
+   * The timestamp indicating when the custom model and its associated foundation model will be fully retired.
+   */
+  "timeDedicatedRetired"?: Date;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -125,6 +133,7 @@ export namespace ModelSummary {
     TextEmbeddings = "TEXT_EMBEDDINGS",
     FineTune = "FINE_TUNE",
     Chat = "CHAT",
+    TextRerank = "TEXT_RERANK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

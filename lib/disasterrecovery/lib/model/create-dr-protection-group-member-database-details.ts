@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Create properties for a Database (DBCS) member.
+ * Create properties for a Database member.
  */
 export interface CreateDrProtectionGroupMemberDatabaseDetails
   extends model.CreateDrProtectionGroupMemberDetails {

@@ -31,6 +31,11 @@ export namespace UpdateDrPlanUserDefinedStepDetails {
 
     if (obj && "stepType" in obj && obj.stepType) {
       switch (obj.stepType) {
+        case "RUN_LOCAL_SCRIPT_USER_DEFINED_CUSTOM_PRECHECK":
+          return model.UpdateRunLocalScriptUserDefinedCustomPrecheckStepDetails.getJsonObj(
+            <model.UpdateRunLocalScriptUserDefinedCustomPrecheckStepDetails>(<object>jsonObj),
+            true
+          );
         case "RUN_LOCAL_SCRIPT_PRECHECK":
           return model.UpdateLocalScriptPrecheckStepDetails.getJsonObj(
             <model.UpdateLocalScriptPrecheckStepDetails>(<object>jsonObj),
@@ -44,6 +49,16 @@ export namespace UpdateDrPlanUserDefinedStepDetails {
         case "INVOKE_FUNCTION":
           return model.UpdateInvokeFunctionUserDefinedStepDetails.getJsonObj(
             <model.UpdateInvokeFunctionUserDefinedStepDetails>(<object>jsonObj),
+            true
+          );
+        case "RUN_OBJECTSTORE_SCRIPT_USER_DEFINED_CUSTOM_PRECHECK":
+          return model.UpdateRunObjectStoreScriptUserDefinedCustomPrecheckStepDetails.getJsonObj(
+            <model.UpdateRunObjectStoreScriptUserDefinedCustomPrecheckStepDetails>(<object>jsonObj),
+            true
+          );
+        case "INVOKE_FUNCTION_USER_DEFINED_CUSTOM_PRECHECK":
+          return model.UpdateInvokeFunctionUserDefinedCustomPrecheckStepDetails.getJsonObj(
+            <model.UpdateInvokeFunctionUserDefinedCustomPrecheckStepDetails>(<object>jsonObj),
             true
           );
         case "RUN_OBJECTSTORE_SCRIPT":
@@ -72,6 +87,11 @@ export namespace UpdateDrPlanUserDefinedStepDetails {
 
     if (obj && "stepType" in obj && obj.stepType) {
       switch (obj.stepType) {
+        case "RUN_LOCAL_SCRIPT_USER_DEFINED_CUSTOM_PRECHECK":
+          return model.UpdateRunLocalScriptUserDefinedCustomPrecheckStepDetails.getDeserializedJsonObj(
+            <model.UpdateRunLocalScriptUserDefinedCustomPrecheckStepDetails>(<object>jsonObj),
+            true
+          );
         case "RUN_LOCAL_SCRIPT_PRECHECK":
           return model.UpdateLocalScriptPrecheckStepDetails.getDeserializedJsonObj(
             <model.UpdateLocalScriptPrecheckStepDetails>(<object>jsonObj),
@@ -85,6 +105,16 @@ export namespace UpdateDrPlanUserDefinedStepDetails {
         case "INVOKE_FUNCTION":
           return model.UpdateInvokeFunctionUserDefinedStepDetails.getDeserializedJsonObj(
             <model.UpdateInvokeFunctionUserDefinedStepDetails>(<object>jsonObj),
+            true
+          );
+        case "RUN_OBJECTSTORE_SCRIPT_USER_DEFINED_CUSTOM_PRECHECK":
+          return model.UpdateRunObjectStoreScriptUserDefinedCustomPrecheckStepDetails.getDeserializedJsonObj(
+            <model.UpdateRunObjectStoreScriptUserDefinedCustomPrecheckStepDetails>(<object>jsonObj),
+            true
+          );
+        case "INVOKE_FUNCTION_USER_DEFINED_CUSTOM_PRECHECK":
+          return model.UpdateInvokeFunctionUserDefinedCustomPrecheckStepDetails.getDeserializedJsonObj(
+            <model.UpdateInvokeFunctionUserDefinedCustomPrecheckStepDetails>(<object>jsonObj),
             true
           );
         case "RUN_OBJECTSTORE_SCRIPT":

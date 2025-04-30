@@ -23,6 +23,31 @@ import common = require("oci-common");
  */
 export interface UpdateDrProtectionGroupMemberVolumeGroupDetails
   extends model.UpdateDrProtectionGroupMemberDetails {
+  /**
+    * The OCID of the backup policy to use in the destination region. This policy will be used to create backups for this volume group after it moves the destination region.
+* <p>
+Example: {@code ocid1.volumebackuppolicy.oc1..uniqueID}
+* 
+    */
+  "destinationBackupPolicyId"?: string;
+  /**
+    * A list of mappings between source volume IDs in the volume group and customer-managed encryption keys in the 
+* destination region which will be used to encrypt the volume after it moves to the destination region.
+* <p>
+If you add the entry for source volumes and its corresponding vault and encryption keys here, you can not use 
+* 'commonDestinationKey' for encrypting all volumes with common encryption key. Similarly, if you specify common
+* vault and encryption key using 'commonDestinationKey', you cannot specify vaults and encryption keys individually 
+* for each volume using 'sourceVolumeToDestinationEncryptionKeyMappings'.
+* <p>
+An entry for each volume in volume group should be added in this list. The encryption key will not be updated 
+* for the volumes that are part of volume group but missing in this list.
+* 
+    */
+  "sourceVolumeToDestinationEncryptionKeyMappings"?: Array<
+    model.UpdateSourceVolumeToDestinationEncryptionKeyMappingDetails
+  >;
+  "commonDestinationKey"?: model.UpdateVaultAndEncryptionKeyDetails;
+
   "memberType": string;
 }
 
@@ -37,7 +62,18 @@ export namespace UpdateDrProtectionGroupMemberVolumeGroupDetails {
         : (model.UpdateDrProtectionGroupMemberDetails.getJsonObj(
             obj
           ) as UpdateDrProtectionGroupMemberVolumeGroupDetails)),
-      ...{}
+      ...{
+        "sourceVolumeToDestinationEncryptionKeyMappings": obj.sourceVolumeToDestinationEncryptionKeyMappings
+          ? obj.sourceVolumeToDestinationEncryptionKeyMappings.map(item => {
+              return model.UpdateSourceVolumeToDestinationEncryptionKeyMappingDetails.getJsonObj(
+                item
+              );
+            })
+          : undefined,
+        "commonDestinationKey": obj.commonDestinationKey
+          ? model.UpdateVaultAndEncryptionKeyDetails.getJsonObj(obj.commonDestinationKey)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -53,7 +89,20 @@ export namespace UpdateDrProtectionGroupMemberVolumeGroupDetails {
         : (model.UpdateDrProtectionGroupMemberDetails.getDeserializedJsonObj(
             obj
           ) as UpdateDrProtectionGroupMemberVolumeGroupDetails)),
-      ...{}
+      ...{
+        "sourceVolumeToDestinationEncryptionKeyMappings": obj.sourceVolumeToDestinationEncryptionKeyMappings
+          ? obj.sourceVolumeToDestinationEncryptionKeyMappings.map(item => {
+              return model.UpdateSourceVolumeToDestinationEncryptionKeyMappingDetails.getDeserializedJsonObj(
+                item
+              );
+            })
+          : undefined,
+        "commonDestinationKey": obj.commonDestinationKey
+          ? model.UpdateVaultAndEncryptionKeyDetails.getDeserializedJsonObj(
+              obj.commonDestinationKey
+            )
+          : undefined
+      }
     };
 
     return jsonObj;

@@ -27,6 +27,10 @@ export interface GenerateTextResponse {
    */
   "opcRequestId": string;
   /**
+   * Provides deprecation details for models, included only when a model is deprecated.
+   */
+  "modelDeprecationInfo": string;
+  /**
    * The returned model.GenerateTextResult instance.
    */
   "generateTextResult": model.GenerateTextResult;

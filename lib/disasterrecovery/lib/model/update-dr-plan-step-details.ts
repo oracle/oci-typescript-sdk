@@ -59,9 +59,12 @@ Example: {@code true}
     */
   "isEnabled"?: boolean;
   "userDefinedStep"?:
+    | model.UpdateRunLocalScriptUserDefinedCustomPrecheckStepDetails
     | model.UpdateLocalScriptPrecheckStepDetails
     | model.UpdateInvokeFunctionPrecheckStepDetails
     | model.UpdateInvokeFunctionUserDefinedStepDetails
+    | model.UpdateRunObjectStoreScriptUserDefinedCustomPrecheckStepDetails
+    | model.UpdateInvokeFunctionUserDefinedCustomPrecheckStepDetails
     | model.UpdateRunObjectStoreScriptUserDefinedStepDetails
     | model.UpdateObjectStoreScriptPrecheckStepDetails
     | model.UpdateRunLocalScriptUserDefinedStepDetails;

@@ -13,6 +13,8 @@
 
 import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
+import * as ChangeScheduleCompartmentDetails from "./change-schedule-compartment-details";
+export import ChangeScheduleCompartmentDetails = ChangeScheduleCompartmentDetails.ChangeScheduleCompartmentDetails;
 import * as CreateScheduleDetails from "./create-schedule-details";
 export import CreateScheduleDetails = CreateScheduleDetails.CreateScheduleDetails;
 import * as DefinedTagFilterValue from "./defined-tag-filter-value";
@@ -21,6 +23,8 @@ import * as OperationStatus from "./operation-status";
 export import OperationStatus = OperationStatus.OperationStatus;
 import * as OperationType from "./operation-type";
 export import OperationType = OperationType.OperationType;
+import * as Parameter from "./parameter";
+export import Parameter = Parameter.Parameter;
 import * as Resource from "./resource";
 export import Resource = Resource.Resource;
 import * as ResourceFilter from "./resource-filter";
@@ -56,12 +60,20 @@ export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;
 import * as WorkRequestSummaryCollection from "./work-request-summary-collection";
 export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRequestSummaryCollection;
 
+import * as BodyParameter from "./body-parameter";
+export import BodyParameter = BodyParameter.BodyParameter;
 import * as CompartmentIdResourceFilter from "./compartment-id-resource-filter";
 export import CompartmentIdResourceFilter = CompartmentIdResourceFilter.CompartmentIdResourceFilter;
 import * as DefinedTagsResourceFilter from "./defined-tags-resource-filter";
 export import DefinedTagsResourceFilter = DefinedTagsResourceFilter.DefinedTagsResourceFilter;
+import * as HeaderParameter from "./header-parameter";
+export import HeaderParameter = HeaderParameter.HeaderParameter;
 import * as LifecycleStateResourceFilter from "./lifecycle-state-resource-filter";
 export import LifecycleStateResourceFilter = LifecycleStateResourceFilter.LifecycleStateResourceFilter;
+import * as PathParameter from "./path-parameter";
+export import PathParameter = PathParameter.PathParameter;
+import * as QueryParameter from "./query-parameter";
+export import QueryParameter = QueryParameter.QueryParameter;
 import * as ResourceTypeResourceFilter from "./resource-type-resource-filter";
 export import ResourceTypeResourceFilter = ResourceTypeResourceFilter.ResourceTypeResourceFilter;
 import * as TimeCreatedResourceFilter from "./time-created-resource-filter";

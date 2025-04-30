@@ -68,6 +68,10 @@ export interface ListSchedulesRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * This is the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource affected by the work request.
+   */
+  "resourceId"?: string;
 }
 
 export namespace ListSchedulesRequest {

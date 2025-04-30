@@ -382,7 +382,88 @@ export class ScheduleClient {
   }
 
   /**
-   * Creates a Schedule
+   * This API) moves a schedule into a different compartment within the same tenancy. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeScheduleCompartmentRequest
+   * @return ChangeScheduleCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcescheduler/ChangeScheduleCompartment.ts.html |here} to see how to use ChangeScheduleCompartment API.
+   */
+  public async changeScheduleCompartment(
+    changeScheduleCompartmentRequest: requests.ChangeScheduleCompartmentRequest
+  ): Promise<responses.ChangeScheduleCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ScheduleClient#changeScheduleCompartment.");
+    const operationName = "changeScheduleCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{scheduleId}": changeScheduleCompartmentRequest.scheduleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeScheduleCompartmentRequest.ifMatch,
+      "opc-request-id": changeScheduleCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeScheduleCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeScheduleCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/schedules/{scheduleId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeScheduleCompartmentRequest.changeScheduleCompartmentDetails,
+        "ChangeScheduleCompartmentDetails",
+        model.ChangeScheduleCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeScheduleCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API creates a schedule. You must provide either resources or resourceFilters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateScheduleRequest
@@ -854,7 +935,7 @@ export class ScheduleClient {
   }
 
   /**
-   * This API gets a list of schedules
+   * This API gets a list of schedules. You must provide either a compartmentId or a scheduleId or both. You can list resources in this compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). This is required unless a specific schedule ID is passed.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSchedulesRequest
@@ -878,7 +959,8 @@ export class ScheduleClient {
       "limit": listSchedulesRequest.limit,
       "page": listSchedulesRequest.page,
       "sortBy": listSchedulesRequest.sortBy,
-      "sortOrder": listSchedulesRequest.sortOrder
+      "sortOrder": listSchedulesRequest.sortOrder,
+      "resourceId": listSchedulesRequest.resourceId
     };
 
     let headerParams = {
@@ -1099,7 +1181,7 @@ export class ScheduleClient {
   }
 
   /**
-   * Lists the cloud scheduler work requests in a compartment.
+   * This API gets a list of work requests. You must provide either a compartmentId or a workRequestId or both. You can list work requests in this compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). This is required unless a specific workRequestId is passed.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse

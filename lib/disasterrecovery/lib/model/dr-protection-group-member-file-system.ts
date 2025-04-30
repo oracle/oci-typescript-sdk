@@ -35,6 +35,14 @@ export interface DrProtectionGroupMemberFileSystem extends model.DrProtectionGro
    *
    */
   "exportMappings"?: Array<model.FileSystemExportMapping>;
+  "destinationEncryptionKey"?: model.VaultAndEncryptionKey;
+  /**
+    * The OCID of the snapshot policy to use in the destination region. This policy will be attached to the file system after it moves to the destination region.
+* <p>
+Example: {@code ocid1.filesystemsnapshotpolicy.oc1..uniqueID}
+* 
+    */
+  "destinationSnapshotPolicyId"?: string;
 
   "memberType": string;
 }
@@ -53,6 +61,9 @@ export namespace DrProtectionGroupMemberFileSystem {
           ? obj.exportMappings.map(item => {
               return model.FileSystemExportMapping.getJsonObj(item);
             })
+          : undefined,
+        "destinationEncryptionKey": obj.destinationEncryptionKey
+          ? model.VaultAndEncryptionKey.getJsonObj(obj.destinationEncryptionKey)
           : undefined
       }
     };
@@ -75,6 +86,9 @@ export namespace DrProtectionGroupMemberFileSystem {
           ? obj.exportMappings.map(item => {
               return model.FileSystemExportMapping.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "destinationEncryptionKey": obj.destinationEncryptionKey
+          ? model.VaultAndEncryptionKey.getDeserializedJsonObj(obj.destinationEncryptionKey)
           : undefined
       }
     };

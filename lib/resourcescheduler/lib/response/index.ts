@@ -15,6 +15,8 @@ import * as ActivateScheduleResponse from "./activate-schedule-response";
 export import ActivateScheduleResponse = ActivateScheduleResponse.ActivateScheduleResponse;
 import * as CancelWorkRequestResponse from "./cancel-work-request-response";
 export import CancelWorkRequestResponse = CancelWorkRequestResponse.CancelWorkRequestResponse;
+import * as ChangeScheduleCompartmentResponse from "./change-schedule-compartment-response";
+export import ChangeScheduleCompartmentResponse = ChangeScheduleCompartmentResponse.ChangeScheduleCompartmentResponse;
 import * as CreateScheduleResponse from "./create-schedule-response";
 export import CreateScheduleResponse = CreateScheduleResponse.CreateScheduleResponse;
 import * as DeactivateScheduleResponse from "./deactivate-schedule-response";

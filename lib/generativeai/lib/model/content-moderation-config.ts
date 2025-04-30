@@ -22,9 +22,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details, whether to add the content moderation feature to the model. Content moderation removes toxic and biased content from responses. It's recommended to use content moderation.
+ * The configuration details, whether to add the content moderation feature to the model. Content moderation removes toxic and biased content from responses.
  */
 export interface ContentModerationConfig {
+  /**
+   * Enum for the modes of operation for inference protection.
+   */
+  "mode"?: ContentModerationConfig.Mode;
+  /**
+   * The OCID of the model used for the feature.
+   */
+  "modelId"?: string;
   /**
    * Whether to enable the content moderation feature.
    */
@@ -32,6 +40,16 @@ export interface ContentModerationConfig {
 }
 
 export namespace ContentModerationConfig {
+  export enum Mode {
+    Inform = "INFORM",
+    Block = "BLOCK",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ContentModerationConfig): object {
     const jsonObj = { ...obj, ...{} };
 

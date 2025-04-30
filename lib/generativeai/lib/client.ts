@@ -543,6 +543,11 @@ export class GenerativeAiClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("model-deprecation-info"),
+            key: "modelDeprecationInfo",
+            dataType: "string"
           }
         ]
       });
@@ -630,6 +635,11 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("model-deprecation-info"),
+            key: "modelDeprecationInfo",
+            dataType: "string"
           }
         ]
       });
@@ -716,6 +726,11 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("model-deprecation-info"),
+            key: "modelDeprecationInfo",
             dataType: "string"
           }
         ]

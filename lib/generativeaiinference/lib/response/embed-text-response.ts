@@ -27,6 +27,10 @@ export interface EmbedTextResponse {
    */
   "opcRequestId": string;
   /**
+   * Provides deprecation details for models, included only when a model is deprecated.
+   */
+  "modelDeprecationInfo": string;
+  /**
    * The returned model.EmbedTextResult instance.
    */
   "embedTextResult": model.EmbedTextResult;
