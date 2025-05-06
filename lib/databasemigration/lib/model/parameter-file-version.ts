@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A parameter file detatails
+ * Details of a parameter file
  */
 export interface ParameterFileVersion {
   /**

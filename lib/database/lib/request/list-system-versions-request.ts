@@ -23,10 +23,6 @@ export interface ListSystemVersionsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * Specifies shape query parameter.
-   */
-  "shape": string;
-  /**
    * Specifies gi version query parameter.
    */
   "giVersion": string;
@@ -47,6 +43,18 @@ export interface ListSystemVersionsRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * If provided, filters the results for the given shape.
+   */
+  "shape"?: string;
+  /**
+   * If provided, return highest versions from each major version family.
+   */
+  "isLatest"?: boolean;
+  /**
+   * If provided, filters the results for the specified resource Id.
+   */
+  "resourceId"?: string;
 }
 
 export namespace ListSystemVersionsRequest {

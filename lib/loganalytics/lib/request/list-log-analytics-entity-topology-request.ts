@@ -63,6 +63,11 @@ export interface ListLogAnalyticsEntityTopologyRequest extends common.BaseReques
    *
    */
   "metadataEquals"?: Array<string>;
+  /**
+   * A filter to return log analytics entity toplogy whose context matches the specified string.
+   *
+   */
+  "context"?: string;
 }
 
 export namespace ListLogAnalyticsEntityTopologyRequest {

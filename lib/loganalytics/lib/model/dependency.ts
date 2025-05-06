@@ -33,6 +33,14 @@ export interface Dependency {
    * The unique identifier of the reference, if available. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "referenceId"?: number;
+  /**
+   * The name of the dependency object
+   */
+  "referenceName"?: string;
+  /**
+   * The display name of the dependency object
+   */
+  "referenceDisplayName"?: string;
 }
 
 export namespace Dependency {

@@ -41,7 +41,7 @@ export interface LogAnalyticsSourceExtendedFieldDefinition {
    */
   "conditionDataType"?: string;
   /**
-   * The onditional field.
+   * The conditional field.
    */
   "conditionField"?: string;
   /**
@@ -83,6 +83,12 @@ export interface LogAnalyticsSourceExtendedFieldDefinition {
    * The last updated date.
    */
   "timeUpdated"?: Date;
+  /**
+   * String representation of the extended field condition. This supports specifying multiple condition blocks at various nested levels.
+   *
+   */
+  "conditionString"?: string;
+  "conditionBlock"?: model.GenericConditionBlock;
 }
 
 export namespace LogAnalyticsSourceExtendedFieldDefinition {
@@ -96,6 +102,10 @@ export namespace LogAnalyticsSourceExtendedFieldDefinition {
           ? obj.extendedFields.map(item => {
               return model.LogAnalyticsExtendedField.getJsonObj(item);
             })
+          : undefined,
+
+        "conditionBlock": obj.conditionBlock
+          ? model.GenericConditionBlock.getJsonObj(obj.conditionBlock)
           : undefined
       }
     };
@@ -112,6 +122,10 @@ export namespace LogAnalyticsSourceExtendedFieldDefinition {
           ? obj.extendedFields.map(item => {
               return model.LogAnalyticsExtendedField.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "conditionBlock": obj.conditionBlock
+          ? model.GenericConditionBlock.getDeserializedJsonObj(obj.conditionBlock)
           : undefined
       }
     };

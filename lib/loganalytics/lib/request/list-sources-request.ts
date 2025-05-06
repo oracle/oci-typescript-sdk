@@ -84,6 +84,12 @@ export interface ListSourcesRequest extends common.BaseRequest {
    */
   "categories"?: string;
   /**
+   * The pattern text filter. Only sources with a pattern |
+   * which contains text with the specified string will be returned.
+   *
+   */
+  "patternText"?: string;
+  /**
    * A flag specifying whether or not to return all source information, or a subset of the
    * information about each source.  A value of true will return only the source unique
    * identifier and the source name.  A value of false will return all source information

@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of request for Parameter Files.  Contents is a collection of ParameterFileVersionSummary.
+ * The result of the request for Parameter Files. It contains a collection of ParameterFileVersionSummary
  */
 export interface ParameterFileVersionCollection {
   /**
-   * A list of A parameter file metadata
+   * List of parameter file metadata
    */
   "items": Array<model.ParameterFileVersionSummary>;
 }

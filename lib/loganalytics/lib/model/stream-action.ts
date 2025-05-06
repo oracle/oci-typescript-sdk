@@ -23,6 +23,7 @@ export interface StreamAction extends model.Action {
    * The ManagementSavedSearch id [OCID] utilized in the action.
    */
   "savedSearchId"?: string;
+  "templateDetails"?: model.TemplateDetails;
   "metricExtraction"?: model.MetricExtraction;
   /**
     * The duration of data to be searched for SAVED_SEARCH tasks,
@@ -59,6 +60,9 @@ export namespace StreamAction {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Action.getJsonObj(obj) as StreamAction)),
       ...{
+        "templateDetails": obj.templateDetails
+          ? model.TemplateDetails.getJsonObj(obj.templateDetails)
+          : undefined,
         "metricExtraction": obj.metricExtraction
           ? model.MetricExtraction.getJsonObj(obj.metricExtraction)
           : undefined
@@ -72,6 +76,9 @@ export namespace StreamAction {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Action.getDeserializedJsonObj(obj) as StreamAction)),
       ...{
+        "templateDetails": obj.templateDetails
+          ? model.TemplateDetails.getDeserializedJsonObj(obj.templateDetails)
+          : undefined,
         "metricExtraction": obj.metricExtraction
           ? model.MetricExtraction.getDeserializedJsonObj(obj.metricExtraction)
           : undefined

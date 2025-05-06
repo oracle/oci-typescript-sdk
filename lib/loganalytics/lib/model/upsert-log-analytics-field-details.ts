@@ -40,6 +40,11 @@ export interface UpsertLogAnalyticsFieldDetails {
    * The field internal name.
    */
   "name"?: string;
+  /**
+   * A flag indicating whether duplicates should be retained while processing multi-valued fields.
+   *
+   */
+  "isKeepDuplicates"?: boolean;
 }
 
 export namespace UpsertLogAnalyticsFieldDetails {

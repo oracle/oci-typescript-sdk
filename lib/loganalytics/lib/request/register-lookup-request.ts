@@ -29,7 +29,10 @@ export interface RegisterLookupRequest extends common.BaseRequest {
    */
   "type": RegisterLookupRequest.Type;
   /**
-   * file containing data for lookup creation
+   * The lookup content to be created, with or without tags. The following formats are supported as binary data:
+   *   1. If there are no tags: file containing the lookup content.
+   *   2. If there are tags: JSON file containing the lookup content and tags.
+   *
    */
   "registerLookupContentFileBody":
     | Uint8Array
@@ -78,6 +81,10 @@ export interface RegisterLookupRequest extends common.BaseRequest {
    *
    */
   "expect"?: string;
+  /**
+   * The compartment id
+   */
+  "compartmentId"?: string;
 }
 
 export namespace RegisterLookupRequest {

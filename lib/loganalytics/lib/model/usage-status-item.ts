@@ -36,6 +36,11 @@ export interface UsageStatusItem {
    * The maximum availability of the field. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAvailable"?: number;
+  /**
+   * A flag indicating whether duplicates should be retained while processing multi-valued fields.
+   *
+   */
+  "isKeepDuplicates"?: boolean;
 }
 
 export namespace UsageStatusItem {

@@ -77,6 +77,10 @@ export interface RecalledData {
    * This is the recalled data end time
    */
   "timeRecalledDataEnded": Date;
+  /**
+   * This is the current progress percentage for the recalled data Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "percentageComplete"?: number;
 }
 
 export namespace RecalledData {
@@ -84,6 +88,7 @@ export namespace RecalledData {
     Recalled = "RECALLED",
     Pending = "PENDING",
     Failed = "FAILED",
+    PartialRecalled = "PARTIAL_RECALLED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

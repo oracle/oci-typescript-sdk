@@ -5529,7 +5529,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createCloudExadataInfrastructureRequest.opcRetryToken,
-      "opc-request-id": createCloudExadataInfrastructureRequest.opcRequestId
+      "opc-request-id": createCloudExadataInfrastructureRequest.opcRequestId,
+      "opc-dry-run": createCloudExadataInfrastructureRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -5615,7 +5616,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createCloudVmClusterRequest.opcRetryToken,
-      "opc-request-id": createCloudVmClusterRequest.opcRequestId
+      "opc-request-id": createCloudVmClusterRequest.opcRequestId,
+      "opc-dry-run": createCloudVmClusterRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -27204,7 +27206,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "page": listGiVersionsRequest.page,
       "sortOrder": listGiVersionsRequest.sortOrder,
       "shape": listGiVersionsRequest.shape,
-      "availabilityDomain": listGiVersionsRequest.availabilityDomain
+      "availabilityDomain": listGiVersionsRequest.availabilityDomain,
+      "resourceId": listGiVersionsRequest.resourceId
     };
 
     let headerParams = {
@@ -28737,6 +28740,92 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Retrieves a list of supported minor versions for the specified Exadata System Software major version. You must provide either a `shape` or `resourceId` value.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSystemVersionMinorVersionsRequest
+   * @return ListSystemVersionMinorVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListSystemVersionMinorVersions.ts.html |here} to see how to use ListSystemVersionMinorVersions API.
+   */
+  public async listSystemVersionMinorVersions(
+    listSystemVersionMinorVersionsRequest: requests.ListSystemVersionMinorVersionsRequest
+  ): Promise<responses.ListSystemVersionMinorVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listSystemVersionMinorVersions.");
+    const operationName = "listSystemVersionMinorVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/SystemVersionMinorVersionCollection/ListSystemVersionMinorVersions";
+    const pathParams = {
+      "{majorVersion}": listSystemVersionMinorVersionsRequest.majorVersion
+    };
+
+    const queryParams = {
+      "compartmentId": listSystemVersionMinorVersionsRequest.compartmentId,
+      "limit": listSystemVersionMinorVersionsRequest.limit,
+      "page": listSystemVersionMinorVersionsRequest.page,
+      "sortOrder": listSystemVersionMinorVersionsRequest.sortOrder,
+      "giVersion": listSystemVersionMinorVersionsRequest.giVersion,
+      "shape": listSystemVersionMinorVersionsRequest.shape,
+      "resourceId": listSystemVersionMinorVersionsRequest.resourceId,
+      "isLatest": listSystemVersionMinorVersionsRequest.isLatest
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSystemVersionMinorVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSystemVersionMinorVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/systemVersions/{majorVersion}/minorVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSystemVersionMinorVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "systemVersionMinorVersionCollection",
+        bodyModel: model.SystemVersionMinorVersionCollection,
+        type: "model.SystemVersionMinorVersionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of supported Exadata system versions for a given shape and GI version.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSystemVersionsRequest
@@ -28759,6 +28848,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "page": listSystemVersionsRequest.page,
       "sortOrder": listSystemVersionsRequest.sortOrder,
       "shape": listSystemVersionsRequest.shape,
+      "isLatest": listSystemVersionsRequest.isLatest,
+      "resourceId": listSystemVersionsRequest.resourceId,
       "giVersion": listSystemVersionsRequest.giVersion
     };
 

@@ -104,6 +104,11 @@ export namespace AbstractCommandDescriptor {
             <model.OutlierCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "UPDATETABLE":
+          return model.UpdateTableCommandDescriptor.getJsonObj(
+            <model.UpdateTableCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "DEMO_MODE":
           return model.DemoModeCommandDescriptor.getJsonObj(
             <model.DemoModeCommandDescriptor>(<object>jsonObj),
@@ -402,6 +407,11 @@ export namespace AbstractCommandDescriptor {
         case "OUTLIER":
           return model.OutlierCommandDescriptor.getDeserializedJsonObj(
             <model.OutlierCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "UPDATETABLE":
+          return model.UpdateTableCommandDescriptor.getDeserializedJsonObj(
+            <model.UpdateTableCommandDescriptor>(<object>jsonObj),
             true
           );
         case "DEMO_MODE":

@@ -41,4 +41,8 @@ export interface DeleteLogAnalyticsEntityRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * Option to delete entity even if the entity is associated with a log source and stop any log collections associated with this entity.
+   */
+  "isForceDelete"?: boolean;
 }

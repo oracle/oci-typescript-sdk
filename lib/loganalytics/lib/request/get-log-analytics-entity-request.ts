@@ -32,4 +32,8 @@ export interface GetLogAnalyticsEntityRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * Option to return count of associated log sources for log analytics entity(s).
+   */
+  "isShowAssociatedSourcesCount"?: boolean;
 }

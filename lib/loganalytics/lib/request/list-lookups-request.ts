@@ -53,6 +53,10 @@ export interface ListLookupsRequest extends common.BaseRequest {
    */
   "categories"?: string;
   /**
+   * The compartment id
+   */
+  "compartmentId"?: string;
+  /**
    * A flag indicating whether or not to return OMC annotated or hidden lookups.
    *
    */

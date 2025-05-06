@@ -82,7 +82,8 @@ Queries that include certain commands such as head, tail or stats cannot be stre
 export namespace ExportDetails {
   export enum OutputFormat {
     Csv = "CSV",
-    Json = "JSON"
+    Json = "JSON",
+    Parquet = "PARQUET"
   }
 
   export function getJsonObj(obj: ExportDetails): object {

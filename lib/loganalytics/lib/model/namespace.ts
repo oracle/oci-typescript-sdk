@@ -39,6 +39,10 @@ export interface Namespace {
    * This indicates if data has ever been ingested for the tenancy in Logging Analytics
    */
   "isDataEverIngested"?: boolean;
+  /**
+   * This indicates if old data can be archived for a tenancy
+   */
+  "isArchivingEnabled"?: boolean;
 }
 
 export namespace Namespace {

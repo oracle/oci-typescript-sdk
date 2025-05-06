@@ -26,7 +26,7 @@ export interface FixedFrequencySchedule extends model.Schedule {
    * The value must be at least 5 minutes (PT5M) and at most 3 weeks (P21D or PT30240M).
    *
    */
-  "recurringInterval": string;
+  "recurringInterval"?: string;
   /**
    * Number of times (0-based) to execute until auto-stop.
    * Default value -1 will execute indefinitely.
