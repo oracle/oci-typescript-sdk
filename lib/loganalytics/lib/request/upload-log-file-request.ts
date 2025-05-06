@@ -25,11 +25,6 @@ export interface UploadLogFileRequest extends common.BaseRequest {
    */
   "namespaceName": string;
   /**
-   * The name of the upload. This can be considered as a container name where different kind of logs will be collected and searched together. This upload name/id can further be used for retrieving the details of the upload, including its status or deleting the upload.
-   *
-   */
-  "uploadName": string;
-  /**
    * Name of the log source that will be used to process the files being uploaded.
    *
    */
@@ -48,6 +43,11 @@ export interface UploadLogFileRequest extends common.BaseRequest {
    * Log data
    */
   "uploadLogFileBody": Uint8Array | Buffer | Blob | stream.Readable | ReadableStream | string;
+  /**
+   * The name of the upload. This can be considered as a container name where different kind of logs will be collected and searched together. This upload name/id can further be used for retrieving the details of the upload, including its status or deleting the upload.
+   *
+   */
+  "uploadName"?: string;
   /**
    * The entity OCID.
    *

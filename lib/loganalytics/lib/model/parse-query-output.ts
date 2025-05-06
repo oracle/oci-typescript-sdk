@@ -46,6 +46,16 @@ export interface ParseQueryOutput {
    *
    */
   "commands"?: Array<model.AbstractCommandDescriptor>;
+  /**
+   * Optional list of variables for the query.
+   *
+   */
+  "variables"?: Array<model.VariableDefinition>;
+  /**
+   * Optional list of properties for the query.
+   *
+   */
+  "properties"?: Array<model.PropertyDefinition>;
 }
 
 export namespace ParseQueryOutput {
@@ -63,6 +73,16 @@ export namespace ParseQueryOutput {
         "commands": obj.commands
           ? obj.commands.map(item => {
               return model.AbstractCommandDescriptor.getJsonObj(item);
+            })
+          : undefined,
+        "variables": obj.variables
+          ? obj.variables.map(item => {
+              return model.VariableDefinition.getJsonObj(item);
+            })
+          : undefined,
+        "properties": obj.properties
+          ? obj.properties.map(item => {
+              return model.PropertyDefinition.getJsonObj(item);
             })
           : undefined
       }
@@ -86,6 +106,16 @@ export namespace ParseQueryOutput {
         "commands": obj.commands
           ? obj.commands.map(item => {
               return model.AbstractCommandDescriptor.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "variables": obj.variables
+          ? obj.variables.map(item => {
+              return model.VariableDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "properties": obj.properties
+          ? obj.properties.map(item => {
+              return model.PropertyDefinition.getDeserializedJsonObj(item);
             })
           : undefined
       }

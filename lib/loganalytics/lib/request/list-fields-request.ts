@@ -110,6 +110,7 @@ export namespace ListFieldsRequest {
 
   export enum SortBy {
     Name = "name",
-    DataType = "dataType"
+    DataType = "dataType",
+    TimeUpdated = "timeUpdated"
   }
 }

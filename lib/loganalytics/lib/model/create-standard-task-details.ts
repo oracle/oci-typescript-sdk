@@ -31,7 +31,7 @@ export interface CreateStandardTaskDetails extends model.CreateScheduledTaskDeta
    * Note there may only be a single schedule for SAVED_SEARCH and PURGE scheduled tasks.
    *
    */
-  "schedules": Array<model.Schedule>;
+  "schedules"?: Array<model.Schedule>;
   "action": model.PurgeAction | model.StreamAction;
 
   "kind": string;

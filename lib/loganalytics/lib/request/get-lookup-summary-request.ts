@@ -27,4 +27,8 @@ export interface GetLookupSummaryRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * The compartment id
+   */
+  "compartmentId"?: string;
 }

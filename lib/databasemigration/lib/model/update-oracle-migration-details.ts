@@ -32,7 +32,7 @@ export interface UpdateOracleMigrationDetails extends model.UpdateMigrationDetai
    */
   "advancedParameters"?: Array<model.MigrationParameterDetails>;
   /**
-   * The OCID of the resource being referenced.
+   * The OCID of the resource being updated.
    */
   "sourceContainerDatabaseConnectionId"?: string;
 

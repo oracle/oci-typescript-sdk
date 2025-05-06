@@ -53,6 +53,11 @@ export interface LogAnalyticsParserField {
    * The structured column information.
    */
   "structuredColumnInfo"?: string;
+  /**
+   * List of actions/operations to be performed while fetching or parsing the logs.
+   *
+   */
+  "actions"?: Array<model.ParserAction>;
 }
 
 export namespace LogAnalyticsParserField {
@@ -62,7 +67,13 @@ export namespace LogAnalyticsParserField {
       ...{
         "field": obj.field ? model.LogAnalyticsField.getJsonObj(obj.field) : undefined,
 
-        "parser": obj.parser ? model.LogAnalyticsParser.getJsonObj(obj.parser) : undefined
+        "parser": obj.parser ? model.LogAnalyticsParser.getJsonObj(obj.parser) : undefined,
+
+        "actions": obj.actions
+          ? obj.actions.map(item => {
+              return model.ParserAction.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -76,6 +87,12 @@ export namespace LogAnalyticsParserField {
 
         "parser": obj.parser
           ? model.LogAnalyticsParser.getDeserializedJsonObj(obj.parser)
+          : undefined,
+
+        "actions": obj.actions
+          ? obj.actions.map(item => {
+              return model.ParserAction.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

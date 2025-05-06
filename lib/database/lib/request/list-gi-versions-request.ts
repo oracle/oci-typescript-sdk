@@ -42,6 +42,10 @@ export interface ListGiVersionsRequest extends common.BaseRequest {
    * The target availability domain. Only passed if the limit is AD-specific.
    */
   "availabilityDomain"?: string;
+  /**
+   * If provided, filters the results for the specified resource Id.
+   */
+  "resourceId"?: string;
 }
 
 export namespace ListGiVersionsRequest {

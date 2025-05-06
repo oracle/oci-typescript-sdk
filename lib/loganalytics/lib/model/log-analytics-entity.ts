@@ -132,6 +132,11 @@ export interface LogAnalyticsEntity {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The count of associated log sources for a given log analytics entity.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "associatedSourcesCount"?: number;
 }
 
 export namespace LogAnalyticsEntity {

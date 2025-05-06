@@ -25,21 +25,21 @@ export interface MetricExtraction {
    * The compartment OCID (/iaas/Content/General/Concepts/identifiers.htm) of the extracted metric.
    *
    */
-  "compartmentId": string;
+  "compartmentId"?: string;
   /**
    * The namespace of the extracted metric.
    * A valid value starts with an alphabetical character and includes only
    * alphanumeric characters and underscores (_).
    *
    */
-  "namespace": string;
+  "namespace"?: string;
   /**
    * The metric name of the extracted metric.
    * A valid value starts with an alphabetical character and includes only
    * alphanumeric characters, periods (.), underscores (_), hyphens (-), and dollar signs ($).
    *
    */
-  "metricName": string;
+  "metricName"?: string;
   /**
    * The resourceGroup of the extracted metric.
    * A valid value starts with an alphabetical character and includes only

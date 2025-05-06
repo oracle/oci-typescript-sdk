@@ -40,6 +40,10 @@ export interface ListResourceCategoriesRequest extends common.BaseRequest {
    */
   "resourceIds"?: string;
   /**
+   * The compartment id
+   */
+  "compartmentId"?: string;
+  /**
    * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    *
    */

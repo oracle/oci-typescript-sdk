@@ -23,6 +23,7 @@ export enum RecallStatus {
   Recalled = "RECALLED",
   Pending = "PENDING",
   Failed = "FAILED",
+  PartialRecalled = "PARTIAL_RECALLED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

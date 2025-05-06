@@ -32,6 +32,15 @@ export interface LogAnalyticsEntityTopologyLink {
    *
    */
   "destinationEntityId": string;
+  /**
+   * Array of log analytics entity relationship context.
+   */
+  "contexts"?: Array<string>;
+  /**
+   * The date and time the resource was last discovered, in the format defined by RFC3339.
+   *
+   */
+  "timeLastDiscovered"?: Date;
 }
 
 export namespace LogAnalyticsEntityTopologyLink {

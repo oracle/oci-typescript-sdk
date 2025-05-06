@@ -50,6 +50,14 @@ export interface EstimateRecallDataSizeResult {
    * This is the size limit in bytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeLimitInBytes"?: number;
+  /**
+   * This message shows existing recall overlapping details like collection id, purpose
+   */
+  "message"?: string;
+  /**
+   * This is the total number of batches data will be recalled in Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalBatchSize"?: number;
 }
 
 export namespace EstimateRecallDataSizeResult {

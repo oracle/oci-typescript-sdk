@@ -750,6 +750,10 @@ import * as SwitchoverDataGuardAssociationDetails from "./switchover-data-guard-
 export import SwitchoverDataGuardAssociationDetails = SwitchoverDataGuardAssociationDetails.SwitchoverDataGuardAssociationDetails;
 import * as SystemVersionCollection from "./system-version-collection";
 export import SystemVersionCollection = SystemVersionCollection.SystemVersionCollection;
+import * as SystemVersionMinorVersionCollection from "./system-version-minor-version-collection";
+export import SystemVersionMinorVersionCollection = SystemVersionMinorVersionCollection.SystemVersionMinorVersionCollection;
+import * as SystemVersionMinorVersionSummary from "./system-version-minor-version-summary";
+export import SystemVersionMinorVersionSummary = SystemVersionMinorVersionSummary.SystemVersionMinorVersionSummary;
 import * as SystemVersionSummary from "./system-version-summary";
 export import SystemVersionSummary = SystemVersionSummary.SystemVersionSummary;
 import * as Update from "./update";

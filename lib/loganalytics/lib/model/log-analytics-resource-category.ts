@@ -37,6 +37,14 @@ export interface LogAnalyticsResourceCategory {
    *
    */
   "isSystem"?: boolean;
+  /**
+   * The resource display name.
+   */
+  "resourceDisplayName"?: string;
+  /**
+   * Compartment ID of the resource
+   */
+  "compartmentId"?: string;
 }
 
 export namespace LogAnalyticsResourceCategory {

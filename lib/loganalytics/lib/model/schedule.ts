@@ -52,6 +52,8 @@ export namespace Schedule {
       switch (obj.type) {
         case "CRON":
           return model.CronSchedule.getJsonObj(<model.CronSchedule>(<object>jsonObj), true);
+        case "AUTO":
+          return model.AutoSchedule.getJsonObj(<model.AutoSchedule>(<object>jsonObj), true);
         case "FIXED_FREQUENCY":
           return model.FixedFrequencySchedule.getJsonObj(
             <model.FixedFrequencySchedule>(<object>jsonObj),
@@ -71,6 +73,11 @@ export namespace Schedule {
         case "CRON":
           return model.CronSchedule.getDeserializedJsonObj(
             <model.CronSchedule>(<object>jsonObj),
+            true
+          );
+        case "AUTO":
+          return model.AutoSchedule.getDeserializedJsonObj(
+            <model.AutoSchedule>(<object>jsonObj),
             true
           );
         case "FIXED_FREQUENCY":

@@ -628,6 +628,8 @@ import * as ListSchedulingPoliciesResponse from "./list-scheduling-policies-resp
 export import ListSchedulingPoliciesResponse = ListSchedulingPoliciesResponse.ListSchedulingPoliciesResponse;
 import * as ListSchedulingWindowsResponse from "./list-scheduling-windows-response";
 export import ListSchedulingWindowsResponse = ListSchedulingWindowsResponse.ListSchedulingWindowsResponse;
+import * as ListSystemVersionMinorVersionsResponse from "./list-system-version-minor-versions-response";
+export import ListSystemVersionMinorVersionsResponse = ListSystemVersionMinorVersionsResponse.ListSystemVersionMinorVersionsResponse;
 import * as ListSystemVersionsResponse from "./list-system-versions-response";
 export import ListSystemVersionsResponse = ListSystemVersionsResponse.ListSystemVersionsResponse;
 import * as ListVmClusterNetworksResponse from "./list-vm-cluster-networks-response";

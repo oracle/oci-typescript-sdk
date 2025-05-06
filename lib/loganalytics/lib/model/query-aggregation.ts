@@ -31,6 +31,17 @@ export interface QueryAggregation {
    */
   "totalMatchedCount"?: number;
   /**
+   * Number of groups created by query.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalGroupCount"?: number;
+  "timeFilter"?: model.TimeRange;
+  /**
+   * List of recalls in the query.
+   *
+   */
+  "recalls"?: Array<model.RecallDefinition>;
+  /**
    * True if query did not complete processing all data.
    *
    */
@@ -77,6 +88,13 @@ export namespace QueryAggregation {
     const jsonObj = {
       ...obj,
       ...{
+        "timeFilter": obj.timeFilter ? model.TimeRange.getJsonObj(obj.timeFilter) : undefined,
+        "recalls": obj.recalls
+          ? obj.recalls.map(item => {
+              return model.RecallDefinition.getJsonObj(item);
+            })
+          : undefined,
+
         "columns": obj.columns
           ? obj.columns.map(item => {
               return model.AbstractColumn.getJsonObj(item);
@@ -96,6 +114,15 @@ export namespace QueryAggregation {
     const jsonObj = {
       ...obj,
       ...{
+        "timeFilter": obj.timeFilter
+          ? model.TimeRange.getDeserializedJsonObj(obj.timeFilter)
+          : undefined,
+        "recalls": obj.recalls
+          ? obj.recalls.map(item => {
+              return model.RecallDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "columns": obj.columns
           ? obj.columns.map(item => {
               return model.AbstractColumn.getDeserializedJsonObj(item);

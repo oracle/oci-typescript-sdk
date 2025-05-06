@@ -117,6 +117,15 @@ export interface LogAnalyticsField {
    * The field unit type.
    */
   "unitType"?: string;
+  /**
+   * The last updated date and time.
+   */
+  "timeUpdated"?: Date;
+  /**
+   * A flag indicating whether or not duplicates would be retained.
+   *
+   */
+  "isKeepDuplicates"?: boolean;
 }
 
 export namespace LogAnalyticsField {

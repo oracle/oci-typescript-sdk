@@ -20,6 +20,27 @@ import common = require("oci-common");
  *
  */
 export interface ModuleCommandDescriptor extends model.AbstractCommandDescriptor {
+  /**
+   * Description of the macro.
+   *
+   */
+  "description"?: string;
+  /**
+   * Description of the macro.
+   *
+   */
+  "example"?: string;
+  /**
+   * Optional list of properties for the macro.
+   *
+   */
+  "properties"?: Array<model.PropertyDefinition>;
+  /**
+   * Optional list of arguments used in the macro.
+   *
+   */
+  "arguments"?: Array<model.VariableDefinition>;
+
   "name": string;
 }
 
@@ -29,7 +50,18 @@ export namespace ModuleCommandDescriptor {
       ...(isParentJsonObj
         ? obj
         : (model.AbstractCommandDescriptor.getJsonObj(obj) as ModuleCommandDescriptor)),
-      ...{}
+      ...{
+        "properties": obj.properties
+          ? obj.properties.map(item => {
+              return model.PropertyDefinition.getJsonObj(item);
+            })
+          : undefined,
+        "arguments": obj.arguments
+          ? obj.arguments.map(item => {
+              return model.VariableDefinition.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -43,7 +75,18 @@ export namespace ModuleCommandDescriptor {
       ...(isParentJsonObj
         ? obj
         : (model.AbstractCommandDescriptor.getDeserializedJsonObj(obj) as ModuleCommandDescriptor)),
-      ...{}
+      ...{
+        "properties": obj.properties
+          ? obj.properties.map(item => {
+              return model.PropertyDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "arguments": obj.arguments
+          ? obj.arguments.map(item => {
+              return model.VariableDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

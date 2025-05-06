@@ -48,6 +48,11 @@ export interface ListEffectivePropertiesRequest extends common.BaseRequest {
    */
   "patternId"?: number;
   /**
+   * The pattern id (long).
+   *
+   */
+  "patternIdLong"?: number;
+  /**
    * The property name used for filtering.
    *
    */

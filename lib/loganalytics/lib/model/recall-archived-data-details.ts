@@ -56,6 +56,12 @@ export interface RecallArchivedDataDetails {
    * This indicates if user checked system recommended time range
    */
   "isUseRecommendedDataSet"?: boolean;
+  /**
+   * This is the id for the recalled data collection to be used only for recall new data.
+   * If specified, only this collection will be eligible for IsRecallNewDataOnly
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "collectionId"?: number;
 }
 
 export namespace RecallArchivedDataDetails {

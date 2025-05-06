@@ -628,6 +628,8 @@ import * as ListSchedulingPoliciesRequest from "./list-scheduling-policies-reque
 export import ListSchedulingPoliciesRequest = ListSchedulingPoliciesRequest.ListSchedulingPoliciesRequest;
 import * as ListSchedulingWindowsRequest from "./list-scheduling-windows-request";
 export import ListSchedulingWindowsRequest = ListSchedulingWindowsRequest.ListSchedulingWindowsRequest;
+import * as ListSystemVersionMinorVersionsRequest from "./list-system-version-minor-versions-request";
+export import ListSystemVersionMinorVersionsRequest = ListSystemVersionMinorVersionsRequest.ListSystemVersionMinorVersionsRequest;
 import * as ListSystemVersionsRequest from "./list-system-versions-request";
 export import ListSystemVersionsRequest = ListSystemVersionsRequest.ListSystemVersionsRequest;
 import * as ListVmClusterNetworksRequest from "./list-vm-cluster-networks-request";

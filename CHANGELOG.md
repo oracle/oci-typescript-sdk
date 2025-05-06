@@ -3,6 +3,75 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.108.0 - 2025-05-06
+### Added 
+- Support for dry run while creating cloud exadata Infrastructure and VM clusters in the Database service 
+- Support for filters to get latest versions on list system versions API in the Database service 
+- Support for generic fleets without fleet type in the Fleet Application Management service 
+- Support for creating resources and changing compartment in the Fleet Application Management service 
+- Support for infrastructure management via provisioning with terraform based catalog items and deployments in the Fleet Application Management service 
+- Support for platform configuration metadata management in the Fleet Application Management service 
+- Support for managing runbook versions in the Fleet Application Management service 
+- Support for provisioning runbooks in the Fleet Application Management service 
+- Support for resource inventory in the Fleet Application Management service 
+- Support for changing compartment for fleets, platforms configurations, properties, patches, runbooks and task resources in the Fleet Application Management service 
+- Support for new migration phase in the Database migration service    
+
+### Breaking Changes 
+- The operation `forWorkRequest` was removed from `FleetAppsManagementWaiters` in the Fleet Application Management service 
+- The properties `resourceId`, `type`, `applicationType`, `product`, `lifecycleOperation`, `runbookId`, `targetId`, `subjects` were removed from the model `ActionGroup` in the Fleet Application Management service 
+- The properties `resourceId`, `type`, `name`, `applicationType`, `runbookId` were removed from the model `ActionGroupDetails` in the Fleet Application Management service 
+- The property `tenancyId` was removed from the models `ListFleetResourcesRequest` and `AssociatedSchedulerDefinition` in the Fleet Application Management service 
+- The property `patchType`  was removed from the models `CompliancePolicyRule`, `CompliancePolicyRuleSummary` and `UpdateCompliancePolicyRuleDetails` in the Fleet Application Management service 
+- The property `condition` was removed from the model `ComponentProperties` in the Fleet Application Management service 
+- The type of property `runOn` was changed from `string` to `RunOnDetails` in the Fleet Application Management service 
+- The properties `patchType` and `compartmentId` were removed from the model `CreateCompliancePolicyRuleDetails` in the Fleet Application Management service 
+- The property `compartmentId` was removed from the models `CreateFleetCredentialDetails`, `CreateFleetPropertyDetails`, `ListFleetPropertiesRequest`, `ListFleetCredentialsRequest`, `ListScheduledFleetsRequest` and `UpdatePatchDetails` in the Fleet Application Management service 
+- The properties `fleetType`, `applicationType`, `groupType`, `resourceSelectionType`, and `ruleSelectionCriteria` were removed from the model `CreateFleetDetails` in the Fleet Application Management service 
+- The type of property `notificationPreferences` was changed from `NotificationPreferences` to an Array of `NotificationPreference` in the models `Fleet`, `CreateFleetDetails` and `UpdateFleetDetails` in the Fleet Application Management service 
+- The properties `runbookRelevance` and `associations` were removed from the models `CreateRunbookDetails` and `UpdateRunbookDetails` in the Fleet Application Management service 
+- The properties `activityInitiationCutOff` were removed from the model `CreateSchedulerDefinitionDetails` in the Fleet Application Management service 
+- The enums `FleetType`, `ResourceSelectionType`, and `GroupType` were removed from the model `Fleet` in the Fleet Application Management service 
+- The properties `fleetType`, `applicationType`, `groupType`, `resourceSelectionType`, and `ruleSelectionCriteria` were removed from the model `Fleet` in the Fleet Application Management service 
+- The property `applicationType` was removed from the models `FleetResource` and `FleetResourceSummary` in the Fleet Application Management service 
+- The property `fleetType` was removed from the model `FleetSummary` in the Fleet Application Management service 
+- The properties `maintenanceWindowType` and `taskInitiationCutoff` were removed from the models `MaintenanceWindow`, `MaintenanceWindowSummary`, `CreateMaintenanceWindowDetails` and `UpdateMaintenanceWindowDetails` in the Fleet Application Management service 
+- The property `id` was removed from the model `OperationRunbook` in the Fleet Application Management service 
+- The type of property `content` was changed from `ContentDetails` to `PatchFileContentDetails` in the models `GenericArtifact` and `PlatformSpecificArtifact` in the Fleet Application Management service 
+- The property `onUpcomingSchedule` was removed from the model `Preferences` in the Fleet Application Management service 
+- The enum `RunbookRelevance`, and properties `runbookRelevance` and `associations` were removed from the model `Runbook` in the Fleet Application Management service 
+- The property `runbookRelevance` was removed from the models `RunbookSummary` and `ListRunbooksRequest` in the Fleet Application Management service 
+- The properties `type`, `maintenanceWindowId`, `recurrences`, and `duration` were removed from the model `Schedule` in the Fleet Application Management service 
+- The properties `tenancyId`, `actionGroupTypes`, and `applicationTypes`  were removed from the model `ScheduledFleetSummary` in the Fleet Application Management service 
+- The properties `activityInitiationCutOff`, `actionGroupTypes` and `applicationTypes` were removed from the model `SchedulerDefinition` in the Fleet Application Management service 
+- The properties `actionGroupTypes` and `applicationTypes` were removed from the model `SchedulerDefinitionSummary` in the Fleet Application Management service 
+- The enum members `Active` and `Deleted` were removed from the enum `LifecycleState` in the model `SchedulerJob` in the Fleet Application Management service 
+- The properties `actionGroupTypes`, `applicationTypes` and `associatedScheduleDefinition` were removed from the models `SchedulerJob` and `SchedulerJobSummary` in the Fleet Application Management service 
+- The enum `AssociationType` and the property `associationType` were removed from the model `Task` in the Fleet Application Management service 
+- The property `value` was removed in the model `TaskArgument` in the Fleet Application Management service 
+- The property `ruleSelectionCriteria` was removed from the model `UpdateFleetDetails` in the Fleet Application Management service 
+- The property `activityInitiationCutOff` was removed from the model `UpdateSchedulerDefinitionDetails` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `CompliancePolicyRuleSortBy` in the model `ListCompliancePolicyRulesRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `CompliancePolicySortBy` in the model `ListCompliancePoliciesRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `ComplianceRecordSortBy` in the model `ListComplianceRecordsRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `FleetCredentialSortBy` in the model `ListFleetCredentialsRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `ProductSortBy` in the model `ListFleetProductsRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `FleetPropertySortBy` in the model `ListFleetPropertiesRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `FleetResourceSortBy` in the model `ListFleetResourcesRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `FleetSortBy` in the model `ListFleetsRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `TargetSortBy` in the model `ListFleetTargetsRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `InventoryResourceSortBy` in the model `ListInventoryResourcesRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `MaintenanceWindowSortBy` in the model `ListMaintenanceWindowsRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `SortBy` in the model `ListOnboardingsRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `PatchSortBy` in the model `ListPatchesRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `PlatformConfigurationSortBy` in the model `ListPlatformConfigurationsRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `PropertySortBy` in the model `ListPropertiesRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `RunbookSortBy` in the model `ListRunbooksRequest` in the Fleet Application Management service 
+- The properties `subState` and `defintionId` were removed from the model `ListSchedulerJobsRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `SortBy` in the model `ListTargetsRequest` in the Fleet Application Management service 
+- The enum `SortBy` was removed and the type of property `sortBy` was changed from `SortBy` to `TaskRecordSortBy` in the model `ListTaskRecordsRequest` in the Fleet Application Management service 
+- The models `Associations`, `LifeCycleActionGroupType`, `MaintenanceWindowType`, and `NotificationPreferences`, were removed from the Fleet Application Management service
+
 ## 2.107.3 - 2025-04-29
 ### Added 
 - Support for custom headers for model retirement in the Generative AI service 

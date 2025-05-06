@@ -22,11 +22,11 @@ export interface CronSchedule extends model.Schedule {
   /**
    * Value in cron format.
    */
-  "expression": string;
+  "expression"?: string;
   /**
    * Time zone, by default UTC.
    */
-  "timeZone": string;
+  "timeZone"?: string;
 
   "type": string;
 }
